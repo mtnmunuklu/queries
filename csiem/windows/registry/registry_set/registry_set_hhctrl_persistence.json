@@ -1,0 +1,13 @@
+{
+  "Description": "Detects when an attacker modifies the registry value of the \"hhctrl\" to point to a custom binary\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f10ed525-97fe-4fed-be7c-2feecca941b1",
+  "InsertDate": "2025-01-19T11:36:13Z",
+  "LastUpdateDate": "2025-01-19T11:36:13Z",
+  "Level": "high",
+  "Name": "Persistence Via Hhctrl.ocx",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\clsid\\{52a2aaae-085d-4187-97ea-8c30db990436}\\inprocserver32\\(default)%' and  not details = 'c:\\windows\\system32\\hhctrl.ocx')",
+  "Tags": [
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

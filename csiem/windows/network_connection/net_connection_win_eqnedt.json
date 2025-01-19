@@ -1,0 +1,14 @@
+{
+  "Description": "Detects network connections from the Equation Editor process \"eqnedt32.exe\".\n\nAuthor: Max Altgelt (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a66bc059-c370-472c-a0d7-f8fd1bf9d583",
+  "InsertDate": "2025-01-19T11:34:11Z",
+  "LastUpdateDate": "2025-01-19T11:34:11Z",
+  "Level": "high",
+  "Name": "Network Connection Initiated By Eqnedt32.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\eqnedt32.exe'",
+  "Tags": [
+    "attack.execution",
+    "attack.t1203"
+  ],
+  "Version": "0.1"
+}

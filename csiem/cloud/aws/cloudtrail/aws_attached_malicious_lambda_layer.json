@@ -1,0 +1,13 @@
+{
+  "Description": "Detects when an user attached a Lambda layer to an existing function to override a library that is in use by the function, where their malicious code could utilize the function's IAM role for AWS API calls.\nThis would give an adversary access to the privileges associated with the Lambda service role that is attached to that function.\n\n\nAuthor: Austin Songer\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "97fbabf8-8e1b-47a2-b7d5-a418d2b95e3d",
+  "InsertDate": "2025-01-19T11:33:20Z",
+  "LastUpdateDate": "2025-01-19T11:33:20Z",
+  "Level": "medium",
+  "Name": "AWS Attached Malicious Lambda Layer",
+  "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where eventsource = 'lambda.amazonaws.com' and eventname like 'updatefunctionconfiguration%'",
+  "Tags": [
+    "attack.privilege-escalation"
+  ],
+  "Version": "0.1"
+}

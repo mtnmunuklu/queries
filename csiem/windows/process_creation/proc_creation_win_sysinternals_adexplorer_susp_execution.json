@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the execution of Sysinternals ADExplorer with the \"-snapshot\" flag in order to save a local copy of the active directory database to a suspicious directory.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ef61af62-bc74-4f58-b49b-626448227652",
+  "InsertDate": "2025-01-19T11:35:40Z",
+  "LastUpdateDate": "2025-01-19T11:35:40Z",
+  "Level": "high",
+  "Name": "Suspicious Active Directory Database Snapshot Via ADExplorer",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\adexplorer.exe' and original_file_name = 'adexp') and command like '%snapshot%' and (command like '%\\downloads\\%' or command like '%\\users\\public\\%' or command like '%\\appdata\\%' or command like '%\\windows\\temp\\%'))",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1552.001",
+    "attack.t1003.003"
+  ],
+  "Version": "0.1"
+}

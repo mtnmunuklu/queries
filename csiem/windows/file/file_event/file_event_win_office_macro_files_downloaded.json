@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the creation of a new office macro files on the systems via an application (browser, mail client).\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0e29e3a7-1ad8-40aa-b691-9f82ecd33d66",
+  "InsertDate": "2025-01-19T11:34:02Z",
+  "LastUpdateDate": "2025-01-19T11:34:02Z",
+  "Level": "medium",
+  "Name": "Office Macro File Download",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\runtimebroker.exe' or process_path like '%\\outlook.exe' or process_path like '%\\thunderbird.exe' or process_path like '%\\brave.exe' or process_path like '%\\chrome.exe' or process_path like '%\\firefox.exe' or process_path like '%\\iexplore.exe' or process_path like '%\\maxthon.exe' or process_path like '%\\microsoftedge.exe' or process_path like '%\\msedge.exe' or process_path like '%\\msedgewebview2.exe' or process_path like '%\\opera.exe' or process_path like '%\\safari.exe' or process_path like '%\\seamonkey.exe' or process_path like '%\\vivaldi.exe' or process_path like '%\\whale.exe') and ((filepath like '%.docm' or filepath like '%.dotm' or filepath like '%.xlsm' or filepath like '%.xltm' or filepath like '%.potm' or filepath like '%.pptm') and (filepath like '%.docm:zone%' or filepath like '%.dotm:zone%' or filepath like '%.xlsm:zone%' or filepath like '%.xltm:zone%' or filepath like '%.potm:zone%' or filepath like '%.pptm:zone%')))",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1566.001"
+  ],
+  "Version": "0.1"
+}

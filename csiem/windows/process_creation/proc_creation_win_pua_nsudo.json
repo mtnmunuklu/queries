@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the use of NSudo tool for command execution\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "771d1eb5-9587-4568-95fb-9ec44153a012",
+  "InsertDate": "2025-01-19T11:35:08Z",
+  "LastUpdateDate": "2025-01-19T11:35:08Z",
+  "Level": "high",
+  "Name": "PUA - NSudo Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%-u:s %' or command like '%-u:t %' or command like '%-u:e %' or command like '%-p:e %' or command like '%-m:s %' or command like '%-m:h %' or command like '%-u=s %' or command like '%-u=t %' or command like '%-u=e %' or command like '%-p=e %' or command like '%-m=s %' or command like '%-m=h %' or command like '%-showwindowmode:hide%') and ((process_path like '%\\nsudo.exe' or process_path like '%\\nsudolc.exe' or process_path like '%\\nsudolg.exe') and (original_file_name = 'nsudo.exe' or original_file_name = 'nsudolc.exe' or original_file_name = 'nsudolg.exe')))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1569.002",
+    "attack.s0029"
+  ],
+  "Version": "0.1"
+}

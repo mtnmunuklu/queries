@@ -1,0 +1,14 @@
+{
+  "Description": "Detects changes to the \"DisableRestrictedAdmin\" registry value in order to disable or enable RestrictedAdmin mode.\nRestrictedAdmin mode prevents the transmission of reusable credentials to the remote system to which you connect using Remote Desktop.\nThis prevents your credentials from being harvested during the initial connection process if the remote server has been compromise\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d6ce7ebd-260b-4323-9768-a9631c8d4db2",
+  "InsertDate": "2025-01-19T11:36:14Z",
+  "LastUpdateDate": "2025-01-19T11:36:14Z",
+  "Level": "high",
+  "Name": "RestrictedAdminMode Registry Value Tampering",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where target_object like '%system\\currentcontrolset\\control\\lsa\\disablerestrictedadmin'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1112"
+  ],
+  "Version": "0.1"
+}

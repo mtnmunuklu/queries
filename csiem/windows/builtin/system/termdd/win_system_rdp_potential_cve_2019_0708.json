@@ -1,0 +1,15 @@
+{
+  "Description": "Detect suspicious error on protocol RDP, potential CVE-2019-0708\n\nAuthor: Lionel PRAT, Christophe BROCAS, @atc_project (improvements)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "aaa5b30d-f418-420b-83a0-299cb6024885",
+  "InsertDate": "2025-01-19T11:33:54Z",
+  "LastUpdateDate": "2025-01-19T11:33:54Z",
+  "Level": "medium",
+  "Name": "Potential RDP Exploit CVE-2019-0708",
+  "Query": "sourcetype='windows-system' eql select * from _source_ where (eventid = '56' or eventid = '50') and provider_name = 'termdd'",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.t1210",
+    "car.2013-07-002"
+  ],
+  "Version": "0.1"
+}

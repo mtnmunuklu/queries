@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the addition of a new Federated Domain.\n\nAuthor: Splunk Threat Research Team (original rule), Harjot Singh @cyb3rjy0t (sigma rule)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "58f88172-a73d-442b-94c9-95eaed3cbb36",
+  "InsertDate": "2025-01-19T11:33:28Z",
+  "LastUpdateDate": "2025-01-19T11:33:28Z",
+  "Level": "medium",
+  "Name": "New Federated Domain Added",
+  "Query": "sourcetype='m365-audit' eql select * from _source_ where (operation like '%domain%' and (operation like '%add%' or operation like '%new%'))",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1136.003"
+  ],
+  "Version": "0.1"
+}

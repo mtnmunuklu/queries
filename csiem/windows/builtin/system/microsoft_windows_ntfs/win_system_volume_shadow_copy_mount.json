@@ -1,0 +1,14 @@
+{
+  "Description": "Detects volume shadow copy mount via Windows event log\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g, Open Threat Research (OTR)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f512acbf-e662-4903-843e-97ce4652b740",
+  "InsertDate": "2025-01-19T11:33:52Z",
+  "LastUpdateDate": "2025-01-19T11:33:52Z",
+  "Level": "low",
+  "Name": "Volume Shadow Copy Mount",
+  "Query": "sourcetype='windows-system' eql select * from _source_ where provider_name = 'microsoft-windows-ntfs' and eventid = '98' and devicename like '%harddiskvolumeshadowcopy%'",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.002"
+  ],
+  "Version": "0.1"
+}

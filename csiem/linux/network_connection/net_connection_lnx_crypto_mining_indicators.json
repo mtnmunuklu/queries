@@ -1,0 +1,14 @@
+{
+  "Description": "Detects process connections to a Monero crypto mining pool\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a46c93b7-55ed-4d27-a41b-c259456c4746",
+  "InsertDate": "2025-01-19T11:33:32Z",
+  "LastUpdateDate": "2025-01-19T11:33:32Z",
+  "Level": "high",
+  "Name": "Linux Crypto Mining Pool Connections",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where (dst_host = 'pool.minexmr.com' or dst_host = 'fr.minexmr.com' or dst_host = 'de.minexmr.com' or dst_host = 'sg.minexmr.com' or dst_host = 'ca.minexmr.com' or dst_host = 'us-west.minexmr.com' or dst_host = 'pool.supportxmr.com' or dst_host = 'mine.c3pool.com' or dst_host = 'xmr-eu1.nanopool.org' or dst_host = 'xmr-eu2.nanopool.org' or dst_host = 'xmr-us-east1.nanopool.org' or dst_host = 'xmr-us-west1.nanopool.org' or dst_host = 'xmr-asia1.nanopool.org' or dst_host = 'xmr-jp1.nanopool.org' or dst_host = 'xmr-au1.nanopool.org' or dst_host = 'xmr.2miners.com' or dst_host = 'xmr.hashcity.org' or dst_host = 'xmr.f2pool.com' or dst_host = 'xmrpool.eu' or dst_host = 'pool.hashvault.pro' or dst_host = 'moneroocean.stream' or dst_host = 'monerocean.stream')",
+  "Tags": [
+    "attack.impact",
+    "attack.t1496"
+  ],
+  "Version": "0.1"
+}

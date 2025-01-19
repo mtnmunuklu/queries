@@ -1,0 +1,17 @@
+{
+  "Description": "Detects suspicious and uncommon child processes of WmiPrvSE\n\nAuthor: Vadim Khrykov (ThreatIntel), Cyb3rEng, Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8a582fe2-0882-4b89-a82a-da6b2dc32937",
+  "InsertDate": "2025-01-19T11:35:58Z",
+  "LastUpdateDate": "2025-01-19T11:35:58Z",
+  "Level": "high",
+  "Name": "Suspicious WmiPrvSE Child Process",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\wbem\\wmiprvse.exe' and ((process_path like '%\\certutil.exe' or process_path like '%\\cscript.exe' or process_path like '%\\mshta.exe' or process_path like '%\\msiexec.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\verclsid.exe' or process_path like '%\\wscript.exe') or (process_path like '%\\cmd.exe' and (command like '%cscript%' or command like '%mshta%' or command like '%powershell%' or command like '%pwsh%' or command like '%regsvr32%' or command like '%rundll32%' or command like '%wscript%'))) and  not (process_path like '%\\werfault.exe' or process_path like '%\\wmiprvse.exe' or (process_path like '%\\msiexec.exe' and command like '%/i %')))",
+  "Tags": [
+    "attack.execution",
+    "attack.defense-evasion",
+    "attack.t1047",
+    "attack.t1204.002",
+    "attack.t1218.010"
+  ],
+  "Version": "0.1"
+}

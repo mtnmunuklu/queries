@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may communicate using a protocol and port paring that are typically not associated.\nFor example, HTTPS over port 8088(Citation: Symantec Elfin Mar 2019) or port 587(Citation: Fortinet Agent Tesla April 2018) as opposed to the traditional port 443.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "adf876b3-f1f8-4aa9-a4e4-a64106feec06",
+  "InsertDate": "2025-01-19T11:34:26Z",
+  "LastUpdateDate": "2025-01-19T11:34:26Z",
+  "Level": "medium",
+  "Name": "Testing Usage of Uncommonly Used Port",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((scriptblocktext like '%test-netconnection%' and scriptblocktext like '%-computername %' and scriptblocktext like '%-port %') and  not (scriptblocktext like '% 443 %' or scriptblocktext like '% 80 %'))",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1571"
+  ],
+  "Version": "0.1"
+}

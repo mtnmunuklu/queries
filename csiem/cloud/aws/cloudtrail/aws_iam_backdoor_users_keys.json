@@ -1,0 +1,14 @@
+{
+  "Description": "Detects AWS API key creation for a user by another user.\nBackdoored users can be used to obtain persistence in the AWS environment.\nAlso with this alert, you can detect a flow of AWS keys in your org.\n\n\nAuthor: faloker\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0a5177f4-6ca9-44c2-aacf-d3f3d8b6e4d2",
+  "InsertDate": "2025-01-19T11:33:21Z",
+  "LastUpdateDate": "2025-01-19T11:33:21Z",
+  "Level": "medium",
+  "Name": "AWS IAM Backdoor Users Keys",
+  "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where ((eventsource = 'iam.amazonaws.com' and eventname = 'createaccesskey') and  not useridentity.arn like '%responseelements.accesskey.username%')",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1098"
+  ],
+  "Version": "0.1"
+}

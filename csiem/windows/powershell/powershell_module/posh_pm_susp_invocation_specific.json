@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious PowerShell invocation command parameters\n\nAuthor: Florian Roth (Nextron Systems), Jonhnathan Ribeiro\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8ff28fdd-e2fa-4dfa-aeda-ef3d61c62090",
+  "InsertDate": "2025-01-19T11:34:16Z",
+  "LastUpdateDate": "2025-01-19T11:34:16Z",
+  "Level": "high",
+  "Name": "Suspicious PowerShell Invocations - Specific - PowerShell Module",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (((contextinfo like '% -w %' and contextinfo like '%hidden%' and contextinfo like '%-ep%' and contextinfo like '%bypass%' and contextinfo like '%-enc%') or (contextinfo like '%powershell%' and contextinfo like '%reg%' and contextinfo like '%add%' and contextinfo like '%hkcu\\software\\microsoft\\windows\\currentversion\\run%') or (contextinfo like '%bypass%' and contextinfo like '%-noprofile%' and contextinfo like '%-windowstyle%' and contextinfo like '%hidden%' and contextinfo like '%new-object%' and contextinfo like '%system.net.webclient%' and contextinfo like '%.download%') or (contextinfo like '%iex%' and contextinfo like '%new-object%' and contextinfo like '%net.webclient%' and contextinfo like '%.download%') or (contextinfo like '%-nop%' and contextinfo like '% -w %' and contextinfo like '%hidden%' and contextinfo like '% -c %' and contextinfo like '%[convert]::frombase64string%') or (contextinfo like '% -w %' and contextinfo like '%hidden%' and contextinfo like '%-noni%' and contextinfo like '%-nop%' and contextinfo like '% -c %' and contextinfo like '%iex%' and contextinfo like '%new-object%')) and  not (contextinfo like '%(new-object system.net.webclient).downloadstring('https://community.chocolatey.org/install.ps1%' or contextinfo like '%write-chocolateywarning%'))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

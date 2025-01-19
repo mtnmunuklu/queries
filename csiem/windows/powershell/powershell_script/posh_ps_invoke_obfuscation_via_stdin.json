@@ -1,0 +1,16 @@
+{
+  "Description": "Detects Obfuscated Powershell via Stdin in Scripts\n\nAuthor: Nikita Nazarov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "86b896ba-ffa1-4fea-83e3-ee28a4c915c7",
+  "InsertDate": "2025-01-19T11:34:20Z",
+  "LastUpdateDate": "2025-01-19T11:34:20Z",
+  "Level": "high",
+  "Name": "Invoke-Obfuscation Via Stdin - Powershell",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where scriptblocktext re '(?i)(set).*\u0026\u0026\\s?set.*(environment|invoke|\\$\\{?input).*\u0026\u0026.*\"'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1027",
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,16 @@
+{
+  "Description": "Detects adding and using Exchange PowerShell snap-ins to export mailbox data. As seen used by HAFNIUM and APT27\n\nAuthor: FPT.EagleEye, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "25676e10-2121-446e-80a4-71ff8506af47",
+  "InsertDate": "2025-01-19T11:35:04Z",
+  "LastUpdateDate": "2025-01-19T11:35:04Z",
+  "Level": "high",
+  "Name": "Exchange PowerShell Snap-Ins Usage",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll')) and command like '%add-pssnapin%' and (command like '%microsoft.exchange.powershell.snapin%' or command like '%microsoft.exchange.management.powershell.snapin%')) and  not (parent_process_path = 'c:\\windows\\system32\\msiexec.exe' and command like '%$exserver=get-exchangeserver ([environment]::machinename) -errorvariable exerr 2\u003e $null%'))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001",
+    "attack.collection",
+    "attack.t1114"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of the \"jsc.exe\" (JScript Compiler).\nAttacker might abuse this in order to compile JScript files on the fly and bypassing application whitelisting.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "52788a70-f1da-40dd-8fbd-73b5865d6568",
+  "InsertDate": "2025-01-19T11:34:46Z",
+  "LastUpdateDate": "2025-01-19T11:34:46Z",
+  "Level": "low",
+  "Name": "JScript Compiler Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\jsc.exe' and original_file_name = 'jsc.exe'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1127"
+  ],
+  "Version": "0.1"
+}

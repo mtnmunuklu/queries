@@ -1,0 +1,14 @@
+{
+  "Description": "Detects setting of a new registry value related to BgInfo configuration, which can be abused to execute custom VBScript via \"BgInfo.exe\"\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "992dd79f-dde8-4bb0-9085-6350ba97cfb3",
+  "InsertDate": "2025-01-19T11:36:07Z",
+  "LastUpdateDate": "2025-01-19T11:36:07Z",
+  "Level": "medium",
+  "Name": "New BgInfo.EXE Custom VBScript Registry Configuration",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where event_type = 'setvalue' and target_object like '%\\software\\winternals\\bginfo\\userfields\\%' and details like '4%'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1112"
+  ],
+  "Version": "0.1"
+}

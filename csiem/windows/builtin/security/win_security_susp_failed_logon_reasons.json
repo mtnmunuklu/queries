@@ -1,0 +1,17 @@
+{
+  "Description": "This method uses uncommon error codes on failed logons to determine suspicious activity and tampering with accounts that have been disabled or somehow restricted.\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9eb99343-d336-4020-a3cd-67f3819e68ee",
+  "InsertDate": "2025-01-19T11:33:49Z",
+  "LastUpdateDate": "2025-01-19T11:33:49Z",
+  "Level": "medium",
+  "Name": "Account Tampering - Suspicious Failed Logon Reasons",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where (((eventid = '4625' or eventid = '4776') and (status = '0xc0000072' or status = '0xc000006f' or status = '0xc0000070' or status = '0xc0000413' or status = '0xc000018c' or status = '0xc000015b')) and  not subjectusersid = 's-1-0-0')",
+  "Tags": [
+    "attack.persistence",
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.initial-access",
+    "attack.t1078"
+  ],
+  "Version": "0.1"
+}

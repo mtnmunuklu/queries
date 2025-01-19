@@ -1,0 +1,15 @@
+{
+  "Description": "Identifies when a application is deleted in Azure.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "410d2a41-1e6d-452f-85e5-abdd8257a823",
+  "InsertDate": "2025-01-19T11:33:22Z",
+  "LastUpdateDate": "2025-01-19T11:33:22Z",
+  "Level": "medium",
+  "Name": "Azure Application Deleted",
+  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (properties.message = 'delete application' or properties.message = 'hard delete application')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.impact",
+    "attack.t1489"
+  ],
+  "Version": "0.1"
+}

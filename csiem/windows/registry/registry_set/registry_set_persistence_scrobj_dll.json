@@ -1,0 +1,14 @@
+{
+  "Description": "Detect use of scrobj.dll as this DLL looks for the ScriptletURL key to get the location of the script to execute\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fe20dda1-6f37-4379-bbe0-a98d400cae90",
+  "InsertDate": "2025-01-19T11:36:18Z",
+  "LastUpdateDate": "2025-01-19T11:36:18Z",
+  "Level": "medium",
+  "Name": "Potential Persistence Via Scrobj.dll COM Hijacking",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where target_object like '%inprocserver32\\(default)' and details = 'c:\\windows\\system32\\scrobj.dll'",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1546.015"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects PowerShell scripts to set the ACL to a file in the Windows folder\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3bf1d859-3a7e-44cb-8809-a99e066d3478",
+  "InsertDate": "2025-01-19T11:34:22Z",
+  "LastUpdateDate": "2025-01-19T11:34:22Z",
+  "Level": "high",
+  "Name": "PowerShell Set-Acl On Windows Folder - PsScript",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((scriptblocktext like '%set-acl %' and scriptblocktext like '%-aclobject %') and (scriptblocktext like '%-path \"c:\\windows%' or scriptblocktext like '%-path \"c:/windows%' or scriptblocktext like '%-path 'c:\\windows%' or scriptblocktext like '%-path 'c:/windows%' or scriptblocktext like '%-path c:\\\\windows%' or scriptblocktext like '%-path c:/windows%' or scriptblocktext like '%-path $env:windir%' or scriptblocktext like '%-path \"$env:windir%' or scriptblocktext like '%-path '$env:windir%') and (scriptblocktext like '%fullcontrol%' or scriptblocktext like '%allow%'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1222"
+  ],
+  "Version": "0.1"
+}

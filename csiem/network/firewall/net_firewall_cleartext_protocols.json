@@ -1,0 +1,13 @@
+{
+  "Description": "Ensure that all account usernames and authentication credentials are transmitted across networks using encrypted channels.\nEnsure that an encryption is used for all sensitive information in transit. Ensure that an encrypted channels is used for all administrative account access.\n\n\nAuthor: Alexandr Yampolskyi, SOC Prime, Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d7fb8f0e-bd5f-45c2-b467-19571c490d7e",
+  "InsertDate": "2025-01-19T11:33:40Z",
+  "LastUpdateDate": "2025-01-19T11:33:40Z",
+  "Level": "low",
+  "Name": "Cleartext Protocol Usage",
+  "Query": "eql select * from _source_ where ((dst_port = '8080' or dst_port = '21' or dst_port = '80' or dst_port = '23' or dst_port = '50000' or dst_port = '1521' or dst_port = '27017' or dst_port = '3306' or dst_port = '1433' or dst_port = '11211' or dst_port = '15672' or dst_port = '5900' or dst_port = '5901' or dst_port = '5902' or dst_port = '5903' or dst_port = '5904') and ((action = 'forward' or action = 'accept' or action = '2') or blocked = 'false'))",
+  "Tags": [
+    "attack.credential-access"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects SILENTTRINITY stager use via PE metadata\n\nAuthor: Aleksey Potapov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "03552375-cc2c-4883-bbe4-7958d5a980be",
+  "InsertDate": "2025-01-19T11:34:44Z",
+  "LastUpdateDate": "2025-01-19T11:34:44Z",
+  "Level": "high",
+  "Name": "HackTool - SILENTTRINITY Stager Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where description like '%st2stager%'",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1071"
+  ],
+  "Version": "0.1"
+}

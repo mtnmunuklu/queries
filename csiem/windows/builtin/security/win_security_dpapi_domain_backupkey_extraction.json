@@ -1,0 +1,14 @@
+{
+  "Description": "Detects tools extracting LSA secret DPAPI domain backup key from Domain Controllers\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4ac1f50b-3bd0-4968-902d-868b4647937e",
+  "InsertDate": "2025-01-19T11:33:47Z",
+  "LastUpdateDate": "2025-01-19T11:33:47Z",
+  "Level": "high",
+  "Name": "DPAPI Domain Backup Key Extraction",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4662' and objecttype = 'secretobject' and accessmask = '0x2' and objectname like '%bckupkey%'",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.004"
+  ],
+  "Version": "0.1"
+}

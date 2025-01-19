@@ -1,0 +1,14 @@
+{
+  "Description": "Detects creation of a file named \"ntds.dit\" (Active Directory Database)\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0b8baa3f-575c-46ee-8715-d6f28cc7d33c",
+  "InsertDate": "2025-01-19T11:34:01Z",
+  "LastUpdateDate": "2025-01-19T11:34:01Z",
+  "Level": "low",
+  "Name": "NTDS.DIT Created",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where filepath like '%ntds.dit'",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.003"
+  ],
+  "Version": "0.1"
+}

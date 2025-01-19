@@ -1,0 +1,14 @@
+{
+  "Description": "An adversary may use legitimate desktop support and remote access software, such as Team Viewer, Go2Assist, LogMein, AmmyyAdmin, etc, to establish an interactive command and control channel to target systems within networks.\nThese services are commonly used as legitimate technical support software, and may be allowed by application control within a target environment.\nRemote access tools like VNC, Ammyy, and Teamviewer are used frequently when compared with other legitimate software commonly used by adversaries. (Citation: Symantec Living off the Land)\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b52e84a3-029e-4529-b09b-71d19dd27e94",
+  "InsertDate": "2025-01-19T11:35:13Z",
+  "LastUpdateDate": "2025-01-19T11:35:13Z",
+  "Level": "medium",
+  "Name": "Remote Access Tool - AnyDesk Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\anydesk.exe' and description = 'anydesk' and product = 'anydesk' and company = 'anydesk software gmbh'",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1219"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of a renamed SysInternals Sdelete, which is something an administrator shouldn't do (the renaming)\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c1d867fe-8d95-4487-aab4-e53f2d339f90",
+  "InsertDate": "2025-01-19T11:35:18Z",
+  "LastUpdateDate": "2025-01-19T11:35:18Z",
+  "Level": "high",
+  "Name": "Renamed Sysinternals Sdelete Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (original_file_name = 'sdelete.exe' and  not (process_path like '%\\sdelete.exe' or process_path like '%\\sdelete64.exe'))",
+  "Tags": [
+    "attack.impact",
+    "attack.t1485"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects potential network sniffing via use of network tools such as \"tshark\", \"windump\".\nNetwork sniffing refers to using the network interface on a system to monitor or capture information sent over a wired or wireless connection.\nAn adversary may place a network interface into promiscuous mode to passively access data in transit over the network, or use span ports to capture a larger amount of data.\n\n\nAuthor: Timur Zinniatullin, oscd.community, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ba1f7802-adc7-48b4-9ecb-81e227fddfd5",
+  "InsertDate": "2025-01-19T11:35:34Z",
+  "LastUpdateDate": "2025-01-19T11:35:34Z",
+  "Level": "medium",
+  "Name": "Potential Network Sniffing Activity Using Network Tools",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\tshark.exe' and command like '%-i%') or process_path like '%\\windump.exe')",
+  "Tags": [
+    "attack.credential-access",
+    "attack.discovery",
+    "attack.t1040"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects an uncommon parent process of \"LINK.EXE\".\nLink.EXE in Microsoft incremental linker. Its a utility usually bundled with Visual Studio installation.\nMultiple utilities often found in the same folder (editbin.exe, dumpbin.exe, lib.exe, etc) have a hardcode call to the \"LINK.EXE\" binary without checking its validity.\nThis would allow an attacker to sideload any binary with the name \"link.exe\" if one of the aforementioned tools get executed from a different location.\nBy filtering the known locations of such utilities we can spot uncommon parent process of LINK.EXE that might be suspicious or malicious.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6e968eb1-5f05-4dac-94e9-fd0c5cb49fd6",
+  "InsertDate": "2025-01-19T11:34:47Z",
+  "LastUpdateDate": "2025-01-19T11:34:47Z",
+  "Level": "medium",
+  "Name": "Uncommon Link.EXE Parent Process",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\link.exe' and command like '%link /%') and  not ((parent_process_path like 'c:\\program files\\microsoft visual studio\\%' or parent_process_path like 'c:\\program files (x86)\\microsoft visual studio\\%') and (parent_process_path like '%\\vc\\bin\\%' or parent_process_path like '%\\vc\\tools\\%')))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

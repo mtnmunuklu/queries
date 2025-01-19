@@ -1,0 +1,17 @@
+{
+  "Description": "Detects suspicious child processes spawned from browsers. This could be a result of a potential web browser exploitation.\n\nAuthor: Sohan G (D4rkCiph3r)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0250638a-2b28-4541-86fc-ea4c558fa0c6",
+  "InsertDate": "2025-01-19T11:33:38Z",
+  "LastUpdateDate": "2025-01-19T11:33:38Z",
+  "Level": "medium",
+  "Name": "Suspicious Browser Child Process - MacOS",
+  "Query": "sourcetype like 'macos-%' eql select * from _source_ where (((parent_process_path like '%com.apple.webkit.webcontent%' or parent_process_path like '%firefox%' or parent_process_path like '%google chrome helper%' or parent_process_path like '%google chrome%' or parent_process_path like '%microsoft edge%' or parent_process_path like '%opera%' or parent_process_path like '%safari%' or parent_process_path like '%tor browser%') and (process_path like '%/bash' or process_path like '%/curl' or process_path like '%/dash' or process_path like '%/ksh' or process_path like '%/osascript' or process_path like '%/perl' or process_path like '%/php' or process_path like '%/pwsh' or process_path like '%/python' or process_path like '%/sh' or process_path like '%/tcsh' or process_path like '%/wget' or process_path like '%/zsh')) and  not (command like '%/library/application support/microsoft/mau*/microsoft autoupdate.app/contents/macos/msupdate%' or ((parent_process_path like '%google chrome helper%' or parent_process_path like '%google chrome%') and (command like '%/volumes/google chrome/google chrome.app/contents/frameworks/*/resources/install.sh%' or command like '%/applications/google chrome.app/contents/frameworks/google chrome framework.framework/*/resources/keystone_promote_preflight.sh%' or command like '%/applications/google chrome.app/contents/frameworks/google chrome framework.framework/*/resources/keystone_promote_postflight.sh%')) or (parent_process_path like '%microsoft edge%' and (command like '%ioplatformexpertdevice%' or command like '%hw.model%')) or ((parent_process_path like '%google chrome helper%' or parent_process_path like '%google chrome%') and (command like '%/users/%' and command like '%/library/application support/google/chrome/recovery/%' and command like '%/chromerecovery%')) or command like '%--defaults-torrc%') and  not (command = 'null' or command = ''))",
+  "Tags": [
+    "attack.initial-access",
+    "attack.execution",
+    "attack.t1189",
+    "attack.t1203",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects creation of \"UserInitMprLogonScript\" registry value which can be used as a persistence method by malicious actors\n\nAuthor: Tom Ueltschi (@c_APT_ure)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9ace0707-b560-49b8-b6ca-5148b42f39fb",
+  "InsertDate": "2025-01-19T11:35:59Z",
+  "LastUpdateDate": "2025-01-19T11:35:59Z",
+  "Level": "medium",
+  "Name": "Potential Persistence Via Logon Scripts - Registry",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where event_type = 'createkey' and target_object like '%userinitmprlogonscript%'",
+  "Tags": [
+    "attack.t1037.001",
+    "attack.persistence",
+    "attack.lateral-movement"
+  ],
+  "Version": "0.1"
+}

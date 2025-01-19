@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of the \"net use\" command to mount a WebDAV server and then immediately execute some content in it. As seen being used in malicious LNK files\n\nAuthor: pH-T (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f0507c0f-a3a2-40f5-acc6-7f543c334993",
+  "InsertDate": "2025-01-19T11:34:33Z",
+  "LastUpdateDate": "2025-01-19T11:34:33Z",
+  "Level": "high",
+  "Name": "Suspicious File Execution From Internet Hosted WebDav Share",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\cmd.exe%' and original_file_name = 'cmd.exe') and (command like '% net use http%' and command like '%\u0026 start /b %' and command like '%\\davwwwroot\\%') and (command like '%.exe %' or command like '%.dll %' or command like '%.bat %' or command like '%.vbs %' or command like '%.ps1 %'))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

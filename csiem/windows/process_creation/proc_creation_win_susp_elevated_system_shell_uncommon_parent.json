@@ -1,0 +1,16 @@
+{
+  "Description": "Detects when a shell program such as the Windows command prompt or PowerShell is launched with system privileges from a uncommon parent location.\n\nAuthor: frack113, Tim Shelton (update fp)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "178e615d-e666-498b-9630-9ed363038101",
+  "InsertDate": "2025-01-19T11:35:32Z",
+  "LastUpdateDate": "2025-01-19T11:35:32Z",
+  "Level": "medium",
+  "Name": "Elevated System Shell Spawned From Uncommon Parent Location",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\cmd.exe') and (original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll' or original_file_name = 'cmd.exe')) and ((username like '%authori%' or username like '%autori%') and logon_id = '0x3e7')) and  not (parent_process_path = 'null' or parent_process_path = '' or (parent_process_path like '%:\\program files (x86)\\%' or parent_process_path like '%:\\program files\\%' or parent_process_path like '%:\\programdata\\%' or parent_process_path like '%:\\windows\\system32\\%' or parent_process_path like '%:\\windows\\syswow64\\%' or parent_process_path like '%:\\windows\\temp\\%' or parent_process_path like '%:\\windows\\winsxs\\%')) and  not ((parent_process_path like '%:\\manageengine\\admanager plus\\pgsql\\bin\\postgres.exe' and process_path like '%\\cmd.exe') or (command like '%:\\windows\\system32\\cmd.exe /c \"%' and current_directory like '%:\\windows\\temp\\asgard2-agent\\%') or (parent_process_path like '%:\\ibm\\spectrumprotect\\webserver\\scripts\\%' and command like '%:\\ibm\\spectrumprotect\\webserver\\scripts\\%')))",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

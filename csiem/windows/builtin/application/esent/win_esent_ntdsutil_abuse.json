@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential abuse of ntdsutil to dump ntds.dit database\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e6e88853-5f20-4c4a-8d26-cd469fd8d31f",
+  "InsertDate": "2025-01-19T11:33:42Z",
+  "LastUpdateDate": "2025-01-19T11:33:42Z",
+  "Level": "medium",
+  "Name": "Ntdsutil Abuse",
+  "Query": "sourcetype='windows-application' eql select * from _source_ where provider_name = 'esent' and (eventid = '216' or eventid = '325' or eventid = '326' or eventid = '327') and data like '%ntds.dit%'",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.003"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious DACL modifications to allow access to a service from a suspicious trustee. This can be used to override access restrictions set by previous ACLs.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6c8fbee5-dee8-49bc-851d-c3142d02aa47",
+  "InsertDate": "2025-01-19T11:35:22Z",
+  "LastUpdateDate": "2025-01-19T11:35:22Z",
+  "Level": "high",
+  "Name": "Allow Service Access Using Security Descriptor Tampering Via Sc.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\sc.exe' and original_file_name = 'sc.exe') and (command like '%sdset%' and command like '%a;%') and (command like '%;iu%' or command like '%;su%' or command like '%;ba%' or command like '%;sy%' or command like '%;wd%'))",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1543.003"
+  ],
+  "Version": "0.1"
+}

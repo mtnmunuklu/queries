@@ -1,0 +1,15 @@
+{
+  "Description": "Detects PowerShell downgrade attack by comparing the host versions with the actually used engine version 2.0\n\nAuthor: Harish Segar (rule)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b3512211-c67e-4707-bedc-66efc7848863",
+  "InsertDate": "2025-01-19T11:35:00Z",
+  "LastUpdateDate": "2025-01-19T11:35:00Z",
+  "Level": "medium",
+  "Name": "Potential PowerShell Downgrade Attack",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\powershell.exe' and (command like '% -version 2 %' or command like '% -versio 2 %' or command like '% -versi 2 %' or command like '% -vers 2 %' or command like '% -ver 2 %' or command like '% -ve 2 %' or command like '% -v 2 %')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

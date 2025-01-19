@@ -1,0 +1,14 @@
+{
+  "Description": "detects execution of psexec or paexec with renamed service name, this rule helps to filter out the noise if psexec is used for legit purposes or if attacker uses a different psexec client other than sysinternal one\n\nAuthor: Samir Bousseaden, @neu5ron, Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f1b3a22a-45e6-4004-afb5-4291f9c21166",
+  "InsertDate": "2025-01-19T11:33:40Z",
+  "LastUpdateDate": "2025-01-19T11:33:40Z",
+  "Level": "high",
+  "Name": "Suspicious PsExec Execution - Zeek",
+  "Query": "sourcetype='zeek-smb_files' eql select * from _source_ where (((path like '%\\\\%' and path like '%\\ipc$%') and (process_path like '%-stdin' or process_path like '%-stdout' or process_path like '%-stderr')) and  not process_path like 'psexesvc%')",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.t1021.002"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects suspicious shell commands used in various Equation Group scripts and tools\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "41e5c73d-9983-4b69-bd03-e13b67e9623c",
+  "InsertDate": "2025-01-19T11:33:31Z",
+  "LastUpdateDate": "2025-01-19T11:33:31Z",
+  "Level": "high",
+  "Name": "Equation Group Indicators",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where (log like '%chown root*chmod 4777 %' or log like '%cp /bin/sh .;chown%' or log like '%chmod 4777 /tmp/.scsi/dev/bin/gsh%' or log like '%chown root:root /tmp/.scsi/dev/bin/%' or log like '%chown root:root x;%' or log like '%/bin/telnet locip locport \u003c /dev/console | /bin/sh%' or log like '%/tmp/ratload%' or log like '%ewok -t %' or log like '%xspy -display %' or log like '%cat \u003e /dev/tcp/127.0.0.1/80 \u003c\u003cend%' or log like '%rm -f /current/tmp/ftshell.latest%' or log like '%ghost_* -v %' or log like '% --wipe \u003e /dev/null%' or log like '%ping -c 2 *; grep * /proc/net/arp \u003e/tmp/gx%' or log like '%iptables * output -p tcp -d 127.0.0.1 --tcp-flags rst rst -j drop;%' or log like '%\u003e /var/log/audit/audit.log; rm -f .%' or log like '%cp /var/log/audit/audit.log .tmp%' or log like '%sh \u003e/dev/tcp/* \u003c\u00261 2\u003e\u00261%' or log like '%ncat -vv -l -p * \u003c%' or log like '%nc -vv -l -p * \u003c%' or log like '%\u003c /dev/console | uudecode \u0026\u0026 uncompress%' or log like '%sendmail -osendmail;chmod +x sendmail%' or log like '%/usr/bin/wget -o /tmp/a http* \u0026\u0026 chmod 755 /tmp/cron%' or log like '%chmod 666 /var/run/utmp~%' or log like '%chmod 700 nscd crond%' or log like '%cp /etc/shadow /tmp/.%' or log like '%\u003c/dev/console |uudecode \u003e /dev/null 2\u003e\u00261 \u0026\u0026 uncompress%' or log like '%chmod 700 jp\u0026\u0026netstat -an|grep%' or log like '%uudecode \u003e /dev/null 2\u003e\u00261 \u0026\u0026 uncompress -f * \u0026\u0026 chmod 755%' or log like '%chmod 700 crond%' or log like '%wget http*; chmod +x /tmp/sendmail%' or log like '%chmod 700 fp sendmail pt%' or log like '%chmod 755 /usr/vmsys/bin/pipe%' or log like '%chmod -r 755 /usr/vmsys%' or log like '%chmod 755 $opbin/*tunnel%' or log like '%chmod 700 sendmail%' or log like '%chmod 0700 sendmail%' or log like '%/usr/bin/wget http*sendmail;chmod +x sendmail;%' or log like '%\u0026\u0026 telnet * 2\u003e\u00261 \u003c/dev/console%')",
+  "Tags": [
+    "attack.execution",
+    "attack.g0020",
+    "attack.t1059.004"
+  ],
+  "Version": "0.1"
+}

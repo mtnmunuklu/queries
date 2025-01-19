@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of \"wmic\" with the \"process\" flag, which adversary might use to list processes running on the compromised host or list installed software hotfixes and patches.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "221b251a-357a-49a9-920a-271802777cc0",
+  "InsertDate": "2025-01-19T11:35:55Z",
+  "LastUpdateDate": "2025-01-19T11:35:55Z",
+  "Level": "medium",
+  "Name": "Process Reconnaissance Via Wmic.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\wmic.exe' and original_file_name = 'wmic.exe') and command like '%process%') and  not (command like '%call%' and command like '%create%'))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1047"
+  ],
+  "Version": "0.1"
+}

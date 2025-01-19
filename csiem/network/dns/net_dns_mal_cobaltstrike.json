@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious DNS queries known from Cobalt Strike beacons\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2975af79-28c4-4d2f-a951-9095f229df29",
+  "InsertDate": "2025-01-19T11:33:40Z",
+  "LastUpdateDate": "2025-01-19T11:33:40Z",
+  "Level": "critical",
+  "Name": "Cobalt Strike DNS Beaconing",
+  "Query": "eql select * from _source_ where ((query like 'aaa.stage.%' or query like 'post.1%') or query like '%.stage.123456.%')",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1071.004"
+  ],
+  "Version": "0.1"
+}

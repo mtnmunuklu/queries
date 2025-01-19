@@ -1,0 +1,14 @@
+{
+  "Description": "Detects chmod targeting files in abnormal directory paths.\n\nAuthor: Christopher Peacock @SecurePeacock, SCYTHE @scythe_io\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6419afd1-3742-47a5-a7e6-b50386cd15f8",
+  "InsertDate": "2025-01-19T11:33:35Z",
+  "LastUpdateDate": "2025-01-19T11:33:35Z",
+  "Level": "medium",
+  "Name": "Chmod Suspicious Directory",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where process_path like '%/chmod' and (command like '%/tmp/%' or command like '%/.library/%' or command like '%/etc/%' or command like '%/opt/%')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1222.002"
+  ],
+  "Version": "0.1"
+}

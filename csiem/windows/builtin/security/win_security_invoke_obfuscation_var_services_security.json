@@ -1,0 +1,16 @@
+{
+  "Description": "Detects Obfuscated use of Environment Variables to execute PowerShell\n\nAuthor: Jonathan Cheong, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "dcf2db1f-f091-425b-a821-c05875b8925a",
+  "InsertDate": "2025-01-19T11:33:47Z",
+  "LastUpdateDate": "2025-01-19T11:33:47Z",
+  "Level": "high",
+  "Name": "Invoke-Obfuscation VAR+ Launcher - Security",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4697' and (servicefilename like '%cmd%' and servicefilename like '%\"set%' and servicefilename like '%-f%') and (servicefilename like '%/c%' or servicefilename like '%/r%')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1027",
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

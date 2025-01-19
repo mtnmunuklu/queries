@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the creation of user-specific or system-wide environment variables via the registry. Which contains suspicious commands and strings\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "966315ef-c5e1-4767-ba25-fce9c8de3660",
+  "InsertDate": "2025-01-19T11:36:21Z",
+  "LastUpdateDate": "2025-01-19T11:36:21Z",
+  "Level": "high",
+  "Name": "Suspicious Environment Variable Has Been Registered",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\environment\\%' and ((details = 'powershell' or details = 'pwsh') and (details like '%\\appdata\\local\\temp\\%' or details like '%c:\\users\\public\\%' or details like '%tvqqaamaaaaeaaaa%' or details like '%tvpqaaiaaaaeaa8a%' or details like '%tvqaaaeaaaaeabaa%' or details like '%tvoaaaaaaaaaaaaa%' or details like '%tvptaqeaaaaeaaaa%' or details like '%sw52b2tll%' or details like '%ludm9rzs%' or details like '%jbnzva2ut%' or details like '%sqbuahyabwbragualq%' or details like '%kabgb2ag8aawblac0a%' or details like '%jag4adgbvagsazqata%') and (details like 'suvy%' or details like 'sqbfaf%' or details like 'sqbuah%' or details like 'cwbha%' or details like 'awv4%' or details like 'aqbla%' or details like 'r2v0%' or details like 'dmfy%' or details like 'dgbha%' or details like 'dxnpbm%' or details like 'h4sia%' or details like 'y21k%' or details like 'cabhah%' or details like 'qzpc%' or details like 'yzpc%')))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

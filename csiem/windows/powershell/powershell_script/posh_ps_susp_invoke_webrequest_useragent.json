@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may communicate using application layer protocols associated with web traffic to avoid detection/network filtering by blending in with existing traffic.\nCommands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d4488827-73af-4f8d-9244-7b7662ef046e",
+  "InsertDate": "2025-01-19T11:34:24Z",
+  "LastUpdateDate": "2025-01-19T11:34:24Z",
+  "Level": "medium",
+  "Name": "Change User Agents with WebRequest",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%invoke-webrequest%' and scriptblocktext like '%-useragent %')",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1071.001"
+  ],
+  "Version": "0.1"
+}

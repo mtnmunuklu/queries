@@ -1,0 +1,16 @@
+{
+  "Description": "Detects suspicious file type dropped by an Exchange component in IIS\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6b269392-9eba-40b5-acb6-55c882b20ba6",
+  "InsertDate": "2025-01-19T11:34:00Z",
+  "LastUpdateDate": "2025-01-19T11:34:00Z",
+  "Level": "medium",
+  "Name": "Suspicious File Drop by Exchange",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\w3wp.exe' and command like '%msexchange%') and (filepath like '%.aspx' or filepath like '%.asp' or filepath like '%.ashx' or filepath like '%.ps1' or filepath like '%.bat' or filepath like '%.exe' or filepath like '%.dll' or filepath like '%.vbs'))",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1190",
+    "attack.initial-access",
+    "attack.t1505.003"
+  ],
+  "Version": "0.1"
+}

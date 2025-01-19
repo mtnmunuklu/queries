@@ -1,0 +1,17 @@
+{
+  "Description": "Identifies user login with multifactor authentication failures, which might be an indication an attacker has the password for the account but can't pass the MFA challenge.\n\nAuthor: AlertIQ\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5496ff55-42ec-4369-81cb-00f417029e25",
+  "InsertDate": "2025-01-19T11:33:26Z",
+  "LastUpdateDate": "2025-01-19T11:33:26Z",
+  "Level": "medium",
+  "Name": "Multifactor Authentication Interrupted",
+  "Query": "sourcetype='azure-signinlogs' eql select * from _source_ where ((resulttype = '50074' and resultdescription like '%strong auth required%') or (resulttype = '500121' and resultdescription like '%authentication failed during strong authentication request%'))",
+  "Tags": [
+    "attack.initial-access",
+    "attack.credential-access",
+    "attack.t1078.004",
+    "attack.t1110",
+    "attack.t1621"
+  ],
+  "Version": "0.1"
+}

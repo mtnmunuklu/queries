@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of IOX - a tool for port forwarding and intranet proxy purposes\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d7654f02-e04b-4934-9838-65c46f187ebc",
+  "InsertDate": "2025-01-19T11:35:07Z",
+  "LastUpdateDate": "2025-01-19T11:35:07Z",
+  "Level": "high",
+  "Name": "PUA- IOX Tunneling Tool Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%.exe fwd -l %' or command like '%.exe fwd -r %' or command like '%.exe proxy -l %' or command like '%.exe proxy -r %') or (hashes like '%md5=9db2d314dd3f704a02051ef5ea210993%' or hashes like '%sha1=039130337e28a6623ecf9a0a3da7d92c5964d8dd%' or hashes like '%sha256=c6cf82919b809967d9d90ea73772a8aa1c1eb3bc59252d977500f64f1a0d6731%') or process_path like '%\\iox.exe')",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1090"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,16 @@
+{
+  "Description": "The Fax service attempts to load ualapi.dll, which is non-existent. An attacker can then (side)load their own malicious DLL using this service.\n\nAuthor: NVISO\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "828af599-4c53-4ed2-ba4a-a9f835c434ea",
+  "InsertDate": "2025-01-19T11:34:09Z",
+  "LastUpdateDate": "2025-01-19T11:34:09Z",
+  "Level": "high",
+  "Name": "Fax Service DLL Search Order Hijack",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\fxssvc.exe' and image_loaded like '%ualapi.dll') and  not image_loaded like 'c:\\windows\\winsxs\\%')",
+  "Tags": [
+    "attack.persistence",
+    "attack.defense-evasion",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects DNS server discovery via LDAP query requests from uncommon applications\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a21bcd7e-38ec-49ad-b69a-9ea17e69509e",
+  "InsertDate": "2025-01-19T11:33:56Z",
+  "LastUpdateDate": "2025-01-19T11:33:56Z",
+  "Level": "low",
+  "Name": "DNS Server Discovery Via LDAP Query",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (query_name like '_ldap.%' and  not (process_path = 'null' or (process_path like '%:\\program files\\%' or process_path like '%:\\program files (x86)\\%' or process_path like '%:\\windows\\%') or (process_path like '%:\\programdata\\microsoft\\windows defender\\platform\\%' and process_path like '%\\msmpeng.exe') or process_path = '\u003cunknown process\u003e') and  not ((process_path like '%\\chrome.exe' or process_path like '%\\firefox.exe' or process_path like '%\\opera.exe') or process_path like 'c:\\windowsazure\\guestagent%'))",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1482"
+  ],
+  "Version": "0.1"
+}

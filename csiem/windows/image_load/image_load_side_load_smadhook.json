@@ -1,0 +1,16 @@
+{
+  "Description": "Detects potential DLL sideloading of \"SmadHook.dll\", a DLL used by SmadAV antivirus\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "24b6cf51-6122-469e-861a-22974e9c1e5b",
+  "InsertDate": "2025-01-19T11:34:09Z",
+  "LastUpdateDate": "2025-01-19T11:34:09Z",
+  "Level": "high",
+  "Name": "Potential SmadHook.DLL Sideloading",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((image_loaded like '%\\smadhook32c.dll' or image_loaded like '%\\smadhook64c.dll') and  not ((process_path = 'c:\\program files (x86)\\smadav\\smadavprotect32.exe' or process_path = 'c:\\program files (x86)\\smadav\\smadavprotect64.exe' or process_path = 'c:\\program files\\smadav\\smadavprotect32.exe' or process_path = 'c:\\program files\\smadav\\smadavprotect64.exe') and (image_loaded like 'c:\\program files (x86)\\smadav\\%' or image_loaded like 'c:\\program files\\smadav\\%')))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

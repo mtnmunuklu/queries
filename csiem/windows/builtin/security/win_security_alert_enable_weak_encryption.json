@@ -1,0 +1,14 @@
+{
+  "Description": "Detects scenario where weak encryption is enabled for a user profile which could be used for hash/password cracking.\n\nAuthor: @neu5ron\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f6de9536-0441-4b3f-a646-f4e00f300ffd",
+  "InsertDate": "2025-01-19T11:33:47Z",
+  "LastUpdateDate": "2025-01-19T11:33:47Z",
+  "Level": "high",
+  "Name": "Weak Encryption Enabled and Kerberoast",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where (eventid = '4738' and (((newuacvalue like '%8???' or newuacvalue like '%9???' or newuacvalue like '%a???' or newuacvalue like '%b???' or newuacvalue like '%c???' or newuacvalue like '%d???' or newuacvalue like '%e???' or newuacvalue like '%f???') and  not (olduacvalue like '%8???' or olduacvalue like '%9???' or olduacvalue like '%a???' or olduacvalue like '%b???' or olduacvalue like '%c???' or olduacvalue like '%d???' or olduacvalue like '%e???' or olduacvalue like '%f???')) or ((newuacvalue like '%1????' or newuacvalue like '%3????' or newuacvalue like '%5????' or newuacvalue like '%7????' or newuacvalue like '%9????' or newuacvalue like '%b????' or newuacvalue like '%d????' or newuacvalue like '%f????') and  not (olduacvalue like '%1????' or olduacvalue like '%3????' or olduacvalue like '%5????' or olduacvalue like '%7????' or olduacvalue like '%9????' or olduacvalue like '%b????' or olduacvalue like '%d????' or olduacvalue like '%f????')) or ((newuacvalue like '%8??' or newuacvalue like '%9??' or newuacvalue like '%a??' or newuacvalue like '%b??' or newuacvalue like '%c??' or newuacvalue like '%d??' or newuacvalue like '%e??' or newuacvalue like '%f??') and  not (olduacvalue like '%8??' or olduacvalue like '%9??' or olduacvalue like '%a??' or olduacvalue like '%b??' or olduacvalue like '%c??' or olduacvalue like '%d??' or olduacvalue like '%e??' or olduacvalue like '%f??'))))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

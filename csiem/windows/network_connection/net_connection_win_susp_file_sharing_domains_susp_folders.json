@@ -1,0 +1,14 @@
+{
+  "Description": "Detects executables located in potentially suspicious directories initiating network connections towards file sharing domains.\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e0f8ab85-0ac9-423b-a73a-81b3c7b1aa97",
+  "InsertDate": "2025-01-19T11:34:12Z",
+  "LastUpdateDate": "2025-01-19T11:34:12Z",
+  "Level": "high",
+  "Name": "Network Communication Initiated To File Sharing Domains From Process Located In Suspicious Folder",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%:\\$recycle.bin%' or process_path like '%:\\perflogs\\%' or process_path like '%:\\temp\\%' or process_path like '%:\\users\\default\\%' or process_path like '%:\\users\\public\\%' or process_path like '%:\\windows\\fonts\\%' or process_path like '%:\\windows\\ime\\%' or process_path like '%:\\windows\\system32\\tasks\\%' or process_path like '%:\\windows\\tasks\\%' or process_path like '%:\\windows\\temp\\%' or process_path like '%\\appdata\\temp\\%' or process_path like '%\\config\\systemprofile\\%' or process_path like '%\\windows\\addins\\%') and (initiated = 'true' and (dst_host like '%.githubusercontent.com' or dst_host like '%anonfiles.com' or dst_host like '%cdn.discordapp.com' or dst_host like '%ddns.net' or dst_host like '%dl.dropboxusercontent.com' or dst_host like '%ghostbin.co' or dst_host like '%glitch.me' or dst_host like '%gofile.io' or dst_host like '%hastebin.com' or dst_host like '%mediafire.com' or dst_host like '%mega.co.nz' or dst_host like '%mega.nz' or dst_host like '%onrender.com' or dst_host like '%pages.dev' or dst_host like '%paste.ee' or dst_host like '%pastebin.com' or dst_host like '%pastebin.pl' or dst_host like '%pastetext.net' or dst_host like '%pixeldrain.com' or dst_host like '%privatlab.com' or dst_host like '%privatlab.net' or dst_host like '%send.exploit.in' or dst_host like '%sendspace.com' or dst_host like '%storage.googleapis.com' or dst_host like '%storjshare.io' or dst_host like '%supabase.co' or dst_host like '%temp.sh' or dst_host like '%transfer.sh' or dst_host like '%trycloudflare.com' or dst_host like '%ufile.io' or dst_host like '%w3spaces.com' or dst_host like '%workers.dev')))",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1105"
+  ],
+  "Version": "0.1"
+}

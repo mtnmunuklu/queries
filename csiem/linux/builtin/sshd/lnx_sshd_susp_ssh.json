@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious SSH / SSHD error messages that indicate a fatal or suspicious error that could be caused by exploiting attempts\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e76b413a-83d0-4b94-8e4c-85db4a5b8bdc",
+  "InsertDate": "2025-01-19T11:33:32Z",
+  "LastUpdateDate": "2025-01-19T11:33:32Z",
+  "Level": "medium",
+  "Name": "Suspicious OpenSSH Daemon Error",
+  "Query": "sourcetype='linux-sshd' eql select * from _source_ where (log like '%unexpected internal error%' or log like '%unknown or unsupported key type%' or log like '%invalid certificate signing key%' or log like '%invalid elliptic curve value%' or log like '%incorrect signature%' or log like '%error in libcrypto%' or log like '%unexpected bytes remain after decoding%' or log like '%fatal: buffer_get_string: bad string%' or log like '%local: crc32 compensation attack%' or log like '%bad client public dh value%' or log like '%corrupted mac on input%')",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1190"
+  ],
+  "Version": "0.1"
+}

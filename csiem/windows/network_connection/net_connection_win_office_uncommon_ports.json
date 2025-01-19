@@ -1,0 +1,14 @@
+{
+  "Description": "Detects an office suit application (Word, Excel, PowerPoint, Outlook) communicating to target systems over uncommon ports.\n\nAuthor: X__Junior (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3b5ba899-9842-4bc2-acc2-12308498bf42",
+  "InsertDate": "2025-01-19T11:34:12Z",
+  "LastUpdateDate": "2025-01-19T11:34:12Z",
+  "Level": "medium",
+  "Name": "Office Application Initiated Network Connection Over Uncommon Ports",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((initiated = 'true' and (process_path like '%\\excel.exe' or process_path like '%\\outlook.exe' or process_path like '%\\powerpnt.exe' or process_path like '%\\winword.exe' or process_path like '%\\wordview.exe')) and  not ((dst_port = '53' or dst_port = '80' or dst_port = '139' or dst_port = '443' or dst_port = '445') or (process_path like '%:\\program files\\microsoft office\\%' and process_path like '%\\outlook.exe' and (dst_port = '143' or dst_port = '465' or dst_port = '587' or dst_port = '993' or dst_port = '995'))))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.command-and-control"
+  ],
+  "Version": "0.1"
+}

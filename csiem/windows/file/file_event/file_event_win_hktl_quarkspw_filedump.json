@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a dump file written by QuarksPwDump password dumper\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "847def9e-924d-4e90-b7c4-5f581395a2b4",
+  "InsertDate": "2025-01-19T11:34:00Z",
+  "LastUpdateDate": "2025-01-19T11:34:00Z",
+  "Level": "critical",
+  "Name": "HackTool - QuarksPwDump Dump File",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%\\appdata\\local\\temp\\sam-%' and filepath like '%.dmp%')",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.002"
+  ],
+  "Version": "0.1"
+}

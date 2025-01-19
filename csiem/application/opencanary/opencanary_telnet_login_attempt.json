@@ -1,0 +1,16 @@
+{
+  "Description": "Detects instances where a Telnet service on an OpenCanary node has had a login attempt.\n\nAuthor: Security Onion Solutions\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "512cff7a-683a-43ad-afe0-dd398e872f36",
+  "InsertDate": "2025-01-19T11:33:19Z",
+  "LastUpdateDate": "2025-01-19T11:33:19Z",
+  "Level": "high",
+  "Name": "OpenCanary - Telnet Login Attempt",
+  "Query": "sourcetype like 'opencanary-%' eql select * from _source_ where logtype = '6001'",
+  "Tags": [
+    "attack.initial-access",
+    "attack.command-and-control",
+    "attack.t1133",
+    "attack.t1078"
+  ],
+  "Version": "0.1"
+}

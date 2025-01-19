@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the presence of \"bpf_probe_write_user\" BPF helper-generated warning messages. Which could be a sign of suspicious eBPF activity on the system.\n\nAuthor: Red Canary (idea), Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0fadd880-6af3-4610-b1e5-008dc3a11b8a",
+  "InsertDate": "2025-01-19T11:33:31Z",
+  "LastUpdateDate": "2025-01-19T11:33:31Z",
+  "Level": "high",
+  "Name": "Potential Suspicious BPF Activity - Linux",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where log like '%bpf_probe_write_user%'",
+  "Tags": [
+    "attack.persistence",
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

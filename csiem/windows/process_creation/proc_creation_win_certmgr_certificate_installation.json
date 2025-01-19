@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of \"certmgr\" with the \"add\" flag in order to install a new certificate on the system.\nAdversaries may install a root certificate on a compromised system to avoid warnings when connecting to adversary controlled web servers.\n\n\nAuthor: oscd.community, @redcanary, Zach Stanford @svch0st\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ff992eac-6449-4c60-8c1d-91c9722a1d48",
+  "InsertDate": "2025-01-19T11:34:31Z",
+  "LastUpdateDate": "2025-01-19T11:34:31Z",
+  "Level": "medium",
+  "Name": "New Root Certificate Installed Via CertMgr.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\certmgr.exe' and original_file_name = 'certmgt.exe') and (command like '%/add%' and command like '%root%'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1553.004"
+  ],
+  "Version": "0.1"
+}

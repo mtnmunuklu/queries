@@ -1,0 +1,15 @@
+{
+  "Description": "Identifies when Rule Collections (Application, NAT, and Network) is being modified or deleted.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "025c9fe7-db72-49f9-af0d-31341dd7dd57",
+  "InsertDate": "2025-01-19T11:33:22Z",
+  "LastUpdateDate": "2025-01-19T11:33:22Z",
+  "Level": "medium",
+  "Name": "Azure Firewall Rule Collection Modified or Deleted",
+  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (operationname = 'microsoft.network/azurefirewalls/applicationrulecollections/write' or operationname = 'microsoft.network/azurefirewalls/applicationrulecollections/delete' or operationname = 'microsoft.network/azurefirewalls/natrulecollections/write' or operationname = 'microsoft.network/azurefirewalls/natrulecollections/delete' or operationname = 'microsoft.network/azurefirewalls/networkrulecollections/write' or operationname = 'microsoft.network/azurefirewalls/networkrulecollections/delete')",
+  "Tags": [
+    "attack.impact",
+    "attack.defense-evasion",
+    "attack.t1562.004"
+  ],
+  "Version": "0.1"
+}

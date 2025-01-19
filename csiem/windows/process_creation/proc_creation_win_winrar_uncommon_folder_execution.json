@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a suspicious winrar execution in a folder which is not the default installation folder\n\nAuthor: Florian Roth (Nextron Systems), Tigzy\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4ede543c-e098-43d9-a28f-dd784a13132f",
+  "InsertDate": "2025-01-19T11:35:54Z",
+  "LastUpdateDate": "2025-01-19T11:35:54Z",
+  "Level": "medium",
+  "Name": "Winrar Execution in Non-Standard Folder",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\rar.exe' or process_path like '%\\winrar.exe') and description = 'command line rar') and  not (process_path like '%\\unrar.exe' or (process_path like '%:\\program files (x86)\\winrar\\%' or process_path like '%:\\program files\\winrar\\%')) and  not process_path like '%:\\windows\\temp\\%')",
+  "Tags": [
+    "attack.collection",
+    "attack.t1560.001"
+  ],
+  "Version": "0.1"
+}

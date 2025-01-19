@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the presence and execution of Inveigh via dropped artefacts\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "bb09dd3e-2b78-4819-8e35-a7c1b874e449",
+  "InsertDate": "2025-01-19T11:34:00Z",
+  "LastUpdateDate": "2025-01-19T11:34:00Z",
+  "Level": "critical",
+  "Name": "HackTool - Inveigh Execution Artefacts",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%\\inveigh-log.txt' or filepath like '%\\inveigh-cleartext.txt' or filepath like '%\\inveigh-ntlmv1users.txt' or filepath like '%\\inveigh-ntlmv2users.txt' or filepath like '%\\inveigh-ntlmv1.txt' or filepath like '%\\inveigh-ntlmv2.txt' or filepath like '%\\inveigh-forminput.txt' or filepath like '%\\inveigh.dll' or filepath like '%\\inveigh.exe' or filepath like '%\\inveigh.ps1' or filepath like '%\\inveigh-relay.ps1')",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1219"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,17 @@
+{
+  "Description": "Detects sign-ins from new countries. The detection considers past activity locations to determine new and infrequent locations.\n\nAuthor: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "adf9f4d2-559e-4f5c-95be-c28dff0b1476",
+  "InsertDate": "2025-01-19T11:33:25Z",
+  "LastUpdateDate": "2025-01-19T11:33:25Z",
+  "Level": "high",
+  "Name": "New Country",
+  "Query": "sourcetype='azure-riskdetection' eql select * from _source_ where riskeventtype = 'newcountry'",
+  "Tags": [
+    "attack.t1078",
+    "attack.persistence",
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.initial-access"
+  ],
+  "Version": "0.1"
+}

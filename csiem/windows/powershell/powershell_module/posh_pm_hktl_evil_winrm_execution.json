@@ -1,0 +1,13 @@
+{
+  "Description": "Detects the execution of Evil-WinRM via PowerShell Module logs by leveraging the hardcoded strings inside the utility.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9fe55ea2-4cd6-4491-8a54-dd6871651b51",
+  "InsertDate": "2025-01-19T11:34:14Z",
+  "LastUpdateDate": "2025-01-19T11:34:14Z",
+  "Level": "high",
+  "Name": "HackTool - Evil-WinRm Execution - PowerShell Module",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((contextinfo like '%:\\windows\\system32\\wsmprovhost.exe%' or contextinfo like '%:\\windows\\syswow64\\wsmprovhost.exe%') and ((payload like '%value=\"(get-location).path%' or payload like '%value=\"(get-item*).length%' or payload like '%invoke-binary %' or payload like '%donut-loader -process_id*-donutfile%' or payload like '%bypass-4msi%' or payload like '%iex ([system.text.encoding]::ascii.getstring([system.convert]::frombase64string($a))).replace('???','')%') or (payload like '%$servicios = get-itemproperty \"registry::hklm\\system\\currentcontrolset\\services\\\"%' and payload like '%where-object {$_.imagepath -notmatch \"system\" -and $_.imagepath -ne $null } | select-object pschildname,imagepath%') or (payload like '%$a +=  \\\"$($_.fullname.replace('\\\\','/'))/\\\"}else{  $a += \\\"$($_.fullname.replace('\\\\', '/'))\\\" }%' and payload like '%$a=@();$%')))",
+  "Tags": [
+    "attack.lateral-movement"
+  ],
+  "Version": "0.1"
+}

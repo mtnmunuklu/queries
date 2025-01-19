@@ -1,0 +1,15 @@
+{
+  "Description": "Detects additions to the Emond Launch Daemon that adversaries may use to gain persistence and elevate privileges.\n\nAuthor: Alejandro Ortuno, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "23c43900-e732-45a4-8354-63e4a6c187ce",
+  "InsertDate": "2025-01-19T11:33:37Z",
+  "LastUpdateDate": "2025-01-19T11:33:37Z",
+  "Level": "medium",
+  "Name": "MacOS Emond Launch Daemon",
+  "Query": "sourcetype like 'macos-%' eql select * from _source_ where ((filepath like '%/etc/emond.d/rules/%' and filepath like '%.plist') or filepath like '%/private/var/db/emondclients/%')",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1546.014"
+  ],
+  "Version": "0.1"
+}

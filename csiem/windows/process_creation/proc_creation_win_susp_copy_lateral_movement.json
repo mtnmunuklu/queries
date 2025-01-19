@@ -1,0 +1,18 @@
+{
+  "Description": "Detects a copy command or a copy utility execution to or from an Admin share or remote\n\nAuthor: Florian Roth (Nextron Systems), oscd.community, Teymur Kheirkhabarov @HeirhabarovT, Zach Stanford @svch0st, Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "855bc8b5-2ae8-402e-a9ed-b889e6df1900",
+  "InsertDate": "2025-01-19T11:35:31Z",
+  "LastUpdateDate": "2025-01-19T11:35:31Z",
+  "Level": "medium",
+  "Name": "Copy From Or To Admin Share Or Sysvol Folder",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%\\\\\\\\*$%' or command like '%\\sysvol\\%') and (((process_path like '%\\robocopy.exe' or process_path like '%\\xcopy.exe') and (original_file_name = 'robocopy.exe' or original_file_name = 'xcopy.exe')) or ((process_path like '%\\cmd.exe' and original_file_name = 'cmd.exe') and command like '%copy%') or (((process_path like '%\\powershell.exe%' or process_path like '%\\pwsh.exe%') and (original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll')) and (command like '%copy-item%' or command like '%copy %' or command like '%cpi %' or command like '% cp %' or command like '%move %' or command like '%move-item%' or command like '% mi %' or command like '% mv %'))))",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.collection",
+    "attack.exfiltration",
+    "attack.t1039",
+    "attack.t1048",
+    "attack.t1021.002"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the pattern of UAC Bypass using ICMLuaUtil Elevated COM interface\n\nAuthor: Florian Roth (Nextron Systems), Elastic (idea)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "49f2f17b-b4c8-4172-a68b-d5bf95d05130",
+  "InsertDate": "2025-01-19T11:35:45Z",
+  "LastUpdateDate": "2025-01-19T11:35:45Z",
+  "Level": "high",
+  "Name": "UAC Bypass via ICMLuaUtil",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_process_path like '%\\dllhost.exe' and (parent_command_line like '%/processid:{3e5fc7f9-9a51-4367-9063-a120244fbec7}%' or parent_command_line like '%/processid:{d2e7041b-2927-42fb-8e9f-7ce93b6dc937}%')) and  not (process_path like '%\\werfault.exe' and original_file_name = 'werfault.exe'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1548.002"
+  ],
+  "Version": "0.1"
+}

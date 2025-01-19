@@ -1,0 +1,15 @@
+{
+  "Description": "Detects commandline arguments for executing a child process via dotnet-trace.exe\n\nAuthor: Jimmy Bayne (@bohops)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9257c05b-4a4a-48e5-a670-b7b073cf401b",
+  "InsertDate": "2025-01-19T11:34:36Z",
+  "LastUpdateDate": "2025-01-19T11:34:36Z",
+  "Level": "medium",
+  "Name": "Binary Proxy Execution Via Dotnet-Trace.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\dotnet-trace.exe' and original_file_name = 'dotnet-trace.dll') and (command like '%-- %' and command like '%collect%'))",
+  "Tags": [
+    "attack.execution",
+    "attack.defense-evasion",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

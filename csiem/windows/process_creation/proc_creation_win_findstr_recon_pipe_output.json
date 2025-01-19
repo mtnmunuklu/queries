@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of a potential recon command where the results are piped to \"findstr\". This is meant to trigger on inline calls of \"cmd.exe\" via the \"/c\" or \"/k\" for example.\nAttackers often time use this technique to extract specific information they require in their reconnaissance phase.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ccb5742c-c248-4982-8c5c-5571b9275ad3",
+  "InsertDate": "2025-01-19T11:34:37Z",
+  "LastUpdateDate": "2025-01-19T11:34:37Z",
+  "Level": "medium",
+  "Name": "Recon Command Output Piped To Findstr.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%ipconfig*|*find%' or command like '%net*|*find%' or command like '%netstat*|*find%' or command like '%ping*|*find%' or command like '%systeminfo*|*find%' or command like '%tasklist*|*find%' or command like '%whoami*|*find%')",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1057"
+  ],
+  "Version": "0.1"
+}

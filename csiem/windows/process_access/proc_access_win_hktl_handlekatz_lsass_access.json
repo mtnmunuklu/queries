@@ -1,0 +1,16 @@
+{
+  "Description": "Detects HandleKatz opening LSASS to duplicate its handle to later dump the memory without opening any new handles\n\nAuthor: Bhabesh Raj (rule), @thefLinkk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b1bd3a59-c1fd-4860-9f40-4dd161a7d1f5",
+  "InsertDate": "2025-01-19T11:34:28Z",
+  "LastUpdateDate": "2025-01-19T11:34:28Z",
+  "Level": "high",
+  "Name": "HackTool - HandleKatz Duplicating LSASS Handle",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where dst_process_path like '%\\lsass.exe' and granted_access = '0x1440' and call_trace like 'c:\\windows\\system32\\ntdll.dll+%' and call_trace like '%|unknown(%' and call_trace like '%)'",
+  "Tags": [
+    "attack.execution",
+    "attack.t1106",
+    "attack.defense-evasion",
+    "attack.t1003.001"
+  ],
+  "Version": "0.1"
+}

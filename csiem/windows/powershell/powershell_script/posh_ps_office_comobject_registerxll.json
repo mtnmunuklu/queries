@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may abuse Microsoft Office add-ins to obtain persistence on a compromised system.\nOffice add-ins can be used to add functionality to Office programs\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "36fbec91-fa1b-4d5d-8df1-8d8edcb632ad",
+  "InsertDate": "2025-01-19T11:34:21Z",
+  "LastUpdateDate": "2025-01-19T11:34:21Z",
+  "Level": "high",
+  "Name": "Code Executed Via Office Add-in XLL File",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%new-object %' and scriptblocktext like '%-comobject %' and scriptblocktext like '%.application%' and scriptblocktext like '%.registerxll%')",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1137.006"
+  ],
+  "Version": "0.1"
+}

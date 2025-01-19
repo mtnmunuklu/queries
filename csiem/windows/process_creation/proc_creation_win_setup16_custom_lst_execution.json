@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of \"Setup16.EXE\" and old installation utility with a custom \".lst\" file.\nThese \".lst\" file can contain references to external program that \"Setup16.EXE\" will execute.\nAttackers and adversaries might leverage this as a living of the land utility.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "99c8be4f-3087-4f9f-9c24-8c7e257b442e",
+  "InsertDate": "2025-01-19T11:35:27Z",
+  "LastUpdateDate": "2025-01-19T11:35:27Z",
+  "Level": "medium",
+  "Name": "Setup16.EXE Execution With Custom .Lst File",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_process_path = 'c:\\windows\\syswow64\\setup16.exe' and parent_command_line like '% -m %') and  not process_path like 'c:\\~mssetup.t\\%')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1574.005"
+  ],
+  "Version": "0.1"
+}

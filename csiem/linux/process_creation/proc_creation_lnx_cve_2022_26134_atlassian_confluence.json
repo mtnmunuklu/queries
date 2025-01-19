@@ -1,0 +1,17 @@
+{
+  "Description": "Detects spawning of suspicious child processes by Atlassian Confluence server which may indicate successful exploitation of CVE-2022-26134\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7fb14105-530e-4e2e-8cfb-99f7d8700b66",
+  "InsertDate": "2025-01-19T11:33:33Z",
+  "LastUpdateDate": "2025-01-19T11:33:33Z",
+  "Level": "high",
+  "Name": "Atlassian Confluence CVE-2022-26134",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where parent_process_path like '/opt/atlassian/confluence/%' and parent_process_path like '%/java' and (command like '%/bin/sh%' or command like '%bash%' or command like '%dash%' or command like '%ksh%' or command like '%zsh%' or command like '%csh%' or command like '%fish%' or command like '%curl%' or command like '%wget%' or command like '%python%')",
+  "Tags": [
+    "attack.initial-access",
+    "attack.execution",
+    "attack.t1190",
+    "attack.t1059",
+    "cve.2022-26134"
+  ],
+  "Version": "0.1"
+}

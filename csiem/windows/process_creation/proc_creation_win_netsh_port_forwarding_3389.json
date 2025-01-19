@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the execution of netsh to configure a port forwarding of port 3389 (RDP) rule\n\nAuthor: Florian Roth (Nextron Systems), oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "782d6f3e-4c5d-4b8c-92a3-1d05fed72e63",
+  "InsertDate": "2025-01-19T11:34:55Z",
+  "LastUpdateDate": "2025-01-19T11:34:55Z",
+  "Level": "high",
+  "Name": "RDP Port Forwarding Rule Added Via Netsh.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\netsh.exe' and original_file_name = 'netsh.exe') and (command like '% i%' and command like '% p%' and command like '%=3389%' and command like '% c%'))",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.defense-evasion",
+    "attack.command-and-control",
+    "attack.t1090"
+  ],
+  "Version": "0.1"
+}

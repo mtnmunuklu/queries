@@ -1,0 +1,16 @@
+{
+  "Description": "Detects a potentially suspicious execution of a parent process located in the \"\\Users\\Public\" folder executing a child process containing references to shell or scripting binaries and commandlines.\n\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "69bd9b97-2be2-41b6-9816-fb08757a4d1a",
+  "InsertDate": "2025-01-19T11:35:33Z",
+  "LastUpdateDate": "2025-01-19T11:35:33Z",
+  "Level": "high",
+  "Name": "Potentially Suspicious Execution From Parent Process In Public Folder",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%:\\users\\public\\%' and ((process_path like '%\\bitsadmin.exe' or process_path like '%\\certutil.exe' or process_path like '%\\cmd.exe' or process_path like '%\\cscript.exe' or process_path like '%\\mshta.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\wscript.exe') and (command like '%bitsadmin%' or command like '%certutil%' or command like '%cscript%' or command like '%mshta%' or command like '%powershell%' or command like '%regsvr32%' or command like '%rundll32%' or command like '%wscript%')))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.t1564",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

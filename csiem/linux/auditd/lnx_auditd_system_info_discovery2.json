@@ -1,0 +1,14 @@
+{
+  "Description": "Detects system information discovery commands\n\nAuthor: Ömer Günal, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1f358e2e-cb63-43c3-b575-dfb072a6814f",
+  "InsertDate": "2025-01-19T11:33:31Z",
+  "LastUpdateDate": "2025-01-19T11:33:31Z",
+  "Level": "informational",
+  "Name": "System and Hardware Information Discovery",
+  "Query": "sourcetype='linux-auditd' eql select * from _source_ where type = 'path' and (process_path = '/sys/class/dmi/id/bios_version' or process_path = '/sys/class/dmi/id/product_name' or process_path = '/sys/class/dmi/id/chassis_vendor' or process_path = '/proc/scsi/scsi' or process_path = '/proc/ide/hd0/model' or process_path = '/proc/version' or process_path = '/etc/*version' or process_path = '/etc/*release' or process_path = '/etc/issue')",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1082"
+  ],
+  "Version": "0.1"
+}

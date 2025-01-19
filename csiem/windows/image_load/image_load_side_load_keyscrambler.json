@@ -1,0 +1,16 @@
+{
+  "Description": "Detects potential DLL side loading of \"KeyScramblerIE.dll\" by \"KeyScrambler.exe\".\nVarious threat actors and malware have been found side loading a masqueraded \"KeyScramblerIE.dll\" through \"KeyScrambler.exe\".\n\n\nAuthor: Swachchhanda Shrawan Poudel\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d2451be2-b582-4e15-8701-4196ac180260",
+  "InsertDate": "2025-01-19T11:34:08Z",
+  "LastUpdateDate": "2025-01-19T11:34:08Z",
+  "Level": "high",
+  "Name": "Potential DLL Sideloading Of KeyScramblerIE.DLL Via KeyScrambler.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\keyscrambler.exe' or process_path like '%\\keyscramblerlogon.exe') and image_loaded like '%\\keyscramblerie.dll') and  not (((process_path like '%c:\\program files (x86)\\keyscrambler\\%' or process_path like '%c:\\program files\\keyscrambler\\%') and (image_loaded like '%c:\\program files (x86)\\keyscrambler\\%' or image_loaded like '%c:\\program files\\keyscrambler\\%')) or (signature = 'qfx software corporation' and signature_status = 'valid')))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

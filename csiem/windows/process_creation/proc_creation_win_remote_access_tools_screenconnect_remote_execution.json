@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of a system command via the ScreenConnect RMM service.\n\nAuthor: Ali Alwashali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b1f73849-6329-4069-bc8f-78a604bb8b23",
+  "InsertDate": "2025-01-19T11:35:14Z",
+  "LastUpdateDate": "2025-01-19T11:35:14Z",
+  "Level": "low",
+  "Name": "Remote Access Tool - ScreenConnect Remote Command Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\screenconnect.clientservice.exe' and (process_path like '%\\cmd.exe' and original_file_name = 'cmd.exe') and command like '%\\temp\\screenconnect\\%')",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.003"
+  ],
+  "Version": "0.1"
+}

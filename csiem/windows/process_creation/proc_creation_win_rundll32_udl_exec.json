@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the execution of rundll32.exe with the oledb32.dll library to open a UDL file.\nThreat actors can abuse this technique as a phishing vector to capture authentication credentials or other sensitive data.\n\n\nAuthor: @kostastsale\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0ea52357-cd59-4340-9981-c46c7e900428",
+  "InsertDate": "2025-01-19T11:35:20Z",
+  "LastUpdateDate": "2025-01-19T11:35:20Z",
+  "Level": "medium",
+  "Name": "Potentially Suspicious Rundll32.EXE Execution of UDL File",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\explorer.exe' and (process_path like '%\\rundll32.exe' and original_file_name = 'rundll32.exe') and ((command like '%oledb32.dll%' and command like '%,opendslfile %' and command like '%\\\\users\\\\*\\\\downloads\\\\%') and command like '%.udl'))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1218.011",
+    "attack.t1071"
+  ],
+  "Version": "0.1"
+}

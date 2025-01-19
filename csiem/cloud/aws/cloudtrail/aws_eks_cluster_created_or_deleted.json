@@ -1,0 +1,14 @@
+{
+  "Description": "Identifies when an EKS cluster is created or deleted.\n\nAuthor: Austin Songer\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "33d50d03-20ec-4b74-a74e-1e65a38af1c0",
+  "InsertDate": "2025-01-19T11:33:21Z",
+  "LastUpdateDate": "2025-01-19T11:33:21Z",
+  "Level": "low",
+  "Name": "AWS EKS Cluster Created or Deleted",
+  "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where eventsource = 'eks.amazonaws.com' and (eventname = 'createcluster' or eventname = 'deletecluster')",
+  "Tags": [
+    "attack.impact",
+    "attack.t1485"
+  ],
+  "Version": "0.1"
+}

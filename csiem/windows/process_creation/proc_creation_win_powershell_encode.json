@@ -1,0 +1,14 @@
+{
+  "Description": "Commandline to launch powershell with a base64 payload\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fb843269-508c-4b76-8b8d-88679db22ce7",
+  "InsertDate": "2025-01-19T11:35:01Z",
+  "LastUpdateDate": "2025-01-19T11:35:01Z",
+  "Level": "medium",
+  "Name": "Suspicious Execution of Powershell with Base64",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (command like '% -e %' or command like '% -en %' or command like '% -enc %' or command like '% -enco%' or command like '% -ec %')) and  not (command like '% -encoding %' or (parent_process_path like '%c:\\packages\\plugins\\microsoft.guestconfiguration.configurationforwindows\\%' or parent_process_path like '%\\gc_worker.exe%')))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

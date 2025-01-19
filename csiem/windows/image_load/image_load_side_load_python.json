@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential DLL sideloading of Python DLL files.\n\nAuthor: Swachchhanda Shrawan Poudel\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d36f7c12-14a3-4d48-b6b8-774b9c66f44d",
+  "InsertDate": "2025-01-19T11:34:09Z",
+  "LastUpdateDate": "2025-01-19T11:34:09Z",
+  "Level": "medium",
+  "Name": "Potential Python DLL SideLoading",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((image_loaded like '%\\python39.dll' or image_loaded like '%\\python310.dll' or image_loaded like '%\\python311.dll' or image_loaded like '%\\python312.dll') and  not ((product = 'python' and signed = 'true' and description = 'python' and company = 'python software foundation') or ((image_loaded like 'c:\\program files\\python3%' or image_loaded like 'c:\\program files (x86)\\python3%') and image_loaded like '%\\appdata\\local\\programs\\python\\python3%')) and  not (image_loaded like 'c:\\program files\\microsoft visual studio\\%' or (image_loaded like '%\\cpython\\externals\\%' or image_loaded like '%\\cpython\\pcbuild\\%')))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

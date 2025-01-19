@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the image load of VSS DLL by uncommon executables\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "37774c23-25a1-4adb-bb6d-8bb9fd59c0f8",
+  "InsertDate": "2025-01-19T11:34:07Z",
+  "LastUpdateDate": "2025-01-19T11:34:07Z",
+  "Level": "high",
+  "Name": "Suspicious Volume Shadow Copy Vssapi.dll Load",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (image_loaded like '%\\vssapi.dll' and  not (((process_path = 'c:\\windows\\explorer.exe' or process_path = 'c:\\windows\\immersivecontrolpanel\\systemsettings.exe') and (process_path like 'c:\\windows\\system32\\%' or process_path like 'c:\\windows\\syswow64\\%' or process_path like 'c:\\windows\\temp\\{%' or process_path like 'c:\\windows\\winsxs\\%')) or (process_path like 'c:\\program files\\%' or process_path like 'c:\\program files (x86)\\%') or process_path like 'c:\\programdata\\package cache\\%'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.impact",
+    "attack.t1490"
+  ],
+  "Version": "0.1"
+}

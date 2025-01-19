@@ -1,0 +1,14 @@
+{
+  "Description": "Detects usage of the \"TcpClient\" class. Which can be abused to establish remote connections and reverse-shells. As seen used by the Nishang \"Invoke-PowerShellTcpOneLine\" reverse shell and other.\n\nAuthor: FPT.EagleEye, wagga, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "edc2f8ae-2412-4dfd-b9d5-0c57727e70be",
+  "InsertDate": "2025-01-19T11:35:03Z",
+  "LastUpdateDate": "2025-01-19T11:35:03Z",
+  "Level": "high",
+  "Name": "Potential Powershell ReverseShell Connection",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll') and (process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe')) and (command like '% net.sockets.tcpclient%' and command like '%.getstream(%' and command like '%.write(%'))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

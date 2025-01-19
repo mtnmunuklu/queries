@@ -1,0 +1,14 @@
+{
+  "Description": "Detects usage of known powershell cmdlets such as \"Clear-EventLog\" to clear the Windows event logs\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0f017df3-8f5a-414f-ad6b-24aff1128278",
+  "InsertDate": "2025-01-19T11:34:23Z",
+  "LastUpdateDate": "2025-01-19T11:34:23Z",
+  "Level": "medium",
+  "Name": "Suspicious Eventlog Clear",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%clear-eventlog %' or scriptblocktext like '%remove-eventlog %' or scriptblocktext like '%limit-eventlog %' or scriptblocktext like '%clear-winevent %')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1070.001"
+  ],
+  "Version": "0.1"
+}

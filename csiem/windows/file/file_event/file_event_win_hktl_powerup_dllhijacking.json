@@ -1,0 +1,16 @@
+{
+  "Description": "Powerup tool's Write Hijack DLL exploits DLL hijacking for privilege escalation.\nIn it's default mode, it builds a self deleting .bat file which executes malicious command.\nThe detection rule relies on creation of the malicious bat file (debug.bat by default).\n\n\nAuthor: Subhash Popuri (@pbssubhash)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "602a1f13-c640-4d73-b053-be9a2fa58b96",
+  "InsertDate": "2025-01-19T11:34:00Z",
+  "LastUpdateDate": "2025-01-19T11:34:00Z",
+  "Level": "high",
+  "Name": "HackTool - Powerup Write Hijack DLL",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and filepath like '%.bat'",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.defense-evasion",
+    "attack.t1574.001"
+  ],
+  "Version": "0.1"
+}

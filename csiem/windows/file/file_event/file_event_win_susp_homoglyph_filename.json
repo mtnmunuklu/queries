@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the presence of unicode characters which are homoglyphs, or identical in appearance, to ASCII letter characters.\nThis is used as an obfuscation and masquerading techniques. Only \"perfect\" homoglyphs are included; these are characters that\nare indistinguishable from ASCII characters and thus may make excellent candidates for homoglyph attack characters.\n\n\nAuthor: Micah Babinski, @micahbabinski\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4f1707b1-b50b-45b4-b5a2-3978b5a5d0d6",
+  "InsertDate": "2025-01-19T11:34:04Z",
+  "LastUpdateDate": "2025-01-19T11:34:04Z",
+  "Level": "medium",
+  "Name": "Potential Homoglyph Attack Using Lookalike Characters in Filename",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((filepath like '%а%' or filepath like '%в%' or filepath like '%е%' or filepath like '%к%' or filepath like '%м%' or filepath like '%н%' or filepath like '%о%' or filepath like '%р%' or filepath like '%с%' or filepath like '%т%' or filepath like '%х%' or filepath like '%ѕ%' or filepath like '%і%' or filepath like '%ј%' or filepath like '%ү%' or filepath like '%ӏ%' or filepath like '%ԍ%' or filepath like '%ԛ%' or filepath like '%ԝ%' or filepath like '%α%' or filepath like '%β%' or filepath like '%ε%' or filepath like '%ζ%' or filepath like '%η%' or filepath like '%ι%' or filepath like '%κ%' or filepath like '%μ%' or filepath like '%ν%' or filepath like '%ο%' or filepath like '%ρ%' or filepath like '%τ%' or filepath like '%υ%' or filepath like '%χ%') or (filepath like '%а%' or filepath like '%е%' or filepath like '%о%' or filepath like '%р%' or filepath like '%с%' or filepath like '%х%' or filepath like '%ѕ%' or filepath like '%і%' or filepath like '%ӏ%' or filepath like '%ј%' or filepath like '%һ%' or filepath like '%ԁ%' or filepath like '%ԛ%' or filepath like '%ԝ%' or filepath like '%ο%'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1036",
+    "attack.t1036.003"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects a BITS transfer job downloading file(s) from a direct IP address.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "90f138c1-f578-4ac3-8c49-eecfd847c8b7",
+  "InsertDate": "2025-01-19T11:33:43Z",
+  "LastUpdateDate": "2025-01-19T11:33:43Z",
+  "Level": "high",
+  "Name": "BITS Transfer Job Download From Direct IP",
+  "Query": "sourcetype='windows-bits-client' eql select * from _source_ where ((eventid = '16403' and (remotename like '%http://1%' or remotename like '%http://2%' or remotename like '%http://3%' or remotename like '%http://4%' or remotename like '%http://5%' or remotename like '%http://6%' or remotename like '%http://7%' or remotename like '%http://8%' or remotename like '%http://9%' or remotename like '%https://1%' or remotename like '%https://2%' or remotename like '%https://3%' or remotename like '%https://4%' or remotename like '%https://5%' or remotename like '%https://6%' or remotename like '%https://7%' or remotename like '%https://8%' or remotename like '%https://9%')) and  not ((remotename like '%://10.%' or remotename like '%://192.168.%' or remotename like '%://172.16.%' or remotename like '%://172.17.%' or remotename like '%://172.18.%' or remotename like '%://172.19.%' or remotename like '%://172.20.%' or remotename like '%://172.21.%' or remotename like '%://172.22.%' or remotename like '%://172.23.%' or remotename like '%://172.24.%' or remotename like '%://172.25.%' or remotename like '%://172.26.%' or remotename like '%://172.27.%' or remotename like '%://172.28.%' or remotename like '%://172.29.%' or remotename like '%://172.30.%' or remotename like '%://172.31.%' or remotename like '%://127.%' or remotename like '%://169.254.%') or (remotename like '%https://7-%' or remotename like '%http://7-%')))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.t1197"
+  ],
+  "Version": "0.1"
+}

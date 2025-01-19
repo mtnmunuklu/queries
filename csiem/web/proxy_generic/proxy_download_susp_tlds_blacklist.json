@@ -1,0 +1,17 @@
+{
+  "Description": "Detects download of certain file types from hosts in suspicious TLDs\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "00d0b5ab-1f55-4120-8e83-487c0a7baf19",
+  "InsertDate": "2025-01-19T11:33:41Z",
+  "LastUpdateDate": "2025-01-19T11:33:41Z",
+  "Level": "low",
+  "Name": "Download From Suspicious TLD - Blacklist",
+  "Query": "eql select * from _source_ where (c-uri-extension = 'exe' or c-uri-extension = 'vbs' or c-uri-extension = 'bat' or c-uri-extension = 'rar' or c-uri-extension = 'ps1' or c-uri-extension = 'doc' or c-uri-extension = 'docm' or c-uri-extension = 'xls' or c-uri-extension = 'xlsm' or c-uri-extension = 'pptm' or c-uri-extension = 'rtf' or c-uri-extension = 'hta' or c-uri-extension = 'dll' or c-uri-extension = 'ws' or c-uri-extension = 'wsf' or c-uri-extension = 'sct' or c-uri-extension = 'zip') and (cs-host like '%.country' or cs-host like '%.stream' or cs-host like '%.gdn' or cs-host like '%.mom' or cs-host like '%.xin' or cs-host like '%.kim' or cs-host like '%.men' or cs-host like '%.loan' or cs-host like '%.download' or cs-host like '%.racing' or cs-host like '%.online' or cs-host like '%.science' or cs-host like '%.ren' or cs-host like '%.gb' or cs-host like '%.win' or cs-host like '%.top' or cs-host like '%.review' or cs-host like '%.vip' or cs-host like '%.party' or cs-host like '%.tech' or cs-host like '%.xyz' or cs-host like '%.date' or cs-host like '%.faith' or cs-host like '%.zip' or cs-host like '%.cricket' or cs-host like '%.space' or cs-host like '%.info' or cs-host like '%.vn' or cs-host like '%.cm' or cs-host like '%.am' or cs-host like '%.cc' or cs-host like '%.asia' or cs-host like '%.ws' or cs-host like '%.tk' or cs-host like '%.biz' or cs-host like '%.su' or cs-host like '%.st' or cs-host like '%.ro' or cs-host like '%.ge' or cs-host like '%.ms' or cs-host like '%.pk' or cs-host like '%.nu' or cs-host like '%.me' or cs-host like '%.ph' or cs-host like '%.to' or cs-host like '%.tt' or cs-host like '%.name' or cs-host like '%.tv' or cs-host like '%.kz' or cs-host like '%.tc' or cs-host like '%.mobi' or cs-host like '%.study' or cs-host like '%.click' or cs-host like '%.link' or cs-host like '%.trade' or cs-host like '%.accountant' or cs-host like '%.cf' or cs-host like '%.gq' or cs-host like '%.ml' or cs-host like '%.ga' or cs-host like '%.pw')",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1566",
+    "attack.execution",
+    "attack.t1203",
+    "attack.t1204.002"
+  ],
+  "Version": "0.1"
+}

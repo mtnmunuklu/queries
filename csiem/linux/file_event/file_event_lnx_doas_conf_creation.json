@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the creation of doas.conf file in linux host platform.\n\nAuthor: Sittikorn S, Teoderick Contreras\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "00eee2a5-fdb0-4746-a21d-e43fbdea5681",
+  "InsertDate": "2025-01-19T11:33:32Z",
+  "LastUpdateDate": "2025-01-19T11:33:32Z",
+  "Level": "medium",
+  "Name": "Linux Doas Conf File Creation",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where filepath like '%/etc/doas.conf'",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.t1548"
+  ],
+  "Version": "0.1"
+}

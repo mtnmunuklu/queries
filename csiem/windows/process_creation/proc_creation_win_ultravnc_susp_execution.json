@@ -1,0 +1,15 @@
+{
+  "Description": "Detects suspicious UltraVNC command line flag combination that indicate a auto reconnect upon execution, e.g. startup (as seen being used by Gamaredon threat group)\n\nAuthor: Bhabesh Raj\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "871b9555-69ca-4993-99d3-35a59f9f3599",
+  "InsertDate": "2025-01-19T11:35:47Z",
+  "LastUpdateDate": "2025-01-19T11:35:47Z",
+  "Level": "high",
+  "Name": "Suspicious UltraVNC Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%-autoreconnect %' and command like '%-connect %' and command like '%-id:%')",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.g0047",
+    "attack.t1021.005"
+  ],
+  "Version": "0.1"
+}

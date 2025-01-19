@@ -1,0 +1,14 @@
+{
+  "Description": "Detects Windows executables that write files with suspicious extensions\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b8fd0e93-ff58-4cbd-8f48-1c114e342e62",
+  "InsertDate": "2025-01-19T11:34:03Z",
+  "LastUpdateDate": "2025-01-19T11:34:03Z",
+  "Level": "high",
+  "Name": "Windows Binaries Write Suspicious Extensions",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((((process_path like '%\\csrss.exe' or process_path like '%\\lsass.exe' or process_path like '%\\runtimebroker.exe' or process_path like '%\\sihost.exe' or process_path like '%\\smss.exe' or process_path like '%\\wininit.exe' or process_path like '%\\winlogon.exe') and (filepath like '%.bat' or filepath like '%.dll' or filepath like '%.exe' or filepath like '%.hta' or filepath like '%.iso' or filepath like '%.ps1' or filepath like '%.txt' or filepath like '%.vbe' or filepath like '%.vbs')) or ((process_path like '%\\dllhost.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\svchost.exe') and (filepath like '%.bat' or filepath like '%.hta' or filepath like '%.iso' or filepath like '%.ps1' or filepath like '%.vbe' or filepath like '%.vbs'))) and  not ((process_path = 'c:\\windows\\system32\\dllhost.exe' and (filepath like '%:\\users\\%' and filepath like '%\\appdata\\local\\temp\\__psscriptpolicytest_%') and filepath like '%.ps1') or (process_path = 'c:\\windows\\system32\\svchost.exe' and (filepath like '%c:\\windows\\system32\\grouppolicy\\datastore\\%' and filepath like '%\\sysvol\\%' and filepath like '%\\policies\\%' and filepath like '%\\machine\\scripts\\startup\\%') and (filepath like '%.ps1' or filepath like '%.bat'))))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1036"
+  ],
+  "Version": "0.1"
+}

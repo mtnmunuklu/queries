@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious parent process for cmd.exe\n\nAuthor: Tim Rauch, Elastic (idea)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4b991083-3d0e-44ce-8fc4-b254025d8d4b",
+  "InsertDate": "2025-01-19T11:34:34Z",
+  "LastUpdateDate": "2025-01-19T11:34:34Z",
+  "Level": "medium",
+  "Name": "Unusual Parent Process For Cmd.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\cmd.exe' and (parent_process_path like '%\\csrss.exe' or parent_process_path like '%\\ctfmon.exe' or parent_process_path like '%\\dllhost.exe' or parent_process_path like '%\\epad.exe' or parent_process_path like '%\\flashplayerupdateservice.exe' or parent_process_path like '%\\googleupdate.exe' or parent_process_path like '%\\jucheck.exe' or parent_process_path like '%\\jusched.exe' or parent_process_path like '%\\logonui.exe' or parent_process_path like '%\\lsass.exe' or parent_process_path like '%\\regsvr32.exe' or parent_process_path like '%\\searchindexer.exe' or parent_process_path like '%\\searchprotocolhost.exe' or parent_process_path like '%\\sihclient.exe' or parent_process_path like '%\\sihost.exe' or parent_process_path like '%\\slui.exe' or parent_process_path like '%\\spoolsv.exe' or parent_process_path like '%\\sppsvc.exe' or parent_process_path like '%\\taskhostw.exe' or parent_process_path like '%\\unsecapp.exe' or parent_process_path like '%\\werfault.exe' or parent_process_path like '%\\wermgr.exe' or parent_process_path like '%\\wlanext.exe' or parent_process_path like '%\\wudfhost.exe')",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

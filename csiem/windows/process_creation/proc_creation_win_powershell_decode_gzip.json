@@ -1,0 +1,14 @@
+{
+  "Description": "Detects attempts of decoding encoded Gzip archives via PowerShell.\n\nAuthor: Hieu Tran\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "98767d61-b2e8-4d71-b661-e36783ee24c1",
+  "InsertDate": "2025-01-19T11:34:59Z",
+  "LastUpdateDate": "2025-01-19T11:34:59Z",
+  "Level": "medium",
+  "Name": "Gzip Archive Decode Via PowerShell",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%gzipstream%' and command like '%::decompress%')",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1132.001"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential DLL sideloading of \"MpSvc.dll\".\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Wietze Beukema\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5ba243e5-8165-4cf7-8c69-e1d3669654c1",
+  "InsertDate": "2025-01-19T11:34:09Z",
+  "LastUpdateDate": "2025-01-19T11:34:09Z",
+  "Level": "medium",
+  "Name": "Potential DLL Sideloading Of MpSvc.DLL",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (image_loaded like '%\\mpsvc.dll' and  not (image_loaded like 'c:\\program files\\windows defender\\%' or image_loaded like 'c:\\programdata\\microsoft\\windows defender\\platform\\%' or image_loaded like 'c:\\windows\\winsxs\\%'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

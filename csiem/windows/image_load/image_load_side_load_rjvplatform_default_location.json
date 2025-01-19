@@ -1,0 +1,16 @@
+{
+  "Description": "Detects loading of \"RjvPlatform.dll\" by the \"SystemResetPlatform.exe\" binary which can be abused as a method of DLL side loading since the \"$SysReset\" directory isn't created by default.\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "259dda31-b7a3-444f-b7d8-17f96e8a7d0d",
+  "InsertDate": "2025-01-19T11:34:09Z",
+  "LastUpdateDate": "2025-01-19T11:34:09Z",
+  "Level": "medium",
+  "Name": "Potential RjvPlatform.DLL Sideloading From Default Location",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path = 'c:\\windows\\system32\\systemresetplatform\\systemresetplatform.exe' and image_loaded = 'c:\\$sysreset\\framework\\stack\\rjvplatform.dll'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

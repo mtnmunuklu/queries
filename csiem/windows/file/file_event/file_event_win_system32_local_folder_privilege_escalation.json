@@ -1,0 +1,15 @@
+{
+  "Description": "Detects potential privilege escalation attempt via the creation of the \"*.Exe.Local\" folder inside the \"System32\" directory in order to sideload \"comctl32.dll\"\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Subhash P (@pbssubhash)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "07a99744-56ac-40d2-97b7-2095967b0e03",
+  "InsertDate": "2025-01-19T11:34:05Z",
+  "LastUpdateDate": "2025-01-19T11:34:05Z",
+  "Level": "high",
+  "Name": "Potential Privilege Escalation Attempt Via .Exe.Local Technique",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like 'c:\\windows\\system32\\logonui.exe.local%' or filepath like 'c:\\windows\\system32\\werfault.exe.local%' or filepath like 'c:\\windows\\system32\\consent.exe.local%' or filepath like 'c:\\windows\\system32\\narrator.exe.local%' or filepath like 'c:\\windows\\system32\\wermgr.exe.local%') and filepath like '%\\comctl32.dll'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.privilege-escalation"
+  ],
+  "Version": "0.1"
+}

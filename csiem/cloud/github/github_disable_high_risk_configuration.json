@@ -1,0 +1,16 @@
+{
+  "Description": "Detects when a user disables a critical security feature for an organization.\n\nAuthor: Muhammad Faisal (@faisalusuf)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8622c92d-c00e-463c-b09d-fd06166f6794",
+  "InsertDate": "2025-01-19T11:33:27Z",
+  "LastUpdateDate": "2025-01-19T11:33:27Z",
+  "Level": "high",
+  "Name": "Github High Risk Configuration Disabled",
+  "Query": "sourcetype='github-audit' eql select * from _source_ where (action = 'business_advanced_security.disabled_for_new_repos' or action = 'business_advanced_security.disabled_for_new_user_namespace_repos' or action = 'business_advanced_security.disabled' or action = 'business_advanced_security.user_namespace_repos_disabled' or action = 'org.advanced_security_disabled_for_new_repos' or action = 'org.advanced_security_disabled_on_all_repos' or action = 'org.advanced_security_policy_selected_member_disabled' or action = 'org.disable_oauth_app_restrictions' or action = 'org.disable_two_factor_requirement' or action = 'repo.advanced_security_disabled')",
+  "Tags": [
+    "attack.credential-access",
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.t1556"
+  ],
+  "Version": "0.1"
+}

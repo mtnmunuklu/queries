@@ -1,0 +1,16 @@
+{
+  "Description": "Detects Bitbucket global SSH access configuration changes.\n\nAuthor: Muhammad Faisal (@faisalusuf)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "16ab6143-510a-44e2-a615-bdb80b8317fc",
+  "InsertDate": "2025-01-19T11:33:26Z",
+  "LastUpdateDate": "2025-01-19T11:33:26Z",
+  "Level": "medium",
+  "Name": "Bitbucket Global SSH Settings Changed",
+  "Query": "sourcetype='bitbucket-audit' eql select * from _source_ where audittype.category = 'global administration' and audittype.action = 'ssh settings changed'",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.defense-evasion",
+    "attack.t1562.001",
+    "attack.t1021.004"
+  ],
+  "Version": "0.1"
+}

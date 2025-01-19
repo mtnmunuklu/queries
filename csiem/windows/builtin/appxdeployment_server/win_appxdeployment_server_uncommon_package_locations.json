@@ -1,0 +1,13 @@
+{
+  "Description": "Detects an appx package added the pipeline of the \"to be processed\" packages which is located in uncommon locations\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c977cb50-3dff-4a9f-b873-9290f56132f1",
+  "InsertDate": "2025-01-19T11:33:43Z",
+  "LastUpdateDate": "2025-01-19T11:33:43Z",
+  "Level": "medium",
+  "Name": "Uncommon AppX Package Locations",
+  "Query": "sourcetype='windows-appxdeployment-server' eql select * from _source_ where (eventid = '854' and  not ((path like '%c:\\program files\\windowsapps\\%' or path like '%c:\\program files (x86)\\%' or path like '%c:\\windows\\systemapps\\%' or path like '%c:\\windows\\printdialog\\%' or path like '%c:\\windows\\immersivecontrolpanel\\%' or path like '%x-windowsupdate://%' or path like '%file:///c:/program%20files%') or (path like '%https://statics.teams.cdn.live.net/%' or path like '%https://statics.teams.cdn.office.net/%' or path like '%microsoft.com%' or path like '%https://installer.teams.static.microsoft/%')))",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

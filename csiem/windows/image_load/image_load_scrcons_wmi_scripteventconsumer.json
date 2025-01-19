@@ -1,0 +1,16 @@
+{
+  "Description": "Detects signs of the WMI script host process \"scrcons.exe\" loading scripting DLLs which could indicates WMI ActiveScriptEventConsumers EventConsumers activity.\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b439f47d-ef52-4b29-9a2f-57d8a96cb6b8",
+  "InsertDate": "2025-01-19T11:34:07Z",
+  "LastUpdateDate": "2025-01-19T11:34:07Z",
+  "Level": "medium",
+  "Name": "WMI ActiveScriptEventConsumers Activity Via Scrcons.EXE DLL Load",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\scrcons.exe' and (image_loaded like '%\\vbscript.dll' or image_loaded like '%\\wbemdisp.dll' or image_loaded like '%\\wshom.ocx' or image_loaded like '%\\scrrun.dll')",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.privilege-escalation",
+    "attack.persistence",
+    "attack.t1546.003"
+  ],
+  "Version": "0.1"
+}

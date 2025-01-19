@@ -1,0 +1,15 @@
+{
+  "Description": "Detects a potentially suspicious empty user agent strings in proxy log.\nCould potentially indicate an uncommon request method.\n\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "21e44d78-95e7-421b-a464-ffd8395659c4",
+  "InsertDate": "2025-01-19T11:33:41Z",
+  "LastUpdateDate": "2025-01-19T11:33:41Z",
+  "Level": "medium",
+  "Name": "HTTP Request With Empty User Agent",
+  "Query": "eql select * from _source_ where c-useragent = ''",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.command-and-control",
+    "attack.t1071.001"
+  ],
+  "Version": "0.1"
+}

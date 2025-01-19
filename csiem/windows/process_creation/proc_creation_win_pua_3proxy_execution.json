@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of 3proxy, a tiny free proxy server\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f38a82d2-fba3-4781-b549-525efbec8506",
+  "InsertDate": "2025-01-19T11:35:06Z",
+  "LastUpdateDate": "2025-01-19T11:35:06Z",
+  "Level": "high",
+  "Name": "PUA - 3Proxy Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\3proxy.exe' or description = '3proxy - tiny proxy server' or command like '%.exe -i127.0.0.1 -p%')",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1572"
+  ],
+  "Version": "0.1"
+}

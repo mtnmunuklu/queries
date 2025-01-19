@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of the spoolss named pipe over SMB. This can be used to trigger the authentication via NTLM of any machine that has the spoolservice enabled.\n\nAuthor: OTR (Open Threat Research), @neu5ron\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "bae2865c-5565-470d-b505-9496c87d0c30",
+  "InsertDate": "2025-01-19T11:33:40Z",
+  "LastUpdateDate": "2025-01-19T11:33:40Z",
+  "Level": "medium",
+  "Name": "SMB Spoolss Name Piped Usage",
+  "Query": "sourcetype='zeek-smb_files' eql select * from _source_ where path like '%ipc$' and process_path = 'spoolss'",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.t1021.002"
+  ],
+  "Version": "0.1"
+}

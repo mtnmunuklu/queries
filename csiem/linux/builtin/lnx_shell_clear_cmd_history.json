@@ -1,0 +1,14 @@
+{
+  "Description": "Detects commands that try to clear or tamper with the Linux command history.\nThis technique is used by threat actors in order to evade defenses and execute commands without them being recorded in files such as \"bash_history\" or \"zsh_history\".\n\n\nAuthor: Patrick Bareiss\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fdc88d25-96fb-4b7c-9633-c0e417fdbd4e",
+  "InsertDate": "2025-01-19T11:33:32Z",
+  "LastUpdateDate": "2025-01-19T11:33:32Z",
+  "Level": "high",
+  "Name": "Linux Command History Tampering",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where (log like '%cat /dev/null \u003e*sh_history%' or log like '%cat /dev/zero \u003e*sh_history%' or log like '%chattr +i*sh_history%' or log like '%echo \"\" \u003e*sh_history%' or log like '%empty_bash_history%' or log like '%export histfilesize=0%' or log like '%history -c%' or log like '%history -w%' or log like '%ln -sf /dev/null *sh_history%' or log like '%ln -sf /dev/zero *sh_history%' or log like '%rm *sh_history%' or log like '%shopt -ou history%' or log like '%shopt -uo history%' or log like '%shred *sh_history%' or log like '%truncate -s0 *sh_history%')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1070.003"
+  ],
+  "Version": "0.1"
+}

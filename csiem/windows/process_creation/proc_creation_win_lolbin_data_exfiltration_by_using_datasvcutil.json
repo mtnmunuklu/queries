@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when a user performs data exfiltration by using DataSvcUtil.exe\n\nAuthor: Ialle Teixeira @teixeira0xfffff, Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e290b10b-1023-4452-a4a9-eb31a9013b3a",
+  "InsertDate": "2025-01-19T11:34:47Z",
+  "LastUpdateDate": "2025-01-19T11:34:47Z",
+  "Level": "medium",
+  "Name": "LOLBAS Data Exfiltration by DataSvcUtil.exe",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%/in:%' or command like '%/out:%' or command like '%/uri:%') and (process_path like '%\\datasvcutil.exe' and original_file_name = 'datasvcutil.exe'))",
+  "Tags": [
+    "attack.exfiltration",
+    "attack.t1567"
+  ],
+  "Version": "0.1"
+}

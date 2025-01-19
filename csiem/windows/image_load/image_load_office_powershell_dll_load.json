@@ -1,0 +1,13 @@
+{
+  "Description": "Detects PowerShell core DLL being loaded by an Office Product\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "bb2ba6fb-95d4-4a25-89fc-30bb736c021a",
+  "InsertDate": "2025-01-19T11:34:07Z",
+  "LastUpdateDate": "2025-01-19T11:34:07Z",
+  "Level": "medium",
+  "Name": "PowerShell Core DLL Loaded Via Office Application",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\excel.exe' or process_path like '%\\mspub.exe' or process_path like '%\\outlook.exe' or process_path like '%\\onenote.exe' or process_path like '%\\onenoteim.exe' or process_path like '%\\powerpnt.exe' or process_path like '%\\winword.exe') and (image_loaded like '%\\system.management.automation.dll%' or image_loaded like '%\\system.management.automation.ni.dll%')",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

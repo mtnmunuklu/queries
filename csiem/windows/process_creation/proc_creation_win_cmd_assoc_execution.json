@@ -1,0 +1,14 @@
+{
+  "Description": "Detects file association changes using the builtin \"assoc\" command.\nWhen a file is opened, the default program used to open the file (also called the file association or handler) is checked. File association selections are stored in the Windows Registry and can be edited by users, administrators, or programs that have Registry access or by administrators using the built-in assoc utility. Applications can modify the file association for a given file extension to call an arbitrary program when a file with the given extension is opened.\n\n\nAuthor: Timur Zinniatullin, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3d3aa6cd-6272-44d6-8afc-7e88dfef7061",
+  "InsertDate": "2025-01-19T11:34:32Z",
+  "LastUpdateDate": "2025-01-19T11:34:32Z",
+  "Level": "low",
+  "Name": "Change Default File Association Via Assoc",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\cmd.exe' and original_file_name = 'cmd.exe') and command like '%assoc%')",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1546.001"
+  ],
+  "Version": "0.1"
+}

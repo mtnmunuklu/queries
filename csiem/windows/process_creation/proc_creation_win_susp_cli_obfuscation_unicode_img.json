@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential commandline obfuscation using unicode characters.\nAdversaries may attempt to make an executable or file difficult to discover or analyze by encrypting, encoding, or otherwise obfuscating its contents on the system or in transit.\n\n\nAuthor: frack113, Florian Roth (Nextron Systems), Josh Nickels\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "584bca0f-3608-4402-80fd-4075ff6072e3",
+  "InsertDate": "2025-01-19T11:35:31Z",
+  "LastUpdateDate": "2025-01-19T11:35:31Z",
+  "Level": "high",
+  "Name": "Potential CommandLine Obfuscation Using Unicode Characters From Suspicious Image",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\cmd.exe' or process_path like '%\\cscript.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\wscript.exe') and (original_file_name = 'cmd.exe' or original_file_name = 'cscript.exe' or original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll' or original_file_name = 'wscript.exe')) and (command like '%ˣ%' or command like '%˪%' or command like '%ˢ%' or command like '%∕%' or command like '%⁄%' or command like '%―%' or command like '%—%' or command like '% %' or command like '%¯%' or command like '%®%' or command like '%¶%'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1027"
+  ],
+  "Version": "0.1"
+}

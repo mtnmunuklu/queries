@@ -1,0 +1,17 @@
+{
+  "Description": "Detects svchost hosting RDP termsvcs communicating to target systems on TCP port 80 or 443\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b1e5da3b-ca8e-4adf-915c-9921f3d85481",
+  "InsertDate": "2025-01-19T11:34:12Z",
+  "LastUpdateDate": "2025-01-19T11:34:12Z",
+  "Level": "high",
+  "Name": "RDP to HTTP or HTTPS Target Ports",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\svchost.exe' and initiated = 'true' and src_port = '3389' and (dst_port = '80' or dst_port = '443')",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1572",
+    "attack.lateral-movement",
+    "attack.t1021.001",
+    "car.2013-07-002"
+  ],
+  "Version": "0.1"
+}

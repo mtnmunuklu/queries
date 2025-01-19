@@ -1,0 +1,11 @@
+{
+  "Description": "Host Without Firewall. Alert means not complied. Sigma for Qualys vulnerability scanner. Scan type - Vulnerability Management.\n\nAuthor: Alexandr Yampolskyi, SOC Prime\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6b2066c8-3dc7-4db7-9db0-6cc1d7b0dde9",
+  "InsertDate": "2025-01-19T11:33:29Z",
+  "LastUpdateDate": "2025-01-19T11:33:29Z",
+  "Level": "low",
+  "Name": "Host Without Firewall",
+  "Query": "sourcetype like 'qualys-%' eql select * from _source_ where event.category = 'security policy' and host.scan.vuln_name like '%firewall product not detected%'",
+  "Tags": null,
+  "Version": "0.1"
+}

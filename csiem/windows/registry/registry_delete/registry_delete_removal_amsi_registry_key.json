@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the deletion of AMSI provider registry key entries in HKLM\\Software\\Microsoft\\AMSI. This technique could be used by an attacker in order to disable AMSI inspection.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "41d1058a-aea7-4952-9293-29eaaf516465",
+  "InsertDate": "2025-01-19T11:36:00Z",
+  "LastUpdateDate": "2025-01-19T11:36:00Z",
+  "Level": "high",
+  "Name": "Removal Of AMSI Provider Registry Keys",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where event_type = 'deletekey' and (target_object like '%{2781761e-28e0-4109-99fe-b9d127c57afe}' or target_object like '%{a7c452ef-8e9f-42eb-9f2b-245613ca0dc9}')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

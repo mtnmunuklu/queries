@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a Windows command line executable started from MMC\n\nAuthor: Karneades, Swisscom CSIRT\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "05a2ab7e-ce11-4b63-86db-ab32e763e11d",
+  "InsertDate": "2025-01-19T11:34:50Z",
+  "LastUpdateDate": "2025-01-19T11:34:50Z",
+  "Level": "high",
+  "Name": "MMC Spawning Windows Shell",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\cmd.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\wscript.exe' or process_path like '%\\cscript.exe' or process_path like '%\\sh.exe' or process_path like '%\\bash.exe' or process_path like '%\\reg.exe' or process_path like '%\\regsvr32.exe') and process_path like '%\\bitsadmin%') and parent_process_path like '%\\mmc.exe')",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.t1021.003"
+  ],
+  "Version": "0.1"
+}

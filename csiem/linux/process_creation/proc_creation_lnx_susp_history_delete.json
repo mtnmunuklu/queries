@@ -1,0 +1,14 @@
+{
+  "Description": "Detects events in which a history file gets deleted, e.g. the ~/bash_history to remove traces of malicious activity\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1182f3b3-e716-4efa-99ab-d2685d04360f",
+  "InsertDate": "2025-01-19T11:33:36Z",
+  "LastUpdateDate": "2025-01-19T11:33:36Z",
+  "Level": "high",
+  "Name": "History File Deletion",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where ((process_path like '%/rm' or process_path like '%/unlink' or process_path like '%/shred') and ((command like '%/.bash_history%' or command like '%/.zsh_history%') and (command like '%_history' or command like '%.history' or command like '%zhistory')))",
+  "Tags": [
+    "attack.impact",
+    "attack.t1565.001"
+  ],
+  "Version": "0.1"
+}

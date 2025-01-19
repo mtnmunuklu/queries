@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of CleanWipe a tool usually used to delete Symantec antivirus.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f44800ac-38ec-471f-936e-3fa7d9c53100",
+  "InsertDate": "2025-01-19T11:35:06Z",
+  "LastUpdateDate": "2025-01-19T11:35:06Z",
+  "Level": "high",
+  "Name": "PUA - CleanWipe Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\sepremovaltoolnative_x64.exe' or (process_path like '%\\catclean.exe' and command like '%--uninstall%') or (process_path like '%\\netinstaller.exe' and command like '%-r%') or (process_path like '%\\wfpunins.exe' and (command like '%/uninstall%' and command like '%/enterprise%')))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

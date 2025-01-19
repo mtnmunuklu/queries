@@ -1,0 +1,14 @@
+{
+  "Description": "Detects installation of new shim databases that try to patch sections of known processes for potential process injection or persistence.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "bf344fea-d947-4ef4-9192-34d008315d3a",
+  "InsertDate": "2025-01-19T11:36:18Z",
+  "LastUpdateDate": "2025-01-19T11:36:18Z",
+  "Level": "high",
+  "Name": "Suspicious Shim Database Patching Activity",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where target_object like '%\\software\\microsoft\\windows nt\\currentversion\\appcompatflags\\custom\\%' and (target_object like '%\\csrss.exe' or target_object like '%\\dllhost.exe' or target_object like '%\\explorer.exe' or target_object like '%\\runtimebroker.exe' or target_object like '%\\services.exe' or target_object like '%\\sihost.exe' or target_object like '%\\svchost.exe' or target_object like '%\\taskhostw.exe' or target_object like '%\\winlogon.exe' or target_object like '%\\wmiprvse.exe')",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1546.011"
+  ],
+  "Version": "0.1"
+}

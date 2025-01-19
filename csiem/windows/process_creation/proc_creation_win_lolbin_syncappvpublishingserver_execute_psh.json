@@ -1,0 +1,14 @@
+{
+  "Description": "Executes arbitrary PowerShell code using SyncAppvPublishingServer.exe.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fbd7c32d-db2a-4418-b92c-566eb8911133",
+  "InsertDate": "2025-01-19T11:34:49Z",
+  "LastUpdateDate": "2025-01-19T11:34:49Z",
+  "Level": "medium",
+  "Name": "SyncAppvPublishingServer Execute Arbitrary PowerShell Code",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\syncappvpublishingserver.exe' and original_file_name = 'syncappvpublishingserver.exe') and command like '%\"n; %')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

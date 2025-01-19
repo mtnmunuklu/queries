@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the stopping of a Windows service via the \"sc.exe\" utility\n\nAuthor: Jakob Weinzettl, oscd.community, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "81bcb81b-5b1f-474b-b373-52c871aaa7b1",
+  "InsertDate": "2025-01-19T11:35:22Z",
+  "LastUpdateDate": "2025-01-19T11:35:22Z",
+  "Level": "low",
+  "Name": "Stop Windows Service Via Sc.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((original_file_name = 'sc.exe' and process_path like '%\\sc.exe') and command like '% stop %')",
+  "Tags": [
+    "attack.impact",
+    "attack.t1489"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of SharpMove, a .NET utility performing multiple tasks such as \"Task Creation\", \"SCM\" query, VBScript execution using WMI via its PE metadata and command line options.\n\n\nAuthor: Luca Di Bartolomeo (CrimpSec)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "055fb54c-a8f4-4aee-bd44-f74cf30a0d9d",
+  "InsertDate": "2025-01-19T11:34:43Z",
+  "LastUpdateDate": "2025-01-19T11:34:43Z",
+  "Level": "high",
+  "Name": "HackTool - SharpMove Tool Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\sharpmove.exe' and original_file_name = 'sharpmove.exe') or (command like '%computername=%' and (command like '%action=create%' or command like '%action=dcom%' or command like '%action=executevbs%' or command like '%action=hijackdcom%' or command like '%action=modschtask%' or command like '%action=modsvc%' or command like '%action=query%' or command like '%action=scm%' or command like '%action=startservice%' or command like '%action=taskscheduler%')))",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.t1021.002"
+  ],
+  "Version": "0.1"
+}

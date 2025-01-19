@@ -1,0 +1,14 @@
+{
+  "Description": "Once established within a system or network, an adversary may use automated techniques for collecting internal data.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c1dda054-d638-4c16-afc8-53e007f3fbc5",
+  "InsertDate": "2025-01-19T11:34:17Z",
+  "LastUpdateDate": "2025-01-19T11:34:17Z",
+  "Level": "medium",
+  "Name": "Automated Collection Command PowerShell",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((scriptblocktext like '%.doc%' or scriptblocktext like '%.docx%' or scriptblocktext like '%.xls%' or scriptblocktext like '%.xlsx%' or scriptblocktext like '%.ppt%' or scriptblocktext like '%.pptx%' or scriptblocktext like '%.rtf%' or scriptblocktext like '%.pdf%' or scriptblocktext like '%.txt%') and (scriptblocktext like '%get-childitem%' and scriptblocktext like '% -recurse %' and scriptblocktext like '% -include %'))",
+  "Tags": [
+    "attack.collection",
+    "attack.t1119"
+  ],
+  "Version": "0.1"
+}

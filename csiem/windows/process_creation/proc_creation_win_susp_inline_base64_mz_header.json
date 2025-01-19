@@ -1,0 +1,13 @@
+{
+  "Description": "Detects encoded base64 MZ header in the commandline\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "22e58743-4ac8-4a9f-bf19-00a0428d8c5f",
+  "InsertDate": "2025-01-19T11:35:33Z",
+  "LastUpdateDate": "2025-01-19T11:35:33Z",
+  "Level": "high",
+  "Name": "Base64 MZ Header In CommandLine",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%tvqqaamaaaaeaaaa%' or command like '%tvpqaaiaaaaeaa8a%' or command like '%tvqaaaeaaaaeabaa%' or command like '%tvoaaaaaaaaaaaaa%' or command like '%tvptaqeaaaaeaaaa%')",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

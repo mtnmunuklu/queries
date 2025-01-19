@@ -1,0 +1,16 @@
+{
+  "Description": "Detects Set-Alias or New-Alias cmdlet usage. Which can be use as a mean to obfuscate PowerShell scripts\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "96cd126d-f970-49c4-848a-da3a09f55c55",
+  "InsertDate": "2025-01-19T11:34:25Z",
+  "LastUpdateDate": "2025-01-19T11:34:25Z",
+  "Level": "low",
+  "Name": "Potential PowerShell Obfuscation Using Alias Cmdlets",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%set-alias %' or scriptblocktext like '%new-alias %')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.t1027",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

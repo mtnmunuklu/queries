@@ -1,0 +1,16 @@
+{
+  "Description": "Detects abuse of the cron utility to perform task scheduling for initial or recurring execution of malicious code. Detection will focus on crontab jobs uploaded from the tmp folder.\n\nAuthor: Alejandro Ortuno, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7c3b43d8-d794-47d2-800a-d277715aa460",
+  "InsertDate": "2025-01-19T11:33:38Z",
+  "LastUpdateDate": "2025-01-19T11:33:38Z",
+  "Level": "medium",
+  "Name": "Scheduled Cron Task/Job - MacOs",
+  "Query": "sourcetype like 'macos-%' eql select * from _source_ where process_path like '%/crontab' and command like '%/tmp/%'",
+  "Tags": [
+    "attack.execution",
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1053.003"
+  ],
+  "Version": "0.1"
+}

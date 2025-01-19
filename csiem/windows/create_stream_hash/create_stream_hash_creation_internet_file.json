@@ -1,0 +1,13 @@
+{
+  "Description": "Detects the creation of a suspicious ADS (Alternate Data Stream) file by software other than browsers\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "573df571-a223-43bc-846e-3f98da481eca",
+  "InsertDate": "2025-01-19T11:33:56Z",
+  "LastUpdateDate": "2025-01-19T11:33:56Z",
+  "Level": "medium",
+  "Name": "Creation Of a Suspicious ADS File Outside a Browser Download",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((contents like '[zonetransfer]  zoneid=3%' and filepath like '%:zone.identifier' and (filepath like '%.exe%' or filepath like '%.scr%' or filepath like '%.bat%' or filepath like '%.cmd%' or filepath like '%.docx%' or filepath like '%.hta%' or filepath like '%.jse%' or filepath like '%.lnk%' or filepath like '%.pptx%' or filepath like '%.ps%' or filepath like '%.reg%' or filepath like '%.sct%' or filepath like '%.vb%' or filepath like '%.wsc%' or filepath like '%.wsf%' or filepath like '%.xlsx%')) and  not ((process_path = 'c:\\program files (x86)\\internet explorer\\iexplore.exe' or process_path = 'c:\\program files\\internet explorer\\iexplore.exe') or ((process_path like 'c:\\program files (x86)\\microsoft\\edgecore\\%' or process_path like 'c:\\program files\\microsoft\\edgecore\\%') and (process_path like '%\\msedge.exe' or process_path like '%\\msedgewebview2.exe')) or process_path like '%\\brave.exe' or (process_path = 'c:\\program files\\google\\chrome\\application\\chrome.exe' or process_path = 'c:\\program files (x86)\\google\\chrome\\application\\chrome.exe') or (process_path = 'c:\\program files\\mozilla firefox\\firefox.exe' or process_path = 'c:\\program files (x86)\\mozilla firefox\\firefox.exe') or process_path like '%\\maxthon.exe' or process_path like '%\\vivaldi.exe' or process_path like '%\\opera.exe' or process_path like '%\\seamonkey.exe' or process_path like '%\\whale.exe' or (process_path like 'c:\\program files (x86)\\microsoft\\edgewebview\\application\\%' and process_path like '%\\windowsapps\\microsoftedge.exe' and (process_path = 'c:\\program files (x86)\\microsoft\\edge\\application\\msedge.exe' or process_path = 'c:\\program files\\microsoft\\edge\\application\\msedge.exe')) or process_path like '%\\safari.exe' or (process_path like 'c:\\program files\\windowsapps\\microsoft.screensketch_%' and process_path like '%\\snippingtool\\snippingtool.exe' and filepath like 'c:\\users\\%' and (filepath like '%\\appdata\\local\\packages\\microsoft.screensketch_%' and filepath like '%\\tempstate\\screenshot %') and filepath like '%.png:zone.identifier')))",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

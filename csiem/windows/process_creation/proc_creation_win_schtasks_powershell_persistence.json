@@ -1,0 +1,16 @@
+{
+  "Description": "Detects suspicious powershell execution via a schedule task where the command ends with an suspicious flags to hide the powershell instance instead of executeing scripts or commands. This could be a sign of persistence via PowerShell \"Get-Variable\" technique as seen being used in Colibri Loader\n\nAuthor: pH-T (Nextron Systems), Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b66474aa-bd92-4333-a16c-298155b120df",
+  "InsertDate": "2025-01-19T11:35:26Z",
+  "LastUpdateDate": "2025-01-19T11:35:26Z",
+  "Level": "high",
+  "Name": "Potential Persistence Via Powershell Search Order Hijacking - Task",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where parent_process_path = 'c:\\windows\\system32\\svchost.exe' and (parent_command_line like '%-k netsvcs%' and parent_command_line like '%-s schedule%') and (command like '% -windowstyle hidden' or command like '% -w hidden' or command like '% -ep bypass' or command like '% -noni')",
+  "Tags": [
+    "attack.execution",
+    "attack.persistence",
+    "attack.t1053.005",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

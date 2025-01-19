@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when an attacker tries to add a new network provider in order to dump clear text credentials, similar to how the NPPSpy tool does it\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "baef1ec6-2ca9-47a3-97cc-4cf2bda10b77",
+  "InsertDate": "2025-01-19T11:35:12Z",
+  "LastUpdateDate": "2025-01-19T11:35:12Z",
+  "Level": "high",
+  "Name": "Potential Credential Dumping Attempt Using New NetworkProvider - CLI",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%\\system\\currentcontrolset\\services\\%' and command like '%\\networkprovider%')",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003"
+  ],
+  "Version": "0.1"
+}

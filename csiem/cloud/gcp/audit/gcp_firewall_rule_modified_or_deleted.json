@@ -1,0 +1,14 @@
+{
+  "Description": "Detects  when a firewall rule is modified or deleted in Google Cloud Platform (GCP).\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fe513c69-734c-4d4a-8548-ac5f609be82b",
+  "InsertDate": "2025-01-19T11:33:27Z",
+  "LastUpdateDate": "2025-01-19T11:33:27Z",
+  "Level": "medium",
+  "Name": "Google Cloud Firewall Modified or Deleted",
+  "Query": "sourcetype='gcp-gcp.audit' eql select * from _source_ where (gcp.audit.method_name = 'v*.compute.firewalls.delete' or gcp.audit.method_name = 'v*.compute.firewalls.patch' or gcp.audit.method_name = 'v*.compute.firewalls.update' or gcp.audit.method_name = 'v*.compute.firewalls.insert')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562"
+  ],
+  "Version": "0.1"
+}

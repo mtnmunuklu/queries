@@ -1,0 +1,15 @@
+{
+  "Description": "Detects remote service activity via remote access to the svcctl named pipe\n\nAuthor: Samir Bousseaden\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "586a8d6b-6bfe-4ad9-9d78-888cd2fe50c3",
+  "InsertDate": "2025-01-19T11:33:50Z",
+  "LastUpdateDate": "2025-01-19T11:33:50Z",
+  "Level": "medium",
+  "Name": "Remote Service Activity via SVCCTL Named Pipe",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '5145' and sharename = '\\\\\\\\\\*\\\\ipc$' and relativetargetname = 'svcctl' and accesslist like '%writedata%'",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.persistence",
+    "attack.t1021.002"
+  ],
+  "Version": "0.1"
+}

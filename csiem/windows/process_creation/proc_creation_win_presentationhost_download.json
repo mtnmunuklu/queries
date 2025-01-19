@@ -1,0 +1,15 @@
+{
+  "Description": "Detects usage of \"PresentationHost\" which is a utility that runs \".xbap\" (Browser Applications) files to download arbitrary files\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b124ddf4-778d-418e-907f-6dd3fc0d31cd",
+  "InsertDate": "2025-01-19T11:35:05Z",
+  "LastUpdateDate": "2025-01-19T11:35:05Z",
+  "Level": "medium",
+  "Name": "Arbitrary File Download Via PresentationHost.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\presentationhost.exe' and original_file_name = 'presentationhost.exe') and (command like '%http://%' or command like '%https://%' or command like '%ftp://%'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

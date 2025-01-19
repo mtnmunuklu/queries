@@ -1,0 +1,16 @@
+{
+  "Description": "Detects execution of \"tar.exe\" in order to extract compressed file.\nAdversaries may abuse various utilities in order to decompress data to avoid detection.\n\n\nAuthor: AdmU3\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "bf361876-6620-407a-812f-bfe11e51e924",
+  "InsertDate": "2025-01-19T11:35:43Z",
+  "LastUpdateDate": "2025-01-19T11:35:43Z",
+  "Level": "low",
+  "Name": "Compressed File Extraction Via Tar.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\tar.exe' and original_file_name = 'bsdtar') and command like '%-x%')",
+  "Tags": [
+    "attack.collection",
+    "attack.exfiltration",
+    "attack.t1560",
+    "attack.t1560.001"
+  ],
+  "Version": "0.1"
+}

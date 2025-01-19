@@ -1,0 +1,13 @@
+{
+  "Description": "Identifies when ClusterRoles/Roles are being modified or deleted.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "818fee0c-e0ec-4e45-824e-83e4817b0887",
+  "InsertDate": "2025-01-19T11:33:22Z",
+  "LastUpdateDate": "2025-01-19T11:33:22Z",
+  "Level": "medium",
+  "Name": "Azure Kubernetes Sensitive Role Access",
+  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (operationname = 'microsoft.kubernetes/connectedclusters/rbac.authorization.k8s.io/roles/write' or operationname = 'microsoft.kubernetes/connectedclusters/rbac.authorization.k8s.io/roles/delete' or operationname = 'microsoft.kubernetes/connectedclusters/rbac.authorization.k8s.io/roles/bind/action' or operationname = 'microsoft.kubernetes/connectedclusters/rbac.authorization.k8s.io/roles/escalate/action' or operationname = 'microsoft.kubernetes/connectedclusters/rbac.authorization.k8s.io/clusterroles/write' or operationname = 'microsoft.kubernetes/connectedclusters/rbac.authorization.k8s.io/clusterroles/delete' or operationname = 'microsoft.kubernetes/connectedclusters/rbac.authorization.k8s.io/clusterroles/bind/action' or operationname = 'microsoft.kubernetes/connectedclusters/rbac.authorization.k8s.io/clusterroles/escalate/action')",
+  "Tags": [
+    "attack.impact"
+  ],
+  "Version": "0.1"
+}

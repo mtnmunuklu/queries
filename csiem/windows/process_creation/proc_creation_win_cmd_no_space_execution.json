@@ -1,0 +1,14 @@
+{
+  "Description": "Detects Windows command lines that miss a space before or after the /c flag when running a command using the cmd.exe.\nThis could be a sign of obfuscation of a fat finger problem (typo by the developer).\n\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a16980c2-0c56-4de0-9a79-17971979efdd",
+  "InsertDate": "2025-01-19T11:34:33Z",
+  "LastUpdateDate": "2025-01-19T11:34:33Z",
+  "Level": "high",
+  "Name": "Cmd.EXE Missing Space Characters Execution Anomaly",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((command like '%cmd.exe/c%' or command like '%\\cmd/c%' or command like '%\"cmd/c%' or command like '%cmd.exe/k%' or command like '%\\cmd/k%' or command like '%\"cmd/k%' or command like '%cmd.exe/r%' or command like '%\\cmd/r%' or command like '%\"cmd/r%') or (command like '%/cwhoami%' or command like '%/cpowershell%' or command like '%/cschtasks%' or command like '%/cbitsadmin%' or command like '%/ccertutil%' or command like '%/kwhoami%' or command like '%/kpowershell%' or command like '%/kschtasks%' or command like '%/kbitsadmin%' or command like '%/kcertutil%') or (command like '%cmd.exe /c%' or command like '%cmd /c%' or command like '%cmd.exe /k%' or command like '%cmd /k%' or command like '%cmd.exe /r%' or command like '%cmd /r%')) and  not ((command like '%cmd.exe /c %' or command like '%cmd /c %' or command like '%cmd.exe /k %' or command like '%cmd /k %' or command like '%cmd.exe /r %' or command like '%cmd /r %') or (command like '%appdata\\local\\programs\\microsoft vs code\\resources\\app\\node_modules%' and command like '%cmd.exe/c .' and command = 'cmd.exe /c')))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

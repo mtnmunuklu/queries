@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of \"ConfigSecurityPolicy.EXE\", a binary part of Windows Defender used to manage settings in Windows Defender.\nUsers can configure different pilot collections for each of the co-management workloads.\nIt can be abused by attackers in order to upload or download files.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1f0f6176-6482-4027-b151-00071af39d7e",
+  "InsertDate": "2025-01-19T11:34:34Z",
+  "LastUpdateDate": "2025-01-19T11:34:34Z",
+  "Level": "medium",
+  "Name": "Arbitrary File Download Via ConfigSecurityPolicy.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%configsecuritypolicy.exe%' and process_path like '%\\configsecuritypolicy.exe' and original_file_name = 'configsecuritypolicy.exe') and (command like '%ftp://%' or command like '%http://%' or command like '%https://%'))",
+  "Tags": [
+    "attack.exfiltration",
+    "attack.t1567"
+  ],
+  "Version": "0.1"
+}

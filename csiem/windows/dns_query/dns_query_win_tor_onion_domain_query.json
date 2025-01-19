@@ -1,0 +1,14 @@
+{
+  "Description": "Detects DNS queries to an \".onion\" address related to Tor routing networks\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b55ca2a3-7cff-4dda-8bdd-c7bfa63bf544",
+  "InsertDate": "2025-01-19T11:33:57Z",
+  "LastUpdateDate": "2025-01-19T11:33:57Z",
+  "Level": "high",
+  "Name": "DNS Query Tor .Onion Address - Sysmon",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where query_name like '%.onion%'",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1090.003"
+  ],
+  "Version": "0.1"
+}

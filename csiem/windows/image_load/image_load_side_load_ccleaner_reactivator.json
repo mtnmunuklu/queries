@@ -1,0 +1,17 @@
+{
+  "Description": "Detects potential DLL sideloading of \"CCleanerReactivator.dll\"\n\nAuthor: X__Junior\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3735d5ac-d770-4da0-99ff-156b180bc600",
+  "InsertDate": "2025-01-19T11:34:08Z",
+  "LastUpdateDate": "2025-01-19T11:34:08Z",
+  "Level": "medium",
+  "Name": "Potential CCleanerReactivator.DLL Sideloading",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (image_loaded like '%\\ccleanerreactivator.dll' and  not ((process_path like 'c:\\program files\\ccleaner\\%' or process_path like 'c:\\program files (x86)\\ccleaner\\%') and process_path like '%\\ccleanerreactivator.exe'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

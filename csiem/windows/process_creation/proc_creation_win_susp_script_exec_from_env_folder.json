@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a suspicious script execution in temporary folders or folders accessible by environment variables\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1228c958-e64e-4e71-92ad-7d429f4138ba",
+  "InsertDate": "2025-01-19T11:35:37Z",
+  "LastUpdateDate": "2025-01-19T11:35:37Z",
+  "Level": "high",
+  "Name": "Script Interpreter Execution From Suspicious Folder",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((original_file_name = 'cscript.exe' or original_file_name = 'mshta.exe' or original_file_name = 'wscript.exe') or (process_path like '%\\cscript.exe' or process_path like '%\\mshta.exe' or process_path like '%\\wscript.exe') or (command like '% -ep bypass %' or command like '% -executionpolicy bypass %' or command like '% -w hidden %' or command like '%/e:javascript %' or command like '%/e:jscript %' or command like '%/e:vbscript %')) and ((command like '%:\\perflogs\\%' or command like '%:\\users\\public\\%' or command like '%\\appdata\\local\\temp%' or command like '%\\appdata\\roaming\\temp%' or command like '%\\temporary internet%' or command like '%\\windows\\temp%') or ((command like '%:\\users\\%' and command like '%\\favorites\\%') and (command like '%:\\users\\%' and command like '%\\favourites\\%') and (command like '%:\\users\\%' and command like '%\\contacts\\%'))))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

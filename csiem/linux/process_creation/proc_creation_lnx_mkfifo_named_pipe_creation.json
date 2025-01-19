@@ -1,0 +1,13 @@
+{
+  "Description": "Detects the creation of a new named pipe using the \"mkfifo\" utility\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9d779ce8-5256-4b13-8b6f-b91c602b43f4",
+  "InsertDate": "2025-01-19T11:33:34Z",
+  "LastUpdateDate": "2025-01-19T11:33:34Z",
+  "Level": "low",
+  "Name": "Named Pipe Created Via Mkfifo",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where process_path like '%/mkfifo'",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

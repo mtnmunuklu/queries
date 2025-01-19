@@ -1,0 +1,25 @@
+{
+  "Description": "Detects commandline keywords indicative of potential usge of the tool WinPwn. A tool for Windows and Active Directory reconnaissance and exploitation.\n\n\nAuthor: Swachchhanda Shrawan Poudel\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d557dc06-62e8-4468-a8e8-7984124908ce",
+  "InsertDate": "2025-01-19T11:34:44Z",
+  "LastUpdateDate": "2025-01-19T11:34:44Z",
+  "Level": "high",
+  "Name": "HackTool - WinPwn Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%offline_winpwn%' or command like '%winpwn %' or command like '%winpwn.exe%' or command like '%winpwn.ps1%')",
+  "Tags": [
+    "attack.credential-access",
+    "attack.defense-evasion",
+    "attack.discovery",
+    "attack.execution",
+    "attack.privilege-escalation",
+    "attack.t1046",
+    "attack.t1082",
+    "attack.t1106",
+    "attack.t1518",
+    "attack.t1548.002",
+    "attack.t1552.001",
+    "attack.t1555",
+    "attack.t1555.003"
+  ],
+  "Version": "0.1"
+}

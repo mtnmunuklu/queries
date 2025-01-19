@@ -1,0 +1,14 @@
+{
+  "Description": "Detects file renames where the target filename uses an uncommon double extension. Could indicate potential ransomware activity renaming files and adding a custom extension to the encrypted files, such as \".jpg.crypted\", \".docx.locky\", etc.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e3f673b3-65d1-4d80-9146-466f8b63fa99",
+  "InsertDate": "2025-01-19T11:34:06Z",
+  "LastUpdateDate": "2025-01-19T11:34:06Z",
+  "Level": "medium",
+  "Name": "Suspicious Appended Extension",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (((sourcefilename like '%.doc' or sourcefilename like '%.docx' or sourcefilename like '%.jpeg' or sourcefilename like '%.jpg' or sourcefilename like '%.lnk' or sourcefilename like '%.pdf' or sourcefilename like '%.png' or sourcefilename like '%.pst' or sourcefilename like '%.rtf' or sourcefilename like '%.xls' or sourcefilename like '%.xlsx') and (filepath like '%.doc.%' or filepath like '%.docx.%' or filepath like '%.jpeg.%' or filepath like '%.jpg.%' or filepath like '%.lnk.%' or filepath like '%.pdf.%' or filepath like '%.png.%' or filepath like '%.pst.%' or filepath like '%.rtf.%' or filepath like '%.xls.%' or filepath like '%.xlsx.%')) and  not (filepath like '%.backup' or filepath like '%.bak' or filepath like '%.old' or filepath like '%.orig' or filepath like '%.temp' or filepath like '%.tmp') and  not (filepath like '%:\\programdata\\anaconda3\\%' and filepath like '%.c~'))",
+  "Tags": [
+    "attack.impact",
+    "attack.t1486"
+  ],
+  "Version": "0.1"
+}

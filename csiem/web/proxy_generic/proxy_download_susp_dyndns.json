@@ -1,0 +1,16 @@
+{
+  "Description": "Detects download of certain file types from hosts with dynamic DNS names (selected list)\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "195c1119-ef07-4909-bb12-e66f5e07bf3c",
+  "InsertDate": "2025-01-19T11:33:41Z",
+  "LastUpdateDate": "2025-01-19T11:33:41Z",
+  "Level": "medium",
+  "Name": "Download from Suspicious Dyndns Hosts",
+  "Query": "eql select * from _source_ where (c-uri-extension = 'exe' or c-uri-extension = 'vbs' or c-uri-extension = 'bat' or c-uri-extension = 'rar' or c-uri-extension = 'ps1' or c-uri-extension = 'doc' or c-uri-extension = 'docm' or c-uri-extension = 'xls' or c-uri-extension = 'xlsm' or c-uri-extension = 'pptm' or c-uri-extension = 'rtf' or c-uri-extension = 'hta' or c-uri-extension = 'dll' or c-uri-extension = 'ws' or c-uri-extension = 'wsf' or c-uri-extension = 'sct' or c-uri-extension = 'zip') and (cs-host like '%.hopto.org' or cs-host like '%.no-ip.org' or cs-host like '%.no-ip.info' or cs-host like '%.no-ip.biz' or cs-host like '%.no-ip.com' or cs-host like '%.noip.com' or cs-host like '%.ddns.name' or cs-host like '%.myftp.org' or cs-host like '%.myftp.biz' or cs-host like '%.serveblog.net' or cs-host like '%.servebeer.com' or cs-host like '%.servemp3.com' or cs-host like '%.serveftp.com' or cs-host like '%.servequake.com' or cs-host like '%.servehalflife.com' or cs-host like '%.servehttp.com' or cs-host like '%.servegame.com' or cs-host like '%.servepics.com' or cs-host like '%.myvnc.com' or cs-host like '%.ignorelist.com' or cs-host like '%.jkub.com' or cs-host like '%.dlinkddns.com' or cs-host like '%.jumpingcrab.com' or cs-host like '%.ddns.info' or cs-host like '%.mooo.com' or cs-host like '%.dns-dns.com' or cs-host like '%.strangled.net' or cs-host like '%.adultdns.net' or cs-host like '%.craftx.biz' or cs-host like '%.ddns01.com' or cs-host like '%.dns53.biz' or cs-host like '%.dnsapi.info' or cs-host like '%.dnsd.info' or cs-host like '%.dnsdynamic.com' or cs-host like '%.dnsdynamic.net' or cs-host like '%.dnsget.org' or cs-host like '%.fe100.net' or cs-host like '%.flashserv.net' or cs-host like '%.ftp21.net' or cs-host like '%.http01.com' or cs-host like '%.http80.info' or cs-host like '%.https443.com' or cs-host like '%.imap01.com' or cs-host like '%.kadm5.com' or cs-host like '%.mysq1.net' or cs-host like '%.ns360.info' or cs-host like '%.ntdll.net' or cs-host like '%.ole32.com' or cs-host like '%.proxy8080.com' or cs-host like '%.sql01.com' or cs-host like '%.ssh01.com' or cs-host like '%.ssh22.net' or cs-host like '%.tempors.com' or cs-host like '%.tftpd.net' or cs-host like '%.ttl60.com' or cs-host like '%.ttl60.org' or cs-host like '%.user32.com' or cs-host like '%.voip01.com' or cs-host like '%.wow64.net' or cs-host like '%.x64.me' or cs-host like '%.xns01.com' or cs-host like '%.dyndns.org' or cs-host like '%.dyndns.info' or cs-host like '%.dyndns.tv' or cs-host like '%.dyndns-at-home.com' or cs-host like '%.dnsomatic.com' or cs-host like '%.zapto.org' or cs-host like '%.webhop.net' or cs-host like '%.25u.com' or cs-host like '%.slyip.net')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.command-and-control",
+    "attack.t1105",
+    "attack.t1568"
+  ],
+  "Version": "0.1"
+}

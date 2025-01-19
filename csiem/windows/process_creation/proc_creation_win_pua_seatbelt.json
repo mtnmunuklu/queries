@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the execution of the PUA/Recon tool Seatbelt via PE information of command line parameters\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "38646daa-e78f-4ace-9de0-55547b2d30da",
+  "InsertDate": "2025-01-19T11:35:08Z",
+  "LastUpdateDate": "2025-01-19T11:35:08Z",
+  "Level": "high",
+  "Name": "PUA - Seatbelt Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\seatbelt.exe' and original_file_name = 'seatbelt.exe' and description = 'seatbelt' and (command like '% dpapimasterkeys%' or command like '% interestingprocesses%' or command like '% interestingfiles%' or command like '% certificatethumbprints%' or command like '% chromiumbookmarks%' or command like '% chromiumhistory%' or command like '% chromiumpresence%' or command like '% cloudcredentials%' or command like '% credenum%' or command like '% credguard%' or command like '% firefoxhistory%' or command like '% processcreationevents%')) or (command like '% -outputfile=%' and (command like '% -group=misc%' or command like '% -group=remote%' or command like '% -group=chromium%' or command like '% -group=slack%' or command like '% -group=system%' or command like '% -group=user%' or command like '% -group=all%')))",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1526",
+    "attack.t1087",
+    "attack.t1083"
+  ],
+  "Version": "0.1"
+}

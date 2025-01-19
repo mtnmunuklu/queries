@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when a system process (i.e. located in system32, syswow64, etc.) loads a DLL from a suspicious location or a location with permissive permissions such as \"C:\\Users\\Public\"\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9e9a9002-56c4-40fd-9eff-e4b09bfa5f6c",
+  "InsertDate": "2025-01-19T11:34:10Z",
+  "LastUpdateDate": "2025-01-19T11:34:10Z",
+  "Level": "medium",
+  "Name": "DLL Load By System Process From Suspicious Locations",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like 'c:\\windows\\%' and (image_loaded like 'c:\\users\\public\\%' or image_loaded like 'c:\\perflogs\\%')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1070"
+  ],
+  "Version": "0.1"
+}

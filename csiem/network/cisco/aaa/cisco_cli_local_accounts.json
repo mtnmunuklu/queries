@@ -1,0 +1,15 @@
+{
+  "Description": "Find local accounts being created or modified as well as remote authentication configurations\n\nAuthor: Austin Clark\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6d844f0f-1c18-41af-8f19-33e7654edfc3",
+  "InsertDate": "2025-01-19T11:33:39Z",
+  "LastUpdateDate": "2025-01-19T11:33:39Z",
+  "Level": "high",
+  "Name": "Cisco Local Accounts",
+  "Query": "sourcetype='cisco-aaa' eql select * from _source_ where (log like '%username%' or log like '%aaa%')",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1136.001",
+    "attack.t1098"
+  ],
+  "Version": "0.1"
+}

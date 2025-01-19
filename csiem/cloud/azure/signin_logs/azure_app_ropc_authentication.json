@@ -1,0 +1,17 @@
+{
+  "Description": "Resource owner password credentials (ROPC) should be avoided if at all possible as this requires the user to expose their current password credentials to the application directly.\nThe application then uses those credentials to authenticate the user against the identity provider.\n\n\nAuthor: Mark Morowczynski '@markmorow', Bailey Bercik '@baileybercik'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "55695bc0-c8cf-461f-a379-2535f563c854",
+  "InsertDate": "2025-01-19T11:33:26Z",
+  "LastUpdateDate": "2025-01-19T11:33:26Z",
+  "Level": "medium",
+  "Name": "Applications That Are Using ROPC Authentication Flow",
+  "Query": "sourcetype='azure-signinlogs' eql select * from _source_ where properties.message = 'ropc'",
+  "Tags": [
+    "attack.t1078",
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.initial-access"
+  ],
+  "Version": "0.1"
+}

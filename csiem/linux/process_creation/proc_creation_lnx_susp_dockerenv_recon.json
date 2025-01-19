@@ -1,0 +1,14 @@
+{
+  "Description": "Detects listing or file reading of \".dockerenv\" which can be a sing of potential container discovery\n\nAuthor: Seth Hanford\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "11701de9-d5a5-44aa-8238-84252f131895",
+  "InsertDate": "2025-01-19T11:33:35Z",
+  "LastUpdateDate": "2025-01-19T11:33:35Z",
+  "Level": "low",
+  "Name": "Docker Container Discovery Via Dockerenv Listing",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where (process_path like '%/cat' or process_path like '%/dir' or process_path like '%/find' or process_path like '%/ls' or process_path like '%/stat' or process_path like '%/test' or process_path like '%grep') and command like '%.dockerenv'",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1082"
+  ],
+  "Version": "0.1"
+}

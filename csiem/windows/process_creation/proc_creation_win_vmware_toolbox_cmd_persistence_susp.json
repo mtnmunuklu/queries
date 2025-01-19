@@ -1,0 +1,15 @@
+{
+  "Description": "Detects execution of the \"VMwareToolBoxCmd.exe\" with the \"script\" and \"set\" flag to setup a specific script that's located in a potentially suspicious location to run for a specific VM state\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "236d8e89-ed95-4789-a982-36f4643738ba",
+  "InsertDate": "2025-01-19T11:35:48Z",
+  "LastUpdateDate": "2025-01-19T11:35:48Z",
+  "Level": "high",
+  "Name": "Suspicious Persistence Via VMwareToolBoxCmd.EXE VM State Change Script",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\vmwaretoolboxcmd.exe' and original_file_name = 'toolbox-cmd.exe') and (command like '% script %' and command like '% set %') and (command like '%:\\perflogs\\%' or command like '%:\\temp\\%' or command like '%:\\windows\\system32\\tasks\\%' or command like '%:\\windows\\tasks\\%' or command like '%:\\windows\\temp\\%' or command like '%\\appdata\\local\\temp%'))",
+  "Tags": [
+    "attack.execution",
+    "attack.persistence",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

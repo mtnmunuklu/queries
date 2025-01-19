@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of \"hh.exe\" to open \".chm\" files.\n\nAuthor: E.M. Anhaus (originally from Atomic Blue Detections, Dan Beavin), oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "68c8acb4-1b60-4890-8e82-3ddf7a6dba84",
+  "InsertDate": "2025-01-19T11:34:39Z",
+  "LastUpdateDate": "2025-01-19T11:34:39Z",
+  "Level": "low",
+  "Name": "HH.EXE Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((original_file_name = 'hh.exe' and process_path like '%\\hh.exe') and command like '%.chm%')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.001"
+  ],
+  "Version": "0.1"
+}

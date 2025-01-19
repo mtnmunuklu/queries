@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the usage of tooling to sniff network traffic.\nAn adversary may place a network interface into promiscuous mode to passively access data in transit over the network, or use span ports to capture a larger amount of data.\n\n\nAuthor: Alejandro Ortuno, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "adc9bcc4-c39c-4f6b-a711-1884017bf043",
+  "InsertDate": "2025-01-19T11:33:38Z",
+  "LastUpdateDate": "2025-01-19T11:33:38Z",
+  "Level": "informational",
+  "Name": "Network Sniffing - MacOs",
+  "Query": "sourcetype like 'macos-%' eql select * from _source_ where (process_path like '%/tcpdump' or process_path like '%/tshark')",
+  "Tags": [
+    "attack.discovery",
+    "attack.credential-access",
+    "attack.t1040"
+  ],
+  "Version": "0.1"
+}

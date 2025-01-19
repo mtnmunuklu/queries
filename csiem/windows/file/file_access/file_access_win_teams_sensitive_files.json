@@ -1,0 +1,14 @@
+{
+  "Description": "Detects file access attempts to sensitive Microsoft teams files (leveldb, cookies) by an uncommon process.\n\n\nAuthor: @SerkinValery\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "65744385-8541-44a6-8630-ffc824d7d4cc",
+  "InsertDate": "2025-01-19T11:33:58Z",
+  "LastUpdateDate": "2025-01-19T11:33:58Z",
+  "Level": "medium",
+  "Name": "Microsoft Teams Sensitive File Access By Uncommon Applications",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((filename like '%\\microsoft\\teams\\cookies%' or filename like '%\\microsoft\\teams\\local storage\\leveldb%') and  not process_path like '%\\microsoft\\teams\\current\\teams.exe')",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1528"
+  ],
+  "Version": "0.1"
+}

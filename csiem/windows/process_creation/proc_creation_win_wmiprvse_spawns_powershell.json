@@ -1,0 +1,15 @@
+{
+  "Description": "Detects Powershell as a child of the WmiPrvSE process. Which could be a sign of lateral movement via WMI.\n\nAuthor: Markus Neis @Karneades\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "692f0bec-83ba-4d04-af7e-e884a96059b6",
+  "InsertDate": "2025-01-19T11:35:58Z",
+  "LastUpdateDate": "2025-01-19T11:35:58Z",
+  "Level": "medium",
+  "Name": "Potential WMI Lateral Movement WmiPrvSE Spawned PowerShell",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\wmiprvse.exe' and ((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll')))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1047",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

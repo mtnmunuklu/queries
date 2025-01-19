@@ -1,0 +1,15 @@
+{
+  "Description": "Shadow Copies storage symbolic link creation using operating systems utilities\n\nAuthor: Teymur Kheirkhabarov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "40b19fa6-d835-400c-b301-41f3a2baacaf",
+  "InsertDate": "2025-01-19T11:34:33Z",
+  "LastUpdateDate": "2025-01-19T11:34:33Z",
+  "Level": "high",
+  "Name": "VolumeShadowCopy Symlink Creation Via Mklink",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%mklink%' and command like '%harddiskvolumeshadowcopy%')",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.002",
+    "attack.t1003.003"
+  ],
+  "Version": "0.1"
+}

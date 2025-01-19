@@ -1,0 +1,14 @@
+{
+  "Description": "Detects Microsoft Excel loading an Add-In (.xll) file from an uncommon location\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "af4c4609-5755-42fe-8075-4effb49f5d44",
+  "InsertDate": "2025-01-19T11:34:07Z",
+  "LastUpdateDate": "2025-01-19T11:34:07Z",
+  "Level": "medium",
+  "Name": "Microsoft Excel Add-In Loaded From Uncommon Location",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\excel.exe' and (image_loaded like '%\\desktop\\%' or image_loaded like '%\\downloads\\%' or image_loaded like '%\\perflogs\\%' or image_loaded like '%\\temp\\%' or image_loaded like '%\\users\\public\\%' or image_loaded like '%\\windows\\tasks\\%') and image_loaded like '%.xll'",
+  "Tags": [
+    "attack.execution",
+    "attack.t1204.002"
+  ],
+  "Version": "0.1"
+}

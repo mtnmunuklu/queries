@@ -1,0 +1,13 @@
+{
+  "Description": "Detects the creation of shell scripts under the \"profile.d\" path.\n\nAuthor: Joseliyo Sanchez, @Joseliyo_Jstnk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "13f08f54-e705-4498-91fd-cce9d9cee9f1",
+  "InsertDate": "2025-01-19T11:33:32Z",
+  "LastUpdateDate": "2025-01-19T11:33:32Z",
+  "Level": "low",
+  "Name": "Potentially Suspicious Shell Script Creation in Profile Folder",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where filepath like '%/etc/profile.d/%' and (filepath like '%.csh' or filepath like '%.sh')",
+  "Tags": [
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

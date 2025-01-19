@@ -1,0 +1,16 @@
+{
+  "Description": "Detects usage of the \"Set-Service\" powershell cmdlet to configure a new SecurityDescriptor that allows a service to be hidden from other utilities such as \"sc.exe\", \"Get-Service\"...etc. (Works only in powershell 7)\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "22d80745-6f2c-46da-826b-77adaededd74",
+  "InsertDate": "2025-01-19T11:34:25Z",
+  "LastUpdateDate": "2025-01-19T11:34:25Z",
+  "Level": "high",
+  "Name": "Suspicious Service DACL Modification Via Set-Service Cmdlet - PS",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (((scriptblocktext like '%set-service %' and scriptblocktext like '%d;;%') and (scriptblocktext like '%;;;iu%' or scriptblocktext like '%;;;su%' or scriptblocktext like '%;;;ba%' or scriptblocktext like '%;;;sy%' or scriptblocktext like '%;;;wd%')) and (scriptblocktext like '%-securitydescriptorsddl %' or scriptblocktext like '%-sd %'))",
+  "Tags": [
+    "attack.persistence",
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1574.011"
+  ],
+  "Version": "0.1"
+}

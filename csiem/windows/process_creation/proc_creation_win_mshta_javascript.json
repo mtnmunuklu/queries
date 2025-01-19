@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of javascript code using \"mshta.exe\".\n\nAuthor: E.M. Anhaus (originally from Atomic Blue Detections, Endgame), oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "67f113fa-e23d-4271-befa-30113b3e08b1",
+  "InsertDate": "2025-01-19T11:34:51Z",
+  "LastUpdateDate": "2025-01-19T11:34:51Z",
+  "Level": "high",
+  "Name": "Suspicious JavaScript Execution Via Mshta.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\mshta.exe' and original_file_name = 'mshta.exe') and command like '%javascript%')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.005"
+  ],
+  "Version": "0.1"
+}

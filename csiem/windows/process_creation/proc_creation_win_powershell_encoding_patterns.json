@@ -1,0 +1,16 @@
+{
+  "Description": "Detects specific combinations of encoding methods in PowerShell via the commandline\n\nAuthor: Teymur Kheirkhabarov (idea), Vasiliy Burov (rule), oscd.community, Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "cdf05894-89e7-4ead-b2b0-0a5f97a90f2f",
+  "InsertDate": "2025-01-19T11:35:01Z",
+  "LastUpdateDate": "2025-01-19T11:35:01Z",
+  "Level": "low",
+  "Name": "Potential Encoded PowerShell Patterns In CommandLine",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll')) and (((command like '%toint%' or command like '%todecimal%' or command like '%tobyte%' or command like '%touint%' or command like '%tosingle%' or command like '%tosbyte%') and (command like '%tochar%' or command like '%tostring%' or command like '%string%')) or ((command like '%split%' and command like '%join%') or (command like '%char%' and command like '%join%'))))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1027",
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

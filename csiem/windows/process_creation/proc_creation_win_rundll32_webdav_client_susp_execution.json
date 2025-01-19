@@ -1,0 +1,15 @@
+{
+  "Description": "Detects \"svchost.exe\" spawning \"rundll32.exe\" with command arguments like C:\\windows\\system32\\davclnt.dll,DavSetCookie. This could be an indicator of exfiltration or use of WebDav to launch code (hosted on WebDav Server) or potentially a sign of exploitation of CVE-2023-23397\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "982e9f2d-1a85-4d5b-aea4-31f5e97c6555",
+  "InsertDate": "2025-01-19T11:35:20Z",
+  "LastUpdateDate": "2025-01-19T11:35:20Z",
+  "Level": "high",
+  "Name": "Suspicious WebDav Client Execution Via Rundll32.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_process_path like '%\\svchost.exe' and parent_command_line like '%-s webclient%' and process_path like '%\\rundll32.exe' and command like '%c:\\windows\\system32\\davclnt.dll,davsetcookie%' and command re '://\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}') and  not (command like '%://10.%' or command like '%://192.168.%' or command like '%://172.16.%' or command like '%://172.17.%' or command like '%://172.18.%' or command like '%://172.19.%' or command like '%://172.20.%' or command like '%://172.21.%' or command like '%://172.22.%' or command like '%://172.23.%' or command like '%://172.24.%' or command like '%://172.25.%' or command like '%://172.26.%' or command like '%://172.27.%' or command like '%://172.28.%' or command like '%://172.29.%' or command like '%://172.30.%' or command like '%://172.31.%' or command like '%://127.%' or command like '%://169.254.%'))",
+  "Tags": [
+    "attack.exfiltration",
+    "attack.t1048.003",
+    "cve.2023-23397"
+  ],
+  "Version": "0.1"
+}

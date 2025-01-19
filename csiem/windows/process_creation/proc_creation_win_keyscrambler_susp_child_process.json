@@ -1,0 +1,17 @@
+{
+  "Description": "Detects potentially suspicious child processes of KeyScrambler.exe\n\nAuthor: Swachchhanda Shrawan Poudel\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ca5583e9-8f80-46ac-ab91-7f314d13b984",
+  "InsertDate": "2025-01-19T11:34:46Z",
+  "LastUpdateDate": "2025-01-19T11:34:46Z",
+  "Level": "medium",
+  "Name": "Potentially Suspicious Child Process of KeyScrambler.exe",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\keyscrambler.exe' and ((process_path like '%\\cmd.exe' or process_path like '%\\cscript.exe' or process_path like '%\\mshta.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\wscript.exe') and (original_file_name = 'cmd.exe' or original_file_name = 'cscript.exe' or original_file_name = 'mshta.exe' or original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll' or original_file_name = 'regsvr32.exe' or original_file_name = 'rundll32.exe' or original_file_name = 'wscript.exe')))",
+  "Tags": [
+    "attack.execution",
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1203",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

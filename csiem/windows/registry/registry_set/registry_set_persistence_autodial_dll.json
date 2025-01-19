@@ -1,0 +1,13 @@
+{
+  "Description": "Detects change the the \"AutodialDLL\" key which could be used as a persistence method to load custom DLL via the \"ws2_32\" library\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e6fe26ee-d063-4f5b-b007-39e90aaf50e3",
+  "InsertDate": "2025-01-19T11:36:16Z",
+  "LastUpdateDate": "2025-01-19T11:36:16Z",
+  "Level": "high",
+  "Name": "Potential Persistence Via AutodialDLL",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where target_object like '%\\services\\winsock2\\parameters\\autodialdll%'",
+  "Tags": [
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

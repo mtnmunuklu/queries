@@ -1,0 +1,14 @@
+{
+  "Description": "Detects file deletion using \"rm\", \"shred\" or \"unlink\" commands which are used often by adversaries to delete files left behind by the actions of their intrusion activity\n\nAuthor: Ömer Günal, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "30aed7b6-d2c1-4eaf-9382-b6bc43e50c57",
+  "InsertDate": "2025-01-19T11:33:34Z",
+  "LastUpdateDate": "2025-01-19T11:33:34Z",
+  "Level": "informational",
+  "Name": "File Deletion",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where (process_path like '%/rm' or process_path like '%/shred' or process_path like '%/unlink')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1070.004"
+  ],
+  "Version": "0.1"
+}

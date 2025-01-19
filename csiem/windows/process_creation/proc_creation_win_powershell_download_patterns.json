@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a Powershell process that contains download commands in its command line string\n\nAuthor: Florian Roth (Nextron Systems), oscd.community, Jonhnathan Ribeiro\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3b6ab547-8ec2-4991-b9d2-2b06702a48d7",
+  "InsertDate": "2025-01-19T11:35:01Z",
+  "LastUpdateDate": "2025-01-19T11:35:01Z",
+  "Level": "medium",
+  "Name": "PowerShell Download Pattern",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll')) and ((command like '%new-object%' and command like '%net.webclient).%' and command like '%download%') and (command like '%string(%' or command like '%file(%')))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

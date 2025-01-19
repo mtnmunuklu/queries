@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a remote DLL load event via \"rundll32.exe\".\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f40017b3-cb2e-4335-ab5d-3babf679c1de",
+  "InsertDate": "2025-01-19T11:34:07Z",
+  "LastUpdateDate": "2025-01-19T11:34:07Z",
+  "Level": "medium",
+  "Name": "Remote DLL Load Via Rundll32.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\rundll32.exe' and image_loaded like '\\\\\\\\%'",
+  "Tags": [
+    "attack.execution",
+    "attack.t1204.002"
+  ],
+  "Version": "0.1"
+}

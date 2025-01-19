@@ -1,0 +1,15 @@
+{
+  "Description": "Detects a threat actor creating a file named `iertutil.dll` in the `C:\\Program Files\\Internet Explorer\\` directory over the network for a DCOM InternetExplorer DLL Hijack scenario.\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g, Open Threat Research (OTR)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c39f0c81-7348-4965-ab27-2fde35a1b641",
+  "InsertDate": "2025-01-19T11:33:47Z",
+  "LastUpdateDate": "2025-01-19T11:33:47Z",
+  "Level": "high",
+  "Name": "DCOM InternetExplorer.Application Iertutil DLL Hijack - Security",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '5145' and relativetargetname like '%\\internet explorer\\iertutil.dll') and  not subjectusername like '%$')",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.t1021.002",
+    "attack.t1021.003"
+  ],
+  "Version": "0.1"
+}

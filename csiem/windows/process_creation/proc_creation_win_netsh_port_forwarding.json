@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the execution of netsh commands that configure a new port forwarding (PortProxy) rule\n\nAuthor: Florian Roth (Nextron Systems), omkar72, oscd.community, Swachchhanda Shrawan Poudel\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "322ed9ec-fcab-4f67-9a34-e7c6aef43614",
+  "InsertDate": "2025-01-19T11:34:55Z",
+  "LastUpdateDate": "2025-01-19T11:34:55Z",
+  "Level": "medium",
+  "Name": "New Port Forwarding Rule Added Via Netsh.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\netsh.exe' and original_file_name = 'netsh.exe') and ((command like '%connectp%' and command like '%listena%' and command like '%c=%') or (command like '%interface%' and command like '%portproxy%' and command like '%add%' and command like '%v4tov4%') or (command like '%i %' and command like '%p %' and command like '%a %' and command like '%v %')))",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.defense-evasion",
+    "attack.command-and-control",
+    "attack.t1090"
+  ],
+  "Version": "0.1"
+}

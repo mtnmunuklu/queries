@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potentially suspicious child processes of \"Diskshadow.exe\". This could be an attempt to bypass parent/child relationship detection or application whitelisting rules.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9f546b25-5f12-4c8d-8532-5893dcb1e4b8",
+  "InsertDate": "2025-01-19T11:34:35Z",
+  "LastUpdateDate": "2025-01-19T11:34:35Z",
+  "Level": "medium",
+  "Name": "Potentially Suspicious Child Process Of DiskShadow.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where parent_process_path like '%\\diskshadow.exe' and (process_path like '%\\certutil.exe' or process_path like '%\\cscript.exe' or process_path like '%\\mshta.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\wscript.exe')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

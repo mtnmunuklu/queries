@@ -1,0 +1,13 @@
+{
+  "Description": "Detects changes to the \"HVCIDisallowedImages\" registry value to potentially add a driver to the list, in order to prevent it from loading.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Omar Khaled (@beacon_exe)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "555155a2-03bf-4fe7-af74-d176b3fdbe16",
+  "InsertDate": "2025-01-19T11:36:14Z",
+  "LastUpdateDate": "2025-01-19T11:36:14Z",
+  "Level": "high",
+  "Name": "Driver Added To Disallowed Images In HVCI - Registry",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\control\\ci\\%' and target_object like '%\\hvcidisallowedimages%')",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

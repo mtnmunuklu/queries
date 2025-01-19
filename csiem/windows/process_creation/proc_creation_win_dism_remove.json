@@ -1,0 +1,14 @@
+{
+  "Description": "Deployment Image Servicing and Management tool. DISM is used to enumerate, install, uninstall, configure, and update features and packages in Windows images\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "43e32da2-fdd0-4156-90de-50dfd62636f9",
+  "InsertDate": "2025-01-19T11:34:36Z",
+  "LastUpdateDate": "2025-01-19T11:34:36Z",
+  "Level": "medium",
+  "Name": "Dism Remove Online Package",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\dism.exe' and (command like '%/online%' and command like '%/disable-feature%')) or (process_path like '%\\dismhost.exe' and (parent_command_line like '%/online%' and parent_command_line like '%/disable-feature%')))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

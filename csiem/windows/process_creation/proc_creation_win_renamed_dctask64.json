@@ -1,0 +1,17 @@
+{
+  "Description": "Detects a renamed \"dctask64.exe\" execution, a signed binary by ZOHO Corporation part of ManageEngine Endpoint Central.\nThis binary can be abused for DLL injection, arbitrary command and process execution.\n\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "340a090b-c4e9-412e-bb36-b4b16fe96f9b",
+  "InsertDate": "2025-01-19T11:35:16Z",
+  "LastUpdateDate": "2025-01-19T11:35:16Z",
+  "Level": "high",
+  "Name": "Renamed ZOHO Dctask64 Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((hashes like '%6834b1b94e49701d77ccb3c0895e1afd%' or hashes like '%1bb6f93b129f398c7c4a76bb97450bba%' or hashes like '%faa2ac19875fade461c8d89dcf2710a3%' or hashes like '%f1039ced4b91572ab7847d26032e6bbf%') and  not process_path like '%\\dctask64.exe')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1036",
+    "attack.t1055.001",
+    "attack.t1202",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

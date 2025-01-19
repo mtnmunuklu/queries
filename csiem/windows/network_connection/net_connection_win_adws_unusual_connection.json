@@ -1,0 +1,14 @@
+{
+  "Description": "Detects uncommon network connections to the Active Directory Web Services (ADWS) from processes not typically associated with ADWS management.\n\n\nAuthor: @kostastsale\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b3ad3c0f-c949-47a1-a30e-b0491ccae876",
+  "InsertDate": "2025-01-19T11:34:10Z",
+  "LastUpdateDate": "2025-01-19T11:34:10Z",
+  "Level": "medium",
+  "Name": "Uncommon Connection to Active Directory Web Services",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((initiated = 'true' and dst_port = '9389') and  not (process_path = 'c:\\windows\\system32\\dsac.exe' or process_path = 'c:\\program files\\microsoft monitoring agent\\' or (process_path like 'c:\\program files\\powershell\\7\\pwsh.exe%' or process_path like 'c:\\program files\\powershell\\7-preview\\pwsh.ex%' or process_path like 'c:\\windows\\system32\\windowspowershell\\%' or process_path like 'c:\\windows\\syswow64\\windowspowershell\\%')))",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1087"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects deletion of local audit logs\n\nAuthor: remotephone, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "acf61bd8-d814-4272-81f0-a7a269aa69aa",
+  "InsertDate": "2025-01-19T11:33:37Z",
+  "LastUpdateDate": "2025-01-19T11:33:37Z",
+  "Level": "medium",
+  "Name": "Indicator Removal on Host - Clear Mac System Logs",
+  "Query": "sourcetype like 'macos-%' eql select * from _source_ where ((process_path like '%/rm' or process_path like '%/unlink' or process_path like '%/shred') and (command like '%/var/log%' or (command like '%/users/%' and command like '%/library/logs/%')))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1070.002"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects PowerShell scripts that make use of the \"Compress-Archive\" Cmdlet in order to compress folders and files where the output is stored in a potentially suspicious location that is used often by malware for exfiltration.\nAn adversary might compress data (e.g., sensitive documents) that is collected prior to exfiltration in order to make it portable and minimize the amount of data sent over the network.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "85a8e5ba-bd03-4bfb-bbfa-a4409a8f8b98",
+  "InsertDate": "2025-01-19T11:35:05Z",
+  "LastUpdateDate": "2025-01-19T11:35:05Z",
+  "Level": "medium",
+  "Name": "Folder Compress To Potentially Suspicious Output Via Compress-Archive Cmdlet",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%compress-archive -path*-destinationpath $env:temp%' or command like '%compress-archive -path*-destinationpath*\\appdata\\local\\temp\\%' or command like '%compress-archive -path*-destinationpath*:\\windows\\temp\\%')",
+  "Tags": [
+    "attack.collection",
+    "attack.t1074.001"
+  ],
+  "Version": "0.1"
+}

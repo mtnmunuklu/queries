@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of csrutil to disable the Configure System Integrity Protection (SIP). This technique is used in post-exploit scenarios.\n\n\nAuthor: Joseliyo Sanchez, @Joseliyo_Jstnk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3603f18a-ec15-43a1-9af2-d196c8a7fec6",
+  "InsertDate": "2025-01-19T11:33:37Z",
+  "LastUpdateDate": "2025-01-19T11:33:37Z",
+  "Level": "medium",
+  "Name": "System Integrity Protection (SIP) Disabled",
+  "Query": "sourcetype like 'macos-%' eql select * from _source_ where process_path like '%/csrutil' and command like '%disable%'",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1518.001"
+  ],
+  "Version": "0.1"
+}

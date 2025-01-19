@@ -1,0 +1,14 @@
+{
+  "Description": "Detects failed logon attempts from clients to MSSQL server.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), j4son\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "218d2855-2bba-4f61-9c85-81d0ea63ac71",
+  "InsertDate": "2025-01-19T11:33:43Z",
+  "LastUpdateDate": "2025-01-19T11:33:43Z",
+  "Level": "low",
+  "Name": "MSSQL Server Failed Logon",
+  "Query": "sourcetype='windows-application' eql select * from _source_ where provider_name like '%mssql%' and eventid = '18456'",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1110"
+  ],
+  "Version": "0.1"
+}

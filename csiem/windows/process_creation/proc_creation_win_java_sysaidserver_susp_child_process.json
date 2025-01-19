@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious child processes of SysAidServer (as seen in MERCURY threat actor intrusions)\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "60bfeac3-0d35-4302-8efb-1dd16f715bc6",
+  "InsertDate": "2025-01-19T11:34:46Z",
+  "LastUpdateDate": "2025-01-19T11:34:46Z",
+  "Level": "medium",
+  "Name": "Suspicious SysAidServer Child",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\java.exe' or parent_process_path like '%\\javaw.exe') and parent_command_line like '%sysaidserver%'",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.t1210"
+  ],
+  "Version": "0.1"
+}

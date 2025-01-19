@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when the \"index\" value of a scheduled task is modified from the registry\nWhich effectively hides it from any tooling such as \"schtasks /query\" (Read the referenced link for more information about the effects of this technique)\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5b16df71-8615-4f7f-ac9b-6c43c0509e61",
+  "InsertDate": "2025-01-19T11:36:13Z",
+  "LastUpdateDate": "2025-01-19T11:36:13Z",
+  "Level": "high",
+  "Name": "Hide Schedule Task Via Index Value Tamper",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\software\\microsoft\\windows nt\\currentversion\\schedule\\taskcache\\tree\\%' and target_object like '%index%') and details = 'dword (0x00000000)'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562"
+  ],
+  "Version": "0.1"
+}

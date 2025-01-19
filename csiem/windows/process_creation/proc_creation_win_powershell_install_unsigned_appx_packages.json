@@ -1,0 +1,14 @@
+{
+  "Description": "Detects usage of the \"Add-AppxPackage\" or it's alias \"Add-AppPackage\" to install unsigned AppX packages\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "37651c2a-42cd-4a69-ae0d-22a4349aa04a",
+  "InsertDate": "2025-01-19T11:35:02Z",
+  "LastUpdateDate": "2025-01-19T11:35:02Z",
+  "Level": "medium",
+  "Name": "Unsigned AppX Installation Attempt Using Add-AppxPackage",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll')) and (command like '%add-apppackage %' or command like '%add-appxpackage %') and command like '% -allowunsigned%')",
+  "Tags": [
+    "attack.persistence",
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

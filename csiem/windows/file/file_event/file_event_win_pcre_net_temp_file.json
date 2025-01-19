@@ -1,0 +1,14 @@
+{
+  "Description": "Detects processes creating temp files related to PCRE.NET package\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6e90ae7a-7cd3-473f-a035-4ebb72d961da",
+  "InsertDate": "2025-01-19T11:34:02Z",
+  "LastUpdateDate": "2025-01-19T11:34:02Z",
+  "Level": "high",
+  "Name": "PCRE.NET Package Temp Files",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where filepath like '%\\appdata\\local\\temp\\ba9ea7344a4a5f591d6e5dc32a13494b\\%'",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

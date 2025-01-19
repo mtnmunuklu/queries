@@ -1,0 +1,14 @@
+{
+  "Description": "VisualUiaVerifyNative.exe is a Windows SDK that can be used for AWL bypass and is listed in Microsoft's recommended block rules.\n\nAuthor: Christopher Peacock @SecurePeacock, SCYTHE @scythe_io\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b30a8bc5-e21b-4ca2-9420-0a94019ac56a",
+  "InsertDate": "2025-01-19T11:34:49Z",
+  "LastUpdateDate": "2025-01-19T11:34:49Z",
+  "Level": "medium",
+  "Name": "Use of VisualUiaVerifyNative.exe",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\visualuiaverifynative.exe' and original_file_name = 'visualuiaverifynative.exe'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

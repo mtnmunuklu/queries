@@ -1,0 +1,14 @@
+{
+  "Description": "Detects creation of sudoers file or files in \"sudoers.d\" directory which can be used a potential method to persiste privileges for a specific user.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ddb26b76-4447-4807-871f-1b035b2bfa5d",
+  "InsertDate": "2025-01-19T11:33:32Z",
+  "LastUpdateDate": "2025-01-19T11:33:32Z",
+  "Level": "medium",
+  "Name": "Persistence Via Sudoers Files",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where filepath like '/etc/sudoers.d/%'",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1053.003"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects PowerShell scripts that contains reference to keystroke capturing functions\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "965e2db9-eddb-4cf6-a986-7a967df651e4",
+  "InsertDate": "2025-01-19T11:34:24Z",
+  "LastUpdateDate": "2025-01-19T11:34:24Z",
+  "Level": "medium",
+  "Name": "Potential Keylogger Activity",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where scriptblocktext like '%[windows.input.keyboard]::iskeydown([system.windows.input.key]::%'",
+  "Tags": [
+    "attack.collection",
+    "attack.credential-access",
+    "attack.t1056.001"
+  ],
+  "Version": "0.1"
+}

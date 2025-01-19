@@ -1,0 +1,13 @@
+{
+  "Description": "Detects usage of the powerShell New-MailboxExportRequest Cmdlet to exports a mailbox to a remote or local share, as used in ProxyShell exploitations\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "889719ef-dd62-43df-86c3-768fb08dc7c0",
+  "InsertDate": "2025-01-19T11:35:03Z",
+  "LastUpdateDate": "2025-01-19T11:35:03Z",
+  "Level": "critical",
+  "Name": "Suspicious PowerShell Mailbox Export to Share",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%new-mailboxexportrequest%' and command like '% -mailbox %' and command like '% -filepath \\\\\\\\%')",
+  "Tags": [
+    "attack.exfiltration"
+  ],
+  "Version": "0.1"
+}

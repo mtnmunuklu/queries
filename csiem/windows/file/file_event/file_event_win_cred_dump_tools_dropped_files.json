@@ -1,0 +1,18 @@
+{
+  "Description": "Files with well-known filenames (parts of credential dump software or files produced by them) creation\n\nAuthor: Teymur Kheirkhabarov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8fbf3271-1ef6-4e94-8210-03c2317947f6",
+  "InsertDate": "2025-01-19T11:33:59Z",
+  "LastUpdateDate": "2025-01-19T11:33:59Z",
+  "Level": "high",
+  "Name": "Cred Dump Tools Dropped Files",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%\\fgdump-log%' or filepath like '%\\kirbi%' or filepath like '%\\pwdump%' or filepath like '%\\pwhashes%' or filepath like '%\\wce_ccache%' or filepath like '%\\wce_krbtkts%') and (filepath like '%\\cachedump.exe' or filepath like '%\\cachedump64.exe' or filepath like '%\\dumpext.dll' or filepath like '%\\dumpsvc.exe' or filepath like '%\\dumpy.exe' or filepath like '%\\fgexec.exe' or filepath like '%\\lsremora.dll' or filepath like '%\\lsremora64.dll' or filepath like '%\\ntds.out' or filepath like '%\\procdump64.exe' or filepath like '%\\pstgdump.exe' or filepath like '%\\pwdump.exe' or filepath like '%\\sam.out' or filepath like '%\\security.out' or filepath like '%\\servpw.exe' or filepath like '%\\servpw64.exe' or filepath like '%\\system.out' or filepath like '%\\test.pwd' or filepath like '%\\wceaux.dll')",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.001",
+    "attack.t1003.002",
+    "attack.t1003.003",
+    "attack.t1003.004",
+    "attack.t1003.005"
+  ],
+  "Version": "0.1"
+}

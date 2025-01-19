@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may enumerate browser bookmarks to learn more about compromised hosts.\nBrowser bookmarks may reveal personal information about users (ex: banking sites, interests, social media, etc.) as well as details about\ninternal network resources such as servers, tools/dashboards, or other related infrastructure.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e0565f5d-d420-4e02-8a68-ac00d864f9cf",
+  "InsertDate": "2025-01-19T11:34:19Z",
+  "LastUpdateDate": "2025-01-19T11:34:19Z",
+  "Level": "low",
+  "Name": "Automated Collection Bookmarks Using Get-ChildItem PowerShell",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%get-childitem%' and scriptblocktext like '% -recurse %' and scriptblocktext like '% -path %' and scriptblocktext like '% -filter bookmarks%' and scriptblocktext like '% -erroraction silentlycontinue%' and scriptblocktext like '% -force%')",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1217"
+  ],
+  "Version": "0.1"
+}

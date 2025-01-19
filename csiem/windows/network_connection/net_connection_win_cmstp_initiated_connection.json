@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a network connection initiated by Cmstp.EXE\nIts uncommon for \"cmstp.exe\" to initiate an outbound network connection. Investigate the source of such requests to determine if they are malicious.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "efafe0bf-4238-479e-af8f-797bd3490d2d",
+  "InsertDate": "2025-01-19T11:34:11Z",
+  "LastUpdateDate": "2025-01-19T11:34:11Z",
+  "Level": "high",
+  "Name": "Outbound Network Connection Initiated By Cmstp.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\cmstp.exe' and initiated = 'true') and  not (dst_ip cidr '127.0.0.0/8' or dst_ip cidr '10.0.0.0/8' or dst_ip cidr '172.16.0.0/12' or dst_ip cidr '192.168.0.0/16' or dst_ip cidr '169.254.0.0/16' or dst_ip cidr '::1/128' or dst_ip cidr 'fe80::/10' or dst_ip cidr 'fc00::/7'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.003"
+  ],
+  "Version": "0.1"
+}

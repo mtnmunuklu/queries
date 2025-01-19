@@ -1,0 +1,13 @@
+{
+  "Description": "Identifies the deletion of Azure Kubernetes Pods.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b02f9591-12c3-4965-986a-88028629b2e1",
+  "InsertDate": "2025-01-19T11:33:22Z",
+  "LastUpdateDate": "2025-01-19T11:33:22Z",
+  "Level": "medium",
+  "Name": "Azure Kubernetes Pods Deleted",
+  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where operationname = 'microsoft.kubernetes/connectedclusters/pods/delete'",
+  "Tags": [
+    "attack.impact"
+  ],
+  "Version": "0.1"
+}

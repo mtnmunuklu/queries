@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious process command line that uses base64 encoded input for execution with a shell\n\nAuthor: pH-T (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ba592c6d-6888-43c3-b8c6-689b8fe47337",
+  "InsertDate": "2025-01-19T11:33:33Z",
+  "LastUpdateDate": "2025-01-19T11:33:33Z",
+  "Level": "medium",
+  "Name": "Linux Base64 Encoded Pipe to Shell",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where (command like '%base64 %' and ((command like '%| bash %' or command like '%| sh %' or command like '%|bash %' or command like '%|sh %') and (command like '% |sh' or command like '%| bash' or command like '%| sh' or command like '%|bash')))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1140"
+  ],
+  "Version": "0.1"
+}

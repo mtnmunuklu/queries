@@ -1,0 +1,14 @@
+{
+  "Description": "Detects usage of the \"touch\" process in service file.\n\nAuthor: Joseliyo Sanchez, @Joseliyo_Jstnk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "31545105-3444-4584-bebf-c466353230d2",
+  "InsertDate": "2025-01-19T11:33:36Z",
+  "LastUpdateDate": "2025-01-19T11:33:36Z",
+  "Level": "medium",
+  "Name": "Touch Suspicious Service File",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where process_path like '%/touch' and command like '% -t %' and command like '%.service'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1070.006"
+  ],
+  "Version": "0.1"
+}

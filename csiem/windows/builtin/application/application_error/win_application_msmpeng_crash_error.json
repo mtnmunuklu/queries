@@ -1,0 +1,15 @@
+{
+  "Description": "This rule detects a suspicious crash of the Microsoft Malware Protection Engine\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "545a5da6-f103-4919-a519-e9aec1026ee4",
+  "InsertDate": "2025-01-19T11:33:42Z",
+  "LastUpdateDate": "2025-01-19T11:33:42Z",
+  "Level": "high",
+  "Name": "Microsoft Malware Protection Engine Crash",
+  "Query": "sourcetype='windows-application' eql select * from _source_ where provider_name = 'application error' and eventid = '1000' and (data like '%msmpeng.exe%' and data like '%mpengine.dll%')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1211",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

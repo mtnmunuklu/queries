@@ -1,0 +1,14 @@
+{
+  "Description": "Identifies when DNS zone is modified or deleted.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "af6925b0-8826-47f1-9324-337507a0babd",
+  "InsertDate": "2025-01-19T11:33:22Z",
+  "LastUpdateDate": "2025-01-19T11:33:22Z",
+  "Level": "medium",
+  "Name": "Azure DNS Zone Modified or Deleted",
+  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where operationname like 'microsoft.network/dnszones%' and (operationname like '%/write' or operationname like '%/delete')",
+  "Tags": [
+    "attack.impact",
+    "attack.t1565.001"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,18 @@
+{
+  "Description": "Detects instances where an SSH service on an OpenCanary node has had a connection attempt.\n\nAuthor: Security Onion Solutions\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "cd55f721-5623-4663-bd9b-5229cab5237d",
+  "InsertDate": "2025-01-19T11:33:19Z",
+  "LastUpdateDate": "2025-01-19T11:33:19Z",
+  "Level": "high",
+  "Name": "OpenCanary - SSH New Connection Attempt",
+  "Query": "sourcetype like 'opencanary-%' eql select * from _source_ where logtype = '4000'",
+  "Tags": [
+    "attack.initial-access",
+    "attack.lateral-movement",
+    "attack.persistence",
+    "attack.t1133",
+    "attack.t1021",
+    "attack.t1078"
+  ],
+  "Version": "0.1"
+}

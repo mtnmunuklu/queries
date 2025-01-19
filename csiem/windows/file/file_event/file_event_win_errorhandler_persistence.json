@@ -1,0 +1,13 @@
+{
+  "Description": "Detects creation of a file named \"ErrorHandler.cmd\" in the \"C:\\WINDOWS\\Setup\\Scripts\\\" directory which could be used as a method of persistence\nThe content of C:\\WINDOWS\\Setup\\Scripts\\ErrorHandler.cmd is read whenever some tools under C:\\WINDOWS\\System32\\oobe\\ (e.g. Setup.exe) fail to run for any reason.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "15904280-565c-4b73-9303-3291f964e7f9",
+  "InsertDate": "2025-01-19T11:34:00Z",
+  "LastUpdateDate": "2025-01-19T11:34:00Z",
+  "Level": "medium",
+  "Name": "Potential Persistence Attempt Via ErrorHandler.Cmd",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where filepath like '%\\windows\\setup\\scripts\\errorhandler.cmd'",
+  "Tags": [
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the creation of hidden file/folder with the \"::$index_allocation\" stream. Which can be used as a technique to prevent access to folder and files from tooling such as \"explorer.exe\" and \"powershell.exe\"\n\n\nAuthor: Scoubi (@ScoubiMtl)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a8f866e1-bdd4-425e-a27a-37619238d9c7",
+  "InsertDate": "2025-01-19T11:34:04Z",
+  "LastUpdateDate": "2025-01-19T11:34:04Z",
+  "Level": "medium",
+  "Name": "Potential Hidden Directory Creation Via NTFS INDEX_ALLOCATION Stream",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where filepath like '%::$index_allocation%'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1564.004"
+  ],
+  "Version": "0.1"
+}

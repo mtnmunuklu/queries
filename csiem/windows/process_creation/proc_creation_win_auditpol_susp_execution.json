@@ -1,0 +1,14 @@
+{
+  "Description": "Threat actors can use auditpol binary to change audit policy configuration to impair detection capability.\nThis can be carried out by selectively disabling/removing certain audit policies as well as restoring a custom policy owned by the threat actor.\n\n\nAuthor: Janantha Marasinghe (https://github.com/blueteam0ps)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0a13e132-651d-11eb-ae93-0242ac130002",
+  "InsertDate": "2025-01-19T11:34:30Z",
+  "LastUpdateDate": "2025-01-19T11:34:30Z",
+  "Level": "high",
+  "Name": "Audit Policy Tampering Via Auditpol",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%disable%' or command like '%clear%' or command like '%remove%' or command like '%restore%') and (process_path like '%\\auditpol.exe' and original_file_name = 'auditpol.exe'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.002"
+  ],
+  "Version": "0.1"
+}

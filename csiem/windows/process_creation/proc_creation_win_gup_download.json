@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of the Notepad++ updater (gup) from a process other than Notepad++ to download files.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "44143844-0631-49ab-97a0-96387d6b2d7c",
+  "InsertDate": "2025-01-19T11:34:39Z",
+  "LastUpdateDate": "2025-01-19T11:34:39Z",
+  "Level": "high",
+  "Name": "File Download Using Notepad++ GUP Utility",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\gup.exe' and original_file_name = 'gup.exe') and (command like '% -unzipto %' and command like '%http%')) and  not parent_process_path like '%\\notepad++.exe')",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1105"
+  ],
+  "Version": "0.1"
+}

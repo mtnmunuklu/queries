@@ -1,0 +1,14 @@
+{
+  "Description": "Detects scenarios where an attacker enables the OpenSSH server and server starts to listening on SSH socket.\n\nAuthor: mdecrevoisier\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3ce8e9a4-bc61-4c9b-8e69-d7e2492a8781",
+  "InsertDate": "2025-01-19T11:33:45Z",
+  "LastUpdateDate": "2025-01-19T11:33:45Z",
+  "Level": "medium",
+  "Name": "OpenSSH Server Listening On Socket",
+  "Query": "sourcetype='windows-openssh' eql select * from _source_ where eventid = '4' and process = 'sshd' and payload like 'server listening on %'",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.t1021.004"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects cases in which an ISO files is opend within an archiver like 7Zip or Winrar, which is a sign of phishing as threat actors put small ISO files in archives as email attachments to bypass certain filters and protective measures (mark of web)\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fcdf69e5-a3d3-452a-9724-26f2308bf2b1",
+  "InsertDate": "2025-01-19T11:35:30Z",
+  "LastUpdateDate": "2025-01-19T11:35:30Z",
+  "Level": "high",
+  "Name": "Phishing Pattern ISO in Archive",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\winrar.exe' or parent_process_path like '%\\7zfm.exe' or parent_process_path like '%\\peazip.exe') and (process_path like '%\\isoburn.exe' or process_path like '%\\poweriso.exe' or process_path like '%\\imgburn.exe')",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1566"
+  ],
+  "Version": "0.1"
+}

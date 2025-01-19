@@ -1,0 +1,14 @@
+{
+  "Description": "Detects DNS queries for subdomains related to MEGA sharing website\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "66474410-b883-415f-9f8d-75345a0a66a6",
+  "InsertDate": "2025-01-19T11:33:44Z",
+  "LastUpdateDate": "2025-01-19T11:33:44Z",
+  "Level": "medium",
+  "Name": "DNS Query To MEGA Hosting Website - DNS Client",
+  "Query": "sourcetype='windows-dns-client' eql select * from _source_ where eventid = '3008' and query_name like '%userstorage.mega.co.nz%'",
+  "Tags": [
+    "attack.exfiltration",
+    "attack.t1567.002"
+  ],
+  "Version": "0.1"
+}

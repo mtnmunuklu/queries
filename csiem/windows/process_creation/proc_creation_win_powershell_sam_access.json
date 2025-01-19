@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious PowerShell scripts accessing SAM hives\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1af57a4b-460a-4738-9034-db68b880c665",
+  "InsertDate": "2025-01-19T11:35:04Z",
+  "LastUpdateDate": "2025-01-19T11:35:04Z",
+  "Level": "high",
+  "Name": "PowerShell SAM Copy",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%\\harddiskvolumeshadowcopy%' and command like '%system32\\config\\sam%') and (command like '%copy-item%' or command like '%cp $_.%' or command like '%cpi $_.%' or command like '%copy $_.%' or command like '%.file]::copy(%'))",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.002"
+  ],
+  "Version": "0.1"
+}

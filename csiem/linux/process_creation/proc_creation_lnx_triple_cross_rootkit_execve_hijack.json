@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of a the file \"execve_hijack\" which is used by the Triple Cross rootkit as a way to elevate privileges\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0326c3c8-7803-4a0f-8c5c-368f747f7c3e",
+  "InsertDate": "2025-01-19T11:33:36Z",
+  "LastUpdateDate": "2025-01-19T11:33:36Z",
+  "Level": "high",
+  "Name": "Triple Cross eBPF Rootkit Execve Hijack",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where process_path like '%/sudo' and command like '%execve_hijack%'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation"
+  ],
+  "Version": "0.1"
+}

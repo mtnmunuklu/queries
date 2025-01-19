@@ -1,0 +1,14 @@
+{
+  "Description": "Detects local user creation on Windows servers, which shouldn't happen in an Active Directory environment. Apply this Sigma Use Case on your Windows server logs and not on your DC logs.\n\n\nAuthor: Patrick Bareiss\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "66b6be3d-55d0-4f47-9855-d69df21740ea",
+  "InsertDate": "2025-01-19T11:33:50Z",
+  "LastUpdateDate": "2025-01-19T11:33:50Z",
+  "Level": "low",
+  "Name": "Local User Creation",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4720'",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1136.001"
+  ],
+  "Version": "0.1"
+}

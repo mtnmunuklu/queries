@@ -1,0 +1,14 @@
+{
+  "Description": "Detects process handle on LSASS process with certain access mask and object type SAM_DOMAIN\n\nAuthor: sigma\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "aa1697b7-d611-4f9a-9cb2-5125b4ccfd5c",
+  "InsertDate": "2025-01-19T11:33:50Z",
+  "LastUpdateDate": "2025-01-19T11:33:50Z",
+  "Level": "high",
+  "Name": "Password Dumper Activity on LSASS",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4656' and processname like '%\\lsass.exe' and accessmask = '0x705' and objecttype = 'sam_domain'",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.001"
+  ],
+  "Version": "0.1"
+}

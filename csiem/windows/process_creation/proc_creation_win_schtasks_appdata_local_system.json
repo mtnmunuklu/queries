@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the creation of a schtask that executes a file from C:\\Users\\\u003cUSER\u003e\\AppData\\Local\n\nAuthor: pH-T (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c5c00f49-b3f9-45a6-997e-cfdecc6e1967",
+  "InsertDate": "2025-01-19T11:35:23Z",
+  "LastUpdateDate": "2025-01-19T11:35:23Z",
+  "Level": "high",
+  "Name": "Suspicious Schtasks Execution AppData Folder",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\schtasks.exe' and (command like '%/create%' and command like '%/ru%' and command like '%/tr%' and command like '%c:\\users\\%' and command like '%\\appdata\\local\\%') and (command like '%nt aut%' or command like '% system %')) and  not ((parent_process_path like '%\\appdata\\local\\temp\\%' and parent_process_path like '%teamviewer_.exe%') and process_path like '%\\schtasks.exe' and command like '%/tn tvinstallrestore%'))",
+  "Tags": [
+    "attack.execution",
+    "attack.persistence",
+    "attack.t1053.005",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,13 @@
+{
+  "Description": "Identifies when a suppression rule is created in Azure. Adversary's could attempt this to evade detection.\n\nAuthor: Austin Songer\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "92cc3e5d-eb57-419d-8c16-5c63f325a401",
+  "InsertDate": "2025-01-19T11:33:23Z",
+  "LastUpdateDate": "2025-01-19T11:33:23Z",
+  "Level": "medium",
+  "Name": "Azure Suppression Rule Created",
+  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where operationname = 'microsoft.security/alertssuppressionrules/write'",
+  "Tags": [
+    "attack.impact"
+  ],
+  "Version": "0.1"
+}

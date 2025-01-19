@@ -1,0 +1,14 @@
+{
+  "Description": "Detects changes to registry keys related to \"Trusted Location\" of Microsoft Office where the path is set to something uncommon. Attackers might add additional trusted locations to avoid macro security restrictions.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f742bde7-9528-42e5-bd82-84f51a8387d2",
+  "InsertDate": "2025-01-19T11:36:16Z",
+  "LastUpdateDate": "2025-01-19T11:36:16Z",
+  "Level": "high",
+  "Name": "Uncommon Microsoft Office Trusted Location Added",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object like '%security\\trusted locations\\location%' and target_object like '%\\path') and  not ((process_path like '%:\\program files\\common files\\microsoft shared\\clicktorun\\%' and process_path like '%\\officeclicktorun.exe') or (process_path like '%:\\program files\\microsoft office\\%' or process_path like '%:\\program files (x86)\\microsoft office\\%')) and  not (details like '%%appdata%\\microsoft\\templates%' or details like '%%%appdata%%\\microsoft\\templates%' or details like '%%appdata%\\microsoft\\word\\startup%' or details like '%%%appdata%%\\microsoft\\word\\startup%' or details like '%:\\program files (x86)\\microsoft office\\root\\templates\\%' or details like '%:\\program files\\microsoft office (x86)\\templates%' or details like '%:\\program files\\microsoft office\\root\\templates\\%' or details like '%:\\program files\\microsoft office\\templates\\%'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1112"
+  ],
+  "Version": "0.1"
+}

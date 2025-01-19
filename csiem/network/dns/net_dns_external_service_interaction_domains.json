@@ -1,0 +1,16 @@
+{
+  "Description": "Detects suspicious DNS queries to external service interaction domains often used for out-of-band interactions after successful RCE\n\nAuthor: Florian Roth (Nextron Systems), Matt Kelly (list of domains)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "aff715fa-4dd5-497a-8db3-910bea555566",
+  "InsertDate": "2025-01-19T11:33:40Z",
+  "LastUpdateDate": "2025-01-19T11:33:40Z",
+  "Level": "high",
+  "Name": "DNS Query to External Service Interaction Domains",
+  "Query": "eql select * from _source_ where (query like '%.interact.sh%' or query like '%.oast.pro%' or query like '%.oast.live%' or query like '%.oast.site%' or query like '%.oast.online%' or query like '%.oast.fun%' or query like '%.oast.me%' or query like '%.burpcollaborator.net%' or query like '%.oastify.com%' or query like '%.canarytokens.com%' or query like '%.requestbin.net%' or query like '%.dnslog.cn%')",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1190",
+    "attack.reconnaissance",
+    "attack.t1595.002"
+  ],
+  "Version": "0.1"
+}

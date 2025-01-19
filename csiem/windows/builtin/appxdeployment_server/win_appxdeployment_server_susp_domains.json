@@ -1,0 +1,13 @@
+{
+  "Description": "Detects an appx package added to the pipeline of the \"to be processed\" packages which was downloaded from a suspicious domain.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8b48ad89-10d8-4382-a546-50588c410f0d",
+  "InsertDate": "2025-01-19T11:33:43Z",
+  "LastUpdateDate": "2025-01-19T11:33:43Z",
+  "Level": "high",
+  "Name": "Suspicious Remote AppX Package Locations",
+  "Query": "sourcetype='windows-appxdeployment-server' eql select * from _source_ where eventid = '854' and (path like '%.githubusercontent.com%' or path like '%anonfiles.com%' or path like '%cdn.discordapp.com%' or path like '%ddns.net%' or path like '%dl.dropboxusercontent.com%' or path like '%ghostbin.co%' or path like '%glitch.me%' or path like '%gofile.io%' or path like '%hastebin.com%' or path like '%mediafire.com%' or path like '%mega.nz%' or path like '%onrender.com%' or path like '%pages.dev%' or path like '%paste.ee%' or path like '%pastebin.com%' or path like '%pastebin.pl%' or path like '%pastetext.net%' or path like '%privatlab.com%' or path like '%privatlab.net%' or path like '%send.exploit.in%' or path like '%sendspace.com%' or path like '%storage.googleapis.com%' or path like '%storjshare.io%' or path like '%supabase.co%' or path like '%temp.sh%' or path like '%transfer.sh%' or path like '%trycloudflare.com%' or path like '%ufile.io%' or path like '%w3spaces.com%' or path like '%workers.dev%')",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

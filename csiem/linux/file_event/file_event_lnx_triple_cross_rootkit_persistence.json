@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the creation of \"ebpfbackdoor\" files in both \"cron.d\" and \"sudoers.d\" directories. Which both are related to the TripleCross persistence method\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1a2ea919-d11d-4d1e-8535-06cda13be20f",
+  "InsertDate": "2025-01-19T11:33:32Z",
+  "LastUpdateDate": "2025-01-19T11:33:32Z",
+  "Level": "high",
+  "Name": "Triple Cross eBPF Rootkit Default Persistence",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where filepath like '%ebpfbackdoor'",
+  "Tags": [
+    "attack.persistence",
+    "attack.defense-evasion",
+    "attack.t1053.003"
+  ],
+  "Version": "0.1"
+}

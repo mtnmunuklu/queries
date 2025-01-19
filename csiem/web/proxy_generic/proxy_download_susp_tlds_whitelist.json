@@ -1,0 +1,17 @@
+{
+  "Description": "Detects executable downloads from suspicious remote systems\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b5de2919-b74a-4805-91a7-5049accbaefe",
+  "InsertDate": "2025-01-19T11:33:41Z",
+  "LastUpdateDate": "2025-01-19T11:33:41Z",
+  "Level": "low",
+  "Name": "Download From Suspicious TLD - Whitelist",
+  "Query": "eql select * from _source_ where ((c-uri-extension = 'exe' or c-uri-extension = 'vbs' or c-uri-extension = 'bat' or c-uri-extension = 'rar' or c-uri-extension = 'ps1' or c-uri-extension = 'doc' or c-uri-extension = 'docm' or c-uri-extension = 'xls' or c-uri-extension = 'xlsm' or c-uri-extension = 'pptm' or c-uri-extension = 'rtf' or c-uri-extension = 'hta' or c-uri-extension = 'dll' or c-uri-extension = 'ws' or c-uri-extension = 'wsf' or c-uri-extension = 'sct' or c-uri-extension = 'zip') and  not (cs-host like '%.com' or cs-host like '%.org' or cs-host like '%.net' or cs-host like '%.edu' or cs-host like '%.gov' or cs-host like '%.uk' or cs-host like '%.ca' or cs-host like '%.de' or cs-host like '%.jp' or cs-host like '%.fr' or cs-host like '%.au' or cs-host like '%.us' or cs-host like '%.ch' or cs-host like '%.it' or cs-host like '%.nl' or cs-host like '%.se' or cs-host like '%.no' or cs-host like '%.es'))",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1566",
+    "attack.execution",
+    "attack.t1203",
+    "attack.t1204.002"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Adversaries can carry out malicious operations using a virtual instance to avoid detection. This rule is built to detect the registration of the Virtualbox driver or start of a Virtualbox VM.\n\nAuthor: Janantha Marasinghe\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "bab049ca-7471-4828-9024-38279a4c04da",
+  "InsertDate": "2025-01-19T11:35:47Z",
+  "LastUpdateDate": "2025-01-19T11:35:47Z",
+  "Level": "low",
+  "Name": "Detect Virtualbox Driver Installation OR Starting Of VMs",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%vboxrt.dll,rtr3init%' or command like '%vboxc.dll%' or command like '%vboxdrv.sys%') or (command like '%startvm%' or command like '%controlvm%'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1564.006",
+    "attack.t1564"
+  ],
+  "Version": "0.1"
+}

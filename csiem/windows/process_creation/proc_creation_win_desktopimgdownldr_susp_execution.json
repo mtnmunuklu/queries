@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a suspicious Microsoft desktopimgdownldr execution with parameters used to download files from the Internet\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "bb58aa4a-b80b-415a-a2c0-2f65a4c81009",
+  "InsertDate": "2025-01-19T11:34:35Z",
+  "LastUpdateDate": "2025-01-19T11:34:35Z",
+  "Level": "high",
+  "Name": "Suspicious Desktopimgdownldr Command",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '% /lockscreenurl:%' and  not (command like '%.jpg%' or command like '%.jpeg%' or command like '%.png%')) or (command like '%reg delete%' and command like '%\\personalizationcsp%'))",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1105"
+  ],
+  "Version": "0.1"
+}

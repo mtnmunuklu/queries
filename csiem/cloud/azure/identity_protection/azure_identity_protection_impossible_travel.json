@@ -1,0 +1,17 @@
+{
+  "Description": "Identifies user activities originating from geographically distant locations within a time period shorter than the time it takes to travel from the first location to the second.\n\nAuthor: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b2572bf9-e20a-4594-b528-40bde666525a",
+  "InsertDate": "2025-01-19T11:33:25Z",
+  "LastUpdateDate": "2025-01-19T11:33:25Z",
+  "Level": "high",
+  "Name": "Impossible Travel",
+  "Query": "sourcetype='azure-riskdetection' eql select * from _source_ where riskeventtype = 'impossibletravel'",
+  "Tags": [
+    "attack.t1078",
+    "attack.persistence",
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.initial-access"
+  ],
+  "Version": "0.1"
+}

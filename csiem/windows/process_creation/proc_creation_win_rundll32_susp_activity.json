@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious execution of rundll32, with specific calls to some DLLs with known LOLBIN functionalities\n\nAuthor: juju4, Jonhnathan Ribeiro, oscd.community, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e593cf51-88db-4ee1-b920-37e89012a3c9",
+  "InsertDate": "2025-01-19T11:35:19Z",
+  "LastUpdateDate": "2025-01-19T11:35:19Z",
+  "Level": "medium",
+  "Name": "Potentially Suspicious Rundll32 Activity",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((command like '%javascript:%' and command like '%.registerxll%') and (command like '%url.dll%' and command like '%openurl%') and (command like '%url.dll%' and command like '%openurla%') and (command like '%url.dll%' and command like '%fileprotocolhandler%') and (command like '%zipfldr.dll%' and command like '%routethecall%') and (command like '%shell32.dll%' and command like '%control_rundll%') and (command like '%shell32.dll%' and command like '%shellexec_rundll%') and (command like '%mshtml.dll%' and command like '%printhtml%') and (command like '%advpack.dll%' and command like '%launchinfsection%') and (command like '%advpack.dll%' and command like '%registerocx%') and (command like '%ieadvpack.dll%' and command like '%launchinfsection%') and (command like '%ieadvpack.dll%' and command like '%registerocx%') and (command like '%ieframe.dll%' and command like '%openurl%') and (command like '%shdocvw.dll%' and command like '%openurl%') and (command like '%syssetup.dll%' and command like '%setupinfobjectinstallaction%') and (command like '%setupapi.dll%' and command like '%installhinfsection%') and (command like '%pcwutl.dll%' and command like '%launchapplication%') and (command like '%dfshim.dll%' and command like '%shopenverbapplication%') and (command like '%dfshim.dll%' and command like '%shopenverbshortcut%') and (command like '%scrobj.dll%' and command like '%generatetypelib%' and command like '%http%') and (command like '%shimgvw.dll%' and command like '%imageview_fullscreen%' and command like '%http%') and (command like '%comsvcs.dll%' and command like '%minidump%')) and  not (command like '%shell32.dll,control_rundll desk.cpl,screensaver,@screensaver%' or (parent_process_path = 'c:\\windows\\system32\\control.exe' and parent_command_line like '%.cpl%' and (command like '%shell32.dll%' and command like '%control_rundll%' and command like '%.cpl%')) or (parent_process_path = 'c:\\windows\\system32\\control.exe' and command like '\"c:\\windows\\system32\\rundll32.exe\" shell32.dll,control_rundll \"c:\\windows\\system32\\%' and command like '%.cpl\",')))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.011"
+  ],
+  "Version": "0.1"
+}

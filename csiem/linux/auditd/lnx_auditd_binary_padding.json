@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may use binary padding to add junk data and change the on-disk representation of malware.\nThis rule detect using dd and truncate to add a junk data to file.\n\n\nAuthor: Igor Fits, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c52a914f-3d8b-4b2a-bb75-b3991e75f8ba",
+  "InsertDate": "2025-01-19T11:33:30Z",
+  "LastUpdateDate": "2025-01-19T11:33:30Z",
+  "Level": "high",
+  "Name": "Binary Padding - Linux",
+  "Query": "sourcetype='linux-auditd' eql select * from _source_ where (type = 'execve' and (( = 'truncate' and  = '-s') or (( = 'dd' and  = 'if=') and  not log like '%of=%')))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1027.001"
+  ],
+  "Version": "0.1"
+}

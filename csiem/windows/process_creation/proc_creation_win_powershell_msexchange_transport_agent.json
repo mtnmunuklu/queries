@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the Installation of a Exchange Transport Agent\n\nAuthor: Tobias Michalski (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "83809e84-4475-4b69-bc3e-4aad8568612f",
+  "InsertDate": "2025-01-19T11:35:03Z",
+  "LastUpdateDate": "2025-01-19T11:35:03Z",
+  "Level": "medium",
+  "Name": "MSExchange Transport Agent Installation",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where command like '%install-transportagent%'",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1505.002"
+  ],
+  "Version": "0.1"
+}

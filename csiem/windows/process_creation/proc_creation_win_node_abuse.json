@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution node.exe which is shipped with multiple software such as VMware, Adobe...etc. In order to execute arbitrary code. For example to establish reverse shell as seen in Log4j attacks...etc\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6640f31c-01ad-49b5-beb5-83498a5cd8bd",
+  "InsertDate": "2025-01-19T11:34:56Z",
+  "LastUpdateDate": "2025-01-19T11:34:56Z",
+  "Level": "high",
+  "Name": "Potential Arbitrary Code Execution Via Node.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\node.exe' and (command like '% -e %' or command like '% --eval %')) and (command like '%.exec(%' and command like '%net.socket%' and command like '%.connect%' and command like '%child_process%'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1127"
+  ],
+  "Version": "0.1"
+}

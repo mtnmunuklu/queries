@@ -1,0 +1,15 @@
+{
+  "Description": "Bypasses User Account Control using a fileless method\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "46dd5308-4572-4d12-aa43-8938f0184d4f",
+  "InsertDate": "2025-01-19T11:36:08Z",
+  "LastUpdateDate": "2025-01-19T11:36:08Z",
+  "Level": "high",
+  "Name": "Bypass UAC Using DelegateExecute",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where target_object like '%\\open\\command\\delegateexecute' and details = '(empty)'",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.defense-evasion",
+    "attack.t1548.002"
+  ],
+  "Version": "0.1"
+}

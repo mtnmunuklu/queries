@@ -1,0 +1,15 @@
+{
+  "Description": "Detects when PIM alerts are set to disabled.\n\nAuthor: Mark Morowczynski '@markmorow', Yochana Henderson, '@Yochana-H'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "aeaef14c-e5bf-4690-a9c8-835caad458bd",
+  "InsertDate": "2025-01-19T11:33:24Z",
+  "LastUpdateDate": "2025-01-19T11:33:24Z",
+  "Level": "high",
+  "Name": "PIM Alert Setting Changes To Disabled",
+  "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where properties.message = 'disable pim alert'",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1078"
+  ],
+  "Version": "0.1"
+}

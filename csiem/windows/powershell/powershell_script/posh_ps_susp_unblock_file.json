@@ -1,0 +1,14 @@
+{
+  "Description": "Remove the Zone.Identifier alternate data stream which identifies the file as downloaded from the internet.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5947497f-1aa4-41dd-9693-c9848d58727d",
+  "InsertDate": "2025-01-19T11:34:25Z",
+  "LastUpdateDate": "2025-01-19T11:34:25Z",
+  "Level": "medium",
+  "Name": "Suspicious Unblock-File",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%unblock-file %' and scriptblocktext like '%-path %')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1553.005"
+  ],
+  "Version": "0.1"
+}

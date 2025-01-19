@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the pattern of UAC Bypass using consent.exe and comctl32.dll (UACMe 22)\n\nAuthor: Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1ca6bd18-0ba0-44ca-851c-92ed89a61085",
+  "InsertDate": "2025-01-19T11:35:45Z",
+  "LastUpdateDate": "2025-01-19T11:35:45Z",
+  "Level": "high",
+  "Name": "UAC Bypass Using Consent and Comctl32 - Process",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where parent_process_path like '%\\consent.exe' and process_path like '%\\werfault.exe' and (integrity_level = 'high' or integrity_level = 'system' or integrity_level = 's-1-16-16384' or integrity_level = 's-1-16-12288')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1548.002"
+  ],
+  "Version": "0.1"
+}

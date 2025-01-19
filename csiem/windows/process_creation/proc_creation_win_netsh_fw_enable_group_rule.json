@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may modify system firewalls in order to bypass controls limiting network usage\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "347906f3-e207-4d18-ae5b-a9403d6bcdef",
+  "InsertDate": "2025-01-19T11:34:55Z",
+  "LastUpdateDate": "2025-01-19T11:34:55Z",
+  "Level": "medium",
+  "Name": "Netsh Allow Group Policy on Microsoft Defender Firewall",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\netsh.exe' and original_file_name = 'netsh.exe') and (command like '%advfirewall%' and command like '%firewall%' and command like '%set%' and command like '%rule%' and command like '%group=%' and command like '%new%' and command like '%enable=yes%'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.004"
+  ],
+  "Version": "0.1"
+}

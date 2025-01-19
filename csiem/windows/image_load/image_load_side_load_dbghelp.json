@@ -1,0 +1,17 @@
+{
+  "Description": "Detects potential DLL sideloading of \"dbghelp.dll\"\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Wietze Beukema (project and research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6414b5cd-b19d-447e-bb5e-9f03940b5784",
+  "InsertDate": "2025-01-19T11:34:08Z",
+  "LastUpdateDate": "2025-01-19T11:34:08Z",
+  "Level": "medium",
+  "Name": "Potential DLL Sideloading Of DBGHELP.DLL",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (image_loaded like '%\\dbghelp.dll' and  not (image_loaded like 'c:\\program files (x86)\\%' or image_loaded like 'c:\\program files\\%' or image_loaded like 'c:\\windows\\softwaredistribution\\%' or image_loaded like 'c:\\windows\\system32\\%' or image_loaded like 'c:\\windows\\systemtemp\\%' or image_loaded like 'c:\\windows\\syswow64\\%' or image_loaded like 'c:\\windows\\winsxs\\%') and  not ((image_loaded like '%\\anaconda3\\lib\\site-packages\\vtrace\\platforms\\windll\\amd64\\dbghelp.dll' or image_loaded like '%\\anaconda3\\lib\\site-packages\\vtrace\\platforms\\windll\\i386\\dbghelp.dll') or (image_loaded like '%\\epic games\\launcher\\engine\\binaries\\thirdparty\\dbghelp\\dbghelp.dll' or image_loaded like '%\\epic games\\magiclegends\\x86\\dbghelp.dll')))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,17 @@
+{
+  "Description": "Detects various indicators of Microsoft Connection Manager Profile Installer execution\n\nAuthor: Nik Seetharaman\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b6d235fc-1d38-4b12-adbe-325f06728f37",
+  "InsertDate": "2025-01-19T11:36:01Z",
+  "LastUpdateDate": "2025-01-19T11:36:01Z",
+  "Level": "high",
+  "Name": "CMSTP Execution Registry Event",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where target_object like '%\\cmmgr32.exe%'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.t1218.003",
+    "attack.g0069",
+    "car.2019-04-001"
+  ],
+  "Version": "0.1"
+}

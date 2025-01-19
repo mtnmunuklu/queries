@@ -1,0 +1,13 @@
+{
+  "Description": "Detects suspicious UTF16 and base64 encoded and often obfuscated PowerShell code often used in command lines\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8d01b53f-456f-48ee-90f6-bc28e67d4e35",
+  "InsertDate": "2025-01-19T11:34:58Z",
+  "LastUpdateDate": "2025-01-19T11:34:58Z",
+  "Level": "high",
+  "Name": "Suspicious Obfuscated PowerShell Code",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%iaatagiaeabvahiaiaawahga%' or command like '%aalqbiahgabwbyacaamab4a%' or command like '%gac0aygb4ag8acgagadaaea%' or command like '%ac4asqbuahyabwbraguakaapacaafaag%' or command like '%auaekabgb2ag8aawblacgakqagahwai%' or command like '%algbjag4adgbvagsazqaoackaiab8ac%' or command like '%ahsamqb9ahsamab9aciaiaatagyai%' or command like '%b7adeafqb7adaafqaiacaalqbmac%' or command like '%aewaxah0aewawah0aigagac0azgag%' or command like '%ahsamab9ahsamwb9aciaiaatagyai%' or command like '%b7adaafqb7admafqaiacaalqbmac%' or command like '%aewawah0aewazah0aigagac0azgag%' or command like '%ahsamgb9ahsamab9aciaiaatagyai%' or command like '%b7adiafqb7adaafqaiacaalqbmac%' or command like '%aewayah0aewawah0aigagac0azgag%' or command like '%ahsamqb9ahsamab9accaiaatagyai%' or command like '%b7adeafqb7adaafqanacaalqbmac%' or command like '%aewaxah0aewawah0ajwagac0azgag%' or command like '%ahsamab9ahsamwb9accaiaatagyai%' or command like '%b7adaafqb7admafqanacaalqbmac%' or command like '%aewawah0aewazah0ajwagac0azgag%' or command like '%ahsamgb9ahsamab9accaiaatagyai%' or command like '%b7adiafqb7adaafqanacaalqbmac%' or command like '%aewayah0aewawah0ajwagac0azgag%')",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

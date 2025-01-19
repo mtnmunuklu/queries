@@ -1,0 +1,14 @@
+{
+  "Description": "Detects creation of cron file or files in Cron directories which could indicates potential persistence.\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research), MSTIC\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6c4e2f43-d94d-4ead-b64d-97e53fa2bd05",
+  "InsertDate": "2025-01-19T11:33:32Z",
+  "LastUpdateDate": "2025-01-19T11:33:32Z",
+  "Level": "medium",
+  "Name": "Persistence Via Cron Files",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where ((filepath like '/etc/cron.d/%' or filepath like '/etc/cron.daily/%' or filepath like '/etc/cron.hourly/%' or filepath like '/etc/cron.monthly/%' or filepath like '/etc/cron.weekly/%' or filepath like '/var/spool/cron/crontabs/%') or (filepath like '%/etc/cron.allow%' or filepath like '%/etc/cron.deny%' or filepath like '%/etc/crontab%'))",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1053.003"
+  ],
+  "Version": "0.1"
+}

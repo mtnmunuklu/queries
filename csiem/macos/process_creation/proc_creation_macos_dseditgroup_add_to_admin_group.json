@@ -1,0 +1,15 @@
+{
+  "Description": "Detects attempts to create and/or add an account to the admin group, thus granting admin privileges.\n\nAuthor: Sohan G (D4rkCiph3r)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5d0fdb62-f225-42fb-8402-3dfe64da468a",
+  "InsertDate": "2025-01-19T11:33:37Z",
+  "LastUpdateDate": "2025-01-19T11:33:37Z",
+  "Level": "medium",
+  "Name": "User Added To Admin Group Via DseditGroup",
+  "Query": "sourcetype like 'macos-%' eql select * from _source_ where process_path like '%/dseditgroup' and (command like '% -o edit %' and command like '% -a %' and command like '% -t user%' and command like '%admin%')",
+  "Tags": [
+    "attack.initial-access",
+    "attack.privilege-escalation",
+    "attack.t1078.003"
+  ],
+  "Version": "0.1"
+}

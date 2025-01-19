@@ -1,0 +1,17 @@
+{
+  "Description": "Detects the usage of \"reg.exe\" in order to dump sensitive registry hives. This includes SAM, SYSTEM and SECURITY hives.\n\nAuthor: Teymur Kheirkhabarov, Endgame, JHasenbusch, Daniil Yugoslavskiy, oscd.community, frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fd877b94-9bb5-4191-bb25-d79cbd93c167",
+  "InsertDate": "2025-01-19T11:35:10Z",
+  "LastUpdateDate": "2025-01-19T11:35:10Z",
+  "Level": "high",
+  "Name": "Dumping of Sensitive Hives Via Reg.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%\\system%' or command like '%\\sam%' or command like '%\\security%' or command like '%\\ˢystem%' or command like '%\\syˢtem%' or command like '%\\ˢyˢtem%' or command like '%\\ˢam%' or command like '%\\ˢecurity%') and (process_path like '%\\reg.exe' and original_file_name = 'reg.exe') and (command like '% save %' or command like '% export %' or command like '% ˢave %' or command like '% eˣport %') and (command like '%hklm%' or command like '%hk˪m%' or command like '%hkey_local_machine%' or command like '%hkey_˪ocal_machine%' or command like '%hkey_loca˪_machine%' or command like '%hkey_˪oca˪_machine%'))",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.002",
+    "attack.t1003.004",
+    "attack.t1003.005",
+    "car.2013-07-001"
+  ],
+  "Version": "0.1"
+}

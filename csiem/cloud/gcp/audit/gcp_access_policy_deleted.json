@@ -1,0 +1,15 @@
+{
+  "Description": "Detects when an access policy that is applied to a GCP cloud resource is deleted.\nAn adversary would be able to remove access policies to gain access to a GCP cloud resource.\n\n\nAuthor: Bryan Lim\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "32438676-1dba-4ac7-bf69-b86cba995e05",
+  "InsertDate": "2025-01-19T11:33:27Z",
+  "LastUpdateDate": "2025-01-19T11:33:27Z",
+  "Level": "medium",
+  "Name": "GCP Access Policy Deleted",
+  "Query": "sourcetype='gcp-gcp.audit' eql select * from _source_ where (data.protopayload.authorizationinfo.permission = 'accesscontextmanager.accesspolicies.delete' or data.protopayload.authorizationinfo.permission = 'accesscontextmanager.accesspolicies.accesslevels.delete' or data.protopayload.authorizationinfo.permission = 'accesscontextmanager.accesspolicies.accesszones.delete' or data.protopayload.authorizationinfo.permission = 'accesscontextmanager.accesspolicies.authorizedorgsdescs.delete') and data.protopayload.authorizationinfo.granted = 'true' and data.protopayload.servicename = 'accesscontextmanager.googleapis.com'",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1098"
+  ],
+  "Version": "0.1"
+}

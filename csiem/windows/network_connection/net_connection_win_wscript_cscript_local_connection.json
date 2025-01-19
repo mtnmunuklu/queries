@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a script interpreter (Wscript/Cscript) initiating a local network connection to download or execute a script hosted on a shared folder.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "08249dc0-a28d-4555-8ba5-9255a198e08c",
+  "InsertDate": "2025-01-19T11:34:13Z",
+  "LastUpdateDate": "2025-01-19T11:34:13Z",
+  "Level": "medium",
+  "Name": "Local Network Connection Initiated By Script Interpreter",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where initiated = 'true' and (process_path like '%\\wscript.exe' or process_path like '%\\cscript.exe') and (dst_ip cidr '127.0.0.0/8' or dst_ip cidr '10.0.0.0/8' or dst_ip cidr '172.16.0.0/12' or dst_ip cidr '192.168.0.0/16' or dst_ip cidr '169.254.0.0/16' or dst_ip cidr '::1/128' or dst_ip cidr 'fe80::/10' or dst_ip cidr 'fc00::/7')",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1105"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detection of child processes spawned with SYSTEM privileges by parents with LOCAL SERVICE or NETWORK SERVICE accounts\n\nAuthor: Teymur Kheirkhabarov, Roberto Rodriguez (@Cyb3rWard0g), Open Threat Research (OTR)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "590a5f4c-6c8c-4f10-8307-89afe9453a9d",
+  "InsertDate": "2025-01-19T11:35:31Z",
+  "LastUpdateDate": "2025-01-19T11:35:31Z",
+  "Level": "high",
+  "Name": "Suspicious Child Process Created as System",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((puser like '%authori%' or puser like '%autori%') and (puser like '%\\network service' or puser like '%\\local service') and (username like '%authori%' or username like '%autori%') and (username like '%\\system' or username like '%\\système' or username like '%\\система') and (integrity_level = 'system' or integrity_level = 's-1-16-16384')) and  not (process_path like '%\\rundll32.exe' and command like '%davsetcookie%'))",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.t1134.002"
+  ],
+  "Version": "0.1"
+}

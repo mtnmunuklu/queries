@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious use of an .exe extension after a non-executable file extension like .pdf.exe, a set of spaces or underlines to cloak the executable file in spear phishing campaigns\n\nAuthor: Florian Roth (Nextron Systems), @blu3_team (idea), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1cdd9a09-06c9-4769-99ff-626e2b3991b8",
+  "InsertDate": "2025-01-19T11:35:32Z",
+  "LastUpdateDate": "2025-01-19T11:35:32Z",
+  "Level": "critical",
+  "Name": "Suspicious Double Extension File Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%.doc.exe' or process_path like '%.docx.exe' or process_path like '%.xls.exe' or process_path like '%.xlsx.exe' or process_path like '%.ppt.exe' or process_path like '%.pptx.exe' or process_path like '%.rtf.exe' or process_path like '%.pdf.exe' or process_path like '%.txt.exe' or process_path like '%      .exe' or process_path like '%______.exe' or process_path like '%.doc.js' or process_path like '%.docx.js' or process_path like '%.xls.js' or process_path like '%.xlsx.js' or process_path like '%.ppt.js' or process_path like '%.pptx.js' or process_path like '%.rtf.js' or process_path like '%.pdf.js' or process_path like '%.txt.js') and (command like '%.doc.exe%' or command like '%.docx.exe%' or command like '%.xls.exe%' or command like '%.xlsx.exe%' or command like '%.ppt.exe%' or command like '%.pptx.exe%' or command like '%.rtf.exe%' or command like '%.pdf.exe%' or command like '%.txt.exe%' or command like '%      .exe%' or command like '%______.exe%' or command like '%.doc.js%' or command like '%.docx.js%' or command like '%.xls.js%' or command like '%.xlsx.js%' or command like '%.ppt.js%' or command like '%.pptx.js%' or command like '%.rtf.js%' or command like '%.pdf.js%' or command like '%.txt.js%')",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1566.001"
+  ],
+  "Version": "0.1"
+}

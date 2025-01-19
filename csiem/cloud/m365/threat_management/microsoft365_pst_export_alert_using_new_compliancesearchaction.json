@@ -1,0 +1,14 @@
+{
+  "Description": "Alert when a user has performed an export to a search using 'New-ComplianceSearchAction' with the '-Export' flag. This detection will detect PST export even if the 'eDiscovery search or exported' alert is disabled in the O365.This rule will apply to ExchangePowerShell usage and from the cloud.\n\nAuthor: Nikita Khalimonenkov\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6897cd82-6664-11ed-9022-0242ac120002",
+  "InsertDate": "2025-01-19T11:33:28Z",
+  "LastUpdateDate": "2025-01-19T11:33:28Z",
+  "Level": "medium",
+  "Name": "PST Export Alert Using New-ComplianceSearchAction",
+  "Query": "sourcetype='m365-threat_management' eql select * from _source_ where eventsource = 'securitycompliancecenter' and (payload like '%new-compliancesearchaction%' and payload like '%export%' and payload like '%pst%')",
+  "Tags": [
+    "attack.collection",
+    "attack.t1114"
+  ],
+  "Version": "0.1"
+}

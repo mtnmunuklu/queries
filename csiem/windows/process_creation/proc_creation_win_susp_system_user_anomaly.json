@@ -1,0 +1,18 @@
+{
+  "Description": "Detects a suspicious process creation as SYSTEM user (suspicious program or command line parameter)\n\nAuthor: Florian Roth (Nextron Systems), David ANDRE (additional keywords)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2617e7ed-adb7-40ba-b0f3-8f9945fe6c09",
+  "InsertDate": "2025-01-19T11:35:37Z",
+  "LastUpdateDate": "2025-01-19T11:35:37Z",
+  "Level": "high",
+  "Name": "Suspicious SYSTEM User Process Creation",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((((integrity_level = 'system' or integrity_level = 's-1-16-16384') and (username like '%authori%' or username like '%autori%')) and ((process_path like '%\\calc.exe' or process_path like '%\\cscript.exe' or process_path like '%\\forfiles.exe' or process_path like '%\\hh.exe' or process_path like '%\\mshta.exe' or process_path like '%\\ping.exe' or process_path like '%\\wscript.exe') and (command like '% -nop %' or command like '% -w hidden %' or command like '% -decode %' or command like '% /decode %' or command like '% /urlcache %' or command like '% -urlcache %' or command like '% -e* jab%' or command like '% -e* suvyi%' or command like '% -e* sqbfafga%' or command like '% -e* awv4i%' or command like '% -e* iab%' or command like '% -e* paa%' or command like '% -e* aqblahga%' or command like '%vssadmin delete shadows%' or command like '%reg save hklm%' or command like '% -ma %' or command like '%microsoft\\windows\\currentversion\\run%' or command like '%.downloadstring(%' or command like '%.downloadfile(%' or command like '% /ticket:%' or command like '%dpapi::%' or command like '%event::clear%' or command like '%event::drop%' or command like '%id::modify%' or command like '%kerberos::%' or command like '%lsadump::%' or command like '%misc::%' or command like '%privilege::%' or command like '%rpc::%' or command like '%sekurlsa::%' or command like '%sid::%' or command like '%token::%' or command like '%vault::cred%' or command like '%vault::list%' or command like '% p::d %' or command like '%;iex(%' or command like '%minidump%' or command like '%net user %'))) and  not ((process_path like '%\\ping.exe' and parent_command_line like '%\\dismfodinstall.cmd%') or parent_process_path like '%:\\packages\\plugins\\microsoft.guestconfiguration.configurationforwindows\\%' or ((parent_process_path like '%:\\program files (x86)\\java\\%' or parent_process_path like '%:\\program files\\java\\%') and parent_process_path like '%\\bin\\javaws.exe' and (process_path like '%:\\program files (x86)\\java\\%' or process_path like '%:\\program files\\java\\%') and process_path like '%\\bin\\jp2launcher.exe' and command like '% -ma %') or (command like '%ping%' and command like '%127.0.0.1%' and command like '% -n %')))",
+  "Tags": [
+    "attack.credential-access",
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1134",
+    "attack.t1003",
+    "attack.t1027"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects registry changes to Office trust records where the path is located in a potentially suspicious location\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a166f74e-bf44-409d-b9ba-ea4b2dd8b3cd",
+  "InsertDate": "2025-01-19T11:36:16Z",
+  "LastUpdateDate": "2025-01-19T11:36:16Z",
+  "Level": "high",
+  "Name": "Macro Enabled In A Potentially Suspicious Document",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object like '%/appdata/local/microsoft/windows/inetcache/%' or target_object like '%/appdata/local/temp/%' or target_object like '%/perflogs/%' or target_object like '%c:/users/public/%' or target_object like '%file:///d:/%' or target_object like '%file:///e:/%') and target_object like '%\\security\\trusted documents\\trustrecords%')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1112"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the pattern of UAC Bypass using NTFS reparse point and wusa.exe DLL hijacking (UACMe 36)\n\nAuthor: Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "39ed3c80-e6a1-431b-9df3-911ac53d08a7",
+  "InsertDate": "2025-01-19T11:35:46Z",
+  "LastUpdateDate": "2025-01-19T11:35:46Z",
+  "Level": "high",
+  "Name": "UAC Bypass Using NTFS Reparse Point - Process",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '\"c:\\windows\\system32\\wusa.exe\"  /quiet c:\\users\\%' and command like '%\\appdata\\local\\temp\\update.msu' and (integrity_level = 'high' or integrity_level = 'system' or integrity_level = 's-1-16-16384' or integrity_level = 's-1-16-12288')) or (parent_command_line = '\"c:\\windows\\system32\\dism.exe\" /online /quiet /norestart /add-package /packagepath:\"c:\\windows\\system32\\pe386\" /ignorecheck' and (integrity_level = 'high' or integrity_level = 'system') and (command like '%c:\\users\\%' and command like '%\\appdata\\local\\temp\\%' and command like '%\\dismhost.exe {%') and process_path like '%\\dismhost.exe'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1548.002"
+  ],
+  "Version": "0.1"
+}

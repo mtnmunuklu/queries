@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by application shims.\nThe Microsoft Windows Application Compatibility Infrastructure/Framework (Application Shim) was created to allow for backward compatibility of software as the operating system codebase changes over time\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "dfb5b4e8-91d0-4291-b40a-e3b0d3942c45",
+  "InsertDate": "2025-01-19T11:36:18Z",
+  "LastUpdateDate": "2025-01-19T11:36:18Z",
+  "Level": "medium",
+  "Name": "Potential Persistence Via Shim Database Modification",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object like '%\\software\\microsoft\\windows nt\\currentversion\\appcompatflags\\installedsdb\\%' or target_object like '%\\software\\microsoft\\windows nt\\currentversion\\appcompatflags\\custom\\%') and  not details = '')",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1546.011"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,31 @@
+{
+  "Description": "Detects potential suspicious behaviour using secedit.exe. Such as exporting or modifying the security policy\n\nAuthor: Janantha Marasinghe\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c2c76b77-32be-4d1f-82c9-7e544bdfe0eb",
+  "InsertDate": "2025-01-19T11:35:27Z",
+  "LastUpdateDate": "2025-01-19T11:35:27Z",
+  "Level": "medium",
+  "Name": "Potential Suspicious Activity Using SeCEdit",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\secedit.exe' and original_file_name = 'secedit') and ((command like '%/export%' and command like '%/cfg%') or (command like '%/configure%' and command like '%/db%')))",
+  "Tags": [
+    "attack.discovery",
+    "attack.persistence",
+    "attack.defense-evasion",
+    "attack.credential-access",
+    "attack.privilege-escalation",
+    "attack.t1562.002",
+    "attack.t1547.001",
+    "attack.t1505.005",
+    "attack.t1556.002",
+    "attack.t1562",
+    "attack.t1574.007",
+    "attack.t1564.002",
+    "attack.t1546.008",
+    "attack.t1546.007",
+    "attack.t1547.014",
+    "attack.t1547.010",
+    "attack.t1547.002",
+    "attack.t1557",
+    "attack.t1082"
+  ],
+  "Version": "0.1"
+}

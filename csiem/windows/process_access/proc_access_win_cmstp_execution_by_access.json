@@ -1,0 +1,19 @@
+{
+  "Description": "Detects various indicators of Microsoft Connection Manager Profile Installer execution\n\nAuthor: Nik Seetharaman\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3b4b232a-af90-427c-a22f-30b0c0837b95",
+  "InsertDate": "2025-01-19T11:34:27Z",
+  "LastUpdateDate": "2025-01-19T11:34:27Z",
+  "Level": "high",
+  "Name": "CMSTP Execution Process Access",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where call_trace like '%cmlua.dll%'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.003",
+    "attack.execution",
+    "attack.t1559.001",
+    "attack.g0069",
+    "attack.g0080",
+    "car.2019-04-001"
+  ],
+  "Version": "0.1"
+}

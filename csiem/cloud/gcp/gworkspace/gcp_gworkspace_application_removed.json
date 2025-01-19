@@ -1,0 +1,13 @@
+{
+  "Description": "Detects when an an application is removed from Google Workspace.\n\nAuthor: Austin Songer\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ee2803f0-71c8-4831-b48b-a1fc57601ee4",
+  "InsertDate": "2025-01-19T11:33:27Z",
+  "LastUpdateDate": "2025-01-19T11:33:27Z",
+  "Level": "medium",
+  "Name": "Google Workspace Application Removed",
+  "Query": "sourcetype='gcp-google_workspace.admin' eql select * from _source_ where eventservice = 'admin.googleapis.com' and (eventname = 'remove_application' or eventname = 'remove_application_from_whitelist')",
+  "Tags": [
+    "attack.impact"
+  ],
+  "Version": "0.1"
+}

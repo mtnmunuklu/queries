@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious use of 'calc.exe' with command line parameters or in a suspicious directory, which is likely caused by some PoC or detection evasion.\n\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "737e618a-a410-49b5-bec3-9e55ff7fbc15",
+  "InsertDate": "2025-01-19T11:34:31Z",
+  "LastUpdateDate": "2025-01-19T11:34:31Z",
+  "Level": "high",
+  "Name": "Suspicious Calculator Usage",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%\\calc.exe %' or (process_path like '%\\calc.exe' and  not (process_path like '%:\\windows\\system32\\%' or process_path like '%:\\windows\\syswow64\\%' or process_path like '%:\\windows\\winsxs\\%')))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1036"
+  ],
+  "Version": "0.1"
+}

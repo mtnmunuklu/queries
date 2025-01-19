@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the desktopimgdownldr utility being used to download a remote file. An adversary may use desktopimgdownldr to download arbitrary files as an alternative to certutil.\n\nAuthor: Tim Rauch, Elastic (idea)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "214641c2-c579-4ecb-8427-0cf19df6842e",
+  "InsertDate": "2025-01-19T11:34:35Z",
+  "LastUpdateDate": "2025-01-19T11:34:35Z",
+  "Level": "medium",
+  "Name": "Remote File Download Via Desktopimgdownldr Utility",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\desktopimgdownldr.exe' and parent_process_path like '%\\desktopimgdownldr.exe' and command like '%/lockscreenurl:http%'",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1105"
+  ],
+  "Version": "0.1"
+}

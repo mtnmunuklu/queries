@@ -1,0 +1,14 @@
+{
+  "Description": "Detects \"RegAsm.exe\" initiating a network connection to public IP adresses\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0531e43a-d77d-47c2-b89f-5fe50321c805",
+  "InsertDate": "2025-01-19T11:34:12Z",
+  "LastUpdateDate": "2025-01-19T11:34:12Z",
+  "Level": "medium",
+  "Name": "RegAsm.EXE Initiating Network Connection To Public IP",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((initiated = 'true' and process_path like '%\\regasm.exe') and  not (dst_ip cidr '127.0.0.0/8' or dst_ip cidr '10.0.0.0/8' or dst_ip cidr '172.16.0.0/12' or dst_ip cidr '192.168.0.0/16' or dst_ip cidr '169.254.0.0/16' or dst_ip cidr '::1/128' or dst_ip cidr 'fe80::/10' or dst_ip cidr 'fc00::/7'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.009"
+  ],
+  "Version": "0.1"
+}

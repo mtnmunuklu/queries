@@ -1,0 +1,14 @@
+{
+  "Description": "Detects launch of executable by calling the LaunchApplication function from pcwutl.dll library.\n\nAuthor: Julia Fomina, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9386d78a-7207-4048-9c9f-a93a7c2d1c05",
+  "InsertDate": "2025-01-19T11:34:48Z",
+  "LastUpdateDate": "2025-01-19T11:34:48Z",
+  "Level": "medium",
+  "Name": "Code Execution via Pcwutl.dll",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\rundll32.exe' and original_file_name = 'rundll32.exe') and (command like '%pcwutl%' and command like '%launchapplication%'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.011"
+  ],
+  "Version": "0.1"
+}

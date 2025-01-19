@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious session with two users present\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1edd77db-0669-4fef-9598-165bda82826d",
+  "InsertDate": "2025-01-19T11:33:31Z",
+  "LastUpdateDate": "2025-01-19T11:33:31Z",
+  "Level": "high",
+  "Name": "Guacamole Two Users Sharing Session Anomaly",
+  "Query": "sourcetype='linux-guacamole' eql select * from _source_ where log like '%(2 users now present)%'",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1212"
+  ],
+  "Version": "0.1"
+}

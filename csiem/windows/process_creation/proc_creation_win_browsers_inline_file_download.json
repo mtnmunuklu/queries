@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of a browser process with a URL argument pointing to a file with a potentially interesting extension. This can be abused to download arbitrary files or to hide from the user for example by launching the browser in a minimized state.\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "94771a71-ba41-4b6e-a757-b531372eaab6",
+  "InsertDate": "2025-01-19T11:34:31Z",
+  "LastUpdateDate": "2025-01-19T11:34:31Z",
+  "Level": "medium",
+  "Name": "File Download From Browser Process Via Inline URL",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\brave.exe' or process_path like '%\\chrome.exe' or process_path like '%\\msedge.exe' or process_path like '%\\opera.exe' or process_path like '%\\vivaldi.exe') and command like '%http%' and (command like '%.7z' or command like '%.dat' or command like '%.dll' or command like '%.exe' or command like '%.hta' or command like '%.ps1' or command like '%.psm1' or command like '%.txt' or command like '%.vbe' or command like '%.vbs' or command like '%.zip'))",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1105"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,16 @@
+{
+  "Description": "Detects potential DLL sideloading of \"iviewers.dll\" (OLE/COM Object Interface Viewer)\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4c21b805-4dd7-469f-b47d-7383a8fcb437",
+  "InsertDate": "2025-01-19T11:34:08Z",
+  "LastUpdateDate": "2025-01-19T11:34:08Z",
+  "Level": "high",
+  "Name": "Potential Iviewers.DLL Sideloading",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (image_loaded like '%\\iviewers.dll' and  not (image_loaded like 'c:\\program files (x86)\\windows kits\\%' or image_loaded like 'c:\\program files\\windows kits\\%'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "The OpenWith.exe executes other binary\n\nAuthor: Beyu Denis, oscd.community (rule), @harr0ey (idea)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "cec8e918-30f7-4e2d-9bfa-a59cc97ae60f",
+  "InsertDate": "2025-01-19T11:34:48Z",
+  "LastUpdateDate": "2025-01-19T11:34:48Z",
+  "Level": "high",
+  "Name": "OpenWith.exe Executes Specified Binary",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\openwith.exe' and command like '%/c%'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

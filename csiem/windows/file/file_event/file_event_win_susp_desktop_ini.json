@@ -1,0 +1,14 @@
+{
+  "Description": "Detects unusual processes accessing desktop.ini, which can be leveraged to alter how Explorer displays a folder's content (i.e. renaming files) without changing them on disk.\n\nAuthor: Maxime Thiebaut (@0xThiebaut), Tim Shelton (HAWK.IO)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "81315b50-6b60-4d8f-9928-3466e1022515",
+  "InsertDate": "2025-01-19T11:34:03Z",
+  "LastUpdateDate": "2025-01-19T11:34:03Z",
+  "Level": "medium",
+  "Name": "Suspicious desktop.ini Action",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%\\desktop.ini' and  not (filepath like 'c:\\$windows.~bt\\newos\\%' or (process_path like 'c:\\windows\\%' or process_path like 'c:\\program files\\%' or process_path like 'c:\\program files (x86)\\%') or (process_path like '%\\appdata\\local\\jetbrains\\toolbox\\bin\\7z.exe' and filepath like '%\\jetbrains\\apps\\%')))",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1547.009"
+  ],
+  "Version": "0.1"
+}

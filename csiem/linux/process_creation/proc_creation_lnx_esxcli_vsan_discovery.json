@@ -1,0 +1,15 @@
+{
+  "Description": "Detects execution of the \"esxcli\" command with the \"vsan\" flag in order to retrieve information about virtual storage. Seen used by malware such as DarkSide.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Cedric Maurugeon\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d54c2f06-aca9-4e2b-81c9-5317858f4b79",
+  "InsertDate": "2025-01-19T11:33:34Z",
+  "LastUpdateDate": "2025-01-19T11:33:34Z",
+  "Level": "medium",
+  "Name": "ESXi VSAN Information Discovery Via ESXCLI",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where ((process_path like '%/esxcli' and command like '%vsan%') and (command like '% get%' or command like '% list%'))",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1033",
+    "attack.t1007"
+  ],
+  "Version": "0.1"
+}

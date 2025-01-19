@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may abuse msiexec.exe to proxy the execution of malicious payloads\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4a2a2c3e-209f-4d01-b513-4155a540b469",
+  "InsertDate": "2025-01-19T11:34:52Z",
+  "LastUpdateDate": "2025-01-19T11:34:52Z",
+  "Level": "medium",
+  "Name": "Suspicious MsiExec Embedding Parent",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\cmd.exe') and (parent_command_line like '%msiexec.exe%' and parent_command_line like '%-embedding %')) and  not ((process_path like '%:\\windows\\system32\\cmd.exe' and command like '%c:\\program files\\splunkuniversalforwarder\\bin\\%') or (command like '%\\dismfodinstall.cmd%' and (parent_command_line like '%\\msiexec.exe -embedding %' and parent_command_line like '%global\\msi0000%'))))",
+  "Tags": [
+    "attack.t1218.007",
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

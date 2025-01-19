@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious user agent strings used by crypto miners in proxy logs\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fa935401-513b-467b-81f4-f9e77aa0dd78",
+  "InsertDate": "2025-01-19T11:33:41Z",
+  "LastUpdateDate": "2025-01-19T11:33:41Z",
+  "Level": "high",
+  "Name": "Crypto Miner User Agent",
+  "Query": "eql select * from _source_ where (c-useragent like 'xmrig %' or c-useragent like 'ccminer%')",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1071.001"
+  ],
+  "Version": "0.1"
+}

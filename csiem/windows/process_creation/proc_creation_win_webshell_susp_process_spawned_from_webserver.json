@@ -1,0 +1,15 @@
+{
+  "Description": "Detects potentially suspicious processes being spawned by a web server process which could be the result of a successfully placed web shell or exploitation\n\n\nAuthor: Thomas Patzke, Florian Roth (Nextron Systems), Zach Stanford @svch0st, Tim Shelton, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8202070f-edeb-4d31-a010-a26c72ac5600",
+  "InsertDate": "2025-01-19T11:35:50Z",
+  "LastUpdateDate": "2025-01-19T11:35:50Z",
+  "Level": "high",
+  "Name": "Suspicious Process By Web Server Process",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((parent_process_path like '%\\caddy.exe' or parent_process_path like '%\\httpd.exe' or parent_process_path like '%\\nginx.exe' or parent_process_path like '%\\php-cgi.exe' or parent_process_path like '%\\php.exe' or parent_process_path like '%\\tomcat.exe' or parent_process_path like '%\\umworkerprocess.exe' or parent_process_path like '%\\w3wp.exe' or parent_process_path like '%\\ws_tomcatservice.exe') or ((parent_process_path like '%\\java.exe' or parent_process_path like '%\\javaw.exe') and (parent_process_path like '%-tomcat-%' or parent_process_path like '%\\tomcat%')) or ((parent_process_path like '%\\java.exe' or parent_process_path like '%\\javaw.exe') and (parent_command_line like '%catalina_home%' or parent_command_line like '%catalina.home%' or parent_command_line like '%catalina.jar%'))) and (process_path like '%\\arp.exe' or process_path like '%\\at.exe' or process_path like '%\\bash.exe' or process_path like '%\\bitsadmin.exe' or process_path like '%\\certutil.exe' or process_path like '%\\cmd.exe' or process_path like '%\\cscript.exe' or process_path like '%\\dsget.exe' or process_path like '%\\hostname.exe' or process_path like '%\\nbtstat.exe' or process_path like '%\\net.exe' or process_path like '%\\net1.exe' or process_path like '%\\netdom.exe' or process_path like '%\\netsh.exe' or process_path like '%\\nltest.exe' or process_path like '%\\ntdsutil.exe' or process_path like '%\\powershell_ise.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\qprocess.exe' or process_path like '%\\query.exe' or process_path like '%\\qwinsta.exe' or process_path like '%\\reg.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\sc.exe' or process_path like '%\\sh.exe' or process_path like '%\\wmic.exe' or process_path like '%\\wscript.exe' or process_path like '%\\wusa.exe') and  not ((parent_process_path like '%\\java.exe' and command like '%windows\\system32\\cmd.exe /c c:\\manageengine\\admanager \"plus\\es\\bin\\elasticsearch.bat -enode.name=rmp-node1 -pelasticsearch-pid.txt') or (parent_process_path like '%\\java.exe' and (command like '%sc query%' and command like '%admanager plus%'))))",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1505.003",
+    "attack.t1190"
+  ],
+  "Version": "0.1"
+}

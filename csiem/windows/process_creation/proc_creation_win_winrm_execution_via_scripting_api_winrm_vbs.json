@@ -1,0 +1,14 @@
+{
+  "Description": "Detects an attempt to execute code or create service on remote host via winrm.vbs.\n\nAuthor: Julia Fomina, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9df0dd3a-1a5c-47e3-a2bc-30ed177646a0",
+  "InsertDate": "2025-01-19T11:35:54Z",
+  "LastUpdateDate": "2025-01-19T11:35:54Z",
+  "Level": "medium",
+  "Name": "Remote Code Execute via Winrm.vbs",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%winrm%' and command like '%invoke create wmicimv2/win32_%' and command like '%-r:http%') and (process_path like '%\\cscript.exe' and original_file_name = 'cscript.exe'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1216"
+  ],
+  "Version": "0.1"
+}

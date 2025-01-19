@@ -1,0 +1,13 @@
+{
+  "Description": "Detects usage of the copy builtin cmd command to copy files with the \".dmp\"/\".dump\" extension from a remote share\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "044ba588-dff4-4918-9808-3f95e8160606",
+  "InsertDate": "2025-01-19T11:34:33Z",
+  "LastUpdateDate": "2025-01-19T11:34:33Z",
+  "Level": "high",
+  "Name": "Copy .DMP/.DUMP Files From Remote Share Via Cmd.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\cmd.exe' and original_file_name = 'cmd.exe') and ((command like '%copy %' and command like '% \\\\\\\\%') and (command like '%.dmp%' or command like '%.dump%' or command like '%.hdmp%')))",
+  "Tags": [
+    "attack.credential-access"
+  ],
+  "Version": "0.1"
+}

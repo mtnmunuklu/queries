@@ -1,0 +1,15 @@
+{
+  "Description": "Detects a file ending in jse, vbe, js, vba, vbs written by cscript.exe or wscript.exe\n\nAuthor: Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "002bdb95-0cf1-46a6-9e08-d38c128a6127",
+  "InsertDate": "2025-01-19T11:33:59Z",
+  "LastUpdateDate": "2025-01-19T11:33:59Z",
+  "Level": "high",
+  "Name": "WScript or CScript Dropper - File",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\wscript.exe' or process_path like '%\\cscript.exe') and (filepath like 'c:\\users\\%' or filepath like 'c:\\programdata%') and (filepath like '%.jse' or filepath like '%.vbe' or filepath like '%.js' or filepath like '%.vba' or filepath like '%.vbs')",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.005",
+    "attack.t1059.007"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects potentially suspicious events involving \"GetSigninToken\".\nAn adversary using the \"aws_consoler\" tool can leverage this console API to create temporary federated credential that help obfuscate which AWS credential is compromised (the original access key) and enables the adversary to pivot from the AWS CLI to console sessions without the need for MFA using the new access key issued in this request.\n\n\nAuthor: Chester Le Bron (@123Le_Bron)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f8103686-e3e8-46f3-be72-65f7fcb4aa53",
+  "InsertDate": "2025-01-19T11:33:20Z",
+  "LastUpdateDate": "2025-01-19T11:33:20Z",
+  "Level": "medium",
+  "Name": "AWS Console GetSigninToken Potential Abuse",
+  "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where ((eventsource = 'signin.amazonaws.com' and eventname = 'getsignintoken') and  not useragent like '%jersey/${project.version}%')",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.t1021.007",
+    "attack.t1550.001"
+  ],
+  "Version": "0.1"
+}

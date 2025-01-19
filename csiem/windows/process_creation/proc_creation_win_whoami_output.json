@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the execution of \"whoami.exe\" with the \"/FO\" flag to choose CSV as output format or with redirection options to export the results to a file for later use.\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c30fb093-1109-4dc8-88a8-b30d11c95a5d",
+  "InsertDate": "2025-01-19T11:35:52Z",
+  "LastUpdateDate": "2025-01-19T11:35:52Z",
+  "Level": "medium",
+  "Name": "Whoami.EXE Execution With Output Option",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\whoami.exe' and original_file_name = 'whoami.exe') and (command like '% /fo csv%' or command like '% -fo csv%')) or command like '%whoami*\u003e%')",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1033",
+    "car.2016-03-001"
+  ],
+  "Version": "0.1"
+}

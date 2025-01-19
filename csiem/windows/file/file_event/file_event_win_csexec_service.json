@@ -1,0 +1,15 @@
+{
+  "Description": "Detects default CSExec service filename which indicates CSExec service installation and execution\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f0e2b768-5220-47dd-b891-d57b96fc0ec1",
+  "InsertDate": "2025-01-19T11:33:59Z",
+  "LastUpdateDate": "2025-01-19T11:33:59Z",
+  "Level": "medium",
+  "Name": "CSExec Service File Creation",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where filepath like '%\\csexecsvc.exe'",
+  "Tags": [
+    "attack.execution",
+    "attack.t1569.002",
+    "attack.s0029"
+  ],
+  "Version": "0.1"
+}

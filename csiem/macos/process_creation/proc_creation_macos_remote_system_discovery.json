@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the enumeration of other remote systems.\n\nAuthor: Alejandro Ortuno, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "10227522-8429-47e6-a301-f2b2d014e7ad",
+  "InsertDate": "2025-01-19T11:33:38Z",
+  "LastUpdateDate": "2025-01-19T11:33:38Z",
+  "Level": "informational",
+  "Name": "Macos Remote System Discovery",
+  "Query": "sourcetype like 'macos-%' eql select * from _source_ where ((process_path like '%/arp' and command like '%-a%') or (process_path like '%/ping' and (command like '% 10.%' or command like '% 192.168.%' or command like '% 172.16.%' or command like '% 172.17.%' or command like '% 172.18.%' or command like '% 172.19.%' or command like '% 172.20.%' or command like '% 172.21.%' or command like '% 172.22.%' or command like '% 172.23.%' or command like '% 172.24.%' or command like '% 172.25.%' or command like '% 172.26.%' or command like '% 172.27.%' or command like '% 172.28.%' or command like '% 172.29.%' or command like '% 172.30.%' or command like '% 172.31.%' or command like '% 127.%' or command like '% 169.254.%')))",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1018"
+  ],
+  "Version": "0.1"
+}

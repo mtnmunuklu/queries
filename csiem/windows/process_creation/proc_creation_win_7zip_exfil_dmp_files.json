@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of 7z in order to compress a file with a \".dmp\"/\".dump\" extension, which could be a step in a process of dump file exfiltration.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ec570e53-4c76-45a9-804d-dc3f355ff7a7",
+  "InsertDate": "2025-01-19T11:34:29Z",
+  "LastUpdateDate": "2025-01-19T11:34:29Z",
+  "Level": "medium",
+  "Name": "7Zip Compressing Dump Files",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((description like '%7-zip%' and (process_path like '%\\7z.exe' or process_path like '%\\7zr.exe' or process_path like '%\\7za.exe') and (original_file_name = '7z.exe' or original_file_name = '7za.exe')) and (command like '%.dmp%' or command like '%.dump%' or command like '%.hdmp%'))",
+  "Tags": [
+    "attack.collection",
+    "attack.t1560.001"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,13 @@
+{
+  "Description": "Detects when 'DllRegisterServer' is called in the commandline and the image is not rundll32. This could mean that the 'rundll32' utility has been renamed in order to avoid detection\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2569ed8c-1147-498a-9b8c-2ad3656b10ed",
+  "InsertDate": "2025-01-19T11:35:17Z",
+  "LastUpdateDate": "2025-01-19T11:35:17Z",
+  "Level": "high",
+  "Name": "Potential Renamed Rundll32 Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%dllregisterserver%' and  not process_path like '%\\rundll32.exe')",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

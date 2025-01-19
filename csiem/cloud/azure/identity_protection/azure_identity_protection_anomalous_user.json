@@ -1,0 +1,14 @@
+{
+  "Description": "Indicates that there are anomalous patterns of behavior like suspicious changes to the directory.\n\nAuthor: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "258b6593-215d-4a26-a141-c8e31c1299a6",
+  "InsertDate": "2025-01-19T11:33:24Z",
+  "LastUpdateDate": "2025-01-19T11:33:24Z",
+  "Level": "high",
+  "Name": "Anomalous User Activity",
+  "Query": "sourcetype='azure-riskdetection' eql select * from _source_ where riskeventtype = 'anomaloususeractivity'",
+  "Tags": [
+    "attack.t1098",
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

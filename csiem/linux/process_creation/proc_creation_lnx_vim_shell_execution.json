@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of \"vim\" and it's siblings commands to execute a shell or proxy commands.\nSuch behavior may be associated with privilege escalation, unauthorized command execution, or to break out from restricted environments.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7ab8f73a-fcff-428b-84aa-6a5ff7877dea",
+  "InsertDate": "2025-01-19T11:33:36Z",
+  "LastUpdateDate": "2025-01-19T11:33:36Z",
+  "Level": "high",
+  "Name": "Vim GTFOBin Abuse - Linux",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where (((process_path like '%/rvim' or process_path like '%/vim' or process_path like '%/vimdiff') and (command like '% --cmd%' or command like '% -c %')) and (command like '%:!/%' or command like '%:lua %' or command like '%:py %' or command like '%/bin/bash%' or command like '%/bin/dash%' or command like '%/bin/fish%' or command like '%/bin/sh%' or command like '%/bin/zsh%'))",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1083"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,16 @@
+{
+  "Description": "Detects a set of suspicious network related commands often used in recon stages\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e6313acd-208c-44fc-a0ff-db85d572e90e",
+  "InsertDate": "2025-01-19T11:34:56Z",
+  "LastUpdateDate": "2025-01-19T11:34:56Z",
+  "Level": "high",
+  "Name": "Network Reconnaissance Activity",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%nslookup%' and command like '%_ldap._tcp.dc._msdcs.%')",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1087",
+    "attack.t1082",
+    "car.2016-03-001"
+  ],
+  "Version": "0.1"
+}

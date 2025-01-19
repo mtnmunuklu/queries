@@ -1,0 +1,13 @@
+{
+  "Description": "Detects usage of Gpg4win to decrypt files\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "037dcd71-33a8-4392-bb01-293c94663e5a",
+  "InsertDate": "2025-01-19T11:34:38Z",
+  "LastUpdateDate": "2025-01-19T11:34:38Z",
+  "Level": "medium",
+  "Name": "File Decryption Using Gpg4win",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '% -d %' and command like '%passphrase%') and ((process_path like '%\\gpg.exe' or process_path like '%\\gpg2.exe') and description = 'gnupg’s openpgp tool'))",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,16 @@
+{
+  "Description": "Detects update to a scheduled task event that contain suspicious keywords.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "614cf376-6651-47c4-9dcc-6b9527f749f4",
+  "InsertDate": "2025-01-19T11:33:50Z",
+  "LastUpdateDate": "2025-01-19T11:33:50Z",
+  "Level": "high",
+  "Name": "Suspicious Scheduled Task Update",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where (eventid = '4702' and (taskcontentnew like '%\\appdata\\local\\temp\\%' or taskcontentnew like '%\\appdata\\roaming\\%' or taskcontentnew like '%\\users\\public\\%' or taskcontentnew like '%\\windows\\temp\\%' or taskcontentnew like '%c:\\temp\\%' or taskcontentnew like '%\\desktop\\%' or taskcontentnew like '%\\downloads\\%' or taskcontentnew like '%\\temporary internet%' or taskcontentnew like '%c:\\programdata\\%' or taskcontentnew like '%c:\\perflogs\\%') and (taskcontentnew like '%regsvr32%' or taskcontentnew like '%rundll32%' or taskcontentnew like '%cmd.exe\u003c/command\u003e%' or taskcontentnew like '%cmd\u003c/command\u003e%' or taskcontentnew like '%\u003carguments\u003e/c %' or taskcontentnew like '%\u003carguments\u003e/k %' or taskcontentnew like '%\u003carguments\u003e/r %' or taskcontentnew like '%powershell%' or taskcontentnew like '%pwsh%' or taskcontentnew like '%mshta%' or taskcontentnew like '%wscript%' or taskcontentnew like '%cscript%' or taskcontentnew like '%certutil%' or taskcontentnew like '%bitsadmin%' or taskcontentnew like '%bash.exe%' or taskcontentnew like '%bash %' or taskcontentnew like '%scrcons%' or taskcontentnew like '%wmic %' or taskcontentnew like '%wmic.exe%' or taskcontentnew like '%forfiles%' or taskcontentnew like '%scriptrunner%' or taskcontentnew like '%hh.exe%'))",
+  "Tags": [
+    "attack.execution",
+    "attack.privilege-escalation",
+    "attack.persistence",
+    "attack.t1053.005"
+  ],
+  "Version": "0.1"
+}

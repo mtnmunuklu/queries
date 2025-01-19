@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execition of commands and binaries from the context of The program compatibility assistant (Pcalua.exe). This can be used as a LOLBIN in order to bypass application whitelisting.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), E.M. Anhaus (originally from Atomic Blue Detections, Endgame), oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0955e4e1-c281-4fb9-9ee1-5ee7b4b754d2",
+  "InsertDate": "2025-01-19T11:34:48Z",
+  "LastUpdateDate": "2025-01-19T11:34:48Z",
+  "Level": "medium",
+  "Name": "Use of Pcalua For Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\pcalua.exe' and command like '% -a%'",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

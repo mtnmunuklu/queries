@@ -1,0 +1,13 @@
+{
+  "Description": "Detects block events for files that are disallowed by code integrity for protected processes\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5daf11c3-022b-4969-adb9-365e6c078c7c",
+  "InsertDate": "2025-01-19T11:33:44Z",
+  "LastUpdateDate": "2025-01-19T11:33:44Z",
+  "Level": "high",
+  "Name": "CodeIntegrity - Disallowed File For Protected Processes Has Been Blocked",
+  "Query": "sourcetype='windows-codeintegrity-operational' eql select * from _source_ where eventid = '3104'",
+  "Tags": [
+    "attack.privilege-escalation"
+  ],
+  "Version": "0.1"
+}

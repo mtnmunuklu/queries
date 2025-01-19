@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the presence of default Cobalt Strike certificate in the HTTPS traffic\n\nAuthor: Bhabesh Raj\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7100f7e3-92ce-4584-b7b7-01b40d3d4118",
+  "InsertDate": "2025-01-19T11:33:40Z",
+  "LastUpdateDate": "2025-01-19T11:33:40Z",
+  "Level": "high",
+  "Name": "Default Cobalt Strike Certificate",
+  "Query": "sourcetype='zeek-x509' eql select * from _source_ where certificate.serial = '8bb00ee'",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.s0154"
+  ],
+  "Version": "0.1"
+}

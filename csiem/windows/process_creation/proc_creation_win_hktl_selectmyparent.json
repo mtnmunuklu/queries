@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of parent process ID spoofing tools like Didier Stevens tool SelectMyParent\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "52ff7941-8211-46f9-84f8-9903efb7077d",
+  "InsertDate": "2025-01-19T11:34:43Z",
+  "LastUpdateDate": "2025-01-19T11:34:43Z",
+  "Level": "high",
+  "Name": "HackTool - PPID Spoofing SelectMyParent Tool Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\selectmyparent.exe' and (command like '%ppid-spoof%' or command like '%ppid_spoof%' or command like '%spoof-ppid%' or command like '%spoof_ppid%' or command like '%ppidspoof%' or command like '%spoofppid%' or command like '%spoofedppid%' or command like '% -spawnto %') and (original_file_name like '%ppid-spoof%' or original_file_name like '%ppid_spoof%' or original_file_name like '%spoof-ppid%' or original_file_name like '%spoof_ppid%' or original_file_name like '%ppidspoof%' or original_file_name like '%spoofppid%' or original_file_name like '%spoofedppid%') and description = 'selectmyparent' and (hashes like '%imphash=04d974875bd225f00902b4cad9af3fbc%' or hashes like '%imphash=a782af154c9e743ddf3f3eb2b8f3d16e%' or hashes like '%imphash=89059503d7fbf470e68f7e63313da3ad%' or hashes like '%imphash=ca28337632625c8281ab8a130b3d6bad%')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1134.004"
+  ],
+  "Version": "0.1"
+}

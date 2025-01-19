@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a JAVA process running with remote debugging allowing more than just localhost to connect\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8f88e3f6-2a49-48f5-a5c4-2f7eedf78710",
+  "InsertDate": "2025-01-19T11:34:46Z",
+  "LastUpdateDate": "2025-01-19T11:34:46Z",
+  "Level": "medium",
+  "Name": "Java Running with Remote Debugging",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%transport=dt_socket,address=%' and (command like '%jre1.%' or command like '%jdk1.%')) and  not (command like '%address=127.0.0.1%' or command like '%address=localhost%'))",
+  "Tags": [
+    "attack.t1203",
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

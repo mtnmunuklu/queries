@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of perl using the \"-e\"/\"-E\" flags. This is could be used as a way to launch a reverse shell or execute live perl code.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f426547a-e0f7-441a-b63e-854ac5bdf54d",
+  "InsertDate": "2025-01-19T11:34:57Z",
+  "LastUpdateDate": "2025-01-19T11:34:57Z",
+  "Level": "medium",
+  "Name": "Perl Inline Command Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '% -e%' and (process_path like '%\\perl.exe' and original_file_name = 'perl.exe'))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

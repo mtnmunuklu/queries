@@ -1,0 +1,14 @@
+{
+  "Description": "When IIS uses an old .Net Framework it's possible to enumerate folders with the symbol \"~\"\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7cb02516-6d95-4ffc-8eee-162075e111ac",
+  "InsertDate": "2025-01-19T11:33:42Z",
+  "LastUpdateDate": "2025-01-19T11:33:42Z",
+  "Level": "medium",
+  "Name": "Successful IIS Shortname Fuzzing Scan",
+  "Query": "eql select * from _source_ where cs-uri-query like '%~1%' and cs-uri-query like '%a.aspx' and (cs-method = 'get' or cs-method = 'options') and (sc-status = '200' or sc-status = '301')",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1190"
+  ],
+  "Version": "0.1"
+}

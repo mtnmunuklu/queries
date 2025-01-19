@@ -1,0 +1,17 @@
+{
+  "Description": "Detects DLL sideloading of VMGuestLib.dll by the WmiApSrv service.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "70e8e9b4-6a93-4cb7-8cde-da69502e7aff",
+  "InsertDate": "2025-01-19T11:34:09Z",
+  "LastUpdateDate": "2025-01-19T11:34:09Z",
+  "Level": "medium",
+  "Name": "VMGuestLib DLL Sideload",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((image_loaded like '%\\vmware\\vmware tools\\vmstatsprovider\\win32%' and image_loaded like '%\\vmguestlib.dll%') and process_path like '%\\windows\\system32\\wbem\\wmiapsrv.exe') and  not signed = 'true')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

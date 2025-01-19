@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a remote thread creation of Ttdinject.exe used as proxy\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c15e99a3-c474-48ab-b9a7-84549a7a9d16",
+  "InsertDate": "2025-01-19T11:33:56Z",
+  "LastUpdateDate": "2025-01-19T11:33:56Z",
+  "Level": "high",
+  "Name": "Remote Thread Creation Ttdinject.exe Proxy",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where process_path like '%\\ttdinject.exe'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1127"
+  ],
+  "Version": "0.1"
+}

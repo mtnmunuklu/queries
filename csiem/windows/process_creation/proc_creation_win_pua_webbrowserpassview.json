@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of WebBrowserPassView.exe. A password recovery tool that reveals the passwords stored by the following Web browsers, Internet Explorer (Version 4.0 - 11.0), Mozilla Firefox (All Versions), Google Chrome, Safari, and Opera\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d0dae994-26c6-4d2d-83b5-b3c8b79ae513",
+  "InsertDate": "2025-01-19T11:35:08Z",
+  "LastUpdateDate": "2025-01-19T11:35:08Z",
+  "Level": "medium",
+  "Name": "PUA - WebBrowserPassView Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where description = 'web browser password viewer' and process_path like '%\\webbrowserpassview.exe'",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1555.003"
+  ],
+  "Version": "0.1"
+}

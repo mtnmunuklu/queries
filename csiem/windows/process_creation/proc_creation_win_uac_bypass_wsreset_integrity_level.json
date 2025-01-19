@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the pattern of UAC Bypass via WSReset usable by default sysmon-config\n\nAuthor: Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "89a9a0e0-f61a-42e5-8957-b1479565a658",
+  "InsertDate": "2025-01-19T11:35:46Z",
+  "LastUpdateDate": "2025-01-19T11:35:46Z",
+  "Level": "high",
+  "Name": "UAC Bypass WSReset",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\wsreset.exe' and (integrity_level = 'high' or integrity_level = 'system' or integrity_level = 's-1-16-16384' or integrity_level = 's-1-16-12288')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1548.002"
+  ],
+  "Version": "0.1"
+}

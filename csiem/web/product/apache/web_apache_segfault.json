@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a segmentation fault error message caused by a crashing apache worker process\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1da8ce0b-855d-4004-8860-7d64d42063b1",
+  "InsertDate": "2025-01-19T11:33:41Z",
+  "LastUpdateDate": "2025-01-19T11:33:41Z",
+  "Level": "high",
+  "Name": "Apache Segmentation Fault",
+  "Query": "eql select * from _source_ where log like '%exit signal segmentation fault%'",
+  "Tags": [
+    "attack.impact",
+    "attack.t1499.004"
+  ],
+  "Version": "0.1"
+}

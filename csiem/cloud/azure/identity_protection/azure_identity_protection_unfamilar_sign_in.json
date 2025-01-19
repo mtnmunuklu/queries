@@ -1,0 +1,17 @@
+{
+  "Description": "Detects sign-in with properties that are unfamiliar to the user. The detection considers past sign-in history to look for anomalous sign-ins.\n\nAuthor: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "128faeef-79dd-44ca-b43c-a9e236a60f49",
+  "InsertDate": "2025-01-19T11:33:25Z",
+  "LastUpdateDate": "2025-01-19T11:33:25Z",
+  "Level": "high",
+  "Name": "Unfamiliar Sign-In Properties",
+  "Query": "sourcetype='azure-riskdetection' eql select * from _source_ where riskeventtype = 'unfamiliarfeatures'",
+  "Tags": [
+    "attack.t1078",
+    "attack.persistence",
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.initial-access"
+  ],
+  "Version": "0.1"
+}

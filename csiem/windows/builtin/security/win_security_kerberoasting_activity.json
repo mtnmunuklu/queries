@@ -1,0 +1,14 @@
+{
+  "Description": "This rule will collect the data needed to start looking into possible kerberoasting activity.\nFurther analysis or computation within the query is needed focusing on requests from one specific host/IP towards multiple service names within a time period of 5 seconds.\nYou can then set a threshold for the number of requests and time between the requests to turn this into an alert.\n\n\nAuthor: @kostastsale\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d04ae2b8-ad54-4de0-bd87-4bc1da66aa59",
+  "InsertDate": "2025-01-19T11:33:48Z",
+  "LastUpdateDate": "2025-01-19T11:33:48Z",
+  "Level": "medium",
+  "Name": "Kerberoasting Activity - Initial Query",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '4769' and status = '0x0' and ticketencryptiontype = '0x17') and  not ((servicename like '%krbtgt' or servicename like '%$') and targetusername like '%$@%'))",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1558.003"
+  ],
+  "Version": "0.1"
+}

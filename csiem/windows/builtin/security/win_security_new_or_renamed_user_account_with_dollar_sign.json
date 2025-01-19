@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the creation of a user with the \"$\" character. This can be used by attackers to hide a user or trick detection systems that lack the parsing mechanisms.\n\n\nAuthor: Ilyas Ochkov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "cfeed607-6aa4-4bbd-9627-b637deb723c8",
+  "InsertDate": "2025-01-19T11:33:48Z",
+  "LastUpdateDate": "2025-01-19T11:33:48Z",
+  "Level": "medium",
+  "Name": "New or Renamed User Account with '$' Character",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where (((eventid = '4720' and samaccountname like '%$%') or (eventid = '4781' and newtargetusername like '%$%')) and  not (eventid = '4720' and targetusername = 'homegroupuser$'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1036"
+  ],
+  "Version": "0.1"
+}

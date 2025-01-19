@@ -1,0 +1,14 @@
+{
+  "Description": "Detects powershell script installed as a Service\n\nAuthor: oscd.community, Natalia Shornikova\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a2e5019d-a658-4c6a-92bf-7197b54e2cae",
+  "InsertDate": "2025-01-19T11:33:53Z",
+  "LastUpdateDate": "2025-01-19T11:33:53Z",
+  "Level": "high",
+  "Name": "PowerShell Scripts Installed as Services",
+  "Query": "sourcetype='windows-system' eql select * from _source_ where provider_name = 'service control manager' and eventid = '7045' and (imagepath like '%powershell%' or imagepath like '%pwsh%')",
+  "Tags": [
+    "attack.execution",
+    "attack.t1569.002"
+  ],
+  "Version": "0.1"
+}

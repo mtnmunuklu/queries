@@ -1,0 +1,14 @@
+{
+  "Description": "Compress target file into a cab file stored in the Alternate Data Stream (ADS) of the target file.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6b369ced-4b1d-48f1-b427-fdc0de0790bd",
+  "InsertDate": "2025-01-19T11:34:47Z",
+  "LastUpdateDate": "2025-01-19T11:34:47Z",
+  "Level": "medium",
+  "Name": "Suspicious Diantz Alternate Data Stream Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%diantz.exe%' and command like '%.cab%') and command re ':[^\\\\]'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1564.004"
+  ],
+  "Version": "0.1"
+}

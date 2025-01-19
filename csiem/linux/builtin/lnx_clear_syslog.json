@@ -1,0 +1,14 @@
+{
+  "Description": "Detects specific commands commonly used to remove or empty the syslog\n\nAuthor: Max Altgelt (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e09eb557-96d2-4de9-ba2d-30f712a5afd3",
+  "InsertDate": "2025-01-19T11:33:31Z",
+  "LastUpdateDate": "2025-01-19T11:33:31Z",
+  "Level": "high",
+  "Name": "Commands to Clear or Remove the Syslog - Builtin",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where ((log like '%rm /var/log/syslog%' or log like '%rm -r /var/log/syslog%' or log like '%rm -f /var/log/syslog%' or log like '%rm -rf /var/log/syslog%' or log like '%mv /var/log/syslog%' or log like '% \u003e/var/log/syslog%' or log like '% \u003e /var/log/syslog%') and  not log like '%/syslog.%')",
+  "Tags": [
+    "attack.impact",
+    "attack.t1565.001"
+  ],
+  "Version": "0.1"
+}

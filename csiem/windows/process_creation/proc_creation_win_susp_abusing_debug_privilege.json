@@ -1,0 +1,14 @@
+{
+  "Description": "Detection of unusual child processes by different system processes\n\nAuthor: Semanur Guneysu @semanurtg, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d522eca2-2973-4391-a3e0-ef0374321dae",
+  "InsertDate": "2025-01-19T11:35:30Z",
+  "LastUpdateDate": "2025-01-19T11:35:30Z",
+  "Level": "high",
+  "Name": "Abused Debug Privilege by Arbitrary Parent Processes",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((((parent_process_path like '%\\winlogon.exe' or parent_process_path like '%\\services.exe' or parent_process_path like '%\\lsass.exe' or parent_process_path like '%\\csrss.exe' or parent_process_path like '%\\smss.exe' or parent_process_path like '%\\wininit.exe' or parent_process_path like '%\\spoolsv.exe' or parent_process_path like '%\\searchindexer.exe') and (username like '%authori%' or username like '%autori%')) and ((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\cmd.exe') and (original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll' or original_file_name = 'cmd.exe'))) and  not (command like '% route %' and command like '% add %'))",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.t1548"
+  ],
+  "Version": "0.1"
+}

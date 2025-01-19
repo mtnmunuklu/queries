@@ -1,0 +1,17 @@
+{
+  "Description": "Detects when a configuration change is made to an applications AppID URI.\n\nAuthor: Mark Morowczynski '@markmorow', Bailey Bercik '@baileybercik'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1b45b0d1-773f-4f23-aedc-814b759563b1",
+  "InsertDate": "2025-01-19T11:33:24Z",
+  "LastUpdateDate": "2025-01-19T11:33:24Z",
+  "Level": "high",
+  "Name": "Application AppID Uri Configuration Changes",
+  "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where (properties.message = 'update application' or properties.message = 'update service principal')",
+  "Tags": [
+    "attack.persistence",
+    "attack.credential-access",
+    "attack.privilege-escalation",
+    "attack.t1552",
+    "attack.t1078.004"
+  ],
+  "Version": "0.1"
+}

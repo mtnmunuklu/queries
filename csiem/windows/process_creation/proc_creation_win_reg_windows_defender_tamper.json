@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the usage of \"reg.exe\" to tamper with different Windows Defender registry keys in order to disable some important features related to protection and detection\n\nAuthor: Florian Roth (Nextron Systems), Swachchhanda Shrawan Poudel, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "452bce90-6fb0-43cc-97a5-affc283139b3",
+  "InsertDate": "2025-01-19T11:35:11Z",
+  "LastUpdateDate": "2025-01-19T11:35:11Z",
+  "Level": "high",
+  "Name": "Suspicious Windows Defender Registry Key Tampering Via Reg.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((command like '%software\\microsoft\\windows defender\\%' or command like '%software\\policies\\microsoft\\windows defender security center%' or command like '%software\\policies\\microsoft\\windows defender\\%') and (process_path like '%\\reg.exe' and original_file_name = 'reg.exe')) and (((command like '% add %' and command like '%d 0%') and (command like '%disallowexploitprotectionoverride%' or command like '%enablecontrolledfolderaccess%' or command like '%mpenablepus%' or command like '%puaprotection%' or command like '%spynetreporting%' or command like '%submitsamplesconsent%' or command like '%tamperprotection%')) or ((command like '% add %' and command like '%d 1%') and (command like '%disableantispyware%' or command like '%disableantispywarerealtimeprotection%' or command like '%disableantivirus%' or command like '%disablearchivescanning%' or command like '%disablebehaviormonitoring%' or command like '%disableblockatfirstseen%' or command like '%disableconfig%' or command like '%disableenhancednotifications%' or command like '%disableintrusionpreventionsystem%' or command like '%disableioavprotection%' or command like '%disableonaccessprotection%' or command like '%disableprivacymode%' or command like '%disablerealtimemonitoring%' or command like '%disableroutinelytakingaction%' or command like '%disablescanonrealtimeenable%' or command like '%disablescriptscanning%' or command like '%notification_suppress%' or command like '%signaturedisableupdateonstartupwithoutengine%'))))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

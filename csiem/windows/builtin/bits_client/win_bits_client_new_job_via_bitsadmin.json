@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the creation of a new bits job by Bitsadmin\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1ff315dc-2a3a-4b71-8dde-873818d25d39",
+  "InsertDate": "2025-01-19T11:33:43Z",
+  "LastUpdateDate": "2025-01-19T11:33:43Z",
+  "Level": "low",
+  "Name": "New BITS Job Created Via Bitsadmin",
+  "Query": "sourcetype='windows-bits-client' eql select * from _source_ where eventid = '3' and processpath like '%\\bitsadmin.exe'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.t1197"
+  ],
+  "Version": "0.1"
+}

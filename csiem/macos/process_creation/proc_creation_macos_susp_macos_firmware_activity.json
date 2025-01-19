@@ -1,0 +1,13 @@
+{
+  "Description": "Detects when a user manipulates with Firmward Password on MacOS. NOTE - this command has been disabled on silicon-based apple computers.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7ed2c9f7-c59d-4c82-a7e2-f859aa676099",
+  "InsertDate": "2025-01-19T11:33:38Z",
+  "LastUpdateDate": "2025-01-19T11:33:38Z",
+  "Level": "medium",
+  "Name": "Suspicious MacOS Firmware Activity",
+  "Query": "sourcetype like 'macos-%' eql select * from _source_ where process_path = '/usr/sbin/firmwarepasswd' and (command like '%setpasswd%' or command like '%full%' or command like '%delete%' or command like '%check%')",
+  "Tags": [
+    "attack.impact"
+  ],
+  "Version": "0.1"
+}

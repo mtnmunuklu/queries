@@ -1,0 +1,15 @@
+{
+  "Description": "Detects usage of the \"ms-appinstaller\" protocol handler via command line to potentially download arbitrary files via AppInstaller.EXE\nThe downloaded files are temporarly stored in \":\\Users\\%username%\\AppData\\Local\\Packages\\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\\AC\\INetCache\\\u003cRANDOM-8-CHAR-DIRECTORY\u003e\"\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Swachchhanda Shrawan Poudel\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "180c7c5c-d64b-4a63-86e9-68910451bc8b",
+  "InsertDate": "2025-01-19T11:35:34Z",
+  "LastUpdateDate": "2025-01-19T11:35:34Z",
+  "Level": "medium",
+  "Name": "Potential File Download Via MS-AppInstaller Protocol Handler",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%ms-appinstaller://?source=%' and command like '%http%')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

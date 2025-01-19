@@ -1,0 +1,16 @@
+{
+  "Description": "Detection of sc.exe utility adding a new service with special permission which hides that service.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "98c5aeef-32d5-492f-b174-64a691896d25",
+  "InsertDate": "2025-01-19T11:35:22Z",
+  "LastUpdateDate": "2025-01-19T11:35:22Z",
+  "Level": "medium",
+  "Name": "Service Security Descriptor Tampering Via Sc.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\sc.exe' and original_file_name = 'sc.exe') and command like '%sdset%')",
+  "Tags": [
+    "attack.persistence",
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1574.011"
+  ],
+  "Version": "0.1"
+}

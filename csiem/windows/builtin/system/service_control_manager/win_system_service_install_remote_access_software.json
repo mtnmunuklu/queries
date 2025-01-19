@@ -1,0 +1,15 @@
+{
+  "Description": "Detects service installation of different remote access tools software. These software are often abused by threat actors to perform\n\nAuthor: Connor Martin, Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1a31b18a-f00c-4061-9900-f735b96c99fc",
+  "InsertDate": "2025-01-19T11:33:53Z",
+  "LastUpdateDate": "2025-01-19T11:33:53Z",
+  "Level": "medium",
+  "Name": "Remote Access Tool Services Have Been Installed - System",
+  "Query": "sourcetype='windows-system' eql select * from _source_ where provider_name = 'service control manager' and (eventid = '7045' or eventid = '7036') and (servicename like '%ammyyadmin%' or servicename like '%atera%' or servicename like '%basupportexpresssrvcupdater%' or servicename like '%basupportexpressstandaloneservice%' or servicename like '%chromoting%' or servicename like '%gotoassist%' or servicename like '%gotomypc%' or servicename like '%jumpcloud%' or servicename like '%lmiguardiansvc%' or servicename like '%logmein%' or servicename like '%monblanking%' or servicename like '%parsec%' or servicename like '%rmanservice%' or servicename like '%rpcperformanceservice%' or servicename like '%rpcservice%' or servicename like '%splashtopremoteservice%' or servicename like '%ssuservice%' or servicename like '%teamviewer%' or servicename like '%tightvnc%' or servicename like '%vncserver%' or servicename like '%zoho%')",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1543.003",
+    "attack.t1569.002"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,13 @@
+{
+  "Description": "Detects the execution of a renamed Microsoft Teams binary.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "88f46b67-14d4-4f45-ac2c-d66984f22191",
+  "InsertDate": "2025-01-19T11:35:17Z",
+  "LastUpdateDate": "2025-01-19T11:35:17Z",
+  "Level": "medium",
+  "Name": "Renamed Microsoft Teams Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((original_file_name = 'msteams.exe' or original_file_name = 'teams.exe') and  not (process_path like '%\\msteams.exe' or process_path like '%\\teams.exe'))",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

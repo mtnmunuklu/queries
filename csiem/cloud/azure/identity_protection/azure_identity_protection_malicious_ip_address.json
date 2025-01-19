@@ -1,0 +1,14 @@
+{
+  "Description": "Indicates sign-in from a malicious IP address based on high failure rates.\n\nAuthor: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a3f55ebd-0c01-4ed6-adc0-8fb76d8cd3cd",
+  "InsertDate": "2025-01-19T11:33:25Z",
+  "LastUpdateDate": "2025-01-19T11:33:25Z",
+  "Level": "high",
+  "Name": "Malicious IP Address Sign-In Failure Rate",
+  "Query": "sourcetype='azure-riskdetection' eql select * from _source_ where riskeventtype = 'maliciousipaddress'",
+  "Tags": [
+    "attack.t1090",
+    "attack.command-and-control"
+  ],
+  "Version": "0.1"
+}

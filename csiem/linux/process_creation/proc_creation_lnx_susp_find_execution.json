@@ -1,0 +1,14 @@
+{
+  "Description": "Detects usage of \"find\" binary in a suspicious manner to perform discovery\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8344c0e5-5783-47cc-9cf9-a0f7fd03e6cf",
+  "InsertDate": "2025-01-19T11:33:35Z",
+  "LastUpdateDate": "2025-01-19T11:33:35Z",
+  "Level": "medium",
+  "Name": "Potential Discovery Activity Using Find - Linux",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where process_path like '%/find' and (command like '%-perm -4000%' or command like '%-perm -2000%' or command like '%-perm 0777%' or command like '%-perm -222%' or command like '%-perm -o w%' or command like '%-perm -o x%' or command like '%-perm -u=s%' or command like '%-perm -g=s%')",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1083"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of Windows Problem Steps Recorder (psr.exe), a utility used to record the user screen and clicks.\n\nAuthor: Beyu Denis, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2158f96f-43c2-43cb-952a-ab4580f32382",
+  "InsertDate": "2025-01-19T11:35:06Z",
+  "LastUpdateDate": "2025-01-19T11:35:06Z",
+  "Level": "medium",
+  "Name": "Screen Capture Activity Via Psr.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\psr.exe' and (command like '%/start%' or command like '%-start%')",
+  "Tags": [
+    "attack.collection",
+    "attack.t1113"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the clearing of one of the Windows Core Eventlogs. e.g. caused by \"wevtutil cl\" command execution\n\nAuthor: Florian Roth (Nextron Systems), Tim Shelton, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "100ef69e-3327-481c-8e5c-6d80d9507556",
+  "InsertDate": "2025-01-19T11:33:51Z",
+  "LastUpdateDate": "2025-01-19T11:33:51Z",
+  "Level": "high",
+  "Name": "Important Windows Eventlog Cleared",
+  "Query": "sourcetype='windows-system' eql select * from _source_ where eventid = '104' and provider_name = 'microsoft-windows-eventlog' and (channel = 'microsoft-windows-powershell/operational' or channel = 'microsoft-windows-sysmon/operational' or channel = 'powershellcore/operational' or channel = 'security' or channel = 'system' or channel = 'windows powershell')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1070.001",
+    "car.2016-04-002"
+  ],
+  "Version": "0.1"
+}

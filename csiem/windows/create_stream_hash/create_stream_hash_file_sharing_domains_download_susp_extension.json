@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the download of suspicious file type from a well-known file and paste sharing domain\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "52182dfb-afb7-41db-b4bc-5336cb29b464",
+  "InsertDate": "2025-01-19T11:33:56Z",
+  "LastUpdateDate": "2025-01-19T11:33:56Z",
+  "Level": "high",
+  "Name": "Suspicious File Download From File Sharing Websites -  File Stream",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((contents like '%.githubusercontent.com%' or contents like '%anonfiles.com%' or contents like '%cdn.discordapp.com%' or contents like '%ddns.net%' or contents like '%dl.dropboxusercontent.com%' or contents like '%ghostbin.co%' or contents like '%glitch.me%' or contents like '%gofile.io%' or contents like '%hastebin.com%' or contents like '%mediafire.com%' or contents like '%mega.nz%' or contents like '%onrender.com%' or contents like '%pages.dev%' or contents like '%paste.ee%' or contents like '%pastebin.com%' or contents like '%pastebin.pl%' or contents like '%pastetext.net%' or contents like '%pixeldrain.com%' or contents like '%privatlab.com%' or contents like '%privatlab.net%' or contents like '%send.exploit.in%' or contents like '%sendspace.com%' or contents like '%storage.googleapis.com%' or contents like '%storjshare.io%' or contents like '%supabase.co%' or contents like '%temp.sh%' or contents like '%transfer.sh%' or contents like '%trycloudflare.com%' or contents like '%ufile.io%' or contents like '%w3spaces.com%' or contents like '%workers.dev%') and (filepath like '%.cpl:zone%' or filepath like '%.dll:zone%' or filepath like '%.exe:zone%' or filepath like '%.hta:zone%' or filepath like '%.lnk:zone%' or filepath like '%.one:zone%' or filepath like '%.vbe:zone%' or filepath like '%.vbs:zone%' or filepath like '%.xll:zone%'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.s0139",
+    "attack.t1564.004"
+  ],
+  "Version": "0.1"
+}

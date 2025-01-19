@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the deletion of registry keys containing the MSTSC connection history\n\nAuthor: Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "07bdd2f5-9c58-4f38-aec8-e101bb79ef8d",
+  "InsertDate": "2025-01-19T11:36:00Z",
+  "LastUpdateDate": "2025-01-19T11:36:00Z",
+  "Level": "high",
+  "Name": "Terminal Server Client Connection History Cleared - Registry",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((event_type = 'deletevalue' and target_object like '%\\microsoft\\terminal server client\\default\\mru%') or (event_type = 'deletekey' and target_object like '%\\microsoft\\terminal server client\\servers\\%'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1070",
+    "attack.t1112"
+  ],
+  "Version": "0.1"
+}

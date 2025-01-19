@@ -1,0 +1,14 @@
+{
+  "Description": "Detects possible NTLM coercion via certutil using the 'syncwithWU' flag\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6c6d9280-e6d0-4b9d-80ac-254701b64916",
+  "InsertDate": "2025-01-19T11:34:32Z",
+  "LastUpdateDate": "2025-01-19T11:34:32Z",
+  "Level": "high",
+  "Name": "Potential NTLM Coercion Via Certutil.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\certutil.exe' and original_file_name = 'certutil.exe') and (command like '% -syncwithwu %' and command like '% \\\\\\\\%'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

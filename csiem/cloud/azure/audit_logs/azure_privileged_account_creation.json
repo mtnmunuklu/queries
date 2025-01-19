@@ -1,0 +1,15 @@
+{
+  "Description": "Detects when a new admin is created.\n\nAuthor: Mark Morowczynski '@markmorow', Yochana Henderson, '@Yochana-H', Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f7b5b004-dece-46e4-a4a5-f6fd0e1c6947",
+  "InsertDate": "2025-01-19T11:33:24Z",
+  "LastUpdateDate": "2025-01-19T11:33:24Z",
+  "Level": "medium",
+  "Name": "Privileged Account Creation",
+  "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where (properties.message like '%add user%' and properties.message like '%add member to role%') and status = 'success'",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1078.004"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects PowerShell module creation where the module Contents are set to \"function Get-VMRemoteFXPhysicalVideoAdapter\". This could be a sign of potential abuse of  the \"RemoteFXvGPUDisablement.exe\" binary which is known to be vulnerable to module load-order hijacking.\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f65e22f9-819e-4f96-9c7b-498364ae7a25",
+  "InsertDate": "2025-01-19T11:34:14Z",
+  "LastUpdateDate": "2025-01-19T11:34:14Z",
+  "Level": "high",
+  "Name": "Potential RemoteFXvGPUDisablement.EXE Abuse",
+  "Query": "sourcetype='windows-powershell-classic' eql select * from _source_ where data like '%modulecontents=function get-vmremotefxphysicalvideoadapter {%'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

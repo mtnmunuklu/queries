@@ -1,0 +1,15 @@
+{
+  "Description": "Detects SharpLdapWhoami, a whoami alternative that queries the LDAP service on a domain controller\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d9367cbb-c2e0-47ce-bdc0-128cb6da898d",
+  "InsertDate": "2025-01-19T11:34:43Z",
+  "LastUpdateDate": "2025-01-19T11:34:43Z",
+  "Level": "high",
+  "Name": "HackTool - SharpLdapWhoami Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '% /method:ntlm' or command like '% /method:kerb' or command like '% /method:nego' or command like '% /m:nego' or command like '% /m:ntlm' or command like '% /m:kerb') or process_path like '%\\sharpldapwhoami.exe' or (original_file_name like '%sharpldapwhoami%' and product = 'sharpldapwhoami'))",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1033",
+    "car.2016-03-001"
+  ],
+  "Version": "0.1"
+}

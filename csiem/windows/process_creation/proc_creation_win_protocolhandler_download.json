@@ -1,0 +1,14 @@
+{
+  "Description": "Detects usage of \"ProtocolHandler\" to download files. Downloaded files will be located in the cache folder (for example - %LOCALAPPDATA%\\Microsoft\\Windows\\INetCache\\IE)\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "104cdb48-a7a8-4ca7-a453-32942c6e5dcb",
+  "InsertDate": "2025-01-19T11:35:05Z",
+  "LastUpdateDate": "2025-01-19T11:35:05Z",
+  "Level": "medium",
+  "Name": "File Download Using ProtocolHandler.exe",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\protocolhandler.exe' and original_file_name = 'protocolhandler.exe') and (command like '%ftp://%' or command like '%http://%' or command like '%https://%'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

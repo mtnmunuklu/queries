@@ -1,0 +1,14 @@
+{
+  "Description": "By replacing the sticky keys executable with the local admins CMD executable, an attacker is able to access a privileged windows console session without authenticating to the system.\nWhen the sticky keys are \"activated\" the privilleged shell is launched.\n\n\nAuthor: Sreeman\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1070db9a-3e5d-412e-8e7b-7183b616e1b3",
+  "InsertDate": "2025-01-19T11:34:34Z",
+  "LastUpdateDate": "2025-01-19T11:34:34Z",
+  "Level": "critical",
+  "Name": "Persistence Via Sticky Key Backdoor",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%copy %' and command like '%/y %' and command like '%c:\\windows\\system32\\cmd.exe c:\\windows\\system32\\sethc.exe%')",
+  "Tags": [
+    "attack.t1546.008",
+    "attack.privilege-escalation"
+  ],
+  "Version": "0.1"
+}

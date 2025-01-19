@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the \"IDiagnosticProfileUAC\" UAC bypass technique\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4cbef972-f347-4170-b62a-8253f6168e6d",
+  "InsertDate": "2025-01-19T11:35:45Z",
+  "LastUpdateDate": "2025-01-19T11:35:45Z",
+  "Level": "high",
+  "Name": "UAC Bypass Using IDiagnostic Profile",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where parent_process_path like '%\\dllhost.exe' and parent_command_line like '% /processid:{12c21ea7-2eb8-4b55-9249-ac243da8c666}%' and (integrity_level = 'high' or integrity_level = 'system' or integrity_level = 's-1-16-16384' or integrity_level = 's-1-16-12288')",
+  "Tags": [
+    "attack.execution",
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1548.002"
+  ],
+  "Version": "0.1"
+}

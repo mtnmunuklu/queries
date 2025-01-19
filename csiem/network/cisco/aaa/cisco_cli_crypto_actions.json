@@ -1,0 +1,16 @@
+{
+  "Description": "Show when private keys are being exported from the device, or when new certificates are installed\n\nAuthor: Austin Clark\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1f978c6a-4415-47fb-aca5-736a44d7ca3d",
+  "InsertDate": "2025-01-19T11:33:39Z",
+  "LastUpdateDate": "2025-01-19T11:33:39Z",
+  "Level": "high",
+  "Name": "Cisco Crypto Commands",
+  "Query": "sourcetype='cisco-aaa' eql select * from _source_ where (log like '%crypto pki export%' or log like '%crypto pki import%' or log like '%crypto pki trustpoint%')",
+  "Tags": [
+    "attack.credential-access",
+    "attack.defense-evasion",
+    "attack.t1553.004",
+    "attack.t1552.004"
+  ],
+  "Version": "0.1"
+}

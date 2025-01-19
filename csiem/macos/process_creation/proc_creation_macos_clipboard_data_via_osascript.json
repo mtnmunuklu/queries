@@ -1,0 +1,16 @@
+{
+  "Description": "Detects possible collection of data from the clipboard via execution of the osascript binary\n\nAuthor: Sohan G (D4rkCiph3r)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7794fa3c-edea-4cff-bec7-267dd4770fd7",
+  "InsertDate": "2025-01-19T11:33:37Z",
+  "LastUpdateDate": "2025-01-19T11:33:37Z",
+  "Level": "high",
+  "Name": "Clipboard Data Collection Via OSAScript",
+  "Query": "sourcetype like 'macos-%' eql select * from _source_ where (command like '%osascript%' and command like '% -e %' and command like '%clipboard%')",
+  "Tags": [
+    "attack.collection",
+    "attack.execution",
+    "attack.t1115",
+    "attack.t1059.002"
+  ],
+  "Version": "0.1"
+}

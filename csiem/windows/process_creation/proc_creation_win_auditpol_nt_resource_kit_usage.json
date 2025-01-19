@@ -1,0 +1,14 @@
+{
+  "Description": "Threat actors can use an older version of the auditpol binary available inside the NT resource kit to change audit policy configuration to impair detection capability.\nThis can be carried out by selectively disabling/removing certain audit policies as well as restoring a custom policy owned by the threat actor.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c6c56ada-612b-42d1-9a29-adad3c5c2c1e",
+  "InsertDate": "2025-01-19T11:34:30Z",
+  "LastUpdateDate": "2025-01-19T11:34:30Z",
+  "Level": "high",
+  "Name": "Audit Policy Tampering Via NT Resource Kit Auditpol",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%/logon:none%' or command like '%/system:none%' or command like '%/sam:none%' or command like '%/privilege:none%' or command like '%/object:none%' or command like '%/process:none%' or command like '%/policy:none%')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.002"
+  ],
+  "Version": "0.1"
+}

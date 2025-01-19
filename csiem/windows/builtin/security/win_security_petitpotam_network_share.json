@@ -1,0 +1,14 @@
+{
+  "Description": "Detect PetitPotam coerced authentication activity.\n\nAuthor: Mauricio Velazco, Michael Haag\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1ce8c8a3-2723-48ed-8246-906ac91061a6",
+  "InsertDate": "2025-01-19T11:33:49Z",
+  "LastUpdateDate": "2025-01-19T11:33:49Z",
+  "Level": "high",
+  "Name": "Possible PetitPotam Coerce Authentication Attempt",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '5145' and sharename like '\\\\\\\\%' and sharename like '%\\ipc$' and relativetargetname = 'lsarpc' and subjectusername = 'anonymous logon'",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1187"
+  ],
+  "Version": "0.1"
+}

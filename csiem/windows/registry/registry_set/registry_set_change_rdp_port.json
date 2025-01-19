@@ -1,0 +1,14 @@
+{
+  "Description": "Detects changes to the default RDP port.\nRemote desktop is a common feature in operating systems. It allows a user to log into a remote system using an interactive session with a graphical user interface.\nMicrosoft refers to its implementation of the Remote Desktop Protocol (RDP) as Remote Desktop Services (RDS).\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "509e84b9-a71a-40e0-834f-05470369bd1e",
+  "InsertDate": "2025-01-19T11:36:08Z",
+  "LastUpdateDate": "2025-01-19T11:36:08Z",
+  "Level": "high",
+  "Name": "Default RDP Port Changed to Non Standard Port",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\control\\terminal server\\winstations\\rdp-tcp\\portnumber' and  not details = 'dword (0x00000d3d)')",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1547.010"
+  ],
+  "Version": "0.1"
+}

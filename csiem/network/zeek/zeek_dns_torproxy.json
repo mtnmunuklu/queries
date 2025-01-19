@@ -1,0 +1,14 @@
+{
+  "Description": "Identifies IPs performing DNS lookups associated with common Tor proxies.\n\nAuthor: Saw Winn Naung , Azure-Sentinel\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a8322756-015c-42e7-afb1-436e85ed3ff5",
+  "InsertDate": "2025-01-19T11:33:40Z",
+  "LastUpdateDate": "2025-01-19T11:33:40Z",
+  "Level": "medium",
+  "Name": "DNS TOR Proxies",
+  "Query": "sourcetype='zeek-dns' eql select * from _source_ where (query = 'tor2web.org' or query = 'tor2web.com' or query = 'torlink.co' or query = 'onion.to' or query = 'onion.ink' or query = 'onion.cab' or query = 'onion.nu' or query = 'onion.link' or query = 'onion.it' or query = 'onion.city' or query = 'onion.direct' or query = 'onion.top' or query = 'onion.casa' or query = 'onion.plus' or query = 'onion.rip' or query = 'onion.dog' or query = 'tor2web.fi' or query = 'tor2web.blutmagie.de' or query = 'onion.sh' or query = 'onion.lu' or query = 'onion.pet' or query = 't2w.pw' or query = 'tor2web.ae.org' or query = 'tor2web.io' or query = 'tor2web.xyz' or query = 'onion.lt' or query = 's1.tor-gateways.de' or query = 's2.tor-gateways.de' or query = 's3.tor-gateways.de' or query = 's4.tor-gateways.de' or query = 's5.tor-gateways.de' or query = 'hiddenservice.net')",
+  "Tags": [
+    "attack.exfiltration",
+    "attack.t1048"
+  ],
+  "Version": "0.1"
+}

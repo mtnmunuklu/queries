@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious children spawned via the Windows Terminal application which could be a sign of persistence via WindowsTerminal (see references section)\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8de89e52-f6e1-4b5b-afd1-41ecfa300d48",
+  "InsertDate": "2025-01-19T11:35:53Z",
+  "LastUpdateDate": "2025-01-19T11:35:53Z",
+  "Level": "medium",
+  "Name": "Suspicious WindowsTerminal Child Processes",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((parent_process_path like '%\\windowsterminal.exe' or parent_process_path like '%\\wt.exe') and ((process_path like '%\\rundll32.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\certutil.exe' or process_path like '%\\cscript.exe' or process_path like '%\\wscript.exe' or process_path like '%\\csc.exe') and (process_path like '%c:\\users\\public\\%' or process_path like '%\\downloads\\%' or process_path like '%\\desktop\\%' or process_path like '%\\appdata\\local\\temp\\%' or process_path like '%\\windows\\temp\\%') and (command like '% iex %' or command like '% icm%' or command like '%invoke-%' or command like '%import-module %' or command like '%ipmo %' or command like '%downloadstring(%' or command like '% /c %' or command like '% /k %' or command like '% /r %'))) and  not ((command like '%import-module%' and command like '%microsoft.visualstudio.devshell.dll%' and command like '%enter-vsdevshell%') or (command like '%\\appdata\\local\\packages\\microsoft.windowsterminal_%' and command like '%\\localstate\\settings.json%') or (command like '%c:\\program files\\microsoft visual studio\\%' and command like '%\\common7\\tools\\vsdevcmd.bat%')))",
+  "Tags": [
+    "attack.execution",
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the use of Windows Defender MpCmdRun.EXE to download files\n\nAuthor: Matthew Matchen\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "46123129-1024-423e-9fae-43af4a0fa9a5",
+  "InsertDate": "2025-01-19T11:34:50Z",
+  "LastUpdateDate": "2025-01-19T11:34:50Z",
+  "Level": "high",
+  "Name": "File Download Via Windows Defender MpCmpRun.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((original_file_name = 'mpcmdrun.exe' and process_path like '%\\mpcmdrun.exe' and command like '%mpcmdrun.exe%' and description = 'microsoft malware protection command line utility') and (command like '%downloadfile%' and command like '%url%'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218",
+    "attack.command-and-control",
+    "attack.t1105"
+  ],
+  "Version": "0.1"
+}

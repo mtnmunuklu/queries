@@ -1,0 +1,17 @@
+{
+  "Description": "Indicates anomalous behavior based on suspicious sign-in activity across multiple tenants from different countries in the same browser\n\nAuthor: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "944f6adb-7a99-4c69-80c1-b712579e93e6",
+  "InsertDate": "2025-01-19T11:33:25Z",
+  "LastUpdateDate": "2025-01-19T11:33:25Z",
+  "Level": "high",
+  "Name": "Suspicious Browser Activity",
+  "Query": "sourcetype='azure-riskdetection' eql select * from _source_ where riskeventtype = 'suspiciousbrowser'",
+  "Tags": [
+    "attack.t1078",
+    "attack.persistence",
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.initial-access"
+  ],
+  "Version": "0.1"
+}

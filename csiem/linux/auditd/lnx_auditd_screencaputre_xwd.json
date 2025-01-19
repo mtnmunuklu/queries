@@ -1,0 +1,14 @@
+{
+  "Description": "Detects adversary creating screen capture of a full with xwd. Highly recommended using rule on servers, due high usage of screenshot utilities on user workstations\n\nAuthor: Pawel Mazur\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e2f17c5d-b02a-442b-9052-6eb89c9fec9c",
+  "InsertDate": "2025-01-19T11:33:31Z",
+  "LastUpdateDate": "2025-01-19T11:33:31Z",
+  "Level": "low",
+  "Name": "Screen Capture with Xwd",
+  "Query": "sourcetype='linux-auditd' eql select * from _source_ where ((type = 'execve' and a0 = 'xwd') and ((a1 = '-root' and a2 = '-out' and a3 like '%.xwd') or (a1 = '-out' and a2 like '%.xwd')))",
+  "Tags": [
+    "attack.collection",
+    "attack.t1113"
+  ],
+  "Version": "0.1"
+}

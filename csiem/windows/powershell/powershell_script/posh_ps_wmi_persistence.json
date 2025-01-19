@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may establish persistence and elevate privileges by executing malicious content triggered by a Windows Management Instrumentation (WMI) event subscription.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9e07f6e7-83aa-45c6-998e-0af26efd0a85",
+  "InsertDate": "2025-01-19T11:34:27Z",
+  "LastUpdateDate": "2025-01-19T11:34:27Z",
+  "Level": "medium",
+  "Name": "Powershell WMI Persistence",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%new-ciminstance %' and scriptblocktext like '%-namespace root/subscription %' and scriptblocktext like '%-classname __eventfilter %' and scriptblocktext like '%-property %') and (scriptblocktext like '%new-ciminstance %' and scriptblocktext like '%-namespace root/subscription %' and scriptblocktext like '%-classname commandlineeventconsumer %' and scriptblocktext like '%-property %')",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.t1546.003"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when a user has been elevated to manage all Azure Subscriptions.\nThis change should be investigated immediately if it isn't planned.\nThis setting could allow an attacker access to Azure subscriptions in your environment.\n\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ca9bf243-465e-494a-9e54-bf9fc239057d",
+  "InsertDate": "2025-01-19T11:33:24Z",
+  "LastUpdateDate": "2025-01-19T11:33:24Z",
+  "Level": "high",
+  "Name": "Azure Subscription Permission Elevation Via AuditLogs",
+  "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where category = 'administrative' and operationname = 'assigns the caller to user access admin'",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1078"
+  ],
+  "Version": "0.1"
+}

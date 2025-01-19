@@ -1,0 +1,15 @@
+{
+  "Description": "Detects suspicious processes spawned from a Java host process which could indicate a sign of exploitation (e.g. log4j)\n\nAuthor: Andreas Hunkeler (@Karneades), Florian Roth\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0d34ed8b-1c12-4ff2-828c-16fc860b766d",
+  "InsertDate": "2025-01-19T11:34:46Z",
+  "LastUpdateDate": "2025-01-19T11:34:46Z",
+  "Level": "high",
+  "Name": "Suspicious Processes Spawned by Java.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where parent_process_path like '%\\java.exe' and (process_path like '%\\appvlp.exe' or process_path like '%\\bitsadmin.exe' or process_path like '%\\certutil.exe' or process_path like '%\\cscript.exe' or process_path like '%\\curl.exe' or process_path like '%\\forfiles.exe' or process_path like '%\\hh.exe' or process_path like '%\\mftrace.exe' or process_path like '%\\mshta.exe' or process_path like '%\\net.exe' or process_path like '%\\net1.exe' or process_path like '%\\query.exe' or process_path like '%\\reg.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\schtasks.exe' or process_path like '%\\scrcons.exe' or process_path like '%\\scriptrunner.exe' or process_path like '%\\sh.exe' or process_path like '%\\systeminfo.exe' or process_path like '%\\whoami.exe' or process_path like '%\\wmic.exe' or process_path like '%\\wscript.exe')",
+  "Tags": [
+    "attack.initial-access",
+    "attack.persistence",
+    "attack.privilege-escalation"
+  ],
+  "Version": "0.1"
+}

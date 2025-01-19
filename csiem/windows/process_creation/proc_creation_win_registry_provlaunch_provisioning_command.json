@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential abuse of the provisioning registry key for indirect command execution through \"Provlaunch.exe\".\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Swachchhanda Shrawan Poudel\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2a4b3e61-9d22-4e4a-b60f-6e8f0cde6f25",
+  "InsertDate": "2025-01-19T11:35:12Z",
+  "LastUpdateDate": "2025-01-19T11:35:12Z",
+  "Level": "high",
+  "Name": "Potential Provisioning Registry Key Abuse For Binary Proxy Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where command like '%software\\microsoft\\provisioning\\commands\\%'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

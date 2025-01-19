@@ -1,0 +1,13 @@
+{
+  "Description": "Detects a suspicious call to the user32.dll function that locks the user workstation\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3b5b0213-0460-4e3f-8937-3abf98ff7dcc",
+  "InsertDate": "2025-01-19T11:35:20Z",
+  "LastUpdateDate": "2025-01-19T11:35:20Z",
+  "Level": "medium",
+  "Name": "Suspicious Workstation Locking via Rundll32",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\rundll32.exe' and original_file_name = 'rundll32.exe') and parent_process_path like '%\\cmd.exe' and command like '%user32.dll,%' and command like '%lockworkstation%')",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

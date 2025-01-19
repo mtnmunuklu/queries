@@ -1,0 +1,14 @@
+{
+  "Description": "Detect use of Get-GPO to get one GPO or all the GPOs in a domain.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "eb2fd349-ec67-4caa-9143-d79c7fb34441",
+  "InsertDate": "2025-01-19T11:34:23Z",
+  "LastUpdateDate": "2025-01-19T11:34:23Z",
+  "Level": "low",
+  "Name": "Suspicious GPO Discovery With Get-GPO",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where scriptblocktext like '%get-gpo%'",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1615"
+  ],
+  "Version": "0.1"
+}

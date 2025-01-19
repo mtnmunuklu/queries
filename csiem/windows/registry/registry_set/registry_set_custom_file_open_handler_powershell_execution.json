@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the abuse of custom file open handler, executing powershell\n\nAuthor: CD_R0M_\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7530b96f-ad8e-431d-a04d-ac85cc461fdc",
+  "InsertDate": "2025-01-19T11:36:09Z",
+  "LastUpdateDate": "2025-01-19T11:36:09Z",
+  "Level": "high",
+  "Name": "Custom File Open Handler Executes PowerShell",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where target_object like '%shell\\open\\command\\%' and (details like '%powershell%' and details like '%-command%')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1202"
+  ],
+  "Version": "0.1"
+}

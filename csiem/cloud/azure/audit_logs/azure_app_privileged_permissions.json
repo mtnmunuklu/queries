@@ -1,0 +1,15 @@
+{
+  "Description": "Detects when administrator grants either application permissions (app roles) or highly privileged delegated permissions\n\nAuthor: Bailey Bercik '@baileybercik', Mark Morowczynski '@markmorow'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5aecf3d5-f8a0-48e7-99be-3a759df7358f",
+  "InsertDate": "2025-01-19T11:33:24Z",
+  "LastUpdateDate": "2025-01-19T11:33:24Z",
+  "Level": "high",
+  "Name": "App Granted Privileged Delegated Or App Permissions",
+  "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where properties.message = 'add app role assignment to service principal'",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1098.003"
+  ],
+  "Version": "0.1"
+}

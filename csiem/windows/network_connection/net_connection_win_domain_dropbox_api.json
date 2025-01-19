@@ -1,0 +1,14 @@
+{
+  "Description": "Detects an executable that isn't dropbox but communicates with the Dropbox API\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "25eabf56-22f0-4915-a1ed-056b8dae0a68",
+  "InsertDate": "2025-01-19T11:34:11Z",
+  "LastUpdateDate": "2025-01-19T11:34:11Z",
+  "Level": "high",
+  "Name": "Suspicious Dropbox API Usage",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((initiated = 'true' and (dst_host like '%api.dropboxapi.com' or dst_host like '%content.dropboxapi.com')) and  not process_path like '%\\dropbox%')",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1105"
+  ],
+  "Version": "0.1"
+}

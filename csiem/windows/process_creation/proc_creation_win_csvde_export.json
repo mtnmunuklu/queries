@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the execution of \"csvde.exe\" in order to export organizational Active Directory structure.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e5d36acd-acb4-4c6f-a13f-9eb203d50099",
+  "InsertDate": "2025-01-19T11:34:35Z",
+  "LastUpdateDate": "2025-01-19T11:34:35Z",
+  "Level": "medium",
+  "Name": "Active Directory Structure Export Via Csvde.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '% -f%' and (process_path like '%\\csvde.exe' and original_file_name = 'csvde.exe')) and  not command like '% -i%')",
+  "Tags": [
+    "attack.exfiltration",
+    "attack.discovery",
+    "attack.t1087.002"
+  ],
+  "Version": "0.1"
+}

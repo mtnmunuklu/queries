@@ -1,0 +1,14 @@
+{
+  "Description": "Detects scenario where if a user is assigned the SeEnableDelegationPrivilege right in Active Directory it would allow control of other AD user objects.\n\nAuthor: @neu5ron\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "311b6ce2-7890-4383-a8c2-663a9f6b43cd",
+  "InsertDate": "2025-01-19T11:33:46Z",
+  "LastUpdateDate": "2025-01-19T11:33:46Z",
+  "Level": "high",
+  "Name": "Enabled User Right in AD to Control User Objects",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where (eventid = '4704' and privilegelist like '%seenabledelegationprivilege%')",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1098"
+  ],
+  "Version": "0.1"
+}

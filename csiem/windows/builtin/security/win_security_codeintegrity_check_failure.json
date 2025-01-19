@@ -1,0 +1,14 @@
+{
+  "Description": "Detects code integrity failures such as missing page hashes or corrupted drivers due unauthorized modification. This could be a sign of tampered binaries.\n\n\nAuthor: Thomas Patzke\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "470ec5fa-7b4e-4071-b200-4c753100f49b",
+  "InsertDate": "2025-01-19T11:33:47Z",
+  "LastUpdateDate": "2025-01-19T11:33:47Z",
+  "Level": "informational",
+  "Name": "Failed Code Integrity Checks",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where (eventid = '5038' or eventid = '6281')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1027.001"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the creation of the LiveKD driver by a process image other than \"livekd.exe\".\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "059c5af9-5131-4d8d-92b2-de4ad6146712",
+  "InsertDate": "2025-01-19T11:34:05Z",
+  "LastUpdateDate": "2025-01-19T11:34:05Z",
+  "Level": "high",
+  "Name": "LiveKD Driver Creation By Uncommon Process",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath = 'c:\\windows\\system32\\drivers\\livekdd.sys' and  not (process_path like '%\\livekd.exe' or process_path like '%\\livek64.exe'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation"
+  ],
+  "Version": "0.1"
+}

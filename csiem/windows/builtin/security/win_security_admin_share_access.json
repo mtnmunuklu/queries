@@ -1,0 +1,14 @@
+{
+  "Description": "Detects access to ADMIN$ network share\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "098d7118-55bc-4912-a836-dc6483a8d150",
+  "InsertDate": "2025-01-19T11:33:46Z",
+  "LastUpdateDate": "2025-01-19T11:33:46Z",
+  "Level": "low",
+  "Name": "Access To ADMIN$ Network Share",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '5140' and sharename = 'admin$') and  not subjectusername like '%$')",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.t1021.002"
+  ],
+  "Version": "0.1"
+}

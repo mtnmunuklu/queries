@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of regsvr32 where the DLL is located in a potentially suspicious location.\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9525dc73-0327-438c-8c04-13c0e037e9da",
+  "InsertDate": "2025-01-19T11:35:13Z",
+  "LastUpdateDate": "2025-01-19T11:35:13Z",
+  "Level": "medium",
+  "Name": "Regsvr32 Execution From Potential Suspicious Location",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\regsvr32.exe' and original_file_name = 'regsvr32.exe') and (command like '%:\\programdata\\%' or command like '%:\\temp\\%' or command like '%:\\users\\public\\%' or command like '%:\\windows\\temp\\%' or command like '%\\appdata\\local\\temp\\%' or command like '%\\appdata\\roaming\\%'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.010"
+  ],
+  "Version": "0.1"
+}

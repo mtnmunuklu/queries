@@ -1,0 +1,19 @@
+{
+  "Description": "Detects svchost hosting RDP termsvcs communicating with the loopback address\n\nAuthor: Samir Bousseaden\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5bed80b6-b3e8-428e-a3ae-d3c757589e41",
+  "InsertDate": "2025-01-19T11:33:49Z",
+  "LastUpdateDate": "2025-01-19T11:33:49Z",
+  "Level": "high",
+  "Name": "RDP over Reverse SSH Tunnel WFP",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where (eventid = '5156' and ((src_port = '3389' and (destaddress = '127.*' or destaddress = '::1')) or (destport = '3389' and (sourceaddress = '127.*' or sourceaddress = '::1'))) and  not (filterorigin = 'appcontainer loopback' or (application like '%\\thor.exe' or application like '%\\thor64.exe')))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.command-and-control",
+    "attack.lateral-movement",
+    "attack.t1090.001",
+    "attack.t1090.002",
+    "attack.t1021.001",
+    "car.2013-07-002"
+  ],
+  "Version": "0.1"
+}

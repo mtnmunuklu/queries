@@ -1,0 +1,13 @@
+{
+  "Description": "Detects PowerShell creating a binary executable or a script file.\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7047d730-036f-4f40-b9d8-1c63e36d5e62",
+  "InsertDate": "2025-01-19T11:34:02Z",
+  "LastUpdateDate": "2025-01-19T11:34:02Z",
+  "Level": "medium",
+  "Name": "Potential Binary Or Script Dropper Via PowerShell",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (filepath like '%.bat' or filepath like '%.chm' or filepath like '%.cmd' or filepath like '%.com' or filepath like '%.dll' or filepath like '%.exe' or filepath like '%.hta' or filepath like '%.jar' or filepath like '%.js' or filepath like '%.ocx' or filepath like '%.scr' or filepath like '%.sys' or filepath like '%.vbe' or filepath like '%.vbs' or filepath like '%.wsf')) and  not ((filepath like 'c:\\users\\%' and filepath like '%\\appdata\\local\\temp\\%' and (filepath like '%.dll' or filepath like '%.exe')) or (filepath like 'c:\\windows\\temp\\%' and (filepath like '%.dll' or filepath like '%.exe'))))",
+  "Tags": [
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

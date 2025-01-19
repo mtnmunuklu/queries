@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when an admin share is mounted using net.exe\n\nAuthor: oscd.community, Teymur Kheirkhabarov @HeirhabarovT, Zach Stanford @svch0st, wagga\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3abd6094-7027-475f-9630-8ab9be7b9725",
+  "InsertDate": "2025-01-19T11:34:54Z",
+  "LastUpdateDate": "2025-01-19T11:34:54Z",
+  "Level": "medium",
+  "Name": "Windows Admin Share Mount Via Net.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\net.exe' or process_path like '%\\net1.exe') and (original_file_name = 'net.exe' or original_file_name = 'net1.exe')) and (command like '% use %' and command like '% \\\\\\\\*\\\\*$%'))",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.t1021.002"
+  ],
+  "Version": "0.1"
+}

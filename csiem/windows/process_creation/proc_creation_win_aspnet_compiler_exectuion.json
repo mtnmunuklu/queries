@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of \"aspnet_compiler.exe\" which can be abused to compile and execute C# code.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a01b8329-5953-4f73-ae2d-aa01e1f35f00",
+  "InsertDate": "2025-01-19T11:34:29Z",
+  "LastUpdateDate": "2025-01-19T11:34:29Z",
+  "Level": "medium",
+  "Name": "AspNetCompiler Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%c:\\windows\\microsoft.net\\framework\\%' or process_path like '%c:\\windows\\microsoft.net\\framework64\\%') and process_path like '%\\aspnet_compiler.exe'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1127"
+  ],
+  "Version": "0.1"
+}

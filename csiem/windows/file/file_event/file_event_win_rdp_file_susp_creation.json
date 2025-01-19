@@ -1,0 +1,13 @@
+{
+  "Description": "Detects creation of a file with an \".rdp\" extension by an application that doesn't commonly create such files.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fccfb43e-09a7-4bd2-8b37-a5a7df33386d",
+  "InsertDate": "2025-01-19T11:34:03Z",
+  "LastUpdateDate": "2025-01-19T11:34:03Z",
+  "Level": "high",
+  "Name": ".RDP File Created By Uncommon Application",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where filepath like '%.rdp' and (process_path like '%\\brave.exe' or process_path like '%\\ccleaner browser\\application\\ccleanerbrowser.exe' or process_path like '%\\chromium.exe' or process_path like '%\\firefox.exe' or process_path like '%\\google\\chrome\\application\\chrome.exe' or process_path like '%\\iexplore.exe' or process_path like '%\\microsoftedge.exe' or process_path like '%\\msedge.exe' or process_path like '%\\opera.exe' or process_path like '%\\vivaldi.exe' or process_path like '%\\whale.exe' or process_path like '%\\olk.exe' or process_path like '%\\outlook.exe' or process_path like '%\\runtimebroker.exe' or process_path like '%\\thunderbird.exe' or process_path like '%\\discord.exe' or process_path like '%\\keybase.exe' or process_path like '%\\msteams.exe' or process_path like '%\\slack.exe' or process_path like '%\\teams.exe')",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

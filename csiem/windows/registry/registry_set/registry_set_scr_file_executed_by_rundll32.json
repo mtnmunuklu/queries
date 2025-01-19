@@ -1,0 +1,14 @@
+{
+  "Description": "Detects registry key established after masqueraded .scr file execution using Rundll32 through desk.cpl\n\nAuthor: Jose Luis Sanchez Martinez (@Joseliyo_Jstnk)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "40b6e656-4e11-4c0c-8772-c1cc6dae34ce",
+  "InsertDate": "2025-01-19T11:36:20Z",
+  "LastUpdateDate": "2025-01-19T11:36:20Z",
+  "Level": "medium",
+  "Name": "ScreenSaver Registry Key Set",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (process_path like '%\\rundll32.exe' and (target_object like '%\\control panel\\desktop\\scrnsave.exe%' and details like '%.scr') and  not (details like '%c:\\windows\\system32\\%' or details like '%c:\\windows\\syswow64\\%'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.011"
+  ],
+  "Version": "0.1"
+}

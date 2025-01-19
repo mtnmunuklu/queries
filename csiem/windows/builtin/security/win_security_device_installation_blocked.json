@@ -1,0 +1,14 @@
+{
+  "Description": "Detects an installation of a device that is forbidden by the system policy\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c9eb55c3-b468-40ab-9089-db2862e42137",
+  "InsertDate": "2025-01-19T11:33:47Z",
+  "LastUpdateDate": "2025-01-19T11:33:47Z",
+  "Level": "medium",
+  "Name": "Device Installation Blocked",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '6423'",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1200"
+  ],
+  "Version": "0.1"
+}

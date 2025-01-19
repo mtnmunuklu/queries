@@ -1,0 +1,15 @@
+{
+  "Description": "Detects command line parameters used by Hydra password guessing hack tool\n\nAuthor: Vasiliy Burov\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "aaafa146-074c-11eb-adc1-0242ac120002",
+  "InsertDate": "2025-01-19T11:34:41Z",
+  "LastUpdateDate": "2025-01-19T11:34:41Z",
+  "Level": "high",
+  "Name": "HackTool - Hydra Password Bruteforce Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%-u %' and command like '%-p %') and (command like '%^user^%' or command like '%^pass^%')",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1110",
+    "attack.t1110.001"
+  ],
+  "Version": "0.1"
+}

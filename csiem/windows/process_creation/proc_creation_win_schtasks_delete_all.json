@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the usage of schtasks with the delete flag and the asterisk symbol to delete all tasks from the schedule of the local computer, including tasks scheduled by other users.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "220457c1-1c9f-4c2e-afe6-9598926222c1",
+  "InsertDate": "2025-01-19T11:35:25Z",
+  "LastUpdateDate": "2025-01-19T11:35:25Z",
+  "Level": "high",
+  "Name": "Delete All Scheduled Tasks",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\schtasks.exe' and (command like '% /delete %' and command like '%/tn \\*%' and command like '% /f%')",
+  "Tags": [
+    "attack.impact",
+    "attack.t1489"
+  ],
+  "Version": "0.1"
+}

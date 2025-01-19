@@ -1,0 +1,15 @@
+{
+  "Description": "Detects execution of \"msdt.exe\" using an answer file which is simulating the legitimate way of calling msdt via \"pcwrun.exe\" (For example from the compatibility tab)\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9c8c7000-3065-44a8-a555-79bcba5d9955",
+  "InsertDate": "2025-01-19T11:34:48Z",
+  "LastUpdateDate": "2025-01-19T11:34:48Z",
+  "Level": "high",
+  "Name": "Execute MSDT Via Answer File",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((command like '% -af %' or command like '% /af %') and (process_path like '%\\msdt.exe' and command like '%\\windows\\diagnostics\\index\\pcwdiagnostic.xml%')) and  not parent_process_path like '%\\pcwrun.exe')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218",
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

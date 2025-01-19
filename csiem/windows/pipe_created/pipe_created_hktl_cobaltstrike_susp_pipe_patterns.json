@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the creation of a named pipe with a pattern found in CobaltStrike malleable C2 profiles\n\nAuthor: Florian Roth (Nextron Systems), Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "85adeb13-4fc9-4e68-8a4a-c7cb2c336eb7",
+  "InsertDate": "2025-01-19T11:34:13Z",
+  "LastUpdateDate": "2025-01-19T11:34:13Z",
+  "Level": "high",
+  "Name": "CobaltStrike Named Pipe Patterns",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((((pipe_name like '\\dsernamepipe%' or pipe_name like '\\f4c3%' or pipe_name like '\\f53f%' or pipe_name like '\\fullduplex_%' or pipe_name like '\\mojo.5688.8052.183894939787088877%' or pipe_name like '\\mojo.5688.8052.35780273329370473%' or pipe_name like '\\msftewds%' or pipe_name like '\\msrpc_%' or pipe_name like '\\mypipe-f%' or pipe_name like '\\mypipe-h%' or pipe_name like '\\ntsvcs%' or pipe_name like '\\pgmessagepipe%' or pipe_name like '\\rpc_%' or pipe_name like '\\scerpc%' or pipe_name like '\\searchtextharvester%' or pipe_name like '\\spoolss%' or pipe_name like '\\win_svc%' or pipe_name like '\\win\\msrpc_%' or pipe_name like '\\windows.update.manager%' or pipe_name like '\\wkssvc%') and (pipe_name = '\\demoagent_11' or pipe_name = '\\demoagent_22')) or (pipe_name like '\\winsock2\\catalogchangelistener-%' and pipe_name like '%-0,')) and  not (pipe_name = '\\wkssvc' or pipe_name = '\\spoolss' or pipe_name = '\\scerpc' or pipe_name = '\\ntsvcs' or pipe_name = '\\searchtextharvester' or pipe_name = '\\pgmessagepipe' or pipe_name = '\\msftewds') and  not ((process_path like '%:\\program files\\websense\\%' or process_path like '%:\\program files (x86)\\websense\\%') and (pipe_name like '\\dsernamepiper%' or pipe_name like '\\dsernamepipew%')))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1055",
+    "stp.1k"
+  ],
+  "Version": "0.1"
+}

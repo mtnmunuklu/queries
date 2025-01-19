@@ -1,0 +1,15 @@
+{
+  "Description": "Detects when an attacker tries to disable User Account Control (UAC) notification by tampering with the \"UACDisableNotify\" value.\nUAC is a critical security feature in Windows that prevents unauthorized changes to the operating system. It prompts the user for permission or an administrator password before allowing actions that could affect the system's operation or change settings that affect other users.\nWhen \"UACDisableNotify\" is set to 1, UAC prompts are suppressed.\n\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c5f6a85d-b647-40f7-bbad-c10b66bab038",
+  "InsertDate": "2025-01-19T11:36:22Z",
+  "LastUpdateDate": "2025-01-19T11:36:22Z",
+  "Level": "medium",
+  "Name": "UAC Notification Disabled",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where target_object like '%\\microsoft\\security center\\uacdisablenotify%' and details = 'dword (0x00000001)'",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.defense-evasion",
+    "attack.t1548.002"
+  ],
+  "Version": "0.1"
+}

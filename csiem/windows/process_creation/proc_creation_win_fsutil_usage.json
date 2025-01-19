@@ -1,0 +1,16 @@
+{
+  "Description": "Detects suspicious parameters of fsutil (deleting USN journal, configuring it with small size, etc).\nMight be used by ransomwares during the attack (seen by NotPetya and others).\n\n\nAuthor: Ecco, E.M. Anhaus, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "add64136-62e5-48ea-807e-88638d02df1e",
+  "InsertDate": "2025-01-19T11:34:38Z",
+  "LastUpdateDate": "2025-01-19T11:34:38Z",
+  "Level": "high",
+  "Name": "Fsutil Suspicious Invocation",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\fsutil.exe' and original_file_name = 'fsutil.exe') and (command like '%deletejournal%' or command like '%createjournal%' or command like '%setzerodata%'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.impact",
+    "attack.t1070",
+    "attack.t1485"
+  ],
+  "Version": "0.1"
+}

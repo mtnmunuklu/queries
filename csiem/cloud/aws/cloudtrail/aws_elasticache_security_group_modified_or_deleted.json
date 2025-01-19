@@ -1,0 +1,14 @@
+{
+  "Description": "Identifies when an ElastiCache security group has been modified or deleted.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7c797da2-9cf2-4523-ba64-33b06339f0cc",
+  "InsertDate": "2025-01-19T11:33:21Z",
+  "LastUpdateDate": "2025-01-19T11:33:21Z",
+  "Level": "low",
+  "Name": "AWS ElastiCache Security Group Modified or Deleted",
+  "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where eventsource = 'elasticache.amazonaws.com' and (eventname = 'deletecachesecuritygroup' or eventname = 'authorizecachesecuritygroupingress' or eventname = 'revokecachesecuritygroupingress' or eventname = 'authorizecachesecuritygroupegress' or eventname = 'revokecachesecuritygroupegress')",
+  "Tags": [
+    "attack.impact",
+    "attack.t1531"
+  ],
+  "Version": "0.1"
+}

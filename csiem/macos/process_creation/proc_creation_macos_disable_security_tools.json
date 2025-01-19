@@ -1,0 +1,14 @@
+{
+  "Description": "Detects disabling security tools\n\nAuthor: Daniil Yugoslavskiy, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ff39f1a6-84ac-476f-a1af-37fcdf53d7c0",
+  "InsertDate": "2025-01-19T11:33:37Z",
+  "LastUpdateDate": "2025-01-19T11:33:37Z",
+  "Level": "medium",
+  "Name": "Disable Security Tools",
+  "Query": "sourcetype like 'macos-%' eql select * from _source_ where (((process_path = '/bin/launchctl' and command like '%unload%') and (command like '%com.objective-see.lulu.plist%' or command like '%com.objective-see.blockblock.plist%' or command like '%com.google.santad.plist%' or command like '%com.carbonblack.defense.daemon.plist%' or command like '%com.carbonblack.daemon.plist%' or command like '%at.obdev.littlesnitchd.plist%' or command like '%com.tenablesecurity.nessusagent.plist%' or command like '%com.opendns.osx.roamingclientconfigupdater.plist%' or command like '%com.crowdstrike.falcond.plist%' or command like '%com.crowdstrike.userdaemon.plist%' or command like '%osquery%' or command like '%filebeat%' or command like '%auditbeat%' or command like '%packetbeat%' or command like '%td-agent%')) or (process_path = '/usr/sbin/spctl' and command like '%disable%'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

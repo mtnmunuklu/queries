@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the deployment of workloads that are deployed by using the break-glass flag to override Binary Authorization controls.\n\n\nAuthor: Bryan Lim\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "76737c19-66ee-4c07-b65a-a03301d1573d",
+  "InsertDate": "2025-01-19T11:33:27Z",
+  "LastUpdateDate": "2025-01-19T11:33:27Z",
+  "Level": "medium",
+  "Name": "GCP Break-glass Container Workload Deployed",
+  "Query": "sourcetype='gcp-gcp.audit' eql select * from _source_ where ((data.protopayload.resource.type = 'k8s_cluster' and (data.protopayload.logname = 'cloudaudit.googleapis.com/activity' or data.protopayload.logname = 'cloudaudit.googleapis.com%2factivity') and data.protopayload.methodname = 'io.k8s.core.v1.pods.create') and log like '%image-policy.k8s.io/break-glass%')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1548"
+  ],
+  "Version": "0.1"
+}

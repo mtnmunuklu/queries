@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the usage of the \"Squirrel.exe\" binary to execute arbitrary processes. This binary is part of multiple Electron based software installations (Slack, Teams, Discord, etc.)\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Karneades / Markus Neis, Jonhnathan Ribeiro, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "45239e6a-b035-4aaf-b339-8ad379fcb67e",
+  "InsertDate": "2025-01-19T11:35:29Z",
+  "LastUpdateDate": "2025-01-19T11:35:29Z",
+  "Level": "medium",
+  "Name": "Process Proxy Execution Via Squirrel.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\squirrel.exe' or process_path like '%\\update.exe') and (command like '%--processstart%' or command like '%--processstartandwait%' or command like '%--createshortcut%')) and  not ((command like '%:\\users\\%' and command like '%\\appdata\\local\\discord\\update.exe%' and command like '% --processstart%' and command like '%discord.exe%') or ((command like '%:\\users\\%' and command like '%\\appdata\\local\\githubdesktop\\update.exe%' and command like '%githubdesktop.exe%') and (command like '%--createshortcut%' or command like '%--processstartandwait%')) or ((command like '%:\\users\\%' and command like '%\\appdata\\local\\microsoft\\teams\\update.exe%' and command like '%teams.exe%') and (command like '%--processstart%' or command like '%--createshortcut%')) or ((command like '%:\\users\\%' and command like '%\\appdata\\local\\yammerdesktop\\update.exe%' and command like '%yammer.exe%') and (command like '%--processstart%' or command like '%--createshortcut%'))))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

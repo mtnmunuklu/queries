@@ -1,0 +1,13 @@
+{
+  "Description": "Detects loading of diagcab packages from a remote path, as seen in DogWalk vulnerability\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "50cb47b8-2c33-4b23-a2e9-4600657d9746",
+  "InsertDate": "2025-01-19T11:33:44Z",
+  "LastUpdateDate": "2025-01-19T11:33:44Z",
+  "Level": "high",
+  "Name": "Loading Diagcab Package From Remote Path",
+  "Query": "sourcetype='windows-diagnosis-scripted' eql select * from _source_ where eventid = '101' and packagepath like '%\\\\\\\\%'",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the execution of \"system_profiler\" with specific \"Data Types\" that have been seen being used by threat actors and malware. It provides system hardware and software configuration information.\nThis process is primarily used for system information discovery. However, \"system_profiler\" can also be used to determine if virtualization software is being run for defense evasion purposes.\n\n\nAuthor: Stephen Lincoln `@slincoln_aiq` (AttackIQ)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4809c683-059b-4935-879d-36835986f8cf",
+  "InsertDate": "2025-01-19T11:33:39Z",
+  "LastUpdateDate": "2025-01-19T11:33:39Z",
+  "Level": "medium",
+  "Name": "System Information Discovery Using System_Profiler",
+  "Query": "sourcetype like 'macos-%' eql select * from _source_ where ((process_path like '%/system_profiler' and command like '%system_profiler%') and (command like '%spapplicationsdatatype%' or command like '%sphardwaredatatype%' or command like '%spnetworkdatatype%' or command like '%spusbdatatype%'))",
+  "Tags": [
+    "attack.discovery",
+    "attack.defense-evasion",
+    "attack.t1082",
+    "attack.t1497.001"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "The 'LsaRegisterLogonProcess' function verifies that the application making the function call is a logon process by checking that it has the SeTcbPrivilege privilege set. Possible Rubeus tries to get a handle to LSA.\n\nAuthor: Roberto Rodriguez (source), Ilyas Ochkov (rule), oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6daac7fc-77d1-449a-a71a-e6b4d59a0e54",
+  "InsertDate": "2025-01-19T11:33:50Z",
+  "LastUpdateDate": "2025-01-19T11:33:50Z",
+  "Level": "high",
+  "Name": "User Couldn't Call a Privileged Service 'LsaRegisterLogonProcess'",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4673' and service = 'lsaregisterlogonprocess()' and keywords = '0x8010000000000000'",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.privilege-escalation",
+    "attack.t1558.003"
+  ],
+  "Version": "0.1"
+}

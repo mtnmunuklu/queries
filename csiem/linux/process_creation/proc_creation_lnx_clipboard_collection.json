@@ -1,0 +1,14 @@
+{
+  "Description": "Detects attempts to collect data stored in the clipboard from users with the usage of xclip tool. Xclip has to be installed.\nHighly recommended using rule on servers, due to high usage of clipboard utilities on user workstations.\n\n\nAuthor: Pawel Mazur, Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research), MSTIC\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ec127035-a636-4b9a-8555-0efd4e59f316",
+  "InsertDate": "2025-01-19T11:33:33Z",
+  "LastUpdateDate": "2025-01-19T11:33:33Z",
+  "Level": "low",
+  "Name": "Clipboard Collection with Xclip Tool",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where process_path like '%xclip%' and (command like '%-sel%' and command like '%clip%' and command like '%-o%')",
+  "Tags": [
+    "attack.collection",
+    "attack.t1115"
+  ],
+  "Version": "0.1"
+}

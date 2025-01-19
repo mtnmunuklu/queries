@@ -1,0 +1,15 @@
+{
+  "Description": "Detects Certify a tool for Active Directory certificate abuse based on PE metadata characteristics and common command line arguments.\n\nAuthor: pH-T (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "762f2482-ff21-4970-8939-0aa317a886bb",
+  "InsertDate": "2025-01-19T11:34:39Z",
+  "LastUpdateDate": "2025-01-19T11:34:39Z",
+  "Level": "high",
+  "Name": "HackTool - Certify Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\certify.exe' and original_file_name = 'certify.exe' and description like '%certify%') or ((command like '%.exe cas %' or command like '%.exe find %' or command like '%.exe pkiobjects %' or command like '%.exe request %' or command like '%.exe download %') and (command like '% /vulnerable%' or command like '% /template:%' or command like '% /altname:%' or command like '% /domain:%' or command like '% /path:%' or command like '% /ca:%')))",
+  "Tags": [
+    "attack.discovery",
+    "attack.credential-access",
+    "attack.t1649"
+  ],
+  "Version": "0.1"
+}

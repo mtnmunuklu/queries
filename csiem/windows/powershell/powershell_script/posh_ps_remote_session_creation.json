@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may abuse PowerShell commands and scripts for execution.\nPowerShell is a powerful interactive command-line interface and scripting environment included in the Windows operating system\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a0edd39f-a0c6-4c17-8141-261f958e8d8f",
+  "InsertDate": "2025-01-19T11:34:22Z",
+  "LastUpdateDate": "2025-01-19T11:34:22Z",
+  "Level": "medium",
+  "Name": "PowerShell Remote Session Creation",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%new-pssession%' and scriptblocktext like '%-computername %')",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

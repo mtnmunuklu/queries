@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the execution of a renamed binary often used by attackers or malware leveraging new Sysmon OriginalFileName datapoint.\n\nAuthor: Matthew Green - @mgreen27, Florian Roth (Nextron Systems), frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0ba1da6d-b6ce-4366-828c-18826c9de23e",
+  "InsertDate": "2025-01-19T11:35:16Z",
+  "LastUpdateDate": "2025-01-19T11:35:16Z",
+  "Level": "high",
+  "Name": "Potential Defense Evasion Via Rename Of Highly Relevant Binaries",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((description = 'execute processes remotely' and product = 'sysinternals psexec' and (description like 'windows powershell%' or description like 'pwsh%') and (original_file_name = 'certutil.exe' or original_file_name = 'cmstp.exe' or original_file_name = 'cscript.exe' or original_file_name = 'ie4uinit.exe' or original_file_name = 'mshta.exe' or original_file_name = 'msiexec.exe' or original_file_name = 'msxsl.exe' or original_file_name = 'powershell_ise.exe' or original_file_name = 'powershell.exe' or original_file_name = 'psexec.c' or original_file_name = 'psexec.exe' or original_file_name = 'psexesvc.exe' or original_file_name = 'pwsh.dll' or original_file_name = 'reg.exe' or original_file_name = 'regsvr32.exe' or original_file_name = 'rundll32.exe' or original_file_name = 'wermgr' or original_file_name = 'wmic.exe' or original_file_name = 'wscript.exe')) and  not (process_path like '%\\certutil.exe' or process_path like '%\\cmstp.exe' or process_path like '%\\cscript.exe' or process_path like '%\\ie4uinit.exe' or process_path like '%\\mshta.exe' or process_path like '%\\msiexec.exe' or process_path like '%\\msxsl.exe' or process_path like '%\\powershell_ise.exe' or process_path like '%\\powershell.exe' or process_path like '%\\psexec.exe' or process_path like '%\\psexec64.exe' or process_path like '%\\psexesvc.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\reg.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\wermgr.exe' or process_path like '%\\wmic.exe' or process_path like '%\\wscript.exe'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1036.003",
+    "car.2013-05-009"
+  ],
+  "Version": "0.1"
+}

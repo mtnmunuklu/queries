@@ -1,0 +1,14 @@
+{
+  "Description": "Detects shellshock expressions in log files\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c67e0c98-4d39-46ee-8f6b-437ebf6b950e",
+  "InsertDate": "2025-01-19T11:33:32Z",
+  "LastUpdateDate": "2025-01-19T11:33:32Z",
+  "Level": "high",
+  "Name": "Shellshock Expression",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where (log like '%(){:;};%' or log like '%() {:;};%' or log like '%() { :;};%' or log like '%() { :; };%')",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1505.003"
+  ],
+  "Version": "0.1"
+}

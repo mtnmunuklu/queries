@@ -1,0 +1,17 @@
+{
+  "Description": "Identifies that users were active from an IP address that has been identified as an anonymous proxy IP address.\n\nAuthor: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "be4d9c86-d702-4030-b52e-c7859110e5e8",
+  "InsertDate": "2025-01-19T11:33:25Z",
+  "LastUpdateDate": "2025-01-19T11:33:25Z",
+  "Level": "high",
+  "Name": "Activity From Anonymous IP Address",
+  "Query": "sourcetype='azure-riskdetection' eql select * from _source_ where riskeventtype = 'riskyipaddress'",
+  "Tags": [
+    "attack.t1078",
+    "attack.persistence",
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.initial-access"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the use of Advanced Port Scanner.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "54773c5f-f1cc-4703-9126-2f797d96a69d",
+  "InsertDate": "2025-01-19T11:35:06Z",
+  "LastUpdateDate": "2025-01-19T11:35:06Z",
+  "Level": "medium",
+  "Name": "PUA - Advanced Port Scanner Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\advanced_port_scanner%' and original_file_name like '%advanced_port_scanner%' and description like '%advanced port scanner%') or (command like '%/portable%' and command like '%/lng%'))",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1046",
+    "attack.t1135"
+  ],
+  "Version": "0.1"
+}

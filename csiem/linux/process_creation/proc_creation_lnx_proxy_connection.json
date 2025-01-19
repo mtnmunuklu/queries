@@ -1,0 +1,14 @@
+{
+  "Description": "Detects setting proxy configuration\n\nAuthor: Ömer Günal\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "72f4ab3f-787d-495d-a55d-68c2ff46cf4c",
+  "InsertDate": "2025-01-19T11:33:35Z",
+  "LastUpdateDate": "2025-01-19T11:33:35Z",
+  "Level": "low",
+  "Name": "Connection Proxy",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where (command like '%http_proxy=%' or command like '%https_proxy=%')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1090"
+  ],
+  "Version": "0.1"
+}

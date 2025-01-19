@@ -1,0 +1,14 @@
+{
+  "Description": "Download and compress a remote file and store it in a cab file on local machine.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "185d7418-f250-42d0-b72e-0c8b70661e93",
+  "InsertDate": "2025-01-19T11:34:47Z",
+  "LastUpdateDate": "2025-01-19T11:34:47Z",
+  "Level": "medium",
+  "Name": "Suspicious Diantz Download and Compress Into a CAB File",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%diantz.exe%' and command like '% \\\\\\\\%' and command like '%.cab%')",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1105"
+  ],
+  "Version": "0.1"
+}

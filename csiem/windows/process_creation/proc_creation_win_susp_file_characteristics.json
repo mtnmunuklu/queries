@@ -1,0 +1,14 @@
+{
+  "Description": "Detects Executables in the Downloads folder without FileVersion,Description,Product,Company likely created with py2exe\n\nAuthor: Markus Neis, Sander Wiebing\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9637e8a5-7131-4f7f-bdc7-2b05d8670c43",
+  "InsertDate": "2025-01-19T11:35:33Z",
+  "LastUpdateDate": "2025-01-19T11:35:33Z",
+  "Level": "medium",
+  "Name": "Suspicious File Characteristics Due to Missing Fields",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((description = '\\?' and file_version = '\\?') or (description = '\\?' and product = '\\?') or (description = '\\?' and company = '\\?')) and process_path like '%\\downloads\\%')",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.006"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of \"Ilasm.EXE\" in order to compile C# intermediate (IL) code to EXE or DLL.\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "850d55f9-6eeb-4492-ad69-a72338f65ba4",
+  "InsertDate": "2025-01-19T11:34:46Z",
+  "LastUpdateDate": "2025-01-19T11:34:46Z",
+  "Level": "medium",
+  "Name": "C# IL Code Compilation Via Ilasm.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\ilasm.exe' and original_file_name = 'ilasm.exe') and (command like '% /dll%' or command like '% /exe%'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1127"
+  ],
+  "Version": "0.1"
+}

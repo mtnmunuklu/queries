@@ -1,0 +1,16 @@
+{
+  "Description": "Detects some Empire PowerShell UAC bypass methods\n\nAuthor: Ecco\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3268b746-88d8-4cd3-bffc-30077d02c787",
+  "InsertDate": "2025-01-19T11:34:40Z",
+  "LastUpdateDate": "2025-01-19T11:34:40Z",
+  "Level": "critical",
+  "Name": "HackTool - Empire PowerShell UAC Bypass",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '% -nop -noni -w hidden -c $x=$((gp hkcu:software\\microsoft\\windows update).update)%' or command like '% -nop -noni -c $x=$((gp hkcu:software\\microsoft\\windows update).update);%')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1548.002",
+    "car.2019-04-001"
+  ],
+  "Version": "0.1"
+}

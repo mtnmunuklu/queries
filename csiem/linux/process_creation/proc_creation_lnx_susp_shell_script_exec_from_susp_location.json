@@ -1,0 +1,13 @@
+{
+  "Description": "Detects executions of scripts located in potentially suspicious locations such as \"/tmp\" via a shell such as \"bash\", \"sh\", etc.\n\nAuthor: Joseliyo Sanchez, @Joseliyo_Jstnk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "30bcce26-51c5-49f2-99c8-7b59e3af36c7",
+  "InsertDate": "2025-01-19T11:33:36Z",
+  "LastUpdateDate": "2025-01-19T11:33:36Z",
+  "Level": "medium",
+  "Name": "Execution Of Script Located In Potentially Suspicious Directory",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where ((process_path like '%/bash' or process_path like '%/csh' or process_path like '%/dash' or process_path like '%/fish' or process_path like '%/ksh' or process_path like '%/sh' or process_path like '%/zsh') and command like '% -c %' and command like '%/tmp/%')",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

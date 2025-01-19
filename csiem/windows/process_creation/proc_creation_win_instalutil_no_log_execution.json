@@ -1,0 +1,13 @@
+{
+  "Description": "Uses the .NET InstallUtil.exe application in order to execute image without log\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d042284c-a296-4988-9be5-f424fadcc28c",
+  "InsertDate": "2025-01-19T11:34:46Z",
+  "LastUpdateDate": "2025-01-19T11:34:46Z",
+  "Level": "medium",
+  "Name": "Suspicious Execution of InstallUtil Without Log",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\installutil.exe' and process_path like '%microsoft.net\\framework%' and (command like '%/logfile= %' and command like '%/logtoconsole=false%')",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

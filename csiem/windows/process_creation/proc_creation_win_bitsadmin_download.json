@@ -1,0 +1,17 @@
+{
+  "Description": "Detects usage of bitsadmin downloading a file\n\nAuthor: Michael Haag, FPT.EagleEye\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d059842b-6b9d-4ed1-b5c3-5b89143c6ede",
+  "InsertDate": "2025-01-19T11:34:30Z",
+  "LastUpdateDate": "2025-01-19T11:34:30Z",
+  "Level": "medium",
+  "Name": "File Download Via Bitsadmin",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\bitsadmin.exe' and original_file_name = 'bitsadmin.exe') and (command like '% /transfer %' or ((command like '% /create %' or command like '% /addfile %') and command like '%http%')))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.t1197",
+    "attack.s0190",
+    "attack.t1036.003"
+  ],
+  "Version": "0.1"
+}

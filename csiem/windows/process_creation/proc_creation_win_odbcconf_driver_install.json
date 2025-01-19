@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of \"odbcconf\" with \"INSTALLDRIVER\" which installs a new ODBC driver. Attackers abuse this to install and run malicious DLLs.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3f5491e2-8db8-496b-9e95-1029fce852d4",
+  "InsertDate": "2025-01-19T11:34:56Z",
+  "LastUpdateDate": "2025-01-19T11:34:56Z",
+  "Level": "medium",
+  "Name": "Driver/DLL Installation Via Odbcconf.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\odbcconf.exe' and original_file_name = 'odbcconf.exe') and (command like '%installdriver %' and command like '%.dll%'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.008"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may enumerate browser bookmarks to learn more about compromised hosts.\nBrowser bookmarks may reveal personal information about users (ex: banking sites, interests, social media, etc.) as well as details about\ninternal network resources such as servers, tools/dashboards, or other related infrastructure.\n\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "725a9768-0f5e-4cb3-aec2-bc5719c6831a",
+  "InsertDate": "2025-01-19T11:35:52Z",
+  "LastUpdateDate": "2025-01-19T11:35:52Z",
+  "Level": "low",
+  "Name": "Suspicious Where Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%places.sqlite%' or command like '%cookies.sqlite%' or command like '%formhistory.sqlite%' or command like '%logins.json%' or command like '%key4.db%' or command like '%key3.db%' or command like '%sessionstore.jsonlz4%' or command like '%history%' or command like '%bookmarks%' or command like '%cookies%' or command like '%login data%') and (process_path like '%\\where.exe' and original_file_name = 'where.exe'))",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1217"
+  ],
+  "Version": "0.1"
+}

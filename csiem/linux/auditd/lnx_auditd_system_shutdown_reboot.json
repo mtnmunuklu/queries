@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may shutdown/reboot systems to interrupt access to, or aid in the destruction of, those systems.\n\nAuthor: Igor Fits, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4cb57c2f-1f29-41f8-893d-8bed8e1c1d2f",
+  "InsertDate": "2025-01-19T11:33:31Z",
+  "LastUpdateDate": "2025-01-19T11:33:31Z",
+  "Level": "informational",
+  "Name": "System Shutdown/Reboot - Linux",
+  "Query": "sourcetype='linux-auditd' eql select * from _source_ where (type = 'execve' and ((log like '%shutdown%' or log like '%reboot%' or log like '%halt%' or log like '%poweroff%') or ((log like '%init%' or log like '%telinit%') and (log like '%0%' or log like '%6%'))))",
+  "Tags": [
+    "attack.impact",
+    "attack.t1529"
+  ],
+  "Version": "0.1"
+}

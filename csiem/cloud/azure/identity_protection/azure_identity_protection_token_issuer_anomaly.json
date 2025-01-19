@@ -1,0 +1,14 @@
+{
+  "Description": "Indicates the SAML token issuer for the associated SAML token is potentially compromised. The claims included in the token are unusual or match known attacker patterns\n\nAuthor: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e3393cba-31f0-4207-831e-aef90ab17a8c",
+  "InsertDate": "2025-01-19T11:33:25Z",
+  "LastUpdateDate": "2025-01-19T11:33:25Z",
+  "Level": "high",
+  "Name": "SAML Token Issuer Anomaly",
+  "Query": "sourcetype='azure-riskdetection' eql select * from _source_ where riskeventtype = 'tokenissueranomaly'",
+  "Tags": [
+    "attack.t1606",
+    "attack.credential-access"
+  ],
+  "Version": "0.1"
+}

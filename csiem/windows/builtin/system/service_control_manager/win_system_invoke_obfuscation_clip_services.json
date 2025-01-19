@@ -1,0 +1,16 @@
+{
+  "Description": "Detects Obfuscated use of Clip.exe to execute PowerShell\n\nAuthor: Jonathan Cheong, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f7385ee2-0e0c-11eb-adc1-0242ac120002",
+  "InsertDate": "2025-01-19T11:33:52Z",
+  "LastUpdateDate": "2025-01-19T11:33:52Z",
+  "Level": "high",
+  "Name": "Invoke-Obfuscation CLIP+ Launcher - System",
+  "Query": "sourcetype='windows-system' eql select * from _source_ where provider_name = 'service control manager' and eventid = '7045' and (imagepath like '%cmd%' and imagepath like '%\u0026\u0026%' and imagepath like '%clipboard]::%')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1027",
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

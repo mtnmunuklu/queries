@@ -1,0 +1,15 @@
+{
+  "Description": "Detects new process creation using WMIC via the \"process call create\" flag\n\nAuthor: Michael Haag, Florian Roth (Nextron Systems), juju4, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "526be59f-a573-4eea-b5f7-f0973207634d",
+  "InsertDate": "2025-01-19T11:35:55Z",
+  "LastUpdateDate": "2025-01-19T11:35:55Z",
+  "Level": "medium",
+  "Name": "New Process Created Via Wmic.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\wmic.exe' and original_file_name = 'wmic.exe') and (command like '%process%' and command like '%call%' and command like '%create%'))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1047",
+    "car.2016-03-002"
+  ],
+  "Version": "0.1"
+}

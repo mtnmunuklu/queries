@@ -1,0 +1,14 @@
+{
+  "Description": "Detects logons using NTLM to hosts that are potentially not part of the domain.\n\nAuthor: James Pemberton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ce5678bb-b9aa-4fb5-be4b-e57f686256ad",
+  "InsertDate": "2025-01-19T11:33:45Z",
+  "LastUpdateDate": "2025-01-19T11:33:45Z",
+  "Level": "medium",
+  "Name": "Potential Remote Desktop Connection to Non-Domain Host",
+  "Query": "sourcetype='windows-ntlm' eql select * from _source_ where eventid = '8001' and targetname like 'termsrv%'",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1219"
+  ],
+  "Version": "0.1"
+}

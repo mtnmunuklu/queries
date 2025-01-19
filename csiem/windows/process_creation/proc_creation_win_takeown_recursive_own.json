@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries can interact with the DACLs using built-in Windows commands takeown which can grant adversaries higher permissions on specific files and folders\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "554601fb-9b71-4bcc-abf4-21a611be4fde",
+  "InsertDate": "2025-01-19T11:35:43Z",
+  "LastUpdateDate": "2025-01-19T11:35:43Z",
+  "Level": "medium",
+  "Name": "Suspicious Recursive Takeown",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\takeown.exe' and (command like '%/f %' and command like '%/r%')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1222.001"
+  ],
+  "Version": "0.1"
+}

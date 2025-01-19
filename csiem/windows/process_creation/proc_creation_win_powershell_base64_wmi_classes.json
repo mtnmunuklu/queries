@@ -1,0 +1,16 @@
+{
+  "Description": "Detects calls to base64 encoded WMI class such as \"Win32_ShadowCopy\", \"Win32_ScheduledJob\", etc.\n\nAuthor: Christian Burkard (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1816994b-42e1-4fb1-afd2-134d88184f71",
+  "InsertDate": "2025-01-19T11:34:59Z",
+  "LastUpdateDate": "2025-01-19T11:34:59Z",
+  "Level": "high",
+  "Name": "PowerShell Base64 Encoded WMI Classes",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll')) and ((command like '%vwbpag4amwayaf8auwboageazabvahcaywbvahaaeq%' or command like '%caaqbuadmamgbfafmaaabhagqabwb3agmabwbwahka%' or command like '%xagkabgazadiaxwbtaggayqbkag8adwbjag8acab5a%' or command like '%v2lumzjfu2hhzg93y29we%' or command like '%dpbjmyx1noywrvd2nvch%' or command like '%xaw4zml9tagfkb3djb3b5%') or (command like '%vwbpag4amwayaf8auwbjaggazqbkahuabablagqasgbvagia%' or command like '%caaqbuadmamgbfafmaywboaguazab1agwazqbkaeoabwbia%' or command like '%xagkabgazadiaxwbtagmaaablagqadqbsaguazabkag8ayg%' or command like '%v2lumzjfu2nozwr1bgvksm9i%' or command like '%dpbjmyx1njagvkdwxlzepvy%' or command like '%xaw4zml9ty2hlzhvszwrkb2%') or (command like '%vwbpag4amwayaf8auabyag8aywblahmacw%' or command like '%caaqbuadmamgbfafaacgbvagmazqbzahma%' or command like '%xagkabgazadiaxwbqahiabwbjaguacwbza%' or command like '%v2lumzjfuhjvy2vzc%' or command like '%dpbjmyx1byb2nlc3%' or command like '%xaw4zml9qcm9jzxnz%') or (command like '%vwbpag4amwayaf8avqbzaguacgbbagmaywbvahuabgb0a%' or command like '%caaqbuadmamgbfafuacwblahiaqqbjagmabwb1ag4ada%' or command like '%xagkabgazadiaxwbvahmazqbyaeeaywbjag8adqbuahqa%' or command like '%v2lumzjfvxnlckfjy291bn%' or command like '%dpbjmyx1vzzxjby2nvdw50%' or command like '%xaw4zml9vc2vyqwnjb3vud%') or (command like '%vwbpag4amwayaf8atabvagcazwblagqatwbuafuacwblahia%' or command like '%caaqbuadmamgbfaewabwbnagcazqbkae8abgbvahmazqbya%' or command like '%xagkabgazadiaxwbmag8azwbnaguazabpag4avqbzaguacg%' or command like '%v2lumzjftg9nz2vkt25vc2vy%' or command like '%dpbjmyx0xvz2dlze9uvxnlc%' or command like '%xaw4zml9mb2dnzwrpblvzzx%')))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001",
+    "attack.defense-evasion",
+    "attack.t1027"
+  ],
+  "Version": "0.1"
+}

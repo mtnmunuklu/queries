@@ -1,0 +1,17 @@
+{
+  "Description": "Detects suspicious child processes of a Windows shell and scripting processes such as wscript, rundll32, powershell, mshta...etc.\n\nAuthor: Florian Roth (Nextron Systems), Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3a6586ad-127a-4d3b-a677-1e6eacdf8fde",
+  "InsertDate": "2025-01-19T11:35:37Z",
+  "LastUpdateDate": "2025-01-19T11:35:37Z",
+  "Level": "high",
+  "Name": "Windows Shell/Scripting Processes Spawning Suspicious Programs",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((parent_process_path like '%\\mshta.exe' or parent_process_path like '%\\powershell.exe' or parent_process_path like '%\\pwsh.exe' or parent_process_path like '%\\rundll32.exe' or parent_process_path like '%\\cscript.exe' or parent_process_path like '%\\wscript.exe' or parent_process_path like '%\\wmiprvse.exe' or parent_process_path like '%\\regsvr32.exe') and (process_path like '%\\schtasks.exe' or process_path like '%\\nslookup.exe' or process_path like '%\\certutil.exe' or process_path like '%\\bitsadmin.exe' or process_path like '%\\mshta.exe')) and  not (current_directory like '%\\ccmcache\\%' or (parent_command_line like '%\\program files\\amazon\\workspacesconfig\\scripts\\setup-scheduledtask.ps1%' or parent_command_line like '%\\program files\\amazon\\workspacesconfig\\scripts\\set-selfhealing.ps1%' or parent_command_line like '%\\program files\\amazon\\workspacesconfig\\scripts\\check-workspacehealth.ps1%' or parent_command_line like '%\\nessus_%') or command like '%\\nessus_%' or (parent_process_path like '%\\mshta.exe' and process_path like '%\\mshta.exe' and (parent_command_line like '%c:\\mem_configmgr_%' and parent_command_line like '%\\splash.hta%' and parent_command_line like '%{1e460bd7-f1c3-4b2e-88bf-4e770a288af5}%') and (command like '%c:\\mem_configmgr_%' and command like '%\\smssetup\\bin\\%' and command like '%\\autorun.hta%' and command like '%{1e460bd7-f1c3-4b2e-88bf-4e770a288af5}%'))))",
+  "Tags": [
+    "attack.execution",
+    "attack.defense-evasion",
+    "attack.t1059.005",
+    "attack.t1059.001",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

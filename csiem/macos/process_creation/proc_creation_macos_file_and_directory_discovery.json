@@ -1,0 +1,14 @@
+{
+  "Description": "Detects usage of system utilities to discover files and directories\n\nAuthor: Daniil Yugoslavskiy, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "089dbdf6-b960-4bcc-90e3-ffc3480c20f6",
+  "InsertDate": "2025-01-19T11:33:37Z",
+  "LastUpdateDate": "2025-01-19T11:33:37Z",
+  "Level": "informational",
+  "Name": "File and Directory Discovery - MacOS",
+  "Query": "sourcetype like 'macos-%' eql select * from _source_ where (process_path = '/usr/bin/mdfind' or process_path = '/tree' or (process_path = '/usr/bin/file' and command re '(.){200,}') or (process_path = '/bin/ls' and command like '%-r%') or process_path = '/usr/bin/find')",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1083"
+  ],
+  "Version": "0.1"
+}

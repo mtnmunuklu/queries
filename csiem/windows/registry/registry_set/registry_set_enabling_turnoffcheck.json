@@ -1,0 +1,14 @@
+{
+  "Description": "Detects enabling TurnOffCheck which can be used to bypass defense of MSDT Follina vulnerability\n\nAuthor: Christopher Peacock @securepeacock, SCYTHE @scythe_io\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7d995e63-ec83-4aa3-89d5-8a17b5c87c86",
+  "InsertDate": "2025-01-19T11:36:12Z",
+  "LastUpdateDate": "2025-01-19T11:36:12Z",
+  "Level": "medium",
+  "Name": "Scripted Diagnostics Turn Off Check Enabled - Registry",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where target_object like '%\\policies\\microsoft\\windows\\scripteddiagnostics\\turnoffcheck' and details = 'dword (0x00000001)'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

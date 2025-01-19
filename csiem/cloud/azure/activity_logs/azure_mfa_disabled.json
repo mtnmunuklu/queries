@@ -1,0 +1,14 @@
+{
+  "Description": "Detection for when multi factor authentication has been disabled, which might indicate a malicious activity to bypass authentication mechanisms.\n\nAuthor: @ionsor\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7ea78478-a4f9-42a6-9dcd-f861816122bf",
+  "InsertDate": "2025-01-19T11:33:22Z",
+  "LastUpdateDate": "2025-01-19T11:33:22Z",
+  "Level": "medium",
+  "Name": "Disabled MFA to Bypass Authentication Mechanisms",
+  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where eventsource = 'azureactivedirectory' and eventname = 'disable strong authentication.' and status = 'success'",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1556"
+  ],
+  "Version": "0.1"
+}

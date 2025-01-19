@@ -1,0 +1,14 @@
+{
+  "Description": "Detects changes to the security group entries for RDS databases.\nThis can indicate that a misconfiguration has occurred which potentially exposes the database to the public internet, a wider audience within the VPC or that removal of valid rules has occurred which could impact the availability of the database to legitimate services and users.\n\n\nAuthor: jamesc-grafana\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "14f3f1c8-02d5-43a2-a191-91ffb52d3015",
+  "InsertDate": "2025-01-19T11:33:20Z",
+  "LastUpdateDate": "2025-01-19T11:33:20Z",
+  "Level": "medium",
+  "Name": "RDS Database Security Group Modification",
+  "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where eventsource = 'rds.amazonaws.com' and (eventname = 'authorizedbsecuritygroupingress' or eventname = 'createdbsecuritygroup' or eventname = 'deletedbsecuritygroup' or eventname = 'revokedbsecuritygroupingress')",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1190"
+  ],
+  "Version": "0.1"
+}

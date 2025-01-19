@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious command lines that look as if they would create symbolic links to /etc/passwd\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c67fc22a-0be5-4b4f-aad5-2b32c4b69523",
+  "InsertDate": "2025-01-19T11:33:32Z",
+  "LastUpdateDate": "2025-01-19T11:33:32Z",
+  "Level": "high",
+  "Name": "Symlink Etc Passwd",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where (log like '%ln -s -f /etc/passwd%' or log like '%ln -s /etc/passwd%')",
+  "Tags": [
+    "attack.t1204.001",
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

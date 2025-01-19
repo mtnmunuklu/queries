@@ -1,0 +1,20 @@
+{
+  "Description": "Detects creation of the PSEXEC key file. Which is created anytime a PsExec command is executed. It gets written to the file system and will be recorded in the USN Journal on the target system\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "304afd73-55a5-4bb9-8c21-0b1fc84ea9e4",
+  "InsertDate": "2025-01-19T11:34:05Z",
+  "LastUpdateDate": "2025-01-19T11:34:05Z",
+  "Level": "high",
+  "Name": "PSEXEC Remote Execution File Artefact",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where filepath like 'c:\\windows\\psexec-%' and filepath like '%.key'",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.privilege-escalation",
+    "attack.execution",
+    "attack.persistence",
+    "attack.t1136.002",
+    "attack.t1543.003",
+    "attack.t1570",
+    "attack.s0029"
+  ],
+  "Version": "0.1"
+}

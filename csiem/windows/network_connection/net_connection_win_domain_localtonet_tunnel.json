@@ -1,0 +1,16 @@
+{
+  "Description": "Detects an executable initiating a network connection to \"LocaltoNet\" tunneling sub-domains.\nLocaltoNet is a reverse proxy that enables localhost services to be exposed to the Internet.\nAttackers have been seen to use this service for command-and-control activities to bypass MFA and perimeter controls.\n\n\nAuthor: Andreas Braathen (mnemonic.io)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3ab65069-d82a-4d44-a759-466661a082d1",
+  "InsertDate": "2025-01-19T11:34:11Z",
+  "LastUpdateDate": "2025-01-19T11:34:11Z",
+  "Level": "high",
+  "Name": "Communication To LocaltoNet Tunneling Service Initiated",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (dst_host like '%.localto.net' or dst_host like '%.localtonet.com') and initiated = 'true'",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1572",
+    "attack.t1090",
+    "attack.t1102"
+  ],
+  "Version": "0.1"
+}

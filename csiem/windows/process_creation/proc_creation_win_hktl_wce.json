@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the use of Windows Credential Editor (WCE)\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7aa7009a-28b9-4344-8c1f-159489a390df",
+  "InsertDate": "2025-01-19T11:34:44Z",
+  "LastUpdateDate": "2025-01-19T11:34:44Z",
+  "Level": "critical",
+  "Name": "HackTool - Windows Credential Editor (WCE) Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((hashes like '%imphash=a53a02b997935fd8eedcb5f7abab9b9f%' or hashes like '%imphash=e96a73c7bf33a464c510ede582318bf2%') or (command like '%.exe -s' and parent_process_path like '%\\services.exe')) and  not process_path like '%\\clussvc.exe')",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.001",
+    "attack.s0005"
+  ],
+  "Version": "0.1"
+}

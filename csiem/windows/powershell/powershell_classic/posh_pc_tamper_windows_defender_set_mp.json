@@ -1,0 +1,14 @@
+{
+  "Description": "Attempting to disable scheduled scanning and other parts of Windows Defender ATP or set default actions to allow.\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ec19ebab-72dc-40e1-9728-4c0b805d722c",
+  "InsertDate": "2025-01-19T11:34:14Z",
+  "LastUpdateDate": "2025-01-19T11:34:14Z",
+  "Level": "high",
+  "Name": "Tamper Windows Defender - PSClassic",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (data like '%set-mppreference%' and ((data like '%-dbaf $true%' or data like '%-dbaf 1%' or data like '%-dbm $true%' or data like '%-dbm 1%' or data like '%-dips $true%' or data like '%-dips 1%' or data like '%-disablearchivescanning $true%' or data like '%-disablearchivescanning 1%' or data like '%-disablebehaviormonitoring $true%' or data like '%-disablebehaviormonitoring 1%' or data like '%-disableblockatfirstseen $true%' or data like '%-disableblockatfirstseen 1%' or data like '%-disablecatchupfullscan $true%' or data like '%-disablecatchupfullscan 1%' or data like '%-disablecatchupquickscan $true%' or data like '%-disablecatchupquickscan 1%' or data like '%-disableintrusionpreventionsystem $true%' or data like '%-disableintrusionpreventionsystem 1%' or data like '%-disableioavprotection $true%' or data like '%-disableioavprotection 1%' or data like '%-disablerealtimemonitoring $true%' or data like '%-disablerealtimemonitoring 1%' or data like '%-disableremovabledrivescanning $true%' or data like '%-disableremovabledrivescanning 1%' or data like '%-disablescanningmappednetworkdrivesforfullscan $true%' or data like '%-disablescanningmappednetworkdrivesforfullscan 1%' or data like '%-disablescanningnetworkfiles $true%' or data like '%-disablescanningnetworkfiles 1%' or data like '%-disablescriptscanning $true%' or data like '%-disablescriptscanning 1%' or data like '%-mapsreporting $false%' or data like '%-mapsreporting 0%' or data like '%-drdsc $true%' or data like '%-drdsc 1%' or data like '%-drtm $true%' or data like '%-drtm 1%' or data like '%-dscrptsc $true%' or data like '%-dscrptsc 1%' or data like '%-dsmndf $true%' or data like '%-dsmndf 1%' or data like '%-dsnf $true%' or data like '%-dsnf 1%' or data like '%-dss $true%' or data like '%-dss 1%') or (data like '%highthreatdefaultaction allow%' or data like '%htdefac allow%' or data like '%lowthreatdefaultaction allow%' or data like '%ltdefac allow%' or data like '%moderatethreatdefaultaction allow%' or data like '%mtdefac allow%' or data like '%severethreatdefaultaction allow%' or data like '%stdefac allow%')))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

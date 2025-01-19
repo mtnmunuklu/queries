@@ -1,0 +1,16 @@
+{
+  "Description": "Detects potential DLL sideloading of \"goopdate.dll\", a DLL used by googleupdate.exe\n\nAuthor: X__Junior (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b6188d2f-b3c4-4d2c-a17d-9706e0851af0",
+  "InsertDate": "2025-01-19T11:34:08Z",
+  "LastUpdateDate": "2025-01-19T11:34:08Z",
+  "Level": "medium",
+  "Name": "Potential Goopdate.DLL Sideloading",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (image_loaded like '%\\goopdate.dll' and  not (image_loaded like 'c:\\program files (x86)\\%' or image_loaded like 'c:\\program files\\%') and  not ((process_path like '%\\appdata\\local\\temp\\gum%' and process_path like '%.tmp\\dropbox%') and (image_loaded like '%\\appdata\\local\\temp\\gum%' and image_loaded like '%.tmp\\\\goopdate.dll%')))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

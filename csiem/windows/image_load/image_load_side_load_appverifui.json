@@ -1,0 +1,16 @@
+{
+  "Description": "Detects potential DLL sideloading of \"appverifUI.dll\"\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ee6cea48-c5b6-4304-a332-10fc6446f484",
+  "InsertDate": "2025-01-19T11:34:08Z",
+  "LastUpdateDate": "2025-01-19T11:34:08Z",
+  "Level": "high",
+  "Name": "Potential appverifUI.DLL Sideloading",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (image_loaded like '%\\appverifui.dll' and  not ((process_path = 'c:\\windows\\syswow64\\appverif.exe' or process_path = 'c:\\windows\\system32\\appverif.exe') and (image_loaded like 'c:\\windows\\system32\\%' or image_loaded like 'c:\\windows\\syswow64\\%' or image_loaded like 'c:\\windows\\winsxs\\%')))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

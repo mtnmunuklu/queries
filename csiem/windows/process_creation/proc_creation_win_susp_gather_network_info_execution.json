@@ -1,0 +1,16 @@
+{
+  "Description": "Detects execution of the built-in script located in \"C:\\Windows\\System32\\gatherNetworkInfo.vbs\". Which can be used to gather information about the target machine\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "07aa184a-870d-413d-893a-157f317f6f58",
+  "InsertDate": "2025-01-19T11:35:33Z",
+  "LastUpdateDate": "2025-01-19T11:35:33Z",
+  "Level": "high",
+  "Name": "Suspicious Reconnaissance Activity Via GatherNetworkInfo.VBS",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%gathernetworkinfo.vbs%' and  not (process_path like '%\\cscript.exe' or process_path like '%\\wscript.exe'))",
+  "Tags": [
+    "attack.discovery",
+    "attack.execution",
+    "attack.t1615",
+    "attack.t1059.005"
+  ],
+  "Version": "0.1"
+}

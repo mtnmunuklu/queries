@@ -1,0 +1,16 @@
+{
+  "Description": "Detects an executable accessing the portmap.io domain, which could be a sign of forbidden C2 traffic or data exfiltration by malicious actors\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "07837ab9-60e1-481f-a74d-c31fb496a94c",
+  "InsertDate": "2025-01-19T11:34:11Z",
+  "LastUpdateDate": "2025-01-19T11:34:11Z",
+  "Level": "medium",
+  "Name": "Network Communication Initiated To Portmap.IO Domain",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where initiated = 'true' and dst_host like '%.portmap.io'",
+  "Tags": [
+    "attack.t1041",
+    "attack.command-and-control",
+    "attack.t1090.002",
+    "attack.exfiltration"
+  ],
+  "Version": "0.1"
+}

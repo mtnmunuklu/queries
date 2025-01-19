@@ -1,0 +1,17 @@
+{
+  "Description": "Identifies the suspicious use of AssumeRole. Attackers could move laterally and escalate privileges.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "905d389b-b853-46d0-9d3d-dea0d3a3cd49",
+  "InsertDate": "2025-01-19T11:33:21Z",
+  "LastUpdateDate": "2025-01-19T11:33:21Z",
+  "Level": "low",
+  "Name": "AWS STS AssumeRole Misuse",
+  "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where useridentity.type = 'assumedrole' and useridentity.sessioncontext.sessionissuer.type = 'role'",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.privilege-escalation",
+    "attack.t1548",
+    "attack.t1550",
+    "attack.t1550.001"
+  ],
+  "Version": "0.1"
+}

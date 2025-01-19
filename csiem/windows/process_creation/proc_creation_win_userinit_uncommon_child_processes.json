@@ -1,0 +1,14 @@
+{
+  "Description": "Detects uncommon \"userinit.exe\" child processes, which could be a sign of uncommon shells or login scripts used for persistence.\n\nAuthor: Tom Ueltschi (@c_APT_ure), Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0a98a10c-685d-4ab0-bddc-b6bdd1d48458",
+  "InsertDate": "2025-01-19T11:35:47Z",
+  "LastUpdateDate": "2025-01-19T11:35:47Z",
+  "Level": "high",
+  "Name": "Uncommon Userinit Child Process",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\userinit.exe' and  not process_path like '%:\\windows\\explorer.exe' and  not (process_path = 'null' or (command like '%netlogon.bat%' or command like '%usrlogon.cmd%') or command = 'powershell.exe' or (process_path like '%:\\windows\\system32\\proquota.exe' or process_path like '%:\\windows\\syswow64\\proquota.exe') or (process_path like '%:\\program files (x86)\\citrix\\hdx\\bin\\cmstart.exe' or process_path like '%:\\program files (x86)\\citrix\\hdx\\bin\\icast.exe' or process_path like '%:\\program files (x86)\\citrix\\system32\\icast.exe' or process_path like '%:\\program files\\citrix\\hdx\\bin\\cmstart.exe' or process_path like '%:\\program files\\citrix\\hdx\\bin\\icast.exe' or process_path like '%:\\program files\\citrix\\system32\\icast.exe')))",
+  "Tags": [
+    "attack.t1037.001",
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

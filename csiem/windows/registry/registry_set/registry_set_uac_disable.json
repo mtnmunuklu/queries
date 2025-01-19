@@ -1,0 +1,15 @@
+{
+  "Description": "Detects when an attacker tries to disable User Account Control (UAC) by setting the registry value \"EnableLUA\" to 0.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "48437c39-9e5f-47fb-af95-3d663c3f2919",
+  "InsertDate": "2025-01-19T11:36:22Z",
+  "LastUpdateDate": "2025-01-19T11:36:22Z",
+  "Level": "medium",
+  "Name": "UAC Disabled",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where target_object like '%\\microsoft\\windows\\currentversion\\policies\\system\\enablelua%' and details = 'dword (0x00000000)'",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.defense-evasion",
+    "attack.t1548.002"
+  ],
+  "Version": "0.1"
+}

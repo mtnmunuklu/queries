@@ -1,0 +1,14 @@
+{
+  "Description": "Identifies use of various commands to query a systems time. This technique may be used before executing a scheduled task or to discover the time zone of a target system.\n\nAuthor: E.M. Anhaus (originally from Atomic Blue Detections, Endgame), oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b243b280-65fe-48df-ba07-6ddea7646427",
+  "InsertDate": "2025-01-19T11:35:15Z",
+  "LastUpdateDate": "2025-01-19T11:35:15Z",
+  "Level": "low",
+  "Name": "Discovery of a System Time",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\w32tm.exe' and command like '%tz%') or ((process_path like '%\\net.exe' or process_path like '%\\net1.exe') and command like '%time%'))",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1124"
+  ],
+  "Version": "0.1"
+}

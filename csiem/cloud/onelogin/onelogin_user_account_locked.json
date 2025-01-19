@@ -1,0 +1,13 @@
+{
+  "Description": "Detects when an user account is locked or suspended.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a717c561-d117-437e-b2d9-0118a7035d01",
+  "InsertDate": "2025-01-19T11:33:29Z",
+  "LastUpdateDate": "2025-01-19T11:33:29Z",
+  "Level": "low",
+  "Name": "OneLogin User Account Locked",
+  "Query": "sourcetype='onelogin-onelogin.events' eql select * from _source_ where (event_type_id = '553' or event_type_id = '551' or event_type_id = '532')",
+  "Tags": [
+    "attack.impact"
+  ],
+  "Version": "0.1"
+}

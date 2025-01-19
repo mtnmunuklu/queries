@@ -1,0 +1,14 @@
+{
+  "Description": "This detection uses Windows security events to detect suspicious access attempts to the registry key values and sub-keys of Azure AD Health service agents (e.g AD FS).\nInformation from AD Health service agents can be used to potentially abuse some of the features provided by those services in the cloud (e.g. Federation).\nThis detection requires an access control entry (ACE) on the system access control list (SACL) of the following securable object: HKLM:\\SOFTWARE\\Microsoft\\ADHealthAgent.\nMake sure you set the SACL to propagate to its sub-keys.\n\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research), MSTIC\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1d2ab8ac-1a01-423b-9c39-001510eae8e8",
+  "InsertDate": "2025-01-19T11:33:46Z",
+  "LastUpdateDate": "2025-01-19T11:33:46Z",
+  "Level": "medium",
+  "Name": "Azure AD Health Service Agents Registry Keys Access",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where (((eventid = '4656' or eventid = '4663') and objecttype = 'key' and objectname = '\\registry\\machine\\software\\microsoft\\adhealthagent') and  not (processname like '%microsoft.identity.health.adfs.diagnosticsagent.exe%' or processname like '%microsoft.identity.health.adfs.insightsservice.exe%' or processname like '%microsoft.identity.health.adfs.monitoringagent.startup.exe%' or processname like '%microsoft.identity.health.adfs.pshsurrogate.exe%' or processname like '%microsoft.identity.health.common.clients.resourcemonitor.exe%'))",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1012"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of the \"gcc\" utility to execute a shell. Such behavior may be associated with privilege escalation, unauthorized command execution, or to break out from restricted environments.\n\n\nAuthor: Li Ling, Andy Parkidomo, Robert Rakowski, Blake Hartstein (Bloomberg L.P.)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e2326866-609f-4015-aea9-7ec634e8aa04",
+  "InsertDate": "2025-01-19T11:33:35Z",
+  "LastUpdateDate": "2025-01-19T11:33:35Z",
+  "Level": "high",
+  "Name": "Shell Execution via Rsync - Linux",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where ((process_path like '%/rsync' and command like '% -e %') and (command like '%sh 0\u003c\u00262 1\u003e\u00262%' or command like '%sh 1\u003e\u00262 0\u003c\u00262%') and command like '%/dev/null%')",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

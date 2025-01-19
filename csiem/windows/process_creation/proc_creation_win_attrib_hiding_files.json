@@ -1,0 +1,14 @@
+{
+  "Description": "Detects usage of attrib.exe to hide files from users.\n\nAuthor: Sami Ruohonen\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4281cb20-2994-4580-aa63-c8b86d019934",
+  "InsertDate": "2025-01-19T11:34:30Z",
+  "LastUpdateDate": "2025-01-19T11:34:30Z",
+  "Level": "medium",
+  "Name": "Hiding Files with Attrib.exe",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\attrib.exe' and original_file_name = 'attrib.exe') and command like '% +h %') and  not command like '%\\desktop.ini %' and  not (parent_process_path like '%\\cmd.exe' and command = '+r +h +s +a \\\\\\*.cui' and parent_command_line = 'c:\\\\windows\\\\system32\\\\\\*.bat'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1564.001"
+  ],
+  "Version": "0.1"
+}

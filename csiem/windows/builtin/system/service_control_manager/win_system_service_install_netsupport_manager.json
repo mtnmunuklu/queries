@@ -1,0 +1,13 @@
+{
+  "Description": "Detects NetSupport Manager service installation on the target system.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2d510d8d-912b-45c5-b1df-36faa3d8c3f4",
+  "InsertDate": "2025-01-19T11:33:53Z",
+  "LastUpdateDate": "2025-01-19T11:33:53Z",
+  "Level": "medium",
+  "Name": "NetSupport Manager Service Install",
+  "Query": "sourcetype='windows-system' eql select * from _source_ where ((provider_name = 'service control manager' and eventid = '7045') and (imagepath like '%\\netsupport manager\\client32.exe%' and servicename = 'client32'))",
+  "Tags": [
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

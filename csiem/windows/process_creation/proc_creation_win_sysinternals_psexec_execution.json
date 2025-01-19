@@ -1,0 +1,15 @@
+{
+  "Description": "Detects user accept agreement execution in psexec commandline\n\nAuthor: omkar72\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "730fc21b-eaff-474b-ad23-90fd265d4988",
+  "InsertDate": "2025-01-19T11:35:41Z",
+  "LastUpdateDate": "2025-01-19T11:35:41Z",
+  "Level": "medium",
+  "Name": "Psexec Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\psexec.exe' and original_file_name = 'psexec.c'",
+  "Tags": [
+    "attack.execution",
+    "attack.t1569",
+    "attack.t1021"
+  ],
+  "Version": "0.1"
+}

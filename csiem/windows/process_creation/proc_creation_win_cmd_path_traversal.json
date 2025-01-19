@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential path traversal attempt via cmd.exe. Could indicate possible command/argument confusion/hijacking\n\nAuthor: xknow @xknow_infosec, Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "087790e3-3287-436c-bccf-cbd0184a7db1",
+  "InsertDate": "2025-01-19T11:34:33Z",
+  "LastUpdateDate": "2025-01-19T11:34:33Z",
+  "Level": "high",
+  "Name": "Potential CommandLine Path Traversal Via Cmd.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((parent_process_path like '%\\cmd.exe' and process_path like '%\\cmd.exe' and original_file_name = 'cmd.exe') and ((parent_command_line like '%/c%' or parent_command_line like '%/k%' or parent_command_line like '%/r%') and (command like '%/c%' or command like '%/k%' or command like '%/r%')) and (parent_command_line = '/../../' and command like '%/../../%')) and  not command like '%\\tasktop\\keycloak\\bin\\/../../jre\\bin\\java%')",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.003"
+  ],
+  "Version": "0.1"
+}

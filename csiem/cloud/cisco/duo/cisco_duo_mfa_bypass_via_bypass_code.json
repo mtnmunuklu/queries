@@ -1,0 +1,15 @@
+{
+  "Description": "Detects when a successful MFA authentication occurs due to the use of a bypass code.\nA bypass code is a temporary passcode created by an administrator for a specific user to access a Duo-protected application. These are generally used as \"backup codes,\" so that enrolled users who are having problems with their mobile devices (e.g., mobile service is disrupted, the device is lost or stolen, etc.) or who temporarily can't use their enrolled devices (on a plane without mobile data services) can still access their Duo-protected systems.\n\n\nAuthor: Nikita Khalimonenkov\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6f7e1c10-2dc9-4312-adb6-9574ff09a5c8",
+  "InsertDate": "2025-01-19T11:33:27Z",
+  "LastUpdateDate": "2025-01-19T11:33:27Z",
+  "Level": "medium",
+  "Name": "Cisco Duo Successful MFA Authentication Via Bypass Code",
+  "Query": "sourcetype='cisco-duo' eql select * from _source_ where event_type = 'authentication' and reason = 'bypass_user'",
+  "Tags": [
+    "attack.credential-access",
+    "attack.defense-evasion",
+    "attack.initial-access"
+  ],
+  "Version": "0.1"
+}

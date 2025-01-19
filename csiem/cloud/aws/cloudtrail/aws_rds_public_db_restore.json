@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the recovery of a new public database instance from a snapshot. It may be a part of data exfiltration.\n\nAuthor: faloker\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c3f265c7-ff03-4056-8ab2-d486227b4599",
+  "InsertDate": "2025-01-19T11:33:21Z",
+  "LastUpdateDate": "2025-01-19T11:33:21Z",
+  "Level": "high",
+  "Name": "Restore Public AWS RDS Instance",
+  "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where eventsource = 'rds.amazonaws.com' and responseelements.publiclyaccessible = 'true' and eventname = 'restoredbinstancefromdbsnapshot'",
+  "Tags": [
+    "attack.exfiltration",
+    "attack.t1020"
+  ],
+  "Version": "0.1"
+}

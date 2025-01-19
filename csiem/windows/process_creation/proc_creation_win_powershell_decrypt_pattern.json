@@ -1,0 +1,13 @@
+{
+  "Description": "Detects PowerShell commands that decrypt an \".LNK\" \"file to drop the next stage of the malware.\n\nAuthor: X__Junior (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "434c08ba-8406-4d15-8b24-782cb071a691",
+  "InsertDate": "2025-01-19T11:34:59Z",
+  "LastUpdateDate": "2025-01-19T11:34:59Z",
+  "Level": "high",
+  "Name": "PowerShell Execution With Potential Decryption Capabilities",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%get-childitem %' or command like '%dir %' or command like '%gci %' or command like '%ls %') and (command like '%get-content %' or command like '%gc %' or command like '%cat %' or command like '%type %' or command like '%readallbytes%') and ((command like '% ^| %' and command like '%\\*.lnk%' and command like '%-recurse%' and command like '%-skip %') and (command like '% -expandproperty %' and command like '%\\*.lnk%' and command like '%writeallbytes%' and command like '% .length %')) and ((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll')))",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

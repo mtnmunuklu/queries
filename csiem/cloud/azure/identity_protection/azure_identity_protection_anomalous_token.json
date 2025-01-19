@@ -1,0 +1,14 @@
+{
+  "Description": "Indicates that there are abnormal characteristics in the token such as an unusual token lifetime or a token that is played from an unfamiliar location.\n\nAuthor: Mark Morowczynski '@markmorow'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6555754e-5e7f-4a67-ad1c-4041c413a007",
+  "InsertDate": "2025-01-19T11:33:24Z",
+  "LastUpdateDate": "2025-01-19T11:33:24Z",
+  "Level": "high",
+  "Name": "Anomalous Token",
+  "Query": "sourcetype='azure-riskdetection' eql select * from _source_ where riskeventtype = 'anomaloustoken'",
+  "Tags": [
+    "attack.t1528",
+    "attack.credential-access"
+  ],
+  "Version": "0.1"
+}

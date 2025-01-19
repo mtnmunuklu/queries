@@ -1,0 +1,13 @@
+{
+  "Description": "Detects whether the image specified in a process creation event doesn't refer to an \".exe\" (or other known executable extension) file. This can be caused by process ghosting or other unorthodox methods to start a process.\nThis rule might require some initial baselining to align with some third party tooling in the user environment.\n\n\nAuthor: Max Altgelt (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c09dad97-1c78-4f71-b127-7edb2b8e491a",
+  "InsertDate": "2025-01-19T11:35:34Z",
+  "LastUpdateDate": "2025-01-19T11:35:34Z",
+  "Level": "medium",
+  "Name": "Execution of Suspicious File Type Extension",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ( not (process_path like '%.bin' or process_path like '%.cgi' or process_path like '%.com' or process_path like '%.exe' or process_path like '%.scr' or process_path like '%.tmp') and  not (process_path like '%:\\$extend\\$deleted\\%' or (process_path = '-' or process_path = '') or process_path like '%:\\windows\\system32\\driverstore\\filerepository\\%' or (process_path = 'system' or process_path = 'registry' or process_path = 'memcompression' or process_path = 'vmmem') or (process_path like '%:\\config.msi\\%' and (process_path like '%.rbf' or process_path like '%.rbs')) or (parent_process_path like '%:\\windows\\temp\\%' and process_path like '%:\\windows\\temp\\%') or process_path like '%:\\windows\\installer\\msi%' or process_path = 'null') and  not ((process_path like '%nvidia\\nvbackend\\%' and process_path like '%.dat') or process_path like '%\\lzma_exe' or (parent_process_path = 'c:\\windows\\system32\\services.exe' and process_path like '%com.docker.service') or ((process_path like '%:\\program files (x86)\\winpakpro\\%' or process_path like '%:\\program files\\winpakpro\\%') and process_path like '%.ngn') or process_path like '%:\\program files\\mozilla firefox\\%' or (process_path like '%:\\program files (x86)\\myq\\server\\pcltool.dll' or process_path like '%:\\program files\\myq\\server\\pcltool.dll') or (process_path like '%\\appdata\\local\\packages\\%' and process_path like '%\\localstate\\rootfs\\%') or parent_process_path like '%:\\programdata\\avira\\%'))",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

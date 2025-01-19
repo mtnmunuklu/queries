@@ -1,0 +1,15 @@
+{
+  "Description": "Detects changes to of the IIS server configuration in order to disable HTTP logging for successful requests.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e8ebd53a-30c2-45bd-81bb-74befba07bdb",
+  "InsertDate": "2025-01-19T11:33:45Z",
+  "LastUpdateDate": "2025-01-19T11:33:45Z",
+  "Level": "high",
+  "Name": "HTTP Logging Disabled On IIS Server",
+  "Query": "sourcetype='windows-iis-configuration' eql select * from _source_ where eventid = '29' and configuration = '/system.webserver/httplogging/@dontlog' and newvalue = 'true'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.002",
+    "attack.t1505.004"
+  ],
+  "Version": "0.1"
+}

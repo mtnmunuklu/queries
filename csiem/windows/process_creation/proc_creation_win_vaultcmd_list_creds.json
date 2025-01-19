@@ -1,0 +1,14 @@
+{
+  "Description": "List credentials currently stored in Windows Credential Manager via the native Windows utility vaultcmd.exe\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "58f50261-c53b-4c88-bd12-1d71f12eda4c",
+  "InsertDate": "2025-01-19T11:35:47Z",
+  "LastUpdateDate": "2025-01-19T11:35:47Z",
+  "Level": "medium",
+  "Name": "Windows Credential Manager Access via VaultCmd",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%/listcreds:%' and (process_path like '%\\vaultcmd.exe' and original_file_name = 'vaultcmd.exe'))",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1555.004"
+  ],
+  "Version": "0.1"
+}

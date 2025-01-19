@@ -1,0 +1,14 @@
+{
+  "Description": "Detect modification of services configuration (ImagePath, FailureCommand and ServiceDLL) in registry by processes with Medium integrity level\n\nAuthor: Teymur Kheirkhabarov\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0f9c21f1-6a73-4b0e-9809-cb562cb8d981",
+  "InsertDate": "2025-01-19T11:35:12Z",
+  "LastUpdateDate": "2025-01-19T11:35:12Z",
+  "Level": "high",
+  "Name": "Potential Privilege Escalation via Service Permissions Weakness",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (integrity_level = 'medium' or integrity_level = 's-1-16-8192') and (command like '%controlset%' and command like '%services%') and (command like '%\\imagepath%' or command like '%\\failurecommand%' or command like '%\\servicedll%')",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.t1574.011"
+  ],
+  "Version": "0.1"
+}

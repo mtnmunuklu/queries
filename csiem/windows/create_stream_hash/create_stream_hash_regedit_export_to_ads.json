@@ -1,0 +1,14 @@
+{
+  "Description": "Exports the target Registry key and hides it in the specified alternate data stream.\n\nAuthor: Oddvar Moe, Sander Wiebing, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0d7a9363-af70-4e7b-a3b7-1a176b7fbe84",
+  "InsertDate": "2025-01-19T11:33:56Z",
+  "LastUpdateDate": "2025-01-19T11:33:56Z",
+  "Level": "high",
+  "Name": "Exports Registry Key To an Alternate Data Stream",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where process_path like '%\\regedit.exe'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1564.004"
+  ],
+  "Version": "0.1"
+}

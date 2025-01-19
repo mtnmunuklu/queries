@@ -1,0 +1,16 @@
+{
+  "Description": "Detect filter driver unloading activity via fltmc.exe\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4931188c-178e-4ee7-a348-39e8a7a56821",
+  "InsertDate": "2025-01-19T11:34:38Z",
+  "LastUpdateDate": "2025-01-19T11:34:38Z",
+  "Level": "medium",
+  "Name": "Filter Driver Unloaded Via Fltmc.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\fltmc.exe' and original_file_name = 'fltmc.exe') and command like '%unload%') and  not ((parent_process_path like 'c:\\users\\%' and parent_process_path like '%\\appdata\\local\\temp\\%' and parent_process_path like '%\\endpoint-protection-installer-x64.tmp' and command like '%unload rtp_filesystem_filter') or (parent_process_path = 'c:\\program files (x86)\\manageengine\\uems_agent\\bin\\dcfaservice64.exe' and command like '%unload dfmfilter')))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1070",
+    "attack.t1562",
+    "attack.t1562.002"
+  ],
+  "Version": "0.1"
+}

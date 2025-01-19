@@ -1,0 +1,16 @@
+{
+  "Description": "This rule detects suspicious files created by Microsoft Sync Center (mobsync)\n\nAuthor: elhoim\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "409f8a98-4496-4aaa-818a-c931c0a8b832",
+  "InsertDate": "2025-01-19T11:34:03Z",
+  "LastUpdateDate": "2025-01-19T11:34:03Z",
+  "Level": "medium",
+  "Name": "Created Files by Microsoft Sync Center",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\mobsync.exe' and (filepath like '%.dll' or filepath like '%.exe'))",
+  "Tags": [
+    "attack.t1055",
+    "attack.t1218",
+    "attack.execution",
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the use of NirCmd tool for command execution, which could be the result of legitimate administrative activity\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4e2ed651-1906-4a59-a78a-18220fca1b22",
+  "InsertDate": "2025-01-19T11:35:07Z",
+  "LastUpdateDate": "2025-01-19T11:35:07Z",
+  "Level": "medium",
+  "Name": "PUA - NirCmd Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\nircmd.exe' and original_file_name = 'nircmd.exe') or (command like '% execmd %' or command like '%.exe script %' or command like '%.exe shexec %' or command like '% runinteractive %')) or ((command like '% exec %' or command like '% exec2 %') and (command like '% show %' or command like '% hide %')))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1569.002",
+    "attack.s0029"
+  ],
+  "Version": "0.1"
+}

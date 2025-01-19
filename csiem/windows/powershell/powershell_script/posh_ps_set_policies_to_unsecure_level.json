@@ -1,0 +1,14 @@
+{
+  "Description": "Detects changing the PowerShell script execution policy to a potentially insecure level using the \"Set-ExecutionPolicy\" cmdlet.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "61d0475c-173f-4844-86f7-f3eebae1c66b",
+  "InsertDate": "2025-01-19T11:34:22Z",
+  "LastUpdateDate": "2025-01-19T11:34:22Z",
+  "Level": "medium",
+  "Name": "Change PowerShell Policies to an Insecure Level - PowerShell",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (((scriptblocktext like '%unrestricted%' or scriptblocktext like '%bypass%') and scriptblocktext like '%set-executionpolicy%') and  not (scriptblocktext like '%(new-object system.net.webclient).downloadstring('https://community.chocolatey.org/install.ps1')%' or scriptblocktext like '%(new-object system.net.webclient).downloadstring('https://chocolatey.org/install.ps1')%'))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

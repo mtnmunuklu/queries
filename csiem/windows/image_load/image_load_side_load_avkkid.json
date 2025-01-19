@@ -1,0 +1,16 @@
+{
+  "Description": "Detects potential DLL sideloading of \"AVKkid.dll\"\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "952ed57c-8f99-453d-aee0-53a49c22f95d",
+  "InsertDate": "2025-01-19T11:34:08Z",
+  "LastUpdateDate": "2025-01-19T11:34:08Z",
+  "Level": "medium",
+  "Name": "Potential AVKkid.DLL Sideloading",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (image_loaded like '%\\avkkid.dll' and  not ((process_path like '%c:\\program files (x86)\\g data\\%' or process_path like '%c:\\program files\\g data\\%') and process_path like '%\\avkkid.exe' and (image_loaded like 'c:\\program files (x86)\\g data\\%' or image_loaded like 'c:\\program files\\g data\\%')))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

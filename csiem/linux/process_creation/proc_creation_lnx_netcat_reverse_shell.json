@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of netcat with the \"-e\" flag followed by common shells. This could be a sign of a potential reverse shell setup.\n\nAuthor: @d4ns4n_, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7f734ed0-4f47-46c0-837f-6ee62505abd9",
+  "InsertDate": "2025-01-19T11:33:34Z",
+  "LastUpdateDate": "2025-01-19T11:33:34Z",
+  "Level": "high",
+  "Name": "Potential Netcat Reverse Shell Execution",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where ((process_path like '%/nc' or process_path like '%/ncat') and (command like '% -c %' or command like '% -e %') and (command like '% ash%' or command like '% bash%' or command like '% bsh%' or command like '% csh%' or command like '% ksh%' or command like '% pdksh%' or command like '% sh%' or command like '% tcsh%' or command like '%/bin/ash%' or command like '%/bin/bash%' or command like '%/bin/bsh%' or command like '%/bin/csh%' or command like '%/bin/ksh%' or command like '%/bin/pdksh%' or command like '%/bin/sh%' or command like '%/bin/tcsh%' or command like '%/bin/zsh%' or command like '%$ifsash%' or command like '%$ifsbash%' or command like '%$ifsbsh%' or command like '%$ifscsh%' or command like '%$ifsksh%' or command like '%$ifspdksh%' or command like '%$ifssh%' or command like '%$ifstcsh%' or command like '%$ifszsh%'))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

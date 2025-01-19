@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of regsvr32 where the DLL is located in a highly suspicious locations\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "327ff235-94eb-4f06-b9de-aaee571324be",
+  "InsertDate": "2025-01-19T11:35:13Z",
+  "LastUpdateDate": "2025-01-19T11:35:13Z",
+  "Level": "high",
+  "Name": "Regsvr32 Execution From Highly Suspicious Location",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\regsvr32.exe' and original_file_name = 'regsvr32.exe') and ((command like '%:\\perflogs\\%' or command like '%:\\temp\\%' or command like '%\\windows\\registration\\crmlog%' or command like '%\\windows\\system32\\com\\dmp\\%' or command like '%\\windows\\system32\\fxstmp\\%' or command like '%\\windows\\system32\\microsoft\\crypto\\rsa\\machinekeys\\%' or command like '%\\windows\\system32\\spool\\drivers\\color\\%' or command like '%\\windows\\system32\\spool\\printers\\%' or command like '%\\windows\\system32\\spool\\servers\\%' or command like '%\\windows\\system32\\tasks_migrated\\%' or command like '%\\windows\\system32\\tasks\\microsoft\\windows\\synccenter\\%' or command like '%\\windows\\syswow64\\com\\dmp\\%' or command like '%\\windows\\syswow64\\fxstmp\\%' or command like '%\\windows\\syswow64\\tasks\\microsoft\\windows\\pla\\system\\%' or command like '%\\windows\\syswow64\\tasks\\microsoft\\windows\\synccenter\\%' or command like '%\\windows\\tasks\\%' or command like '%\\windows\\tracing\\%') or ((command like '% \"c:\\%' or command like '% c:\\%' or command like '% 'c:\\%' or command like '%d:\\%') and  not (command like '%c:\\program files (x86)\\%' or command like '%c:\\program files\\%' or command like '%c:\\programdata\\%' or command like '%c:\\users\\%' or command like '% c:\\windows\\%' or command like '% \"c:\\windows\\%' or command like '% 'c:\\windows\\%'))) and  not (command = 'null' or command = ''))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.010"
+  ],
+  "Version": "0.1"
+}

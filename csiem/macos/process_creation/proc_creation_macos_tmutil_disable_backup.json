@@ -1,0 +1,14 @@
+{
+  "Description": "Detects disabling of Time Machine (Apple's automated backup utility software) via the native macOS backup utility \"tmutil\".\nAn attacker can use this to prevent backups from occurring.\n\n\nAuthor: Pratinav Chandra\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2c95fa8a-8b8d-4787-afce-7117ceb8e3da",
+  "InsertDate": "2025-01-19T11:33:39Z",
+  "LastUpdateDate": "2025-01-19T11:33:39Z",
+  "Level": "medium",
+  "Name": "Time Machine Backup Disabled Via Tmutil - MacOS",
+  "Query": "sourcetype like 'macos-%' eql select * from _source_ where ((process_path like '%/tmutil' and command like '%tmutil%') and command like '%disable%')",
+  "Tags": [
+    "attack.impact",
+    "attack.t1490"
+  ],
+  "Version": "0.1"
+}

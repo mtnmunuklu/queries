@@ -1,0 +1,14 @@
+{
+  "Description": "Detects possible Kerberos Replay Attack on the domain controllers when \"KRB_AP_ERR_REPEAT\" Kerberos response is sent to the client\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5a44727c-3b85-4713-8c44-4401d5499629",
+  "InsertDate": "2025-01-19T11:33:49Z",
+  "LastUpdateDate": "2025-01-19T11:33:49Z",
+  "Level": "high",
+  "Name": "Replay Attack Detected",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4649'",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1558"
+  ],
+  "Version": "0.1"
+}

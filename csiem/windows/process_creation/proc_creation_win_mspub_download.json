@@ -1,0 +1,15 @@
+{
+  "Description": "Detects usage of \"MSPUB\" (Microsoft Publisher) to download arbitrary files\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3b3c7f55-f771-4dd6-8a6e-08d057a17caf",
+  "InsertDate": "2025-01-19T11:34:53Z",
+  "LastUpdateDate": "2025-01-19T11:34:53Z",
+  "Level": "medium",
+  "Name": "Arbitrary File Download Via MSPUB.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\mspub.exe' and original_file_name = 'mspub.exe') and (command like '%ftp://%' or command like '%http://%' or command like '%https://%'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

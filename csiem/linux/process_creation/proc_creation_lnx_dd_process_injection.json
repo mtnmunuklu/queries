@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the injection of code by overwriting the memory map of a Linux process using the \"dd\" Linux command.\n\nAuthor: Joseph Kamau\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4cad6c64-d6df-42d6-8dae-eb78defdc415",
+  "InsertDate": "2025-01-19T11:33:33Z",
+  "LastUpdateDate": "2025-01-19T11:33:33Z",
+  "Level": "medium",
+  "Name": "Potential Linux Process Code Injection Via DD Utility",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where process_path like '%/dd' and (command like '%of=%' and command like '%/proc/%' and command like '%/mem%')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1055.009"
+  ],
+  "Version": "0.1"
+}

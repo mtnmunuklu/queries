@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of a renamed AutoIt2.exe or AutoIt3.exe.\nAutoIt is a scripting language and automation tool for Windows systems. While primarily used for legitimate automation tasks, it can be misused in cyber attacks.\nAttackers can leverage AutoIt to create and distribute malware, including keyloggers, spyware, and botnets. A renamed AutoIt executable is particularly suspicious.\n\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f4264e47-f522-4c38-a420-04525d5b880f",
+  "InsertDate": "2025-01-19T11:35:15Z",
+  "LastUpdateDate": "2025-01-19T11:35:15Z",
+  "Level": "high",
+  "Name": "Renamed AutoIt Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((command like '% /autoit3executescript%' or command like '% /errorstdout%') or (hashes like '%imphash=fdc554b3a8683918d731685855683ddf%' or hashes like '%imphash=cd30a61b60b3d60cecdb034c8c83c290%' or hashes like '%imphash=f8a00c72f2d667d2edbb234d0c0ae000%') or (original_file_name = 'autoit3.exe' or original_file_name = 'autoit2.exe' or original_file_name = 'autoit.exe')) and  not (process_path like '%\\autoit.exe' or process_path like '%\\autoit2.exe' or process_path like '%\\autoit3_x64.exe' or process_path like '%\\autoit3.exe'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1027"
+  ],
+  "Version": "0.1"
+}

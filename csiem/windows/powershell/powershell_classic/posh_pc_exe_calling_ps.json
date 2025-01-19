@@ -1,0 +1,15 @@
+{
+  "Description": "Detects PowerShell called from an executable by the version mismatch method\n\nAuthor: Sean Metcalf (source), Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c70e019b-1479-4b65-b0cc-cd0c6093a599",
+  "InsertDate": "2025-01-19T11:34:14Z",
+  "LastUpdateDate": "2025-01-19T11:34:14Z",
+  "Level": "high",
+  "Name": "PowerShell Called from an Executable Version Mismatch",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((data like '%engineversion=2.%' or data like '%engineversion=4.%' or data like '%engineversion=5.%') and data like '%hostversion=3.%')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

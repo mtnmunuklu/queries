@@ -1,0 +1,14 @@
+{
+  "Description": "Detects changes to Internet Explorer's (IE / Windows Internet properties) ZoneMap configuration of the \"HTTP\" and \"HTTPS\" protocols to point to the \"My Computer\" zone. This allows downloaded files from the Internet to be granted the same level of trust as files stored locally.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "10344bb3-7f65-46c2-b915-2d00d47be5b0",
+  "InsertDate": "2025-01-19T11:35:12Z",
+  "LastUpdateDate": "2025-01-19T11:35:12Z",
+  "Level": "high",
+  "Name": "IE ZoneMap Setting Downgraded To MyComputer Zone For HTTP Protocols Via CLI",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%\\microsoft\\windows\\currentversion\\internet settings\\zonemap\\protocoldefaults%' and command like '%http%' and command like '% 0%')",
+  "Tags": [
+    "attack.execution",
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

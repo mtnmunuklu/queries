@@ -1,0 +1,14 @@
+{
+  "Description": "Detects usage of \"findstr\" with the argument \"385201\". Which could indicate potential discovery of an installed Sysinternals Sysmon service using the default driver altitude (even if the name is changed).\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "37db85d1-b089-490a-a59a-c7b6f984f480",
+  "InsertDate": "2025-01-19T11:34:38Z",
+  "LastUpdateDate": "2025-01-19T11:34:38Z",
+  "Level": "high",
+  "Name": "Sysmon Discovery Via Default Driver Altitude Using Findstr.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\find.exe' or process_path like '%\\findstr.exe') and (original_file_name = 'find.exe' or original_file_name = 'findstr.exe')) and command like '% 385201%')",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1518.001"
+  ],
+  "Version": "0.1"
+}

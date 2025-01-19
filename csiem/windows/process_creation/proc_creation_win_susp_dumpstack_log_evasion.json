@@ -1,0 +1,13 @@
+{
+  "Description": "Detects the use of the filename DumpStack.log to evade Microsoft Defender\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4f647cfa-b598-4e12-ad69-c68dd16caef8",
+  "InsertDate": "2025-01-19T11:35:32Z",
+  "LastUpdateDate": "2025-01-19T11:35:32Z",
+  "Level": "critical",
+  "Name": "DumpStack.log Defender Evasion",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\dumpstack.log' or command like '% -o dumpstack.log%')",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

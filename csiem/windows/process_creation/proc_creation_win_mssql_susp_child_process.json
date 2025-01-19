@@ -1,0 +1,17 @@
+{
+  "Description": "Detects suspicious child processes of the SQLServer process. This could indicate potential RCE or SQL Injection.\n\nAuthor: FPT.EagleEye Team, wagga\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "869b9ca7-9ea2-4a5a-8325-e80e62f75445",
+  "InsertDate": "2025-01-19T11:34:53Z",
+  "LastUpdateDate": "2025-01-19T11:34:53Z",
+  "Level": "high",
+  "Name": "Suspicious Child Process Of SQL Server",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_process_path like '%\\sqlservr.exe' and (process_path like '%\\bash.exe' or process_path like '%\\bitsadmin.exe' or process_path like '%\\cmd.exe' or process_path like '%\\netstat.exe' or process_path like '%\\nltest.exe' or process_path like '%\\ping.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\sh.exe' or process_path like '%\\systeminfo.exe' or process_path like '%\\tasklist.exe' or process_path like '%\\wsl.exe')) and  not (parent_process_path like 'c:\\program files\\microsoft sql server\\%' and parent_process_path like '%datev_dbengine\\mssql\\binn\\sqlservr.exe' and process_path = 'c:\\windows\\system32\\cmd.exe' and command like '\"c:\\windows\\system32\\cmd.exe\" %'))",
+  "Tags": [
+    "attack.t1505.003",
+    "attack.t1190",
+    "attack.initial-access",
+    "attack.persistence",
+    "attack.privilege-escalation"
+  ],
+  "Version": "0.1"
+}

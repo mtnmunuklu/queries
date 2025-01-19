@@ -1,0 +1,14 @@
+{
+  "Description": "Detects known WMI recon method to look for unquoted service paths using wmic. Often used by pentester and attacker enumeration scripts\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "68bcd73b-37ef-49cb-95fc-edc809730be6",
+  "InsertDate": "2025-01-19T11:35:56Z",
+  "LastUpdateDate": "2025-01-19T11:35:56Z",
+  "Level": "medium",
+  "Name": "Potential Unquoted Service Path Reconnaissance Via Wmic.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((original_file_name = 'wmic.exe' and process_path like '%\\wmic.exe') and (command like '% service get %' and command like '%name,displayname,pathname,startmode%'))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1047"
+  ],
+  "Version": "0.1"
+}

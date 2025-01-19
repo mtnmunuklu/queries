@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the execution of Radmin which can be abused by an adversary to remotely control Windows machines\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5817e76f-4804-41e6-8f1d-5fa0b3ecae2d",
+  "InsertDate": "2025-01-19T11:35:08Z",
+  "LastUpdateDate": "2025-01-19T11:35:08Z",
+  "Level": "medium",
+  "Name": "PUA - Radmin Viewer Utility Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where description = 'radmin viewer' and product = 'radmin viewer' and original_file_name = 'radmin.exe'",
+  "Tags": [
+    "attack.execution",
+    "attack.lateral-movement",
+    "attack.t1072"
+  ],
+  "Version": "0.1"
+}

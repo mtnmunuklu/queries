@@ -1,0 +1,14 @@
+{
+  "Description": "Detect the use of \"\u003c\" to read and potentially execute a file via cmd.exe\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "241e802a-b65e-484f-88cd-c2dc10f9206d",
+  "InsertDate": "2025-01-19T11:34:33Z",
+  "LastUpdateDate": "2025-01-19T11:34:33Z",
+  "Level": "medium",
+  "Name": "Read Contents From Stdin Via Cmd.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((original_file_name = 'cmd.exe' and process_path like '%\\cmd.exe') and command like '%\u003c%')",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.003"
+  ],
+  "Version": "0.1"
+}

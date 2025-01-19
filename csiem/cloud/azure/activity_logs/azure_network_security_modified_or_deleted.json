@@ -1,0 +1,13 @@
+{
+  "Description": "Identifies when a network security configuration is modified or deleted.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d22b4df4-5a67-4859-a578-8c9a0b5af9df",
+  "InsertDate": "2025-01-19T11:33:23Z",
+  "LastUpdateDate": "2025-01-19T11:33:23Z",
+  "Level": "medium",
+  "Name": "Azure Network Security Configuration Modified or Deleted",
+  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (operationname = 'microsoft.network/networksecuritygroups/write' or operationname = 'microsoft.network/networksecuritygroups/delete' or operationname = 'microsoft.network/networksecuritygroups/securityrules/write' or operationname = 'microsoft.network/networksecuritygroups/securityrules/delete' or operationname = 'microsoft.network/networksecuritygroups/join/action' or operationname = 'microsoft.network/networksecuritygroups/providers/microsoft.insights/diagnosticsettings/write')",
+  "Tags": [
+    "attack.impact"
+  ],
+  "Version": "0.1"
+}

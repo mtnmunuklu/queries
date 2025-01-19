@@ -1,0 +1,14 @@
+{
+  "Description": "Detects specific patterns found after a successful ProxyLogon exploitation in relation to a Commandlet invocation of Set-OabVirtualDirectory\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "550d3350-bb8a-4ff3-9533-2ba533f4a1c0",
+  "InsertDate": "2025-01-19T11:33:45Z",
+  "LastUpdateDate": "2025-01-19T11:33:45Z",
+  "Level": "critical",
+  "Name": "ProxyLogon MSExchange OabVirtualDirectory",
+  "Query": "sourcetype='windows-msexchange-management' eql select * from _source_ where (( = 'oabvirtualdirectory' and  = ' -externalurl ') and (log like '%eval(request%' or log like '%http://f/\u003cscript%' or log like '%\"unsafe\"};%' or log like '%function page_load()%'))",
+  "Tags": [
+    "attack.t1587.001",
+    "attack.resource-development"
+  ],
+  "Version": "0.1"
+}

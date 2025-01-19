@@ -1,0 +1,15 @@
+{
+  "Description": "Detects driver load of the Process Hacker tool\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "67add051-9ee7-4ad3-93ba-42935615ae8d",
+  "InsertDate": "2025-01-19T11:33:57Z",
+  "LastUpdateDate": "2025-01-19T11:33:57Z",
+  "Level": "high",
+  "Name": "PUA - Process Hacker Driver Load",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where image_loaded like '%\\kprocesshacker.sys' and (hashes like '%imphash=821d74031d3f625bcbd0df08b70f1e77%' or hashes like '%imphash=f86759bb4de4320918615dc06e998a39%' or hashes like '%imphash=0a64eeb85419257d0ce32bd5d55c3a18%' or hashes like '%imphash=6e7b34dfc017700b1517b230df6ff0d0%')",
+  "Tags": [
+    "attack.privilege-escalation",
+    "cve.2021-21551",
+    "attack.t1543"
+  ],
+  "Version": "0.1"
+}

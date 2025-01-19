@@ -1,0 +1,13 @@
+{
+  "Description": "Detects execution of \"curl.exe\" with a potential custom \"User-Agent\". Attackers can leverage this to download or exfiltrate data via \"curl\" to a domain that only accept specific \"User-Agent\" strings\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "85de1f22-d189-44e4-8239-dc276b45379b",
+  "InsertDate": "2025-01-19T11:34:35Z",
+  "LastUpdateDate": "2025-01-19T11:34:35Z",
+  "Level": "medium",
+  "Name": "Curl Web Request With Potential Custom User-Agent",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\curl.exe' and original_file_name = 'curl.exe') and (command re '\\s-H\\s' and command like '%user-agent:%'))",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

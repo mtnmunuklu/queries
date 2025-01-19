@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the import of SSH key pairs into AWS EC2, which may indicate an attacker attempting to gain unauthorized access to instances. This activity could lead to initial access, persistence, or privilege escalation, potentially compromising sensitive data and operations.\n\n\nAuthor: Ivan Saakov\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "92f84194-8d9a-4ee0-8699-c30bfac59780",
+  "InsertDate": "2025-01-19T11:33:20Z",
+  "LastUpdateDate": "2025-01-19T11:33:20Z",
+  "Level": "medium",
+  "Name": "AWS Key Pair Import Activity",
+  "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where eventsource = 'ec2.amazonaws.com' and eventname = 'importkeypair'",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1078",
+    "attack.persistence",
+    "attack.privilege-escalation"
+  ],
+  "Version": "0.1"
+}

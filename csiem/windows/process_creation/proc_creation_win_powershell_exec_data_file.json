@@ -1,0 +1,14 @@
+{
+  "Description": "Detects inline execution of PowerShell code from a file\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ee218c12-627a-4d27-9e30-d6fb2fe22ed2",
+  "InsertDate": "2025-01-19T11:35:01Z",
+  "LastUpdateDate": "2025-01-19T11:35:01Z",
+  "Level": "medium",
+  "Name": "Powershell Inline Execution From A File",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%iex %' or command like '%invoke-expression %' or command like '%invoke-command %' or command like '%icm %') and (command like '%cat %' or command like '%get-content %' or command like '%type %') and command like '% -raw%')",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of \"sw_vers\" for system information discovery\n\nAuthor: Joseliyo Sanchez, @Joseliyo_Jstnk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5de06a6f-673a-4fc0-8d48-bcfe3837b033",
+  "InsertDate": "2025-01-19T11:33:39Z",
+  "LastUpdateDate": "2025-01-19T11:33:39Z",
+  "Level": "medium",
+  "Name": "System Information Discovery Using sw_vers",
+  "Query": "sourcetype like 'macos-%' eql select * from _source_ where (process_path like '%/sw_vers' and (command like '%-buildversion%' or command like '%-productname%' or command like '%-productversion%'))",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1082"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,16 @@
+{
+  "Description": "Detects execution of the SharpImpersonation tool. Which can be used to manipulate tokens on a Windows computers remotely (PsExec/WmiExec) or interactively\n\nAuthor: Sai Prashanth Pulisetti @pulisettis, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f89b08d0-77ad-4728-817b-9b16c5a69c7a",
+  "InsertDate": "2025-01-19T11:34:43Z",
+  "LastUpdateDate": "2025-01-19T11:34:43Z",
+  "Level": "high",
+  "Name": "HackTool - SharpImpersonation Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\sharpimpersonation.exe' and original_file_name = 'sharpimpersonation.exe') or ((command like '% user:%' and command like '% binary:%') and (command like '% user:%' and command like '% shellcode:%') and (command like '% technique:createprocessasuserw%' or command like '% technique:impersonateloggedonuser%')))",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.defense-evasion",
+    "attack.t1134.001",
+    "attack.t1134.003"
+  ],
+  "Version": "0.1"
+}

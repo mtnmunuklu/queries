@@ -1,0 +1,16 @@
+{
+  "Description": "Detects changes to the EC2 instance startup script. The shell script will be executed as root/SYSTEM every time the specific instances are booted up.\n\nAuthor: faloker\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1ab3c5ed-5baf-417b-bb6b-78ca33f6c3df",
+  "InsertDate": "2025-01-19T11:33:20Z",
+  "LastUpdateDate": "2025-01-19T11:33:20Z",
+  "Level": "high",
+  "Name": "AWS EC2 Startup Shell Script Change",
+  "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where eventsource = 'ec2.amazonaws.com' and requestparameters.attribute = 'userdata' and eventname = 'modifyinstanceattribute'",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001",
+    "attack.t1059.003",
+    "attack.t1059.004"
+  ],
+  "Version": "0.1"
+}

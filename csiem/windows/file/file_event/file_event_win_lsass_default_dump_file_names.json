@@ -1,0 +1,14 @@
+{
+  "Description": "Detects creation of files with names used by different memory dumping tools to create a memory dump of the LSASS process memory, which contains user credentials.\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a5a2d357-1ab8-4675-a967-ef9990a59391",
+  "InsertDate": "2025-01-19T11:34:01Z",
+  "LastUpdateDate": "2025-01-19T11:34:01Z",
+  "Level": "high",
+  "Name": "LSASS Process Memory Dump Files",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((filepath like '%\\lsass%' and filepath like '%.dmp%') or (filepath like '%sqldmpr%' and filepath like '%.mdmp') or ((filepath like '%\\nanodump%' or filepath like '%\\proc_%') and filepath like '%.dmp') or (filepath like '%\\andrew.dmp' or filepath like '%\\coredump.dmp' or filepath like '%\\lsass.dmp' or filepath like '%\\lsass.rar' or filepath like '%\\lsass.zip' or filepath like '%\\notlsass.zip' or filepath like '%\\pplblade.dmp' or filepath like '%\\rustive.dmp') or (filepath like '%\\lsass_2%' or filepath like '%\\lsassdmp%' or filepath like '%\\lsassdump%'))",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.001"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a suspicious Microsoft desktopimgdownldr file creation that stores a file to a suspicious location or contains a file with a suspicious extension\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fc4f4817-0c53-4683-a4ee-b17a64bc1039",
+  "InsertDate": "2025-01-19T11:34:03Z",
+  "LastUpdateDate": "2025-01-19T11:34:03Z",
+  "Level": "high",
+  "Name": "Suspicious Desktopimgdownldr Target File",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\svchost.exe' and filepath like '%\\personalization\\lockscreenimage\\%') and  not filepath like '%c:\\windows\\%' and  not (filepath like '%.jpg%' or filepath like '%.jpeg%' or filepath like '%.png%'))",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1105"
+  ],
+  "Version": "0.1"
+}

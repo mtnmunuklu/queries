@@ -1,0 +1,13 @@
+{
+  "Description": "Detects launch of the PSEXESVC service, which means that this system was the target of a psexec remote execution\n\nAuthor: Thomas Patzke, Romaissa Adjailia, Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fdfcbd78-48f1-4a4b-90ac-d82241e368c5",
+  "InsertDate": "2025-01-19T11:35:41Z",
+  "LastUpdateDate": "2025-01-19T11:35:41Z",
+  "Level": "medium",
+  "Name": "PsExec Service Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path = 'c:\\windows\\psexesvc.exe' and original_file_name = 'psexesvc.exe'",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects non-interactive PowerShell activity by looking at the \"powershell\" process with a non-user GUI process such as \"explorer.exe\" as a parent.\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g (rule), oscd.community (improvements)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f4bbd493-b796-416e-bbf2-121235348529",
+  "InsertDate": "2025-01-19T11:35:03Z",
+  "LastUpdateDate": "2025-01-19T11:35:03Z",
+  "Level": "low",
+  "Name": "Non Interactive PowerShell Process Spawned",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll')) and  not ((parent_process_path like '%:\\windows\\explorer.exe' or parent_process_path like '%:\\windows\\system32\\compattelrunner.exe' or parent_process_path like '%:\\windows\\syswow64\\explorer.exe') or parent_process_path = ':\\$windows.~bt\\sources\\setuphost.exe') and  not ((parent_process_path like '%\\appdata\\local\\programs\\microsoft vs code\\code.exe' and parent_command_line like '% --ms-enable-electron-run-as-node %') or (parent_process_path like '%:\\program files\\windowsapps\\microsoft.windowsterminal_%' and parent_process_path like '%\\windowsterminal.exe')))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

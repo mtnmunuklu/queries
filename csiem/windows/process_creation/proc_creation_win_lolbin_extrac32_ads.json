@@ -1,0 +1,14 @@
+{
+  "Description": "Extract data from cab file and hide it in an alternate data stream\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4b13db67-0c45-40f1-aba8-66a1a7198a1e",
+  "InsertDate": "2025-01-19T11:34:47Z",
+  "LastUpdateDate": "2025-01-19T11:34:47Z",
+  "Level": "medium",
+  "Name": "Suspicious Extrac32 Alternate Data Stream Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%extrac32.exe%' and command like '%.cab%') and command re ':[^\\\\]'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1564.004"
+  ],
+  "Version": "0.1"
+}

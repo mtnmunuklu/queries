@@ -1,0 +1,14 @@
+{
+  "Description": "Detects changes to the security groups associated with an Elastic Load Balancer (ELB) or Application Load Balancer (ALB).\nThis can indicate that a misconfiguration allowing more traffic into the system than required, or could indicate that an attacker is attempting to enable new connections into a VPC or subnet controlled by the account.\n\n\nAuthor: jamesc-grafana\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7a4409fc-f8ca-45f6-8006-127d779eaad9",
+  "InsertDate": "2025-01-19T11:33:20Z",
+  "LastUpdateDate": "2025-01-19T11:33:20Z",
+  "Level": "medium",
+  "Name": "LoadBalancer Security Group Modification",
+  "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where eventsource = 'elasticloadbalancing.amazonaws.com' and (eventname = 'applysecuritygroupstoloadbalancer' or eventname = 'setsecuritygroups')",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1190"
+  ],
+  "Version": "0.1"
+}

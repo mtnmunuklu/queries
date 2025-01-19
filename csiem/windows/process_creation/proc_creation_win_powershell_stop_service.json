@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the stopping of a Windows service via the PowerShell Cmdlet \"Stop-Service\"\n\nAuthor: Jakob Weinzettl, oscd.community, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c49c5062-0966-4170-9efd-9968c913a6cf",
+  "InsertDate": "2025-01-19T11:35:04Z",
+  "LastUpdateDate": "2025-01-19T11:35:04Z",
+  "Level": "low",
+  "Name": "Stop Windows Service Via PowerShell Stop-Service",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll') and (process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe')) and command like '%stop-service %')",
+  "Tags": [
+    "attack.impact",
+    "attack.t1489"
+  ],
+  "Version": "0.1"
+}

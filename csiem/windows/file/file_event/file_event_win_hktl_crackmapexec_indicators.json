@@ -1,0 +1,14 @@
+{
+  "Description": "Detects file creation events with filename patterns used by CrackMapExec.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "736ffa74-5f6f-44ca-94ef-1c0df4f51d2a",
+  "InsertDate": "2025-01-19T11:34:00Z",
+  "LastUpdateDate": "2025-01-19T11:34:00Z",
+  "Level": "high",
+  "Name": "HackTool - CrackMapExec File Indicators",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like 'c:\\windows\\temp\\%' and ((filepath re '\\\\[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\.txt$' and filepath re '\\\\[a-zA-Z]{8}\\.tmp$') or (filepath like '%\\temp.ps1' or filepath like '%\\msol.ps1')))",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.001"
+  ],
+  "Version": "0.1"
+}

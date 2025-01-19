@@ -1,0 +1,14 @@
+{
+  "Description": "Identifies when a new cloudshell is created inside of Azure portal.\n\nAuthor: Austin Songer\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "72af37e2-ec32-47dc-992b-bc288a2708cb",
+  "InsertDate": "2025-01-19T11:33:23Z",
+  "LastUpdateDate": "2025-01-19T11:33:23Z",
+  "Level": "medium",
+  "Name": "Azure New CloudShell Created",
+  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where operationname = 'microsoft.portal/consoles/write'",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

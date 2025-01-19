@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the execution of Windows binaries from within a WSL instance.\nThis could be used to masquerade parent-child relationships\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ed825c86-c009-4014-b413-b76003e33d35",
+  "InsertDate": "2025-01-19T11:35:58Z",
+  "LastUpdateDate": "2025-01-19T11:35:58Z",
+  "Level": "medium",
+  "Name": "Windows Binary Executed From WSL",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path re '[a-zA-Z]:\\\\' and current_directory like '%\\\\\\\\wsl.localhost%'",
+  "Tags": [
+    "attack.execution",
+    "attack.defense-evasion",
+    "attack.t1202"
+  ],
+  "Version": "0.1"
+}

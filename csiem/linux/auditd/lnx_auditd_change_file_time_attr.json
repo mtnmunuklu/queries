@@ -1,0 +1,14 @@
+{
+  "Description": "Detect file time attribute change to hide new or changes to existing files.\n\nAuthor: Igor Fits, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b3cec4e7-6901-4b0d-a02d-8ab2d8eb818b",
+  "InsertDate": "2025-01-19T11:33:30Z",
+  "LastUpdateDate": "2025-01-19T11:33:30Z",
+  "Level": "medium",
+  "Name": "File Time Attribute Change - Linux",
+  "Query": "sourcetype='linux-auditd' eql select * from _source_ where (type = 'execve' and log like '%touch%' and (log like '%-t%' or log like '%-acmr%' or log like '%-d%' or log like '%-r%'))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1070.006"
+  ],
+  "Version": "0.1"
+}

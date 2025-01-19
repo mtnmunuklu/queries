@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of csrutil to view the Configure System Integrity Protection (SIP) status. This technique is used in post-exploit scenarios.\n\n\nAuthor: Joseliyo Sanchez, @Joseliyo_Jstnk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "53821412-17b0-4147-ade0-14faae67d54b",
+  "InsertDate": "2025-01-19T11:33:37Z",
+  "LastUpdateDate": "2025-01-19T11:33:37Z",
+  "Level": "low",
+  "Name": "System Integrity Protection (SIP) Enumeration",
+  "Query": "sourcetype like 'macos-%' eql select * from _source_ where process_path like '%/csrutil' and command like '%status%'",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1518.001"
+  ],
+  "Version": "0.1"
+}

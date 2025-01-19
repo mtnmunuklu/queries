@@ -1,0 +1,13 @@
+{
+  "Description": "Detects when unauthorized access to app occurs.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6cc2b61b-d97e-42ef-a9dd-8aa8dc951657",
+  "InsertDate": "2025-01-19T11:33:29Z",
+  "LastUpdateDate": "2025-01-19T11:33:29Z",
+  "Level": "medium",
+  "Name": "Okta Unauthorized Access to App",
+  "Query": "sourcetype='okta-okta' eql select * from _source_ where displaymessage = 'user attempted unauthorized access to app'",
+  "Tags": [
+    "attack.impact"
+  ],
+  "Version": "0.1"
+}

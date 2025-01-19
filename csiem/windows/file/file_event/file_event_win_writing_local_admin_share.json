@@ -1,0 +1,14 @@
+{
+  "Description": "Aversaries may use to interact with a remote network share using Server Message Block (SMB).\nThis technique is used by post-exploitation frameworks.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4aafb0fa-bff5-4b9d-b99e-8093e659c65f",
+  "InsertDate": "2025-01-19T11:34:06Z",
+  "LastUpdateDate": "2025-01-19T11:34:06Z",
+  "Level": "medium",
+  "Name": "Writing Local Admin Share",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%\\\\\\\\127.0.0%' and filepath like '%\\admin$\\%')",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.t1546.002"
+  ],
+  "Version": "0.1"
+}

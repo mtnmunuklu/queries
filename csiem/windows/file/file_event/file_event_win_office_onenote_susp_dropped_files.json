@@ -1,0 +1,13 @@
+{
+  "Description": "Detects suspicious files created via the OneNote application. This could indicate a potential malicious \".one\"/\".onepkg\" file was executed as seen being used in malware activity in the wild\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fcc6d700-68d9-4241-9a1a-06874d621b06",
+  "InsertDate": "2025-01-19T11:34:02Z",
+  "LastUpdateDate": "2025-01-19T11:34:02Z",
+  "Level": "high",
+  "Name": "Suspicious File Created Via OneNote Application",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\onenote.exe' or process_path like '%\\onenotem.exe' or process_path like '%\\onenoteim.exe') and filepath like '%\\appdata\\local\\temp\\onenote\\%' and (filepath like '%.bat' or filepath like '%.chm' or filepath like '%.cmd' or filepath like '%.dll' or filepath like '%.exe' or filepath like '%.hta' or filepath like '%.htm' or filepath like '%.html' or filepath like '%.js' or filepath like '%.lnk' or filepath like '%.ps1' or filepath like '%.vbe' or filepath like '%.vbs' or filepath like '%.wsf')",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

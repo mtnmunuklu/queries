@@ -1,0 +1,13 @@
+{
+  "Description": "Detects execution of \"curl.exe\" with the \"file://\" protocol handler in order to read local files.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "aa6f6ea6-0676-40dd-b510-6e46f02d8867",
+  "InsertDate": "2025-01-19T11:34:35Z",
+  "LastUpdateDate": "2025-01-19T11:34:35Z",
+  "Level": "medium",
+  "Name": "Local File Read Using Curl.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\curl.exe' and original_file_name = 'curl.exe') and command like '%file:///%')",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

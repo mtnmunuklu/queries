@@ -1,0 +1,16 @@
+{
+  "Description": "Detects potential token impersonation and theft. Example, when using \"DuplicateToken(Ex)\" and \"ImpersonateLoggedOnUser\" with the \"LOGON32_LOGON_NEW_CREDENTIALS flag\".\n\nAuthor: Michaela Adams, Zach Mathis\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "02f7c9c1-1ae8-4c6a-8add-04693807f92f",
+  "InsertDate": "2025-01-19T11:33:45Z",
+  "LastUpdateDate": "2025-01-19T11:33:45Z",
+  "Level": "medium",
+  "Name": "Potential Access Token Abuse",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4624' and logontype = '9' and logonprocessname = 'advapi' and authenticationpackagename = 'negotiate' and impersonationlevel = '%%1833'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1134.001",
+    "stp.4u"
+  ],
+  "Version": "0.1"
+}

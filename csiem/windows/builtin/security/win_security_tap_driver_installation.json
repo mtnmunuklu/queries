@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the installation of a well-known TAP driver service. This could be a sign of potential preparation for data exfiltration using tunnelling techniques.\n\n\nAuthor: Daniil Yugoslavskiy, Ian Davis, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9c8afa4d-0022-48f0-9456-3712466f9701",
+  "InsertDate": "2025-01-19T11:33:50Z",
+  "LastUpdateDate": "2025-01-19T11:33:50Z",
+  "Level": "low",
+  "Name": "Tap Driver Installation - Security",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4697' and servicefilename like '%tap0901%'",
+  "Tags": [
+    "attack.exfiltration",
+    "attack.t1048"
+  ],
+  "Version": "0.1"
+}

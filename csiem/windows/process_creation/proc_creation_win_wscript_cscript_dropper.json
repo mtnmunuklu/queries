@@ -1,0 +1,15 @@
+{
+  "Description": "Detects wscript/cscript executions of scripts located in user directories\n\nAuthor: Margaritis Dimitrios (idea), Florian Roth (Nextron Systems), oscd.community, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "cea72823-df4d-4567-950c-0b579eaf0846",
+  "InsertDate": "2025-01-19T11:35:58Z",
+  "LastUpdateDate": "2025-01-19T11:35:58Z",
+  "Level": "medium",
+  "Name": "Potential Dropper Script Execution Via WScript/CScript",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\wscript.exe' or process_path like '%\\cscript.exe') and (command like '%:\\temp\\%' or command like '%:\\tmp\\%' or command like '%:\\users\\public\\%' or command like '%:\\windows\\temp\\%' or command like '%\\appdata\\local\\temp\\%') and (command like '%.js%' or command like '%.jse%' or command like '%.vba%' or command like '%.vbe%' or command like '%.vbs%' or command like '%.wsf%'))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.005",
+    "attack.t1059.007"
+  ],
+  "Version": "0.1"
+}

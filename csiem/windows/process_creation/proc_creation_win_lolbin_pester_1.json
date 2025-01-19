@@ -1,0 +1,16 @@
+{
+  "Description": "Detects code execution via Pester.bat (Pester - Powershell Modulte for testing)\n\nAuthor: Julia Fomina, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "59e938ff-0d6d-4dc3-b13f-36cc28734d4e",
+  "InsertDate": "2025-01-19T11:34:48Z",
+  "LastUpdateDate": "2025-01-19T11:34:48Z",
+  "Level": "medium",
+  "Name": "Execute Code with Pester.bat",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (command like '%pester%' and command like '%get-help%')) or ((process_path like '%\\cmd.exe' and (command like '%pester%' and command like '%;%')) and (command like '%help%' or command like '%\\?%')))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001",
+    "attack.defense-evasion",
+    "attack.t1216"
+  ],
+  "Version": "0.1"
+}

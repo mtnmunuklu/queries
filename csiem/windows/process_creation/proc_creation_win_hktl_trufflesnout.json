@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of TruffleSnout.exe an iterative AD discovery toolkit for offensive operators, situational awareness and targeted low noise enumeration.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "69ca006d-b9a9-47f5-80ff-ecd4d25d481a",
+  "InsertDate": "2025-01-19T11:34:44Z",
+  "LastUpdateDate": "2025-01-19T11:34:44Z",
+  "Level": "high",
+  "Name": "HackTool - TruffleSnout Execution",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where original_file_name = 'trufflesnout.exe' and process_path like '%\\trufflesnout.exe'",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1482"
+  ],
+  "Version": "0.1"
+}

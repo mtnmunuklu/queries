@@ -1,0 +1,13 @@
+{
+  "Description": "Detects potentially suspicious file downloads directly from IP addresses and stored in suspicious locations using Wget.exe\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "40aa399c-7b02-4715-8e5f-73572b493f33",
+  "InsertDate": "2025-01-19T11:35:51Z",
+  "LastUpdateDate": "2025-01-19T11:35:51Z",
+  "Level": "high",
+  "Name": "Suspicious File Download From IP Via Wget.EXE - Paths",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\wget.exe' and original_file_name = 'wget.exe') and command re '://[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' and command like '%http%' and (command re '\\s-O\\s' and command like '%--output-document%') and ((command like '%:\\perflogs\\%' or command like '%:\\temp\\%' or command like '%:\\users\\public\\%' or command like '%:\\windows\\help\\%' or command like '%:\\windows\\temp\\%' or command like '%\\temporary internet%') and (command like '%:\\users\\%' and command like '%\\favorites\\%') and (command like '%:\\users\\%' and command like '%\\favourites\\%') and (command like '%:\\users\\%' and command like '%\\contacts\\%') and (command like '%:\\users\\%' and command like '%\\pictures\\%')))",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

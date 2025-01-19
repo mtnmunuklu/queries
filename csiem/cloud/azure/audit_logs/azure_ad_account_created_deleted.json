@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when an account was created and deleted in a short period of time.\n\nAuthor: Mark Morowczynski '@markmorow', MikeDuddington, '@dudders1', Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6f583da0-3a90-4566-a4ed-83c09fe18bbf",
+  "InsertDate": "2025-01-19T11:33:23Z",
+  "LastUpdateDate": "2025-01-19T11:33:23Z",
+  "Level": "high",
+  "Name": "Account Created And Deleted Within A Close Time Frame",
+  "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where (properties.message = 'add user' or properties.message = 'delete user') and status = 'success'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1078"
+  ],
+  "Version": "0.1"
+}

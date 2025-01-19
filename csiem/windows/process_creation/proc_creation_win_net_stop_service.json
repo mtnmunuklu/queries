@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the stopping of a Windows service via the \"net\" utility.\n\nAuthor: Jakob Weinzettl, oscd.community, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "88872991-7445-4a22-90b2-a3adadb0e827",
+  "InsertDate": "2025-01-19T11:34:54Z",
+  "LastUpdateDate": "2025-01-19T11:34:54Z",
+  "Level": "low",
+  "Name": "Stop Windows Service Via Net.EXE",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((original_file_name = 'net.exe' or original_file_name = 'net1.exe') and (process_path like '%\\net.exe' or process_path like '%\\net1.exe')) and command like '% stop %')",
+  "Tags": [
+    "attack.impact",
+    "attack.t1489"
+  ],
+  "Version": "0.1"
+}

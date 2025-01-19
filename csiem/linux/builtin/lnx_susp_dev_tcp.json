@@ -1,0 +1,13 @@
+{
+  "Description": "Detects suspicious command with /dev/tcp\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6cc5fceb-9a71-4c23-aeeb-963abe0b279c",
+  "InsertDate": "2025-01-19T11:33:32Z",
+  "LastUpdateDate": "2025-01-19T11:33:32Z",
+  "Level": "medium",
+  "Name": "Suspicious Use of /dev/tcp",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where (log like '%cat \u003c/dev/tcp/%' or log like '%exec 3\u003c\u003e/dev/tcp/%' or log like '%echo \u003e/dev/tcp/%' or log like '%bash -i \u003e\u0026 /dev/tcp/%' or log like '%sh -i \u003e\u0026 /dev/udp/%' or log like '%0\u003c\u0026196;exec 196\u003c\u003e/dev/tcp/%' or log like '%exec 5\u003c\u003e/dev/tcp/%' or log like '%(sh)0\u003e/dev/tcp/%' or log like '%bash -c 'bash -i \u003e\u0026 /dev/tcp/%' or log like '%echo -e '#!/bin/bash\\nbash -i \u003e\u0026 /dev/tcp/%')",
+  "Tags": [
+    "attack.reconnaissance"
+  ],
+  "Version": "0.1"
+}

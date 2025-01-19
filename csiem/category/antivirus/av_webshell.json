@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a highly relevant Antivirus alert that reports a web shell.\nIt's highly recommended to tune this rule to the specific strings used by your anti virus solution by downloading a big WebShell repository from e.g. github and checking the matches.\nThis event must not be ignored just because the AV has blocked the malware but investigate, how it came there in the first place.\n\n\nAuthor: Florian Roth (Nextron Systems), Arnim Rupp\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fdf135a2-9241-4f96-a114-bb404948f736",
+  "InsertDate": "2025-01-19T11:33:20Z",
+  "LastUpdateDate": "2025-01-19T11:33:20Z",
+  "Level": "high",
+  "Name": "Antivirus Web Shell Detection",
+  "Query": "eql select * from _source_ where (signature like 'asp.%' or signature like 'iis/backdoor%' or signature like 'java/backdoor%' or signature like 'jsp.%' or signature like 'perl.%' or signature like 'php.%' or signature like 'troj/asp%' or signature like 'troj/jsp%' or signature like 'troj/php%' or signature like 'vbs/uxor%') and (signature like '%asp_%' or signature like '%asp:%' or signature like '%asp.agent%' or signature like '%asp/%' or signature like '%aspdoor%' or signature like '%aspxspy%' or signature like '%backdoor.asp%' or signature like '%backdoor.java%' or signature like '%backdoor.jsp%' or signature like '%backdoor.php%' or signature like '%backdoor.vbs%' or signature like '%backdoor/asp%' or signature like '%backdoor/java%' or signature like '%backdoor/jsp%' or signature like '%backdoor/php%' or signature like '%backdoor/vbs%' or signature like '%c99shell%' or signature like '%chopper%' or signature like '%filebrowser%' or signature like '%jsp_%' or signature like '%jsp:%' or signature like '%jsp.agent%' or signature like '%jsp/%' or signature like '%perl:%' or signature like '%perl/%' or signature like '%php_%' or signature like '%php:%' or signature like '%php.agent%' or signature like '%php/%' or signature like '%phpshell%' or signature like '%pshlspy%' or signature like '%sinochoper%' or signature like '%trojan.asp%' or signature like '%trojan.jsp%' or signature like '%trojan.php%' or signature like '%trojan.vbs%' or signature like '%vbs.agent%' or signature like '%vbs/agent%' or signature like '%webshell%')",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1505.003"
+  ],
+  "Version": "0.1"
+}

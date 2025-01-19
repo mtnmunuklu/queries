@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a non-browser process interacting with the Google API which could indicate the use of a covert C2 such as Google Sheet C2 (GC2-sheet)\n\n\nAuthor: Gavin Knapp\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7e9cf7b6-e827-11ed-a05b-0242ac120003",
+  "InsertDate": "2025-01-19T11:34:11Z",
+  "LastUpdateDate": "2025-01-19T11:34:11Z",
+  "Level": "medium",
+  "Name": "Suspicious Non-Browser Network Communication With Google API",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((dst_host like '%drive.googleapis.com%' or dst_host like '%oauth2.googleapis.com%' or dst_host like '%sheets.googleapis.com%' or dst_host like '%www.googleapis.com%') and  not (process_path = 'null' or process_path = '') and  not (process_path like '%\\maxthon.exe' or process_path like '%\\opera.exe' or process_path like '%\\seamonkey.exe' or process_path like '%\\outlook.exe' or ((process_path like '%:\\program files (x86)\\microsoft\\edgecore\\%' or process_path like '%:\\program files\\microsoft\\edgecore\\%') and (process_path like '%\\msedge.exe' or process_path like '%\\msedgewebview2.exe')) or process_path like '%\\safari.exe' or (process_path like '%:\\program files\\google\\chrome\\application\\chrome.exe' or process_path like '%:\\program files (x86)\\google\\chrome\\application\\chrome.exe') or (process_path like '%:\\program files (x86)\\microsoft\\edgewebview\\application\\%' and (process_path like '%:\\program files (x86)\\microsoft\\edge\\application\\msedge.exe' or process_path like '%:\\program files\\microsoft\\edge\\application\\msedge.exe' or process_path like '%\\windowsapps\\microsoftedge.exe')) or process_path like '%\\vivaldi.exe' or (process_path like '%:\\program files (x86)\\internet explorer\\iexplore.exe' or process_path like '%:\\program files\\internet explorer\\iexplore.exe') or process_path like '%\\whale.exe' or process_path like '%\\googleupdate.exe' or process_path like '%\\brave.exe' or (process_path like '%:\\program files\\google\\drive file stream\\%' and process_path like '%\\googledrivefs.exe') or (process_path like '%:\\program files\\mozilla firefox\\firefox.exe' or process_path like '%:\\program files (x86)\\mozilla firefox\\firefox.exe')))",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1102"
+  ],
+  "Version": "0.1"
+}

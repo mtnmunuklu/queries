@@ -1,0 +1,15 @@
+{
+  "Description": "Detects known hacktool execution based on image name.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Georg Lauenstein (sure[secure])\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a015e032-146d-4717-8944-7a1884122111",
+  "InsertDate": "2025-01-19T11:33:36Z",
+  "LastUpdateDate": "2025-01-19T11:33:36Z",
+  "Level": "high",
+  "Name": "Linux HackTool Execution",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where ((process_path like '%/joomscan' or process_path like '%/nikto' or process_path like '%/wpscan') or (process_path like '%/aircrack-ng' or process_path like '%/bloodhound-python' or process_path like '%/bpfdos' or process_path like '%/ebpfki' or process_path like '%/evil-winrm' or process_path like '%/hashcat' or process_path like '%/hoaxshell.py' or process_path like '%/hydra' or process_path like '%/john' or process_path like '%/ncrack' or process_path like '%/nxc-ubuntu-latest' or process_path like '%/pidhide' or process_path like '%/pspy32' or process_path like '%/pspy32s' or process_path like '%/pspy64' or process_path like '%/pspy64s' or process_path like '%/setoolkit' or process_path like '%/sqlmap' or process_path like '%/writeblocker') or process_path like '%/linpeas%' or (process_path like '%/crackmapexec' or process_path like '%/havoc' or process_path like '%/merlin-agent' or process_path like '%/merlinserver-linux-x64' or process_path like '%/msfconsole' or process_path like '%/msfvenom' or process_path like '%/ps-empire server' or process_path like '%/ps-empire' or process_path like '%/sliver-client' or process_path like '%/sliver-server' or process_path like '%/villain.py') or (process_path like '%/cobaltstrike%' or process_path like '%/teamserver%') or (process_path like '%/autorecon' or process_path like '%/httpx' or process_path like '%/legion' or process_path like '%/naabu' or process_path like '%/netdiscover' or process_path like '%/nuclei' or process_path like '%/recon-ng') or process_path like '%/sniper%' or (process_path like '%/dirb' or process_path like '%/dirbuster' or process_path like '%/eyewitness' or process_path like '%/feroxbuster' or process_path like '%/ffuf' or process_path like '%/gobuster' or process_path like '%/wfuzz' or process_path like '%/whatweb'))",
+  "Tags": [
+    "attack.execution",
+    "attack.resource-development",
+    "attack.t1587"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects remote PowerShell sections by monitoring for wsmprovhost (WinRM host process) as a parent or child process (sign of an active PowerShell remote session).\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "734f8d9b-42b8-41b2-bcf5-abaf49d5a3c8",
+  "InsertDate": "2025-01-19T11:35:54Z",
+  "LastUpdateDate": "2025-01-19T11:35:54Z",
+  "Level": "medium",
+  "Name": "Remote PowerShell Session Host Process (WinRM)",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\wsmprovhost.exe' and parent_process_path like '%\\wsmprovhost.exe'",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001",
+    "attack.t1021.006"
+  ],
+  "Version": "0.1"
+}

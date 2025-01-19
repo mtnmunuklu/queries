@@ -1,0 +1,17 @@
+{
+  "Description": "Detects attempts to enable the root account via \"dsenableroot\"\n\nAuthor: Sohan G (D4rkCiph3r)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "821bcf4d-46c7-4b87-bc57-9509d3ba7c11",
+  "InsertDate": "2025-01-19T11:33:37Z",
+  "LastUpdateDate": "2025-01-19T11:33:37Z",
+  "Level": "medium",
+  "Name": "Root Account Enable Via Dsenableroot",
+  "Query": "sourcetype like 'macos-%' eql select * from _source_ where (process_path like '%/dsenableroot' and  not command like '% -d %')",
+  "Tags": [
+    "attack.t1078",
+    "attack.t1078.001",
+    "attack.t1078.003",
+    "attack.initial-access",
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

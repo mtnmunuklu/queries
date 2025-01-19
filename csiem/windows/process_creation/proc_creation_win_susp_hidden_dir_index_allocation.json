@@ -1,0 +1,14 @@
+{
+  "Description": "Detects command line containing reference to the \"::$index_allocation\" stream, which can be used as a technique to prevent access to folders or files from tooling such as \"explorer.exe\" or \"powershell.exe\"\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Scoubi (@ScoubiMtl)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0900463c-b33b-49a8-be1d-552a3b553dae",
+  "InsertDate": "2025-01-19T11:35:33Z",
+  "LastUpdateDate": "2025-01-19T11:35:33Z",
+  "Level": "medium",
+  "Name": "Potential Hidden Directory Creation Via NTFS INDEX_ALLOCATION Stream - CLI",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where command like '%::$index_allocation%'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1564.004"
+  ],
+  "Version": "0.1"
+}

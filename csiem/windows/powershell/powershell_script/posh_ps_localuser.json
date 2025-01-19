@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may manipulate accounts to maintain access to victim systems.\nAccount manipulation may consist of any action that preserves adversary access to a compromised account, such as modifying credentials or permission groups\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4fdc44df-bfe9-4fcc-b041-68f5a2d3031c",
+  "InsertDate": "2025-01-19T11:34:20Z",
+  "LastUpdateDate": "2025-01-19T11:34:20Z",
+  "Level": "medium",
+  "Name": "Powershell LocalAccount Manipulation",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%disable-localuser%' or scriptblocktext like '%enable-localuser%' or scriptblocktext like '%get-localuser%' or scriptblocktext like '%set-localuser%' or scriptblocktext like '%new-localuser%' or scriptblocktext like '%rename-localuser%' or scriptblocktext like '%remove-localuser%')",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1098"
+  ],
+  "Version": "0.1"
+}

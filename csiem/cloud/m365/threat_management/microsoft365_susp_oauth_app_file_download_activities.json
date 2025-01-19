@@ -1,0 +1,13 @@
+{
+  "Description": "Detects when a Microsoft Cloud App Security reported when an app downloads multiple files from Microsoft SharePoint or Microsoft OneDrive in a manner that is unusual for the user.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ee111937-1fe7-40f0-962a-0eb44d57d174",
+  "InsertDate": "2025-01-19T11:33:28Z",
+  "LastUpdateDate": "2025-01-19T11:33:28Z",
+  "Level": "medium",
+  "Name": "Suspicious OAuth App File Download Activities",
+  "Query": "sourcetype='m365-threat_management' eql select * from _source_ where eventsource = 'securitycompliancecenter' and eventname = 'suspicious oauth app file download activities' and status = 'success'",
+  "Tags": [
+    "attack.exfiltration"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects SILENTTRINITY stager dll loading activity\n\nAuthor: Aleksey Potapov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "75c505b1-711d-4f68-a357-8c3fe37dbf2d",
+  "InsertDate": "2025-01-19T11:34:07Z",
+  "LastUpdateDate": "2025-01-19T11:34:07Z",
+  "Level": "high",
+  "Name": "HackTool - SILENTTRINITY Stager DLL Load",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where description like '%st2stager%'",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1071"
+  ],
+  "Version": "0.1"
+}

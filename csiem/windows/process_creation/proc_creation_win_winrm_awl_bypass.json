@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of attacker-controlled WsmPty.xsl or WsmTxt.xsl via winrm.vbs and copied cscript.exe (can be renamed)\n\nAuthor: Julia Fomina, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "074e0ded-6ced-4ebd-8b4d-53f55908119d",
+  "InsertDate": "2025-01-19T11:35:54Z",
+  "LastUpdateDate": "2025-01-19T11:35:54Z",
+  "Level": "medium",
+  "Name": "AWL Bypass with Winrm.vbs and Malicious WsmPty.xsl/WsmTxt.xsl",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%winrm%' and ((command like '%format:pretty%' or command like '%format:\"pretty\"%' or command like '%format:\"text\"%' or command like '%format:text%') and  not (process_path like 'c:\\windows\\system32\\%' or process_path like 'c:\\windows\\syswow64\\%')))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1216"
+  ],
+  "Version": "0.1"
+}

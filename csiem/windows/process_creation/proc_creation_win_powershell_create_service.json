@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the creation of a new service using powershell.\n\nAuthor: Timur Zinniatullin, Daniil Yugoslavskiy, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c02e96b7-c63a-4c47-bd83-4a9f74afcfb2",
+  "InsertDate": "2025-01-19T11:34:59Z",
+  "LastUpdateDate": "2025-01-19T11:34:59Z",
+  "Level": "low",
+  "Name": "New Service Creation Using PowerShell",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%new-service%' and command like '%-binarypathname%')",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1543.003"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects default PsExec service filename which indicates PsExec service installation and execution\n\nAuthor: Thomas Patzke\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "259e5a6a-b8d2-4c38-86e2-26c5e651361d",
+  "InsertDate": "2025-01-19T11:34:05Z",
+  "LastUpdateDate": "2025-01-19T11:34:05Z",
+  "Level": "low",
+  "Name": "PsExec Service File Creation",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where filepath like '%\\psexesvc.exe'",
+  "Tags": [
+    "attack.execution",
+    "attack.t1569.002",
+    "attack.s0029"
+  ],
+  "Version": "0.1"
+}

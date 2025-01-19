@@ -1,0 +1,14 @@
+{
+  "Description": "Detects manual execution of the \"Microsoft Compatibility Appraiser\" task via schtasks.\nIn order to trigger persistence stored in the \"\\AppCompatFlags\\TelemetryController\" registry key.\n\n\nAuthor: Sreeman\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f548a603-c9f2-4c89-b511-b089f7e94549",
+  "InsertDate": "2025-01-19T11:35:26Z",
+  "LastUpdateDate": "2025-01-19T11:35:26Z",
+  "Level": "medium",
+  "Name": "Potential Persistence Via Microsoft Compatibility Appraiser",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\schtasks.exe' and original_file_name = 'schtasks.exe') and (command like '%run %' and command like '%\\application experience\\microsoft compatibility appraiser%'))",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1053.005"
+  ],
+  "Version": "0.1"
+}

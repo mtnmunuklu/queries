@@ -1,0 +1,14 @@
+{
+  "Description": "Detects child processes of the \"Trace log generation tool for Media Foundation Tools\" (Mftrace.exe) which can abused to execute arbitrary binaries.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3d48c9d3-1aa6-418d-98d3-8fd3c01a564e",
+  "InsertDate": "2025-01-19T11:34:50Z",
+  "LastUpdateDate": "2025-01-19T11:34:50Z",
+  "Level": "medium",
+  "Name": "Potential Mftrace.EXE Abuse",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where parent_process_path like '%\\mftrace.exe'",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1127"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Conti recommendation to its affiliates to use esentutl to access NTDS dumped file. Trickbot also uses this utilities to get MSEdge info via its module pwgrab.\n\nAuthor: sam0x90\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7df1713a-1a5b-4a4b-a071-dc83b144a101",
+  "InsertDate": "2025-01-19T11:34:37Z",
+  "LastUpdateDate": "2025-01-19T11:34:37Z",
+  "Level": "medium",
+  "Name": "Esentutl Gather Credentials",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%esentutl%' and command like '% /p%')",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003",
+    "attack.t1003.003"
+  ],
+  "Version": "0.1"
+}

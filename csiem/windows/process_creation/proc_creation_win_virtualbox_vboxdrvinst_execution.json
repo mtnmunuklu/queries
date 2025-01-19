@@ -1,0 +1,14 @@
+{
+  "Description": "Detect VBoxDrvInst.exe run with parameters allowing processing INF file.\nThis allows to create values in the registry and install drivers.\nFor example one could use this technique to obtain persistence via modifying one of Run or RunOnce registry keys\n\n\nAuthor: Konstantin Grishchenko, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b7b19cb6-9b32-4fc4-a108-73f19acfe262",
+  "InsertDate": "2025-01-19T11:35:48Z",
+  "LastUpdateDate": "2025-01-19T11:35:48Z",
+  "Level": "medium",
+  "Name": "Suspicious VBoxDrvInst.exe Parameters",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\vboxdrvinst.exe' and (command like '%driver%' and command like '%executeinf%')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1112"
+  ],
+  "Version": "0.1"
+}

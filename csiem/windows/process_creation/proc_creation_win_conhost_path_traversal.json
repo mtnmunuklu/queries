@@ -1,0 +1,14 @@
+{
+  "Description": "detects the usage of path traversal in conhost.exe indicating possible command/argument confusion/hijacking\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ee5e119b-1f75-4b34-add8-3be976961e39",
+  "InsertDate": "2025-01-19T11:34:34Z",
+  "LastUpdateDate": "2025-01-19T11:34:34Z",
+  "Level": "high",
+  "Name": "Conhost.exe CommandLine Path Traversal",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where parent_command_line like '%conhost%' and command like '%/../../%'",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.003"
+  ],
+  "Version": "0.1"
+}

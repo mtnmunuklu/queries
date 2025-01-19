@@ -1,0 +1,14 @@
+{
+  "Description": "Detects process dump via legitimate sqldumper.exe binary\n\nAuthor: Kirill Kiryanov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "23ceaf5c-b6f1-4a32-8559-f2ff734be516",
+  "InsertDate": "2025-01-19T11:34:49Z",
+  "LastUpdateDate": "2025-01-19T11:34:49Z",
+  "Level": "medium",
+  "Name": "Dumping Process via Sqldumper.exe",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\sqldumper.exe' and (command like '%0x0110%' or command like '%0x01100:40%')",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.001"
+  ],
+  "Version": "0.1"
+}

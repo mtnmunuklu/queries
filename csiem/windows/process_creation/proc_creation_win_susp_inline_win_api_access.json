@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of WinAPI Functions via the commandline. As seen used by threat actors via the tool winapiexec\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ba3f5c1b-6272-4119-9dbd-0bc8d21c2702",
+  "InsertDate": "2025-01-19T11:35:33Z",
+  "LastUpdateDate": "2025-01-19T11:35:33Z",
+  "Level": "high",
+  "Name": "Potential WinAPI Calls Via CommandLine",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%addsecuritypackage%' or command like '%adjusttokenprivileges%' or command like '%advapi32%' or command like '%closehandle%' or command like '%createprocesswithtoken%' or command like '%createpseudoconsole%' or command like '%createremotethread%' or command like '%createthread%' or command like '%createuserthread%' or command like '%dangerousgethandle%' or command like '%duplicatetokenex%' or command like '%enumeratesecuritypackages%' or command like '%freehglobal%' or command like '%freelibrary%' or command like '%getdelegateforfunctionpointer%' or command like '%getlogonsessiondata%' or command like '%getmodulehandle%' or command like '%getprocaddress%' or command like '%getprocesshandle%' or command like '%gettokeninformation%' or command like '%impersonateloggedonuser%' or command like '%kernel32%' or command like '%loadlibrary%' or command like '%memcpy%' or command like '%minidumpwritedump%' or command like '%ntdll%' or command like '%opendesktop%' or command like '%openprocess%' or command like '%openprocesstoken%' or command like '%openthreadtoken%' or command like '%openwindowstation%' or command like '%ptrtostring%' or command like '%queueuserapc%' or command like '%readprocessmemory%' or command like '%reverttoself%' or command like '%rtlcreateuserthread%' or command like '%secur32%' or command like '%setthreadtoken%' or command like '%virtualalloc%' or command like '%virtualfree%' or command like '%virtualprotect%' or command like '%waitforsingleobject%' or command like '%writeint32%' or command like '%writeprocessmemory%' or command like '%zerofreeglobalallocunicode%') and  not (process_path like '%\\mpcmdrun.exe' and command like '%getloadlibrarywaddress32%'))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1106"
+  ],
+  "Version": "0.1"
+}
