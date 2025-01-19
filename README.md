@@ -2,6 +2,15 @@
 
 This repository serves as a storage and management hub for CSIEM (Cognitive SIEM) queries. The goal is to provide a well-organized collection of queries that can be used to enhance security operations and incident detection.
 
+## Table of Contents
+
+- [What’s New](#whats-new)
+- [Features](#features)
+- [How to Use](#how-to-use)
+- [Acknowledgements](#acknowledgements)
+- [Contributing](#contributing)
+- [License](#license)
+
 ## What’s New
 
 Currently, this repository includes Sigma rules converted into CSIEM query language. The conversion is done using [Alterix](https://github.com/mtnmunuklu/alterix), a tool designed to translate Sigma rules into a format compatible with CSIEM. This transformation aims to streamline the integration of Sigma rules into the CSIEM platform, enabling efficient querying and analysis.
