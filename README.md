@@ -28,8 +28,6 @@ Contributions to Queries are welcome and encouraged! Please read the [contributi
 
 ## Acknowledgements
 
-## Acknowledgements
-
 We would like to extend our gratitude to the creators and contributors of [Sigma](https://github.com/Neo23x0/sigma) for their work in developing a powerful and flexible format for representing detection rules. 
 
 Additionally, we have included the names of the original authors of all converted Sigma rules in the `description` field of the corresponding CSIEM queries, ensuring proper credit is given for their contributions to the community.
