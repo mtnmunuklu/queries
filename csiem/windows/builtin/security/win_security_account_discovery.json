@@ -1,8 +1,8 @@
 {
   "Description": "Detect priv users or groups recon based on 4661 eventid and known privileged users or groups SIDs\n\nAuthor: Samir Bousseaden\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "35ba1d85-724d-42a3-889f-2e2362bcaf23",
-  "InsertDate": "2025-01-19T11:33:46Z",
-  "LastUpdateDate": "2025-01-19T11:33:46Z",
+  "InsertDate": "2025-01-21T09:27:29Z",
+  "LastUpdateDate": "2025-01-21T09:27:29Z",
   "Level": "high",
   "Name": "AD Privileged Users or Groups Reconnaissance",
   "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '4661' and (objecttype = 'sam_user' or objecttype = 'sam_group')) and ((objectname like '%-512' or objectname like '%-502' or objectname like '%-500' or objectname like '%-505' or objectname like '%-519' or objectname like '%-520' or objectname like '%-544' or objectname like '%-551' or objectname like '%-555') and objectname like '%admin%') and  not subjectusername like '%$')",

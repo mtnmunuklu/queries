@@ -1,8 +1,8 @@
 {
   "Description": "Detects suspicious powershell process starts with base64 encoded commands (e.g. Emotet)\n\nAuthor: Florian Roth (Nextron Systems), Markus Neis, Jonhnathan Ribeiro, Daniil Yugoslavskiy, Anton Kutepov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ca2092a1-c273-4878-9b4b-0d60115bf5ea",
-  "InsertDate": "2025-01-19T11:34:58Z",
-  "LastUpdateDate": "2025-01-19T11:34:58Z",
+  "InsertDate": "2025-01-21T09:28:48Z",
+  "LastUpdateDate": "2025-01-21T09:28:48Z",
   "Level": "high",
   "Name": "Suspicious Encoded PowerShell Command Line",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll')) and ((command like '% -e%' and (command like '% jab%' or command like '% suvyi%' or command like '% sqbfafga%' or command like '% aqblahga%' or command like '% awv4i%' or command like '% iaa%' or command like '% iab%' or command like '% uwb%' or command like '% cwb%')) or (command like '%.exe -encod %' or command like '% ba^j e-%')) and  not command like '% -executionpolicy remotesigned %')",

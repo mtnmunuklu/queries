@@ -1,8 +1,8 @@
 {
   "Description": "Detects the creation of a new PowerShell module in the first folder of the module directory structure \"\\WindowsPowerShell\\Modules\\malware\\malware.psm1\". This is somewhat an uncommon practice as legitimate modules often includes a version folder.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e8a52bbd-bced-459f-bd93-64db45ce7657",
-  "InsertDate": "2025-01-19T11:34:02Z",
-  "LastUpdateDate": "2025-01-19T11:34:02Z",
+  "InsertDate": "2025-01-21T09:27:45Z",
+  "LastUpdateDate": "2025-01-21T09:27:45Z",
   "Level": "medium",
   "Name": "Potential Suspicious PowerShell Module File Created",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%\\\\windowspowershell\\\\modules\\\\*\\.ps' or filepath like '%\\\\windowspowershell\\\\modules\\\\*\\.dll')",

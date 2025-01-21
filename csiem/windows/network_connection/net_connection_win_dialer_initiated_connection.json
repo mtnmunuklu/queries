@@ -1,8 +1,8 @@
 {
   "Description": "Detects outbound network connection initiated by Microsoft Dialer.\nThe Microsoft Dialer, also known as Phone Dialer, is a built-in utility application included in various versions of the Microsoft Windows operating system. Its primary function is to provide users with a graphical interface for managing phone calls via a modem or a phone line connected to the computer.\nThis is an outdated process in the current conext of it's usage and is a common target for info stealers for process injection, and is used to make C2 connections, common example is \"Rhadamanthys\"\n\n\nAuthor: CertainlyP\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "37e4024a-6c80-4d8f-b95d-2e7e94f3a8d1",
-  "InsertDate": "2025-01-19T11:34:11Z",
-  "LastUpdateDate": "2025-01-19T11:34:11Z",
+  "InsertDate": "2025-01-21T09:27:54Z",
+  "LastUpdateDate": "2025-01-21T09:27:54Z",
   "Level": "high",
   "Name": "Outbound Network Connection Initiated By Microsoft Dialer",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%:\\windows\\system32\\dialer.exe' and initiated = 'true') and  not (dst_ip cidr '127.0.0.0/8' or dst_ip cidr '10.0.0.0/8' or dst_ip cidr '172.16.0.0/12' or dst_ip cidr '192.168.0.0/16' or dst_ip cidr '169.254.0.0/16' or dst_ip cidr '::1/128' or dst_ip cidr 'fe80::/10' or dst_ip cidr 'fc00::/7'))",

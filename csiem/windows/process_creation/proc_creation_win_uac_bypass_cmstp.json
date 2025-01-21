@@ -1,8 +1,8 @@
 {
   "Description": "Detect commandline usage of Microsoft Connection Manager Profile Installer (cmstp.exe) to install specially formatted local .INF files\n\nAuthor: E.M. Anhaus (originally from Atomic Blue Detections, Endgame), oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e66779cc-383e-4224-a3a4-267eeb585c40",
-  "InsertDate": "2025-01-19T11:35:44Z",
-  "LastUpdateDate": "2025-01-19T11:35:44Z",
+  "InsertDate": "2025-01-21T09:30:41Z",
+  "LastUpdateDate": "2025-01-21T09:30:41Z",
   "Level": "high",
   "Name": "Bypass UAC via CMSTP",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\cmstp.exe' and original_file_name = 'cmstp.exe') and (command like '%/s%' or command like '%-s%' or command like '%/au%' or command like '%-au%' or command like '%/ni%' or command like '%-ni%'))",

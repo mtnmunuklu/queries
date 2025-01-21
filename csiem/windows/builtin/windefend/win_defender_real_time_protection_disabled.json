@@ -1,8 +1,8 @@
 {
   "Description": "Detects disabling of Windows Defender Real-time Protection. As this event doesn't contain a lot of information on who initiated this action you might want to reduce it to a \"medium\" level if this occurs too many times in your environment\n\n\nAuthor: Ján Trenčanský, frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b28e58e4-2a72-4fae-bdee-0fbe904db642",
-  "InsertDate": "2025-01-19T11:33:55Z",
-  "LastUpdateDate": "2025-01-19T11:33:55Z",
+  "InsertDate": "2025-01-21T09:27:38Z",
+  "LastUpdateDate": "2025-01-21T09:27:38Z",
   "Level": "high",
   "Name": "Windows Defender Real-time Protection Disabled",
   "Query": "sourcetype='windows-windefend' eql select * from _source_ where eventid = '5001'",

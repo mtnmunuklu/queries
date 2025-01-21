@@ -1,11 +1,11 @@
 {
   "Description": "Detects a core dump of a crashing Nginx worker process, which could be a signal of a serious problem or exploitation attempts.\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "59ec40bb-322e-40ab-808d-84fa690d7e56",
-  "InsertDate": "2025-01-19T11:33:41Z",
-  "LastUpdateDate": "2025-01-19T11:33:41Z",
+  "InsertDate": "2025-01-21T09:27:23Z",
+  "LastUpdateDate": "2025-01-21T09:27:23Z",
   "Level": "high",
   "Name": "Nginx Core Dump",
-  "Query": "eql select * from _source_ where log like '%exited on signal 6 (core dumped)%'",
+  "Query": "eql select * from _source_ where Query('exited on signal 6 (core dumped)')",
   "Tags": [
     "attack.impact",
     "attack.t1499.004"

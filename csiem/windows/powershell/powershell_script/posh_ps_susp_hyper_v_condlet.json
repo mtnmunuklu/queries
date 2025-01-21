@@ -1,8 +1,8 @@
 {
   "Description": "Adversaries may carry out malicious operations using a virtual instance to avoid detection\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "42d36aa1-3240-4db0-8257-e0118dcdd9cd",
-  "InsertDate": "2025-01-19T11:34:24Z",
-  "LastUpdateDate": "2025-01-19T11:34:24Z",
+  "InsertDate": "2025-01-21T09:28:10Z",
+  "LastUpdateDate": "2025-01-21T09:28:10Z",
   "Level": "medium",
   "Name": "Suspicious Hyper-V Cmdlets",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%new-vm%' or scriptblocktext like '%set-vmfirmware%' or scriptblocktext like '%start-vm%')",

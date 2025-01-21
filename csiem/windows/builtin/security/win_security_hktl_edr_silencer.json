@@ -1,8 +1,8 @@
 {
   "Description": "Detects execution of EDRSilencer, a tool that abuses the Windows Filtering Platform (WFP) to block the outbound traffic of running EDR agents based on specific hardcoded filter names.\n\n\nAuthor: Thodoris Polyzos (@SmoothDeploy)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "98054878-5eab-434c-85d4-72d4e5a3361b",
-  "InsertDate": "2025-01-19T11:33:47Z",
-  "LastUpdateDate": "2025-01-19T11:33:47Z",
+  "InsertDate": "2025-01-21T09:27:30Z",
+  "LastUpdateDate": "2025-01-21T09:27:30Z",
   "Level": "high",
   "Name": "HackTool - EDRSilencer Execution - Filter Added",
   "Query": "sourcetype='windows-security' eql select * from _source_ where (eventid = '5441' or eventid = '5447') and filtername like '%custom outbound filter%'",

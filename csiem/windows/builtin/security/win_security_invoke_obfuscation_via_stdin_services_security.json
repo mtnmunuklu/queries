@@ -1,8 +1,8 @@
 {
   "Description": "Detects Obfuscated Powershell via Stdin in Scripts\n\nAuthor: Nikita Nazarov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "80b708f3-d034-40e4-a6c8-d23b7a7db3d1",
-  "InsertDate": "2025-01-19T11:33:48Z",
-  "LastUpdateDate": "2025-01-19T11:33:48Z",
+  "InsertDate": "2025-01-21T09:27:30Z",
+  "LastUpdateDate": "2025-01-21T09:27:30Z",
   "Level": "high",
   "Name": "Invoke-Obfuscation Via Stdin - Security",
   "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4697' and (servicefilename like '%set%' and servicefilename like '%\u0026\u0026%') and (servicefilename like '%environment%' or servicefilename like '%invoke%' or servicefilename like '%${input)%')",

@@ -1,8 +1,8 @@
 {
   "Description": "Indicates sign-in from a malicious IP address known to be malicious at time of sign-in.\n\nAuthor: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "36440e1c-5c22-467a-889b-593e66498472",
-  "InsertDate": "2025-01-19T11:33:25Z",
-  "LastUpdateDate": "2025-01-19T11:33:25Z",
+  "InsertDate": "2025-01-21T09:27:05Z",
+  "LastUpdateDate": "2025-01-21T09:27:05Z",
   "Level": "high",
   "Name": "Malicious IP Address Sign-In Suspicious",
   "Query": "sourcetype='azure-riskdetection' eql select * from _source_ where riskeventtype = 'suspiciousipaddress'",

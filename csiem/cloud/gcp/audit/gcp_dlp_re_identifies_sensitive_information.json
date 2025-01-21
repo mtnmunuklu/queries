@@ -1,8 +1,8 @@
 {
   "Description": "Identifies when sensitive information is re-identified in google Cloud.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "234f9f48-904b-4736-a34c-55d23919e4b7",
-  "InsertDate": "2025-01-19T11:33:27Z",
-  "LastUpdateDate": "2025-01-19T11:33:27Z",
+  "InsertDate": "2025-01-21T09:27:07Z",
+  "LastUpdateDate": "2025-01-21T09:27:07Z",
   "Level": "medium",
   "Name": "Google Cloud Re-identifies Sensitive Information",
   "Query": "sourcetype='gcp-gcp.audit' eql select * from _source_ where gcp.audit.method_name = 'projects.content.reidentify'",

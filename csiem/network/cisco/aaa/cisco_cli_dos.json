@@ -1,11 +1,11 @@
 {
   "Description": "Detect a system being shutdown or put into different boot mode\n\nAuthor: Austin Clark\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d94a35f0-7a29-45f6-90a0-80df6159967c",
-  "InsertDate": "2025-01-19T11:33:39Z",
-  "LastUpdateDate": "2025-01-19T11:33:39Z",
+  "InsertDate": "2025-01-21T09:27:22Z",
+  "LastUpdateDate": "2025-01-21T09:27:22Z",
   "Level": "medium",
   "Name": "Cisco Denial of Service",
-  "Query": "sourcetype='cisco-aaa' eql select * from _source_ where (log like '%shutdown%' or log like '%config-register 0x2100%' or log like '%config-register 0x2142%')",
+  "Query": "sourcetype='cisco-aaa' eql select * from _source_ where Query('shutdown OR config-register 0x2100 OR config-register 0x2142')",
   "Tags": [
     "attack.impact",
     "attack.t1495",

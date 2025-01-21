@@ -1,8 +1,8 @@
 {
   "Description": "Detects image load events with revoked certificates by code integrity.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "881b7725-47cc-4055-8000-425823344c59",
-  "InsertDate": "2025-01-19T11:33:44Z",
-  "LastUpdateDate": "2025-01-19T11:33:44Z",
+  "InsertDate": "2025-01-21T09:27:26Z",
+  "LastUpdateDate": "2025-01-21T09:27:26Z",
   "Level": "high",
   "Name": "CodeIntegrity - Revoked Image Loaded",
   "Query": "sourcetype='windows-codeintegrity-operational' eql select * from _source_ where (eventid = '3032' or eventid = '3035')",

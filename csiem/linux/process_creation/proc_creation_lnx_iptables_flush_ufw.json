@@ -1,11 +1,11 @@
 {
   "Description": "Detect use of iptables to flush all firewall rules, tables and chains and allow all network traffic\n\nAuthor: Joseliyo Sanchez, @Joseliyo_Jstnk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "3be619f4-d9ec-4ea8-a173-18fdd01996ab",
-  "InsertDate": "2025-01-19T11:33:34Z",
-  "LastUpdateDate": "2025-01-19T11:33:34Z",
+  "InsertDate": "2025-01-21T09:27:16Z",
+  "LastUpdateDate": "2025-01-21T09:27:16Z",
   "Level": "medium",
   "Name": "Flush Iptables Ufw Chain",
-  "Query": "sourcetype like 'linux-%' eql select * from _source_ where ((process_path like '%/iptables' or process_path like '%/xtables-legacy-multi' or process_path like '%/iptables-legacy-multi' or process_path like '%/ip6tables' or process_path like '%/ip6tables-legacy-multi') and (command like '%-f%' or command like '%-z%' or command like '%-x%') and (command like '%ufw-logging-deny%' or command like '%ufw-logging-allow%' or command like '%ufw6-logging-deny%' or command like '%ufw6-logging-allow%'))",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where ((command like '%-f%' or command like '%-z%' or command like '%-x%') and (command like '%ufw-logging-deny%' or command like '%ufw-logging-allow%' or command like '%ufw6-logging-deny%' or command like '%ufw6-logging-allow%') and (process_path like '%/iptables' or process_path like '%/xtables-legacy-multi' or process_path like '%/iptables-legacy-multi' or process_path like '%/ip6tables' or process_path like '%/ip6tables-legacy-multi'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1562.004"

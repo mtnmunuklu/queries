@@ -1,8 +1,8 @@
 {
   "Description": "Detects commandline operations on shell history files\n\nAuthor: Mikhail Larin, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "508a9374-ad52-4789-b568-fc358def2c65",
-  "InsertDate": "2025-01-19T11:33:38Z",
-  "LastUpdateDate": "2025-01-19T11:33:38Z",
+  "InsertDate": "2025-01-21T09:27:21Z",
+  "LastUpdateDate": "2025-01-21T09:27:21Z",
   "Level": "medium",
   "Name": "Suspicious History File Operations",
   "Query": "sourcetype like 'macos-%' eql select * from _source_ where (command like '%.bash_history%' or command like '%.zsh_history%' or command like '%.zhistory%' or command like '%.history%' or command like '%.sh_history%' or command like '%fish_history%')",

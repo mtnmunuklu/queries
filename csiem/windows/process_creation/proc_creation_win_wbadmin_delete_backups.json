@@ -1,11 +1,11 @@
 {
   "Description": "Detects the deletion of backups or system state backups via \"wbadmin.exe\".\nThis technique is used by numerous ransomware families and actors.\nThis may only be successful on server platforms that have Windows Backup enabled.\n\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "89f75308-5b1b-4390-b2d8-d6b2340efaf8",
-  "InsertDate": "2025-01-19T11:35:49Z",
-  "LastUpdateDate": "2025-01-19T11:35:49Z",
+  "InsertDate": "2025-01-21T09:30:49Z",
+  "LastUpdateDate": "2025-01-21T09:30:49Z",
   "Level": "medium",
   "Name": "Windows Backup Deleted Via Wbadmin.EXE",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\wbadmin.exe' and original_file_name = 'wbadmin.exe') and (command like '%delete %' and command like '%backup%')) and  not command like '%keepversions:0%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((command like '%delete %' and command like '%backup%') and (process_path like '%\\wbadmin.exe' and original_file_name = 'wbadmin.exe')) and  not command like '%keepversions:0%')",
   "Tags": [
     "attack.impact",
     "attack.t1490"

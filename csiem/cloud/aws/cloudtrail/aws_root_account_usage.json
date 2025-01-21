@@ -1,8 +1,8 @@
 {
   "Description": "Detects AWS root account usage\n\nAuthor: vitaliy0x1\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "8ad1600d-e9dc-4251-b0ee-a65268f29add",
-  "InsertDate": "2025-01-19T11:33:21Z",
-  "LastUpdateDate": "2025-01-19T11:33:21Z",
+  "InsertDate": "2025-01-21T09:27:01Z",
+  "LastUpdateDate": "2025-01-21T09:27:01Z",
   "Level": "medium",
   "Name": "AWS Root Credentials",
   "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where (useridentity.type = 'root' and  not eventtype = 'awsserviceevent')",

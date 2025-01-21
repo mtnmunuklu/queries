@@ -1,8 +1,8 @@
 {
   "Description": "Detects uncommon child processes of the Add-In deployment cache updating utility (AddInutil.exe) which could be a sign of potential abuse of the binary to proxy execution via a custom Addins.Store payload.\n\n\nAuthor: Michael McKinley (@McKinleyMike), Tony Latteri (@TheLatteri)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b5746143-59d6-4603-8d06-acbd60e166ee",
-  "InsertDate": "2025-01-19T11:34:29Z",
-  "LastUpdateDate": "2025-01-19T11:34:29Z",
+  "InsertDate": "2025-01-21T09:28:15Z",
+  "LastUpdateDate": "2025-01-21T09:28:15Z",
   "Level": "medium",
   "Name": "Uncommon Child Process Of AddinUtil.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\addinutil.exe' and  not (process_path like '%:\\windows\\system32\\conhost.exe' or process_path like '%:\\windows\\system32\\werfault.exe' or process_path like '%:\\windows\\syswow64\\werfault.exe'))",

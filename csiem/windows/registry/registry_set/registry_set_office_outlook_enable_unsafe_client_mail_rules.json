@@ -1,8 +1,8 @@
 {
   "Description": "Detects an attacker trying to enable the outlook security setting \"EnableUnsafeClientMailRules\" which allows outlook to run applications or execute macros\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6763c6c8-bd01-4687-bc8d-4fa52cf8ba08",
-  "InsertDate": "2025-01-19T11:36:16Z",
-  "LastUpdateDate": "2025-01-19T11:36:16Z",
+  "InsertDate": "2025-01-21T09:31:44Z",
+  "LastUpdateDate": "2025-01-21T09:31:44Z",
   "Level": "high",
   "Name": "Outlook EnableUnsafeClientMailRules Setting Enabled - Registry",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where target_object like '%\\outlook\\security\\enableunsafeclientmailrules' and details = 'dword (0x00000001)'",

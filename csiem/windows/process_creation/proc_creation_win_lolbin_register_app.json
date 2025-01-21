@@ -1,8 +1,8 @@
 {
   "Description": "Detects the use of a Microsoft signed script 'REGISTER_APP.VBS' to register a VSS/VDS Provider as a COM+ application.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1c8774a0-44d4-4db0-91f8-e792359c70bd",
-  "InsertDate": "2025-01-19T11:34:48Z",
-  "LastUpdateDate": "2025-01-19T11:34:48Z",
+  "InsertDate": "2025-01-21T09:28:37Z",
+  "LastUpdateDate": "2025-01-21T09:28:37Z",
   "Level": "medium",
   "Name": "REGISTER_APP.VBS Proxy Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%\\register_app.vbs%' and command like '%-register%')",

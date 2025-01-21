@@ -1,8 +1,8 @@
 {
   "Description": "Detects instances where a REDIS service on an OpenCanary node has had an action command attempted.\n\nAuthor: Security Onion Solutions\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "547dfc53-ebf6-4afe-8d2e-793d9574975d",
-  "InsertDate": "2025-01-19T11:33:18Z",
-  "LastUpdateDate": "2025-01-19T11:33:18Z",
+  "InsertDate": "2025-01-21T09:26:59Z",
+  "LastUpdateDate": "2025-01-21T09:26:59Z",
   "Level": "high",
   "Name": "OpenCanary - REDIS Action Command Attempt",
   "Query": "sourcetype like 'opencanary-%' eql select * from _source_ where logtype = '17001'",

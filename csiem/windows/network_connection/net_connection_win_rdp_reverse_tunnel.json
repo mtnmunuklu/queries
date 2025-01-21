@@ -1,8 +1,8 @@
 {
   "Description": "Detects svchost hosting RDP termsvcs communicating with the loopback address and on TCP port 3389\n\nAuthor: Samir Bousseaden\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "5f699bc5-5446-4a4a-a0b7-5ef2885a3eb4",
-  "InsertDate": "2025-01-19T11:34:12Z",
-  "LastUpdateDate": "2025-01-19T11:34:12Z",
+  "InsertDate": "2025-01-21T09:27:55Z",
+  "LastUpdateDate": "2025-01-21T09:27:55Z",
   "Level": "high",
   "Name": "RDP Over Reverse SSH Tunnel",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\svchost.exe' and initiated = 'true' and src_port = '3389') and (dst_ip cidr '127.0.0.0/8' or dst_ip cidr '::1/128'))",

@@ -1,11 +1,11 @@
 {
   "Description": "Detects potential RDP connection via Mstsc using a local \".rdp\" file located in suspicious locations.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ff3b6b39-e765-42f9-bb2c-ea6761e0e0f6",
-  "InsertDate": "2025-01-19T11:34:54Z",
-  "LastUpdateDate": "2025-01-19T11:34:54Z",
+  "InsertDate": "2025-01-21T09:28:42Z",
+  "LastUpdateDate": "2025-01-21T09:28:42Z",
   "Level": "high",
   "Name": "Mstsc.EXE Execution From Uncommon Parent",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_process_path like '%\\brave.exe' or parent_process_path like '%\\ccleanerbrowser.exe' or parent_process_path like '%\\chrome.exe' or parent_process_path like '%\\chromium.exe' or parent_process_path like '%\\firefox.exe' or parent_process_path like '%\\iexplore.exe' or parent_process_path like '%\\microsoftedge.exe' or parent_process_path like '%\\msedge.exe' or parent_process_path like '%\\opera.exe' or parent_process_path like '%\\vivaldi.exe' or parent_process_path like '%\\whale.exe' or parent_process_path like '%\\outlook.exe') and (process_path like '%\\mstsc.exe' and original_file_name = 'mstsc.exe'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\mstsc.exe' and original_file_name = 'mstsc.exe') and (parent_process_path like '%\\brave.exe' or parent_process_path like '%\\ccleanerbrowser.exe' or parent_process_path like '%\\chrome.exe' or parent_process_path like '%\\chromium.exe' or parent_process_path like '%\\firefox.exe' or parent_process_path like '%\\iexplore.exe' or parent_process_path like '%\\microsoftedge.exe' or parent_process_path like '%\\msedge.exe' or parent_process_path like '%\\opera.exe' or parent_process_path like '%\\vivaldi.exe' or parent_process_path like '%\\whale.exe' or parent_process_path like '%\\outlook.exe'))",
   "Tags": [
     "attack.lateral-movement"
   ],

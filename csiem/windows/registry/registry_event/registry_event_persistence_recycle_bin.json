@@ -1,8 +1,8 @@
 {
   "Description": "Detects persistence registry keys for Recycle Bin\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "277efb8f-60be-4f10-b4d3-037802f37167",
-  "InsertDate": "2025-01-19T11:36:03Z",
-  "LastUpdateDate": "2025-01-19T11:36:03Z",
+  "InsertDate": "2025-01-21T09:31:15Z",
+  "LastUpdateDate": "2025-01-21T09:31:15Z",
   "Level": "high",
   "Name": "Registry Persistence Mechanisms in Recycle Bin",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((event_type = 'renamekey' and newname like '%\\clsid\\{645ff040-5081-101b-9f08-00aa002f954e}\\shell\\open%') or (event_type = 'setvalue' and target_object like '%\\clsid\\{645ff040-5081-101b-9f08-00aa002f954e}\\shell\\open\\command\\(default)%'))",

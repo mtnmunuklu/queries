@@ -1,8 +1,8 @@
 {
   "Description": "Detects an uncommon child process of \"odbcconf.exe\" binary which normally shouldn't have any child processes.\n\nAuthor: Harjot Singh @cyb3rjy0t\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "8e3c7994-131e-4ba5-b6ea-804d49113a26",
-  "InsertDate": "2025-01-19T11:34:56Z",
-  "LastUpdateDate": "2025-01-19T11:34:56Z",
+  "InsertDate": "2025-01-21T09:28:45Z",
+  "LastUpdateDate": "2025-01-21T09:28:45Z",
   "Level": "medium",
   "Name": "Uncommon Child Process Spawned By Odbcconf.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where parent_process_path like '%\\odbcconf.exe'",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects DCShadow via create new SPN\n\nAuthor: Ilyas Ochkov, oscd.community, Chakib Gzenayi (@Chak092), Hosni Mribah\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "32e19d25-4aed-4860-a55a-be99cb0bf7ed",
-  "InsertDate": "2025-01-19T11:33:49Z",
-  "LastUpdateDate": "2025-01-19T11:33:49Z",
+  "InsertDate": "2025-01-21T09:27:31Z",
+  "LastUpdateDate": "2025-01-21T09:27:31Z",
   "Level": "medium",
   "Name": "Possible DC Shadow Attack",
   "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '4742' and serviceprincipalnames like '%gc/%') or (eventid = '5136' and attributeldapdisplayname = 'serviceprincipalname' and attributevalue like 'gc/%'))",

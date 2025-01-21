@@ -1,8 +1,8 @@
 {
   "Description": "Detect use of X509Enrollment\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "114de787-4eb2-48cc-abdb-c0b449f93ea4",
-  "InsertDate": "2025-01-19T11:35:05Z",
-  "LastUpdateDate": "2025-01-19T11:35:05Z",
+  "InsertDate": "2025-01-21T09:29:05Z",
+  "LastUpdateDate": "2025-01-21T09:29:05Z",
   "Level": "medium",
   "Name": "Suspicious X509Enrollment - Process Creation",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%x509enrollment.cbinaryconverter%' or command like '%884e2002-217d-11da-b2a4-000e7bbb2b09%')",

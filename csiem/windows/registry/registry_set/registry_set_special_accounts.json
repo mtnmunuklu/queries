@@ -1,8 +1,8 @@
 {
   "Description": "Detects modifications to the registry key \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\SpecialAccounts\\Userlist\" where the value is set to \"0\" in order to hide user account from being listed on the logon screen.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f8aebc67-a56d-4ec9-9fbe-7b0e8b7b4efd",
-  "InsertDate": "2025-01-19T11:36:20Z",
-  "LastUpdateDate": "2025-01-19T11:36:20Z",
+  "InsertDate": "2025-01-21T09:31:53Z",
+  "LastUpdateDate": "2025-01-21T09:31:53Z",
   "Level": "high",
   "Name": "Hiding User Account Via SpecialAccounts Registry Key",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where event_type = 'setvalue' and target_object like '%\\software\\microsoft\\windows nt\\currentversion\\winlogon\\specialaccounts\\userlist%' and details = 'dword (0x00000000)'",

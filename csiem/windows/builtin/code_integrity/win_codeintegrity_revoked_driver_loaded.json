@@ -1,8 +1,8 @@
 {
   "Description": "Detects the load of a revoked kernel driver\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "320fccbf-5e32-4101-82b8-2679c5f007c6",
-  "InsertDate": "2025-01-19T11:33:44Z",
-  "LastUpdateDate": "2025-01-19T11:33:44Z",
+  "InsertDate": "2025-01-21T09:27:26Z",
+  "LastUpdateDate": "2025-01-21T09:27:26Z",
   "Level": "high",
   "Name": "CodeIntegrity - Revoked Kernel Driver Loaded",
   "Query": "sourcetype='windows-codeintegrity-operational' eql select * from _source_ where (eventid = '3021' or eventid = '3022')",

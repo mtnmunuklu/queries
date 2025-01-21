@@ -1,8 +1,8 @@
 {
   "Description": "Local accounts, System Owner/User discovery using operating systems utilities\n\nAuthor: Timur Zinniatullin, Daniil Yugoslavskiy, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "502b42de-4306-40b4-9596-6f590c81f073",
-  "InsertDate": "2025-01-19T11:35:34Z",
-  "LastUpdateDate": "2025-01-19T11:35:34Z",
+  "InsertDate": "2025-01-21T09:30:20Z",
+  "LastUpdateDate": "2025-01-21T09:30:20Z",
   "Level": "low",
   "Name": "Local Accounts Discovery",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\cmd.exe' and (command like '% /c%' and command like '%dir %' and command like '%\\users\\%')) and  not command like '% rmdir %') or (((process_path like '%\\net.exe' or process_path like '%\\net1.exe') and command like '%user%') and  not (command like '%/domain%' or command like '%/add%' or command like '%/delete%' or command like '%/active%' or command like '%/expires%' or command like '%/passwordreq%' or command like '%/scriptpath%' or command like '%/times%' or command like '%/workstations%')) or ((process_path like '%\\whoami.exe' or process_path like '%\\quser.exe' or process_path like '%\\qwinsta.exe') or (process_path like '%\\wmic.exe' and (command like '%useraccount%' and command like '%get%')) or (process_path like '%\\cmdkey.exe' and command like '% /l%')))",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects the addition of a new LogonScript to the registry value \"UserInitMprLogonScript\" for potential persistence\n\nAuthor: Tom Ueltschi (@c_APT_ure)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "21d856f9-9281-4ded-9377-51a1a6e2a432",
-  "InsertDate": "2025-01-19T11:35:12Z",
-  "LastUpdateDate": "2025-01-19T11:35:12Z",
+  "InsertDate": "2025-01-21T09:29:39Z",
+  "LastUpdateDate": "2025-01-21T09:29:39Z",
   "Level": "high",
   "Name": "Potential Persistence Via Logon Scripts - CommandLine",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where command like '%userinitmprlogonscript%'",

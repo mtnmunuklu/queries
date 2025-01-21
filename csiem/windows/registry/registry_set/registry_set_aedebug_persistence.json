@@ -1,8 +1,8 @@
 {
   "Description": "Detects when an attacker adds a new \"Debugger\" value to the \"AeDebug\" key in order to achieve persistence which will get invoked when an application crashes\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "092af964-4233-4373-b4ba-d86ea2890288",
-  "InsertDate": "2025-01-19T11:36:05Z",
-  "LastUpdateDate": "2025-01-19T11:36:05Z",
+  "InsertDate": "2025-01-21T09:31:20Z",
+  "LastUpdateDate": "2025-01-21T09:31:20Z",
   "Level": "medium",
   "Name": "Add Debugger Entry To AeDebug For Persistence",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object like '%\\software\\microsoft\\windows nt\\currentversion\\aedebug\\debugger%' and details like '%.dll') and  not details = '\"c:\\windows\\system32\\vsjitdebugger.exe\" -p %ld -e %ld -j 0x%p')",

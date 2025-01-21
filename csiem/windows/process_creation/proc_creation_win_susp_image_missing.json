@@ -1,11 +1,11 @@
 {
   "Description": "Checks whether the image specified in a process creation event is not a full, absolute path (caused by process ghosting or other unorthodox methods to start a process)\n\nAuthor: Max Altgelt (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "71158e3f-df67-472b-930e-7d287acaa3e1",
-  "InsertDate": "2025-01-19T11:35:33Z",
-  "LastUpdateDate": "2025-01-19T11:35:33Z",
+  "InsertDate": "2025-01-21T09:30:19Z",
+  "LastUpdateDate": "2025-01-21T09:30:19Z",
   "Level": "high",
   "Name": "Execution Of Non-Existing File",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ( not process_path like '%\\%' and  not (process_path = 'null' or (process_path = '-' or process_path = '') or ((process_path = 'system' or process_path = 'registry' or process_path = 'memcompression' or process_path = 'vmmem') and (command = 'registry' or command = 'memcompression' or command = 'vmmem'))))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ( not process_path like '%\\%' and  not ((process_path = '-' or process_path = '') or ((process_path = 'system' or process_path = 'registry' or process_path = 'memcompression' or process_path = 'vmmem') and (command = 'registry' or command = 'memcompression' or command = 'vmmem')) or process_path = 'null'))",
   "Tags": [
     "attack.defense-evasion"
   ],

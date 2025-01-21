@@ -1,8 +1,8 @@
 {
   "Description": "Detects changes of sensitive and critical files. Monitors files that you don't expect to change without planning on Linux system.\n\nAuthor: @d4ns4n_ (Wuerth-Phoenix)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "86157017-c2b1-4d4a-8c33-93b8e67e4af4",
-  "InsertDate": "2025-01-19T11:33:36Z",
-  "LastUpdateDate": "2025-01-19T11:33:36Z",
+  "InsertDate": "2025-01-21T09:27:18Z",
+  "LastUpdateDate": "2025-01-21T09:27:18Z",
   "Level": "medium",
   "Name": "Potential Suspicious Change To Sensitive/Critical Files",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where ((((process_path like '%/cat' or process_path like '%/echo' or process_path like '%/grep' or process_path like '%/head' or process_path like '%/more' or process_path like '%/tail') and command like '%\u003e%') or (process_path like '%/emacs' or process_path like '%/nano' or process_path like '%/sed' or process_path like '%/vi' or process_path like '%/vim')) and (command like '%/bin/login%' or command like '%/bin/passwd%' or command like '%/boot/%' or command like '%/etc/*.conf%' or command like '%/etc/cron.%' or command like '%/etc/crontab%' or command like '%/etc/hosts%' or command like '%/etc/init.d%' or command like '%/etc/sudoers%' or command like '%/opt/bin/%' or command like '%/sbin%' or command like '%/usr/bin/%' or command like '%/usr/local/bin/%'))",

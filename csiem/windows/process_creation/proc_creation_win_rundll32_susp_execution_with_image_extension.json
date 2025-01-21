@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of Rundll32.exe with DLL files masquerading as image files\n\nAuthor: Hieu Tran\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4aa6040b-3f28-44e3-a769-9208e5feb5ec",
-  "InsertDate": "2025-01-19T11:35:20Z",
-  "LastUpdateDate": "2025-01-19T11:35:20Z",
+  "InsertDate": "2025-01-21T09:29:56Z",
+  "LastUpdateDate": "2025-01-21T09:29:56Z",
   "Level": "high",
   "Name": "Suspicious Rundll32 Execution With Image Extension",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\rundll32.exe' and original_file_name = 'rundll32.exe') and (command like '%.bmp%' or command like '%.cr2%' or command like '%.eps%' or command like '%.gif%' or command like '%.ico%' or command like '%.jpeg%' or command like '%.jpg%' or command like '%.nef%' or command like '%.orf%' or command like '%.png%' or command like '%.raw%' or command like '%.sr2%' or command like '%.tif%' or command like '%.tiff%'))",

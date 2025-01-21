@@ -1,8 +1,8 @@
 {
   "Description": "Detects the creation of a new bits job by PowerShell\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "fe3a2d49-f255-4d10-935c-bda7391108eb",
-  "InsertDate": "2025-01-19T11:33:43Z",
-  "LastUpdateDate": "2025-01-19T11:33:43Z",
+  "InsertDate": "2025-01-21T09:27:26Z",
+  "LastUpdateDate": "2025-01-21T09:27:26Z",
   "Level": "low",
   "Name": "New BITS Job Created Via PowerShell",
   "Query": "sourcetype='windows-bits-client' eql select * from _source_ where eventid = '3' and (processpath like '%\\powershell.exe' or processpath like '%\\pwsh.exe')",

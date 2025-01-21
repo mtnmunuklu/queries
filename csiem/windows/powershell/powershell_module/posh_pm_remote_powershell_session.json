@@ -1,8 +1,8 @@
 {
   "Description": "Detects remote PowerShell sessions\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g, Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "96b9f619-aa91-478f-bacb-c3e50f8df575",
-  "InsertDate": "2025-01-19T11:34:15Z",
-  "LastUpdateDate": "2025-01-19T11:34:15Z",
+  "InsertDate": "2025-01-21T09:28:00Z",
+  "LastUpdateDate": "2025-01-21T09:28:00Z",
   "Level": "high",
   "Name": "Remote PowerShell Session (PS Module)",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((contextinfo like '% = serverremotehost %' and contextinfo like '%wsmprovhost.exe%') and  not contextinfo like '%\\windows\\system32\\windowspowershell\\v1.0\\modules\\microsoft.powershell.archive\\microsoft.powershell.archive.psm1%')",

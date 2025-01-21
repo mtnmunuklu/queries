@@ -1,8 +1,8 @@
 {
   "Description": "Detects the addition of a new \"Allow\" firewall rule by the WMI process (WmiPrvSE.EXE).\nThis can occur if an attacker leverages PowerShell cmdlets such as \"New-NetFirewallRule\", or directly uses WMI CIM classes such as \"MSFT_NetFirewallRule\".\n\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "eca81e8d-09e1-4d04-8614-c91f44fd0519",
-  "InsertDate": "2025-01-19T11:33:45Z",
-  "LastUpdateDate": "2025-01-19T11:33:45Z",
+  "InsertDate": "2025-01-21T09:27:27Z",
+  "LastUpdateDate": "2025-01-21T09:27:27Z",
   "Level": "medium",
   "Name": "New Firewall Rule Added In Windows Firewall Exception List Via WmiPrvSE.EXE",
   "Query": "sourcetype='windows-firewall-as' eql select * from _source_ where (eventid = '2004' or eventid = '2071' or eventid = '2097') and action = '3' and modifyingapplication like '%:\\windows\\system32\\wbem\\wmiprvse.exe'",

@@ -1,11 +1,11 @@
 {
   "Description": "Detects the use of KrbRelay, a Kerberos relaying tool\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e96253b8-6b3b-4f90-9e59-3b24b99cf9b4",
-  "InsertDate": "2025-01-19T11:34:42Z",
-  "LastUpdateDate": "2025-01-19T11:34:42Z",
+  "InsertDate": "2025-01-21T09:28:31Z",
+  "LastUpdateDate": "2025-01-21T09:28:31Z",
   "Level": "high",
   "Name": "HackTool - KrbRelay Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\krbrelay.exe' and original_file_name = 'krbrelay.exe') or (command like '% -spn %' and command like '% -clsid %' and command like '% -rbcd %') or (command like '%shadowcred%' and command like '%clsid%' and command like '%spn%') or (command like '%spn %' and command like '%session %' and command like '%clsid %'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%shadowcred%' and command like '%clsid%' and command like '%spn%') or (command like '%spn %' and command like '%session %' and command like '%clsid %') or (process_path like '%\\krbrelay.exe' and original_file_name = 'krbrelay.exe') or (command like '% -spn %' and command like '% -clsid %' and command like '% -rbcd %'))",
   "Tags": [
     "attack.credential-access",
     "attack.t1558.003"

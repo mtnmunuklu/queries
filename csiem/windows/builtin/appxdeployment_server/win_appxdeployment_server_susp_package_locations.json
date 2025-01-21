@@ -1,8 +1,8 @@
 {
   "Description": "Detects an appx package added the pipeline of the \"to be processed\" packages which is located in suspicious locations\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "5cdeaf3d-1489-477c-95ab-c318559fc051",
-  "InsertDate": "2025-01-19T11:33:43Z",
-  "LastUpdateDate": "2025-01-19T11:33:43Z",
+  "InsertDate": "2025-01-21T09:27:26Z",
+  "LastUpdateDate": "2025-01-21T09:27:26Z",
   "Level": "high",
   "Name": "Suspicious AppX Package Locations",
   "Query": "sourcetype='windows-appxdeployment-server' eql select * from _source_ where eventid = '854' and (path like '%c:\\users\\public\\%' or path like '%/users/public/%' or path like '%c:\\perflogs\\%' or path like '%c:/perflogs/%' or path like '%\\desktop\\%' or path like '%/desktop/%' or path like '%\\downloads\\%' or path like '%/downloads/%' or path like '%c:\\windows\\temp\\%' or path like '%c:/windows/temp/%' or path like '%\\appddata\\local\\temp\\%' or path like '%/appddata/local/temp/%')",

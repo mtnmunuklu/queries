@@ -1,8 +1,8 @@
 {
   "Description": "Detects when an attacker tries to backdoor the MSSQL server by adding a backdoor account to the sysadmin fixed server role\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "08200f85-2678-463e-9c32-88dce2f073d1",
-  "InsertDate": "2025-01-19T11:33:42Z",
-  "LastUpdateDate": "2025-01-19T11:33:42Z",
+  "InsertDate": "2025-01-21T09:27:25Z",
+  "LastUpdateDate": "2025-01-21T09:27:25Z",
   "Level": "high",
   "Name": "MSSQL Add Account To Sysadmin Role",
   "Query": "sourcetype='windows-application' eql select * from _source_ where provider_name like '%mssql%' and eventid = '33205' and (data like '%object_name:sysadmin%' and data like '%statement:alter server role [sysadmin] add member %')",

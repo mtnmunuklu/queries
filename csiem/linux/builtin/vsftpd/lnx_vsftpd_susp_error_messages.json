@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious VSFTPD error messages that indicate a fatal or suspicious error that could be caused by exploiting attempts\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "377f33a1-4b36-4ee1-acee-1dbe4b43cfbe",
-  "InsertDate": "2025-01-19T11:33:32Z",
-  "LastUpdateDate": "2025-01-19T11:33:32Z",
+  "InsertDate": "2025-01-21T09:27:14Z",
+  "LastUpdateDate": "2025-01-21T09:27:14Z",
   "Level": "medium",
   "Name": "Suspicious VSFTPD Error Messages",
-  "Query": "sourcetype='linux-vsftpd' eql select * from _source_ where (log like '%connection refused: too many sessions for this address.%' or log like '%connection refused: tcp_wrappers denial.%' or log like '%bad http verb.%' or log like '%port and pasv both active%' or log like '%pasv and port both active%' or log like '%transfer done (but failed to open directory).%' or log like '%could not set file modification time.%' or log like '%bug: pid active in ptrace_sandbox_free%' or log like '%ptrace_setoptions failure%' or log like '%weird status:%' or log like '%couldn't handle sandbox event%' or log like '%syscall * out of bounds%' or log like '%syscall not permitted:%' or log like '%syscall validate failed:%' or log like '%input line too long.%' or log like '%poor buffer accounting in str_netfd_alloc%' or log like '%vsf_sysutil_read_loop%')",
+  "Query": "sourcetype='linux-vsftpd' eql select * from _source_ where Query('Connection refused: too many sessions for this address. OR Connection refused: tcp_wrappers denial. OR Bad HTTP verb. OR port and pasv both active OR pasv and port both active OR Transfer done (but failed to open directory). OR Could not set file modification time. OR bug: pid active in ptrace_sandbox_free OR PTRACE_SETOPTIONS failure OR weird status: OR couldn't handle sandbox event OR syscall * out of bounds OR syscall not permitted: OR syscall validate failed: OR Input line too long. OR poor buffer accounting in str_netfd_alloc OR vsf_sysutil_read_loop')",
   "Tags": [
     "attack.initial-access",
     "attack.t1190"

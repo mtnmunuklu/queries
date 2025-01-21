@@ -1,8 +1,8 @@
 {
   "Description": "Detects suspicious user agent strings used by exploit / pentest frameworks like Metasploit in proxy logs\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "fdd1bfb5-f60b-4a35-910e-f36ed3d0b32f",
-  "InsertDate": "2025-01-19T11:33:41Z",
-  "LastUpdateDate": "2025-01-19T11:33:41Z",
+  "InsertDate": "2025-01-21T09:27:24Z",
+  "LastUpdateDate": "2025-01-21T09:27:24Z",
   "Level": "high",
   "Name": "Exploit Framework User Agent",
   "Query": "eql select * from _source_ where (c-useragent = 'internet explorer *' or c-useragent = 'mozilla/4.0 (compatible; msie 6.0; windows nt 5.1; sv1; infopath.2)' or c-useragent = 'mozilla/4.0 (compatible; metasploit rspec)' or c-useragent = 'mozilla/4.0 (compatible; msie 6.1; windows nt)' or c-useragent = 'mozilla/4.0 (compatible; msie 6.0; windows nt 5.1)' or c-useragent = 'mozilla/4.0 (compatible; msie 7.0; windows nt 6.0)' or c-useragent = 'mozilla/4.0 (compatible; msie 8.0; windows nt 6.0; trident/4.0)' or c-useragent = 'mozilla/4.0 (compatible; msie 7.0; windows nt 6.0; trident/4.0; simbar={7db0f6de-8de7-4841-9084-28fa914b0f2e}; slcc1; .n' or c-useragent = 'mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)' or c-useragent = 'mozilla/5.0 (windows; u; windows nt 5.1; en-us) applewebkit/525.13 (khtml, like gecko) chrome/4.0.221.6 safari/525.13' or c-useragent = 'mozilla/5.0 (compatible; msie 9.0; windows nt 6.1; wow64; trident/5.0; maau)' or c-useragent = 'mozilla/5.0' or c-useragent = 'mozilla/4.0 (compatible; spipe/1.0' or c-useragent = 'mozilla/5.0 (windows nt 6.3; rv:39.0) gecko/20100101 firefox/35.0' or c-useragent = 'sametime community agent' or c-useragent = 'x-forwarded-for' or c-useragent = 'dotdotpwn v2.1' or c-useragent = 'sipdroid' or c-useragent = 'mozilla/5.0 (windows nt 10.0; win32; x32; rv:60.0)' or c-useragent = 'mozilla/6.0 (x11; linux x86_64; rv:24.0) gecko/20140205     firefox/27.0 iceweasel/25.3.0' or c-useragent = '*wordpress hash grabber*' or c-useragent = '*exploit*')",

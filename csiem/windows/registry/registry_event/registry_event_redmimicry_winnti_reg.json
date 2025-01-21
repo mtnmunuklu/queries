@@ -1,8 +1,8 @@
 {
   "Description": "Detects actions caused by the RedMimicry Winnti playbook\n\nAuthor: Alexander Rausch\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "5b175490-b652-4b02-b1de-5b5b4083c5f8",
-  "InsertDate": "2025-01-19T11:36:03Z",
-  "LastUpdateDate": "2025-01-19T11:36:03Z",
+  "InsertDate": "2025-01-21T09:31:16Z",
+  "LastUpdateDate": "2025-01-21T09:31:16Z",
   "Level": "high",
   "Name": "RedMimicry Winnti Playbook Registry Manipulation",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where target_object like '%hklm\\software\\microsoft\\htmlhelp\\data%'",

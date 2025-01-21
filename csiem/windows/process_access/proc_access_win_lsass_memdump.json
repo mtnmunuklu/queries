@@ -1,8 +1,8 @@
 {
   "Description": "Detects process access requests to the LSASS process with specific call trace calls and access masks.\nThis behaviour is expressed by many credential dumping tools such as Mimikatz, NanoDump, Invoke-Mimikatz, Procdump and even the Taskmgr dumping feature.\n\n\nAuthor: Samir Bousseaden, Michael Haag\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "5ef9853e-4d0e-4a70-846f-a9ca37d876da",
-  "InsertDate": "2025-01-19T11:34:28Z",
-  "LastUpdateDate": "2025-01-19T11:34:28Z",
+  "InsertDate": "2025-01-21T09:28:14Z",
+  "LastUpdateDate": "2025-01-21T09:28:14Z",
   "Level": "medium",
   "Name": "Potential Credential Dumping Activity Via LSASS",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((dst_process_path like '%\\lsass.exe' and (granted_access like '%0x1038%' or granted_access like '%0x1438%' or granted_access like '%0x143a%' or granted_access like '%0x1fffff%') and (call_trace like '%dbgcore.dll%' or call_trace like '%dbghelp.dll%' or call_trace like '%kernel32.dll%' or call_trace like '%kernelbase.dll%' or call_trace like '%ntdll.dll%')) and  not (username like '%authori%' or username like '%autori%') and  not (((call_trace like '%:\\windows\\temp\\asgard2-agent\\%' and call_trace like '%\\thor\\thor64.exe+%' and call_trace like '%|unknown(%') and granted_access = '0x103800') or process_path like '%:\\windows\\sysmon64.exe'))",

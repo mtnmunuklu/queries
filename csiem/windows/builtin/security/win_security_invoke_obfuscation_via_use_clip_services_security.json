@@ -1,8 +1,8 @@
 {
   "Description": "Detects Obfuscated Powershell via use Clip.exe in Scripts\n\nAuthor: Nikita Nazarov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1a0a2ff1-611b-4dac-8216-8a7b47c618a6",
-  "InsertDate": "2025-01-19T11:33:48Z",
-  "LastUpdateDate": "2025-01-19T11:33:48Z",
+  "InsertDate": "2025-01-21T09:27:30Z",
+  "LastUpdateDate": "2025-01-21T09:27:30Z",
   "Level": "high",
   "Name": "Invoke-Obfuscation Via Use Clip - Security",
   "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4697' and servicefilename like '%(clipboard|i%'",

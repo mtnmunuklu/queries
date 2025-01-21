@@ -1,8 +1,8 @@
 {
   "Description": "Detects a commandline containing references to the Microsoft Teams database or cookies files from a process other than Teams.\nThe database might contain authentication tokens and other sensitive information about the logged in accounts.\n\n\nAuthor: @SerkinValery\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d2eb17db-1d39-41dc-b57f-301f6512fa75",
-  "InsertDate": "2025-01-19T11:35:44Z",
-  "LastUpdateDate": "2025-01-19T11:35:44Z",
+  "InsertDate": "2025-01-21T09:30:40Z",
+  "LastUpdateDate": "2025-01-21T09:30:40Z",
   "Level": "medium",
   "Name": "Potentially Suspicious Command Targeting Teams Sensitive Files",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%\\microsoft\\teams\\cookies%' or command like '%\\microsoft\\teams\\local storage\\leveldb%') and  not process_path like '%\\microsoft\\teams\\current\\teams.exe')",

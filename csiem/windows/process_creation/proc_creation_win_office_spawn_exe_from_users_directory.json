@@ -1,8 +1,8 @@
 {
   "Description": "Detects an executable in the users directory started from one of the Microsoft Office suite applications (Word, Excel, PowerPoint, Publisher, Visio)\n\nAuthor: Jason Lynch\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "aa3a6f94-890e-4e22-b634-ffdfd54792cc",
-  "InsertDate": "2025-01-19T11:34:57Z",
-  "LastUpdateDate": "2025-01-19T11:34:57Z",
+  "InsertDate": "2025-01-21T09:28:46Z",
+  "LastUpdateDate": "2025-01-21T09:28:46Z",
   "Level": "high",
   "Name": "Suspicious Binary In User Directory Spawned From Office Application",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((parent_process_path like '%\\winword.exe' or parent_process_path like '%\\excel.exe' or parent_process_path like '%\\powerpnt.exe' or parent_process_path like '%\\mspub.exe' or parent_process_path like '%\\visio.exe' or parent_process_path like '%\\msaccess.exe' or parent_process_path like '%\\eqnedt32.exe') and process_path like 'c:\\users\\%' and process_path like '%.exe') and  not process_path like '%\\teams.exe')",

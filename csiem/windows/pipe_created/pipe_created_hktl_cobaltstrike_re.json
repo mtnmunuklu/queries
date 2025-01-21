@@ -1,8 +1,8 @@
 {
   "Description": "Detects the creation of a named pipe matching a pattern used by CobaltStrike Malleable C2 profiles\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0e7163d4-9e19-4fa7-9be6-000c61aad77a",
-  "InsertDate": "2025-01-19T11:34:13Z",
-  "LastUpdateDate": "2025-01-19T11:34:13Z",
+  "InsertDate": "2025-01-21T09:27:57Z",
+  "LastUpdateDate": "2025-01-21T09:27:57Z",
   "Level": "critical",
   "Name": "CobaltStrike Named Pipe Pattern Regex",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where pipe_name re '\\\\mojo\\.5688\\.8052\\.(?:183894939787088877|35780273329370473)[0-9a-f]{2}' and pipe_name re '\\\\wkssvc_?[0-9a-f]{2}' and pipe_name re '\\\\ntsvcs[0-9a-f]{2}' and pipe_name re '\\\\DserNamePipe[0-9a-f]{2}' and pipe_name re '\\\\SearchTextHarvester[0-9a-f]{2}' and pipe_name re '\\\\mypipe-(?:f|h)[0-9a-f]{2}' and pipe_name re '\\\\windows\\.update\\.manager[0-9a-f]{2,3}' and pipe_name re '\\\\ntsvcs_[0-9a-f]{2}' and pipe_name re '\\\\scerpc_?[0-9a-f]{2}' and pipe_name re '\\\\PGMessagePipe[0-9a-f]{2}' and pipe_name re '\\\\MsFteWds[0-9a-f]{2}' and pipe_name re '\\\\f4c3[0-9a-f]{2}' and pipe_name re '\\\\fullduplex_[0-9a-f]{2}' and pipe_name re '\\\\msrpc_[0-9a-f]{4}' and pipe_name re '\\\\win\\\\msrpc_[0-9a-f]{2}' and pipe_name re '\\\\f53f[0-9a-f]{2}' and pipe_name re '\\\\rpc_[0-9a-f]{2}' and pipe_name re '\\\\spoolss_[0-9a-f]{2}' and pipe_name re '\\\\Winsock2\\\\CatalogChangeListener-[0-9a-f]{3}-0,'",

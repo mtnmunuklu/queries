@@ -1,8 +1,8 @@
 {
   "Description": "Detects deployments of pods within the kube-system namespace, which could be intended to imitate system pods.\nSystem pods, created by controllers such as Deployments or DaemonSets have random suffixes in their names.\nAttackers can use this fact and name their backdoor pods as if they were created by these controllers to avoid detection.\nDeployment of such a backdoor container e.g. named kube-proxy-bv61v, could be attempted in the kube-system namespace alongside the other administrative containers.\n\n\nAuthor: Leo Tsaousis (@laripping)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a80d927d-ac6e-443f-a867-e8d6e3897318",
-  "InsertDate": "2025-01-19T11:33:18Z",
-  "LastUpdateDate": "2025-01-19T11:33:18Z",
+  "InsertDate": "2025-01-21T09:26:58Z",
+  "LastUpdateDate": "2025-01-21T09:26:58Z",
   "Level": "medium",
   "Name": "Creation Of Pod In System Namespace",
   "Query": "sourcetype='kubernetes-audit' eql select * from _source_ where verb = 'create' and objectref.resource = 'pods' and objectref.namespace = 'kube-system'",

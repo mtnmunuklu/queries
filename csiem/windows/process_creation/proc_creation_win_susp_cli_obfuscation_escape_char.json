@@ -1,8 +1,8 @@
 {
   "Description": "Detects potential commandline obfuscation using known escape characters\n\nAuthor: juju4\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f0cdd048-82dc-4f7a-8a7a-b87a52b6d0fd",
-  "InsertDate": "2025-01-19T11:35:31Z",
-  "LastUpdateDate": "2025-01-19T11:35:31Z",
+  "InsertDate": "2025-01-21T09:30:13Z",
+  "LastUpdateDate": "2025-01-21T09:30:13Z",
   "Level": "medium",
   "Name": "Potential Commandline Obfuscation Using Escape Characters",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%h^t^t^p%' or command like '%h\"t\"t\"p%')",

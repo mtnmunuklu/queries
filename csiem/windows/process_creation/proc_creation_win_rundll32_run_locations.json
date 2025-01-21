@@ -1,8 +1,8 @@
 {
   "Description": "Detects suspicious process run from unusual locations\n\nAuthor: juju4, Jonhnathan Ribeiro, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "15b75071-74cc-47e0-b4c6-b43744a62a2b",
-  "InsertDate": "2025-01-19T11:35:19Z",
-  "LastUpdateDate": "2025-01-19T11:35:19Z",
+  "InsertDate": "2025-01-21T09:29:55Z",
+  "LastUpdateDate": "2025-01-21T09:29:55Z",
   "Level": "medium",
   "Name": "Suspicious Process Start Locations",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%:\\recycler\\%' or process_path like '%:\\systemvolumeinformation\\%') and (process_path like 'c:\\windows\\tasks\\%' or process_path like 'c:\\windows\\debug\\%' or process_path like 'c:\\windows\\fonts\\%' or process_path like 'c:\\windows\\help\\%' or process_path like 'c:\\windows\\drivers\\%' or process_path like 'c:\\windows\\addins\\%' or process_path like 'c:\\windows\\cursors\\%' or process_path like 'c:\\windows\\system32\\tasks\\%')",

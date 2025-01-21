@@ -1,8 +1,8 @@
 {
   "Description": "Detects a potentially suspicious execution of a process located in the '/tmp/' folder\n\nAuthor: Joseliyo Sanchez, @Joseliyo_Jstnk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "312b42b1-bded-4441-8b58-163a3af58775",
-  "InsertDate": "2025-01-19T11:33:35Z",
-  "LastUpdateDate": "2025-01-19T11:33:35Z",
+  "InsertDate": "2025-01-21T09:27:18Z",
+  "LastUpdateDate": "2025-01-21T09:27:18Z",
   "Level": "high",
   "Name": "Potentially Suspicious Execution From Tmp Folder",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where process_path like '/tmp/%'",

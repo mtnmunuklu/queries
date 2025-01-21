@@ -1,8 +1,8 @@
 {
   "Description": "Detects the command line executed when TeamViewer starts a session started by a remote host.\nOnce a connection has been started, an investigator can verify the connection details by viewing the \"incoming_connections.txt\" log file in the TeamViewer folder.\n\n\nAuthor: Josh Nickels, Qi Nan\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1f6b8cd4-3e60-47cc-b282-5aa1cbc9182d",
-  "InsertDate": "2025-01-19T11:33:35Z",
-  "LastUpdateDate": "2025-01-19T11:33:35Z",
+  "InsertDate": "2025-01-21T09:27:17Z",
+  "LastUpdateDate": "2025-01-21T09:27:17Z",
   "Level": "low",
   "Name": "Remote Access Tool - Team Viewer Session Started On Linux Host",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where parent_process_path like '%/teamviewer_service' and process_path like '%/teamviewer_desktop' and command like '%/teamviewer_desktop --ipcport 5939 --module 1'",

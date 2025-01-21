@@ -1,8 +1,8 @@
 {
   "Description": "Detects when the file \"passwd\" or \"shadow\" is copied from tmp path\n\nAuthor: Joseliyo Sanchez, @Joseliyo_Jstnk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "fa4aaed5-4fe0-498d-bbc0-08e3346387ba",
-  "InsertDate": "2025-01-19T11:33:33Z",
-  "LastUpdateDate": "2025-01-19T11:33:33Z",
+  "InsertDate": "2025-01-21T09:27:15Z",
+  "LastUpdateDate": "2025-01-21T09:27:15Z",
   "Level": "high",
   "Name": "Copy Passwd Or Shadow From TMP Path",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where (process_path like '%/cp' and command like '%/tmp/%' and (command like '%passwd%' or command like '%shadow%'))",

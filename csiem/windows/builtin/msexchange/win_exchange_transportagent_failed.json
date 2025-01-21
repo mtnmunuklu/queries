@@ -1,8 +1,8 @@
 {
   "Description": "Detects a failed installation of a Exchange Transport Agent\n\nAuthor: Tobias Michalski (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c7d16cae-aaf3-42e5-9c1c-fb8553faa6fa",
-  "InsertDate": "2025-01-19T11:33:45Z",
-  "LastUpdateDate": "2025-01-19T11:33:45Z",
+  "InsertDate": "2025-01-21T09:27:27Z",
+  "LastUpdateDate": "2025-01-21T09:27:27Z",
   "Level": "high",
   "Name": "Failed MSExchange Transport Agent Installation",
   "Query": "sourcetype='windows-msexchange-management' eql select * from _source_ where eventid = '6' and data like '%install-transportagent%'",

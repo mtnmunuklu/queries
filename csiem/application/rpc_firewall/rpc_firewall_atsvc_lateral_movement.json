@@ -1,8 +1,8 @@
 {
   "Description": "Detects remote RPC calls to create or execute a scheduled task via ATSvc\n\nAuthor: Sagie Dulce, Dekel Paz\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0fcd1c79-4eeb-4746-aba9-1b458f7a79cb",
-  "InsertDate": "2025-01-19T11:33:19Z",
-  "LastUpdateDate": "2025-01-19T11:33:19Z",
+  "InsertDate": "2025-01-21T09:26:59Z",
+  "LastUpdateDate": "2025-01-21T09:26:59Z",
   "Level": "high",
   "Name": "Remote Schedule Task Lateral Movement via ATSvc",
   "Query": "sourcetype like 'rpc_firewall-%' eql select * from _source_ where eventlog = 'rpcfw' and eventid = '3' and interfaceuuid = '1ff70682-0a51-30e8-076d-740be8cee98b' and (opnum = '0' or opnum = '1')",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects potential DLL sideloading activity via the Aruba Networks Virtual Intranet Access \"arubanetsvc.exe\" process using DLL Search Order Hijacking\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "90ae0469-0cee-4509-b67f-e5efcef040f7",
-  "InsertDate": "2025-01-19T11:34:08Z",
-  "LastUpdateDate": "2025-01-19T11:34:08Z",
+  "InsertDate": "2025-01-21T09:27:50Z",
+  "LastUpdateDate": "2025-01-21T09:27:50Z",
   "Level": "high",
   "Name": "Aruba Network Service Potential DLL Sideloading",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\arubanetsvc.exe' and (image_loaded like '%\\wtsapi32.dll' or image_loaded like '%\\msvcr100.dll' or image_loaded like '%\\msvcp100.dll' or image_loaded like '%\\dbghelp.dll' or image_loaded like '%\\dbgcore.dll' or image_loaded like '%\\wininet.dll' or image_loaded like '%\\iphlpapi.dll' or image_loaded like '%\\version.dll' or image_loaded like '%\\cryptsp.dll' or image_loaded like '%\\cryptbase.dll' or image_loaded like '%\\wldp.dll' or image_loaded like '%\\profapi.dll' or image_loaded like '%\\sspicli.dll' or image_loaded like '%\\winsta.dll' or image_loaded like '%\\dpapi.dll')) and  not (image_loaded like 'c:\\windows\\system32\\%' or image_loaded like 'c:\\windows\\syswow64\\%' or image_loaded like 'c:\\windows\\winsxs\\%'))",

@@ -1,8 +1,8 @@
 {
   "Description": "Threat actors performed dumping of SAM, SECURITY and SYSTEM registry hives using DelegateExecute key\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "dd3ee8cc-f751-41c9-ba53-5a32ed47e563",
-  "InsertDate": "2025-01-19T11:35:10Z",
-  "LastUpdateDate": "2025-01-19T11:35:10Z",
+  "InsertDate": "2025-01-21T09:29:32Z",
+  "LastUpdateDate": "2025-01-21T09:29:32Z",
   "Level": "medium",
   "Name": "Suspicious Reg Add Open Command",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%reg%' and command like '%add%' and command like '%hkcu\\software\\classes\\ms-settings\\shell\\open\\command%' and command like '%/ve %' and command like '%/d%') or (command like '%reg%' and command like '%add%' and command like '%hkcu\\software\\classes\\ms-settings\\shell\\open\\command%' and command like '%/v%' and command like '%delegateexecute%') or (command like '%reg%' and command like '%delete%' and command like '%hkcu\\software\\classes\\ms-settings%'))",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects when an adversary is trying to hide it's action from Sysmon logging based on error messages\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "815cd91b-7dbc-4247-841a-d7dd1392b0a8",
-  "InsertDate": "2025-01-19T11:36:23Z",
-  "LastUpdateDate": "2025-01-19T11:36:23Z",
+  "InsertDate": "2025-01-21T09:32:03Z",
+  "LastUpdateDate": "2025-01-21T09:32:03Z",
   "Level": "high",
   "Name": "Sysmon Configuration Error",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((description like '%failed to open service configuration with error%' or description like '%failed to connect to the driver to update configuration%') and  not ((description like '%failed to open service configuration with error%' and description like '%last error: the media is write protected.%') or (description like '%failed to open service configuration with error 19%' or description like '%failed to open service configuration with error 93%')))",

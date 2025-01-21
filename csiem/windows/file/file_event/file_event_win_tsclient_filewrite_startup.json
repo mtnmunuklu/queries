@@ -1,8 +1,8 @@
 {
   "Description": "Detects the usage of tsclient share to place a backdoor on the RDP source machine's startup folder\n\nAuthor: Samir Bousseaden\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "52753ea4-b3a0-4365-910d-36cff487b789",
-  "InsertDate": "2025-01-19T11:34:05Z",
-  "LastUpdateDate": "2025-01-19T11:34:05Z",
+  "InsertDate": "2025-01-21T09:27:48Z",
+  "LastUpdateDate": "2025-01-21T09:27:48Z",
   "Level": "high",
   "Name": "Hijack Legit RDP Session to Move Laterally",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\mstsc.exe' and filepath like '%\\microsoft\\windows\\start menu\\programs\\startup\\%'",

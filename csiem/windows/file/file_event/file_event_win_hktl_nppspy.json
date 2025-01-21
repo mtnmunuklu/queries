@@ -1,8 +1,8 @@
 {
   "Description": "Detects the use of NPPSpy hacktool that stores cleartext passwords of users that logged in to a local file\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "cad1fe90-2406-44dc-bd03-59d0b58fe722",
-  "InsertDate": "2025-01-19T11:34:00Z",
-  "LastUpdateDate": "2025-01-19T11:34:00Z",
+  "InsertDate": "2025-01-21T09:27:43Z",
+  "LastUpdateDate": "2025-01-21T09:27:43Z",
   "Level": "high",
   "Name": "HackTool - NPPSpy Hacktool Usage",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%\\nppspy.txt' or filepath like '%\\nppspy.dll')",

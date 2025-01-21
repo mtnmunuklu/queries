@@ -1,8 +1,8 @@
 {
   "Description": "Detects instances where a GIT service on an OpenCanary node has had Git Clone request.\n\nAuthor: Security Onion Solutions\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4fe17521-aef3-4e6a-9d6b-4a7c8de155a8",
-  "InsertDate": "2025-01-19T11:33:18Z",
-  "LastUpdateDate": "2025-01-19T11:33:18Z",
+  "InsertDate": "2025-01-21T09:26:58Z",
+  "LastUpdateDate": "2025-01-21T09:26:58Z",
   "Level": "high",
   "Name": "OpenCanary - GIT Clone Request",
   "Query": "sourcetype like 'opencanary-%' eql select * from _source_ where logtype = '16001'",

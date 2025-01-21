@@ -1,8 +1,8 @@
 {
   "Description": "Detect suspicious Kerberos TGT requests.\nOnce an attacer obtains a computer certificate by abusing Active Directory Certificate Services in combination with PetitPotam, the next step would be to leverage the certificate for malicious purposes.\nOne way of doing this is to request a Kerberos Ticket Granting Ticket using a tool like Rubeus.\nThis request will generate a 4768 event with some unusual fields depending on the environment.\nThis analytic will require tuning, we recommend filtering Account_Name to the Domain Controller computer accounts.\n\n\nAuthor: Mauricio Velazco, Michael Haag\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6a53d871-682d-40b6-83e0-b7c1a6c4e3a5",
-  "InsertDate": "2025-01-19T11:33:49Z",
-  "LastUpdateDate": "2025-01-19T11:33:49Z",
+  "InsertDate": "2025-01-21T09:27:31Z",
+  "LastUpdateDate": "2025-01-21T09:27:31Z",
   "Level": "high",
   "Name": "PetitPotam Suspicious Kerberos TGT Request",
   "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '4768' and targetusername like '%$' and certthumbprint like '%*%') and  not (ipaddress = '::1' or certthumbprint = ''))",

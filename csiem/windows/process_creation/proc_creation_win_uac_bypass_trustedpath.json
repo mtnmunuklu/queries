@@ -1,8 +1,8 @@
 {
   "Description": "Detects indicators of a UAC bypass method by mocking directories\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4ac47ed3-44c2-4b1f-9d51-bf46e8914126",
-  "InsertDate": "2025-01-19T11:35:46Z",
-  "LastUpdateDate": "2025-01-19T11:35:46Z",
+  "InsertDate": "2025-01-21T09:30:45Z",
+  "LastUpdateDate": "2025-01-21T09:30:45Z",
   "Level": "critical",
   "Name": "TrustedPath UAC Bypass Pattern",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%c:\\windows \\system32\\%'",

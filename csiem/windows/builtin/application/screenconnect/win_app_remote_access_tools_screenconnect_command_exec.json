@@ -1,8 +1,8 @@
 {
   "Description": "Detects command execution via ScreenConnect RMM\n\nAuthor: Ali Alwashali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "076ebe48-cc05-4d8f-9d41-89245cd93a14",
-  "InsertDate": "2025-01-19T11:33:43Z",
-  "LastUpdateDate": "2025-01-19T11:33:43Z",
+  "InsertDate": "2025-01-21T09:27:25Z",
+  "LastUpdateDate": "2025-01-21T09:27:25Z",
   "Level": "low",
   "Name": "Remote Access Tool - ScreenConnect Command Execution",
   "Query": "sourcetype='windows-application' eql select * from _source_ where provider_name = 'screenconnect' and eventid = '200' and data like '%executed command of length%'",

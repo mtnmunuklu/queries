@@ -1,8 +1,8 @@
 {
   "Description": "Detects when the \"Windows Defender Threat Protection\" service is disabled.\n\nAuthor: Ján Trenčanský, frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6c0a7755-6d31-44fa-80e1-133e57752680",
-  "InsertDate": "2025-01-19T11:33:52Z",
-  "LastUpdateDate": "2025-01-19T11:33:52Z",
+  "InsertDate": "2025-01-21T09:27:35Z",
+  "LastUpdateDate": "2025-01-21T09:27:35Z",
   "Level": "medium",
   "Name": "Windows Defender Threat Detection Service Disabled",
   "Query": "sourcetype='windows-system' eql select * from _source_ where eventid = '7036' and provider_name = 'service control manager' and (param1 = 'windows defender antivirus service' or param1 = 'service antivirus microsoft defender') and (param2 = 'stopped' or param2 = 'arrêté')",

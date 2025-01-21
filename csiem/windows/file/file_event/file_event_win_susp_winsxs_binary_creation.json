@@ -1,8 +1,8 @@
 {
   "Description": "Detects the creation of binaries in the WinSxS folder by non-system processes\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "34746e8c-5fb8-415a-b135-0abc167e912a",
-  "InsertDate": "2025-01-19T11:34:04Z",
-  "LastUpdateDate": "2025-01-19T11:34:04Z",
+  "InsertDate": "2025-01-21T09:27:48Z",
+  "LastUpdateDate": "2025-01-21T09:27:48Z",
   "Level": "medium",
   "Name": "WinSxS Executable File Creation By Non-System Process",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((filepath like 'c:\\windows\\winsxs\\%' and filepath like '%.exe') and  not (process_path like 'c:\\windows\\systems32\\%' or process_path like 'c:\\windows\\syswow64\\%' or process_path like 'c:\\windows\\winsxs\\%'))",

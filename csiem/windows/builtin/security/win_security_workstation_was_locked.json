@@ -1,8 +1,8 @@
 {
   "Description": "Detects locked workstation session events that occur automatically after a standard period of inactivity.\n\nAuthor: Alexandr Yampolskyi, SOC Prime\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "411742ad-89b0-49cb-a7b0-3971b5c1e0a4",
-  "InsertDate": "2025-01-19T11:33:51Z",
-  "LastUpdateDate": "2025-01-19T11:33:51Z",
+  "InsertDate": "2025-01-21T09:27:34Z",
+  "LastUpdateDate": "2025-01-21T09:27:34Z",
   "Level": "informational",
   "Name": "Locked Workstation",
   "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4800'",

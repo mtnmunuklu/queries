@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of \"DXCap.EXE\" with the \"-c\" flag, which allows a user to launch any arbitrary binary or windows package through DXCap itself. This can be abused to potentially bypass application whitelisting.\n\n\nAuthor: Beyu Denis, oscd.community, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "60f16a96-db70-42eb-8f76-16763e333590",
-  "InsertDate": "2025-01-19T11:34:37Z",
-  "LastUpdateDate": "2025-01-19T11:34:37Z",
+  "InsertDate": "2025-01-21T09:28:25Z",
+  "LastUpdateDate": "2025-01-21T09:28:25Z",
   "Level": "medium",
   "Name": "New Capture Session Launched Via DXCap.EXE",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '% -c %' and (process_path like '%\\dxcap.exe' and original_file_name = 'dxcap.exe'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\dxcap.exe' and original_file_name = 'dxcap.exe') and command like '% -c %')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1218"

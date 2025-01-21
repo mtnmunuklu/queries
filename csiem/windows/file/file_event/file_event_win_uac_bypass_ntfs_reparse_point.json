@@ -1,8 +1,8 @@
 {
   "Description": "Detects the pattern of UAC Bypass using NTFS reparse point and wusa.exe DLL hijacking (UACMe 36)\n\nAuthor: Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "7fff6773-2baa-46de-a24a-b6eec1aba2d1",
-  "InsertDate": "2025-01-19T11:34:05Z",
-  "LastUpdateDate": "2025-01-19T11:34:05Z",
+  "InsertDate": "2025-01-21T09:27:48Z",
+  "LastUpdateDate": "2025-01-21T09:27:48Z",
   "Level": "high",
   "Name": "UAC Bypass Using NTFS Reparse Point - File",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where filepath like 'c:\\users\\%' and filepath like '%\\appdata\\local\\temp\\api-ms-win-core-kernel32-legacy-l1.dll'",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects the modification of the registry to disable a system restore on the computer\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "5de03871-5d46-4539-a82d-3aa992a69a83",
-  "InsertDate": "2025-01-19T11:36:11Z",
-  "LastUpdateDate": "2025-01-19T11:36:11Z",
+  "InsertDate": "2025-01-21T09:31:34Z",
+  "LastUpdateDate": "2025-01-21T09:31:34Z",
   "Level": "high",
   "Name": "Registry Disable System Restore",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\policies\\microsoft\\windows nt\\systemrestore%' or target_object like '%\\microsoft\\windows nt\\currentversion\\systemrestore%') and (target_object like '%disableconfig' or target_object like '%disablesr') and details = 'dword (0x00000001)'",

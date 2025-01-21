@@ -1,8 +1,8 @@
 {
   "Description": "Monitor and alert for device registration or join events where MFA was not performed.\n\nAuthor: Michael Epping, '@mepples21'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "5afa454e-030c-4ab4-9253-a90aa7fcc581",
-  "InsertDate": "2025-01-19T11:33:26Z",
-  "LastUpdateDate": "2025-01-19T11:33:26Z",
+  "InsertDate": "2025-01-21T09:27:05Z",
+  "LastUpdateDate": "2025-01-21T09:27:05Z",
   "Level": "medium",
   "Name": "Device Registration or Join Without MFA",
   "Query": "sourcetype='azure-signinlogs' eql select * from _source_ where ((resourcedisplayname = 'device registration service' and conditionalaccessstatus = 'success') and  not authenticationrequirement = 'multifactorauthentication')",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects potential DLL sideloading of \"wwlib.dll\"\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e2e01011-5910-4267-9c3b-4149ed5479cf",
-  "InsertDate": "2025-01-19T11:34:10Z",
-  "LastUpdateDate": "2025-01-19T11:34:10Z",
+  "InsertDate": "2025-01-21T09:27:53Z",
+  "LastUpdateDate": "2025-01-21T09:27:53Z",
   "Level": "medium",
   "Name": "Potential WWlib.DLL Sideloading",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (image_loaded like '%\\wwlib.dll' and  not ((process_path like 'c:\\program files (x86)\\microsoft office\\%' or process_path like 'c:\\program files\\microsoft office\\%') and process_path like '%\\winword.exe' and (image_loaded like 'c:\\program files (x86)\\microsoft office\\%' or image_loaded like 'c:\\program files\\microsoft office\\%')))",

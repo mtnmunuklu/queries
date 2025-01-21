@@ -1,8 +1,8 @@
 {
   "Description": "Detects when events are deleted in Kubernetes.\nAn adversary may delete Kubernetes events in an attempt to evade detection.\n\n\nAuthor: Leo Tsaousis (@laripping)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "3132570d-cab2-4561-9ea6-1743644b2290",
-  "InsertDate": "2025-01-19T11:33:18Z",
-  "LastUpdateDate": "2025-01-19T11:33:18Z",
+  "InsertDate": "2025-01-21T09:26:58Z",
+  "LastUpdateDate": "2025-01-21T09:26:58Z",
   "Level": "medium",
   "Name": "Kubernetes Events Deleted",
   "Query": "sourcetype='kubernetes-audit' eql select * from _source_ where verb = 'delete' and objectref.resource = 'events'",

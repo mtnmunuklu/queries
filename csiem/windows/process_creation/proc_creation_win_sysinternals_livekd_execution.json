@@ -1,8 +1,8 @@
 {
   "Description": "Detects execution of LiveKD based on PE metadata or image name\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a85f7765-698a-4088-afa0-ecfbf8d01fa4",
-  "InsertDate": "2025-01-19T11:35:40Z",
-  "LastUpdateDate": "2025-01-19T11:35:40Z",
+  "InsertDate": "2025-01-21T09:30:37Z",
+  "LastUpdateDate": "2025-01-21T09:30:37Z",
   "Level": "medium",
   "Name": "Potential Memory Dumping Activity Via LiveKD",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\livekd.exe' or process_path like '%\\livekd64.exe') and original_file_name = 'livekd.exe'",

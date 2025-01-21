@@ -1,8 +1,8 @@
 {
   "Description": "Detects the creation of a new PowerShell module \".psm1\", \".psd1\", \".dll\", \".ps1\", etc.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e36941d0-c0f0-443f-bc6f-cb2952eb69ea",
-  "InsertDate": "2025-01-19T11:34:02Z",
-  "LastUpdateDate": "2025-01-19T11:34:02Z",
+  "InsertDate": "2025-01-21T09:27:45Z",
+  "LastUpdateDate": "2025-01-21T09:27:45Z",
   "Level": "low",
   "Name": "PowerShell Module File Created",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (filepath like '%\\windowspowershell\\modules\\%' or filepath like '%\\powershell\\7\\modules\\%')",

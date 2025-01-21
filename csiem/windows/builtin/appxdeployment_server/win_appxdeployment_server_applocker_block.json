@@ -1,8 +1,8 @@
 {
   "Description": "Detects an appx package deployment that was blocked by AppLocker policy\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6ae53108-c3a0-4bee-8f45-c7591a2c337f",
-  "InsertDate": "2025-01-19T11:33:43Z",
-  "LastUpdateDate": "2025-01-19T11:33:43Z",
+  "InsertDate": "2025-01-21T09:27:25Z",
+  "LastUpdateDate": "2025-01-21T09:27:25Z",
   "Level": "medium",
   "Name": "Deployment AppX Package Was Blocked By AppLocker",
   "Query": "sourcetype='windows-appxdeployment-server' eql select * from _source_ where eventid = '412'",

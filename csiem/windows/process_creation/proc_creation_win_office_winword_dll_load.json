@@ -1,8 +1,8 @@
 {
   "Description": "Detects potential DLL sideloading using the Microsoft Office winword process via the '/l' flag.\n\nAuthor: Victor Sergeev, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f7375e28-5c14-432f-b8d1-1db26c832df3",
-  "InsertDate": "2025-01-19T11:34:57Z",
-  "LastUpdateDate": "2025-01-19T11:34:57Z",
+  "InsertDate": "2025-01-21T09:28:46Z",
+  "LastUpdateDate": "2025-01-21T09:28:46Z",
   "Level": "medium",
   "Name": "Potential Arbitrary DLL Load Using Winword",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\winword.exe' and original_file_name = 'winword.exe') and (command like '%/l %' and command like '%.dll%'))",

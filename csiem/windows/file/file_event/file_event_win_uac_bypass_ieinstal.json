@@ -1,8 +1,8 @@
 {
   "Description": "Detects the pattern of UAC Bypass using IEInstal.exe (UACMe 64)\n\nAuthor: Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "bdd8157d-8e85-4397-bb82-f06cc9c71dbb",
-  "InsertDate": "2025-01-19T11:34:05Z",
-  "LastUpdateDate": "2025-01-19T11:34:05Z",
+  "InsertDate": "2025-01-21T09:27:48Z",
+  "LastUpdateDate": "2025-01-21T09:27:48Z",
   "Level": "high",
   "Name": "UAC Bypass Using IEInstal - File",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path = 'c:\\program files\\internet explorer\\ieinstal.exe' and filepath like 'c:\\users\\%' and filepath like '%\\appdata\\local\\temp\\%' and filepath like '%consent.exe'",

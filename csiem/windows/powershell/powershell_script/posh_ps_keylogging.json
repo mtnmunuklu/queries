@@ -1,8 +1,8 @@
 {
   "Description": "Adversaries may log user keystrokes to intercept credentials as the user types them.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "34f90d3c-c297-49e9-b26d-911b05a4866c",
-  "InsertDate": "2025-01-19T11:34:20Z",
-  "LastUpdateDate": "2025-01-19T11:34:20Z",
+  "InsertDate": "2025-01-21T09:28:05Z",
+  "LastUpdateDate": "2025-01-21T09:28:05Z",
   "Level": "medium",
   "Name": "Powershell Keylogging",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%get-keystrokes%' or (scriptblocktext like '%get-procaddress user32.dll getasynckeystate%' and scriptblocktext like '%get-procaddress user32.dll getforegroundwindow%'))",

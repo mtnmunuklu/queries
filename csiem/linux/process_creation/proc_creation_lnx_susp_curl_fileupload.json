@@ -1,8 +1,8 @@
 {
   "Description": "Detects a suspicious curl process start the adds a file to a web request\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Cedric MAURUGEON (Update)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "00b90cc1-17ec-402c-96ad-3a8117d7a582",
-  "InsertDate": "2025-01-19T11:33:35Z",
-  "LastUpdateDate": "2025-01-19T11:33:35Z",
+  "InsertDate": "2025-01-21T09:27:18Z",
+  "LastUpdateDate": "2025-01-21T09:27:18Z",
   "Level": "medium",
   "Name": "Suspicious Curl File Upload - Linux",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where ((process_path like '%/curl' and ((command like '% --form%' or command like '% --upload-file %' or command like '% --data %' or command like '% --data-%') and command re '\\s-[FTd]\\s')) and  not (command like '%://localhost%' or command like '%://127.0.0.1%'))",

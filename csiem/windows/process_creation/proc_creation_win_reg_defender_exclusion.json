@@ -1,8 +1,8 @@
 {
   "Description": "Detects the usage of \"reg.exe\" to add Defender folder exclusions. Qbot has been seen using this technique to add exclusions for folders within AppData and ProgramData.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "48917adc-a28e-4f5d-b729-11e75da8941f",
-  "InsertDate": "2025-01-19T11:35:09Z",
-  "LastUpdateDate": "2025-01-19T11:35:09Z",
+  "InsertDate": "2025-01-21T09:29:26Z",
+  "LastUpdateDate": "2025-01-21T09:29:26Z",
   "Level": "medium",
   "Name": "Suspicious Windows Defender Folder Exclusion Added Via Reg.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\reg.exe' and (command like '%software\\microsoft\\windows defender\\exclusions\\paths%' or command like '%software\\microsoft\\microsoft antimalware\\exclusions\\paths%') and (command like '%add %' and command like '%/t %' and command like '%reg_dword %' and command like '%/v %' and command like '%/d %' and command like '%0%')",

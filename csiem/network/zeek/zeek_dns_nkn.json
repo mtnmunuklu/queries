@@ -1,8 +1,8 @@
 {
   "Description": "NKN is a networking service using blockchain technology to support a decentralized network of peers. While there are legitimate uses for it, it can also be used as a C2 channel. This rule looks for a DNS request to the ma\u003e\n\nAuthor: Michael Portera (@mportatoes)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "fa7703d6-0ee8-4949-889c-48c84bc15b6f",
-  "InsertDate": "2025-01-19T11:33:40Z",
-  "LastUpdateDate": "2025-01-19T11:33:40Z",
+  "InsertDate": "2025-01-21T09:27:22Z",
+  "LastUpdateDate": "2025-01-21T09:27:22Z",
   "Level": "low",
   "Name": "New Kind of Network (NKN) Detection",
   "Query": "sourcetype='zeek-dns' eql select * from _source_ where (query like '%seed%' and query like '%.nkn.org%')",

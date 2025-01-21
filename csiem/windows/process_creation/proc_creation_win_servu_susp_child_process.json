@@ -1,8 +1,8 @@
 {
   "Description": "Detects a suspicious process pattern which could be a sign of an exploited Serv-U service\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "58f4ea09-0fc2-4520-ba18-b85c540b0eaf",
-  "InsertDate": "2025-01-19T11:35:27Z",
-  "LastUpdateDate": "2025-01-19T11:35:27Z",
+  "InsertDate": "2025-01-21T09:30:06Z",
+  "LastUpdateDate": "2025-01-21T09:30:06Z",
   "Level": "high",
   "Name": "Suspicious Serv-U Process Pattern",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where parent_process_path like '%\\serv-u.exe' and (process_path like '%\\cmd.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\wscript.exe' or process_path like '%\\cscript.exe' or process_path like '%\\sh.exe' or process_path like '%\\bash.exe' or process_path like '%\\schtasks.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\wmic.exe' or process_path like '%\\mshta.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\msiexec.exe' or process_path like '%\\forfiles.exe' or process_path like '%\\scriptrunner.exe')",

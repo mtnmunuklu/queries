@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of a renamed version of the Plink binary\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1c12727d-02bf-45ff-a9f3-d49806a3cf43",
-  "InsertDate": "2025-01-19T11:35:17Z",
-  "LastUpdateDate": "2025-01-19T11:35:17Z",
+  "InsertDate": "2025-01-21T09:29:50Z",
+  "LastUpdateDate": "2025-01-21T09:29:50Z",
   "Level": "high",
   "Name": "Renamed Plink Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((original_file_name = 'plink' and (command like '% -l forward%' and command like '% -p %' and command like '% -r %')) and  not process_path like '%\\plink.exe')",

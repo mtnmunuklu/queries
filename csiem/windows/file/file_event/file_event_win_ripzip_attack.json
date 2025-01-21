@@ -1,8 +1,8 @@
 {
   "Description": "Detects a phishing attack which expands a ZIP file containing a malicious shortcut.\nIf the victim expands the ZIP file via the explorer process, then the explorer process expands the malicious ZIP file and drops a malicious shortcut redirected to a backdoor into the Startup folder.\nAdditionally, the file name of the malicious shortcut in Startup folder contains {0AFACED1-E828-11D1-9187-B532F1E9575D} meaning the folder shortcut operation.\n\n\nAuthor: Greg (rule)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a6976974-ea6f-4e97-818e-ea08625c52cb",
-  "InsertDate": "2025-01-19T11:34:03Z",
-  "LastUpdateDate": "2025-01-19T11:34:03Z",
+  "InsertDate": "2025-01-21T09:27:46Z",
+  "LastUpdateDate": "2025-01-21T09:27:46Z",
   "Level": "high",
   "Name": "Potential RipZip Attack on Startup Folder",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%\\microsoft\\windows\\start menu\\programs\\startup%' and filepath like '%.lnk.{0afaced1-e828-11d1-9187-b532f1e9575d}%') and process_path like '%\\explorer.exe'",

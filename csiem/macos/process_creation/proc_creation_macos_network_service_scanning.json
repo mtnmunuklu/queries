@@ -1,8 +1,8 @@
 {
   "Description": "Detects enumeration of local or remote network services.\n\nAuthor: Alejandro Ortuno, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "84bae5d4-b518-4ae0-b331-6d4afd34d00f",
-  "InsertDate": "2025-01-19T11:33:38Z",
-  "LastUpdateDate": "2025-01-19T11:33:38Z",
+  "InsertDate": "2025-01-21T09:27:20Z",
+  "LastUpdateDate": "2025-01-21T09:27:20Z",
   "Level": "low",
   "Name": "MacOS Network Service Scanning",
   "Query": "sourcetype like 'macos-%' eql select * from _source_ where (((process_path like '%/nc' or process_path like '%/netcat') and  not command like '%l%') or (process_path like '%/nmap' or process_path like '%/telnet'))",

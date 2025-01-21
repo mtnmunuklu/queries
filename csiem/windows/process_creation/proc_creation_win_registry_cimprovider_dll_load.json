@@ -1,8 +1,8 @@
 {
   "Description": "Detects using register-cimprovider.exe to execute arbitrary dll file.\n\nAuthor: Ivan Dyachkov, Yulia Fomina, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a2910908-e86f-4687-aeba-76a5f996e652",
-  "InsertDate": "2025-01-19T11:35:12Z",
-  "LastUpdateDate": "2025-01-19T11:35:12Z",
+  "InsertDate": "2025-01-21T09:29:38Z",
+  "LastUpdateDate": "2025-01-21T09:29:38Z",
   "Level": "medium",
   "Name": "DLL Execution Via Register-cimprovider.exe",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\register-cimprovider.exe' and (command like '%-path%' and command like '%dll%')",

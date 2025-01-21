@@ -1,8 +1,8 @@
 {
   "Description": "Detects when an attacker or tool disables the  Windows Defender service (WinDefend) via the registry\n\nAuthor: Ján Trenčanský, frack113, AlertIQ, Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e1aa95de-610a-427d-b9e7-9b46cfafbe6a",
-  "InsertDate": "2025-01-19T11:36:11Z",
-  "LastUpdateDate": "2025-01-19T11:36:11Z",
+  "InsertDate": "2025-01-21T09:31:34Z",
+  "LastUpdateDate": "2025-01-21T09:31:34Z",
   "Level": "high",
   "Name": "Windows Defender Service Disabled - Registry",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where target_object like '%\\services\\windefend\\start' and details = 'dword (0x00000004)'",

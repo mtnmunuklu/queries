@@ -1,8 +1,8 @@
 {
   "Description": "Detects Code Integrity (CI) engine blocking processes from loading unsigned DLLs residing in suspicious locations\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "8289bf8c-4aca-4f5a-9db3-dc3d7afe5c10",
-  "InsertDate": "2025-01-19T11:33:51Z",
-  "LastUpdateDate": "2025-01-19T11:33:51Z",
+  "InsertDate": "2025-01-21T09:27:34Z",
+  "LastUpdateDate": "2025-01-21T09:27:34Z",
   "Level": "high",
   "Name": "Unsigned Binary Loaded From Suspicious Location",
   "Query": "sourcetype='windows-security-mitigations' eql select * from _source_ where (eventid = '11' or eventid = '12') and (imagename like '%\\users\\public\\%' or imagename like '%\\perflogs\\%' or imagename like '%\\desktop\\%' or imagename like '%\\downloads\\%' or imagename like '%\\appdata\\local\\temp\\%' or imagename like '%c:\\windows\\temp\\%')",

@@ -1,8 +1,8 @@
 {
   "Description": "Define a baseline threshold for failed sign-ins due to Conditional Access failures\n\nAuthor: Yochana Henderson, '@Yochana-H'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b4a6d707-9430-4f5f-af68-0337f52d5c42",
-  "InsertDate": "2025-01-19T11:33:26Z",
-  "LastUpdateDate": "2025-01-19T11:33:26Z",
+  "InsertDate": "2025-01-21T09:27:06Z",
+  "LastUpdateDate": "2025-01-21T09:27:06Z",
   "Level": "high",
   "Name": "Sign-in Failure Due to Conditional Access Requirements Not Met",
   "Query": "sourcetype='azure-signinlogs' eql select * from _source_ where resulttype = '53003' and resultdescription = 'blocked by conditional access'",

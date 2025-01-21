@@ -1,8 +1,8 @@
 {
   "Description": "Detects the creation of file with specific names used by RemoteKrbRelay SMB Relay attack module.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "3ab79e90-9fab-4cdf-a7b2-6522bc742adb",
-  "InsertDate": "2025-01-19T11:34:00Z",
-  "LastUpdateDate": "2025-01-19T11:34:00Z",
+  "InsertDate": "2025-01-21T09:27:43Z",
+  "LastUpdateDate": "2025-01-21T09:27:43Z",
   "Level": "high",
   "Name": "HackTool - RemoteKrbRelay SMB Relay Secrets Dump Module Indicators",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%:\\windows\\temp\\sam.tmp' or filepath like '%:\\windows\\temp\\sec.tmp' or filepath like '%:\\windows\\temp\\sys.tmp')",

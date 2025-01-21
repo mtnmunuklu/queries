@@ -1,11 +1,11 @@
 {
   "Description": "Detects potentially suspicious child process of applications launched from inside the WindowsApps directory. This could be a sign of a rogue \".appx\" package installation/execution\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f91ed517-a6ba-471d-9910-b3b4a398c0f3",
-  "InsertDate": "2025-01-19T11:35:30Z",
-  "LastUpdateDate": "2025-01-19T11:35:30Z",
+  "InsertDate": "2025-01-21T09:30:12Z",
+  "LastUpdateDate": "2025-01-21T09:30:12Z",
   "Level": "medium",
   "Name": "Potentially Suspicious Windows App Activity",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%c:\\program files\\windowsapps\\%' and ((command like '%cmd /c%' or command like '%invoke-%' or command like '%base64%') or (process_path like '%\\cmd.exe' or process_path like '%\\cscript.exe' or process_path like '%\\mshta.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\wscript.exe')) and  not (parent_process_path like '%:\\program files\\windowsapps\\microsoft.windowsterminal%' and parent_process_path like '%\\windowsterminal.exe' and (process_path like '%\\powershell.exe' or process_path like '%\\cmd.exe' or process_path like '%\\pwsh.exe')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%c:\\program files\\windowsapps\\%' and ((process_path like '%\\cmd.exe' or process_path like '%\\cscript.exe' or process_path like '%\\mshta.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\wscript.exe') or (command like '%cmd /c%' or command like '%invoke-%' or command like '%base64%')) and  not (parent_process_path like '%:\\program files\\windowsapps\\microsoft.windowsterminal%' and parent_process_path like '%\\windowsterminal.exe' and (process_path like '%\\powershell.exe' or process_path like '%\\cmd.exe' or process_path like '%\\pwsh.exe')))",
   "Tags": [
     "attack.defense-evasion"
   ],

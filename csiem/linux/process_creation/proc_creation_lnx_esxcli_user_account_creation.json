@@ -1,8 +1,8 @@
 {
   "Description": "Detects user account creation on ESXi system via esxcli\n\nAuthor: Cedric Maurugeon\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b28e4eb3-8bbc-4f0c-819f-edfe8e2f25db",
-  "InsertDate": "2025-01-19T11:33:34Z",
-  "LastUpdateDate": "2025-01-19T11:33:34Z",
+  "InsertDate": "2025-01-21T09:27:16Z",
+  "LastUpdateDate": "2025-01-21T09:27:16Z",
   "Level": "medium",
   "Name": "ESXi Account Creation Via ESXCLI",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where process_path like '%/esxcli' and (command like '%system %' and command like '%account %' and command like '%add %')",

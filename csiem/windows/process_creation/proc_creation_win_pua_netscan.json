@@ -1,8 +1,8 @@
 {
   "Description": "Detects usage of SoftPerfect's \"netscan.exe\". An application for scanning networks.\nIt is actively used in-the-wild by threat actors to inspect and understand the network architecture of a victim.\n\n\nAuthor: @d4ns4n_ (Wuerth-Phoenix)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ca387a8e-1c84-4da3-9993-028b45342d30",
-  "InsertDate": "2025-01-19T11:35:07Z",
-  "LastUpdateDate": "2025-01-19T11:35:07Z",
+  "InsertDate": "2025-01-21T09:29:13Z",
+  "LastUpdateDate": "2025-01-21T09:29:13Z",
   "Level": "medium",
   "Name": "PUA - SoftPerfect Netscan Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\netscan.exe' and product = 'network scanner' and description = 'application for scanning networks'",

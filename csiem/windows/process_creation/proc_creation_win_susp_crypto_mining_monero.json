@@ -1,8 +1,8 @@
 {
   "Description": "Detects command line parameters or strings often used by crypto miners\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "66c3b204-9f88-4d0a-a7f7-8a57d521ca55",
-  "InsertDate": "2025-01-19T11:35:31Z",
-  "LastUpdateDate": "2025-01-19T11:35:31Z",
+  "InsertDate": "2025-01-21T09:30:14Z",
+  "LastUpdateDate": "2025-01-21T09:30:14Z",
   "Level": "high",
   "Name": "Potential Crypto Mining Activity",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '% --cpu-priority=%' or command like '%--donate-level=0%' or command like '% -o pool.%' or command like '% --nicehash%' or command like '% --algo=rx/0 %' or command like '%stratum+tcp://%' or command like '%stratum+udp://%' or command like '%ls1kb25hdgutbgv2zww9%' or command like '%0tzg9uyxrllwxldmvsp%' or command like '%tlwrvbmf0zs1szxzlbd%' or command like '%c3ryyxr1bst0y3a6ly%' or command like '%n0cmf0dw0rdgnwoi8v%' or command like '%zdhjhdhvtk3rjcdovl%' or command like '%c3ryyxr1bst1zha6ly%' or command like '%n0cmf0dw0rdwrwoi8v%' or command like '%zdhjhdhvtk3vkcdovl%') and  not (command like '% pool.c %' or command like '% pool.o %' or command like '%gcc -%'))",

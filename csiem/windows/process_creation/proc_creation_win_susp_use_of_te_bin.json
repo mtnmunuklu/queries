@@ -1,8 +1,8 @@
 {
   "Description": "Windows Test Authoring and Execution Framework (TAEF) framework allows you to run automation by executing tests files written on different languages (C, C#, Microsoft COM Scripting interfaces\nAdversaries may execute malicious code (such as WSC file with VBScript, dll and so on) directly by running te.exe\n\n\nAuthor: Agro (@agro_sev) oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "634b00d5-ccc3-4a06-ae3b-0ec8444dd51b",
-  "InsertDate": "2025-01-19T11:35:38Z",
-  "LastUpdateDate": "2025-01-19T11:35:38Z",
+  "InsertDate": "2025-01-21T09:30:33Z",
+  "LastUpdateDate": "2025-01-21T09:30:33Z",
   "Level": "low",
   "Name": "Malicious Windows Script Components File Execution by TAEF Detection",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\te.exe' and parent_process_path like '%\\te.exe' and original_file_name = '\\te.exe'",

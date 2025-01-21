@@ -1,8 +1,8 @@
 {
   "Description": "Detects that a powershell code is written to the registry as a service.\n\nAuthor: oscd.community, Natalia Shornikova\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4a5f5a5e-ac01-474b-9b4e-d61298c9df1d",
-  "InsertDate": "2025-01-19T11:36:18Z",
-  "LastUpdateDate": "2025-01-19T11:36:18Z",
+  "InsertDate": "2025-01-21T09:31:50Z",
+  "LastUpdateDate": "2025-01-21T09:31:50Z",
   "Level": "high",
   "Name": "PowerShell as a Service in Registry",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where target_object like '%\\services\\%' and target_object like '%\\imagepath' and (details like '%powershell%' or details like '%pwsh%')",

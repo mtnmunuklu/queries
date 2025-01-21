@@ -1,11 +1,11 @@
 {
   "Description": "Detects a possible process memory dump that uses the white-listed Citrix TrolleyExpress.exe filename as a way to dump the lsass process memory\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4c0aaedc-154c-4427-ada0-d80ef9c9deb6",
-  "InsertDate": "2025-01-19T11:34:32Z",
-  "LastUpdateDate": "2025-01-19T11:34:32Z",
+  "InsertDate": "2025-01-21T09:28:19Z",
+  "LastUpdateDate": "2025-01-21T09:28:19Z",
   "Level": "high",
   "Name": "Process Access via TrolleyExpress Exclusion",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%\\trolleyexpress 7%' or command like '%\\trolleyexpress 8%' or command like '%\\trolleyexpress 9%' or command like '%\\trolleyexpress.exe 7%' or command like '%\\trolleyexpress.exe 8%' or command like '%\\trolleyexpress.exe 9%' or command like '%\\trolleyexpress.exe -ma %') or (process_path like '%\\trolleyexpress.exe' and  not (original_file_name like '%ctxinstall%' or original_file_name = 'null')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%\\trolleyexpress 7%' or command like '%\\trolleyexpress 8%' or command like '%\\trolleyexpress 9%' or command like '%\\trolleyexpress.exe 7%' or command like '%\\trolleyexpress.exe 8%' or command like '%\\trolleyexpress.exe 9%' or command like '%\\trolleyexpress.exe -ma %') or (process_path like '%\\trolleyexpress.exe' and  not (original_file_name = 'null' or original_file_name like '%ctxinstall%')))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1218.011",

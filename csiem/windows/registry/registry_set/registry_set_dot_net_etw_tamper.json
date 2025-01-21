@@ -1,8 +1,8 @@
 {
   "Description": "Potential adversaries stopping ETW providers recording loaded .NET assemblies.\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "bf4fc428-dcc3-4bbd-99fe-2422aeee2544",
-  "InsertDate": "2025-01-19T11:36:12Z",
-  "LastUpdateDate": "2025-01-19T11:36:12Z",
+  "InsertDate": "2025-01-21T09:31:37Z",
+  "LastUpdateDate": "2025-01-21T09:31:37Z",
   "Level": "high",
   "Name": "ETW Logging Disabled In .NET Processes - Sysmon Registry",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object like '%software\\microsoft\\.netframework\\etwenabled' and details = 'dword (0x00000000)') or ((target_object like '%\\complus_etwenabled' or target_object like '%\\complus_etwflags') and (details = '0' or details = 'dword (0x00000000)')))",

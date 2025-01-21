@@ -1,8 +1,8 @@
 {
   "Description": "Detects suspicious rules that delete or move messages or folders are set on a user's inbox.\n\nAuthor: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ceb55fd0-726e-4656-bf4e-b585b7f7d572",
-  "InsertDate": "2025-01-19T11:33:25Z",
-  "LastUpdateDate": "2025-01-19T11:33:25Z",
+  "InsertDate": "2025-01-21T09:27:05Z",
+  "LastUpdateDate": "2025-01-21T09:27:05Z",
   "Level": "high",
   "Name": "Suspicious Inbox Manipulation Rules",
   "Query": "sourcetype='azure-riskdetection' eql select * from _source_ where riskeventtype = 'mcassuspiciousinboxmanipulationrules'",

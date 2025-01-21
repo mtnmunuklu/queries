@@ -1,8 +1,8 @@
 {
   "Description": "Detects backup catalog deletions\n\nAuthor: Florian Roth (Nextron Systems), Tom U. @c_APT_ure (collection)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9703792d-fd9a-456d-a672-ff92efe4806a",
-  "InsertDate": "2025-01-19T11:33:42Z",
-  "LastUpdateDate": "2025-01-19T11:33:42Z",
+  "InsertDate": "2025-01-21T09:27:25Z",
+  "LastUpdateDate": "2025-01-21T09:27:25Z",
   "Level": "medium",
   "Name": "Backup Catalog Deleted",
   "Query": "sourcetype='windows-application' eql select * from _source_ where eventid = '524' and provider_name = 'microsoft-windows-backup'",

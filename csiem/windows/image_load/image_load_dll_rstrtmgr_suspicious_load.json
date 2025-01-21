@@ -1,8 +1,8 @@
 {
   "Description": "Detects the load of RstrtMgr DLL (Restart Manager) by a suspicious process.\nThis library has been used during ransomware campaigns to kill processes that would prevent file encryption by locking them (e.g. Conti ransomware, Cactus ransomware). It has also recently been seen used by the BiBi wiper for Windows.\nIt could also be used for anti-analysis purposes by shut downing specific processes.\n\n\nAuthor: Luc Génaux\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b48492dc-c5ef-4572-8dff-32bc241c15c8",
-  "InsertDate": "2025-01-19T11:34:06Z",
-  "LastUpdateDate": "2025-01-19T11:34:06Z",
+  "InsertDate": "2025-01-21T09:27:49Z",
+  "LastUpdateDate": "2025-01-21T09:27:49Z",
   "Level": "high",
   "Name": "Load Of RstrtMgr.DLL By A Suspicious Process",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((image_loaded like '%\\rstrtmgr.dll' and original_file_name = 'rstrtmgr.dll') and ((process_path like '%:\\perflogs\\%' or process_path like '%:\\users\\public\\%' or process_path like '%\\temporary internet%') or ((process_path like '%:\\users\\%' and process_path like '%\\favorites\\%') and (process_path like '%:\\users\\%' and process_path like '%\\favourites\\%') and (process_path like '%:\\users\\%' and process_path like '%\\contacts\\%'))))",

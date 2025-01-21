@@ -1,8 +1,8 @@
 {
   "Description": "Detects when a temporary access pass (TAP) is added to an account. TAPs added to priv accounts should be investigated\n\nAuthor: Mark Morowczynski '@markmorow', Yochana Henderson, '@Yochana-H'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "fa84aaf5-8142-43cd-9ec2-78cfebf878ce",
-  "InsertDate": "2025-01-19T11:33:24Z",
-  "LastUpdateDate": "2025-01-19T11:33:24Z",
+  "InsertDate": "2025-01-21T09:27:04Z",
+  "LastUpdateDate": "2025-01-21T09:27:04Z",
   "Level": "high",
   "Name": "Temporary Access Pass Added To An Account",
   "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where properties.message = 'admin registered security info' and status = 'admin registered temporary access pass method for user'",

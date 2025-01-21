@@ -1,11 +1,11 @@
 {
   "Description": "Detects possible Java payloads in web access logs\n\nAuthor: frack113, Harjot Singh, \"@cyb3rjy0t\" (update)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "583aa0a2-30b1-4d62-8bf3-ab73689efe6c",
-  "InsertDate": "2025-01-19T11:33:42Z",
-  "LastUpdateDate": "2025-01-19T11:33:42Z",
+  "InsertDate": "2025-01-21T09:27:24Z",
+  "LastUpdateDate": "2025-01-21T09:27:24Z",
   "Level": "high",
   "Name": "Java Payload Strings",
-  "Query": "eql select * from _source_ where (log like '%%24%7b%28%23a%3d%40%' or log like '%${(#a=@%' or log like '%%24%7b%40java%' or log like '%${@java%' or log like '%u0022java%' or log like '%%2f%24%7b%23%' or log like '%/${#%' or log like '%new+java.%' or log like '%getruntime().exec(%' or log like '%getruntime%28%29.exec%28%')",
+  "Query": "eql select * from _source_ where Query('%24%7B%28%23a%3D%40 OR ${(#a=@ OR %24%7B%40java OR ${@java OR u0022java OR %2F%24%7B%23 OR /${# OR new+java. OR getRuntime().exec( OR getRuntime%28%29.exec%28')",
   "Tags": [
     "cve.2022-26134",
     "cve.2021-26084",

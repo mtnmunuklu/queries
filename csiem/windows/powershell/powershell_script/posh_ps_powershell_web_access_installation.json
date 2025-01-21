@@ -1,8 +1,8 @@
 {
   "Description": "Detects the installation and configuration of PowerShell Web Access, which could be used for remote access and potential abuse\n\nAuthor: Michael Haag\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "5f9c7f1a-7c21-4c39-b2f3-8d8006e0e51f",
-  "InsertDate": "2025-01-19T11:34:21Z",
-  "LastUpdateDate": "2025-01-19T11:34:21Z",
+  "InsertDate": "2025-01-21T09:28:06Z",
+  "LastUpdateDate": "2025-01-21T09:28:06Z",
   "Level": "high",
   "Name": "PowerShell Web Access Installation - PsScript",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%install-windowsfeature windowspowershellwebaccess%' or scriptblocktext like '%install-pswawebapplication%' or (scriptblocktext like '%add-pswaauthorizationrule%' and scriptblocktext like '%-username *%' and scriptblocktext like '%-computername *%'))",

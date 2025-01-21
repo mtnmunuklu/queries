@@ -1,8 +1,8 @@
 {
   "Description": "Detects \"svchost.exe\" spawning \"rundll32.exe\" with command arguments like \"C:\\windows\\system32\\davclnt.dll,DavSetCookie\".\nThis could be an indicator of exfiltration or use of WebDav to launch code (hosted on a WebDav server).\n\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "2dbd9d3d-9e27-42a8-b8df-f13825c6c3d5",
-  "InsertDate": "2025-01-19T11:35:20Z",
-  "LastUpdateDate": "2025-01-19T11:35:20Z",
+  "InsertDate": "2025-01-21T09:29:57Z",
+  "LastUpdateDate": "2025-01-21T09:29:57Z",
   "Level": "medium",
   "Name": "WebDav Client Execution Via Rundll32.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\svchost.exe' and (process_path like '%\\rundll32.exe' and original_file_name = 'rundll32.exe') and command like '%c:\\windows\\system32\\davclnt.dll,davsetcookie%')",

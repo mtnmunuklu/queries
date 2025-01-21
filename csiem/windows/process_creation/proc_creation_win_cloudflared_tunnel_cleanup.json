@@ -1,8 +1,8 @@
 {
   "Description": "Detects execution of the \"cloudflared\" tool with the tunnel \"cleanup\" flag in order to cleanup tunnel connections.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "7050bba1-1aed-454e-8f73-3f46f09ce56a",
-  "InsertDate": "2025-01-19T11:34:32Z",
-  "LastUpdateDate": "2025-01-19T11:34:32Z",
+  "InsertDate": "2025-01-21T09:28:20Z",
+  "LastUpdateDate": "2025-01-21T09:28:20Z",
   "Level": "medium",
   "Name": "Cloudflared Tunnel Connections Cleanup",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '% tunnel %' and command like '%cleanup %') and (command like '%-config %' or command like '%-connector-id %')",

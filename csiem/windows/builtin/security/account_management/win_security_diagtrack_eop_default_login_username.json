@@ -1,8 +1,8 @@
 {
   "Description": "Detects the default \"UserName\" used by the DiagTrackEoP POC\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "2111118f-7e46-4fc8-974a-59fd8ec95196",
-  "InsertDate": "2025-01-19T11:33:45Z",
-  "LastUpdateDate": "2025-01-19T11:33:45Z",
+  "InsertDate": "2025-01-21T09:27:28Z",
+  "LastUpdateDate": "2025-01-21T09:27:28Z",
   "Level": "critical",
   "Name": "DiagTrackEoP Default Login Username",
   "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4624' and logontype = '9' and targetoutboundusername = 'thisisnotvaliduser'",

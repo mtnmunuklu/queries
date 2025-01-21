@@ -1,8 +1,8 @@
 {
   "Description": "Detects Obfuscated use of stdin to execute PowerShell\n\nAuthor: Jonathan Cheong, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "779c8c12-0eb1-11eb-adc1-0242ac120002",
-  "InsertDate": "2025-01-19T11:34:19Z",
-  "LastUpdateDate": "2025-01-19T11:34:19Z",
+  "InsertDate": "2025-01-21T09:28:04Z",
+  "LastUpdateDate": "2025-01-21T09:28:04Z",
   "Level": "high",
   "Name": "Invoke-Obfuscation STDIN+ Launcher - Powershell",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where scriptblocktext re 'cmd.{0,5}(?:/c|/r).+powershell.+(?:\\$?\\{?input\\}?|noexit).+\"'",

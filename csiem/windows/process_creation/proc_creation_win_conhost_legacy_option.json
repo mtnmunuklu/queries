@@ -1,8 +1,8 @@
 {
   "Description": "ForceV1 asks for information directly from the kernel space. Conhost connects to the console application. High IntegrityLevel means the process is running with elevated privileges, such as an Administrator context.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "3037d961-21e9-4732-b27a-637bcc7bf539",
-  "InsertDate": "2025-01-19T11:34:34Z",
-  "LastUpdateDate": "2025-01-19T11:34:34Z",
+  "InsertDate": "2025-01-21T09:28:21Z",
+  "LastUpdateDate": "2025-01-21T09:28:21Z",
   "Level": "informational",
   "Name": "Suspicious High IntegrityLevel Conhost Legacy Option",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (integrity_level = 'high' or integrity_level = 's-1-16-12288') and (command like '%conhost.exe%' and command like '%0xffffffff%' and command like '%-forcev1%')",

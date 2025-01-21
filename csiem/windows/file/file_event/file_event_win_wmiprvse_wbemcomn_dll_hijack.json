@@ -1,8 +1,8 @@
 {
   "Description": "Detects a threat actor creating a file named `wbemcomn.dll` in the `C:\\Windows\\System32\\wbem\\` directory over the network and loading it for a WMI DLL Hijack scenario.\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "614a7e17-5643-4d89-b6fe-f9df1a79641c",
-  "InsertDate": "2025-01-19T11:34:06Z",
-  "LastUpdateDate": "2025-01-19T11:34:06Z",
+  "InsertDate": "2025-01-21T09:27:49Z",
+  "LastUpdateDate": "2025-01-21T09:27:49Z",
   "Level": "critical",
   "Name": "Wmiprvse Wbemcomn DLL Hijack - File",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path = 'system' and filepath like '%\\wbem\\wbemcomn.dll'",

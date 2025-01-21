@@ -1,11 +1,11 @@
 {
   "Description": "Detects relevant commands often related to malware or hacking activity\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1543ae20-cbdf-4ec1-8d12-7664d667a825",
-  "InsertDate": "2025-01-19T11:33:31Z",
-  "LastUpdateDate": "2025-01-19T11:33:31Z",
+  "InsertDate": "2025-01-21T09:27:12Z",
+  "LastUpdateDate": "2025-01-21T09:27:12Z",
   "Level": "medium",
   "Name": "Suspicious Commands Linux",
-  "Query": "sourcetype='linux-auditd' eql select * from _source_ where ((type = 'execve' and a0 = 'chmod' and a1 = 'u+s') or (type = 'execve' and a0 = 'cp' and a1 = '/bin/ksh') or (type = 'execve' and a0 = 'cp' and a1 = '/bin/sh') or (type = 'execve' and a0 = 'chmod' and a1 = '777'))",
+  "Query": "sourcetype='linux-auditd' eql select * from _source_ where ((type = 'execve' and a0 = 'chmod' and a1 = '777') or (type = 'execve' and a0 = 'chmod' and a1 = 'u+s') or (type = 'execve' and a0 = 'cp' and a1 = '/bin/ksh') or (type = 'execve' and a0 = 'cp' and a1 = '/bin/sh'))",
   "Tags": [
     "attack.execution",
     "attack.t1059.004"

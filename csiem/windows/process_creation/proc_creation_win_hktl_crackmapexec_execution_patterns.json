@@ -1,8 +1,8 @@
 {
   "Description": "Detects various execution patterns of the CrackMapExec pentesting framework\n\nAuthor: Thomas Patzke\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "058f4380-962d-40a5-afce-50207d36d7e2",
-  "InsertDate": "2025-01-19T11:34:40Z",
-  "LastUpdateDate": "2025-01-19T11:34:40Z",
+  "InsertDate": "2025-01-21T09:28:28Z",
+  "LastUpdateDate": "2025-01-21T09:28:28Z",
   "Level": "high",
   "Name": "HackTool - CrackMapExec Execution Patterns",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%cmd.exe /q /c * 1\u003e \\\\\\\\*\\\\*\\\\* 2\u003e\u00261%' or command like '%cmd.exe /c * \u003e \\\\\\\\*\\\\*\\\\* 2\u003e\u00261%' or command like '%cmd.exe /c * \u003e *\\\\temp\\\\* 2\u003e\u00261%' or command like '%powershell.exe -exec bypass -noni -nop -w 1 -c \"%' or command like '%powershell.exe -noni -nop -w 1 -enc %')",

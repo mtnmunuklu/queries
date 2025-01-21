@@ -1,8 +1,8 @@
 {
   "Description": "Detects the exploitation of a security bypass and elevation of privilege vulnerability with Authentication Negotiation by using weak RC4-HMAC negotiation\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e6f81941-b1cd-4766-87db-9fc156f658ee",
-  "InsertDate": "2025-01-19T11:33:51Z",
-  "LastUpdateDate": "2025-01-19T11:33:51Z",
+  "InsertDate": "2025-01-21T09:27:34Z",
+  "LastUpdateDate": "2025-01-21T09:27:34Z",
   "Level": "high",
   "Name": "KDC RC4-HMAC Downgrade CVE-2022-37966",
   "Query": "sourcetype='windows-system' eql select * from _source_ where eventid = '42' and provider_name = 'kerberos-key-distribution-center' and level = '2'",

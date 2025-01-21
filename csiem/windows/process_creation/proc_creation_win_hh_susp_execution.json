@@ -1,11 +1,11 @@
 {
   "Description": "Detects a suspicious execution of a Microsoft HTML Help (HH.exe)\n\nAuthor: Maxim Pavlunin\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e8a95b5e-c891-46e2-b33a-93937d3abc31",
-  "InsertDate": "2025-01-19T11:34:39Z",
-  "LastUpdateDate": "2025-01-19T11:34:39Z",
+  "InsertDate": "2025-01-21T09:28:27Z",
+  "LastUpdateDate": "2025-01-21T09:28:27Z",
   "Level": "high",
   "Name": "Suspicious HH.EXE Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((original_file_name = 'hh.exe' and process_path like '%\\hh.exe') and (command like '%.application%' or command like '%\\appdata\\local\\temp\\%' or command like '%\\content.outlook\\%' or command like '%\\downloads\\%' or command like '%\\users\\public\\%' or command like '%\\windows\\temp\\%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%.application%' or command like '%\\appdata\\local\\temp\\%' or command like '%\\content.outlook\\%' or command like '%\\downloads\\%' or command like '%\\users\\public\\%' or command like '%\\windows\\temp\\%') and (original_file_name = 'hh.exe' and process_path like '%\\hh.exe'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.execution",

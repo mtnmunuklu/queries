@@ -1,8 +1,8 @@
 {
   "Description": "Detects a highly relevant Antivirus alert that reports a hack tool or other attack tool.\nThis event must not be ignored just because the AV has blocked the malware but investigate, how it came there in the first place.\n\n\nAuthor: Florian Roth (Nextron Systems), Arnim Rupp\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "fa0c05b6-8ad3-468d-8231-c1cbccb64fba",
-  "InsertDate": "2025-01-19T11:33:20Z",
-  "LastUpdateDate": "2025-01-19T11:33:20Z",
+  "InsertDate": "2025-01-21T09:27:00Z",
+  "LastUpdateDate": "2025-01-21T09:27:00Z",
   "Level": "high",
   "Name": "Antivirus Hacktool Detection",
   "Query": "eql select * from _source_ where (signature like 'atk/%' or signature like 'exploit.script.cve%' or signature like 'hktl%' or signature like 'htool%' or signature like 'pws.%' or signature like 'pwsx%' or signature like 'securitytool%') and (signature like '%adfind%' or signature like '%brutel%' or signature like '%bruter%' or signature like '%cobalt%' or signature like '%cobeacon%' or signature like '%cometer%' or signature like '%dumpcreds%' or signature like '%fastreverseproxy%' or signature like '%hacktool%' or signature like '%havoc%' or signature like '%impacket%' or signature like '%keylogger%' or signature like '%koadic%' or signature like '%mimikatz%' or signature like '%nighthawk%' or signature like '%pentestpowershell%' or signature like '%potato%' or signature like '%powersploit%' or signature like '%powerssh%' or signature like '%pshlspy%' or signature like '%pswtool%' or signature like '%pwcrack%' or signature like '%pwdump%' or signature like '%rozena%' or signature like '%rusthound%' or signature like '%sbelt%' or signature like '%seatbelt%' or signature like '%securitytool%' or signature like '%sharpdump%' or signature like '%sharphound%' or signature like '%shellcode%' or signature like '%sliver%' or signature like '%snaffler%' or signature like '%soaphound%' or signature like '%splinter%' or signature like '%swrort%' or signature like '%turtleloader%')",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects when a user downloads a file from an IP based URL using CertOC.exe\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b86f6dea-0b2f-41f5-bdcc-a057bd19cd6a",
-  "InsertDate": "2025-01-19T11:34:31Z",
-  "LastUpdateDate": "2025-01-19T11:34:31Z",
+  "InsertDate": "2025-01-21T09:28:18Z",
+  "LastUpdateDate": "2025-01-21T09:28:18Z",
   "Level": "high",
   "Name": "File Download From IP Based URL Via CertOC.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\certoc.exe' and original_file_name = 'certoc.exe') and command re '://[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' and command like '%-getcacaps%')",

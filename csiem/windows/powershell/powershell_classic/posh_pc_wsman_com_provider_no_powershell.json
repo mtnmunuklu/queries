@@ -1,8 +1,8 @@
 {
   "Description": "Detects suspicious use of the WSMAN provider without PowerShell.exe as the host application.\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "df9a0e0e-fedb-4d6c-8668-d765dfc92aa7",
-  "InsertDate": "2025-01-19T11:34:14Z",
-  "LastUpdateDate": "2025-01-19T11:34:14Z",
+  "InsertDate": "2025-01-21T09:27:58Z",
+  "LastUpdateDate": "2025-01-21T09:27:58Z",
   "Level": "medium",
   "Name": "Suspicious Non PowerShell WSMAN COM Provider",
   "Query": "sourcetype='windows-powershell-classic' eql select * from _source_ where (data like '%providername=wsman%' and  not ((data like '%hostapplication=powershell%' or data like '%hostapplication=c:\\windows\\system32\\windowspowershell\\v1.0\\powershell%' or data like '%hostapplication=c:\\windows\\syswow64\\windowspowershell\\v1.0\\powershell%' or data like '%hostapplication=c:/windows/system32/windowspowershell/v1.0/powershell%' or data like '%hostapplication=c:/windows/syswow64/windowspowershell/v1.0/powershell%') or data re 'HostId=[a-zA-Z0-9-]{36}\\s+EngineVersion='))",

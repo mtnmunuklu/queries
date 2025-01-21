@@ -1,11 +1,11 @@
 {
   "Description": "Detects a suspicious printer driver installation with an empty Manufacturer value\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e0813366-0407-449a-9869-a2db1119dc41",
-  "InsertDate": "2025-01-19T11:36:21Z",
-  "LastUpdateDate": "2025-01-19T11:36:21Z",
+  "InsertDate": "2025-01-21T09:31:54Z",
+  "LastUpdateDate": "2025-01-21T09:31:54Z",
   "Level": "high",
   "Name": "Suspicious Printer Driver Empty Manufacturer",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (((target_object like '%\\control\\print\\environments\\windows x64\\drivers%' and target_object like '%\\manufacturer%') and details = '(empty)') and  not ((target_object like '%\\vnc printer (ps)\\%' or target_object like '%\\vnc printer (ud)\\%') or target_object like '%\\version-3\\pdf24\\%' or target_object like '%\\cutepdf writer v4.0\\%'))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (((target_object like '%\\control\\print\\environments\\windows x64\\drivers%' and target_object like '%\\manufacturer%') and details = '(empty)') and  not (target_object like '%\\version-3\\pdf24\\%' or target_object like '%\\cutepdf writer v4.0\\%' or (target_object like '%\\vnc printer (ps)\\%' or target_object like '%\\vnc printer (ud)\\%')))",
   "Tags": [
     "attack.privilege-escalation",
     "attack.t1574",

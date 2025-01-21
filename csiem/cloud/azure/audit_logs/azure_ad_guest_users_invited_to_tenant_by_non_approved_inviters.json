@@ -1,8 +1,8 @@
 {
   "Description": "Detects guest users being invited to tenant by non-approved inviters\n\nAuthor: MikeDuddington, '@dudders1'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4ad97bf5-a514-41a4-abd3-4f3455ad4865",
-  "InsertDate": "2025-01-19T11:33:23Z",
-  "LastUpdateDate": "2025-01-19T11:33:23Z",
+  "InsertDate": "2025-01-21T09:27:03Z",
+  "LastUpdateDate": "2025-01-21T09:27:03Z",
   "Level": "medium",
   "Name": "Guest Users Invited To Tenant By Non Approved Inviters",
   "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where ((category = 'usermanagement' and operationname = 'invite external user') and  not initiatedby like '%\u003capproved guest inviter use or for multiple\u003e%')",

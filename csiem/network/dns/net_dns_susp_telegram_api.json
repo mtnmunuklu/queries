@@ -1,8 +1,8 @@
 {
   "Description": "Detects suspicious DNS queries to api.telegram.org used by Telegram Bots of any kind\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c64c5175-5189-431b-a55e-6d9882158251",
-  "InsertDate": "2025-01-19T11:33:40Z",
-  "LastUpdateDate": "2025-01-19T11:33:40Z",
+  "InsertDate": "2025-01-21T09:27:22Z",
+  "LastUpdateDate": "2025-01-21T09:27:22Z",
   "Level": "medium",
   "Name": "Telegram Bot API Request",
   "Query": "eql select * from _source_ where query = 'api.telegram.org'",

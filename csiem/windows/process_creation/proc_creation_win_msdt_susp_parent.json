@@ -1,8 +1,8 @@
 {
   "Description": "Detects msdt.exe executed by a suspicious parent as seen in CVE-2022-30190 / Follina exploitation\n\nAuthor: Nextron Systems\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "7a74da6b-ea76-47db-92cc-874ad90df734",
-  "InsertDate": "2025-01-19T11:34:51Z",
-  "LastUpdateDate": "2025-01-19T11:34:51Z",
+  "InsertDate": "2025-01-21T09:28:40Z",
+  "LastUpdateDate": "2025-01-21T09:28:40Z",
   "Level": "high",
   "Name": "Suspicious MSDT Parent Process",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_process_path like '%\\cmd.exe' or parent_process_path like '%\\cscript.exe' or parent_process_path like '%\\mshta.exe' or parent_process_path like '%\\powershell.exe' or parent_process_path like '%\\pwsh.exe' or parent_process_path like '%\\regsvr32.exe' or parent_process_path like '%\\rundll32.exe' or parent_process_path like '%\\schtasks.exe' or parent_process_path like '%\\wmic.exe' or parent_process_path like '%\\wscript.exe' or parent_process_path like '%\\wsl.exe') and (process_path like '%\\msdt.exe' and original_file_name = 'msdt.exe'))",

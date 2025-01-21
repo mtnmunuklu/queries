@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of python with calls to the socket and pty module in order to connect and spawn a potential reverse shell.\n\n\nAuthor: @d4ns4n_, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "32e62bc7-3de0-4bb1-90af-532978fe42c0",
-  "InsertDate": "2025-01-19T11:33:35Z",
-  "LastUpdateDate": "2025-01-19T11:33:35Z",
+  "InsertDate": "2025-01-21T09:27:17Z",
+  "LastUpdateDate": "2025-01-21T09:27:17Z",
   "Level": "high",
   "Name": "Python Reverse Shell Execution Via PTY And Socket Modules",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where process_path like '%python%' and (command like '% -c %' and command like '%import%' and command like '%pty%' and command like '%socket%' and command like '%spawn%' and command like '%.connect%')",

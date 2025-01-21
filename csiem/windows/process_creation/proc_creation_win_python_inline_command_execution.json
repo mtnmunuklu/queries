@@ -1,11 +1,11 @@
 {
   "Description": "Detects execution of python using the \"-c\" flag. This is could be used as a way to launch a reverse shell or execute live python code.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "899133d5-4d7c-4a7f-94ee-27355c879d90",
-  "InsertDate": "2025-01-19T11:35:09Z",
-  "LastUpdateDate": "2025-01-19T11:35:09Z",
+  "InsertDate": "2025-01-21T09:29:22Z",
+  "LastUpdateDate": "2025-01-21T09:29:22Z",
   "Level": "medium",
   "Name": "Python Inline Command Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((original_file_name = 'python.exe' and (process_path like '%python.exe' or process_path like '%python3.exe' or process_path like '%python2.exe')) and command like '% -c%') and  not ((parent_process_path like 'c:\\program files\\python%' and parent_process_path like '%\\python.exe' and parent_command_line like '%-e -s -m ensurepip -u --default-pip%') or parent_process_path like '%\\appdata\\local\\programs\\microsoft vs code\\code.exe'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((original_file_name = 'python.exe' and (process_path like '%python.exe' or process_path like '%python3.exe' or process_path like '%python2.exe')) and command like '% -c%') and  not (parent_process_path like '%\\appdata\\local\\programs\\microsoft vs code\\code.exe' or (parent_process_path like 'c:\\program files\\python%' and parent_process_path like '%\\python.exe' and parent_command_line like '%-e -s -m ensurepip -u --default-pip%')))",
   "Tags": [
     "attack.execution",
     "attack.t1059"

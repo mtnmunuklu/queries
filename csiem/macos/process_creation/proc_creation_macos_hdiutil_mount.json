@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of the hdiutil utility in order to mount disk images.\n\nAuthor: Omar Khaled (@beacon_exe)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "bf241472-f014-4f01-a869-96f99330ca8c",
-  "InsertDate": "2025-01-19T11:33:37Z",
-  "LastUpdateDate": "2025-01-19T11:33:37Z",
+  "InsertDate": "2025-01-21T09:27:20Z",
+  "LastUpdateDate": "2025-01-21T09:27:20Z",
   "Level": "medium",
   "Name": "Disk Image Mounting Via Hdiutil - MacOS",
   "Query": "sourcetype like 'macos-%' eql select * from _source_ where process_path like '%/hdiutil' and (command like '%attach %' or command like '%mount %')",

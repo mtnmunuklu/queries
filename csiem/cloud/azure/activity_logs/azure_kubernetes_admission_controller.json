@@ -1,8 +1,8 @@
 {
   "Description": "Identifies when an admission controller is executed in Azure Kubernetes.\nA Kubernetes Admission controller intercepts, and possibly modifies, requests to the Kubernetes API server.\nThe behavior of this admission controller is determined by an admission webhook (MutatingAdmissionWebhook or ValidatingAdmissionWebhook) that the user deploys in the cluster.\nAn adversary can use such webhooks as the MutatingAdmissionWebhook for obtaining persistence in the cluster.\nFor example, attackers can intercept and modify the pod creation operations in the cluster and add their malicious container to every created pod.\nAn adversary can use the webhook ValidatingAdmissionWebhook, which could be used to obtain access credentials.\nAn adversary could use the webhook to intercept the requests to the API server, record secrets, and other sensitive information.\n\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a61a3c56-4ce2-4351-a079-88ae4cbd2b58",
-  "InsertDate": "2025-01-19T11:33:22Z",
-  "LastUpdateDate": "2025-01-19T11:33:22Z",
+  "InsertDate": "2025-01-21T09:27:02Z",
+  "LastUpdateDate": "2025-01-21T09:27:02Z",
   "Level": "medium",
   "Name": "Azure Kubernetes Admission Controller",
   "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (operationname like 'microsoft.kubernetes/connectedclusters/admissionregistration.k8s.io%' or operationname like 'microsoft.containerservice/managedclusters/admissionregistration.k8s.io%') and (operationname like '%/mutatingwebhookconfigurations/write' or operationname like '%/validatingwebhookconfigurations/write')",

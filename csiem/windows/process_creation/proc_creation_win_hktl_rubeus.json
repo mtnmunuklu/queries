@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of the hacktool Rubeus via PE information of command line parameters\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "7ec2c172-dceb-4c10-92c9-87c1881b7e18",
-  "InsertDate": "2025-01-19T11:34:42Z",
-  "LastUpdateDate": "2025-01-19T11:34:42Z",
+  "InsertDate": "2025-01-21T09:28:32Z",
+  "LastUpdateDate": "2025-01-21T09:28:32Z",
   "Level": "critical",
   "Name": "HackTool - Rubeus Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\rubeus.exe' and original_file_name = 'rubeus.exe' and description = 'rubeus' and (command like '%asreproast %' or command like '%dump /service:krbtgt %' or command like '%dump /luid:0x%' or command like '%kerberoast %' or command like '%createnetonly /program:%' or command like '%ptt /ticket:%' or command like '%/impersonateuser:%' or command like '%renew /ticket:%' or command like '%asktgt /user:%' or command like '%harvest /interval:%' or command like '%s4u /user:%' or command like '%s4u /ticket:%' or command like '%hash /password:%' or command like '%golden /aes256:%' or command like '%silver /user:%')",

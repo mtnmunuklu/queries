@@ -1,11 +1,11 @@
 {
   "Description": "Detects when a memory process image does not match the disk image, indicative of process hollowing.\n\nAuthor: Christopher Peacock '@securepeacock', SCYTHE '@scythe_io', Sittikorn S\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c4b890e5-8d8c-4496-8c66-c805753817cd",
-  "InsertDate": "2025-01-19T11:35:59Z",
-  "LastUpdateDate": "2025-01-19T11:35:59Z",
+  "InsertDate": "2025-01-21T09:31:11Z",
+  "LastUpdateDate": "2025-01-21T09:31:11Z",
   "Level": "medium",
   "Name": "Potential Process Hollowing Activity",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (type = 'image is replaced' and  not (process_path like '%:\\program files (x86)%' or process_path like '%:\\program files\\%' or process_path like '%:\\windows\\system32\\wbem\\wmiadap.exe%' or process_path like '%:\\windows\\syswow64\\wbem\\wmiadap.exe%') and  not (process_path like '%\\windowsapps\\microsoftedge.exe' or (process_path like '%\\appdata\\local\\programs\\opera\\%' and process_path like '%\\opera.exe')))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (type = 'image is replaced' and  not (process_path like '%:\\program files (x86)%' or process_path like '%:\\program files\\%' or process_path like '%:\\windows\\system32\\wbem\\wmiadap.exe%' or process_path like '%:\\windows\\syswow64\\wbem\\wmiadap.exe%') and  not ((process_path like '%\\appdata\\local\\programs\\opera\\%' and process_path like '%\\opera.exe') or process_path like '%\\windowsapps\\microsoftedge.exe'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.privilege-escalation",

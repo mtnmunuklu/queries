@@ -1,8 +1,8 @@
 {
   "Description": "Detects events with patterns found in commands used for reconnaissance on linux systems\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0cf7a157-8879-41a2-8f55-388dd23746b7",
-  "InsertDate": "2025-01-19T11:33:36Z",
-  "LastUpdateDate": "2025-01-19T11:33:36Z",
+  "InsertDate": "2025-01-21T09:27:18Z",
+  "LastUpdateDate": "2025-01-21T09:27:18Z",
   "Level": "high",
   "Name": "Linux Recon Indicators",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where (command like '% -name .htpasswd%' or command like '% -perm -4000 %')",

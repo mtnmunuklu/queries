@@ -1,8 +1,8 @@
 {
   "Description": "Detects python spawning a pretty tty\n\nAuthor: Nextron Systems\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "480e7e51-e797-47e3-8d72-ebfce65b6d8d",
-  "InsertDate": "2025-01-19T11:35:09Z",
-  "LastUpdateDate": "2025-01-19T11:35:09Z",
+  "InsertDate": "2025-01-21T09:29:22Z",
+  "LastUpdateDate": "2025-01-21T09:29:22Z",
   "Level": "high",
   "Name": "Python Spawning Pretty TTY on Windows",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%python.exe' or process_path like '%python3.exe' or process_path like '%python2.exe') and ((command like '%import pty%' and command like '%.spawn(%') or command like '%from pty import spawn%'))",

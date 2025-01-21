@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of a renamed \"CURL.exe\" binary based on the PE metadata fields\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "7530cd3d-7671-43e3-b209-976966f6ea48",
-  "InsertDate": "2025-01-19T11:35:16Z",
-  "LastUpdateDate": "2025-01-19T11:35:16Z",
+  "InsertDate": "2025-01-21T09:29:48Z",
+  "LastUpdateDate": "2025-01-21T09:29:48Z",
   "Level": "medium",
   "Name": "Renamed CURL.EXE Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((original_file_name = 'curl.exe' and description = 'the curl executable') and  not process_path like '%\\curl%')",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects the extraction of password protected ZIP archives with suspicious file names. See the filename variable for more details on which file has been opened.\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "54f0434b-726f-48a1-b2aa-067df14516e4",
-  "InsertDate": "2025-01-19T11:33:50Z",
-  "LastUpdateDate": "2025-01-19T11:33:50Z",
+  "InsertDate": "2025-01-21T09:27:33Z",
+  "LastUpdateDate": "2025-01-21T09:27:33Z",
   "Level": "high",
   "Name": "Password Protected ZIP File Opened (Suspicious Filenames)",
   "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '5379' and targetname like '%microsoft_windows_shell_zipfolder:filename%') and (targetname like '%invoice%' or targetname like '%new order%' or targetname like '%rechnung%' or targetname like '%factura%' or targetname like '%delivery%' or targetname like '%purchase%' or targetname like '%order%' or targetname like '%payment%'))",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects renamed execution of \"Microsoft.NodejsTools.PressAnyKey.exe\", which can be abused as a LOLBIN to execute arbitrary binaries\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "65c3ca2c-525f-4ced-968e-246a713d164f",
-  "InsertDate": "2025-01-19T11:35:17Z",
-  "LastUpdateDate": "2025-01-19T11:35:17Z",
+  "InsertDate": "2025-01-21T09:29:50Z",
+  "LastUpdateDate": "2025-01-21T09:29:50Z",
   "Level": "medium",
   "Name": "Visual Studio NodejsTools PressAnyKey Renamed Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (original_file_name = 'microsoft.nodejstools.pressanykey.exe' and  not process_path like '%\\microsoft.nodejstools.pressanykey.exe')",

@@ -1,11 +1,11 @@
 {
   "Description": "Detects unsigned module load by ClickOnce application.\n\nAuthor: @SerkinValery\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "060d5ad4-3153-47bb-8382-43e5e29eda92",
-  "InsertDate": "2025-01-19T11:34:10Z",
-  "LastUpdateDate": "2025-01-19T11:34:10Z",
+  "InsertDate": "2025-01-21T09:27:53Z",
+  "LastUpdateDate": "2025-01-21T09:27:53Z",
   "Level": "medium",
   "Name": "Unsigned Module Loaded by ClickOnce Application",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((signed = 'false' and signature_status = 'expired') and process_path like '%\\appdata\\local\\apps\\2.0\\%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\appdata\\local\\apps\\2.0\\%' and (signed = 'false' and signature_status = 'expired'))",
   "Tags": [
     "attack.persistence",
     "attack.t1574.002"

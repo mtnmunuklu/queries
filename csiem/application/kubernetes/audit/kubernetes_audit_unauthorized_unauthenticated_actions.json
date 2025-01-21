@@ -1,8 +1,8 @@
 {
   "Description": "Detects when a request to the Kubernetes API is rejected due to lack of authorization or due to an expired authentication token being used.\nThis may indicate an attacker attempting to leverage credentials they have obtained.\n\n\nAuthor: kelnage\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0d933542-1f1f-420d-97d4-21b2c3c492d9",
-  "InsertDate": "2025-01-19T11:33:18Z",
-  "LastUpdateDate": "2025-01-19T11:33:18Z",
+  "InsertDate": "2025-01-21T09:26:58Z",
+  "LastUpdateDate": "2025-01-21T09:26:58Z",
   "Level": "low",
   "Name": "Kubernetes Unauthorized or Unauthenticated Access",
   "Query": "sourcetype='kubernetes-audit' eql select * from _source_ where (responsestatus.code = '401' or responsestatus.code = '403')",

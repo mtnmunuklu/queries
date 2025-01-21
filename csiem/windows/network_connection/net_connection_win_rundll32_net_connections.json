@@ -1,11 +1,11 @@
 {
   "Description": "Detects a rundll32 that communicates with public IP addresses\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "cdc8da7d-c303-42f8-b08c-b4ab47230263",
-  "InsertDate": "2025-01-19T11:34:12Z",
-  "LastUpdateDate": "2025-01-19T11:34:12Z",
+  "InsertDate": "2025-01-21T09:27:56Z",
+  "LastUpdateDate": "2025-01-21T09:27:56Z",
   "Level": "medium",
   "Name": "Rundll32 Internet Connection",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\rundll32.exe' and initiated = 'true') and  not ((dst_ip cidr '127.0.0.0/8' or dst_ip cidr '10.0.0.0/8' or dst_ip cidr '172.16.0.0/12' or dst_ip cidr '192.168.0.0/16' or dst_ip cidr '169.254.0.0/16' or dst_ip cidr '::1/128' or dst_ip cidr 'fe80::/10' or dst_ip cidr 'fc00::/7') or (dst_ip cidr '20.0.0.0/8' or dst_ip cidr '51.103.0.0/16' or dst_ip cidr '51.104.0.0/16' or dst_ip cidr '51.105.0.0/16') or command like '%\\system32\\pcasvc.dll,pcapatchsdbtask' or src_host like '%.internal.cloudapp.net' or (parent_process_path = 'c:\\windows\\system32\\svchost.exe' and dst_port = '443')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\rundll32.exe' and initiated = 'true') and  not (src_host like '%.internal.cloudapp.net' or (parent_process_path = 'c:\\windows\\system32\\svchost.exe' and dst_port = '443') or (dst_ip cidr '127.0.0.0/8' or dst_ip cidr '10.0.0.0/8' or dst_ip cidr '172.16.0.0/12' or dst_ip cidr '192.168.0.0/16' or dst_ip cidr '169.254.0.0/16' or dst_ip cidr '::1/128' or dst_ip cidr 'fe80::/10' or dst_ip cidr 'fc00::/7') or (dst_ip cidr '20.0.0.0/8' or dst_ip cidr '51.103.0.0/16' or dst_ip cidr '51.104.0.0/16' or dst_ip cidr '51.105.0.0/16') or command like '%\\system32\\pcasvc.dll,pcapatchsdbtask'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1218.011",

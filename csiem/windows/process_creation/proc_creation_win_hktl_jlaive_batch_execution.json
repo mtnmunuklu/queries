@@ -1,8 +1,8 @@
 {
   "Description": "Detects the use of Jlaive to execute assemblies in a copied PowerShell\n\nAuthor: Jose Luis Sanchez Martinez (@Joseliyo_Jstnk)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0a99eb3e-1617-41bd-b095-13dc767f3def",
-  "InsertDate": "2025-01-19T11:34:42Z",
-  "LastUpdateDate": "2025-01-19T11:34:42Z",
+  "InsertDate": "2025-01-21T09:28:30Z",
+  "LastUpdateDate": "2025-01-21T09:28:30Z",
   "Level": "medium",
   "Name": "HackTool - Jlaive In-Memory Assembly Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_process_path like '%\\cmd.exe' and parent_command_line like '%.bat') and ((process_path like '%\\attrib.exe' and (command like '%+s%' and command like '%+h%' and command like '%.bat.exe%')) or (process_path like '%\\xcopy.exe' and (command like '%powershell.exe%' and command like '%.bat.exe%')) or (process_path like '%\\xcopy.exe' and (command like '%pwsh.exe%' and command like '%.bat.exe%'))))",

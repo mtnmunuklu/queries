@@ -1,8 +1,8 @@
 {
   "Description": "Detects network connections to BTunnels domains initiated by a process on the system.\nAttackers can abuse that feature to establish a reverse shell or persistence on a machine.\n\n\nAuthor: Kamran Saifullah\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9e02c8ec-02b9-43e8-81eb-34a475ba7965",
-  "InsertDate": "2025-01-19T11:34:11Z",
-  "LastUpdateDate": "2025-01-19T11:34:11Z",
+  "InsertDate": "2025-01-21T09:27:54Z",
+  "LastUpdateDate": "2025-01-21T09:27:54Z",
   "Level": "medium",
   "Name": "Network Connection Initiated To BTunnels Domains",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where initiated = 'true' and dst_host like '%.btunnel.co.in'",

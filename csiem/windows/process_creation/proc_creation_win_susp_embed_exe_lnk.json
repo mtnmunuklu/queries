@@ -1,8 +1,8 @@
 {
   "Description": "Detects events that appear when a user click on a link file with a powershell command in it\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "30e92f50-bb5a-4884-98b5-d20aa80f3d7a",
-  "InsertDate": "2025-01-19T11:35:32Z",
-  "LastUpdateDate": "2025-01-19T11:35:32Z",
+  "InsertDate": "2025-01-21T09:30:15Z",
+  "LastUpdateDate": "2025-01-21T09:30:15Z",
   "Level": "medium",
   "Name": "Hidden Powershell in Link File Pattern",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where parent_process_path = 'c:\\windows\\explorer.exe' and process_path = 'c:\\windows\\system32\\cmd.exe' and (command like '%powershell%' and command like '%.lnk%')",

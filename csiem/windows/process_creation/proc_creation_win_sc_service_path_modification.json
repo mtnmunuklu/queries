@@ -1,8 +1,8 @@
 {
   "Description": "Detects service path modification via the \"sc\" binary to a suspicious command or path\n\nAuthor: Victor Sergeev, oscd.community, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "138d3531-8793-4f50-a2cd-f291b2863d78",
-  "InsertDate": "2025-01-19T11:35:22Z",
-  "LastUpdateDate": "2025-01-19T11:35:22Z",
+  "InsertDate": "2025-01-21T09:29:59Z",
+  "LastUpdateDate": "2025-01-21T09:29:59Z",
   "Level": "high",
   "Name": "Suspicious Service Path Modification",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\sc.exe' and (command like '%config%' and command like '%binpath%') and (command like '%powershell%' or command like '%cmd %' or command like '%mshta%' or command like '%wscript%' or command like '%cscript%' or command like '%rundll32%' or command like '%svchost%' or command like '%dllhost%' or command like '%cmd.exe /c%' or command like '%cmd.exe /k%' or command like '%cmd.exe /r%' or command like '%cmd /c%' or command like '%cmd /k%' or command like '%cmd /r%' or command like '%c:\\users\\public%' or command like '%\\downloads\\%' or command like '%\\desktop\\%' or command like '%\\microsoft\\windows\\start menu\\programs\\startup\\%' or command like '%c:\\windows\\temp\\%' or command like '%\\appdata\\local\\temp%')",

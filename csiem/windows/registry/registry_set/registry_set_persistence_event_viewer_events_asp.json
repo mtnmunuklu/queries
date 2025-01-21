@@ -1,11 +1,11 @@
 {
   "Description": "Detects potential registry persistence technique using the Event Viewer \"Events.asp\" technique\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a1e11042-a74a-46e6-b07c-c4ce8ecc239b",
-  "InsertDate": "2025-01-19T11:36:17Z",
-  "LastUpdateDate": "2025-01-19T11:36:17Z",
+  "InsertDate": "2025-01-21T09:31:47Z",
+  "LastUpdateDate": "2025-01-21T09:31:47Z",
   "Level": "medium",
   "Name": "Potential Persistence Via Event Viewer Events.asp",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object like '%\\microsoft\\windows nt\\currentversion\\event viewer\\microsoftredirectionprogram%' or target_object like '%\\microsoft\\windows nt\\currentversion\\event viewer\\microsoftredirectionurl%') and  not ((process_path like '%c:\\windows\\system32\\svchost.exe' and target_object like '%\\microsoft\\windows nt\\currentversion\\event viewer\\microsoftredirectionprogram' and details = '%%systemroot%%\\pchealth\\helpctr\\binaries\\helpctr.exe') or (process_path like '%c:\\windows\\system32\\svchost.exe' and target_object like '%\\microsoft\\windows nt\\currentversion\\event viewer\\microsoftredirectionprogramcommandlineparameters' and details = '-url hcp://services/centers/support?topic=%%s') or details = 'http://go.microsoft.com/fwlink/events.asp' or details = '(empty)'))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object like '%\\microsoft\\windows nt\\currentversion\\event viewer\\microsoftredirectionprogram%' or target_object like '%\\microsoft\\windows nt\\currentversion\\event viewer\\microsoftredirectionurl%') and  not (details = '(empty)' or (process_path like '%c:\\windows\\system32\\svchost.exe' and target_object like '%\\microsoft\\windows nt\\currentversion\\event viewer\\microsoftredirectionprogram' and details = '%%systemroot%%\\pchealth\\helpctr\\binaries\\helpctr.exe') or (process_path like '%c:\\windows\\system32\\svchost.exe' and target_object like '%\\microsoft\\windows nt\\currentversion\\event viewer\\microsoftredirectionprogramcommandlineparameters' and details = '-url hcp://services/centers/support?topic=%%s') or details = 'http://go.microsoft.com/fwlink/events.asp'))",
   "Tags": [
     "attack.persistence",
     "attack.defense-evasion",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects when a possible suspicious driver is being installed via pnputil.exe lolbin\n\nAuthor: Hai Vaknin @LuxNoBulIshit, Avihay eldad  @aloneliassaf, Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a2ea3ae7-d3d0-40a0-a55c-25a45c87cac1",
-  "InsertDate": "2025-01-19T11:34:49Z",
-  "LastUpdateDate": "2025-01-19T11:34:49Z",
+  "InsertDate": "2025-01-21T09:28:38Z",
+  "LastUpdateDate": "2025-01-21T09:28:38Z",
   "Level": "medium",
   "Name": "Suspicious Driver Install by pnputil.exe",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%-i%' or command like '%/install%' or command like '%-a%' or command like '%/add-driver%' or command like '%.inf%') and process_path like '%\\pnputil.exe'",

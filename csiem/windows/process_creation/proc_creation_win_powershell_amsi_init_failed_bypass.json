@@ -1,8 +1,8 @@
 {
   "Description": "Detects Request to \"amsiInitFailed\" that can be used to disable AMSI Scanning\n\nAuthor: Markus Neis, @Kostastsale\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "30edb182-aa75-42c0-b0a9-e998bb29067c",
-  "InsertDate": "2025-01-19T11:34:58Z",
-  "LastUpdateDate": "2025-01-19T11:34:58Z",
+  "InsertDate": "2025-01-21T09:28:47Z",
+  "LastUpdateDate": "2025-01-21T09:28:47Z",
   "Level": "high",
   "Name": "Potential AMSI Bypass Via .NET Reflection",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%system.management.automation.amsiutils%' and command like '%amsiinitfailed%') and (command like '%[ref].assembly.gettype%' and command like '%setvalue($null,$true)%' and command like '%nonpublic,static%')",

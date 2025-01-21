@@ -1,11 +1,11 @@
 {
   "Description": "Detects potential SQL injection attempts via GET requests in access logs.\n\nAuthor: Saw Win Naung, Nasreddine Bencherchali (Nextron Systems), Thurein Oo (Yoma Bank)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "5513deaf-f49a-46c2-a6c8-3f111b5cb453",
-  "InsertDate": "2025-01-19T11:33:42Z",
-  "LastUpdateDate": "2025-01-19T11:33:42Z",
+  "InsertDate": "2025-01-21T09:27:24Z",
+  "LastUpdateDate": "2025-01-21T09:27:24Z",
   "Level": "high",
   "Name": "SQL Injection Strings In URI",
-  "Query": "eql select * from _source_ where (cs-method = 'get' and (log like '%@@version%' or log like '%%271%27%3d%271%' or log like '%=select %' or log like '%=select(%' or log like '%=select%20%' or log like '%concat_ws(%' or log like '%concat(0x%' or log like '%from mysql.innodb_table_stats%' or log like '%from%20mysql.innodb_table_stats%' or log like '%group_concat(%' or log like '%information_schema.tables%' or log like '%json_arrayagg(%' or log like '%or 1=1#%' or log like '%or%201=1#%' or log like '%order by %' or log like '%order%20by%20%' or log like '%select * %' or log like '%select database()%' or log like '%select version()%' or log like '%select%20*%20%' or log like '%select%20database()%' or log like '%select%20version()%' or log like '%select%28sleep%2810%29%' or log like '%selectchar(%' or log like '%table_schema%' or log like '%union all select%' or log like '%union select%' or log like '%union%20all%20select%' or log like '%union%20select%' or log like '%'1'='1%') and  not sc-status = '404')",
+  "Query": "eql select * from _source_ where (cs-method = 'get' and Query('@@version OR %271%27%3D%271 OR =select  OR =select( OR =select%20 OR concat_ws( OR CONCAT(0x OR from mysql.innodb_table_stats OR from%20mysql.innodb_table_stats OR group_concat( OR information_schema.tables OR json_arrayagg( OR or 1=1# OR or%201=1# OR order by  OR order%20by%20 OR select *  OR select database() OR select version() OR select%20*%20 OR select%20database() OR select%20version() OR select%28sleep%2810%29 OR SELECTCHAR( OR table_schema OR UNION ALL SELECT OR UNION SELECT OR UNION%20ALL%20SELECT OR UNION%20SELECT OR '1'='1') and  not sc-status = '404')",
   "Tags": [
     "attack.initial-access",
     "attack.t1190"

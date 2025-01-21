@@ -1,8 +1,8 @@
 {
   "Description": "Detects when an attempt at deactivating  or resetting MFA.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "50e068d7-1e6b-4054-87e5-0a592c40c7e0",
-  "InsertDate": "2025-01-19T11:33:29Z",
-  "LastUpdateDate": "2025-01-19T11:33:29Z",
+  "InsertDate": "2025-01-21T09:27:10Z",
+  "LastUpdateDate": "2025-01-21T09:27:10Z",
   "Level": "medium",
   "Name": "Okta MFA Reset or Deactivated",
   "Query": "sourcetype='okta-okta' eql select * from _source_ where (eventtype = 'user.mfa.factor.deactivate' or eventtype = 'user.mfa.factor.reset_all')",

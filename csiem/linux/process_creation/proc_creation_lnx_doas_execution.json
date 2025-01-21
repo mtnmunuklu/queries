@@ -1,8 +1,8 @@
 {
   "Description": "Detects the doas tool execution in linux host platform. This utility tool allow standard users to perform tasks as root, the same way sudo does.\n\nAuthor: Sittikorn S, Teoderick Contreras\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "067d8238-7127-451c-a9ec-fa78045b618b",
-  "InsertDate": "2025-01-19T11:33:33Z",
-  "LastUpdateDate": "2025-01-19T11:33:33Z",
+  "InsertDate": "2025-01-21T09:27:15Z",
+  "LastUpdateDate": "2025-01-21T09:27:15Z",
   "Level": "low",
   "Name": "Linux Doas Tool Execution",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where process_path like '%/doas'",

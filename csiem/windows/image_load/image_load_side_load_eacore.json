@@ -1,8 +1,8 @@
 {
   "Description": "Detects potential DLL sideloading of \"EACore.dll\"\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "edd3ddc3-386f-4ba5-9ada-4376b2cfa7b5",
-  "InsertDate": "2025-01-19T11:34:08Z",
-  "LastUpdateDate": "2025-01-19T11:34:08Z",
+  "InsertDate": "2025-01-21T09:27:51Z",
+  "LastUpdateDate": "2025-01-21T09:27:51Z",
   "Level": "high",
   "Name": "Potential EACore.DLL Sideloading",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (image_loaded like '%\\eacore.dll' and  not ((process_path like '%c:\\program files\\electronic arts\\ea desktop\\%' and process_path like '%\\eacoreserver.exe%') and image_loaded like 'c:\\program files\\electronic arts\\ea desktop\\%'))",

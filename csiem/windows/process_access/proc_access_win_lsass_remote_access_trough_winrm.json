@@ -1,8 +1,8 @@
 {
   "Description": "Detects remote access to the LSASS process via WinRM. This could be a sign of credential dumping from tools like mimikatz.\n\nAuthor: Patryk Prauze - ING Tech\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "aa35a627-33fb-4d04-a165-d33b4afca3e8",
-  "InsertDate": "2025-01-19T11:34:28Z",
-  "LastUpdateDate": "2025-01-19T11:34:28Z",
+  "InsertDate": "2025-01-21T09:28:14Z",
+  "LastUpdateDate": "2025-01-21T09:28:14Z",
   "Level": "high",
   "Name": "Remote LSASS Process Access Through Windows Remote Management",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((dst_process_path like '%\\lsass.exe' and process_path like '%:\\windows\\system32\\wsmprovhost.exe') and  not granted_access = '0x80000000')",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects the suspicious execution of a utility to convert Windows 3.x .grp files or for persistence purposes by malicious software or actors\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f14e169e-9978-4c69-acb3-1cff8200bc36",
-  "InsertDate": "2025-01-19T11:34:49Z",
-  "LastUpdateDate": "2025-01-19T11:34:49Z",
+  "InsertDate": "2025-01-21T09:28:38Z",
+  "LastUpdateDate": "2025-01-21T09:28:38Z",
   "Level": "high",
   "Name": "Suspicious GrpConv Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%grpconv.exe -o%' or command like '%grpconv -o%')",

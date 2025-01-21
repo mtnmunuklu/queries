@@ -1,8 +1,8 @@
 {
   "Description": "Detects execution of GfxDownloadWrapper.exe with a URL as an argument to download file.\n\nAuthor: Victor Sergeev, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "eee00933-a761-4cd0-be70-c42fe91731e7",
-  "InsertDate": "2025-01-19T11:34:38Z",
-  "LastUpdateDate": "2025-01-19T11:34:38Z",
+  "InsertDate": "2025-01-21T09:28:27Z",
+  "LastUpdateDate": "2025-01-21T09:28:27Z",
   "Level": "medium",
   "Name": "Arbitrary File Download Via GfxDownloadWrapper.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\gfxdownloadwrapper.exe' and (command like '%http://%' or command like '%https://%')) and  not command like '%https://gameplayapi.intel.com/%')",

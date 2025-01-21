@@ -1,8 +1,8 @@
 {
   "Description": "Administrative shares are hidden network shares created by Microsoft Windows NT operating systems that grant system administrators remote access to every disk volume on a network-connected system\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c7dcacd0-cc59-4004-b0a4-1d6cdebe6f3e",
-  "InsertDate": "2025-01-19T11:36:10Z",
-  "LastUpdateDate": "2025-01-19T11:36:10Z",
+  "InsertDate": "2025-01-21T09:31:31Z",
+  "LastUpdateDate": "2025-01-21T09:31:31Z",
   "Level": "medium",
   "Name": "Disable Administrative Share Creation at Startup",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where target_object like '%\\services\\lanmanserver\\parameters\\%' and (target_object like '%\\autosharewks' or target_object like '%\\autoshareserver') and details = 'dword (0x00000000)'",

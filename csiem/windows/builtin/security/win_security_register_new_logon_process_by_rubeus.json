@@ -1,8 +1,8 @@
 {
   "Description": "Detects potential use of Rubeus via registered new trusted logon process\n\nAuthor: Roberto Rodriguez (source), Ilyas Ochkov (rule), oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "12e6d621-194f-4f59-90cc-1959e21e69f7",
-  "InsertDate": "2025-01-19T11:33:49Z",
-  "LastUpdateDate": "2025-01-19T11:33:49Z",
+  "InsertDate": "2025-01-21T09:27:32Z",
+  "LastUpdateDate": "2025-01-21T09:27:32Z",
   "Level": "high",
   "Name": "Register new Logon Process by Rubeus",
   "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4611' and logonprocessname = 'user32logonprocesss'",

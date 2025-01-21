@@ -1,8 +1,8 @@
 {
   "Description": "Detect execution of suspicious double extension files in ParentCommandLine\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "5e6a80c8-2d45-4633-9ef4-fa2671a39c5c",
-  "InsertDate": "2025-01-19T11:35:32Z",
-  "LastUpdateDate": "2025-01-19T11:35:32Z",
+  "InsertDate": "2025-01-21T09:30:14Z",
+  "LastUpdateDate": "2025-01-21T09:30:14Z",
   "Level": "high",
   "Name": "Suspicious Parent Double Extension File Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%.doc.lnk' or parent_process_path like '%.docx.lnk' or parent_process_path like '%.xls.lnk' or parent_process_path like '%.xlsx.lnk' or parent_process_path like '%.ppt.lnk' or parent_process_path like '%.pptx.lnk' or parent_process_path like '%.rtf.lnk' or parent_process_path like '%.pdf.lnk' or parent_process_path like '%.txt.lnk' or parent_process_path like '%.doc.js' or parent_process_path like '%.docx.js' or parent_process_path like '%.xls.js' or parent_process_path like '%.xlsx.js' or parent_process_path like '%.ppt.js' or parent_process_path like '%.pptx.js' or parent_process_path like '%.rtf.js' or parent_process_path like '%.pdf.js' or parent_process_path like '%.txt.js') and (parent_command_line like '%.doc.lnk%' or parent_command_line like '%.docx.lnk%' or parent_command_line like '%.xls.lnk%' or parent_command_line like '%.xlsx.lnk%' or parent_command_line like '%.ppt.lnk%' or parent_command_line like '%.pptx.lnk%' or parent_command_line like '%.rtf.lnk%' or parent_command_line like '%.pdf.lnk%' or parent_command_line like '%.txt.lnk%' or parent_command_line like '%.doc.js%' or parent_command_line like '%.docx.js%' or parent_command_line like '%.xls.js%' or parent_command_line like '%.xlsx.js%' or parent_command_line like '%.ppt.js%' or parent_command_line like '%.pptx.js%' or parent_command_line like '%.rtf.js%' or parent_command_line like '%.pdf.js%' or parent_command_line like '%.txt.js%')",

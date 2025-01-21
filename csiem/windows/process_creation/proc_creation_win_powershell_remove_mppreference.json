@@ -1,8 +1,8 @@
 {
   "Description": "Detects attempts to remove Windows Defender configurations using the 'MpPreference' cmdlet\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "07e3cb2c-0608-410d-be4b-1511cb1a0448",
-  "InsertDate": "2025-01-19T11:35:03Z",
-  "LastUpdateDate": "2025-01-19T11:35:03Z",
+  "InsertDate": "2025-01-21T09:29:00Z",
+  "LastUpdateDate": "2025-01-21T09:29:00Z",
   "Level": "high",
   "Name": "Tamper Windows Defender Remove-MpPreference",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%remove-mppreference%' and (command like '%-controlledfolderaccessprotectedfolders %' or command like '%-attacksurfacereductionrules_ids %' or command like '%-attacksurfacereductionrules_actions %' or command like '%-checkforsignaturesbeforerunningscan %'))",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects linux package removal using builtin tools such as \"yum\", \"apt\", \"apt-get\" or \"dpkg\".\n\nAuthor: Tuan Le (NCSGroup), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "95d61234-7f56-465c-6f2d-b562c6fedbc4",
-  "InsertDate": "2025-01-19T11:33:35Z",
-  "LastUpdateDate": "2025-01-19T11:33:35Z",
+  "InsertDate": "2025-01-21T09:27:17Z",
+  "LastUpdateDate": "2025-01-21T09:27:17Z",
   "Level": "low",
   "Name": "Linux Package Uninstall",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where ((process_path like '%/yum' and (command like '%erase%' or command like '%remove%')) or ((process_path like '%/apt' or process_path like '%/apt-get') and (command like '%remove%' or command like '%purge%')) or (process_path like '%/dpkg' and (command like '%--remove %' or command like '% -r %')) or (process_path like '%/rpm' and command like '% -e %'))",

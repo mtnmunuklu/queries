@@ -1,8 +1,8 @@
 {
   "Description": "Detects the addition of a new member to the local administrator group, which could be legitimate activity or a sign of privilege escalation activity\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c265cf08-3f99-46c1-8d59-328247057d57",
-  "InsertDate": "2025-01-19T11:33:50Z",
-  "LastUpdateDate": "2025-01-19T11:33:50Z",
+  "InsertDate": "2025-01-21T09:27:33Z",
+  "LastUpdateDate": "2025-01-21T09:27:33Z",
   "Level": "medium",
   "Name": "User Added to Local Administrator Group",
   "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '4732' and (targetusername like 'administr%' and targetsid = 's-1-5-32-544')) and  not subjectusername like '%$')",

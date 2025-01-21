@@ -1,8 +1,8 @@
 {
   "Description": "Detects the usage of utilities such as 'systemctl', 'service'...etc to stop or disable tools and services\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "de25eeb8-3655-4643-ac3a-b662d3f26b6b",
-  "InsertDate": "2025-01-19T11:33:35Z",
-  "LastUpdateDate": "2025-01-19T11:33:35Z",
+  "InsertDate": "2025-01-21T09:27:17Z",
+  "LastUpdateDate": "2025-01-21T09:27:17Z",
   "Level": "medium",
   "Name": "Disable Or Stop Services",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where (process_path like '%/service' or process_path like '%/systemctl' or process_path like '%/chkconfig') and (command like '%stop%' or command like '%disable%')",

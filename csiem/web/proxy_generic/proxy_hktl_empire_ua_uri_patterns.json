@@ -1,8 +1,8 @@
 {
   "Description": "Detects user agent and URI paths used by empire agents\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b923f7d6-ac89-4a50-a71a-89fb846b4aa8",
-  "InsertDate": "2025-01-19T11:33:41Z",
-  "LastUpdateDate": "2025-01-19T11:33:41Z",
+  "InsertDate": "2025-01-21T09:27:23Z",
+  "LastUpdateDate": "2025-01-21T09:27:23Z",
   "Level": "high",
   "Name": "HackTool - Empire UserAgent URI Combo",
   "Query": "eql select * from _source_ where c-useragent = 'mozilla/5.0 (windows nt 6.1; wow64; trident/7.0; rv:11.0) like gecko' and (cs-uri = '/admin/get.php' or cs-uri = '/news.php' or cs-uri = '/login/process.php') and cs-method = 'post'",

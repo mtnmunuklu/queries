@@ -1,11 +1,11 @@
 {
   "Description": "Detects the use of \"ioreg\" which will show I/O Kit registry information.\nThis process is used for system information discovery.\nIt has been observed in-the-wild by calling this process directly or using bash and grep to look for specific strings.\n\n\nAuthor: Joseliyo Sanchez, @Joseliyo_Jstnk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "2d5e7a8b-f484-4a24-945d-7f0efd52eab0",
-  "InsertDate": "2025-01-19T11:33:37Z",
-  "LastUpdateDate": "2025-01-19T11:33:37Z",
+  "InsertDate": "2025-01-21T09:27:20Z",
+  "LastUpdateDate": "2025-01-21T09:27:20Z",
   "Level": "medium",
   "Name": "System Information Discovery Using Ioreg",
-  "Query": "sourcetype like 'macos-%' eql select * from _source_ where ((command like '%-l%' or command like '%-c%') and (command like '%appleahcidiskdriver%' or command like '%ioplatformexpertdevice%' or command like '%oracle%' or command like '%parallels%' or command like '%usb vendor name%' or command like '%virtualbox%' or command like '%vmware%') and (process_path like '%/ioreg' and command like '%ioreg%'))",
+  "Query": "sourcetype like 'macos-%' eql select * from _source_ where ((process_path like '%/ioreg' and command like '%ioreg%') and (command like '%-l%' or command like '%-c%') and (command like '%appleahcidiskdriver%' or command like '%ioplatformexpertdevice%' or command like '%oracle%' or command like '%parallels%' or command like '%usb vendor name%' or command like '%virtualbox%' or command like '%vmware%'))",
   "Tags": [
     "attack.discovery",
     "attack.t1082"

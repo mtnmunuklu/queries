@@ -1,8 +1,8 @@
 {
   "Description": "Detects the creation of a new service using the \"sc.exe\" utility.\n\nAuthor: Timur Zinniatullin, Daniil Yugoslavskiy, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "85ff530b-261d-48c6-a441-facaa2e81e48",
-  "InsertDate": "2025-01-19T11:35:21Z",
-  "LastUpdateDate": "2025-01-19T11:35:21Z",
+  "InsertDate": "2025-01-21T09:29:58Z",
+  "LastUpdateDate": "2025-01-21T09:29:58Z",
   "Level": "low",
   "Name": "New Service Creation Using Sc.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\sc.exe' and (command like '%create%' and command like '%binpath%')",

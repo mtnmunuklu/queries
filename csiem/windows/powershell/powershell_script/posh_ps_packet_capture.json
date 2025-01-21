@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of powershell scripts with calls to the \"Start-NetEventSession\" cmdlet. Which allows an attacker to start event and packet capture for a network event session.\nAdversaries may attempt to capture network to gather information over the course of an operation.\nData captured via this technique may include user credentials, especially those sent over an insecure, unencrypted protocol.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "da34e323-1e65-42db-83be-a6725ac2caa3",
-  "InsertDate": "2025-01-19T11:34:21Z",
-  "LastUpdateDate": "2025-01-19T11:34:21Z",
+  "InsertDate": "2025-01-21T09:28:06Z",
+  "LastUpdateDate": "2025-01-21T09:28:06Z",
   "Level": "medium",
   "Name": "Potential Packet Capture Activity Via Start-NetEventSession - ScriptBlock",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where scriptblocktext like '%start-neteventsession%'",

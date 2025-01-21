@@ -1,11 +1,11 @@
 {
   "Description": "Detects attempts to masquerade as legitimate files by adding a space to the end of the filename.\n\nAuthor: remotephone\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b6e2a2e3-2d30-43b1-a4ea-071e36595690",
-  "InsertDate": "2025-01-19T11:33:38Z",
-  "LastUpdateDate": "2025-01-19T11:33:38Z",
+  "InsertDate": "2025-01-21T09:27:20Z",
+  "LastUpdateDate": "2025-01-21T09:27:20Z",
   "Level": "low",
   "Name": "Space After Filename - macOS",
-  "Query": "sourcetype like 'macos-%' eql select * from _source_ where (command like '% ' or process_path like '% ')",
+  "Query": "sourcetype like 'macos-%' eql select * from _source_ where (process_path like '% ' or command like '% ')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1036.006"

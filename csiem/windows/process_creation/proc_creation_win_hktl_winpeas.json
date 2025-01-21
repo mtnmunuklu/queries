@@ -1,8 +1,8 @@
 {
   "Description": "WinPEAS is a script that search for possible paths to escalate privileges on Windows hosts. The checks are explained on book.hacktricks.xyz\n\nAuthor: Georg Lauenstein (sure[secure])\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "98b53e78-ebaf-46f8-be06-421aafd176d9",
-  "InsertDate": "2025-01-19T11:34:44Z",
-  "LastUpdateDate": "2025-01-19T11:34:44Z",
+  "InsertDate": "2025-01-21T09:28:33Z",
+  "LastUpdateDate": "2025-01-21T09:28:33Z",
   "Level": "high",
   "Name": "HackTool - winPEAS Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((original_file_name = 'winpeas.exe' and (process_path like '%\\winpeasany_ofs.exe' or process_path like '%\\winpeasany.exe' or process_path like '%\\winpeasx64_ofs.exe' or process_path like '%\\winpeasx64.exe' or process_path like '%\\winpeasx86_ofs.exe' or process_path like '%\\winpeasx86.exe')) or (command like '% applicationsinfo%' or command like '% browserinfo%' or command like '% eventsinfo%' or command like '% fileanalysis%' or command like '% filesinfo%' or command like '% processinfo%' or command like '% servicesinfo%' or command like '% windowscreds%') or command like '%https://github.com/carlospolop/peass-ng/releases/latest/download/%' or (parent_command_line like '% -linpeas' and command like '% -linpeas'))",

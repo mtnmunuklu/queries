@@ -1,8 +1,8 @@
 {
   "Description": "Once established within a system or network, an adversary may use automated techniques for collecting internal data.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "aa2efee7-34dd-446e-8a37-40790a66efd7",
-  "InsertDate": "2025-01-19T11:35:36Z",
-  "LastUpdateDate": "2025-01-19T11:35:36Z",
+  "InsertDate": "2025-01-21T09:30:27Z",
+  "LastUpdateDate": "2025-01-21T09:30:27Z",
   "Level": "medium",
   "Name": "Recon Information for Export with Command Prompt",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\tree.com' or process_path like '%\\wmic.exe' or process_path like '%\\doskey.exe' or process_path like '%\\sc.exe') and (original_file_name = 'wmic.exe' or original_file_name = 'doskey.exe' or original_file_name = 'sc.exe')) and (parent_command_line like '% \u003e %temp%\\%' or parent_command_line like '% \u003e %tmp%\\%'))",

@@ -1,11 +1,11 @@
 {
   "Description": "Detect suspicious parent processes of well-known Windows processes\n\nAuthor: vburov\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "96036718-71cc-4027-a538-d1587e0006a7",
-  "InsertDate": "2025-01-19T11:35:36Z",
-  "LastUpdateDate": "2025-01-19T11:35:36Z",
+  "InsertDate": "2025-01-21T09:30:27Z",
+  "LastUpdateDate": "2025-01-21T09:30:27Z",
   "Level": "low",
   "Name": "Windows Processes Suspicious Parent Directory",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\svchost.exe' or process_path like '%\\taskhost.exe' or process_path like '%\\lsm.exe' or process_path like '%\\lsass.exe' or process_path like '%\\services.exe' or process_path like '%\\lsaiso.exe' or process_path like '%\\csrss.exe' or process_path like '%\\wininit.exe' or process_path like '%\\winlogon.exe') and  not ((parent_process_path = 'null' and parent_process_path = '-') or ((parent_process_path like '%\\savservice.exe' or parent_process_path like '%\\ngen.exe') and (parent_process_path like '%\\system32\\%' or parent_process_path like '%\\syswow64\\%')) or ((parent_process_path like '%\\windows defender\\%' or parent_process_path like '%\\microsoft security client\\%') and parent_process_path like '%\\msmpeng.exe')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\svchost.exe' or process_path like '%\\taskhost.exe' or process_path like '%\\lsm.exe' or process_path like '%\\lsass.exe' or process_path like '%\\services.exe' or process_path like '%\\lsaiso.exe' or process_path like '%\\csrss.exe' or process_path like '%\\wininit.exe' or process_path like '%\\winlogon.exe') and  not (((parent_process_path like '%\\savservice.exe' or parent_process_path like '%\\ngen.exe') and (parent_process_path like '%\\system32\\%' or parent_process_path like '%\\syswow64\\%')) or ((parent_process_path like '%\\windows defender\\%' or parent_process_path like '%\\microsoft security client\\%') and parent_process_path like '%\\msmpeng.exe') or (parent_process_path = 'null' and parent_process_path = '-')))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1036.003",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects remote RPC calls to get event log information via EVEN or EVEN6\n\nAuthor: Sagie Dulce, Dekel Paz\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "2053961f-44c7-4a64-b62d-f6e72800af0d",
-  "InsertDate": "2025-01-19T11:33:19Z",
-  "LastUpdateDate": "2025-01-19T11:33:19Z",
+  "InsertDate": "2025-01-21T09:26:59Z",
+  "LastUpdateDate": "2025-01-21T09:26:59Z",
   "Level": "high",
   "Name": "Remote Event Log Recon",
   "Query": "sourcetype like 'rpc_firewall-%' eql select * from _source_ where eventlog = 'rpcfw' and eventid = '3' and (interfaceuuid = '82273fdc-e32a-18c3-3f78-827929dc23ea' or interfaceuuid = 'f6beaff7-1e19-4fbb-9f8f-b89e2018337c')",

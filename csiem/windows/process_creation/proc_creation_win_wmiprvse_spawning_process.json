@@ -1,11 +1,11 @@
 {
   "Description": "Detects WmiPrvSE spawning a process\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d21374ff-f574-44a7-9998-4a8c8bf33d7d",
-  "InsertDate": "2025-01-19T11:35:58Z",
-  "LastUpdateDate": "2025-01-19T11:35:58Z",
+  "InsertDate": "2025-01-21T09:31:09Z",
+  "LastUpdateDate": "2025-01-21T09:31:09Z",
   "Level": "medium",
   "Name": "WmiPrvSE Spawned A Process",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\wmiprvse.exe' and  not (logon_id = 'null' or (logon_id = '0x3e7' or logon_id = 'null') or (username like '%authori%' or username like '%autori%') or process_path like '%\\wmiprvse.exe' or process_path like '%\\werfault.exe'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\wmiprvse.exe' and  not ((logon_id = '0x3e7' or logon_id = 'null') or (username like '%authori%' or username like '%autori%') or process_path like '%\\wmiprvse.exe' or process_path like '%\\werfault.exe' or logon_id = 'null'))",
   "Tags": [
     "attack.execution",
     "attack.t1047"

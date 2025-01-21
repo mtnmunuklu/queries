@@ -1,8 +1,8 @@
 {
   "Description": "Detects that network ACL entries have been added to a route table which could indicate that new attack vectors have been opened up in the AWS account.\n\n\nAuthor: jamesc-grafana\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e1f7febb-7b94-4234-b5c6-00fb8500f5dd",
-  "InsertDate": "2025-01-19T11:33:20Z",
-  "LastUpdateDate": "2025-01-19T11:33:20Z",
+  "InsertDate": "2025-01-21T09:27:00Z",
+  "LastUpdateDate": "2025-01-21T09:27:00Z",
   "Level": "low",
   "Name": "New Network ACL Entry Added",
   "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where eventsource = 'ec2.amazonaws.com' and eventname = 'createnetworkaclentry'",

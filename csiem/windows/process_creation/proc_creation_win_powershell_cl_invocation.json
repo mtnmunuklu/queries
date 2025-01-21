@@ -1,8 +1,8 @@
 {
   "Description": "Detects calls to \"SyncInvoke\" that is part of the \"CL_Invocation.ps1\" script to proxy execution using \"System.Diagnostics.Process\"\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), oscd.community, Natalia Shornikova\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a0459f02-ac51-4c09-b511-b8c9203fc429",
-  "InsertDate": "2025-01-19T11:34:59Z",
-  "LastUpdateDate": "2025-01-19T11:34:59Z",
+  "InsertDate": "2025-01-21T09:28:49Z",
+  "LastUpdateDate": "2025-01-21T09:28:49Z",
   "Level": "medium",
   "Name": "Potential Process Execution Proxy Via CL_Invocation.ps1",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where command like '%syncinvoke %'",

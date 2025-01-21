@@ -1,11 +1,11 @@
 {
   "Description": "Detects SSTI attempts sent via GET requests in access logs\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ada3bc4f-f0fd-42b9-ba91-e105e8af7342",
-  "InsertDate": "2025-01-19T11:33:42Z",
-  "LastUpdateDate": "2025-01-19T11:33:42Z",
+  "InsertDate": "2025-01-21T09:27:24Z",
+  "LastUpdateDate": "2025-01-21T09:27:24Z",
   "Level": "high",
   "Name": "Server Side Template Injection Strings",
-  "Query": "eql select * from _source_ where (cs-method = 'get' and (log like '%={{%' or log like '%=%7b%7b%' or log like '%=${%' or log like '%=$%7b%' or log like '%=\u003c%=%' or log like '%=%3c%25=%' or log like '%=@(%' or log like '%freemarker.template.utility.execute%' or log like '%.getclass().forname('javax.script.scriptenginemanager')%' or log like '%t(org.apache.commons.io.ioutils)%') and  not sc-status = '404')",
+  "Query": "eql select * from _source_ where (cs-method = 'get' and Query('={{ OR =%7B%7B OR =${ OR =$%7B OR =\u003c%= OR =%3C%25= OR =@( OR freemarker.template.utility.Execute OR .getClass().forName('javax.script.ScriptEngineManager') OR T(org.apache.commons.io.IOUtils)') and  not sc-status = '404')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1221"

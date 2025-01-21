@@ -1,8 +1,8 @@
 {
   "Description": "Detects file writes of WMI script event consumer\n\nAuthor: Thomas Patzke\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "33f41cdd-35ac-4ba8-814b-c6a4244a1ad4",
-  "InsertDate": "2025-01-19T11:34:06Z",
-  "LastUpdateDate": "2025-01-19T11:34:06Z",
+  "InsertDate": "2025-01-21T09:27:49Z",
+  "LastUpdateDate": "2025-01-21T09:27:49Z",
   "Level": "high",
   "Name": "WMI Persistence - Script Event Consumer File Write",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path = 'c:\\windows\\system32\\wbem\\scrcons.exe'",

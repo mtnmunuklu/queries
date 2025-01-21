@@ -1,11 +1,11 @@
 {
   "Description": "Detects external disk drives or plugged-in USB devices.\n\nAuthor: Keith Wright\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f69a87ea-955e-4fb4-adb2-bb9fd6685632",
-  "InsertDate": "2025-01-19T11:33:47Z",
-  "LastUpdateDate": "2025-01-19T11:33:47Z",
+  "InsertDate": "2025-01-21T09:27:30Z",
+  "LastUpdateDate": "2025-01-21T09:27:30Z",
   "Level": "low",
   "Name": "External Disk Drive Or USB Storage Device Was Recognized By The System",
-  "Query": "sourcetype='windows-security' eql select * from _source_ where ((classname = 'diskdrive' and devicedescription = 'usb mass storage device') and eventid = '6416')",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where (eventid = '6416' and (classname = 'diskdrive' and devicedescription = 'usb mass storage device'))",
   "Tags": [
     "attack.t1091",
     "attack.t1200",

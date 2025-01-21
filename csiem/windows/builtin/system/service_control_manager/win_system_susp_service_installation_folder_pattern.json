@@ -1,8 +1,8 @@
 {
   "Description": "Detects service installation with suspicious folder patterns\n\nAuthor: pH-T (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1b2ae822-6fe1-43ba-aa7c-d1a3b3d1d5f2",
-  "InsertDate": "2025-01-19T11:33:54Z",
-  "LastUpdateDate": "2025-01-19T11:33:54Z",
+  "InsertDate": "2025-01-21T09:27:37Z",
+  "LastUpdateDate": "2025-01-21T09:27:37Z",
   "Level": "high",
   "Name": "Service Installation with Suspicious Folder Pattern",
   "Query": "sourcetype='windows-system' eql select * from _source_ where ((provider_name = 'service control manager' and eventid = '7045') and (imagepath re '^[Cc]:\\\\[Pp]rogram[Dd]ata\\\\.{1,9}\\.exe' and imagepath re '^[Cc]:\\\\.{1,9}\\.exe'))",

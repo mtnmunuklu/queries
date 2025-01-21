@@ -1,8 +1,8 @@
 {
   "Description": "Detects Azure Hybrid Connection Manager services querying the Azure service bus service\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "7bd3902d-8b8b-4dd4-838a-c6862d40150d",
-  "InsertDate": "2025-01-19T11:33:56Z",
-  "LastUpdateDate": "2025-01-19T11:33:56Z",
+  "InsertDate": "2025-01-21T09:27:40Z",
+  "LastUpdateDate": "2025-01-21T09:27:40Z",
   "Level": "high",
   "Name": "DNS HybridConnectionManager Service Bus",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where query_name like '%servicebus.windows.net%' and process_path like '%hybridconnectionmanager%'",

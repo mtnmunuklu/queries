@@ -1,8 +1,8 @@
 {
   "Description": "Detects the use of powershell commands from headless ConHost window.\nThe \"--headless\" flag hides the windows from the user upon execution.\n\n\nAuthor: Matt Anderson (Huntress)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "056c7317-9a09-4bd4-9067-d051312752ea",
-  "InsertDate": "2025-01-19T11:34:34Z",
-  "LastUpdateDate": "2025-01-19T11:34:34Z",
+  "InsertDate": "2025-01-21T09:28:21Z",
+  "LastUpdateDate": "2025-01-21T09:28:21Z",
   "Level": "medium",
   "Name": "Powershell Executed From Headless ConHost Process",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\conhost.exe' and original_file_name = 'conhost.exe') and (command like '%--headless%' and command like '%powershell%'))",

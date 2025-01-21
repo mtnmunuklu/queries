@@ -1,8 +1,8 @@
 {
   "Description": "Detects modification addition to the 'TypedPaths' key in the user or admin registry via the commandline. Which might indicate persistence attempt\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ec88289a-7e1a-4cc3-8d18-bd1f60e4b9ba",
-  "InsertDate": "2025-01-19T11:35:12Z",
-  "LastUpdateDate": "2025-01-19T11:35:12Z",
+  "InsertDate": "2025-01-21T09:29:41Z",
+  "LastUpdateDate": "2025-01-21T09:29:41Z",
   "Level": "medium",
   "Name": "Persistence Via TypedPaths - CommandLine",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where command like '%\\software\\microsoft\\windows\\currentversion\\explorer\\typedpaths%'",

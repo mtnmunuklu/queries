@@ -1,8 +1,8 @@
 {
   "Description": "Detect use of the Windows 8.3 short name. Which could be used as a method to avoid command-line detection\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "dd6b39d9-d9be-4a3b-8fe0-fe3c6a5c1795",
-  "InsertDate": "2025-01-19T11:35:35Z",
-  "LastUpdateDate": "2025-01-19T11:35:35Z",
+  "InsertDate": "2025-01-21T09:30:26Z",
+  "LastUpdateDate": "2025-01-21T09:30:26Z",
   "Level": "medium",
   "Name": "Use NTFS Short Name in Command Line",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%~1.exe%' or command like '%~1.bat%' or command like '%~1.msi%' or command like '%~1.vbe%' or command like '%~1.vbs%' or command like '%~1.dll%' or command like '%~1.ps1%' or command like '%~1.js%' or command like '%~1.hta%' or command like '%~2.exe%' or command like '%~2.bat%' or command like '%~2.msi%' or command like '%~2.vbe%' or command like '%~2.vbs%' or command like '%~2.dll%' or command like '%~2.ps1%' or command like '%~2.js%' or command like '%~2.hta%') and  not ((parent_process_path like '%\\webex\\webexhost.exe' or parent_process_path like '%\\thor\\thor64.exe') and command like '%c:\\xampp\\vcredist\\vcredi~1.exe%'))",

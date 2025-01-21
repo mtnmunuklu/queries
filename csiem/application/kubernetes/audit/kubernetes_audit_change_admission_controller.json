@@ -1,8 +1,8 @@
 {
   "Description": "Detects when a modification (create, update or replace) action is taken that affects mutating or validating webhook configurations, as they can be used by an adversary to achieve persistence or exfiltrate access credentials.\n\n\nAuthor: kelnage\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "eed82177-38f5-4299-8a76-098d50d225ab",
-  "InsertDate": "2025-01-19T11:33:18Z",
-  "LastUpdateDate": "2025-01-19T11:33:18Z",
+  "InsertDate": "2025-01-21T09:26:58Z",
+  "LastUpdateDate": "2025-01-21T09:26:58Z",
   "Level": "medium",
   "Name": "Kubernetes Admission Controller Modification",
   "Query": "sourcetype='kubernetes-audit' eql select * from _source_ where objectref.apigroup = 'admissionregistration.k8s.io' and (objectref.resource = 'mutatingwebhookconfigurations' or objectref.resource = 'validatingwebhookconfigurations') and (verb = 'create' or verb = 'delete' or verb = 'patch' or verb = 'replace' or verb = 'update')",

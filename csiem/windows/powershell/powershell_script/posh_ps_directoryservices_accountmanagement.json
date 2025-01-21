@@ -1,8 +1,8 @@
 {
   "Description": "Adversaries may create a domain account to maintain access to victim systems.\nDomain accounts are those managed by Active Directory Domain Services where access and permissions are configured across systems and services that are part of that domain..\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b29a93fb-087c-4b5b-a84d-ee3309e69d08",
-  "InsertDate": "2025-01-19T11:34:18Z",
-  "LastUpdateDate": "2025-01-19T11:34:18Z",
+  "InsertDate": "2025-01-21T09:28:02Z",
+  "LastUpdateDate": "2025-01-21T09:28:02Z",
   "Level": "medium",
   "Name": "Manipulation of User Computer or Group Security Principals Across AD",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where scriptblocktext like '%system.directoryservices.accountmanagement%'",

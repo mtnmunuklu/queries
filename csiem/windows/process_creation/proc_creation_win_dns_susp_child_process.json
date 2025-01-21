@@ -1,8 +1,8 @@
 {
   "Description": "Detects an unexpected process spawning from dns.exe which may indicate activity related to remote code execution or other forms of exploitation as seen in CVE-2020-1350 (SigRed)\n\nAuthor: Tim Rauch, Elastic (idea)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a4e3d776-f12e-42c2-8510-9e6ed1f43ec3",
-  "InsertDate": "2025-01-19T11:34:36Z",
-  "LastUpdateDate": "2025-01-19T11:34:36Z",
+  "InsertDate": "2025-01-21T09:28:24Z",
+  "LastUpdateDate": "2025-01-21T09:28:24Z",
   "Level": "high",
   "Name": "Unusual Child Process of dns.exe",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\dns.exe' and  not process_path like '%\\conhost.exe')",

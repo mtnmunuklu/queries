@@ -1,8 +1,8 @@
 {
   "Description": "Detects the creation of a new named pipe using the \"mkfifo\" utility in a potentially suspicious location\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "999c3b12-0a8c-40b6-8e13-dd7d62b75c7a",
-  "InsertDate": "2025-01-19T11:33:34Z",
-  "LastUpdateDate": "2025-01-19T11:33:34Z",
+  "InsertDate": "2025-01-21T09:27:16Z",
+  "LastUpdateDate": "2025-01-21T09:27:16Z",
   "Level": "medium",
   "Name": "Potentially Suspicious Named Pipe Created Via Mkfifo",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where process_path like '%/mkfifo' and command like '% /tmp/%'",

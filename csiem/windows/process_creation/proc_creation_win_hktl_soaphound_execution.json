@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of SOAPHound, a .NET tool for collecting Active Directory data, using specific command-line arguments that may indicate an attempt to extract sensitive AD information.\n\n\nAuthor: @kostastsale\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e92a4287-e072-4a40-9739-370c106bb750",
-  "InsertDate": "2025-01-19T11:34:44Z",
-  "LastUpdateDate": "2025-01-19T11:34:44Z",
+  "InsertDate": "2025-01-21T09:28:33Z",
+  "LastUpdateDate": "2025-01-21T09:28:33Z",
   "Level": "high",
   "Name": "HackTool - SOAPHound Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '% --buildcache %' or command like '% --bhdump %' or command like '% --certdump %' or command like '% --dnsdump %') and (command like '% -c %' or command like '% --cachefilename %' or command like '% -o %' or command like '% --outputdirectory%'))",

@@ -1,8 +1,8 @@
 {
   "Description": "Rule to detect the configuration of Run Once registry key. Configured payload can be run by runonce.exe /AlternateShellStartup\n\nAuthor: Avneet Singh @v3t0_, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c74d7efc-8826-45d9-b8bb-f04fac9e4eff",
-  "InsertDate": "2025-01-19T11:36:03Z",
-  "LastUpdateDate": "2025-01-19T11:36:03Z",
+  "InsertDate": "2025-01-21T09:31:16Z",
+  "LastUpdateDate": "2025-01-21T09:31:16Z",
   "Level": "medium",
   "Name": "Run Once Task Configuration in Registry",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((target_object like '%\\microsoft\\active setup\\installed components%' and target_object like '%\\stubpath') and  not ((details like '%c:\\program files\\google\\chrome\\application\\%' and details like '%\\installer\\chrmstp.exe\" --configure-user-settings --verbose-logging --system-level%') or ((details like '%c:\\program files (x86)\\microsoft\\edge\\application\\%' or details like '%c:\\program files\\microsoft\\edge\\application\\%') and details like '%\\installer\\setup.exe\" --configure-user-settings --verbose-logging --system-level --msedge --channel=stable')))",

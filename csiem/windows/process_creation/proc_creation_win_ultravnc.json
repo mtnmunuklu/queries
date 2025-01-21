@@ -1,8 +1,8 @@
 {
   "Description": "An adversary may use legitimate desktop support and remote access software,to establish an interactive command and control channel to target systems within networks\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "145322e4-0fd3-486b-81ca-9addc75736d8",
-  "InsertDate": "2025-01-19T11:35:46Z",
-  "LastUpdateDate": "2025-01-19T11:35:46Z",
+  "InsertDate": "2025-01-21T09:30:46Z",
+  "LastUpdateDate": "2025-01-21T09:30:46Z",
   "Level": "medium",
   "Name": "Use of UltraVNC Remote Access Software",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where description = 'vncviewer' and product = 'ultravnc vncviewer' and company = 'ultravnc' and original_file_name = 'vncviewer.exe'",

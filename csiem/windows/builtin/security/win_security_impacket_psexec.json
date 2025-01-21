@@ -1,8 +1,8 @@
 {
   "Description": "Detects execution of Impacket's psexec.py.\n\nAuthor: Bhabesh Raj\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "32d56ea1-417f-44ff-822b-882873f5f43b",
-  "InsertDate": "2025-01-19T11:33:47Z",
-  "LastUpdateDate": "2025-01-19T11:33:47Z",
+  "InsertDate": "2025-01-21T09:27:30Z",
+  "LastUpdateDate": "2025-01-21T09:27:30Z",
   "Level": "high",
   "Name": "Impacket PsExec Execution",
   "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '5145' and sharename = '\\\\\\\\\\*\\\\ipc$' and (relativetargetname like '%remcom_stdin%' or relativetargetname like '%remcom_stdout%' or relativetargetname like '%remcom_stderr%')",

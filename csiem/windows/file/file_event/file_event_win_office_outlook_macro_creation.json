@@ -1,8 +1,8 @@
 {
   "Description": "Detects the creation of a macro file for Outlook.\n\nAuthor: @ScoubiMtl\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "8c31f563-f9a7-450c-bfa8-35f8f32f1f61",
-  "InsertDate": "2025-01-19T11:34:02Z",
-  "LastUpdateDate": "2025-01-19T11:34:02Z",
+  "InsertDate": "2025-01-21T09:27:45Z",
+  "LastUpdateDate": "2025-01-21T09:27:45Z",
   "Level": "medium",
   "Name": "New Outlook Macro Created",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\outlook.exe' and filepath like '%\\microsoft\\outlook\\vbaproject.otm'",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects RemCom service installation and execution events\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9e36ed87-4986-482e-8e3b-5c23ffff11bf",
-  "InsertDate": "2025-01-19T11:33:53Z",
-  "LastUpdateDate": "2025-01-19T11:33:53Z",
+  "InsertDate": "2025-01-21T09:27:36Z",
+  "LastUpdateDate": "2025-01-21T09:27:36Z",
   "Level": "medium",
   "Name": "RemCom Service Installation",
   "Query": "sourcetype='windows-system' eql select * from _source_ where ((provider_name = 'service control manager' and eventid = '7045') and (servicename = 'remcomsvc' and imagepath like '%\\remcomsvc.exe'))",

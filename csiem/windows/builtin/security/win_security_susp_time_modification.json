@@ -1,8 +1,8 @@
 {
   "Description": "Detect scenarios where a potentially unauthorized application or user is modifying the system time.\n\nAuthor: @neu5ron\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "faa031b5-21ed-4e02-8881-2591f98d82ed",
-  "InsertDate": "2025-01-19T11:33:50Z",
-  "LastUpdateDate": "2025-01-19T11:33:50Z",
+  "InsertDate": "2025-01-21T09:27:33Z",
+  "LastUpdateDate": "2025-01-21T09:27:33Z",
   "Level": "low",
   "Name": "Unauthorized System Time Modification",
   "Query": "sourcetype='windows-security' eql select * from _source_ where (eventid = '4616' and  not ((processname = 'c:\\program files\\vmware\\vmware tools\\vmtoolsd.exe' or processname = 'c:\\windows\\system32\\vboxservice.exe' or processname = 'c:\\windows\\system32\\oobe\\msoobe.exe') or (processname = 'c:\\windows\\system32\\svchost.exe' and subjectusersid = 's-1-5-19')))",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects usage of COM objects that can be abused to download files in PowerShell by CLSID\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "02b64f1b-3f33-4e67-aede-ef3b0a5a8fcf",
-  "InsertDate": "2025-01-19T11:35:00Z",
-  "LastUpdateDate": "2025-01-19T11:35:00Z",
+  "InsertDate": "2025-01-21T09:28:53Z",
+  "LastUpdateDate": "2025-01-21T09:28:53Z",
   "Level": "medium",
   "Name": "Potential COM Objects Download Cradles Usage - Process Creation",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%[type]::gettypefromclsid(%' and (command like '%0002df01-0000-0000-c000-000000000046%' or command like '%f6d90f16-9c73-11d3-b32e-00c04f990bb4%' or command like '%f5078f35-c551-11d3-89b9-0000f81fe221%' or command like '%88d96a0a-f192-11d4-a65f-0040963251e5%' or command like '%afba6b42-5692-48ea-8141-dc517dcf0ef1%' or command like '%afb40ffd-b609-40a3-9828-f88bbe11e4e3%' or command like '%88d96a0b-f192-11d4-a65f-0040963251e5%' or command like '%2087c2f4-2cef-4953-a8ab-66779b670495%' or command like '%000209ff-0000-0000-c000-000000000046%' or command like '%00024500-0000-0000-c000-000000000046%'))",

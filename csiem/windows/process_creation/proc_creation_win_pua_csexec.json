@@ -1,11 +1,11 @@
 {
   "Description": "Detects the use of the lesser known remote execution tool named CsExec a PsExec alternative\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d08a2711-ee8b-4323-bdec-b7d85e892b31",
-  "InsertDate": "2025-01-19T11:35:07Z",
-  "LastUpdateDate": "2025-01-19T11:35:07Z",
+  "InsertDate": "2025-01-21T09:29:09Z",
+  "LastUpdateDate": "2025-01-21T09:29:09Z",
   "Level": "high",
   "Name": "PUA - CsExec Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (description = 'csexec' or process_path like '%\\csexec.exe')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\csexec.exe' or description = 'csexec')",
   "Tags": [
     "attack.resource-development",
     "attack.t1587.001",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects Windows Installer service (msiexec.exe) spawning \"cmd\" or \"powershell\"\n\nAuthor: Teymur Kheirkhabarov (idea), Mangatas Tondang (rule), oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1e53dd56-8d83-4eb4-a43e-b790a05510aa",
-  "InsertDate": "2025-01-19T11:35:32Z",
-  "LastUpdateDate": "2025-01-19T11:35:32Z",
+  "InsertDate": "2025-01-21T09:30:15Z",
+  "LastUpdateDate": "2025-01-21T09:30:15Z",
   "Level": "medium",
   "Name": "Always Install Elevated MSI Spawned Cmd And Powershell",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\cmd.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'cmd.exe' or original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll')) and ((parent_process_path like '%\\windows\\installer\\%' and parent_process_path like '%msi%') and parent_process_path like '%tmp'))",

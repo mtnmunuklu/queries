@@ -1,8 +1,8 @@
 {
   "Description": "setupapi.dll library provide InstallHinfSection function for processing INF files. INF file may contain instructions allowing to create values in the registry, modify files and install drivers. This technique could be used to obtain persistence via modifying one of Run or RunOnce registry keys, run process or use other DLLs chain calls (see references) InstallHinfSection function in setupapi.dll calls runonce.exe executable regardless of actual content of INF file.\n\nAuthor: Konstantin Grishchenko, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "285b85b1-a555-4095-8652-a8a4106af63f",
-  "InsertDate": "2025-01-19T11:35:19Z",
-  "LastUpdateDate": "2025-01-19T11:35:19Z",
+  "InsertDate": "2025-01-21T09:29:55Z",
+  "LastUpdateDate": "2025-01-21T09:29:55Z",
   "Level": "medium",
   "Name": "Suspicious Rundll32 Setupapi.dll Activity",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\runonce.exe' and parent_process_path like '%\\rundll32.exe' and (parent_command_line like '%setupapi.dll%' and parent_command_line like '%installhinfsection%')",

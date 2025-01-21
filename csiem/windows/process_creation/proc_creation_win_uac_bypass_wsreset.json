@@ -1,8 +1,8 @@
 {
   "Description": "Detects use of WSReset.exe to bypass User Account Control (UAC). Adversaries use this technique to execute privileged processes.\n\nAuthor: E.M. Anhaus (originally from Atomic Blue Detections, Tony Lambert), oscd.community, Florian Roth\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d797268e-28a9-49a7-b9a8-2f5039011c5c",
-  "InsertDate": "2025-01-19T11:35:46Z",
-  "LastUpdateDate": "2025-01-19T11:35:46Z",
+  "InsertDate": "2025-01-21T09:30:45Z",
+  "LastUpdateDate": "2025-01-21T09:30:45Z",
   "Level": "high",
   "Name": "Bypass UAC via WSReset.exe",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\wsreset.exe' and  not (process_path like '%\\conhost.exe' and original_file_name = 'conhost.exe'))",

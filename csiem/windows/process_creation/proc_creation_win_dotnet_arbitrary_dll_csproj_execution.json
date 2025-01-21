@@ -1,11 +1,11 @@
 {
   "Description": "Detects execution of arbitrary DLLs or unsigned code via a \".csproj\" files via Dotnet.EXE.\n\nAuthor: Beyu Denis, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d80d5c81-04ba-45b4-84e4-92eba40e0ad3",
-  "InsertDate": "2025-01-19T11:34:36Z",
-  "LastUpdateDate": "2025-01-19T11:34:36Z",
+  "InsertDate": "2025-01-21T09:28:24Z",
+  "LastUpdateDate": "2025-01-21T09:28:24Z",
   "Level": "medium",
   "Name": "Arbitrary DLL or Csproj Code Execution Via Dotnet.EXE",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\dotnet.exe' and original_file_name = '.net host') and (command like '%.csproj' or command like '%.csproj\"' or command like '%.dll' or command like '%.dll\"' or command like '%.csproj'' or command like '%.dll''))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%.csproj' or command like '%.csproj\"' or command like '%.dll' or command like '%.dll\"' or command like '%.csproj'' or command like '%.dll'') and (process_path like '%\\dotnet.exe' and original_file_name = '.net host'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1218"

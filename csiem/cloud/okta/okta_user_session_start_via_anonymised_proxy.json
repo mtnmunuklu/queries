@@ -1,8 +1,8 @@
 {
   "Description": "Detects when an Okta user session starts where the user is behind an anonymising proxy service.\n\nAuthor: kelnage\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "bde30855-5c53-4c18-ae90-1ff79ebc9578",
-  "InsertDate": "2025-01-19T11:33:29Z",
-  "LastUpdateDate": "2025-01-19T11:33:29Z",
+  "InsertDate": "2025-01-21T09:27:11Z",
+  "LastUpdateDate": "2025-01-21T09:27:11Z",
   "Level": "high",
   "Name": "Okta User Session Start Via An Anonymising Proxy Service",
   "Query": "sourcetype='okta-okta' eql select * from _source_ where eventtype = 'user.session.start' and securitycontext.isproxy = 'true'",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects a Python process initiating a network connection. While this often relates to package installation, it can also indicate a potential malicious script communicating with a C\u0026C server.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "bef0bc5a-b9ae-425d-85c6-7b2d705980c6",
-  "InsertDate": "2025-01-19T11:34:12Z",
-  "LastUpdateDate": "2025-01-19T11:34:12Z",
+  "InsertDate": "2025-01-21T09:27:55Z",
+  "LastUpdateDate": "2025-01-21T09:27:55Z",
   "Level": "medium",
   "Name": "Python Initiated Connection",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((initiated = 'true' and process_path like '%python%') and  not (dst_ip = '127.0.0.1' and src_ip = '127.0.0.1') and  not ((parent_process_path = 'c:\\programdata\\anaconda3\\scripts\\conda.exe' and (command like '%:\\programdata\\anaconda3\\scripts\\conda-script.py%' and command like '%update%')) or (parent_process_path = 'c:\\programdata\\anaconda3\\python.exe' and command like '%c:\\programdata\\anaconda3\\scripts\\jupyter-notebook-script.py%')))",

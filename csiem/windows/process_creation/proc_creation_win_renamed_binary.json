@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of a renamed binary often used by attackers or malware leveraging new Sysmon OriginalFileName datapoint.\n\nAuthor: Matthew Green @mgreen27, Ecco, James Pemberton @4A616D6573, oscd.community, Andreas Hunkeler (@Karneades)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "36480ae1-a1cb-4eaa-a0d6-29801d7e9142",
-  "InsertDate": "2025-01-19T11:35:15Z",
-  "LastUpdateDate": "2025-01-19T11:35:15Z",
+  "InsertDate": "2025-01-21T09:29:47Z",
+  "LastUpdateDate": "2025-01-21T09:29:47Z",
   "Level": "medium",
   "Name": "Potential Defense Evasion Via Binary Rename",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((original_file_name = 'cmd.exe' or original_file_name = 'conhost.exe' or original_file_name = '7z.exe' or original_file_name = 'winrar.exe' or original_file_name = 'wevtutil.exe' or original_file_name = 'net.exe' or original_file_name = 'net1.exe' or original_file_name = 'netsh.exe' or original_file_name = 'installutil.exe') and  not (process_path like '%\\cmd.exe' or process_path like '%\\conhost.exe' or process_path like '%\\7z.exe' or process_path like '%\\winrar.exe' or process_path like '%\\wevtutil.exe' or process_path like '%\\net.exe' or process_path like '%\\net1.exe' or process_path like '%\\netsh.exe' or process_path like '%\\installutil.exe'))",

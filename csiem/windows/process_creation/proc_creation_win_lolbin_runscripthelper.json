@@ -1,8 +1,8 @@
 {
   "Description": "Detects execution of powershell scripts via Runscripthelper.exe\n\nAuthor: Victor Sergeev, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "eca49c87-8a75-4f13-9c73-a5a29e845f03",
-  "InsertDate": "2025-01-19T11:34:49Z",
-  "LastUpdateDate": "2025-01-19T11:34:49Z",
+  "InsertDate": "2025-01-21T09:28:38Z",
+  "LastUpdateDate": "2025-01-21T09:28:38Z",
   "Level": "medium",
   "Name": "Suspicious Runscripthelper.exe",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\runscripthelper.exe' and command like '%surfacecheck%'",

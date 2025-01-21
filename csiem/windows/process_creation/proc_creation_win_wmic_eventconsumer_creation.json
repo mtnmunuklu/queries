@@ -1,8 +1,8 @@
 {
   "Description": "Detects WMIC executions in which an event consumer gets created. This could be used to establish persistence\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ebef4391-1a81-4761-a40a-1db446c0e625",
-  "InsertDate": "2025-01-19T11:35:54Z",
-  "LastUpdateDate": "2025-01-19T11:35:54Z",
+  "InsertDate": "2025-01-21T09:30:59Z",
+  "LastUpdateDate": "2025-01-21T09:30:59Z",
   "Level": "high",
   "Name": "New ActiveScriptEventConsumer Created Via Wmic.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%activescripteventconsumer%' and command like '% create %')",

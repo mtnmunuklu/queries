@@ -1,11 +1,11 @@
 {
   "Description": "Detects when an attacker adds a new \"DLLPathOverride\" value to the \"Natural Language\" key in order to achieve persistence which will get invoked by \"SearchIndexer.exe\" process\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a1b1fd53-9c4a-444c-bae0-34a330fc7aa8",
-  "InsertDate": "2025-01-19T11:36:17Z",
-  "LastUpdateDate": "2025-01-19T11:36:17Z",
+  "InsertDate": "2025-01-21T09:31:48Z",
+  "LastUpdateDate": "2025-01-21T09:31:48Z",
   "Level": "high",
   "Name": "Potential Persistence Via DLLPathOverride",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\system\\currentcontrolset\\control\\contentindex\\language\\%' and (target_object like '%\\stemmerdllpathoverride%' or target_object like '%\\wbdllpathoverride%' or target_object like '%\\stemmerclass%' or target_object like '%\\wbreakerclass%'))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object like '%\\stemmerdllpathoverride%' or target_object like '%\\wbdllpathoverride%' or target_object like '%\\stemmerclass%' or target_object like '%\\wbreakerclass%') and target_object like '%\\system\\currentcontrolset\\control\\contentindex\\language\\%')",
   "Tags": [
     "attack.persistence"
   ],

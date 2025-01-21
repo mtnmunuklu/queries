@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious execution of 'Powercfg.exe' to change lock screen timeout\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f8d6a15e-4bc8-4c27-8e5d-2b10f0b73e5b",
-  "InsertDate": "2025-01-19T11:34:58Z",
-  "LastUpdateDate": "2025-01-19T11:34:58Z",
+  "InsertDate": "2025-01-21T09:28:47Z",
+  "LastUpdateDate": "2025-01-21T09:28:47Z",
   "Level": "medium",
   "Name": "Suspicious Powercfg Execution To Change Lock Screen Timeout",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\powercfg.exe' and original_file_name = 'powercfg.exe') and ((command like '%/setacvalueindex %' and command like '%scheme_current%' and command like '%sub_video%' and command like '%videoconlock%') and (command like '%-change %' and command like '%-standby-timeout-%')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((command like '%/setacvalueindex %' and command like '%scheme_current%' and command like '%sub_video%' and command like '%videoconlock%') and (command like '%-change %' and command like '%-standby-timeout-%')) and (process_path like '%\\powercfg.exe' and original_file_name = 'powercfg.exe'))",
   "Tags": [
     "attack.defense-evasion"
   ],

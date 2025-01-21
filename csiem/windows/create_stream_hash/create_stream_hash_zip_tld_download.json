@@ -1,8 +1,8 @@
 {
   "Description": "Detects the download of a file with a potentially suspicious extension from a .zip top level domain.\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0bb4bbeb-fe52-4044-b40c-430a04577ebe",
-  "InsertDate": "2025-01-19T11:33:56Z",
-  "LastUpdateDate": "2025-01-19T11:33:56Z",
+  "InsertDate": "2025-01-21T09:27:39Z",
+  "LastUpdateDate": "2025-01-21T09:27:39Z",
   "Level": "high",
   "Name": "Potentially Suspicious File Download From ZIP TLD",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where contents like '%.zip/%' and (filepath like '%.bat:zone%' or filepath like '%.dat:zone%' or filepath like '%.dll:zone%' or filepath like '%.doc:zone%' or filepath like '%.docm:zone%' or filepath like '%.exe:zone%' or filepath like '%.hta:zone%' or filepath like '%.pptm:zone%' or filepath like '%.ps1:zone%' or filepath like '%.rar:zone%' or filepath like '%.rtf:zone%' or filepath like '%.sct:zone%' or filepath like '%.vbe:zone%' or filepath like '%.vbs:zone%' or filepath like '%.ws:zone%' or filepath like '%.wsf:zone%' or filepath like '%.xll:zone%' or filepath like '%.xls:zone%' or filepath like '%.xlsm:zone%' or filepath like '%.zip:zone%')",

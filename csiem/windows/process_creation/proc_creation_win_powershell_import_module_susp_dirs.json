@@ -1,8 +1,8 @@
 {
   "Description": "Detects powershell scripts that import modules from suspicious directories\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c31364f7-8be6-4b77-8483-dd2b5a7b69a3",
-  "InsertDate": "2025-01-19T11:35:02Z",
-  "LastUpdateDate": "2025-01-19T11:35:02Z",
+  "InsertDate": "2025-01-21T09:28:58Z",
+  "LastUpdateDate": "2025-01-21T09:28:58Z",
   "Level": "medium",
   "Name": "Import PowerShell Modules From Suspicious Directories - ProcCreation",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%import-module \"$env:temp\\%' or command like '%import-module '$env:temp\\%' or command like '%import-module $env:temp\\%' or command like '%import-module \"$env:appdata\\%' or command like '%import-module '$env:appdata\\%' or command like '%import-module $env:appdata\\%' or command like '%import-module c:\\users\\public\\%' or command like '%ipmo \"$env:temp\\%' or command like '%ipmo '$env:temp\\%' or command like '%ipmo $env:temp\\%' or command like '%ipmo \"$env:appdata\\%' or command like '%ipmo '$env:appdata\\%' or command like '%ipmo $env:appdata\\%' or command like '%ipmo c:\\users\\public\\%')",

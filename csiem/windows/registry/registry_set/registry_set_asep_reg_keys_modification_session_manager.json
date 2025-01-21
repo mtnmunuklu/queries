@@ -1,8 +1,8 @@
 {
   "Description": "Detects modification of autostart extensibility point (ASEP) in registry.\n\nAuthor: Victor Sergeev, Daniil Yugoslavskiy, Gleb Sukhodolskiy, Timur Zinniatullin, oscd.community, Tim Shelton, frack113 (split)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "046218bd-e0d8-4113-a3c3-895a12b2b298",
-  "InsertDate": "2025-01-19T11:36:06Z",
-  "LastUpdateDate": "2025-01-19T11:36:06Z",
+  "InsertDate": "2025-01-21T09:31:22Z",
+  "LastUpdateDate": "2025-01-21T09:31:22Z",
   "Level": "medium",
   "Name": "Session Manager Autorun Keys Modification",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\system\\currentcontrolset\\control\\session manager%' and (target_object like '%\\setupexecute%' or target_object like '%\\s0initialcommand%' or target_object like '%\\knowndlls%' or target_object like '%\\execute%' or target_object like '%\\bootexecute%' or target_object like '%\\appcertdlls%') and  not details = '(empty)')",

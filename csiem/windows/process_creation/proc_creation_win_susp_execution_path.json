@@ -1,8 +1,8 @@
 {
   "Description": "Detects a potentially suspicious execution from an uncommon folder.\n\nAuthor: Florian Roth (Nextron Systems), Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "3dfd06d2-eaf4-4532-9555-68aca59f57c4",
-  "InsertDate": "2025-01-19T11:35:33Z",
-  "LastUpdateDate": "2025-01-19T11:35:33Z",
+  "InsertDate": "2025-01-21T09:30:17Z",
+  "LastUpdateDate": "2025-01-21T09:30:17Z",
   "Level": "high",
   "Name": "Process Execution From A Potentially Suspicious Folder",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%:\\perflogs\\%' or process_path like '%:\\users\\all users\\%' or process_path like '%:\\users\\default\\%' or process_path like '%:\\users\\networkservice\\%' or process_path like '%:\\windows\\addins\\%' or process_path like '%:\\windows\\debug\\%' or process_path like '%:\\windows\\fonts\\%' or process_path like '%:\\windows\\help\\%' or process_path like '%:\\windows\\ime\\%' or process_path like '%:\\windows\\media\\%' or process_path like '%:\\windows\\repair\\%' or process_path like '%:\\windows\\security\\%' or process_path like '%:\\windows\\system32\\tasks\\%' or process_path like '%:\\windows\\tasks\\%' or process_path like '%$recycle.bin%' or process_path like '%\\config\\systemprofile\\%' or process_path like '%\\intel\\logs\\%' or process_path like '%\\rsa\\machinekeys\\%') and  not (process_path like 'c:\\users\\public\\ibm\\clientsolutions\\start_programs\\%' or (process_path like 'c:\\windows\\syswow64\\config\\systemprofile\\citrix\\updaterbinaries\\%' and process_path like '%\\citrixreceiverupdater.exe')))",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects creation of the Process Explorer drivers by processes other than Process Explorer (procexp) itself.\nHack tools or malware may use the Process Explorer driver to elevate privileges, drops it to disk for a few moments, runs a service using that driver and removes it afterwards.\n\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "de46c52b-0bf8-4936-a327-aace94f94ac6",
-  "InsertDate": "2025-01-19T11:34:05Z",
-  "LastUpdateDate": "2025-01-19T11:34:05Z",
+  "InsertDate": "2025-01-21T09:27:48Z",
+  "LastUpdateDate": "2025-01-21T09:27:48Z",
   "Level": "high",
   "Name": "Process Explorer Driver Creation By Non-Sysinternals Binary",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((filepath like '%\\procexp%' and filepath like '%.sys') and  not (process_path like '%\\procexp.exe' or process_path like '%\\procexp64.exe'))",

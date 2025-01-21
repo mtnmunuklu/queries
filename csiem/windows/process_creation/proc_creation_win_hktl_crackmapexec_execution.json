@@ -1,11 +1,11 @@
 {
   "Description": "This rule detect common flag combinations used by CrackMapExec in order to detect its use even if the binary has been replaced.\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "42a993dd-bb3e-48c8-b372-4d6684c4106c",
-  "InsertDate": "2025-01-19T11:34:40Z",
-  "LastUpdateDate": "2025-01-19T11:34:40Z",
+  "InsertDate": "2025-01-21T09:28:28Z",
+  "LastUpdateDate": "2025-01-21T09:28:28Z",
   "Level": "high",
   "Name": "HackTool - CrackMapExec Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((command like '% --local-auth%' and command like '% -u %' and command like '% -x %') or (command like '% --local-auth%' and command like '% -u %' and command like '% -p %' and command like '% -h 'nthash'%') or (command like '% mssql %' and command like '% -u %' and command like '% -p %' and command like '% -m %' and command like '% -d %') or process_path like '%\\crackmapexec.exe' or command like '% -m pe_inject %' or (command like '% smb %' and command like '% -u %' and command like '% -h %' and command like '% -m %' and command like '% -o %') or (command like '% smb %' and command like '% -u %' and command like '% -p %' and command like '% --local-auth%')) or ((command like '% --local-auth%' and command like '% -u %' and command like '% -p %') and (command like '% 10.%' and command like '% 192.168.%' and command like '%/24 %')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\crackmapexec.exe' or command like '% -m pe_inject %' or (command like '% --local-auth%' and command like '% -u %' and command like '% -x %') or (command like '% mssql %' and command like '% -u %' and command like '% -p %' and command like '% -m %' and command like '% -d %') or (command like '% --local-auth%' and command like '% -u %' and command like '% -p %' and command like '% -h 'nthash'%') or (command like '% smb %' and command like '% -u %' and command like '% -h %' and command like '% -m %' and command like '% -o %') or (command like '% smb %' and command like '% -u %' and command like '% -p %' and command like '% --local-auth%')) or ((command like '% 10.%' and command like '% 192.168.%' and command like '%/24 %') and (command like '% --local-auth%' and command like '% -u %' and command like '% -p %')))",
   "Tags": [
     "attack.execution",
     "attack.persistence",

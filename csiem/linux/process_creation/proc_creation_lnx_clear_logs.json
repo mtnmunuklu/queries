@@ -1,8 +1,8 @@
 {
   "Description": "Detects attempts to clear logs on the system. Adversaries may clear system logs to hide evidence of an intrusion\n\nAuthor: Ömer Günal, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "80915f59-9b56-4616-9de0-fd0dea6c12fe",
-  "InsertDate": "2025-01-19T11:33:33Z",
-  "LastUpdateDate": "2025-01-19T11:33:33Z",
+  "InsertDate": "2025-01-21T09:27:15Z",
+  "LastUpdateDate": "2025-01-21T09:27:15Z",
   "Level": "medium",
   "Name": "Clear Linux Logs",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where (process_path like '%/rm' or process_path like '%/shred' or process_path like '%/unlink') and (command like '%/var/log%' or command like '%/var/spool/mail%')",

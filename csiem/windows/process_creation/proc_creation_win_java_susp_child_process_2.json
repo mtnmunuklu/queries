@@ -1,8 +1,8 @@
 {
   "Description": "Detects shell spawned from Java host process, which could be a sign of exploitation (e.g. log4j exploitation)\n\nAuthor: Andreas Hunkeler (@Karneades), Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "dff1e1cc-d3fd-47c8-bfc2-aeb878a754c0",
-  "InsertDate": "2025-01-19T11:34:46Z",
-  "LastUpdateDate": "2025-01-19T11:34:46Z",
+  "InsertDate": "2025-01-21T09:28:35Z",
+  "LastUpdateDate": "2025-01-21T09:28:35Z",
   "Level": "medium",
   "Name": "Shell Process Spawned by Java.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_process_path like '%\\java.exe' and (process_path like '%\\bash.exe' or process_path like '%\\cmd.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe')) and  not (parent_process_path like '%build%' and command like '%build%'))",

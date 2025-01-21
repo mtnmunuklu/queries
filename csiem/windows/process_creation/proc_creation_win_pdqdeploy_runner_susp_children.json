@@ -1,8 +1,8 @@
 {
   "Description": "Detects suspicious execution of \"PDQDeployRunner\" which is part of the PDQDeploy service stack that is responsible for executing commands and packages on a remote machines\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "12b8e9f5-96b2-41e1-9a42-8c6779a5c184",
-  "InsertDate": "2025-01-19T11:34:57Z",
-  "LastUpdateDate": "2025-01-19T11:34:57Z",
+  "InsertDate": "2025-01-21T09:28:46Z",
+  "LastUpdateDate": "2025-01-21T09:28:46Z",
   "Level": "medium",
   "Name": "Potentially Suspicious Execution Of PDQDeployRunner",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\pdqdeployrunner-%' and ((process_path like '%\\bash.exe' or process_path like '%\\certutil.exe' or process_path like '%\\cmd.exe' or process_path like '%\\csc.exe' or process_path like '%\\cscript.exe' or process_path like '%\\dllhost.exe' or process_path like '%\\mshta.exe' or process_path like '%\\msiexec.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\scriptrunner.exe' or process_path like '%\\wmic.exe' or process_path like '%\\wscript.exe' or process_path like '%\\wsl.exe') and (process_path like '%:\\programdata\\%' or process_path like '%:\\users\\public\\%' or process_path like '%:\\windows\\temp\\%' or process_path like '%\\appdata\\local\\temp%') and (command like '% -decode %' or command like '% -enc %' or command like '% -encodedcommand %' or command like '% -w hidden%' or command like '%downloadstring%' or command like '%frombase64string%' or command like '%http%' or command like '%iex %' or command like '%invoke-%')))",

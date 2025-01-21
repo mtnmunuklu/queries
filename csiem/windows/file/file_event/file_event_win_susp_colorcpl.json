@@ -1,8 +1,8 @@
 {
   "Description": "Once executed, colorcpl.exe will copy the arbitrary file to c:\\windows\\system32\\spool\\drivers\\color\\\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e15b518d-b4ce-4410-a9cd-501f23ce4a18",
-  "InsertDate": "2025-01-19T11:34:03Z",
-  "LastUpdateDate": "2025-01-19T11:34:03Z",
+  "InsertDate": "2025-01-21T09:27:46Z",
+  "LastUpdateDate": "2025-01-21T09:27:46Z",
   "Level": "high",
   "Name": "Suspicious Creation with Colorcpl",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\colorcpl.exe' and  not (filepath like '%.icm' or filepath like '%.gmmp' or filepath like '%.cdmp' or filepath like '%.camp'))",

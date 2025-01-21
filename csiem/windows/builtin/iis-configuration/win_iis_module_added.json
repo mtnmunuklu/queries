@@ -1,8 +1,8 @@
 {
   "Description": "Detects the addition of a new module to an IIS server.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "dd857d3e-0c6e-457b-9b48-e82ae7f86bd7",
-  "InsertDate": "2025-01-19T11:33:45Z",
-  "LastUpdateDate": "2025-01-19T11:33:45Z",
+  "InsertDate": "2025-01-21T09:27:27Z",
+  "LastUpdateDate": "2025-01-21T09:27:27Z",
   "Level": "medium",
   "Name": "New Module Module Added To IIS Server",
   "Query": "sourcetype='windows-iis-configuration' eql select * from _source_ where ((eventid = '29' and configuration like '%/system.webserver/modules/add%') and  not ((newvalue = 'anonymousauthenticationmodule' or newvalue = 'customerrormodule' or newvalue = 'defaultdocumentmodule' or newvalue = 'directorylistingmodule' or newvalue = 'filecachemodule' or newvalue = 'httpcachemodule' or newvalue = 'httploggingmodule' or newvalue = 'protocolsupportmodule' or newvalue = 'requestfilteringmodule' or newvalue = 'staticcompressionmodule' or newvalue = 'staticfilemodule' or newvalue = 'tokencachemodule' or newvalue = 'uricachemodule') or newvalue = ''))",

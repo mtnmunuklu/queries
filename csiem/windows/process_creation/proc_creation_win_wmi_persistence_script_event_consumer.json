@@ -1,8 +1,8 @@
 {
   "Description": "Detects WMI script event consumers\n\nAuthor: Thomas Patzke\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ec1d5e28-8f3b-4188-a6f8-6e8df81dc28e",
-  "InsertDate": "2025-01-19T11:35:54Z",
-  "LastUpdateDate": "2025-01-19T11:35:54Z",
+  "InsertDate": "2025-01-21T09:30:59Z",
+  "LastUpdateDate": "2025-01-21T09:30:59Z",
   "Level": "medium",
   "Name": "WMI Persistence - Script Event Consumer",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path = 'c:\\windows\\system32\\wbem\\scrcons.exe' and parent_process_path = 'c:\\windows\\system32\\svchost.exe'",

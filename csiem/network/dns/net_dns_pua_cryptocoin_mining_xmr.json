@@ -1,8 +1,8 @@
 {
   "Description": "Detects suspicious DNS queries to Monero mining pools\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b593fd50-7335-4682-a36c-4edcb68e4641",
-  "InsertDate": "2025-01-19T11:33:40Z",
-  "LastUpdateDate": "2025-01-19T11:33:40Z",
+  "InsertDate": "2025-01-21T09:27:22Z",
+  "LastUpdateDate": "2025-01-21T09:27:22Z",
   "Level": "high",
   "Name": "Monero Crypto Coin Mining Pool Lookup",
   "Query": "eql select * from _source_ where (query like '%pool.minexmr.com%' or query like '%fr.minexmr.com%' or query like '%de.minexmr.com%' or query like '%sg.minexmr.com%' or query like '%ca.minexmr.com%' or query like '%us-west.minexmr.com%' or query like '%pool.supportxmr.com%' or query like '%mine.c3pool.com%' or query like '%xmr-eu1.nanopool.org%' or query like '%xmr-eu2.nanopool.org%' or query like '%xmr-us-east1.nanopool.org%' or query like '%xmr-us-west1.nanopool.org%' or query like '%xmr-asia1.nanopool.org%' or query like '%xmr-jp1.nanopool.org%' or query like '%xmr-au1.nanopool.org%' or query like '%xmr.2miners.com%' or query like '%xmr.hashcity.org%' or query like '%xmr.f2pool.com%' or query like '%xmrpool.eu%' or query like '%pool.hashvault.pro%')",

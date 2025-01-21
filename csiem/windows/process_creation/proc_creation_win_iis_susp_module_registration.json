@@ -1,11 +1,11 @@
 {
   "Description": "Detects a suspicious IIS module registration as described in Microsoft threat report on IIS backdoors\n\nAuthor: Florian Roth (Nextron Systems), Microsoft (idea)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "043c4b8b-3a54-4780-9682-081cb6b8185c",
-  "InsertDate": "2025-01-19T11:34:46Z",
-  "LastUpdateDate": "2025-01-19T11:34:46Z",
+  "InsertDate": "2025-01-21T09:28:34Z",
+  "LastUpdateDate": "2025-01-21T09:28:34Z",
   "Level": "high",
   "Name": "Suspicious IIS Module Registration",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\w3wp.exe' and ((command like '% system.enterpriseservices.internal.publish%' and process_path like '%\\powershell.exe') or (command like '%gacutil%' and command like '% /i%') or command like '%appcmd.exe add module%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\w3wp.exe' and (command like '%appcmd.exe add module%' or (command like '% system.enterpriseservices.internal.publish%' and process_path like '%\\powershell.exe') or (command like '%gacutil%' and command like '% /i%')))",
   "Tags": [
     "attack.persistence",
     "attack.t1505.004"

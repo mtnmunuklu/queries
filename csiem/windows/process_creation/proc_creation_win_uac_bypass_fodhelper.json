@@ -1,8 +1,8 @@
 {
   "Description": "Identifies use of Fodhelper.exe to bypass User Account Control. Adversaries use this technique to execute privileged processes.\n\nAuthor: E.M. Anhaus (originally from Atomic Blue Detections, Tony Lambert), oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "7f741dcf-fc22-4759-87b4-9ae8376676a2",
-  "InsertDate": "2025-01-19T11:35:45Z",
-  "LastUpdateDate": "2025-01-19T11:35:45Z",
+  "InsertDate": "2025-01-21T09:30:42Z",
+  "LastUpdateDate": "2025-01-21T09:30:42Z",
   "Level": "high",
   "Name": "Bypass UAC via Fodhelper.exe",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where parent_process_path like '%\\fodhelper.exe'",

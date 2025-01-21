@@ -1,8 +1,8 @@
 {
   "Description": "detects execution of psexec or paexec with renamed service name, this rule helps to filter out the noise if psexec is used for legit purposes or if attacker uses a different psexec client other than sysinternal one\n\nAuthor: Samir Bousseaden\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c462f537-a1e3-41a6-b5fc-b2c2cef9bf82",
-  "InsertDate": "2025-01-19T11:33:50Z",
-  "LastUpdateDate": "2025-01-19T11:33:50Z",
+  "InsertDate": "2025-01-21T09:27:33Z",
+  "LastUpdateDate": "2025-01-21T09:27:33Z",
   "Level": "high",
   "Name": "Suspicious PsExec Execution",
   "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '5145' and sharename = '\\\\\\\\\\*\\\\ipc$' and (relativetargetname like '%-stdin' or relativetargetname like '%-stdout' or relativetargetname like '%-stderr')) and  not relativetargetname like 'psexesvc%')",

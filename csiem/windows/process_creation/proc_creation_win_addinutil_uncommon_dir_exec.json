@@ -1,8 +1,8 @@
 {
   "Description": "Detects execution of the Add-In deployment cache updating utility (AddInutil.exe) from a non-standard directory.\n\nAuthor: Michael McKinley (@McKinleyMike), Tony Latteri (@TheLatteri)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6120ac2a-a34b-42c0-a9bd-1fb9f459f348",
-  "InsertDate": "2025-01-19T11:34:29Z",
-  "LastUpdateDate": "2025-01-19T11:34:29Z",
+  "InsertDate": "2025-01-21T09:28:15Z",
+  "LastUpdateDate": "2025-01-21T09:28:15Z",
   "Level": "medium",
   "Name": "AddinUtil.EXE Execution From Uncommon Directory",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\addinutil.exe' and original_file_name = 'addinutil.exe') and  not (process_path like '%:\\windows\\microsoft.net\\framework\\%' or process_path like '%:\\windows\\microsoft.net\\framework64\\%' or process_path like '%:\\windows\\winsxs\\%'))",

@@ -1,8 +1,8 @@
 {
   "Description": "This rule detects execution of a PowerShell code through the sqltoolsps.exe utility, which is included in the standard set of utilities supplied with the Microsoft SQL Server Management studio.\nScript blocks are not logged in this case, so this utility helps to bypass protection mechanisms based on the analysis of these logs.\n\n\nAuthor: Agro (@agro_sev) oscd.communitly\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a746c9b8-a2fb-4ee5-a428-92bee9e99060",
-  "InsertDate": "2025-01-19T11:34:53Z",
-  "LastUpdateDate": "2025-01-19T11:34:53Z",
+  "InsertDate": "2025-01-21T09:28:42Z",
+  "LastUpdateDate": "2025-01-21T09:28:42Z",
   "Level": "medium",
   "Name": "SQL Client Tools PowerShell Session Detection",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\sqltoolsps.exe' and parent_process_path like '%\\sqltoolsps.exe' and original_file_name = '\\sqltoolsps.exe') and  not parent_process_path like '%\\smss.exe')",

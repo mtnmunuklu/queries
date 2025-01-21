@@ -1,8 +1,8 @@
 {
   "Description": "Detects DSParse DLL being loaded by an Office Product\n\nAuthor: Antonlovesdnb\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a2a3b925-7bb0-433b-b508-db9003263cc4",
-  "InsertDate": "2025-01-19T11:34:07Z",
-  "LastUpdateDate": "2025-01-19T11:34:07Z",
+  "InsertDate": "2025-01-21T09:27:50Z",
+  "LastUpdateDate": "2025-01-21T09:27:50Z",
   "Level": "medium",
   "Name": "Active Directory Parsing DLL Loaded Via Office Application",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\excel.exe' or process_path like '%\\mspub.exe' or process_path like '%\\onenote.exe' or process_path like '%\\onenoteim.exe' or process_path like '%\\outlook.exe' or process_path like '%\\powerpnt.exe' or process_path like '%\\winword.exe') and image_loaded like '%\\dsparse.dll%'",

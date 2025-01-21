@@ -1,8 +1,8 @@
 {
   "Description": "Detects anyone attempting a backup for the DPAPI Master Key. This events gets generated at the source and not the Domain Controller.\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "39a94fd1-8c9a-4ff6-bf22-c058762f8014",
-  "InsertDate": "2025-01-19T11:33:47Z",
-  "LastUpdateDate": "2025-01-19T11:33:47Z",
+  "InsertDate": "2025-01-21T09:27:30Z",
+  "LastUpdateDate": "2025-01-21T09:27:30Z",
   "Level": "medium",
   "Name": "DPAPI Domain Master Key Backup Attempt",
   "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4692'",

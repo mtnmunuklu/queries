@@ -1,8 +1,8 @@
 {
   "Description": "Detects a service installed by a client which has PID 0 or whose parent has PID 0\n\nAuthor: Tim Rauch (Nextron Systems), Elastic (idea)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c4e92a97-a9ff-4392-9d2d-7a4c642768ca",
-  "InsertDate": "2025-01-19T11:33:49Z",
-  "LastUpdateDate": "2025-01-19T11:33:49Z",
+  "InsertDate": "2025-01-21T09:27:32Z",
+  "LastUpdateDate": "2025-01-21T09:27:32Z",
   "Level": "high",
   "Name": "Service Installed By Unusual Client - Security",
   "Query": "sourcetype='windows-security' eql select * from _source_ where (eventid = '4697' and (clientprocessid = '0' and parent_process_id = '0'))",

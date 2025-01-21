@@ -1,8 +1,8 @@
 {
   "Description": "Detects potential DLL sideloading of \"vivaldi_elf.dll\"\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "2092cacb-d77b-4f98-ab0d-32b32f99a054",
-  "InsertDate": "2025-01-19T11:34:09Z",
-  "LastUpdateDate": "2025-01-19T11:34:09Z",
+  "InsertDate": "2025-01-21T09:27:52Z",
+  "LastUpdateDate": "2025-01-21T09:27:52Z",
   "Level": "medium",
   "Name": "Potential Vivaldi_elf.DLL Sideloading",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (image_loaded like '%\\vivaldi_elf.dll' and  not (process_path like '%\\vivaldi\\application\\vivaldi.exe' and image_loaded like '%\\vivaldi\\application\\%'))",

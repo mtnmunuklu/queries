@@ -1,8 +1,8 @@
 {
   "Description": "Shadow Copies deletion using operating systems utilities via PowerShell\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "87df9ee1-5416-453a-8a08-e8d4a51e9ce1",
-  "InsertDate": "2025-01-19T11:34:13Z",
-  "LastUpdateDate": "2025-01-19T11:34:13Z",
+  "InsertDate": "2025-01-21T09:27:57Z",
+  "LastUpdateDate": "2025-01-21T09:27:57Z",
   "Level": "high",
   "Name": "Delete Volume Shadow Copies Via WMI With PowerShell",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where (data like '%get-wmiobject%' and data like '%win32_shadowcopy%') and (data like '%delete()%' or data like '%remove-wmiobject%')",

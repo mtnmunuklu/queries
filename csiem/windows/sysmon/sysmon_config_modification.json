@@ -1,8 +1,8 @@
 {
   "Description": "Detects a Sysmon configuration change, which could be the result of a legitimate reconfiguration or someone trying manipulate the configuration\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "8ac03a65-6c84-4116-acad-dc1558ff7a77",
-  "InsertDate": "2025-01-19T11:36:23Z",
-  "LastUpdateDate": "2025-01-19T11:36:23Z",
+  "InsertDate": "2025-01-21T09:32:03Z",
+  "LastUpdateDate": "2025-01-21T09:32:03Z",
   "Level": "medium",
   "Name": "Sysmon Configuration Change",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where eventid = '16'",

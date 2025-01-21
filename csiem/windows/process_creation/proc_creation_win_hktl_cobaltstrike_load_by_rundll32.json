@@ -1,8 +1,8 @@
 {
   "Description": "Rundll32 can be use by Cobalt Strike with StartW function to load DLLs from the command line.\n\nAuthor: Wojciech Lesicki\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ae9c6a7c-9521-42a6-915e-5aaa8689d529",
-  "InsertDate": "2025-01-19T11:34:39Z",
-  "LastUpdateDate": "2025-01-19T11:34:39Z",
+  "InsertDate": "2025-01-21T09:28:28Z",
+  "LastUpdateDate": "2025-01-21T09:28:28Z",
   "Level": "high",
   "Name": "CobaltStrike Load by Rundll32",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\rundll32.exe' and original_file_name = 'rundll32.exe' and (command like '%rundll32.exe%' or command like '%rundll32 %')) and (command like '%.dll%' and (command like '% startw' or command like '%,startw')))",

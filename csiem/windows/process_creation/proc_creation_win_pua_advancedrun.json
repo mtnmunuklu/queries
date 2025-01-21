@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of AdvancedRun utility\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d2b749ee-4225-417e-b20e-a8d2193cbb84",
-  "InsertDate": "2025-01-19T11:35:06Z",
-  "LastUpdateDate": "2025-01-19T11:35:06Z",
+  "InsertDate": "2025-01-21T09:29:08Z",
+  "LastUpdateDate": "2025-01-21T09:29:08Z",
   "Level": "medium",
   "Name": "PUA - AdvancedRun Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where original_file_name = 'advancedrun.exe' and (command like '% /exefilename %' and command like '% /run%') and (command like '% /windowstate 0%' and command like '% /runas %' and command like '% /commandline %')",

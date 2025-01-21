@@ -1,8 +1,8 @@
 {
   "Description": "Detects suspicious execution of 'Msbuild.exe' by a uncommon parent process\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "33be4333-2c6b-44f4-ae28-102cdbde0a31",
-  "InsertDate": "2025-01-19T11:34:50Z",
-  "LastUpdateDate": "2025-01-19T11:34:50Z",
+  "InsertDate": "2025-01-21T09:28:40Z",
+  "LastUpdateDate": "2025-01-21T09:28:40Z",
   "Level": "medium",
   "Name": "Suspicious Msbuild Execution By Uncommon Parent Process",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\msbuild.exe' and original_file_name = 'msbuild.exe') and  not (parent_process_path like '%\\devenv.exe' or parent_process_path like '%\\cmd.exe' or parent_process_path like '%\\msbuild.exe' or parent_process_path like '%\\python.exe' or parent_process_path like '%\\explorer.exe' or parent_process_path like '%\\nuget.exe'))",

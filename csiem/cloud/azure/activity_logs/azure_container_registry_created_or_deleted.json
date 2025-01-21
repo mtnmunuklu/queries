@@ -1,8 +1,8 @@
 {
   "Description": "Detects when a Container Registry is created or deleted.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "93e0ef48-37c8-49ed-a02c-038aab23628e",
-  "InsertDate": "2025-01-19T11:33:22Z",
-  "LastUpdateDate": "2025-01-19T11:33:22Z",
+  "InsertDate": "2025-01-21T09:27:02Z",
+  "LastUpdateDate": "2025-01-21T09:27:02Z",
   "Level": "low",
   "Name": "Azure Container Registry Created or Deleted",
   "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (operationname = 'microsoft.containerregistry/registries/write' or operationname = 'microsoft.containerregistry/registries/delete')",

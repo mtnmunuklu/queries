@@ -1,8 +1,8 @@
 {
   "Description": "Detect creation of suspicious executable file names.\nSome strings look for suspicious file extensions, others look for filenames that exploit unquoted service paths.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "74babdd6-a758-4549-9632-26535279e654",
-  "InsertDate": "2025-01-19T11:34:04Z",
-  "LastUpdateDate": "2025-01-19T11:34:04Z",
+  "InsertDate": "2025-01-21T09:27:47Z",
+  "LastUpdateDate": "2025-01-21T09:27:47Z",
   "Level": "high",
   "Name": "Suspicious Executable File Creation",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%:\\$recycle.bin.exe' or filepath like '%:\\documents and settings.exe' or filepath like '%:\\msocache.exe' or filepath like '%:\\perflogs.exe' or filepath like '%:\\recovery.exe' or filepath like '%.bat.exe' or filepath like '%.sys.exe')",

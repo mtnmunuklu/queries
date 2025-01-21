@@ -1,8 +1,8 @@
 {
   "Description": "Rule to detect the use of the SCX RunAsProvider ExecuteScript to execute any UNIX/Linux script using the /bin/sh shell.\nScript being executed gets created as a temp file in /tmp folder with a scx* prefix.\nThen it is invoked from the following directory /etc/opt/microsoft/scx/conf/tmpdir/.\nThe file in that directory has the same prefix scx*. SCXcore, started as the Microsoft Operations Manager UNIX/Linux Agent, is now used in a host of products including\nMicrosoft Operations Manager, Microsoft Azure, and Microsoft Operations Management Suite.\n\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research), MSTIC\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6eea1bf6-f8d2-488a-a742-e6ef6c1b67db",
-  "InsertDate": "2025-01-19T11:33:34Z",
-  "LastUpdateDate": "2025-01-19T11:33:34Z",
+  "InsertDate": "2025-01-21T09:27:17Z",
+  "LastUpdateDate": "2025-01-21T09:27:17Z",
   "Level": "high",
   "Name": "OMIGOD SCX RunAsProvider ExecuteScript",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where username = 'root' and logon_id = '0' and current_directory = '/var/opt/microsoft/scx/tmp' and command like '%/etc/opt/microsoft/scx/conf/tmpdir/scx%'",

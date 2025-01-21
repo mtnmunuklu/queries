@@ -1,8 +1,8 @@
 {
   "Description": "Detects the creation of a file with the \".dll\" extension that has the name of a System DLL in uncommon or unsuspected locations. (Outisde of \"System32\", \"SysWOW64\", etc.).\nIt is highly recommended to perform an initial baseline before using this rule in production.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "13c02350-4177-4e45-ac17-cf7ca628ff5e",
-  "InsertDate": "2025-01-19T11:33:59Z",
-  "LastUpdateDate": "2025-01-19T11:33:59Z",
+  "InsertDate": "2025-01-21T09:27:42Z",
+  "LastUpdateDate": "2025-01-21T09:27:42Z",
   "Level": "medium",
   "Name": "Files With System DLL Name In Unsuspected Locations",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((filepath like '%\\secur32.dll' or filepath like '%\\tdh.dll') and  not (filepath like '%c:\\$windows.~bt\\%' or filepath like '%c:\\$winreagent\\%' or filepath like '%c:\\windows\\softwaredistribution\\%' or filepath like '%c:\\windows\\system32\\%' or filepath like '%c:\\windows\\syswow64\\%' or filepath like '%c:\\windows\\winsxs\\%' or filepath like '%c:\\windows\\uus\\%'))",

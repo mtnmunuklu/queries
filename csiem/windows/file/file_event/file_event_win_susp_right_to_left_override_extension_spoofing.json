@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious filenames that contain a right-to-left override character and a potentially spoofed file extensions.\n\n\nAuthor: Jonathan Peters (Nextron Systems), Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "979baf41-ca44-4540-9d0c-4fcef3b5a3a4",
-  "InsertDate": "2025-01-19T11:34:04Z",
-  "LastUpdateDate": "2025-01-19T11:34:04Z",
+  "InsertDate": "2025-01-21T09:27:47Z",
+  "LastUpdateDate": "2025-01-21T09:27:47Z",
   "Level": "high",
   "Name": "Potential File Extension Spoofing Using Right-to-Left Override",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((filepath like '%fpd..%' or filepath like '%nls..%' or filepath like '%vsc..%' or filepath like '%xcod.%' or filepath like '%xslx.%') and filepath like '%\\u202e%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%\\u202e%' and (filepath like '%fpd..%' or filepath like '%nls..%' or filepath like '%vsc..%' or filepath like '%xcod.%' or filepath like '%xslx.%'))",
   "Tags": [
     "attack.execution",
     "attack.defense-evasion",

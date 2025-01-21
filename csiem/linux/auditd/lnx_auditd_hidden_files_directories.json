@@ -1,8 +1,8 @@
 {
   "Description": "Detects adversary creating hidden file or directory, by detecting directories or files with . as the first character\n\nAuthor: Pawel Mazur\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d08722cd-3d09-449a-80b4-83ea2d9d4616",
-  "InsertDate": "2025-01-19T11:33:30Z",
-  "LastUpdateDate": "2025-01-19T11:33:30Z",
+  "InsertDate": "2025-01-21T09:27:12Z",
+  "LastUpdateDate": "2025-01-21T09:27:12Z",
   "Level": "low",
   "Name": "Hidden Files and Directories",
   "Query": "sourcetype='linux-auditd' eql select * from _source_ where ((type = 'execve' and (a0 = 'mkdir' or a0 = 'touch' or a0 = 'vim' or a0 = 'nano' or a0 = 'vi')) and (a1 like '%/.%' and a1 like '.%' and a2 like '%/.%' and a2 like '.%'))",

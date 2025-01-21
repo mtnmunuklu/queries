@@ -1,8 +1,8 @@
 {
   "Description": "Detects changes to the AMSI come server registry key in order disable AMSI scanning functionalities. When AMSI attempts to starts its COM component, it will query its registered CLSID and return a non-existent COM server. This causes a load failure and prevents any scanning methods from being accessed, ultimately rendering AMSI useless\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "160d2780-31f7-4922-8b3a-efce30e63e96",
-  "InsertDate": "2025-01-19T11:36:05Z",
-  "LastUpdateDate": "2025-01-19T11:36:05Z",
+  "InsertDate": "2025-01-21T09:31:21Z",
+  "LastUpdateDate": "2025-01-21T09:31:21Z",
   "Level": "high",
   "Name": "Potential AMSI COM Server Hijacking",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\clsid\\{fdb00e52-a214-4aa1-8fba-4357bb0072ec}\\inprocserver32\\(default)' and  not details = '%windir%\\system32\\amsi.dll')",

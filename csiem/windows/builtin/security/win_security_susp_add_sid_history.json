@@ -1,8 +1,8 @@
 {
   "Description": "An attacker can use the SID history attribute to gain additional privileges.\n\nAuthor: Thomas Patzke, @atc_project (improvements)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "2632954e-db1c-49cb-9936-67d1ef1d17d2",
-  "InsertDate": "2025-01-19T11:33:49Z",
-  "LastUpdateDate": "2025-01-19T11:33:49Z",
+  "InsertDate": "2025-01-21T09:27:32Z",
+  "LastUpdateDate": "2025-01-21T09:27:32Z",
   "Level": "medium",
   "Name": "Addition of SID History to Active Directory Object",
   "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '4765' or eventid = '4766') or (eventid = '4738' and  not (sidhistory = '-' or sidhistory = '%%1793') and  not sidhistory = 'null'))",

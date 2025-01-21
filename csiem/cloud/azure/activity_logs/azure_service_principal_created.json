@@ -1,8 +1,8 @@
 {
   "Description": "Identifies when a service principal is created in Azure.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0ddcff6d-d262-40b0-804b-80eb592de8e3",
-  "InsertDate": "2025-01-19T11:33:23Z",
-  "LastUpdateDate": "2025-01-19T11:33:23Z",
+  "InsertDate": "2025-01-21T09:27:03Z",
+  "LastUpdateDate": "2025-01-21T09:27:03Z",
   "Level": "medium",
   "Name": "Azure Service Principal Created",
   "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where properties.message = 'add service principal'",

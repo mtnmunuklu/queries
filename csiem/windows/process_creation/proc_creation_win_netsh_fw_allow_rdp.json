@@ -1,8 +1,8 @@
 {
   "Description": "Detects usage of the netsh command to open and allow connections to port 3389 (RDP). As seen used by Sarwent Malware\n\nAuthor: Sander Wiebing\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "01aeb693-138d-49d2-9403-c4f52d7d3d62",
-  "InsertDate": "2025-01-19T11:34:55Z",
-  "LastUpdateDate": "2025-01-19T11:34:55Z",
+  "InsertDate": "2025-01-21T09:28:43Z",
+  "LastUpdateDate": "2025-01-21T09:28:43Z",
   "Level": "high",
   "Name": "RDP Connection Allowed Via Netsh.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\netsh.exe' and original_file_name = 'netsh.exe') and ((command like '%firewall %' and command like '%add %' and command like '%tcp %' and command like '%3389%') and (command like '%portopening%' or command like '%allow%')))",

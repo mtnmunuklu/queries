@@ -1,8 +1,8 @@
 {
   "Description": "Detects an interactive AT job, which may be used as a form of privilege escalation.\n\nAuthor: E.M. Anhaus (originally from Atomic Blue Detections, Endgame), oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "60fc936d-2eb0-4543-8a13-911c750a1dfc",
-  "InsertDate": "2025-01-19T11:34:29Z",
-  "LastUpdateDate": "2025-01-19T11:34:29Z",
+  "InsertDate": "2025-01-21T09:28:16Z",
+  "LastUpdateDate": "2025-01-21T09:28:16Z",
   "Level": "high",
   "Name": "Interactive AT Job",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\at.exe' and command like '%interactive%'",

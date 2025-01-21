@@ -1,11 +1,11 @@
 {
   "Description": "Detects usage of Dsacls to grant over permissive permissions\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "01c42d3c-242d-4655-85b2-34f1739632f7",
-  "InsertDate": "2025-01-19T11:34:36Z",
-  "LastUpdateDate": "2025-01-19T11:34:36Z",
+  "InsertDate": "2025-01-21T09:28:24Z",
+  "LastUpdateDate": "2025-01-21T09:28:24Z",
   "Level": "medium",
   "Name": "Potentially Over Permissive Permissions Granted Using Dsacls.EXE",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '% /g %' and (command like '%gr%' or command like '%ge%' or command like '%gw%' or command like '%ga%' or command like '%wp%' or command like '%wd%') and (process_path like '%\\dsacls.exe' and original_file_name = 'dsacls.exe'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\dsacls.exe' and original_file_name = 'dsacls.exe') and command like '% /g %' and (command like '%gr%' or command like '%ge%' or command like '%gw%' or command like '%ga%' or command like '%wp%' or command like '%wd%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1218"

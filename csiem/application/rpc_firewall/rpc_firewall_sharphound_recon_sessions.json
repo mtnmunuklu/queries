@@ -1,8 +1,8 @@
 {
   "Description": "Detects remote RPC calls useb by SharpHound to map remote connections and local group membership.\n\nAuthor: Sagie Dulce, Dekel Paz\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6d580420-ff3f-4e0e-b6b0-41b90c787e28",
-  "InsertDate": "2025-01-19T11:33:19Z",
-  "LastUpdateDate": "2025-01-19T11:33:19Z",
+  "InsertDate": "2025-01-21T09:27:00Z",
+  "LastUpdateDate": "2025-01-21T09:27:00Z",
   "Level": "high",
   "Name": "SharpHound Recon Sessions",
   "Query": "sourcetype like 'rpc_firewall-%' eql select * from _source_ where eventlog = 'rpcfw' and eventid = '3' and interfaceuuid = '4b324fc8-1670-01d3-1278-5a47bf6ee188' and opnum = '12'",

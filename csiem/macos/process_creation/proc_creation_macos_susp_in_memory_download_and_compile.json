@@ -1,8 +1,8 @@
 {
   "Description": "Detects potential in-memory downloading and compiling of applets using curl and osacompile as seen used by XCSSET malware\n\nAuthor: Sohan G (D4rkCiph3r), Red Canary (idea)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "13db8d2e-7723-4c2c-93c1-a4d36994f7ef",
-  "InsertDate": "2025-01-19T11:33:38Z",
-  "LastUpdateDate": "2025-01-19T11:33:38Z",
+  "InsertDate": "2025-01-21T09:27:21Z",
+  "LastUpdateDate": "2025-01-21T09:27:21Z",
   "Level": "medium",
   "Name": "Potential In-Memory Download And Compile Of Payloads",
   "Query": "sourcetype like 'macos-%' eql select * from _source_ where (command like '%osacompile%' and command like '%curl%')",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects tamper attempts to sophos av functionality via registry key modification\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9f4662ac-17ca-43aa-8f12-5d7b989d0101",
-  "InsertDate": "2025-01-19T11:36:20Z",
-  "LastUpdateDate": "2025-01-19T11:36:20Z",
+  "InsertDate": "2025-01-21T09:31:53Z",
+  "LastUpdateDate": "2025-01-21T09:31:53Z",
   "Level": "high",
   "Name": "Tamper With Sophos AV Registry Keys",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\sophos endpoint defense\\tamperprotection\\config\\savenabled%' or target_object like '%\\sophos endpoint defense\\tamperprotection\\config\\sedenabled%' or target_object like '%\\sophos\\savservice\\tamperprotection\\enabled%') and details = 'dword (0x00000000)'",

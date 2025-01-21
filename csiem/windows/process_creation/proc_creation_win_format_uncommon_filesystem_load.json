@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of format.com with an uncommon filesystem selection that could indicate a defense evasion activity in which \"format.com\" is used to load malicious DLL files or other programs.\n\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9fb6b26e-7f9e-4517-a48b-8cac4a1b6c60",
-  "InsertDate": "2025-01-19T11:34:38Z",
-  "LastUpdateDate": "2025-01-19T11:34:38Z",
+  "InsertDate": "2025-01-21T09:28:26Z",
+  "LastUpdateDate": "2025-01-21T09:28:26Z",
   "Level": "high",
   "Name": "Uncommon FileSystem Load Attempt By Format.com",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\format.com' and command like '%/fs:%') and  not (command like '%/fs:exfat%' or command like '%/fs:fat%' or command like '%/fs:ntfs%' or command like '%/fs:refs%' or command like '%/fs:udf%'))",

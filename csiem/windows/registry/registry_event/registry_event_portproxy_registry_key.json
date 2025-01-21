@@ -1,8 +1,8 @@
 {
   "Description": "Detects the modification of the PortProxy registry key which is used for port forwarding.\n\nAuthor: Andreas Hunkeler (@Karneades)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a54f842a-3713-4b45-8c84-5f136fdebd3c",
-  "InsertDate": "2025-01-19T11:36:03Z",
-  "LastUpdateDate": "2025-01-19T11:36:03Z",
+  "InsertDate": "2025-01-21T09:31:15Z",
+  "LastUpdateDate": "2025-01-21T09:31:15Z",
   "Level": "medium",
   "Name": "New PortProxy Registry Entry Added",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where target_object like '%\\services\\portproxy\\v4tov4\\tcp\\%'",

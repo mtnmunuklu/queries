@@ -1,8 +1,8 @@
 {
   "Description": "Detects Visual Studio Code tunnel execution. Attackers can abuse this functionality to establish a C2 channel\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), citron_ninja\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "90d6bd71-dffb-4989-8d86-a827fedd6624",
-  "InsertDate": "2025-01-19T11:35:48Z",
-  "LastUpdateDate": "2025-01-19T11:35:48Z",
+  "InsertDate": "2025-01-21T09:30:48Z",
+  "LastUpdateDate": "2025-01-21T09:30:48Z",
   "Level": "medium",
   "Name": "Visual Studio Code Tunnel Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((original_file_name = 'null' and command like '%.exe tunnel') or (command like '%.exe tunnel%' and command like '%--name %' and command like '%--accept-server-license-terms%') or (parent_command_line like '% tunnel' and process_path like '%\\cmd.exe' and (command like '%/d /c %' and command like '%\\servers\\stable-%' and command like '%code-server.cmd%')))",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects the use of the Microsoft signed script \"CL_mutexverifiers\" to proxy the execution of additional PowerShell script commands\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), oscd.community, Natalia Shornikova, frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1e0e1a81-e79b-44bc-935b-ddb9c8006b3d",
-  "InsertDate": "2025-01-19T11:34:59Z",
-  "LastUpdateDate": "2025-01-19T11:34:59Z",
+  "InsertDate": "2025-01-21T09:28:49Z",
+  "LastUpdateDate": "2025-01-21T09:28:49Z",
   "Level": "medium",
   "Name": "Potential Script Proxy Execution Via CL_Mutexverifiers.ps1",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((parent_process_path like '%\\powershell.exe' or parent_process_path like '%\\pwsh.exe') and process_path like '%\\powershell.exe' and command like '% -nologo -windowstyle minimized -file %') and (command like '%\\appdata\\local\\temp\\%' or command like '%\\windows\\temp\\%'))",

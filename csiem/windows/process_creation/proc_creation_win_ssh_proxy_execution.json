@@ -1,8 +1,8 @@
 {
   "Description": "Detect usage of the \"ssh.exe\" binary as a proxy to launch other programs.\n\nAuthor: frack113, Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "7d6d30b8-5b91-4b90-a891-46cccaf29598",
-  "InsertDate": "2025-01-19T11:35:29Z",
-  "LastUpdateDate": "2025-01-19T11:35:29Z",
+  "InsertDate": "2025-01-21T09:30:10Z",
+  "LastUpdateDate": "2025-01-21T09:30:10Z",
   "Level": "medium",
   "Name": "Program Executed Using Proxy/Local Command Via SSH.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path = 'c:\\windows\\system32\\openssh\\sshd.exe' or (process_path like '%\\ssh.exe' and (command like '%proxycommand=%' and (command like '%permitlocalcommand%' and command like '%localcommand%'))))",

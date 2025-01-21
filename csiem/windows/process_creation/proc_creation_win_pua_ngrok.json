@@ -1,11 +1,11 @@
 {
   "Description": "Detects the use of Ngrok, a utility used for port forwarding and tunneling, often used by threat actors to make local protected services publicly available.\nInvolved domains are bin.equinox.io for download and *.ngrok.io for connections.\n\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ee37eb7c-a4e7-4cd5-8fa4-efa27f1c3f31",
-  "InsertDate": "2025-01-19T11:35:07Z",
-  "LastUpdateDate": "2025-01-19T11:35:07Z",
+  "InsertDate": "2025-01-21T09:29:14Z",
+  "LastUpdateDate": "2025-01-21T09:29:14Z",
   "Level": "high",
   "Name": "PUA - Ngrok Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '% tcp 139%' or command like '% tcp 445%' or command like '% tcp 3389%' or command like '% tcp 5985%' or command like '% tcp 5986%') or (command like '% start %' and command like '%--all%' and command like '%--config%' and command like '%.yml%') or (process_path like '%ngrok.exe' and (command like '% tcp %' or command like '% http %' or command like '% authtoken %')) or (command like '%.exe authtoken %' or command like '%.exe start --all%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '% start %' and command like '%--all%' and command like '%--config%' and command like '%.yml%') or (process_path like '%ngrok.exe' and (command like '% tcp %' or command like '% http %' or command like '% authtoken %')) or (command like '%.exe authtoken %' or command like '%.exe start --all%') or (command like '% tcp 139%' or command like '% tcp 445%' or command like '% tcp 3389%' or command like '% tcp 5985%' or command like '% tcp 5986%'))",
   "Tags": [
     "attack.command-and-control",
     "attack.t1572"

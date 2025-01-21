@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious use of PCHunter, a tool like Process Hacker to view and manipulate processes, kernel options and other low level stuff\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "fca949cc-79ca-446e-8064-01aa7e52ece5",
-  "InsertDate": "2025-01-19T11:34:42Z",
-  "LastUpdateDate": "2025-01-19T11:34:42Z",
+  "InsertDate": "2025-01-21T09:28:31Z",
+  "LastUpdateDate": "2025-01-21T09:28:31Z",
   "Level": "high",
   "Name": "HackTool - PCHunter Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\pchunter64.exe' or process_path like '%\\pchunter32.exe') or (original_file_name = 'pchunter.exe' and description = 'epoolsoft windows information view tools') or (hashes like '%sha1=5f1cbc3d99558307bc1250d084fa968521482025%' or hashes like '%md5=987b65cd9b9f4e9a1afd8f8b48cf64a7%' or hashes like '%sha256=2b214bddaab130c274de6204af6dba5aeec7433da99aa950022fa306421a6d32%' or hashes like '%imphash=444d210cea1ff8112f256a4997eed7ff%' or hashes like '%sha1=3fb89787cb97d902780da080545584d97fb1c2eb%' or hashes like '%md5=228dd0c2e6287547e26ffbd973a40f14%' or hashes like '%sha256=55f041bf4e78e9bfa6d4ee68be40e496ce3a1353e1ca4306598589e19802522c%' or hashes like '%imphash=0479f44df47cfa2ef1ccc4416a538663%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((original_file_name = 'pchunter.exe' and description = 'epoolsoft windows information view tools') or (hashes like '%sha1=5f1cbc3d99558307bc1250d084fa968521482025%' or hashes like '%md5=987b65cd9b9f4e9a1afd8f8b48cf64a7%' or hashes like '%sha256=2b214bddaab130c274de6204af6dba5aeec7433da99aa950022fa306421a6d32%' or hashes like '%imphash=444d210cea1ff8112f256a4997eed7ff%' or hashes like '%sha1=3fb89787cb97d902780da080545584d97fb1c2eb%' or hashes like '%md5=228dd0c2e6287547e26ffbd973a40f14%' or hashes like '%sha256=55f041bf4e78e9bfa6d4ee68be40e496ce3a1353e1ca4306598589e19802522c%' or hashes like '%imphash=0479f44df47cfa2ef1ccc4416a538663%') or (process_path like '%\\pchunter64.exe' or process_path like '%\\pchunter32.exe'))",
   "Tags": [
     "attack.execution",
     "attack.discovery",

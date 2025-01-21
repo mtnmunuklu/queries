@@ -1,8 +1,8 @@
 {
   "Description": "Detects the download of suspicious file type from a well-known file and paste sharing domain\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ae02ed70-11aa-4a22-b397-c0d0e8f6ea99",
-  "InsertDate": "2025-01-19T11:33:56Z",
-  "LastUpdateDate": "2025-01-19T11:33:56Z",
+  "InsertDate": "2025-01-21T09:27:39Z",
+  "LastUpdateDate": "2025-01-21T09:27:39Z",
   "Level": "medium",
   "Name": "Unusual File Download From File Sharing Websites - File Stream",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((contents like '%.githubusercontent.com%' or contents like '%anonfiles.com%' or contents like '%cdn.discordapp.com%' or contents like '%ddns.net%' or contents like '%dl.dropboxusercontent.com%' or contents like '%ghostbin.co%' or contents like '%glitch.me%' or contents like '%gofile.io%' or contents like '%hastebin.com%' or contents like '%mediafire.com%' or contents like '%mega.nz%' or contents like '%onrender.com%' or contents like '%pages.dev%' or contents like '%paste.ee%' or contents like '%pastebin.com%' or contents like '%pastebin.pl%' or contents like '%pastetext.net%' or contents like '%pixeldrain.com%' or contents like '%privatlab.com%' or contents like '%privatlab.net%' or contents like '%send.exploit.in%' or contents like '%sendspace.com%' or contents like '%storage.googleapis.com%' or contents like '%storjshare.io%' or contents like '%supabase.co%' or contents like '%temp.sh%' or contents like '%transfer.sh%' or contents like '%trycloudflare.com%' or contents like '%ufile.io%' or contents like '%w3spaces.com%' or contents like '%workers.dev%') and (filepath like '%.bat:zone%' or filepath like '%.cmd:zone%' or filepath like '%.ps1:zone%'))",

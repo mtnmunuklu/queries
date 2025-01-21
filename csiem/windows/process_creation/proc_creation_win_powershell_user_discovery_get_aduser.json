@@ -1,8 +1,8 @@
 {
   "Description": "Detects usage of the Get-ADUser cmdlet to collect user information and output it to a file\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1114e048-b69c-4f41-bc20-657245ae6e3f",
-  "InsertDate": "2025-01-19T11:35:05Z",
-  "LastUpdateDate": "2025-01-19T11:35:05Z",
+  "InsertDate": "2025-01-21T09:29:05Z",
+  "LastUpdateDate": "2025-01-21T09:29:05Z",
   "Level": "medium",
   "Name": "User Discovery And Export Via Get-ADUser Cmdlet",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll')) and ((command like '%get-aduser %' and command like '% -filter \\*%') and (command like '% \u003e %' or command like '% | select %' or command like '%out-file%' or command like '%set-content%' or command like '%add-content%')))",

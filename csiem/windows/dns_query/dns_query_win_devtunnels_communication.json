@@ -1,8 +1,8 @@
 {
   "Description": "Detects DNS query requests to Devtunnels domains. Attackers can abuse that feature to establish a reverse shell or persistence on a machine.\n\n\nAuthor: citron_ninja\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1cb0c6ce-3d00-44fc-ab9c-6d6d577bf20b",
-  "InsertDate": "2025-01-19T11:33:56Z",
-  "LastUpdateDate": "2025-01-19T11:33:56Z",
+  "InsertDate": "2025-01-21T09:27:39Z",
+  "LastUpdateDate": "2025-01-21T09:27:39Z",
   "Level": "medium",
   "Name": "DNS Query To Devtunnels Domain",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where query_name like '%.devtunnels.ms'",

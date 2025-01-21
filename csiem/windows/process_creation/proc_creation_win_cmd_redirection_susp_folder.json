@@ -1,8 +1,8 @@
 {
   "Description": "Detects inline Windows shell commands redirecting output via the \"\u003e\" symbol to a suspicious location.\nThis technique is sometimes used by malicious actors in order to redirect the output of reconnaissance commands such as \"hostname\" and \"dir\" to files for future exfiltration.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "8e0bb260-d4b2-4fff-bb8d-3f82118e6892",
-  "InsertDate": "2025-01-19T11:34:33Z",
-  "LastUpdateDate": "2025-01-19T11:34:33Z",
+  "InsertDate": "2025-01-21T09:28:21Z",
+  "LastUpdateDate": "2025-01-21T09:28:21Z",
   "Level": "medium",
   "Name": "Potentially Suspicious CMD Shell Output Redirect",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\cmd.exe' and original_file_name = 'cmd.exe') and ((command like '%\u003e?%appdata%\\%' or command like '%\u003e?%temp%\\%' or command like '%\u003e?%tmp%\\%' or command like '%\u003e?%userprofile%\\%' or command like '%\u003e?c:\\programdata\\%' or command like '%\u003e?c:\\temp\\%' or command like '%\u003e?c:\\users\\public\\%' or command like '%\u003e?c:\\windows\\temp\\%') or ((command like '% \u003e%' or command like '%\"\u003e%' or command like '%'\u003e%') and (command like '%c:\\users\\%' and command like '%\\appdata\\local\\%'))))",

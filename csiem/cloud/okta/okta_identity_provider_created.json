@@ -1,8 +1,8 @@
 {
   "Description": "Detects when a new identity provider is created for Okta.\n\nAuthor: kelnage\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "969c7590-8c19-4797-8c1b-23155de6e7ac",
-  "InsertDate": "2025-01-19T11:33:29Z",
-  "LastUpdateDate": "2025-01-19T11:33:29Z",
+  "InsertDate": "2025-01-21T09:27:10Z",
+  "LastUpdateDate": "2025-01-21T09:27:10Z",
   "Level": "medium",
   "Name": "Okta Identity Provider Created",
   "Query": "sourcetype='okta-okta' eql select * from _source_ where eventtype = 'system.idp.lifecycle.create'",

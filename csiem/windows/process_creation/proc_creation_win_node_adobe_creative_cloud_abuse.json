@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of other scripts using the Node executable packaged with Adobe Creative Cloud\n\nAuthor: Max Altgelt (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "df1f26d3-bea7-4700-9ea2-ad3e990cf90e",
-  "InsertDate": "2025-01-19T11:34:56Z",
-  "LastUpdateDate": "2025-01-19T11:34:56Z",
+  "InsertDate": "2025-01-21T09:28:44Z",
+  "LastUpdateDate": "2025-01-21T09:28:44Z",
   "Level": "medium",
   "Name": "Node Process Executions",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\adobe creative cloud experience\\libs\\node.exe' and  not command like '%adobe creative cloud experience\\js%')",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects potential persistence using Appx DebugPath\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "df4dc653-1029-47ba-8231-3c44238cc0ae",
-  "InsertDate": "2025-01-19T11:36:16Z",
-  "LastUpdateDate": "2025-01-19T11:36:16Z",
+  "InsertDate": "2025-01-21T09:31:46Z",
+  "LastUpdateDate": "2025-01-21T09:31:46Z",
   "Level": "medium",
   "Name": "Potential Persistence Using DebugPath",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object like '%classes\\activatableclasses\\package\\microsoft.%' and target_object like '%\\debugpath') or (target_object like '%\\software\\microsoft\\windows\\currentversion\\packagedappxdebug\\microsoft.%' and target_object like '%\\(default)'))",

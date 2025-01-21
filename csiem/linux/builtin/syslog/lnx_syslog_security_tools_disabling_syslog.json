@@ -1,11 +1,11 @@
 {
   "Description": "Detects disabling security tools\n\nAuthor: Ömer Günal, Alejandro Ortuno, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "49f5dfc1-f92e-4d34-96fa-feba3f6acf36",
-  "InsertDate": "2025-01-19T11:33:32Z",
-  "LastUpdateDate": "2025-01-19T11:33:32Z",
+  "InsertDate": "2025-01-21T09:27:14Z",
+  "LastUpdateDate": "2025-01-21T09:27:14Z",
   "Level": "medium",
   "Name": "Disabling Security Tools - Builtin",
-  "Query": "sourcetype='linux-syslog' eql select * from _source_ where (log like '%stopping iptables%' or log like '%stopping ip6tables%' or log like '%stopping firewalld%' or log like '%stopping cbdaemon%' or log like '%stopping falcon-sensor%')",
+  "Query": "sourcetype='linux-syslog' eql select * from _source_ where Query('stopping iptables OR stopping ip6tables OR stopping firewalld OR stopping cbdaemon OR stopping falcon-sensor')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1562.004"

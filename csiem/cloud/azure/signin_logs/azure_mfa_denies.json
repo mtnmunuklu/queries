@@ -1,8 +1,8 @@
 {
   "Description": "User has indicated they haven't instigated the MFA prompt and could indicate an attacker has the password for the account.\n\nAuthor: AlertIQ\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e40f4962-b02b-4192-9bfe-245f7ece1f99",
-  "InsertDate": "2025-01-19T11:33:26Z",
-  "LastUpdateDate": "2025-01-19T11:33:26Z",
+  "InsertDate": "2025-01-21T09:27:06Z",
+  "LastUpdateDate": "2025-01-21T09:27:06Z",
   "Level": "medium",
   "Name": "Multifactor Authentication Denied",
   "Query": "sourcetype='azure-signinlogs' eql select * from _source_ where authenticationrequirement = 'multifactorauthentication' and status like '%mfa denied%'",

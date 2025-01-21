@@ -1,11 +1,11 @@
 {
   "Description": "Detects creation of a file named \"ntds.dit\" (Active Directory Database) by an uncommon process or a process located in a suspicious directory\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "11b1ed55-154d-4e82-8ad7-83739298f720",
-  "InsertDate": "2025-01-19T11:34:01Z",
-  "LastUpdateDate": "2025-01-19T11:34:01Z",
+  "InsertDate": "2025-01-21T09:27:44Z",
+  "LastUpdateDate": "2025-01-21T09:27:44Z",
   "Level": "high",
   "Name": "NTDS.DIT Creation By Uncommon Process",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%\\ntds.dit' and ((process_path like '%\\appdata\\%' or process_path like '%\\temp\\%' or process_path like '%\\public\\%' or process_path like '%\\perflogs\\%') or (process_path like '%\\cmd.exe' or process_path like '%\\cscript.exe' or process_path like '%\\mshta.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\wscript.exe' or process_path like '%\\wsl.exe' or process_path like '%\\wt.exe')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%\\ntds.dit' and ((process_path like '%\\cmd.exe' or process_path like '%\\cscript.exe' or process_path like '%\\mshta.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\wscript.exe' or process_path like '%\\wsl.exe' or process_path like '%\\wt.exe') or (process_path like '%\\appdata\\%' or process_path like '%\\temp\\%' or process_path like '%\\public\\%' or process_path like '%\\perflogs\\%')))",
   "Tags": [
     "attack.credential-access",
     "attack.t1003.002",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects TOKEN OBFUSCATION technique from Invoke-Obfuscation\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "deb9b646-a508-44ee-b7c9-d8965921c6b6",
-  "InsertDate": "2025-01-19T11:35:05Z",
-  "LastUpdateDate": "2025-01-19T11:35:05Z",
+  "InsertDate": "2025-01-21T09:29:05Z",
+  "LastUpdateDate": "2025-01-21T09:29:05Z",
   "Level": "high",
   "Name": "Powershell Token Obfuscation - Process Creation",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command re '\\w+`(\\w+|-|.)`[\\w+|\\s]' and command re '\"(\\{\\d\\})+\"\\s*-f' and command re '(?i)\\$\\{`?e`?n`?v`?:`?p`?a`?t`?h`?\\}') and  not command like '%${env:path}%')",

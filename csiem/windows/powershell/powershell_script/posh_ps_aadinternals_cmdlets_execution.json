@@ -1,8 +1,8 @@
 {
   "Description": "Detects ADDInternals Cmdlet execution. A tool for administering Azure AD and Office 365. Which can be abused by threat actors to attack Azure AD or Office 365.\n\nAuthor: Austin Songer (@austinsonger), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "91e69562-2426-42ce-a647-711b8152ced6",
-  "InsertDate": "2025-01-19T11:34:16Z",
-  "LastUpdateDate": "2025-01-19T11:34:16Z",
+  "InsertDate": "2025-01-21T09:28:01Z",
+  "LastUpdateDate": "2025-01-21T09:28:01Z",
   "Level": "high",
   "Name": "AADInternals PowerShell Cmdlets Execution - PsScript",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%add-aadint%' or scriptblocktext like '%convertto-aadint%' or scriptblocktext like '%disable-aadint%' or scriptblocktext like '%enable-aadint%' or scriptblocktext like '%export-aadint%' or scriptblocktext like '%get-aadint%' or scriptblocktext like '%grant-aadint%' or scriptblocktext like '%install-aadint%' or scriptblocktext like '%invoke-aadint%' or scriptblocktext like '%join-aadint%' or scriptblocktext like '%new-aadint%' or scriptblocktext like '%open-aadint%' or scriptblocktext like '%read-aadint%' or scriptblocktext like '%register-aadint%' or scriptblocktext like '%remove-aadint%' or scriptblocktext like '%restore-aadint%' or scriptblocktext like '%search-aadint%' or scriptblocktext like '%send-aadint%' or scriptblocktext like '%set-aadint%' or scriptblocktext like '%start-aadint%' or scriptblocktext like '%update-aadint%')",

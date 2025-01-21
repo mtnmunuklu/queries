@@ -1,8 +1,8 @@
 {
   "Description": "Detects a \"dllhost\" process spawning with no commandline arguments which is very rare to happen and could indicate process injection activity or malware mimicking similar system processes.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e7888eb1-13b0-4616-bd99-4bc0c2b054b9",
-  "InsertDate": "2025-01-19T11:34:36Z",
-  "LastUpdateDate": "2025-01-19T11:34:36Z",
+  "InsertDate": "2025-01-21T09:28:24Z",
+  "LastUpdateDate": "2025-01-21T09:28:24Z",
   "Level": "high",
   "Name": "Dllhost.EXE Execution Anomaly",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\dllhost.exe' and (command = 'dllhost.exe' or command = 'dllhost')) and  not command = 'null')",

@@ -1,11 +1,11 @@
 {
   "Description": "Detects command line parameters used by Bloodhound and Sharphound hack tools\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f376c8a7-a2d0-4ddc-aa0c-16c17236d962",
-  "InsertDate": "2025-01-19T11:34:39Z",
-  "LastUpdateDate": "2025-01-19T11:34:39Z",
+  "InsertDate": "2025-01-21T09:28:28Z",
+  "LastUpdateDate": "2025-01-21T09:28:28Z",
   "Level": "high",
   "Name": "HackTool - Bloodhound/Sharphound Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '% dconly %' and command like '% --nosavecache %') or (product like '%sharphound%' and description like '%sharphound%' and (company like '%specterops%' or company like '%evil corp%') and (process_path like '%\\bloodhound.exe%' or process_path like '%\\sharphound.exe%')) or (command like '% -collectionmethod all %' or command like '% --collectionmethods session %' or command like '% --loop --loopduration %' or command like '% --portscantimeout %' or command like '%.exe -c all -d %' or command like '%invoke-bloodhound%' or command like '%get-bloodhounddata%') or (command like '% -jsonfolder %' and command like '% -zipfilename %'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((product like '%sharphound%' and description like '%sharphound%' and (company like '%specterops%' or company like '%evil corp%') and (process_path like '%\\bloodhound.exe%' or process_path like '%\\sharphound.exe%')) or (command like '% -collectionmethod all %' or command like '% --collectionmethods session %' or command like '% --loop --loopduration %' or command like '% --portscantimeout %' or command like '%.exe -c all -d %' or command like '%invoke-bloodhound%' or command like '%get-bloodhounddata%') or (command like '% -jsonfolder %' and command like '% -zipfilename %') or (command like '% dconly %' and command like '% --nosavecache %'))",
   "Tags": [
     "attack.discovery",
     "attack.t1087.001",

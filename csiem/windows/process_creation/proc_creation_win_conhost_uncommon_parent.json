@@ -1,8 +1,8 @@
 {
   "Description": "Detects when the Console Window Host (conhost.exe) process is spawned by an uncommon parent process, which could be indicative of potential code injection activity.\n\nAuthor: Tim Rauch, Elastic (idea)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "cbb9e3d1-2386-4e59-912e-62f1484f7a89",
-  "InsertDate": "2025-01-19T11:34:34Z",
-  "LastUpdateDate": "2025-01-19T11:34:34Z",
+  "InsertDate": "2025-01-21T09:28:22Z",
+  "LastUpdateDate": "2025-01-21T09:28:22Z",
   "Level": "medium",
   "Name": "Conhost Spawned By Uncommon Parent Process",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\conhost.exe' and (parent_process_path like '%\\explorer.exe' or parent_process_path like '%\\lsass.exe' or parent_process_path like '%\\regsvr32.exe' or parent_process_path like '%\\rundll32.exe' or parent_process_path like '%\\services.exe' or parent_process_path like '%\\smss.exe' or parent_process_path like '%\\spoolsv.exe' or parent_process_path like '%\\svchost.exe' or parent_process_path like '%\\userinit.exe' or parent_process_path like '%\\wininit.exe' or parent_process_path like '%\\winlogon.exe')) and  not (parent_command_line like '%-k apphost -s apphostsvc%' or parent_command_line like '%-k imgsvc%' or parent_command_line like '%-k localservice -p -s remoteregistry%' or parent_command_line like '%-k localsystemnetworkrestricted -p -s ngcsvc%' or parent_command_line like '%-k netsvcs -p -s ncasvc%' or parent_command_line like '%-k netsvcs -p -s netsetupsvc%' or parent_command_line like '%-k netsvcs -p -s wlidsvc%' or parent_command_line like '%-k networkservice -p -s dosvc%' or parent_command_line like '%-k wsappx -p -s appxsvc%' or parent_command_line like '%-k wsappx -p -s clipsvc%') and  not (parent_command_line like '%c:\\program files (x86)\\dropbox\\client\\%' or parent_command_line like '%c:\\program files\\dropbox\\client\\%'))",

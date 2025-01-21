@@ -1,11 +1,11 @@
 {
   "Description": "Detects the clearing or configuration tampering of EventLog using utilities such as \"wevtutil\", \"powershell\" and \"wmic\".\nThis technique were seen used by threat actors and ransomware strains in order to evade defenses.\n\n\nAuthor: Ecco, Daniil Yugoslavskiy, oscd.community, D3F7A5105\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "cc36992a-4671-4f21-a91d-6c2b72a2edf5",
-  "InsertDate": "2025-01-19T11:35:33Z",
-  "LastUpdateDate": "2025-01-19T11:35:33Z",
+  "InsertDate": "2025-01-21T09:30:17Z",
+  "LastUpdateDate": "2025-01-21T09:30:17Z",
   "Level": "high",
   "Name": "Suspicious Eventlog Clearing or Configuration Change Activity",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\wevtutil.exe' and (command like '%clear-log %' or command like '% cl %' or command like '%set-log %' or command like '% sl %' or command like '%lfn:%')) or ((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (command like '%clear-eventlog %' or command like '%remove-eventlog %' or command like '%limit-eventlog %' or command like '%clear-winevent %')) or ((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\wmic.exe') and command like '%cleareventlog%')) and  not ((parent_process_path = 'c:\\windows\\syswow64\\msiexec.exe' or parent_process_path = 'c:\\windows\\system32\\msiexec.exe') and command like '% sl %'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (command like '%clear-eventlog %' or command like '%remove-eventlog %' or command like '%limit-eventlog %' or command like '%clear-winevent %')) or ((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\wmic.exe') and command like '%cleareventlog%') or (process_path like '%\\wevtutil.exe' and (command like '%clear-log %' or command like '% cl %' or command like '%set-log %' or command like '% sl %' or command like '%lfn:%'))) and  not ((parent_process_path = 'c:\\windows\\syswow64\\msiexec.exe' or parent_process_path = 'c:\\windows\\system32\\msiexec.exe') and command like '% sl %'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1070.001",

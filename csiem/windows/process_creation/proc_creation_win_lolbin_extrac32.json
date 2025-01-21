@@ -1,8 +1,8 @@
 {
   "Description": "Download or Copy file with Extrac32\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "aa8e035d-7be4-48d3-a944-102aec04400d",
-  "InsertDate": "2025-01-19T11:34:47Z",
-  "LastUpdateDate": "2025-01-19T11:34:47Z",
+  "InsertDate": "2025-01-21T09:28:36Z",
+  "LastUpdateDate": "2025-01-21T09:28:36Z",
   "Level": "medium",
   "Name": "Suspicious Extrac32 Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%extrac32.exe%' and process_path like '%\\extrac32.exe' and original_file_name = 'extrac32.exe') and command like '%.cab%' and (command like '%/c%' or command like '%/y%' or command like '% \\\\\\\\%'))",

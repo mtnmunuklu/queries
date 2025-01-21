@@ -1,8 +1,8 @@
 {
   "Description": "Detects potential suspicious applet or osascript executing \"osacompile\".\n\nAuthor: Sohan G (D4rkCiph3r), Red Canary (Idea)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a753a6af-3126-426d-8bd0-26ebbcb92254",
-  "InsertDate": "2025-01-19T11:33:39Z",
-  "LastUpdateDate": "2025-01-19T11:33:39Z",
+  "InsertDate": "2025-01-21T09:27:21Z",
+  "LastUpdateDate": "2025-01-21T09:27:21Z",
   "Level": "medium",
   "Name": "Osacompile Execution By Potentially Suspicious Applet/Osascript",
   "Query": "sourcetype like 'macos-%' eql select * from _source_ where (parent_process_path like '%/applet' or parent_process_path like '%/osascript') and command like '%osacompile%'",

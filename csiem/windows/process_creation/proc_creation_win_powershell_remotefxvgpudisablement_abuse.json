@@ -1,8 +1,8 @@
 {
   "Description": "Detects calls to the AtomicTestHarnesses \"Invoke-ATHRemoteFXvGPUDisablementCommand\" which is designed to abuse the \"RemoteFXvGPUDisablement.exe\" binary to run custom PowerShell code via module load-order hijacking.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a6fc3c46-23b8-4996-9ea2-573f4c4d88c5",
-  "InsertDate": "2025-01-19T11:35:03Z",
-  "LastUpdateDate": "2025-01-19T11:35:03Z",
+  "InsertDate": "2025-01-21T09:29:00Z",
+  "LastUpdateDate": "2025-01-21T09:29:00Z",
   "Level": "high",
   "Name": "RemoteFXvGPUDisablement Abuse Via AtomicTestHarnesses",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%invoke-athremotefxvgpudisablementcommand%' or command like '%invoke-athremotefxvgpudisableme%')",

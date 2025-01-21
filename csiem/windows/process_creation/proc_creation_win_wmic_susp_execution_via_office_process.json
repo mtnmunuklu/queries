@@ -1,8 +1,8 @@
 {
   "Description": "Office application called wmic to proxye execution through a LOLBIN process. This is often used to break suspicious parent-child chain (Office app spawns LOLBin).\n\nAuthor: Vadim Khrykov, Cyb3rEng\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e1693bc8-7168-4eab-8718-cdcaa68a1738",
-  "InsertDate": "2025-01-19T11:35:57Z",
-  "LastUpdateDate": "2025-01-19T11:35:57Z",
+  "InsertDate": "2025-01-21T09:31:09Z",
+  "LastUpdateDate": "2025-01-21T09:31:09Z",
   "Level": "high",
   "Name": "Suspicious WMIC Execution Via Office Process",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_process_path like '%\\winword.exe' or parent_process_path like '%\\excel.exe' or parent_process_path like '%\\powerpnt.exe' or parent_process_path like '%\\mspub.exe' or parent_process_path like '%\\visio.exe' or parent_process_path like '%\\msaccess.exe' or parent_process_path like '%\\eqnedt32.exe' or parent_process_path like '%\\onenote.exe' or parent_process_path like '%\\wordpad.exe' or parent_process_path like '%\\wordview.exe') and (process_path like '%\\wbem\\wmic.exe' and original_file_name = 'wmic.exe') and ((command like '%process%' and command like '%create%' and command like '%call%') and (command like '%regsvr32%' or command like '%rundll32%' or command like '%msiexec%' or command like '%mshta%' or command like '%verclsid%' or command like '%wscript%' or command like '%cscript%')))",

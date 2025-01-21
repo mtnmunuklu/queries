@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious interactive bash as a parent to rather uncommon child processes\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ea3ecad2-db86-4a89-ad0b-132a10d2db55",
-  "InsertDate": "2025-01-19T11:33:36Z",
-  "LastUpdateDate": "2025-01-19T11:33:36Z",
+  "InsertDate": "2025-01-21T09:27:18Z",
+  "LastUpdateDate": "2025-01-21T09:27:18Z",
   "Level": "medium",
   "Name": "Interactive Bash Suspicious Children",
-  "Query": "sourcetype like 'linux-%' eql select * from _source_ where (parent_command_line = 'bash -i' and ((command like '%-c import %' or command like '%base64%' or command like '%pty.spawn%') or (process_path like '%whoami' or process_path like '%iptables' or process_path like '%/ncat' or process_path like '%/nc' or process_path like '%/netcat')))",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where (parent_command_line = 'bash -i' and ((process_path like '%whoami' or process_path like '%iptables' or process_path like '%/ncat' or process_path like '%/nc' or process_path like '%/netcat') or (command like '%-c import %' or command like '%base64%' or command like '%pty.spawn%')))",
   "Tags": [
     "attack.execution",
     "attack.defense-evasion",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects known malicious service installation that appear in cases in which a Sliver implants execute the PsExec commands\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "31c51af6-e7aa-4da7-84d4-8f32cc580af2",
-  "InsertDate": "2025-01-19T11:33:54Z",
-  "LastUpdateDate": "2025-01-19T11:33:54Z",
+  "InsertDate": "2025-01-21T09:27:36Z",
+  "LastUpdateDate": "2025-01-21T09:27:36Z",
   "Level": "high",
   "Name": "Sliver C2 Default Service Installation",
   "Query": "sourcetype='windows-system' eql select * from _source_ where ((provider_name = 'service control manager' and eventid = '7045') and (imagepath re '^[a-zA-Z]:\\\\windows\\\\temp\\\\[a-zA-Z0-9]{10}\\.exe' or (servicename = 'sliver' or servicename = 'sliver implant')))",

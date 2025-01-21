@@ -1,11 +1,11 @@
 {
   "Description": "An attempt to export an AWS EC2 instance has been detected. A VM Export might indicate an attempt to extract information from an instance.\n\nAuthor: Diogo Braz\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "54b9a76a-3c71-4673-b4b3-2edb4566ea7b",
-  "InsertDate": "2025-01-19T11:33:20Z",
-  "LastUpdateDate": "2025-01-19T11:33:20Z",
+  "InsertDate": "2025-01-21T09:27:01Z",
+  "LastUpdateDate": "2025-01-21T09:27:01Z",
   "Level": "low",
   "Name": "AWS EC2 VM Export Failure",
-  "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where ((eventname = 'createinstanceexporttask' and eventsource = 'ec2.amazonaws.com') and  not (responseelements like '%failure%' or errormessage like '%*%' or errorcode like '%*%'))",
+  "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where ((eventname = 'createinstanceexporttask' and eventsource = 'ec2.amazonaws.com') and  not (errormessage like '%*%' or errorcode like '%*%' or responseelements like '%failure%'))",
   "Tags": [
     "attack.collection",
     "attack.t1005",

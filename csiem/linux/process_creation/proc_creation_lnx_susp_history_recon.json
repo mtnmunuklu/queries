@@ -1,8 +1,8 @@
 {
   "Description": "Detects events in which someone prints the contents of history files to the commandline or redirects it to a file for reconnaissance\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d7821ff1-4527-4e33-9f84-d0d57fa2fb66",
-  "InsertDate": "2025-01-19T11:33:36Z",
-  "LastUpdateDate": "2025-01-19T11:33:36Z",
+  "InsertDate": "2025-01-21T09:27:18Z",
+  "LastUpdateDate": "2025-01-21T09:27:18Z",
   "Level": "medium",
   "Name": "Print History File Contents",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where ((process_path like '%/cat' or process_path like '%/head' or process_path like '%/tail' or process_path like '%/more') and ((command like '%/.bash_history%' or command like '%/.zsh_history%') and (command like '%_history' or command like '%.history' or command like '%zhistory')))",

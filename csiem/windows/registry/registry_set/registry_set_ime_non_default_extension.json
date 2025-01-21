@@ -1,8 +1,8 @@
 {
   "Description": "Detects usage of Windows Input Method Editor (IME) keyboard layout feature, which allows an attacker to load a DLL into the process after sending the WM_INPUTLANGCHANGEREQUEST message.\nBefore doing this, the client needs to register the DLL in a special registry key that is assumed to implement this keyboard layout. This registry key should store a value named \"Ime File\" with a DLL path.\nIMEs are essential for languages that have more characters than can be represented on a standard keyboard, such as Chinese, Japanese, and Korean.\n\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b888e3f2-224d-4435-b00b-9dd66e9ea1f1",
-  "InsertDate": "2025-01-19T11:36:14Z",
-  "LastUpdateDate": "2025-01-19T11:36:14Z",
+  "InsertDate": "2025-01-21T09:31:40Z",
+  "LastUpdateDate": "2025-01-21T09:31:40Z",
   "Level": "high",
   "Name": "Uncommon Extension In Keyboard Layout IME File Registry Value",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object like '%\\control\\keyboard layouts\\%' and target_object like '%ime file%') and  not details like '%.ime')",

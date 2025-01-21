@@ -1,8 +1,8 @@
 {
   "Description": "Detects usage of the \"Add-AppxPackage\" or it's alias \"Add-AppPackage\" to install unsigned AppX packages\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "975b2262-9a49-439d-92a6-0709cccdf0b2",
-  "InsertDate": "2025-01-19T11:34:19Z",
-  "LastUpdateDate": "2025-01-19T11:34:19Z",
+  "InsertDate": "2025-01-21T09:28:04Z",
+  "LastUpdateDate": "2025-01-21T09:28:04Z",
   "Level": "medium",
   "Name": "Unsigned AppX Installation Attempt Using Add-AppxPackage - PsScript",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((scriptblocktext like '%add-apppackage %' or scriptblocktext like '%add-appxpackage %') and scriptblocktext like '% -allowunsigned%')",

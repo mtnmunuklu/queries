@@ -1,8 +1,8 @@
 {
   "Description": "Indicates access attempt to the PRT resource which can be used to move laterally into an organization or perform credential theft\n\nAuthor: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a84fc3b1-c9ce-4125-8e74-bdcdb24021f1",
-  "InsertDate": "2025-01-19T11:33:25Z",
-  "LastUpdateDate": "2025-01-19T11:33:25Z",
+  "InsertDate": "2025-01-21T09:27:05Z",
+  "LastUpdateDate": "2025-01-21T09:27:05Z",
   "Level": "high",
   "Name": "Primary Refresh Token Access Attempt",
   "Query": "sourcetype='azure-riskdetection' eql select * from _source_ where riskeventtype = 'attemptedprtaccess'",

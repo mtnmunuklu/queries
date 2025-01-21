@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of the LocalPotato POC based on basic PE metadata information and default CLI examples\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6bd75993-9888-4f91-9404-e1e4e4e34b77",
-  "InsertDate": "2025-01-19T11:34:42Z",
-  "LastUpdateDate": "2025-01-19T11:34:42Z",
+  "InsertDate": "2025-01-21T09:28:31Z",
+  "LastUpdateDate": "2025-01-21T09:28:31Z",
   "Level": "high",
   "Name": "HackTool - LocalPotato Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\localpotato.exe' or (command like '%.exe -i c:\\%' and command like '%-o windows\\%') or (hashes like '%imphash=e1742ee971d6549e8d4d81115f88f1fc%' or hashes like '%imphash=dd82066efba94d7556ef582f247c8bb5%'))",

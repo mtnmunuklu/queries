@@ -1,8 +1,8 @@
 {
   "Description": "Detects the use of the \"gcc\" utility to execute a shell. Such behavior may be associated with privilege escalation, unauthorized command execution, or to break out from restricted environments.\n\n\nAuthor: Li Ling, Andy Parkidomo, Robert Rakowski, Blake Hartstein (Bloomberg L.P.)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9b5de532-a757-4d70-946c-1f3e44f48b4d",
-  "InsertDate": "2025-01-19T11:33:34Z",
-  "LastUpdateDate": "2025-01-19T11:33:34Z",
+  "InsertDate": "2025-01-21T09:27:16Z",
+  "LastUpdateDate": "2025-01-21T09:27:16Z",
   "Level": "high",
   "Name": "Shell Execution GCC  - Linux",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where (((process_path like '%/c89' or process_path like '%/c99' or process_path like '%/gcc') and command like '%-wrapper%') and (command like '%/bin/bash,-s%' or command like '%/bin/dash,-s%' or command like '%/bin/fish,-s%' or command like '%/bin/sh,-s%' or command like '%/bin/zsh,-s%'))",

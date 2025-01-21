@@ -1,11 +1,11 @@
 {
   "Description": "Detects uncommon or suspicious child processes spawning from a WSL process. This could indicate an attempt to evade parent/child relationship detections or persistence attempts via cron using WSL\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "2267fe65-0681-42ad-9a6d-46553d3f3480",
-  "InsertDate": "2025-01-19T11:35:58Z",
-  "LastUpdateDate": "2025-01-19T11:35:58Z",
+  "InsertDate": "2025-01-21T09:31:10Z",
+  "LastUpdateDate": "2025-01-21T09:31:10Z",
   "Level": "medium",
   "Name": "WSL Child Process Anomaly",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_process_path like '%\\wsl.exe' or parent_process_path like '%\\wslhost.exe') and ((process_path like '%\\calc.exe' or process_path like '%\\cmd.exe' or process_path like '%\\cscript.exe' or process_path like '%\\mshta.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\wscript.exe') or (process_path like '%\\appdata\\local\\temp\\%' or process_path like '%c:\\users\\public\\%' or process_path like '%c:\\windows\\temp\\%' or process_path like '%c:\\temp\\%' or process_path like '%\\downloads\\%' or process_path like '%\\desktop\\%')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_process_path like '%\\wsl.exe' or parent_process_path like '%\\wslhost.exe') and ((process_path like '%\\appdata\\local\\temp\\%' or process_path like '%c:\\users\\public\\%' or process_path like '%c:\\windows\\temp\\%' or process_path like '%c:\\temp\\%' or process_path like '%\\downloads\\%' or process_path like '%\\desktop\\%') or (process_path like '%\\calc.exe' or process_path like '%\\cmd.exe' or process_path like '%\\cscript.exe' or process_path like '%\\mshta.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\wscript.exe')))",
   "Tags": [
     "attack.execution",
     "attack.defense-evasion",

@@ -1,8 +1,8 @@
 {
   "Description": "Use of the commandline to shutdown or reboot windows\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "34ebb878-1b15-4895-b352-ca2eeb99b274",
-  "InsertDate": "2025-01-19T11:35:28Z",
-  "LastUpdateDate": "2025-01-19T11:35:28Z",
+  "InsertDate": "2025-01-21T09:30:06Z",
+  "LastUpdateDate": "2025-01-21T09:30:06Z",
   "Level": "medium",
   "Name": "Suspicious Execution of Shutdown",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\shutdown.exe' and (command like '%/r %' or command like '%/s %')",

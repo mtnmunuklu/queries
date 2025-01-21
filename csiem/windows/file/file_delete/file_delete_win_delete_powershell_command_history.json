@@ -1,8 +1,8 @@
 {
   "Description": "Detects the deletion of the PowerShell console History logs which may indicate an attempt to destroy forensic evidence\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ff301988-c231-4bd0-834c-ac9d73b86586",
-  "InsertDate": "2025-01-19T11:33:58Z",
-  "LastUpdateDate": "2025-01-19T11:33:58Z",
+  "InsertDate": "2025-01-21T09:27:42Z",
+  "LastUpdateDate": "2025-01-21T09:27:42Z",
   "Level": "medium",
   "Name": "PowerShell Console History Logs Deleted",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where filepath like '%\\psreadline\\consolehost_history.txt'",

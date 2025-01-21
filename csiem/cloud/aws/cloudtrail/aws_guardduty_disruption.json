@@ -1,8 +1,8 @@
 {
   "Description": "Detects updates of the GuardDuty list of trusted IPs, perhaps to disable security alerts against malicious IPs.\n\nAuthor: faloker\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6e61ee20-ce00-4f8d-8aee-bedd8216f7e3",
-  "InsertDate": "2025-01-19T11:33:21Z",
-  "LastUpdateDate": "2025-01-19T11:33:21Z",
+  "InsertDate": "2025-01-21T09:27:01Z",
+  "LastUpdateDate": "2025-01-21T09:27:01Z",
   "Level": "high",
   "Name": "AWS GuardDuty Important Change",
   "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where eventsource = 'guardduty.amazonaws.com' and eventname = 'createipset'",

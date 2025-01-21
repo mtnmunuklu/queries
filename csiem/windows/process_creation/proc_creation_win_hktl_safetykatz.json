@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of the hacktool SafetyKatz via PE information and default Image name\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b1876533-4ed5-4a83-90f3-b8645840a413",
-  "InsertDate": "2025-01-19T11:34:42Z",
-  "LastUpdateDate": "2025-01-19T11:34:42Z",
+  "InsertDate": "2025-01-21T09:28:32Z",
+  "LastUpdateDate": "2025-01-21T09:28:32Z",
   "Level": "critical",
   "Name": "HackTool - SafetyKatz Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\safetykatz.exe' and original_file_name = 'safetykatz.exe' and description = 'safetykatz'",

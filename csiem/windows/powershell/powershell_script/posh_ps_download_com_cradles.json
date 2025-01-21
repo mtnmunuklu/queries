@@ -1,8 +1,8 @@
 {
   "Description": "Detects usage of COM objects that can be abused to download files in PowerShell by CLSID\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "3c7d1587-3b13-439f-9941-7d14313dbdfe",
-  "InsertDate": "2025-01-19T11:34:18Z",
-  "LastUpdateDate": "2025-01-19T11:34:18Z",
+  "InsertDate": "2025-01-21T09:28:02Z",
+  "LastUpdateDate": "2025-01-21T09:28:02Z",
   "Level": "medium",
   "Name": "Potential COM Objects Download Cradles Usage - PS Script",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%[type]::gettypefromclsid(%' and (scriptblocktext like '%0002df01-0000-0000-c000-000000000046%' or scriptblocktext like '%f6d90f16-9c73-11d3-b32e-00c04f990bb4%' or scriptblocktext like '%f5078f35-c551-11d3-89b9-0000f81fe221%' or scriptblocktext like '%88d96a0a-f192-11d4-a65f-0040963251e5%' or scriptblocktext like '%afba6b42-5692-48ea-8141-dc517dcf0ef1%' or scriptblocktext like '%afb40ffd-b609-40a3-9828-f88bbe11e4e3%' or scriptblocktext like '%88d96a0b-f192-11d4-a65f-0040963251e5%' or scriptblocktext like '%2087c2f4-2cef-4953-a8ab-66779b670495%' or scriptblocktext like '%000209ff-0000-0000-c000-000000000046%' or scriptblocktext like '%00024500-0000-0000-c000-000000000046%'))",

@@ -1,11 +1,11 @@
 {
   "Description": "Detects potential process patterns related to Cobalt Strike beacon activity\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f35c5d71-b489-4e22-a115-f003df287317",
-  "InsertDate": "2025-01-19T11:34:39Z",
-  "LastUpdateDate": "2025-01-19T11:34:39Z",
+  "InsertDate": "2025-01-21T09:28:28Z",
+  "LastUpdateDate": "2025-01-21T09:28:28Z",
   "Level": "high",
   "Name": "Potential CobaltStrike Process Patterns",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_command_line like '%/c whoami' and command like '%conhost.exe 0xffffffff -forcev1') or (command like '%cmd.exe /c whoami' and parent_process_path like 'c:\\temp\\%') or ((parent_process_path like '%\\runonce.exe' or parent_process_path like '%\\dllhost.exe') and (command like '%cmd.exe /c echo%' and command like '%\u003e \\\\\\\\.\\\\pipe%')) or ((parent_command_line like '%cmd.exe /c echo%' and parent_command_line like '% \u003e \\\\\\\\.\\\\pipe%') and command like '%conhost.exe 0xffffffff -forcev1'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%cmd.exe /c whoami' and parent_process_path like 'c:\\temp\\%') or ((parent_process_path like '%\\runonce.exe' or parent_process_path like '%\\dllhost.exe') and (command like '%cmd.exe /c echo%' and command like '%\u003e \\\\\\\\.\\\\pipe%')) or ((parent_command_line like '%cmd.exe /c echo%' and parent_command_line like '% \u003e \\\\\\\\.\\\\pipe%') and command like '%conhost.exe 0xffffffff -forcev1') or (parent_command_line like '%/c whoami' and command like '%conhost.exe 0xffffffff -forcev1'))",
   "Tags": [
     "attack.execution",
     "attack.t1059"

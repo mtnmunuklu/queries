@@ -1,8 +1,8 @@
 {
   "Description": "Detects when sign-ins increased by 10% or greater.\n\nAuthor: Mark Morowczynski '@markmorow', MikeDuddington, '@dudders1'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e1d02b53-c03c-4948-b11d-4d00cca49d03",
-  "InsertDate": "2025-01-19T11:33:25Z",
-  "LastUpdateDate": "2025-01-19T11:33:25Z",
+  "InsertDate": "2025-01-21T09:27:05Z",
+  "LastUpdateDate": "2025-01-21T09:27:05Z",
   "Level": "medium",
   "Name": "Increased Failed Authentications Of Any Type",
   "Query": "sourcetype='azure-signinlogs' eql select * from _source_ where status = 'failure' and count = '\u003c10%'",

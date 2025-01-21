@@ -1,8 +1,8 @@
 {
   "Description": "Monitor and alert on group membership removal of groups that have CA policy modification access\n\nAuthor: Mark Morowczynski '@markmorow', Thomas Detzner '@tdetzner'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "665e2d43-70dc-4ccc-9d27-026c9dd7ed9c",
-  "InsertDate": "2025-01-19T11:33:24Z",
-  "LastUpdateDate": "2025-01-19T11:33:24Z",
+  "InsertDate": "2025-01-21T09:27:04Z",
+  "LastUpdateDate": "2025-01-21T09:27:04Z",
   "Level": "medium",
   "Name": "User Removed From Group With CA Policy Modification Access",
   "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where properties.message = 'remove member from group'",

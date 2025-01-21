@@ -1,11 +1,11 @@
 {
   "Description": "Detects usage of winget to add new additional download sources\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "05ebafc8-7aa2-4bcd-a269-2aec93f9e842",
-  "InsertDate": "2025-01-19T11:35:53Z",
-  "LastUpdateDate": "2025-01-19T11:35:53Z",
+  "InsertDate": "2025-01-21T09:30:54Z",
+  "LastUpdateDate": "2025-01-21T09:30:54Z",
   "Level": "medium",
   "Name": "Add New Download Source To Winget",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%source %' and command like '%add %') and (process_path like '%\\winget.exe' and original_file_name = 'winget.exe'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\winget.exe' and original_file_name = 'winget.exe') and (command like '%source %' and command like '%add %'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.execution",

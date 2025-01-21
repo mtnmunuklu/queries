@@ -1,8 +1,8 @@
 {
   "Description": "Detects potential psexec command that initiate execution on a remote systems via common commandline flags used by the utility\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ea011323-7045-460b-b2d7-0f7442ea6b38",
-  "InsertDate": "2025-01-19T11:35:41Z",
-  "LastUpdateDate": "2025-01-19T11:35:41Z",
+  "InsertDate": "2025-01-21T09:30:38Z",
+  "LastUpdateDate": "2025-01-21T09:30:38Z",
   "Level": "high",
   "Name": "Potential PsExec Remote Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%accepteula%' and command like '% -u %' and command like '% -p %' and command like '% \\\\\\\\%')",

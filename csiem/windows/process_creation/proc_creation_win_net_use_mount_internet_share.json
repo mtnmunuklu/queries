@@ -1,8 +1,8 @@
 {
   "Description": "Detects when an internet hosted webdav share is mounted using the \"net.exe\" utility\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "7e6237fe-3ddb-438f-9381-9bf9de5af8d0",
-  "InsertDate": "2025-01-19T11:34:54Z",
-  "LastUpdateDate": "2025-01-19T11:34:54Z",
+  "InsertDate": "2025-01-21T09:28:43Z",
+  "LastUpdateDate": "2025-01-21T09:28:43Z",
   "Level": "high",
   "Name": "Windows Internet Hosted WebDav Share Mount Via Net.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\net.exe' or process_path like '%\\net1.exe') and (original_file_name = 'net.exe' or original_file_name = 'net1.exe')) and (command like '% use %' and command like '% http%'))",

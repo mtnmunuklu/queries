@@ -1,8 +1,8 @@
 {
   "Description": "Detects modification of autostart extensibility point (ASEP) in registry.\n\nAuthor: Victor Sergeev, Daniil Yugoslavskiy, Gleb Sukhodolskiy, Timur Zinniatullin, oscd.community, Tim Shelton, frack113 (split)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "18f2065c-d36c-464a-a748-bcf909acb2e3",
-  "InsertDate": "2025-01-19T11:36:07Z",
-  "LastUpdateDate": "2025-01-19T11:36:07Z",
+  "InsertDate": "2025-01-21T09:31:24Z",
+  "LastUpdateDate": "2025-01-21T09:31:24Z",
   "Level": "medium",
   "Name": "Wow6432Node Classes Autorun Keys Modification",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\software\\wow6432node\\classes%' and (target_object like '%\\folder\\shellex\\extshellfolderviews%' or target_object like '%\\folder\\shellex\\dragdrophandlers%' or target_object like '%\\folder\\shellex\\columnhandlers%' or target_object like '%\\directory\\shellex\\dragdrophandlers%' or target_object like '%\\directory\\shellex\\copyhookhandlers%' or target_object like '%\\clsid\\{ac757296-3522-4e11-9862-c17be5a1767e}\\instance%' or target_object like '%\\clsid\\{abe3b9a4-257d-4b97-bd1a-294af496222e}\\instance%' or target_object like '%\\clsid\\{7ed96837-96f0-4812-b211-f13c24117ed3}\\instance%' or target_object like '%\\clsid\\{083863f1-70de-11d0-bd40-00a0c911ce86}\\instance%' or target_object like '%\\allfilesystemobjects\\shellex\\dragdrophandlers%' or target_object like '%\\shellex\\propertysheethandlers%' or target_object like '%\\shellex\\contextmenuhandlers%') and  not details = '(empty)')",

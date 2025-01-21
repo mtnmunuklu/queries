@@ -1,8 +1,8 @@
 {
   "Description": "Detects the creation of files with scripting or executable extensions by Mysql daemon.\nWhich could be an indicator of \"User Defined Functions\" abuse to download malware.\n\n\nAuthor: Joseph Kamau\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c61daa90-3c1e-4f18-af62-8f288b5c9aaf",
-  "InsertDate": "2025-01-19T11:34:01Z",
-  "LastUpdateDate": "2025-01-19T11:34:01Z",
+  "InsertDate": "2025-01-21T09:27:44Z",
+  "LastUpdateDate": "2025-01-21T09:27:44Z",
   "Level": "high",
   "Name": "Uncommon File Creation By Mysql Daemon Process",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\mysqld.exe' or process_path like '%\\mysqld-nt.exe') and (filepath like '%.bat' or filepath like '%.dat' or filepath like '%.dll' or filepath like '%.exe' or filepath like '%.ps1' or filepath like '%.psm1' or filepath like '%.vbe' or filepath like '%.vbs')",

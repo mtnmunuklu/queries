@@ -1,8 +1,8 @@
 {
   "Description": "Detects a suspicious program execution in Outlook temp folder\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a018fdc3-46a3-44e5-9afb-2cd4af1d4b39",
-  "InsertDate": "2025-01-19T11:34:57Z",
-  "LastUpdateDate": "2025-01-19T11:34:57Z",
+  "InsertDate": "2025-01-21T09:28:46Z",
+  "LastUpdateDate": "2025-01-21T09:28:46Z",
   "Level": "high",
   "Name": "Suspicious Execution From Outlook Temporary Folder",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\temporary internet files\\content.outlook\\%'",

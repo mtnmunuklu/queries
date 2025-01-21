@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious command sequence that JexBoss\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "8ec2c8b4-557a-4121-b87c-5dfb3a602fae",
-  "InsertDate": "2025-01-19T11:33:32Z",
-  "LastUpdateDate": "2025-01-19T11:33:32Z",
+  "InsertDate": "2025-01-21T09:27:14Z",
+  "LastUpdateDate": "2025-01-21T09:27:14Z",
   "Level": "high",
   "Name": "JexBoss Command Sequence",
-  "Query": "sourcetype like 'linux-%' eql select * from _source_ where (log like '%bash -c /bin/bash%' and log like '%\u0026/dev/tcp/%')",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where (Query('bash -c /bin/bash') and Query('\u0026/dev/tcp/'))",
   "Tags": [
     "attack.execution",
     "attack.t1059.004"

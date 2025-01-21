@@ -1,8 +1,8 @@
 {
   "Description": "Detects the installation of VsCode tunnel (code-tunnel) as a service.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "30bf1789-379d-4fdc-900f-55cd0a90a801",
-  "InsertDate": "2025-01-19T11:35:48Z",
-  "LastUpdateDate": "2025-01-19T11:35:48Z",
+  "InsertDate": "2025-01-21T09:30:48Z",
+  "LastUpdateDate": "2025-01-21T09:30:48Z",
   "Level": "medium",
   "Name": "Visual Studio Code Tunnel Service Installation",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%tunnel %' and command like '%service%' and command like '%internal-run%' and command like '%tunnel-service.log%')",

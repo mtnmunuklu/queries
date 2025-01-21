@@ -1,11 +1,11 @@
 {
   "Description": "Detects usage of the \"Import-Module\" cmdlet to load the \"Microsoft.ActiveDirectory.Management.dl\" DLL. Which is often used by attackers to perform AD enumeration.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "70bc5215-526f-4477-963c-a47a5c9ebd12",
-  "InsertDate": "2025-01-19T11:34:58Z",
-  "LastUpdateDate": "2025-01-19T11:34:58Z",
+  "InsertDate": "2025-01-21T09:28:47Z",
+  "LastUpdateDate": "2025-01-21T09:28:47Z",
   "Level": "medium",
   "Name": "Potential Active Directory Enumeration Using AD Module - ProcCreation",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll')) and (command like '%import-module %' or command like '%ipmo %') and command like '%microsoft.activedirectory.management.dll%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%import-module %' or command like '%ipmo %') and command like '%microsoft.activedirectory.management.dll%' and ((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll')))",
   "Tags": [
     "attack.reconnaissance",
     "attack.discovery",

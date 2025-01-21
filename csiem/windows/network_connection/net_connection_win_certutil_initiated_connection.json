@@ -1,8 +1,8 @@
 {
   "Description": "Detects a network connection initiated by the certutil.exe utility.\nAttackers can abuse the utility in order to download malware or additional payloads.\n\n\nAuthor: frack113, Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0dba975d-a193-4ed1-a067-424df57570d1",
-  "InsertDate": "2025-01-19T11:34:11Z",
-  "LastUpdateDate": "2025-01-19T11:34:11Z",
+  "InsertDate": "2025-01-21T09:27:54Z",
+  "LastUpdateDate": "2025-01-21T09:27:54Z",
   "Level": "high",
   "Name": "Uncommon Network Connection Initiated By Certutil.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\certutil.exe' and initiated = 'true' and (dst_port = '80' or dst_port = '135' or dst_port = '443' or dst_port = '445')",

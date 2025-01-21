@@ -1,11 +1,11 @@
 {
   "Description": "This detection excludes known namped pipes accessible remotely and notify on newly observed ones, may help to detect lateral movement and remote exec using named pipes\n\nAuthor: Samir Bousseaden, @neu5ron, Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "021310d9-30a6-480a-84b7-eaa69aeb92bb",
-  "InsertDate": "2025-01-19T11:33:40Z",
-  "LastUpdateDate": "2025-01-19T11:33:40Z",
+  "InsertDate": "2025-01-21T09:27:23Z",
+  "LastUpdateDate": "2025-01-21T09:27:23Z",
   "Level": "high",
   "Name": "First Time Seen Remote Named Pipe - Zeek",
-  "Query": "sourcetype='zeek-smb_files' eql select * from _source_ where (path = '\\\\\\\\\\*\\\\ipc$' and  not (log like '%samr%' or log like '%lsarpc%' or log like '%winreg%' or log like '%netlogon%' or log like '%srvsvc%' or log like '%protected_storage%' or log like '%wkssvc%' or log like '%browser%' or log like '%netdfs%' or log like '%svcctl%' or log like '%spoolss%' or log like '%ntsvcs%' or log like '%lsm_api_service%' or log like '%hydralspipe%' or log like '%termsrv_api_service%' or log like '%msftewds%'))",
+  "Query": "sourcetype='zeek-smb_files' eql select * from _source_ where (path = '\\\\\\\\\\*\\\\ipc$' and  not Query('samr OR lsarpc OR winreg OR netlogon OR srvsvc OR protected_storage OR wkssvc OR browser OR netdfs OR svcctl OR spoolss OR ntsvcs OR LSM_API_service OR HydraLsPipe OR TermSrv_API_service OR MsFteWds'))",
   "Tags": [
     "attack.lateral-movement",
     "attack.t1021.002"

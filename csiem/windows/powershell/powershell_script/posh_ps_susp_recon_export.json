@@ -1,11 +1,11 @@
 {
   "Description": "Once established within a system or network, an adversary may use automated techniques for collecting internal data\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a9723fcc-881c-424c-8709-fd61442ab3c3",
-  "InsertDate": "2025-01-19T11:34:25Z",
-  "LastUpdateDate": "2025-01-19T11:34:25Z",
+  "InsertDate": "2025-01-21T09:28:11Z",
+  "LastUpdateDate": "2025-01-21T09:28:11Z",
   "Level": "medium",
   "Name": "Recon Information for Export with PowerShell",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%\u003e $env:temp\\%' and (scriptblocktext like '%get-service %' or scriptblocktext like '%get-childitem %' or scriptblocktext like '%get-process %'))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((scriptblocktext like '%get-service %' or scriptblocktext like '%get-childitem %' or scriptblocktext like '%get-process %') and scriptblocktext like '%\u003e $env:temp\\%')",
   "Tags": [
     "attack.collection",
     "attack.t1119"

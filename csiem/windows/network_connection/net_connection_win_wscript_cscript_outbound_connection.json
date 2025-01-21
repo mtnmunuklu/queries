@@ -1,8 +1,8 @@
 {
   "Description": "Detects a script interpreter wscript/cscript opening a network connection to a non-local network. Adversaries may use script to download malicious payloads.\n\nAuthor: frack113, Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "992a6cae-db6a-43c8-9cec-76d7195c96fc",
-  "InsertDate": "2025-01-19T11:34:13Z",
-  "LastUpdateDate": "2025-01-19T11:34:13Z",
+  "InsertDate": "2025-01-21T09:27:56Z",
+  "LastUpdateDate": "2025-01-21T09:27:56Z",
   "Level": "high",
   "Name": "Outbound Network Connection Initiated By Script Interpreter",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((initiated = 'true' and (process_path like '%\\wscript.exe' or process_path like '%\\cscript.exe')) and  not ((dst_ip cidr '127.0.0.0/8' or dst_ip cidr '10.0.0.0/8' or dst_ip cidr '172.16.0.0/12' or dst_ip cidr '192.168.0.0/16' or dst_ip cidr '169.254.0.0/16' or dst_ip cidr '::1/128' or dst_ip cidr 'fe80::/10' or dst_ip cidr 'fc00::/7') or dst_ip cidr '20.0.0.0/11'))",

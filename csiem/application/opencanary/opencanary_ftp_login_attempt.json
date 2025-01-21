@@ -1,8 +1,8 @@
 {
   "Description": "Detects instances where an FTP service on an OpenCanary node has had a login attempt.\n\nAuthor: Security Onion Solutions\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6991bc2b-ae2e-447f-bc55-3a1ba04c14e5",
-  "InsertDate": "2025-01-19T11:33:18Z",
-  "LastUpdateDate": "2025-01-19T11:33:18Z",
+  "InsertDate": "2025-01-21T09:26:58Z",
+  "LastUpdateDate": "2025-01-21T09:26:58Z",
   "Level": "high",
   "Name": "OpenCanary - FTP Login Attempt",
   "Query": "sourcetype like 'opencanary-%' eql select * from _source_ where logtype = '2000'",

@@ -1,11 +1,11 @@
 {
   "Description": "Detects execution of the \"wusa.exe\" (Windows Update Standalone Installer) utility by a parent process that is located in a suspicious location.\nAttackers could instantiate an instance of \"wusa.exe\" in order to bypass User Account Control (UAC). They can duplicate the access token from \"wusa.exe\" to gain elevated privileges.\n\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ef64fc9c-a45e-43cc-8fd8-7d75d73b4c99",
-  "InsertDate": "2025-01-19T11:35:59Z",
-  "LastUpdateDate": "2025-01-19T11:35:59Z",
+  "InsertDate": "2025-01-21T09:31:11Z",
+  "LastUpdateDate": "2025-01-21T09:31:11Z",
   "Level": "high",
   "Name": "Wusa.EXE Executed By Parent Process Located In Suspicious Location",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\wusa.exe' and ((parent_process_path like '%:\\perflogs\\%' or parent_process_path like '%:\\users\\public\\%' or parent_process_path like '%:\\windows\\temp\\%' or parent_process_path like '%\\appdata\\local\\temp\\%' or parent_process_path like '%\\temporary internet%') or ((parent_process_path like '%:\\users\\%' and parent_process_path like '%\\favorites\\%') and (parent_process_path like '%:\\users\\%' and parent_process_path like '%\\favourites\\%') and (parent_process_path like '%:\\users\\%' and parent_process_path like '%\\contacts\\%') and (parent_process_path like '%:\\users\\%' and parent_process_path like '%\\pictures\\%'))) and  not command like '%.msu%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\wusa.exe' and (((parent_process_path like '%:\\users\\%' and parent_process_path like '%\\favorites\\%') and (parent_process_path like '%:\\users\\%' and parent_process_path like '%\\favourites\\%') and (parent_process_path like '%:\\users\\%' and parent_process_path like '%\\contacts\\%') and (parent_process_path like '%:\\users\\%' and parent_process_path like '%\\pictures\\%')) or (parent_process_path like '%:\\perflogs\\%' or parent_process_path like '%:\\users\\public\\%' or parent_process_path like '%:\\windows\\temp\\%' or parent_process_path like '%\\appdata\\local\\temp\\%' or parent_process_path like '%\\temporary internet%')) and  not command like '%.msu%')",
   "Tags": [
     "attack.execution"
   ],

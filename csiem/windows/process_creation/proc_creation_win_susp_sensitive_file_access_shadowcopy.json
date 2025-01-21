@@ -1,8 +1,8 @@
 {
   "Description": "Detects a command that accesses the VolumeShadowCopy in order to extract sensitive files such as the Security or SAM registry hives or the AD database (ntds.dit)\n\n\nAuthor: Max Altgelt (Nextron Systems), Tobias Michalski (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f57f8d16-1f39-4dcb-a604-6c73d9b54b3d",
-  "InsertDate": "2025-01-19T11:35:37Z",
-  "LastUpdateDate": "2025-01-19T11:35:37Z",
+  "InsertDate": "2025-01-21T09:30:29Z",
+  "LastUpdateDate": "2025-01-21T09:30:29Z",
   "Level": "high",
   "Name": "Sensitive File Access Via Volume Shadow Copy Backup",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%\\\\\\\\\\?\\\\globalroot\\\\device\\\\harddiskvolumeshadowcopy%' and (command like '%\\\\ntds.dit%' or command like '%\\\\system%' or command like '%\\\\security%'))",

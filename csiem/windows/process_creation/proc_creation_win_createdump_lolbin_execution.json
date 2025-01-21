@@ -1,11 +1,11 @@
 {
   "Description": "Detects uses of the createdump.exe LOLOBIN utility to dump process memory\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "515c8be5-e5df-4c5e-8f6d-a4a2f05e4b48",
-  "InsertDate": "2025-01-19T11:34:34Z",
-  "LastUpdateDate": "2025-01-19T11:34:34Z",
+  "InsertDate": "2025-01-21T09:28:22Z",
+  "LastUpdateDate": "2025-01-21T09:28:22Z",
   "Level": "high",
   "Name": "CreateDump Process Dump",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\createdump.exe' and original_file_name = 'fx_ver_internalname_str') and (command like '% -u %' or command like '% --full %' or command like '% -f %' or command like '% --name %' or command like '%.dmp %'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '% -u %' or command like '% --full %' or command like '% -f %' or command like '% --name %' or command like '%.dmp %') and (process_path like '%\\createdump.exe' and original_file_name = 'fx_ver_internalname_str'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1036",

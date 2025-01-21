@@ -1,8 +1,8 @@
 {
   "Description": "Detects base64 encoded .NET reflective loading of Assembly\n\nAuthor: Christian Burkard (Nextron Systems), pH-T (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "62b7ccc9-23b4-471e-aa15-6da3663c4d59",
-  "InsertDate": "2025-01-19T11:34:59Z",
-  "LastUpdateDate": "2025-01-19T11:34:59Z",
+  "InsertDate": "2025-01-21T09:28:48Z",
+  "LastUpdateDate": "2025-01-21T09:28:48Z",
   "Level": "high",
   "Name": "PowerShell Base64 Encoded Reflective Assembly Load",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%wwbsaguazgbsaguaywb0agkabwbuac4aqqbzahmazqbtagiabab5af0aoga6aewabwbhagqaka%' or command like '%saugblagyabablagmadabpag8abgauaeeacwbzaguabqbiagwaeqbdadoaogbmag8ayqbkacga%' or command like '%bafiazqbmagwazqbjahqaaqbvag4algbbahmacwblag0aygbsahkaxqa6adoatabvageazaaoa%' or command like '%afsacgblagyabablagmadabpag8abgauageacwbzaguabqbiagwaeqbdadoaogaoaciatabvageazaaiac%' or command like '%bbahiazqbmagwazqbjahqaaqbvag4algbhahmacwblag0aygbsahkaxqa6adoakaaiaewabwbhagqaigap%' or command like '%awwbyaguazgbsaguaywb0agkabwbuac4ayqbzahmazqbtagiabab5af0aoga6acgaigbmag8ayqbkaciak%' or command like '%wwbsaguazgbsaguaywb0agkabwbuac4aqqbzahmazqbtagiabab5af0aoga6acgaigbmag8ayqbkaciakq%' or command like '%saugblagyabablagmadabpag8abgauaeeacwbzaguabqbiagwaeqbdadoaogaoaciatabvageazaaiacka%' or command like '%bafiazqbmagwazqbjahqaaqbvag4algbbahmacwblag0aygbsahkaxqa6adoakaaiaewabwbhagqaigapa%' or command like '%wwbyaguazgbsaguaywb0agkabwbuac4ayqbzahmazqbtagiabab5af0aoga6aewabwbhagqaka%' or command like '%sacgblagyabablagmadabpag8abgauageacwbzaguabqbiagwaeqbdadoaogbmag8ayqbkacga%' or command like '%bahiazqbmagwazqbjahqaaqbvag4algbhahmacwblag0aygbsahkaxqa6adoatabvageazaaoa%')",

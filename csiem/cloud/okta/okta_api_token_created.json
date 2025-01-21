@@ -1,8 +1,8 @@
 {
   "Description": "Detects when a API token is created\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "19951c21-229d-4ccb-8774-b993c3ff3c5c",
-  "InsertDate": "2025-01-19T11:33:29Z",
-  "LastUpdateDate": "2025-01-19T11:33:29Z",
+  "InsertDate": "2025-01-21T09:27:10Z",
+  "LastUpdateDate": "2025-01-21T09:27:10Z",
   "Level": "medium",
   "Name": "Okta API Token Created",
   "Query": "sourcetype='okta-okta' eql select * from _source_ where eventtype = 'system.api_token.create'",

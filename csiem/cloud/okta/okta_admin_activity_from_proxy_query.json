@@ -1,8 +1,8 @@
 {
   "Description": "Detects access to Okta admin functions through proxy.\n\nAuthor: Muhammad Faisal @faisalusuf\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9058ca8b-f397-4fd1-a9fa-2b7aad4d6309",
-  "InsertDate": "2025-01-19T11:33:29Z",
-  "LastUpdateDate": "2025-01-19T11:33:29Z",
+  "InsertDate": "2025-01-21T09:27:10Z",
+  "LastUpdateDate": "2025-01-21T09:27:10Z",
   "Level": "medium",
   "Name": "Okta Admin Functions Access Through Proxy",
   "Query": "sourcetype='okta-okta' eql select * from _source_ where debugcontext.debugdata.requesturi like '%admin%' and securitycontext.isproxy = 'true'",

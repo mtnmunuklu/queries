@@ -1,8 +1,8 @@
 {
   "Description": "Detects when an end user consents to an application\n\nAuthor: Bailey Bercik '@baileybercik', Mark Morowczynski '@markmorow'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9b2cc4c4-2ad4-416d-8e8e-ee6aa6f5035a",
-  "InsertDate": "2025-01-19T11:33:24Z",
-  "LastUpdateDate": "2025-01-19T11:33:24Z",
+  "InsertDate": "2025-01-21T09:27:03Z",
+  "LastUpdateDate": "2025-01-21T09:27:03Z",
   "Level": "low",
   "Name": "End User Consent",
   "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where consentcontext.isadminconsent = 'false'",

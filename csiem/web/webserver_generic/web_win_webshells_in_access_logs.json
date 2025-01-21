@@ -1,11 +1,11 @@
 {
   "Description": "Detects common commands used in Windows webshells\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "7ff9db12-1b94-4a79-ba68-a2402c5d6729",
-  "InsertDate": "2025-01-19T11:33:42Z",
-  "LastUpdateDate": "2025-01-19T11:33:42Z",
+  "InsertDate": "2025-01-21T09:27:25Z",
+  "LastUpdateDate": "2025-01-21T09:27:25Z",
   "Level": "high",
   "Name": "Windows Webshell Strings",
-  "Query": "eql select * from _source_ where (cs-method = 'get' and (log like '%=whoami%' or log like '%=net%20user%' or log like '%=net+user%' or log like '%=net%2buser%' or log like '%=cmd%20/c%%' or log like '%=cmd+/c+%' or log like '%=cmd%2b/c%%' or log like '%=cmd%20/r%%' or log like '%=cmd+/r+%' or log like '%=cmd%2b/r%%' or log like '%=cmd%20/k%%' or log like '%=cmd+/k+%' or log like '%=cmd%2b/k%%' or log like '%=powershell%%' or log like '%=powershell+%' or log like '%=tasklist%%' or log like '%=tasklist+%' or log like '%=wmic%%' or log like '%=wmic+%' or log like '%=ssh%%' or log like '%=ssh+%' or log like '%=python%%' or log like '%=python+%' or log like '%=python3%%' or log like '%=python3+%' or log like '%=ipconfig%' or log like '%=wget%%' or log like '%=wget+%' or log like '%=curl%%' or log like '%=curl+%' or log like '%=certutil%' or log like '%=copy%20%5c%5c%' or log like '%=dsquery%%' or log like '%=dsquery+%' or log like '%=nltest%%' or log like '%=nltest+%'))",
+  "Query": "eql select * from _source_ where (cs-method = 'get' and Query('=whoami OR =net%20user OR =net+user OR =net%2Buser OR =cmd%20/c% OR =cmd+/c+ OR =cmd%2B/c% OR =cmd%20/r% OR =cmd+/r+ OR =cmd%2B/r% OR =cmd%20/k% OR =cmd+/k+ OR =cmd%2B/k% OR =powershell% OR =powershell+ OR =tasklist% OR =tasklist+ OR =wmic% OR =wmic+ OR =ssh% OR =ssh+ OR =python% OR =python+ OR =python3% OR =python3+ OR =ipconfig OR =wget% OR =wget+ OR =curl% OR =curl+ OR =certutil OR =copy%20%5C%5C OR =dsquery% OR =dsquery+ OR =nltest% OR =nltest+'))",
   "Tags": [
     "attack.persistence",
     "attack.t1505.003"

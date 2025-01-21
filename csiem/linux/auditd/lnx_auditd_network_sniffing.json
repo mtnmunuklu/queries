@@ -1,11 +1,11 @@
 {
   "Description": "Network sniffing refers to using the network interface on a system to monitor or capture information sent over a wired or wireless connection.\nAn adversary may place a network interface into promiscuous mode to passively access data in transit over the network, or use span ports to capture a larger amount of data.\n\n\nAuthor: Timur Zinniatullin, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f4d3748a-65d1-4806-bd23-e25728081d01",
-  "InsertDate": "2025-01-19T11:33:31Z",
-  "LastUpdateDate": "2025-01-19T11:33:31Z",
+  "InsertDate": "2025-01-21T09:27:12Z",
+  "LastUpdateDate": "2025-01-21T09:27:12Z",
   "Level": "low",
   "Name": "Network Sniffing - Linux",
-  "Query": "sourcetype='linux-auditd' eql select * from _source_ where ((type = 'execve' and a0 = 'tcpdump' and a1 = '-c' and a3 like '%-i%') or (type = 'execve' and a0 = 'tshark' and a1 = '-c' and a3 = '-i'))",
+  "Query": "sourcetype='linux-auditd' eql select * from _source_ where ((type = 'execve' and a0 = 'tshark' and a1 = '-c' and a3 = '-i') or (type = 'execve' and a0 = 'tcpdump' and a1 = '-c' and a3 like '%-i%'))",
   "Tags": [
     "attack.credential-access",
     "attack.discovery",

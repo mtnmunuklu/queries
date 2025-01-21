@@ -1,8 +1,8 @@
 {
   "Description": "Detects suspicious Windows Error Reporting manager (wermgr.exe) child process\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "396f6630-f3ac-44e3-bfc8-1b161bc00c4e",
-  "InsertDate": "2025-01-19T11:35:50Z",
-  "LastUpdateDate": "2025-01-19T11:35:50Z",
+  "InsertDate": "2025-01-21T09:30:51Z",
+  "LastUpdateDate": "2025-01-21T09:30:51Z",
   "Level": "high",
   "Name": "Suspicious Child Process Of Wermgr.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_process_path like '%\\wermgr.exe' and (process_path like '%\\cmd.exe' or process_path like '%\\cscript.exe' or process_path like '%\\ipconfig.exe' or process_path like '%\\mshta.exe' or process_path like '%\\net.exe' or process_path like '%\\net1.exe' or process_path like '%\\netstat.exe' or process_path like '%\\nslookup.exe' or process_path like '%\\powershell_ise.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\systeminfo.exe' or process_path like '%\\whoami.exe' or process_path like '%\\wscript.exe')) and  not (process_path like '%\\rundll32.exe' and (command like '%c:\\windows\\system32\\werconcpl.dll%' and command like '%launchercapp %') and (command like '%-queuereporting%' or command like '%-responsepester%')))",

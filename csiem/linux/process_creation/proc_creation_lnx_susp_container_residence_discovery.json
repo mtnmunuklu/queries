@@ -1,8 +1,8 @@
 {
   "Description": "Detects potential container discovery via listing of certain kernel features in the \"/proc\" virtual filesystem\n\nAuthor: Seth Hanford\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "746c86fb-ccda-4816-8997-01386263acc4",
-  "InsertDate": "2025-01-19T11:33:35Z",
-  "LastUpdateDate": "2025-01-19T11:33:35Z",
+  "InsertDate": "2025-01-21T09:27:17Z",
+  "LastUpdateDate": "2025-01-21T09:27:17Z",
   "Level": "low",
   "Name": "Container Residence Discovery Via Proc Virtual FS",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where ((process_path like '%awk' or process_path like '%/cat' or process_path like '%grep' or process_path like '%/head' or process_path like '%/less' or process_path like '%/more' or process_path like '%/nl' or process_path like '%/tail') and (command like '%/proc/2/%' or (command like '%/proc/%' and (command like '%/cgroup' or command like '%/sched'))))",

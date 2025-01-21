@@ -1,8 +1,8 @@
 {
   "Description": "Detects instances where a TFTP service on an OpenCanary node has had a request.\n\nAuthor: Security Onion Solutions\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b4e6b016-a2ac-4759-ad85-8000b300d61e",
-  "InsertDate": "2025-01-19T11:33:19Z",
-  "LastUpdateDate": "2025-01-19T11:33:19Z",
+  "InsertDate": "2025-01-21T09:26:59Z",
+  "LastUpdateDate": "2025-01-21T09:26:59Z",
   "Level": "high",
   "Name": "OpenCanary - TFTP Request",
   "Query": "sourcetype like 'opencanary-%' eql select * from _source_ where logtype = '10001'",

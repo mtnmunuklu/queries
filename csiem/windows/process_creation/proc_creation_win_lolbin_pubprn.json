@@ -1,8 +1,8 @@
 {
   "Description": "Detects the use of the 'Pubprn.vbs' Microsoft signed script to execute commands.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1fb76ab8-fa60-4b01-bddd-71e89bf555da",
-  "InsertDate": "2025-01-19T11:34:48Z",
-  "LastUpdateDate": "2025-01-19T11:34:48Z",
+  "InsertDate": "2025-01-21T09:28:37Z",
+  "LastUpdateDate": "2025-01-21T09:28:37Z",
   "Level": "medium",
   "Name": "Pubprn.vbs Proxy Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%\\pubprn.vbs%' and command like '%script:%')",

@@ -1,11 +1,11 @@
 {
   "Description": "Detects persistence via Visual Studio Tools for Office (VSTO) add-ins in Office applications.\n\nAuthor: Bhabesh Raj\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9d15044a-7cfe-4d23-8085-6ebc11df7685",
-  "InsertDate": "2025-01-19T11:36:17Z",
-  "LastUpdateDate": "2025-01-19T11:36:17Z",
+  "InsertDate": "2025-01-21T09:31:48Z",
+  "LastUpdateDate": "2025-01-21T09:31:48Z",
   "Level": "medium",
   "Name": "Potential Persistence Via Visual Studio Tools for Office",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object like '%\\software\\microsoft\\office\\outlook\\addins\\%' or target_object like '%\\software\\microsoft\\office\\word\\addins\\%' or target_object like '%\\software\\microsoft\\office\\excel\\addins\\%' or target_object like '%\\software\\microsoft\\office\\powerpoint\\addins\\%' or target_object like '%\\software\\microsoft\\vsto\\security\\inclusion\\%') and  not ((process_path like '%\\msiexec.exe' or process_path like '%\\regsvr32.exe') or (process_path like '%\\excel.exe' or process_path like '%\\integrator.exe' or process_path like '%\\officeclicktorun.exe' or process_path like '%\\winword.exe' or process_path like '%\\visio.exe') or process_path like '%\\teams.exe' or (process_path = 'c:\\program files\\avg\\antivirus\\regsvr.exe' and target_object like '%\\microsoft\\office\\outlook\\addins\\antivirus.asoutext\\%')))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object like '%\\software\\microsoft\\office\\outlook\\addins\\%' or target_object like '%\\software\\microsoft\\office\\word\\addins\\%' or target_object like '%\\software\\microsoft\\office\\excel\\addins\\%' or target_object like '%\\software\\microsoft\\office\\powerpoint\\addins\\%' or target_object like '%\\software\\microsoft\\vsto\\security\\inclusion\\%') and  not (process_path like '%\\teams.exe' or (process_path = 'c:\\program files\\avg\\antivirus\\regsvr.exe' and target_object like '%\\microsoft\\office\\outlook\\addins\\antivirus.asoutext\\%') or (process_path like '%\\msiexec.exe' or process_path like '%\\regsvr32.exe') or (process_path like '%\\excel.exe' or process_path like '%\\integrator.exe' or process_path like '%\\officeclicktorun.exe' or process_path like '%\\winword.exe' or process_path like '%\\visio.exe')))",
   "Tags": [
     "attack.t1137.006",
     "attack.persistence"

@@ -1,11 +1,11 @@
 {
   "Description": "Detects execution of the Impersonate tool. Which can be used to manipulate tokens on a Windows computers remotely (PsExec/WmiExec) or interactively\n\nAuthor: Sai Prashanth Pulisetti @pulisettis\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "cf0c254b-22f1-4b2b-8221-e137b3c0af94",
-  "InsertDate": "2025-01-19T11:34:41Z",
-  "LastUpdateDate": "2025-01-19T11:34:41Z",
+  "InsertDate": "2025-01-21T09:28:30Z",
+  "LastUpdateDate": "2025-01-21T09:28:30Z",
   "Level": "medium",
   "Name": "HackTool - Impersonate Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((command like '% list %' or command like '% exec %' or command like '% adduser %') and command like '%impersonate.exe%') or (hashes like '%md5=9520714ab576b0ed01d1513691377d01%' or hashes like '%sha256=e81cc96e2118dc4fbfe5bad1604e0ac7681960143e2101e1a024d52264bb0a8a%' or hashes like '%imphash=0a358ffc1697b7a07d0e817ac740df62%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%impersonate.exe%' and (command like '% list %' or command like '% exec %' or command like '% adduser %')) or (hashes like '%md5=9520714ab576b0ed01d1513691377d01%' or hashes like '%sha256=e81cc96e2118dc4fbfe5bad1604e0ac7681960143e2101e1a024d52264bb0a8a%' or hashes like '%imphash=0a358ffc1697b7a07d0e817ac740df62%'))",
   "Tags": [
     "attack.privilege-escalation",
     "attack.defense-evasion",

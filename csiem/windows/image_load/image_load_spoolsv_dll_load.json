@@ -1,8 +1,8 @@
 {
   "Description": "Detect DLL Load from Spooler Service backup folder\n\nAuthor: FPT.EagleEye, Thomas Patzke (improvements)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "02fb90de-c321-4e63-a6b9-25f4b03dfd14",
-  "InsertDate": "2025-01-19T11:34:10Z",
-  "LastUpdateDate": "2025-01-19T11:34:10Z",
+  "InsertDate": "2025-01-21T09:27:53Z",
+  "LastUpdateDate": "2025-01-21T09:27:53Z",
   "Level": "informational",
   "Name": "Windows Spooler Service Suspicious Binary Load",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\spoolsv.exe' and (image_loaded like '%\\windows\\system32\\spool\\drivers\\x64\\3\\%' or image_loaded like '%\\windows\\system32\\spool\\drivers\\x64\\4\\%') and image_loaded like '%.dll'",

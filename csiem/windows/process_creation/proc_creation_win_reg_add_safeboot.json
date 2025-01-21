@@ -1,8 +1,8 @@
 {
   "Description": "Detects execution of \"reg.exe\" commands with the \"add\" or \"copy\" flags on safe boot registry keys. Often used by attacker to allow the ransomware to work in safe mode as some security products do not\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d7662ff6-9e97-4596-a61d-9839e32dee8d",
-  "InsertDate": "2025-01-19T11:35:09Z",
-  "LastUpdateDate": "2025-01-19T11:35:09Z",
+  "InsertDate": "2025-01-21T09:29:25Z",
+  "LastUpdateDate": "2025-01-21T09:29:25Z",
   "Level": "high",
   "Name": "Add SafeBoot Keys Via Reg Utility",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\reg.exe' and original_file_name = 'reg.exe') and command like '%\\system\\currentcontrolset\\control\\safeboot%' and (command like '% copy %' or command like '% add %'))",

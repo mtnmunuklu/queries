@@ -1,8 +1,8 @@
 {
   "Description": "Detects usage of crontab to list the tasks of the user\n\nAuthor: Joseliyo Sanchez, @Joseliyo_Jstnk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "403ed92c-b7ec-4edd-9947-5b535ee12d46",
-  "InsertDate": "2025-01-19T11:33:33Z",
-  "LastUpdateDate": "2025-01-19T11:33:33Z",
+  "InsertDate": "2025-01-21T09:27:15Z",
+  "LastUpdateDate": "2025-01-21T09:27:15Z",
   "Level": "low",
   "Name": "Crontab Enumeration",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where process_path like '%/crontab' and command like '% -l%'",

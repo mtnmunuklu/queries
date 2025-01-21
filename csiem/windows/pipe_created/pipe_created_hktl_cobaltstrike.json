@@ -1,11 +1,11 @@
 {
   "Description": "Detects the creation of a named pipe as used by CobaltStrike\n\nAuthor: Florian Roth (Nextron Systems), Wojciech Lesicki\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d5601f8c-b26f-4ab0-9035-69e11a8d4ad2",
-  "InsertDate": "2025-01-19T11:34:13Z",
-  "LastUpdateDate": "2025-01-19T11:34:13Z",
+  "InsertDate": "2025-01-21T09:27:57Z",
+  "LastUpdateDate": "2025-01-21T09:27:57Z",
   "Level": "critical",
   "Name": "CobaltStrike Named Pipe",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (pipe_name like '\\postex_%' or pipe_name like '\\msagent_%' or pipe_name like '\\mojo_%' or pipe_name like '\\samr_%' or pipe_name like '\\wkssvc_%' or pipe_name like '\\lsarpc_%' or (pipe_name like '%\\msse-%' and pipe_name like '%-server%') or pipe_name like '\\status_%' or pipe_name like '\\interprocess_%' or pipe_name like '\\netlogon_%' or pipe_name like '\\srvsvc_%')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (pipe_name like '\\netlogon_%' or pipe_name like '\\lsarpc_%' or pipe_name like '\\wkssvc_%' or pipe_name like '\\postex_%' or pipe_name like '\\status_%' or pipe_name like '\\mojo_%' or pipe_name like '\\interprocess_%' or pipe_name like '\\samr_%' or pipe_name like '\\srvsvc_%' or (pipe_name like '%\\msse-%' and pipe_name like '%-server%') or pipe_name like '\\msagent_%')",
   "Tags": [
     "attack.defense-evasion",
     "attack.privilege-escalation",

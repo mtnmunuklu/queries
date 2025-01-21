@@ -1,8 +1,8 @@
 {
   "Description": "Detects activity when The Windows Defender Firewall service failed to load Group Policy\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "7ec15688-fd24-4177-ba43-1a950537ee39",
-  "InsertDate": "2025-01-19T11:33:45Z",
-  "LastUpdateDate": "2025-01-19T11:33:45Z",
+  "InsertDate": "2025-01-21T09:27:27Z",
+  "LastUpdateDate": "2025-01-21T09:27:27Z",
   "Level": "low",
   "Name": "The Windows Defender Firewall Service Failed To Load Group Policy",
   "Query": "sourcetype='windows-firewall-as' eql select * from _source_ where eventid = '2009'",

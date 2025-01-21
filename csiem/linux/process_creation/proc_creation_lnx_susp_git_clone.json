@@ -1,8 +1,8 @@
 {
   "Description": "Detects execution of \"git\" in order to clone a remote repository that contain suspicious keywords which might be suspicious\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "cfec9d29-64ec-4a0f-9ffe-0fdb856d5446",
-  "InsertDate": "2025-01-19T11:33:36Z",
-  "LastUpdateDate": "2025-01-19T11:33:36Z",
+  "InsertDate": "2025-01-21T09:27:18Z",
+  "LastUpdateDate": "2025-01-21T09:27:18Z",
   "Level": "medium",
   "Name": "Suspicious Git Clone - Linux",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where ((process_path like '%/git' and command like '% clone %') and (command like '%exploit%' or command like '%vulns%' or command like '%vulnerability%' or command like '%rce%' or command like '%remotecodeexecution%' or command like '%invoke-%' or command like '%cve-%' or command like '%poc-%' or command like '%proofofconcept%' or command like '%proxyshell%' or command like '%log4shell%' or command like '%eternalblue%' or command like '%eternal-blue%' or command like '%ms17-%'))",

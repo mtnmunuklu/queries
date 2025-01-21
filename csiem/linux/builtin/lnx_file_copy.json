@@ -1,11 +1,11 @@
 {
   "Description": "Detects the use of tools that copy files from or to remote systems\n\nAuthor: Ömer Günal\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "7a14080d-a048-4de8-ae58-604ce58a795b",
-  "InsertDate": "2025-01-19T11:33:31Z",
-  "LastUpdateDate": "2025-01-19T11:33:31Z",
+  "InsertDate": "2025-01-21T09:27:13Z",
+  "LastUpdateDate": "2025-01-21T09:27:13Z",
   "Level": "low",
   "Name": "Remote File Copy",
-  "Query": "sourcetype like 'linux-%' eql select * from _source_ where ((log like '%scp %' or log like '%rsync %' or log like '%sftp %') and (log like '%@%' or log like '%:%'))",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where (Query('scp  OR rsync  OR sftp ') and Query('@ OR :'))",
   "Tags": [
     "attack.command-and-control",
     "attack.lateral-movement",

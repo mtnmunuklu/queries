@@ -1,8 +1,8 @@
 {
   "Description": "Detects suspicious reconnaissance command line activity on Windows systems using Net.EXE\nCheck if the user that executed the commands is suspicious (e.g. service accounts, LOCAL_SYSTEM)\n\n\nAuthor: Florian Roth (Nextron Systems), omkar72, @svch0st, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d95de845-b83c-4a9a-8a6a-4fc802ebf6c0",
-  "InsertDate": "2025-01-19T11:34:54Z",
-  "LastUpdateDate": "2025-01-19T11:34:54Z",
+  "InsertDate": "2025-01-21T09:28:42Z",
+  "LastUpdateDate": "2025-01-21T09:28:42Z",
   "Level": "medium",
   "Name": "Suspicious Group And Account Reconnaissance Activity Using Net.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\net.exe' or process_path like '%\\net1.exe') and (original_file_name = 'net.exe' or original_file_name = 'net1.exe')) and ((((command like '% group %' or command like '% localgroup %') and (command like '%domain admins%' or command like '% administrator%' or command like '% administrateur%' or command like '%enterprise admins%' or command like '%exchange trusted subsystem%' or command like '%remote desktop users%' or command like '%utilisateurs du bureau à distance%' or command like '%usuarios de escritorio remoto%' or command like '% /do%')) and  not command like '% /add%') or (command like '% accounts %' and command like '% /do%')))",

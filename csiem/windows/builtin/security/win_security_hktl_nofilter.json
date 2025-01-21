@@ -1,8 +1,8 @@
 {
   "Description": "Detects execution of NoFilter, a tool for abusing the Windows Filtering Platform for privilege escalation via hardcoded policy name indicators\n\n\nAuthor: Stamatis Chatzimangou (st0pp3r)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "7b14c76a-c602-4ae6-9717-eff868153fc0",
-  "InsertDate": "2025-01-19T11:33:47Z",
-  "LastUpdateDate": "2025-01-19T11:33:47Z",
+  "InsertDate": "2025-01-21T09:27:30Z",
+  "LastUpdateDate": "2025-01-21T09:27:30Z",
   "Level": "high",
   "Name": "HackTool - NoFilter Execution",
   "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '5447' and filtername like '%ronpolicy%') or (eventid = '5449' and providercontextname like '%ronpolicy%'))",

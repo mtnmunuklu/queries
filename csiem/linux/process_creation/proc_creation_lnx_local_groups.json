@@ -1,8 +1,8 @@
 {
   "Description": "Detects enumeration of local system groups. Adversaries may attempt to find local system groups and permission settings\n\nAuthor: Ömer Günal, Alejandro Ortuno, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "676381a6-15ca-4d73-a9c8-6a22e970b90d",
-  "InsertDate": "2025-01-19T11:33:34Z",
-  "LastUpdateDate": "2025-01-19T11:33:34Z",
+  "InsertDate": "2025-01-21T09:27:16Z",
+  "LastUpdateDate": "2025-01-21T09:27:16Z",
   "Level": "low",
   "Name": "Local Groups Discovery - Linux",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where (process_path like '%/groups' or ((process_path like '%/cat' or process_path like '%/head' or process_path like '%/tail' or process_path like '%/more') and command like '%/etc/group%'))",

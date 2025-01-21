@@ -1,8 +1,8 @@
 {
   "Description": "Detects usage of system utilities (only grep and egrep for now) to discover security software discovery\n\nAuthor: Daniil Yugoslavskiy, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c9d8b7fd-78e4-44fe-88f6-599135d46d60",
-  "InsertDate": "2025-01-19T11:33:35Z",
-  "LastUpdateDate": "2025-01-19T11:33:35Z",
+  "InsertDate": "2025-01-21T09:27:17Z",
+  "LastUpdateDate": "2025-01-21T09:27:17Z",
   "Level": "low",
   "Name": "Security Software Discovery - Linux",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where (process_path like '%/grep' or process_path like '%/egrep') and (command like '%nessusd%' or command like '%td-agent%' or command like '%packetbeat%' or command like '%filebeat%' or command like '%auditbeat%' or command like '%osqueryd%' or command like '%cbagentd%' or command like '%falcond%')",

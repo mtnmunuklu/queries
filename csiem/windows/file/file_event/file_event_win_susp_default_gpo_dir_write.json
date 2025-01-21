@@ -1,8 +1,8 @@
 {
   "Description": "Detects the creation of copy of suspicious files (EXE/DLL) to the default GPO storage folder\n\nAuthor: elhoim\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "5f87308a-0a5b-4623-ae15-d8fa1809bc60",
-  "InsertDate": "2025-01-19T11:34:03Z",
-  "LastUpdateDate": "2025-01-19T11:34:03Z",
+  "InsertDate": "2025-01-21T09:27:46Z",
+  "LastUpdateDate": "2025-01-21T09:27:46Z",
   "Level": "medium",
   "Name": "Suspicious Files in Default GPO Folder",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where filepath like '%\\policies\\{31b2f340-016d-11d2-945f-00c04fb984f9}\\%' and (filepath like '%.dll' or filepath like '%.exe')",

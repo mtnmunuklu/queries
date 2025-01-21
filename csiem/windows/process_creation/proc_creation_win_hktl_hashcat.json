@@ -1,8 +1,8 @@
 {
   "Description": "Execute Hashcat.exe with provided SAM file from registry of Windows and Password list to crack against\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "39b31e81-5f5f-4898-9c0e-2160cfc0f9bf",
-  "InsertDate": "2025-01-19T11:34:40Z",
-  "LastUpdateDate": "2025-01-19T11:34:40Z",
+  "InsertDate": "2025-01-21T09:28:29Z",
+  "LastUpdateDate": "2025-01-21T09:28:29Z",
   "Level": "high",
   "Name": "HackTool - Hashcat Password Cracker Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\hashcat.exe' or (command like '%-a %' and command like '%-m 1000 %' and command like '%-r %'))",

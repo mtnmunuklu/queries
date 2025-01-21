@@ -1,8 +1,8 @@
 {
   "Description": "Detects execution of the Add-In deployment cache updating utility (AddInutil.exe) with uncommon Addinroot or Pipelineroot paths. An adversary may execute AddinUtil.exe with uncommon Addinroot/Pipelineroot paths that point to the adversaries Addins.Store payload.\n\n\nAuthor: Michael McKinley (@McKinleyMike), Tony Latteri (@TheLatteri)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4f2cd9b6-4a17-440f-bb2a-687abb65993a",
-  "InsertDate": "2025-01-19T11:34:29Z",
-  "LastUpdateDate": "2025-01-19T11:34:29Z",
+  "InsertDate": "2025-01-21T09:28:15Z",
+  "LastUpdateDate": "2025-01-21T09:28:15Z",
   "Level": "medium",
   "Name": "Uncommon AddinUtil.EXE CommandLine Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\addinutil.exe' and original_file_name = 'addinutil.exe') and (command like '%-addinroot:%' or command like '%-pipelineroot:%')) and  not (command like '%-addinroot:\"c:\\program files (x86)\\common files\\microsoft shared\\vsta%' or command like '%-addinroot:c:\\program files (x86)\\common files\\microsoft shared\\vsta%' or command like '%-pipelineroot:\"c:\\program files (x86)\\common files\\microsoft shared\\vsta%' or command like '%-pipelineroot:c:\\program files (x86)\\common files\\microsoft shared\\vsta%'))",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects Obfuscated Powershell via RUNDLL LAUNCHER\n\nAuthor: Timur Zinniatullin, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f241cf1b-3a6b-4e1a-b4f9-133c00dd95ca",
-  "InsertDate": "2025-01-19T11:33:48Z",
-  "LastUpdateDate": "2025-01-19T11:33:48Z",
+  "InsertDate": "2025-01-21T09:27:30Z",
+  "LastUpdateDate": "2025-01-21T09:27:30Z",
   "Level": "medium",
   "Name": "Invoke-Obfuscation RUNDLL LAUNCHER - Security",
   "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4697' and (servicefilename like '%rundll32.exe%' and servicefilename like '%shell32.dll%' and servicefilename like '%shellexec_rundll%' and servicefilename like '%powershell%')",

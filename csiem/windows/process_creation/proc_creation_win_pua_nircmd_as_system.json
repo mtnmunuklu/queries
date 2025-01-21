@@ -1,8 +1,8 @@
 {
   "Description": "Detects the use of NirCmd tool for command execution as SYSTEM user\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d9047477-0359-48c9-b8c7-792cedcdc9c4",
-  "InsertDate": "2025-01-19T11:35:07Z",
-  "LastUpdateDate": "2025-01-19T11:35:07Z",
+  "InsertDate": "2025-01-21T09:29:17Z",
+  "LastUpdateDate": "2025-01-21T09:29:17Z",
   "Level": "high",
   "Name": "PUA - NirCmd Execution As LOCAL SYSTEM",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where command like '% runassystem %'",

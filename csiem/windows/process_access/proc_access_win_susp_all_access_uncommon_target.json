@@ -1,8 +1,8 @@
 {
   "Description": "Detects process access request to uncommon target images with a \"PROCESS_ALL_ACCESS\" access mask.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a24e5861-c6ca-4fde-a93c-ba9256feddf0",
-  "InsertDate": "2025-01-19T11:34:28Z",
-  "LastUpdateDate": "2025-01-19T11:34:28Z",
+  "InsertDate": "2025-01-21T09:28:15Z",
+  "LastUpdateDate": "2025-01-21T09:28:15Z",
   "Level": "low",
   "Name": "Uncommon Process Access Rights For Target Image",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (dst_process_path like '%\\calc.exe' or dst_process_path like '%\\calculator.exe' or dst_process_path like '%\\mspaint.exe' or dst_process_path like '%\\notepad.exe' or dst_process_path like '%\\ping.exe' or dst_process_path like '%\\wordpad.exe' or dst_process_path like '%\\write.exe') and granted_access = '0x1fffff'",

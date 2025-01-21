@@ -1,8 +1,8 @@
 {
   "Description": "Detects execution of commands that leverage the \"mshtml.dll\" RunHTMLApplication export to run arbitrary code via different protocol handlers (vbscript, javascript, file, http...)\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems),  Florian Roth (Nextron Systems), Josh Nickels, frack113, Zaw Min Htun (ZETA)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4782eb5a-a513-4523-a0ac-f3082b26ac5c",
-  "InsertDate": "2025-01-19T11:35:18Z",
-  "LastUpdateDate": "2025-01-19T11:35:18Z",
+  "InsertDate": "2025-01-21T09:29:54Z",
+  "LastUpdateDate": "2025-01-21T09:29:54Z",
   "Level": "high",
   "Name": "Mshtml.DLL RunHTMLApplication Suspicious Usage",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%\\..\\%' and command like '%mshtml%') and (command like '%#135%' or command like '%runhtmlapplication%')",

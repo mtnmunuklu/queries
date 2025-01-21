@@ -1,8 +1,8 @@
 {
   "Description": "Detects execution of \"curl.exe\" with the \"--insecure\" flag.\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "cb9cc1d1-e84e-4bdc-b7ad-c31b1b7908ec",
-  "InsertDate": "2025-01-19T11:34:35Z",
-  "LastUpdateDate": "2025-01-19T11:34:35Z",
+  "InsertDate": "2025-01-21T09:28:22Z",
+  "LastUpdateDate": "2025-01-21T09:28:22Z",
   "Level": "medium",
   "Name": "Insecure Transfer Via Curl.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\curl.exe' and original_file_name = 'curl.exe') and (command re '\\s-k\\s' and command like '%--insecure%'))",

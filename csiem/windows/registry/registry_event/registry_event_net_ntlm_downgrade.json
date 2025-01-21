@@ -1,8 +1,8 @@
 {
   "Description": "Detects NetNTLM downgrade attack\n\nAuthor: Florian Roth (Nextron Systems), wagga, Nasreddine Bencherchali (Splunk STRT)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d67572a0-e2ec-45d6-b8db-c100d14b8ef2",
-  "InsertDate": "2025-01-19T11:36:03Z",
-  "LastUpdateDate": "2025-01-19T11:36:03Z",
+  "InsertDate": "2025-01-21T09:31:15Z",
+  "LastUpdateDate": "2025-01-21T09:31:15Z",
   "Level": "high",
   "Name": "NetNTLM Downgrade Attack - Registry",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((target_object like '%system\\%' and target_object like '%controlset%' and target_object like '%\\control\\lsa%') and ((target_object like '%\\lmcompatibilitylevel' and (details = 'dword (0x00000000)' or details = 'dword (0x00000001)' or details = 'dword (0x00000002)')) or (target_object like '%\\ntlmminclientsec' and (details = 'dword (0x00000000)' or details = 'dword (0x00000010)' or details = 'dword (0x00000020)' or details = 'dword (0x00000030)')) or target_object like '%\\restrictsendingntlmtraffic'))",

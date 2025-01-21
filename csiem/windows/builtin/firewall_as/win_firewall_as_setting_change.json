@@ -1,8 +1,8 @@
 {
   "Description": "Detects activity when the settings of the Windows firewall have been changed\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "00bb5bd5-1379-4fcf-a965-a5b6f7478064",
-  "InsertDate": "2025-01-19T11:33:45Z",
-  "LastUpdateDate": "2025-01-19T11:33:45Z",
+  "InsertDate": "2025-01-21T09:27:27Z",
+  "LastUpdateDate": "2025-01-21T09:27:27Z",
   "Level": "low",
   "Name": "Windows Firewall Settings Have Been Changed",
   "Query": "sourcetype='windows-firewall-as' eql select * from _source_ where (eventid = '2002' or eventid = '2083' or eventid = '2003' or eventid = '2082' or eventid = '2008')",

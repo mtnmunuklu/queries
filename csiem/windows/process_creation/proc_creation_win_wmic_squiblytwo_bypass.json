@@ -1,8 +1,8 @@
 {
   "Description": "Detects potential SquiblyTwo attack technique with possible renamed WMIC via Imphash and OriginalFileName fields\n\nAuthor: Markus Neis, Florian Roth\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "8d63dadf-b91b-4187-87b6-34a1114577ea",
-  "InsertDate": "2025-01-19T11:35:57Z",
-  "LastUpdateDate": "2025-01-19T11:35:57Z",
+  "InsertDate": "2025-01-21T09:31:08Z",
+  "LastUpdateDate": "2025-01-21T09:31:08Z",
   "Level": "medium",
   "Name": "Potential SquiblyTwo Technique Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\wmic.exe' and original_file_name = 'wmic.exe' and (hashes like '%imphash=1b1a3f43bf37b5bfe60751f2ee2f326e%' or hashes like '%imphash=37777a96245a3c74eb217308f3546f4c%' or hashes like '%imphash=9d87c9d67ce724033c0b40cc4ca1b206%')) and (command like '%format:%' and command like '%http%'))",

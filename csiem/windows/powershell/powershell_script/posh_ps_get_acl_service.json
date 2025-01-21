@@ -1,8 +1,8 @@
 {
   "Description": "Adversaries may execute their own malicious payloads by hijacking the Registry entries used by services.\nAdversaries may use flaws in the permissions for registry to redirect from the originally specified executable to one that they control, in order to launch their own code at Service start.\nWindows stores local service configuration information in the Registry under HKLM\\SYSTEM\\CurrentControlSet\\Services\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "95afc12e-3cbb-40c3-9340-84a032e596a3",
-  "InsertDate": "2025-01-19T11:34:19Z",
-  "LastUpdateDate": "2025-01-19T11:34:19Z",
+  "InsertDate": "2025-01-21T09:28:03Z",
+  "LastUpdateDate": "2025-01-21T09:28:03Z",
   "Level": "medium",
   "Name": "Service Registry Permissions Weakness Check",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%get-acl%' and scriptblocktext like '%registry::hklm\\system\\currentcontrolset\\services\\%')",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of whoami, which is often used by attackers after exploitation / privilege escalation\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e28a5a99-da44-436d-b7a0-2afc20a5f413",
-  "InsertDate": "2025-01-19T11:35:52Z",
-  "LastUpdateDate": "2025-01-19T11:35:52Z",
+  "InsertDate": "2025-01-21T09:30:52Z",
+  "LastUpdateDate": "2025-01-21T09:30:52Z",
   "Level": "low",
   "Name": "Whoami Utility Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\whoami.exe' and original_file_name = 'whoami.exe'",

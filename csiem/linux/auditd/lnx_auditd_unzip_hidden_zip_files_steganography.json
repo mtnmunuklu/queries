@@ -1,8 +1,8 @@
 {
   "Description": "Detects extracting of zip file from image file\n\nAuthor: Pawel Mazur\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "edd595d7-7895-4fa7-acb3-85a18a8772ca",
-  "InsertDate": "2025-01-19T11:33:31Z",
-  "LastUpdateDate": "2025-01-19T11:33:31Z",
+  "InsertDate": "2025-01-21T09:27:13Z",
+  "LastUpdateDate": "2025-01-21T09:27:13Z",
   "Level": "low",
   "Name": "Steganography Unzip Hidden Information From Picture File",
   "Query": "sourcetype='linux-auditd' eql select * from _source_ where ((type = 'execve' and a0 = 'unzip') and (a1 like '%.jpg' or a1 like '%.png'))",

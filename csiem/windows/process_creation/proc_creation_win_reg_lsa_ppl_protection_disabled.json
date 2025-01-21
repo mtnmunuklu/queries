@@ -1,8 +1,8 @@
 {
   "Description": "Detects the usage of the \"reg.exe\" utility to disable PPL protection on the LSA process\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "8c0eca51-0f88-4db2-9183-fdfb10c703f9",
-  "InsertDate": "2025-01-19T11:35:10Z",
-  "LastUpdateDate": "2025-01-19T11:35:10Z",
+  "InsertDate": "2025-01-21T09:29:31Z",
+  "LastUpdateDate": "2025-01-21T09:29:31Z",
   "Level": "high",
   "Name": "LSA PPL Protection Disabled Via Reg.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\reg.exe' and original_file_name = 'reg.exe') and (command like '%system\\currentcontrolset\\control\\lsa%' and (command like '% add %' and command like '% /d 0%' and command like '% /v runasppl %')))",

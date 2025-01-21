@@ -1,8 +1,8 @@
 {
   "Description": "This detection excludes known namped pipes accessible remotely and notify on newly observed ones, may help to detect lateral movement and remote exec using named pipes\n\nAuthor: Samir Bousseaden\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "52d8b0c6-53d6-439a-9e41-52ad442ad9ad",
-  "InsertDate": "2025-01-19T11:33:48Z",
-  "LastUpdateDate": "2025-01-19T11:33:48Z",
+  "InsertDate": "2025-01-21T09:27:31Z",
+  "LastUpdateDate": "2025-01-21T09:27:31Z",
   "Level": "high",
   "Name": "First Time Seen Remote Named Pipe",
   "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '5145' and sharename = '\\\\\\\\\\*\\\\ipc$') and  not (relativetargetname = 'atsvc' or relativetargetname = 'samr' or relativetargetname = 'lsarpc' or relativetargetname = 'lsass' or relativetargetname = 'winreg' or relativetargetname = 'netlogon' or relativetargetname = 'srvsvc' or relativetargetname = 'protected_storage' or relativetargetname = 'wkssvc' or relativetargetname = 'browser' or relativetargetname = 'netdfs' or relativetargetname = 'svcctl' or relativetargetname = 'spoolss' or relativetargetname = 'ntsvcs' or relativetargetname = 'lsm_api_service' or relativetargetname = 'hydralspipe' or relativetargetname = 'termsrv_api_service' or relativetargetname = 'msftewds' or relativetargetname = 'sql\\query' or relativetargetname = 'eventlog'))",

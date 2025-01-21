@@ -1,8 +1,8 @@
 {
   "Description": "Detects execution of client32.exe (NetSupport RAT) from an unusual location (outside of 'C:\\Program Files')\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "37e8d358-6408-4853-82f4-98333fca7014",
-  "InsertDate": "2025-01-19T11:35:14Z",
-  "LastUpdateDate": "2025-01-19T11:35:14Z",
+  "InsertDate": "2025-01-21T09:29:46Z",
+  "LastUpdateDate": "2025-01-21T09:29:46Z",
   "Level": "medium",
   "Name": "Remote Access Tool - NetSupport Execution From Unusual Location",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\client32.exe' and product like '%netsupport remote control%' and original_file_name like '%client32.exe%' and hashes like '%imphash=a9d50692e95b79723f3e76fcf70d023e%') and  not (process_path like 'c:\\program files\\%' or process_path like 'c:\\program files (x86)\\%'))",

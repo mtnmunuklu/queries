@@ -1,8 +1,8 @@
 {
   "Description": "Detects the use of the bcdedit command to tamper with the boot configuration data. This technique is often times used by malware or attackers as a destructive way before launching ransomware.\n\nAuthor: E.M. Anhaus (originally from Atomic Blue Detections, Endgame), oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1444443e-6757-43e4-9ea4-c8fc705f79a2",
-  "InsertDate": "2025-01-19T11:34:30Z",
-  "LastUpdateDate": "2025-01-19T11:34:30Z",
+  "InsertDate": "2025-01-21T09:28:16Z",
+  "LastUpdateDate": "2025-01-21T09:28:16Z",
   "Level": "high",
   "Name": "Boot Configuration Tampering Via Bcdedit.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\bcdedit.exe' and original_file_name = 'bcdedit.exe') and command like '%set%' and ((command like '%bootstatuspolicy%' and command like '%ignoreallfailures%') and (command like '%recoveryenabled%' and command like '%no%')))",

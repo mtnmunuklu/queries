@@ -1,8 +1,8 @@
 {
   "Description": "The .SettingContent-ms file type was introduced in Windows 10 and allows a user to create \"shortcuts\" to various Windows 10 setting pages. These files are simply XML and contain paths to various Windows 10 settings binaries.\n\nAuthor: Sreeman\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "24de4f3b-804c-4165-b442-5a06a2302c7e",
-  "InsertDate": "2025-01-19T11:35:30Z",
-  "LastUpdateDate": "2025-01-19T11:35:30Z",
+  "InsertDate": "2025-01-21T09:30:12Z",
+  "LastUpdateDate": "2025-01-21T09:30:12Z",
   "Level": "medium",
   "Name": "Arbitrary Shell Command Execution Via Settingcontent-Ms",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%.settingcontent-ms%' and  not command like '%immersivecontrolpanel%')",

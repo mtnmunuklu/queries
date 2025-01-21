@@ -1,8 +1,8 @@
 {
   "Description": "Detects execution of \"tar.exe\" in order to create a compressed file.\nAdversaries may abuse various utilities to compress or encrypt data before exfiltration.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), AdmU3\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "418a3163-3247-4b7b-9933-dcfcb7c52ea9",
-  "InsertDate": "2025-01-19T11:35:43Z",
-  "LastUpdateDate": "2025-01-19T11:35:43Z",
+  "InsertDate": "2025-01-21T09:30:39Z",
+  "LastUpdateDate": "2025-01-21T09:30:39Z",
   "Level": "low",
   "Name": "Compressed File Creation Via Tar.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\tar.exe' and original_file_name = 'bsdtar') and (command like '%-c%' or command like '%-r%' or command like '%-u%'))",

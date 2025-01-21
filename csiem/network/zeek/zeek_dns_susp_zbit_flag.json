@@ -1,8 +1,8 @@
 {
   "Description": "The DNS Z flag is bit within the DNS protocol header that is, per the IETF design, meant to be used reserved (unused).\nAlthough recently it has been used in DNSSec, the value being set to anything other than 0 should be rare.\nOtherwise if it is set to non 0 and DNSSec is being used, then excluding the legitimate domains is low effort and high reward.\nDetermine if multiple of these files were accessed in a short period of time to further enhance the possibility of seeing if this was a one off or the possibility of larger sensitive file gathering.\nThis Sigma query is designed to accompany the Corelight Threat Hunting Guide, which can be found here: https://www3.corelight.com/corelights-introductory-guide-to-threat-hunting-with-zeek-bro-logs'\n\n\nAuthor: @neu5ron, SOC Prime Team, Corelight\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ede05abc-2c9e-4624-9944-9ff17fdc0bf5",
-  "InsertDate": "2025-01-19T11:33:40Z",
-  "LastUpdateDate": "2025-01-19T11:33:40Z",
+  "InsertDate": "2025-01-21T09:27:23Z",
+  "LastUpdateDate": "2025-01-21T09:27:23Z",
   "Level": "medium",
   "Name": "Suspicious DNS Z Flag Bit Set",
   "Query": "sourcetype='zeek-dns' eql select * from _source_ where ( not z = '0' and query like '%.%' and  not ((query like '%.arpa' or query like '%.local' or query like '%.ultradns.net' or query like '%.twtrdns.net' or query like '%.azuredns-prd.info' or query like '%.azure-dns.com' or query like '%.azuredns-ff.info' or query like '%.azuredns-ff.org' or query like '%.azuregov-dns.org') or (qtype_name = 'ns' or qtype_name = 'mx') or answers like '%\\\\x00' or (id.resp_p = '137' or id.resp_p = '138' or id.resp_p = '139')))",

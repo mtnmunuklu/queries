@@ -1,8 +1,8 @@
 {
   "Description": "Detect changes in auditd configuration files\n\nAuthor: Mikhail Larin, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "977ef627-4539-4875-adf4-ed8f780c4922",
-  "InsertDate": "2025-01-19T11:33:30Z",
-  "LastUpdateDate": "2025-01-19T11:33:30Z",
+  "InsertDate": "2025-01-21T09:27:11Z",
+  "LastUpdateDate": "2025-01-21T09:27:11Z",
   "Level": "high",
   "Name": "Auditing Configuration Changes on Linux Host",
   "Query": "sourcetype='linux-auditd' eql select * from _source_ where type = 'path' and (process_path = '/etc/audit/*' or process_path = '/etc/libaudit.conf' or process_path = '/etc/audisp/*')",

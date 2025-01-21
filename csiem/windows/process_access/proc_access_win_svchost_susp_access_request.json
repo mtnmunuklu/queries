@@ -1,8 +1,8 @@
 {
   "Description": "Detects suspicious access to the \"svchost\" process such as that used by Invoke-Phantom to kill the thread of the Windows event logging service.\n\nAuthor: Tim Burrell\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "166e9c50-8cd9-44af-815d-d1f0c0e90dde",
-  "InsertDate": "2025-01-19T11:34:28Z",
-  "LastUpdateDate": "2025-01-19T11:34:28Z",
+  "InsertDate": "2025-01-21T09:28:15Z",
+  "LastUpdateDate": "2025-01-21T09:28:15Z",
   "Level": "high",
   "Name": "Suspicious Svchost Process Access",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((dst_process_path like '%:\\windows\\system32\\svchost.exe' and granted_access = '0x1f3fff' and call_trace like '%unknown%') and  not (process_path like '%:\\program files\\microsoft visual studio\\%' and process_path like '%\\msbuild\\current\\bin\\msbuild.exe' and (call_trace like '%microsoft.build.ni.dll%' or call_trace like '%system.ni.dll%')))",

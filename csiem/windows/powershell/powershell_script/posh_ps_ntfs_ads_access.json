@@ -1,8 +1,8 @@
 {
   "Description": "Detects writing data into NTFS alternate data streams from powershell. Needs Script Block Logging.\n\nAuthor: Sami Ruohonen\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "8c521530-5169-495d-a199-0a3a881ad24e",
-  "InsertDate": "2025-01-19T11:34:21Z",
-  "LastUpdateDate": "2025-01-19T11:34:21Z",
+  "InsertDate": "2025-01-21T09:28:06Z",
+  "LastUpdateDate": "2025-01-21T09:28:06Z",
   "Level": "high",
   "Name": "NTFS Alternate Data Stream",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((scriptblocktext like '%set-content%' or scriptblocktext like '%add-content%') and scriptblocktext like '%-stream%')",

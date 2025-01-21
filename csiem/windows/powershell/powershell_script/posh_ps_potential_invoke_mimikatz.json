@@ -1,8 +1,8 @@
 {
   "Description": "Detects Invoke-Mimikatz PowerShell script and alike. Mimikatz is a credential dumper capable of obtaining plaintext Windows account logins and passwords.\n\nAuthor: Tim Rauch, Elastic (idea)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "189e3b02-82b2-4b90-9662-411eb64486d4",
-  "InsertDate": "2025-01-19T11:34:21Z",
-  "LastUpdateDate": "2025-01-19T11:34:21Z",
+  "InsertDate": "2025-01-21T09:28:06Z",
+  "LastUpdateDate": "2025-01-21T09:28:06Z",
   "Level": "high",
   "Name": "Potential Invoke-Mimikatz PowerShell Script",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((scriptblocktext like '%dumpcreds%' and scriptblocktext like '%dumpcerts%') or scriptblocktext like '%sekurlsa::logonpasswords%' or (scriptblocktext like '%crypto::certificates%' and scriptblocktext like '%cert_system_store_local_machine%'))",

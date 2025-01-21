@@ -1,8 +1,8 @@
 {
   "Description": "Shadow Copies creation using operating systems utilities, possible credential access\n\nAuthor: Teymur Kheirkhabarov, Daniil Yugoslavskiy, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b17ea6f7-6e90-447e-a799-e6c0a493d6ce",
-  "InsertDate": "2025-01-19T11:35:37Z",
-  "LastUpdateDate": "2025-01-19T11:35:37Z",
+  "InsertDate": "2025-01-21T09:30:30Z",
+  "LastUpdateDate": "2025-01-21T09:30:30Z",
   "Level": "medium",
   "Name": "Shadow Copies Creation Using Operating Systems Utilities",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\wmic.exe' or process_path like '%\\vssadmin.exe') and (original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll' or original_file_name = 'wmic.exe' or original_file_name = 'vssadmin.exe')) and (command like '%shadow%' and command like '%create%'))",

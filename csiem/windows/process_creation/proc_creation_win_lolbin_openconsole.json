@@ -1,8 +1,8 @@
 {
   "Description": "Detects usage of OpenConsole binary as a LOLBIN to launch other binaries to bypass application Whitelisting\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "814c95cc-8192-4378-a70a-f1aafd877af1",
-  "InsertDate": "2025-01-19T11:34:48Z",
-  "LastUpdateDate": "2025-01-19T11:34:48Z",
+  "InsertDate": "2025-01-21T09:28:37Z",
+  "LastUpdateDate": "2025-01-21T09:28:37Z",
   "Level": "medium",
   "Name": "Use of OpenConsole",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((original_file_name = 'openconsole.exe' and process_path like '%\\openconsole.exe') and  not process_path like 'c:\\program files\\windowsapps\\microsoft.windowsterminal%')",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects Processes accessing the camera and microphone from suspicious folder\n\nAuthor: Den Iuzvyk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "62120148-6b7a-42be-8b91-271c04e281a3",
-  "InsertDate": "2025-01-19T11:36:04Z",
-  "LastUpdateDate": "2025-01-19T11:36:04Z",
+  "InsertDate": "2025-01-21T09:31:18Z",
+  "LastUpdateDate": "2025-01-21T09:31:18Z",
   "Level": "high",
   "Name": "Suspicious Camera and Microphone Access",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((target_object like '%\\software\\microsoft\\windows\\currentversion\\capabilityaccessmanager\\consentstore\\%' and target_object like '%\\nonpackaged%') and (target_object like '%microphone%' or target_object like '%webcam%') and (target_object like '%:#windows#temp#%' or target_object like '%:#$recycle.bin#%' or target_object like '%:#temp#%' or target_object like '%:#users#public#%' or target_object like '%:#users#default#%' or target_object like '%:#users#desktop#%'))",

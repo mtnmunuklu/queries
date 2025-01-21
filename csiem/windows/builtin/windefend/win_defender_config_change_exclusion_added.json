@@ -1,8 +1,8 @@
 {
   "Description": "Detects the Setting of Windows Defender Exclusions\n\nAuthor: Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1321dc4e-a1fe-481d-a016-52c45f0c8b4f",
-  "InsertDate": "2025-01-19T11:33:55Z",
-  "LastUpdateDate": "2025-01-19T11:33:55Z",
+  "InsertDate": "2025-01-21T09:27:37Z",
+  "LastUpdateDate": "2025-01-21T09:27:37Z",
   "Level": "medium",
   "Name": "Windows Defender Exclusions Added",
   "Query": "sourcetype='windows-windefend' eql select * from _source_ where eventid = '5007' and newvalue like '%\\microsoft\\windows defender\\exclusions%'",

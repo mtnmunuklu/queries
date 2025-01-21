@@ -1,11 +1,11 @@
 {
   "Description": "Detects a write of an Exchange CSR to an untypical directory or with aspx name suffix which can be used to place a webshell\n\nAuthor: Max Altgelt (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b7bc7038-638b-4ffd-880c-292c692209ef",
-  "InsertDate": "2025-01-19T11:33:45Z",
-  "LastUpdateDate": "2025-01-19T11:33:45Z",
+  "InsertDate": "2025-01-21T09:27:27Z",
+  "LastUpdateDate": "2025-01-21T09:27:27Z",
   "Level": "critical",
   "Name": "Certificate Request Export to Exchange Webserver",
-  "Query": "sourcetype='windows-msexchange-management' eql select * from _source_ where (( = 'new-exchangecertificate' and  = ' -generaterequest' and  = ' -binaryencoded' and  = ' -requestfile') and (log like '%\\\\\\\\localhost\\\\c$%' or log like '%\\\\\\\\127.0.0.1\\\\c$%' or log like '%c:\\\\inetpub%' or log like '%.aspx%'))",
+  "Query": "sourcetype='windows-msexchange-management' eql select * from _source_ where (( = 'new-exchangecertificate' and  = ' -generaterequest' and  = ' -binaryencoded' and  = ' -requestfile') and Query('\\\\\\\\localhost\\\\C$ OR \\\\\\\\127.0.0.1\\\\C$ OR C:\\\\inetpub OR .aspx'))",
   "Tags": [
     "attack.persistence",
     "attack.t1505.003"

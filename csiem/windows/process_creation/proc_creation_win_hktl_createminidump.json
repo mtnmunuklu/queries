@@ -1,8 +1,8 @@
 {
   "Description": "Detects the use of CreateMiniDump hack tool used to dump the LSASS process memory for credential extraction on the attacker's machine\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "36d88494-1d43-4dc0-b3fa-35c8fea0ca9d",
-  "InsertDate": "2025-01-19T11:34:40Z",
-  "LastUpdateDate": "2025-01-19T11:34:40Z",
+  "InsertDate": "2025-01-21T09:28:29Z",
+  "LastUpdateDate": "2025-01-21T09:28:29Z",
   "Level": "high",
   "Name": "HackTool - CreateMiniDump Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\createminidump.exe' and hashes like '%imphash=4a07f944a83e8a7c2525efa35dd30e2f%'",

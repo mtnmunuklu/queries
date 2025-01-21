@@ -1,8 +1,8 @@
 {
   "Description": "Get-Variable is a valid PowerShell cmdlet\nWindowsApps is by default in the path where PowerShell is executed.\nSo when the Get-Variable command is issued on PowerShell execution, the system first looks for the Get-Variable executable in the path and executes the malicious binary instead of looking for the PowerShell cmdlet.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0c3fac91-5627-46e8-a6a8-a0d7b9b8ae1b",
-  "InsertDate": "2025-01-19T11:34:04Z",
-  "LastUpdateDate": "2025-01-19T11:34:04Z",
+  "InsertDate": "2025-01-21T09:27:47Z",
+  "LastUpdateDate": "2025-01-21T09:27:47Z",
   "Level": "high",
   "Name": "Suspicious Get-Variable.exe Creation",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where filepath like '%local\\microsoft\\windowsapps\\get-variable.exe'",

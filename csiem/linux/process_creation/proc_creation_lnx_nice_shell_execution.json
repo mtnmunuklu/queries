@@ -1,8 +1,8 @@
 {
   "Description": "Detects the use of the \"nice\" utility to execute a shell. Such behavior may be associated with privilege escalation, unauthorized command execution, or to break out from restricted environments.\n\n\nAuthor: Li Ling, Andy Parkidomo, Robert Rakowski, Blake Hartstein (Bloomberg L.P.)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "093d68c7-762a-42f4-9f46-95e79142571a",
-  "InsertDate": "2025-01-19T11:33:34Z",
-  "LastUpdateDate": "2025-01-19T11:33:34Z",
+  "InsertDate": "2025-01-21T09:27:17Z",
+  "LastUpdateDate": "2025-01-21T09:27:17Z",
   "Level": "high",
   "Name": "Shell Execution via Nice - Linux",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where process_path like '%/nice' and (command like '%/bin/bash' or command like '%/bin/dash' or command like '%/bin/fish' or command like '%/bin/sh' or command like '%/bin/zsh')",

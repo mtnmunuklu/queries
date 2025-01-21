@@ -1,8 +1,8 @@
 {
   "Description": "Detects an executable accessing an ngrok tunneling endpoint, which could be a sign of forbidden exfiltration of data exfiltration by malicious actors\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "19bf6fdb-7721-4f3d-867f-53467f6a5db6",
-  "InsertDate": "2025-01-19T11:33:32Z",
-  "LastUpdateDate": "2025-01-19T11:33:32Z",
+  "InsertDate": "2025-01-21T09:27:14Z",
+  "LastUpdateDate": "2025-01-21T09:27:14Z",
   "Level": "high",
   "Name": "Communication To Ngrok Tunneling Service - Linux",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where (dst_host like '%tunnel.us.ngrok.com%' or dst_host like '%tunnel.eu.ngrok.com%' or dst_host like '%tunnel.ap.ngrok.com%' or dst_host like '%tunnel.au.ngrok.com%' or dst_host like '%tunnel.sa.ngrok.com%' or dst_host like '%tunnel.jp.ngrok.com%' or dst_host like '%tunnel.in.ngrok.com%')",

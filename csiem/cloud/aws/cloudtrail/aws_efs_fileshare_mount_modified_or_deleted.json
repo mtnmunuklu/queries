@@ -1,8 +1,8 @@
 {
   "Description": "Detects when a EFS Fileshare Mount is modified or deleted. An adversary breaking any file system using the mount target that is being deleted, which might disrupt instances or applications using those mounts.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6a7ba45c-63d8-473e-9736-2eaabff79964",
-  "InsertDate": "2025-01-19T11:33:21Z",
-  "LastUpdateDate": "2025-01-19T11:33:21Z",
+  "InsertDate": "2025-01-21T09:27:01Z",
+  "LastUpdateDate": "2025-01-21T09:27:01Z",
   "Level": "medium",
   "Name": "AWS EFS Fileshare Mount Modified or Deleted",
   "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where eventsource = 'elasticfilesystem.amazonaws.com' and eventname = 'deletemounttarget'",

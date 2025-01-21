@@ -1,8 +1,8 @@
 {
   "Description": "Detects the creation of the LiveKD driver, which is used for live kernel debugging\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "16fe46bb-4f64-46aa-817d-ff7bec4a2352",
-  "InsertDate": "2025-01-19T11:34:05Z",
-  "LastUpdateDate": "2025-01-19T11:34:05Z",
+  "InsertDate": "2025-01-21T09:27:48Z",
+  "LastUpdateDate": "2025-01-21T09:27:48Z",
   "Level": "medium",
   "Name": "LiveKD Driver Creation",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where filepath = 'c:\\windows\\system32\\drivers\\livekdd.sys' and (process_path like '%\\livekd.exe' or process_path like '%\\livek64.exe')",

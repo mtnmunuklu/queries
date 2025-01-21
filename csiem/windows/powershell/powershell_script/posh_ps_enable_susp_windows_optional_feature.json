@@ -1,8 +1,8 @@
 {
   "Description": "Detects usage of the built-in PowerShell cmdlet \"Enable-WindowsOptionalFeature\" used as a Deployment Image Servicing and Management tool.\nSimilar to DISM.exe, this cmdlet is used to enumerate, install, uninstall, configure, and update features and packages in Windows images\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "55c925c1-7195-426b-a136-a9396800e29b",
-  "InsertDate": "2025-01-19T11:34:18Z",
-  "LastUpdateDate": "2025-01-19T11:34:18Z",
+  "InsertDate": "2025-01-21T09:28:03Z",
+  "LastUpdateDate": "2025-01-21T09:28:03Z",
   "Level": "medium",
   "Name": "Potential Suspicious Windows Feature Enabled",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((scriptblocktext like '%enable-windowsoptionalfeature%' and scriptblocktext like '%-online%' and scriptblocktext like '%-featurename%') and (scriptblocktext like '%telnetserver%' or scriptblocktext like '%internet-explorer-optional-amd64%' or scriptblocktext like '%tftp%' or scriptblocktext like '%smb1protocol%' or scriptblocktext like '%client-projfs%' or scriptblocktext like '%microsoft-windows-subsystem-linux%'))",

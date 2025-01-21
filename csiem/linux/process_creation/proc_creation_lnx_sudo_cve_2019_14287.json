@@ -1,8 +1,8 @@
 {
   "Description": "Detects users trying to exploit sudo vulnerability reported in CVE-2019-14287\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f74107df-b6c6-4e80-bf00-4170b658162b",
-  "InsertDate": "2025-01-19T11:33:35Z",
-  "LastUpdateDate": "2025-01-19T11:33:35Z",
+  "InsertDate": "2025-01-21T09:27:17Z",
+  "LastUpdateDate": "2025-01-21T09:27:17Z",
   "Level": "high",
   "Name": "Sudo Privilege Escalation CVE-2019-14287",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where command like '% -u#%'",

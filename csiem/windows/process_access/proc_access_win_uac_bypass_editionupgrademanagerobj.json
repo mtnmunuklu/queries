@@ -1,8 +1,8 @@
 {
   "Description": "Detects function calls from the EditionUpgradeManager COM interface. Which is an interface that is not used by standard executables.\n\nAuthor: oscd.community, Dmitry Uchakin\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "fb3722e4-1a06-46b6-b772-253e2e7db933",
-  "InsertDate": "2025-01-19T11:34:28Z",
-  "LastUpdateDate": "2025-01-19T11:34:28Z",
+  "InsertDate": "2025-01-21T09:28:15Z",
+  "LastUpdateDate": "2025-01-21T09:28:15Z",
   "Level": "medium",
   "Name": "Function Call From Undocumented COM Interface EditionUpgradeManager",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where call_trace like '%editionupgrademanagerobj.dll%'",

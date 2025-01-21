@@ -1,8 +1,8 @@
 {
   "Description": "Detects Certipy execution, a tool for Active Directory Certificate Services enumeration and abuse based on PE metadata characteristics and common command line arguments.\n\n\nAuthor: pH-T (Nextron Systems), Sittikorn Sangrattanapitak\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6938366d-8954-4ddc-baff-c830b3ba8fcd",
-  "InsertDate": "2025-01-19T11:34:39Z",
-  "LastUpdateDate": "2025-01-19T11:34:39Z",
+  "InsertDate": "2025-01-21T09:28:28Z",
+  "LastUpdateDate": "2025-01-21T09:28:28Z",
   "Level": "high",
   "Name": "HackTool - Certipy Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\certipy.exe' and original_file_name = 'certipy.exe' and description like '%certipy%') or ((command like '% account %' or command like '% auth %' or command like '% cert %' or command like '% find %' or command like '% forge %' or command like '% ptt %' or command like '% relay %' or command like '% req %' or command like '% shadow %' or command like '% template %') and (command like '% -bloodhound%' or command like '% -ca-pfx %' or command like '% -dc-ip %' or command like '% -kirbi%' or command like '% -old-bloodhound%' or command like '% -pfx %' or command like '% -target%' or command like '% -template%' or command like '% -username %' or command like '% -vulnerable%' or command like '%auth -pfx%' or command like '%shadow auto%' or command like '%shadow list%')))",

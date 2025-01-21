@@ -1,8 +1,8 @@
 {
   "Description": "Detects execution of the \"finger.exe\" utility.\nFinger.EXE or \"TCPIP Finger Command\" is an old utility that is still present on modern Windows installation. It Displays information about users on a specified remote computer (typically a UNIX computer) that is running the finger service or daemon.\nDue to the old nature of this utility and the rareness of machines having the finger service. Any execution of \"finger.exe\" can be considered \"suspicious\" and worth investigating.\n\n\nAuthor: Florian Roth (Nextron Systems), omkar72, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "af491bca-e752-4b44-9c86-df5680533dbc",
-  "InsertDate": "2025-01-19T11:34:38Z",
-  "LastUpdateDate": "2025-01-19T11:34:38Z",
+  "InsertDate": "2025-01-21T09:28:26Z",
+  "LastUpdateDate": "2025-01-21T09:28:26Z",
   "Level": "high",
   "Name": "Finger.EXE Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where original_file_name = 'finger.exe' and process_path like '%\\finger.exe'",

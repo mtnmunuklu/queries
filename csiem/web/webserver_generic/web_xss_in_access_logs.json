@@ -1,11 +1,11 @@
 {
   "Description": "Detects XSS attempts injected via GET requests in access logs\n\nAuthor: Saw Win Naung, Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "65354b83-a2ea-4ea6-8414-3ab38be0d409",
-  "InsertDate": "2025-01-19T11:33:42Z",
-  "LastUpdateDate": "2025-01-19T11:33:42Z",
+  "InsertDate": "2025-01-21T09:27:25Z",
+  "LastUpdateDate": "2025-01-21T09:27:25Z",
   "Level": "high",
   "Name": "Cross Site Scripting Strings",
-  "Query": "eql select * from _source_ where (cs-method = 'get' and (log like '%=\u003cscript\u003e%' or log like '%=%3cscript%3e%' or log like '%=%253cscript%253e%' or log like '%\u003ciframe %' or log like '%%3ciframe %' or log like '%\u003csvg %' or log like '%%3csvg %' or log like '%document.cookie%' or log like '%document.domain%' or log like '% onerror=%' or log like '% onresize=%' or log like '% onload=\"%' or log like '%onmouseover=%' or log like '%${alert%' or log like '%javascript:alert%' or log like '%javascript%3aalert%') and  not sc-status = '404')",
+  "Query": "eql select * from _source_ where (cs-method = 'get' and Query('=\u003cscript\u003e OR =%3Cscript%3E OR =%253Cscript%253E OR \u003ciframe  OR %3Ciframe  OR \u003csvg  OR %3Csvg  OR document.cookie OR document.domain OR  onerror= OR  onresize= OR  onload=\" OR onmouseover= OR ${alert OR javascript:alert OR javascript%3Aalert') and  not sc-status = '404')",
   "Tags": [
     "attack.initial-access",
     "attack.t1189"

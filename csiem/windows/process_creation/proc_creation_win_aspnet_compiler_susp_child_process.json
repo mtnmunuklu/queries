@@ -1,8 +1,8 @@
 {
   "Description": "Detects potentially suspicious child processes of \"aspnet_compiler.exe\".\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9ccba514-7cb6-4c5c-b377-700758f2f120",
-  "InsertDate": "2025-01-19T11:34:29Z",
-  "LastUpdateDate": "2025-01-19T11:34:29Z",
+  "InsertDate": "2025-01-21T09:28:16Z",
+  "LastUpdateDate": "2025-01-21T09:28:16Z",
   "Level": "high",
   "Name": "Suspicious Child Process of AspNetCompiler",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\aspnet_compiler.exe' and ((process_path like '%\\calc.exe' or process_path like '%\\notepad.exe') and (process_path like '%\\users\\public\\%' or process_path like '%\\appdata\\local\\temp\\%' or process_path like '%\\appdata\\local\\roaming\\%' or process_path like '%:\\temp\\%' or process_path like '%:\\windows\\temp\\%' or process_path like '%:\\windows\\system32\\tasks\\%' or process_path like '%:\\windows\\tasks\\%')))",

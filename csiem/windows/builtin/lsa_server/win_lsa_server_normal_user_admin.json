@@ -1,8 +1,8 @@
 {
   "Description": "Detect standard users login that are part of high privileged groups such as the Administrator group\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "7ac407cc-0f48-4328-aede-de1d2e6fef41",
-  "InsertDate": "2025-01-19T11:33:45Z",
-  "LastUpdateDate": "2025-01-19T11:33:45Z",
+  "InsertDate": "2025-01-21T09:27:27Z",
+  "LastUpdateDate": "2025-01-21T09:27:27Z",
   "Level": "medium",
   "Name": "Standard User In High Privileged Group",
   "Query": "sourcetype='windows-lsa-server' eql select * from _source_ where ((eventid = '300' and targetusersid like 's-1-5-21-%' and (sidlist like '%s-1-5-32-544%' or sidlist like '%-500}%' or sidlist like '%-518}%' or sidlist like '%-519}%')) and  not (targetusersid like '%-500' or targetusersid like '%-518' or targetusersid like '%-519'))",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects execution of ntdsutil.exe, which can be used for various attacks against the NTDS database (NTDS.DIT)\n\nAuthor: Thomas Patzke\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "2afafd61-6aae-4df4-baed-139fa1f4c345",
-  "InsertDate": "2025-01-19T11:34:56Z",
-  "LastUpdateDate": "2025-01-19T11:34:56Z",
+  "InsertDate": "2025-01-21T09:28:45Z",
+  "LastUpdateDate": "2025-01-21T09:28:45Z",
   "Level": "medium",
   "Name": "Invocation of Active Directory Diagnostic Tool (ntdsutil.exe)",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\ntdsutil.exe'",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects Obfuscated Powershell via use MSHTA in Scripts\n\nAuthor: Nikita Nazarov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9b8d9203-4e0f-4cd9-bb06-4cc4ea6d0e9a",
-  "InsertDate": "2025-01-19T11:33:48Z",
-  "LastUpdateDate": "2025-01-19T11:33:48Z",
+  "InsertDate": "2025-01-21T09:27:30Z",
+  "LastUpdateDate": "2025-01-21T09:27:30Z",
   "Level": "high",
   "Name": "Invoke-Obfuscation Via Use MSHTA - Security",
   "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4697' and (servicefilename like '%mshta%' and servicefilename like '%vbscript:createobject%' and servicefilename like '%.run%' and servicefilename like '%window.close%')",

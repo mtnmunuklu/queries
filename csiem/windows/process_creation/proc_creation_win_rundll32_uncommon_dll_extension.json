@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of rundll32 with a command line that doesn't contain a common extension\n\nAuthor: Tim Shelton, Florian Roth (Nextron Systems), Yassine Oukessou\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c3a99af4-35a9-4668-879e-c09aeb4f2bdf",
-  "InsertDate": "2025-01-19T11:35:20Z",
-  "LastUpdateDate": "2025-01-19T11:35:20Z",
+  "InsertDate": "2025-01-21T09:29:57Z",
+  "LastUpdateDate": "2025-01-21T09:29:57Z",
   "Level": "medium",
   "Name": "Rundll32 Execution With Uncommon DLL Extension",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\rundll32.exe' and original_file_name = 'rundll32.exe') and  not (command = 'null' or command = '' or ((command like '%.cpl %' or command like '%.cpl,%' or command like '%.cpl\"%' or command like '%.cpl'%' or command like '%.dll %' or command like '%.dll,%' or command like '%.dll\"%' or command like '%.dll'%' or command like '%.inf %' or command like '%.inf,%' or command like '%.inf\"%' or command like '%.inf'%') and (command like '%.cpl' or command like '%.dll' or command like '%.inf')) or command like '% -localserver %' or (parent_process_path like '%\\msiexec.exe' and (command like '%:\\windows\\installer\\%' and command like '%.tmp%' and command like '%zzzzinvokemanagedcustomactionoutofproc%'))) and  not (parent_command_line like '%:\\users\\%' and parent_command_line like '%\\appdata\\local\\microsoft\\edgeupdate\\install\\{%' and parent_command_line like '%\\edgemitmp_%' and parent_command_line like '%.tmp\\setup.exe%' and parent_command_line like '%--install-archive=%' and parent_command_line like '%--previous-version=%' and parent_command_line like '%--msedgewebview --verbose-logging --do-not-launch-msedge --user-level%'))",

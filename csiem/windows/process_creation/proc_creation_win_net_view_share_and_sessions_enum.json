@@ -1,8 +1,8 @@
 {
   "Description": "Detects attempts to enumerate file shares, printer shares and sessions using \"net.exe\" with the \"view\" flag.\n\nAuthor: Endgame, JHasenbusch (ported for oscd.community)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "62510e69-616b-4078-b371-847da438cc03",
-  "InsertDate": "2025-01-19T11:34:55Z",
-  "LastUpdateDate": "2025-01-19T11:34:55Z",
+  "InsertDate": "2025-01-21T09:28:43Z",
+  "LastUpdateDate": "2025-01-21T09:28:43Z",
   "Level": "low",
   "Name": "Share And Session Enumeration Using Net.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((((process_path like '%\\net.exe' or process_path like '%\\net1.exe') and (original_file_name = 'net.exe' or original_file_name = 'net1.exe')) and command like '%view%') and  not command like '%\\\\\\\\%')",

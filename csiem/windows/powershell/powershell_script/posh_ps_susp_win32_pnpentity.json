@@ -1,8 +1,8 @@
 {
   "Description": "Adversaries may attempt to gather information about attached peripheral devices and components connected to a computer system.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b26647de-4feb-4283-af6b-6117661283c5",
-  "InsertDate": "2025-01-19T11:34:25Z",
-  "LastUpdateDate": "2025-01-19T11:34:25Z",
+  "InsertDate": "2025-01-21T09:28:12Z",
+  "LastUpdateDate": "2025-01-21T09:28:12Z",
   "Level": "low",
   "Name": "Powershell Suspicious Win32_PnPEntity",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where scriptblocktext like '%win32_pnpentity%'",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects the creation of a file with the \".dmp\"/\".hdmp\" extension by a shell or scripting application such as \"cmd\", \"powershell\", etc. Often created by software during a crash. Memory dumps can sometimes contain sensitive information such as credentials. It's best to determine the source of the crash.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "aba15bdd-657f-422a-bab3-ac2d2a0d6f1c",
-  "InsertDate": "2025-01-19T11:34:00Z",
-  "LastUpdateDate": "2025-01-19T11:34:00Z",
+  "InsertDate": "2025-01-21T09:27:43Z",
+  "LastUpdateDate": "2025-01-21T09:27:43Z",
   "Level": "medium",
   "Name": "Potentially Suspicious DMP/HDMP File Creation",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\cmd.exe' or process_path like '%\\cscript.exe' or process_path like '%\\mshta.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\wscript.exe') and (filepath like '%.dmp' or filepath like '%.dump' or filepath like '%.hdmp')",

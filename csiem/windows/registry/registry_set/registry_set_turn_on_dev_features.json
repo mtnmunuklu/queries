@@ -1,8 +1,8 @@
 {
   "Description": "Detects when the enablement of developer features such as \"Developer Mode\" or \"Application Sideloading\". Which allows the user to install untrusted packages.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b110ebaf-697f-4da1-afd5-b536fa27a2c1",
-  "InsertDate": "2025-01-19T11:36:22Z",
-  "LastUpdateDate": "2025-01-19T11:36:22Z",
+  "InsertDate": "2025-01-21T09:31:57Z",
+  "LastUpdateDate": "2025-01-21T09:31:57Z",
   "Level": "high",
   "Name": "Potential Signing Bypass Via Windows Developer Features - Registry",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\microsoft\\windows\\currentversion\\appmodelunlock%' or target_object like '%\\policies\\microsoft\\windows\\appx\\%') and (target_object like '%\\allowalltrustedapps' or target_object like '%\\allowdevelopmentwithoutdevlicense') and details = 'dword (0x00000001)'",

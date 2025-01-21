@@ -1,11 +1,11 @@
 {
   "Description": "Detect use of the Windows 8.3 short name. Which could be used as a method to avoid Image based detection\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "3ef5605c-9eb9-47b0-9a71-b727e6aa5c3b",
-  "InsertDate": "2025-01-19T11:35:35Z",
-  "LastUpdateDate": "2025-01-19T11:35:35Z",
+  "InsertDate": "2025-01-21T09:30:26Z",
+  "LastUpdateDate": "2025-01-21T09:30:26Z",
   "Level": "medium",
   "Name": "Use NTFS Short Name in Image",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%~1.bat%' or process_path like '%~1.dll%' or process_path like '%~1.exe%' or process_path like '%~1.hta%' or process_path like '%~1.js%' or process_path like '%~1.msi%' or process_path like '%~1.ps1%' or process_path like '%~1.tmp%' or process_path like '%~1.vbe%' or process_path like '%~1.vbs%' or process_path like '%~2.bat%' or process_path like '%~2.dll%' or process_path like '%~2.exe%' or process_path like '%~2.hta%' or process_path like '%~2.js%' or process_path like '%~2.msi%' or process_path like '%~2.ps1%' or process_path like '%~2.tmp%' or process_path like '%~2.vbe%' or process_path like '%~2.vbs%') and  not parent_process_path = 'c:\\windows\\explorer.exe' and  not (process_path like '%\\vcredi~1.exe' or parent_process_path like '%\\webex\\webexhost.exe' or parent_process_path like '%\\thor\\thor64.exe' or process_path = 'c:\\progra~1\\winzip\\wzprel~1.exe'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%~1.bat%' or process_path like '%~1.dll%' or process_path like '%~1.exe%' or process_path like '%~1.hta%' or process_path like '%~1.js%' or process_path like '%~1.msi%' or process_path like '%~1.ps1%' or process_path like '%~1.tmp%' or process_path like '%~1.vbe%' or process_path like '%~1.vbs%' or process_path like '%~2.bat%' or process_path like '%~2.dll%' or process_path like '%~2.exe%' or process_path like '%~2.hta%' or process_path like '%~2.js%' or process_path like '%~2.msi%' or process_path like '%~2.ps1%' or process_path like '%~2.tmp%' or process_path like '%~2.vbe%' or process_path like '%~2.vbs%') and  not parent_process_path = 'c:\\windows\\explorer.exe' and  not (process_path = 'c:\\progra~1\\winzip\\wzprel~1.exe' or process_path like '%\\vcredi~1.exe' or parent_process_path like '%\\webex\\webexhost.exe' or parent_process_path like '%\\thor\\thor64.exe'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1564.004"

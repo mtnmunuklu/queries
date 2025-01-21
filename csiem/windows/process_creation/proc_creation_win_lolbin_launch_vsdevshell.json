@@ -1,11 +1,11 @@
 {
   "Description": "Detects the use of the 'Launch-VsDevShell.ps1' Microsoft signed script to execute commands.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "45d3a03d-f441-458c-8883-df101a3bb146",
-  "InsertDate": "2025-01-19T11:34:47Z",
-  "LastUpdateDate": "2025-01-19T11:34:47Z",
+  "InsertDate": "2025-01-21T09:28:36Z",
+  "LastUpdateDate": "2025-01-21T09:28:36Z",
   "Level": "medium",
   "Name": "Launch-VsDevShell.PS1 Proxy Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%vswherepath %' or command like '%vsinstallationpath %') and command like '%launch-vsdevshell.ps1%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%launch-vsdevshell.ps1%' and (command like '%vswherepath %' or command like '%vsinstallationpath %'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1216.001"

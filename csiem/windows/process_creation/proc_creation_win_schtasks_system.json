@@ -1,8 +1,8 @@
 {
   "Description": "Detects the creation or update of a scheduled task to run with \"NT AUTHORITY\\SYSTEM\" privileges\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "89ca78fd-b37c-4310-b3d3-81a023f83936",
-  "InsertDate": "2025-01-19T11:35:27Z",
-  "LastUpdateDate": "2025-01-19T11:35:27Z",
+  "InsertDate": "2025-01-21T09:30:04Z",
+  "LastUpdateDate": "2025-01-21T09:30:04Z",
   "Level": "high",
   "Name": "Schtasks Creation Or Modification With SYSTEM Privileges",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\schtasks.exe' and (command like '% /change %' or command like '% /create %')) and command like '%/ru %' and (command like '%nt aut%' or command like '% system %')) and  not ((process_path like '%\\schtasks.exe' and (command like '%/tn tvinstallrestore%' and command like '%\\teamviewer_.exe%')) or (command like '%/create /f /ru system /sc weekly /tn avirasystemspeedupverify /tr %' or command like '%:\\program files (x86)\\avira\\system speedup\\setup\\avira_speedup_setup.exe%' or command like '%/verify /verysilent /nostart /nodotnet /norestart\" /rl highest%')))",

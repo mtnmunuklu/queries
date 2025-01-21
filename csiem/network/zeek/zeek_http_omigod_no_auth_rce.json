@@ -1,8 +1,8 @@
 {
   "Description": "Detects the exploitation of OMIGOD (CVE-2021-38647) which allows remote execute (RCE) commands as root with just a single unauthenticated HTTP request.\nVerify, successful, exploitation by viewing the HTTP client (request) body to see what was passed to the server (using PCAP).\nWithin the client body is where the code execution would occur. Additionally, check the endpoint logs to see if suspicious commands or activity occurred within the timeframe of this HTTP request.\n\n\nAuthor: Nate Guagenti (neu5ron)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ab6b1a39-a9ee-4ab4-b075-e83acf6e346b",
-  "InsertDate": "2025-01-19T11:33:40Z",
-  "LastUpdateDate": "2025-01-19T11:33:40Z",
+  "InsertDate": "2025-01-21T09:27:23Z",
+  "LastUpdateDate": "2025-01-21T09:27:23Z",
   "Level": "high",
   "Name": "OMIGOD HTTP No Authentication RCE",
   "Query": "sourcetype='zeek-http' eql select * from _source_ where ((status_code = '200' and uri = '/wsman' and method = 'post') and  not client_header_names like '%authorization%' and  not request_body_len = '0')",

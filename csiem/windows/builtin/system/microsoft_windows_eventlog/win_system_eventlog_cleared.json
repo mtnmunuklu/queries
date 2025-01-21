@@ -1,8 +1,8 @@
 {
   "Description": "One of the Windows Eventlogs has been cleared. e.g. caused by \"wevtutil cl\" command execution\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a62b37e0-45d3-48d9-a517-90c1a1b0186b",
-  "InsertDate": "2025-01-19T11:33:51Z",
-  "LastUpdateDate": "2025-01-19T11:33:51Z",
+  "InsertDate": "2025-01-21T09:27:34Z",
+  "LastUpdateDate": "2025-01-21T09:27:34Z",
   "Level": "medium",
   "Name": "Eventlog Cleared",
   "Query": "sourcetype='windows-system' eql select * from _source_ where ((eventid = '104' and provider_name = 'microsoft-windows-eventlog') and  not (channel = 'microsoft-windows-powershell/operational' or channel = 'microsoft-windows-sysmon/operational' or channel = 'powershellcore/operational' or channel = 'security' or channel = 'system' or channel = 'windows powershell'))",

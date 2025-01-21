@@ -1,11 +1,11 @@
 {
   "Description": "Well-known TAP software installation. Possible preparation for data exfiltration using tunneling techniques\n\nAuthor: Daniil Yugoslavskiy, Ian Davis, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "99793437-3e16-439b-be0f-078782cf953d",
-  "InsertDate": "2025-01-19T11:35:43Z",
-  "LastUpdateDate": "2025-01-19T11:35:43Z",
+  "InsertDate": "2025-01-21T09:30:39Z",
+  "LastUpdateDate": "2025-01-21T09:30:39Z",
   "Level": "medium",
   "Name": "Tap Installer Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\tapinstall.exe' and  not (process_path like '%:\\program files\\openvpn connect\\drivers\\tap\\%' or process_path like '%:\\program files (x86)\\proton technologies\\protonvpntap\\installer\\%' or (process_path like '%:\\program files\\avast software\\secureline vpn\\%' or process_path like '%:\\program files (x86)\\avast software\\secureline vpn\\%')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\tapinstall.exe' and  not (process_path like '%:\\program files (x86)\\proton technologies\\protonvpntap\\installer\\%' or (process_path like '%:\\program files\\avast software\\secureline vpn\\%' or process_path like '%:\\program files (x86)\\avast software\\secureline vpn\\%') or process_path like '%:\\program files\\openvpn connect\\drivers\\tap\\%'))",
   "Tags": [
     "attack.exfiltration",
     "attack.t1048"

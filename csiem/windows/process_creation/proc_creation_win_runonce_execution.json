@@ -1,8 +1,8 @@
 {
   "Description": "This rule detects the execution of Run Once task as configured in the registry\n\nAuthor: Avneet Singh @v3t0_, oscd.community, Christopher Peacock @SecurePeacock (updated)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "198effb6-6c98-4d0c-9ea3-451fa143c45c",
-  "InsertDate": "2025-01-19T11:35:21Z",
-  "LastUpdateDate": "2025-01-19T11:35:21Z",
+  "InsertDate": "2025-01-21T09:29:58Z",
+  "LastUpdateDate": "2025-01-21T09:29:58Z",
   "Level": "low",
   "Name": "Run Once Task Execution as Configured in Registry",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\runonce.exe' and description = 'run once wrapper') and (command like '%/alternateshellstartup%' and command like '%/r'))",

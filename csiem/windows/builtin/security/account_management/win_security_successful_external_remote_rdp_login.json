@@ -1,8 +1,8 @@
 {
   "Description": "Detects successful logon from public IP address via RDP. This can indicate a publicly-exposed RDP port.\n\nAuthor: Micah Babinski (@micahbabinski), Zach Mathis (@yamatosecurity)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "259a9cdf-c4dd-4fa2-b243-2269e5ab18a2",
-  "InsertDate": "2025-01-19T11:33:46Z",
-  "LastUpdateDate": "2025-01-19T11:33:46Z",
+  "InsertDate": "2025-01-21T09:27:28Z",
+  "LastUpdateDate": "2025-01-21T09:27:28Z",
   "Level": "medium",
   "Name": "External Remote RDP Logon from Public IP",
   "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '4624' and logontype = '10') and  not ((ipaddress cidr '::1/128' or ipaddress cidr '10.0.0.0/8' or ipaddress cidr '127.0.0.0/8' or ipaddress cidr '172.16.0.0/12' or ipaddress cidr '192.168.0.0/16' or ipaddress cidr '169.254.0.0/16' or ipaddress cidr 'fc00::/7' or ipaddress cidr 'fe80::/10') or ipaddress = '-'))",

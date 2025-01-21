@@ -1,8 +1,8 @@
 {
   "Description": "Detects a suspicious process spawning from an Outlook process.\n\nAuthor: Michael Haag, Florian Roth (Nextron Systems), Markus Neis, Elastic, FPT.EagleEye Team\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "208748f7-881d-47ac-a29c-07ea84bf691d",
-  "InsertDate": "2025-01-19T11:34:57Z",
-  "LastUpdateDate": "2025-01-19T11:34:57Z",
+  "InsertDate": "2025-01-21T09:28:46Z",
+  "LastUpdateDate": "2025-01-21T09:28:46Z",
   "Level": "high",
   "Name": "Suspicious Outlook Child Process",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where parent_process_path like '%\\outlook.exe' and (process_path like '%\\appvlp.exe' or process_path like '%\\bash.exe' or process_path like '%\\cmd.exe' or process_path like '%\\cscript.exe' or process_path like '%\\forfiles.exe' or process_path like '%\\hh.exe' or process_path like '%\\mftrace.exe' or process_path like '%\\msbuild.exe' or process_path like '%\\msdt.exe' or process_path like '%\\mshta.exe' or process_path like '%\\msiexec.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\schtasks.exe' or process_path like '%\\scrcons.exe' or process_path like '%\\scriptrunner.exe' or process_path like '%\\sh.exe' or process_path like '%\\svchost.exe' or process_path like '%\\wmic.exe' or process_path like '%\\wscript.exe')",

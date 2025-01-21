@@ -1,8 +1,8 @@
 {
   "Description": "Detects the creation of a process via the Windows task manager. This might be an attempt to bypass UAC\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "3d7679bd-0c00-440c-97b0-3f204273e6c7",
-  "InsertDate": "2025-01-19T11:35:43Z",
-  "LastUpdateDate": "2025-01-19T11:35:43Z",
+  "InsertDate": "2025-01-21T09:30:40Z",
+  "LastUpdateDate": "2025-01-21T09:30:40Z",
   "Level": "low",
   "Name": "New Process Created Via Taskmgr.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\taskmgr.exe' and  not (process_path like '%:\\windows\\system32\\mmc.exe' or process_path like '%:\\windows\\system32\\resmon.exe' or process_path like '%:\\windows\\system32\\taskmgr.exe'))",

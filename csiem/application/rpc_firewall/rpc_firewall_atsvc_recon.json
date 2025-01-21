@@ -1,8 +1,8 @@
 {
   "Description": "Detects remote RPC calls to read information about scheduled tasks via AtScv\n\nAuthor: Sagie Dulce, Dekel Paz\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f177f2bc-5f3e-4453-b599-57eefce9a59c",
-  "InsertDate": "2025-01-19T11:33:19Z",
-  "LastUpdateDate": "2025-01-19T11:33:19Z",
+  "InsertDate": "2025-01-21T09:26:59Z",
+  "LastUpdateDate": "2025-01-21T09:26:59Z",
   "Level": "high",
   "Name": "Remote Schedule Task Recon via AtScv",
   "Query": "sourcetype like 'rpc_firewall-%' eql select * from _source_ where ((eventlog = 'rpcfw' and eventid = '3' and interfaceuuid = '1ff70682-0a51-30e8-076d-740be8cee98b') and  not (opnum = '0' or opnum = '1'))",

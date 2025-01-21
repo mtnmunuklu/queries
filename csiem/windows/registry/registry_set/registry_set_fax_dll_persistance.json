@@ -1,8 +1,8 @@
 {
   "Description": "Detect possible persistence using Fax DLL load when service restart\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9e3357ba-09d4-4fbd-a7c5-ad6386314513",
-  "InsertDate": "2025-01-19T11:36:13Z",
-  "LastUpdateDate": "2025-01-19T11:36:13Z",
+  "InsertDate": "2025-01-21T09:31:38Z",
+  "LastUpdateDate": "2025-01-21T09:31:38Z",
   "Level": "high",
   "Name": "Change the Fax Dll",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object like '%\\software\\microsoft\\fax\\device providers\\%' and target_object like '%\\imagename%') and  not details = '%systemroot%\\system32\\fxst30.dll')",

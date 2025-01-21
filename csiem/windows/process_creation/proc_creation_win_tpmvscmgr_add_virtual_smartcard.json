@@ -1,8 +1,8 @@
 {
   "Description": "Detects execution of \"Tpmvscmgr.exe\" to create a new virtual smart card.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c633622e-cab9-4eaa-bb13-66a1d68b3e47",
-  "InsertDate": "2025-01-19T11:35:44Z",
-  "LastUpdateDate": "2025-01-19T11:35:44Z",
+  "InsertDate": "2025-01-21T09:30:40Z",
+  "LastUpdateDate": "2025-01-21T09:30:40Z",
   "Level": "medium",
   "Name": "New Virtual Smart Card Created Via TpmVscMgr.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\tpmvscmgr.exe' and original_file_name = 'tpmvscmgr.exe') and command like '%create%')",

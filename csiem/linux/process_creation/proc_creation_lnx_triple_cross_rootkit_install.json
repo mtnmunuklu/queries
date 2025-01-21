@@ -1,8 +1,8 @@
 {
   "Description": "Detects default install commands of the Triple Cross eBPF rootkit based on the \"deployer.sh\" script\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "22236d75-d5a0-4287-bf06-c93b1770860f",
-  "InsertDate": "2025-01-19T11:33:36Z",
-  "LastUpdateDate": "2025-01-19T11:33:36Z",
+  "InsertDate": "2025-01-21T09:27:18Z",
+  "LastUpdateDate": "2025-01-21T09:27:18Z",
   "Level": "high",
   "Name": "Triple Cross eBPF Rootkit Install Commands",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where process_path like '%/sudo' and (command like '% tc %' and command like '% enp0s3 %') and (command like '% qdisc %' or command like '% filter %')",

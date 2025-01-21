@@ -1,8 +1,8 @@
 {
   "Description": "Detects the creation of the file \"rootlog\" which is used by the TripleCross rootkit as a way to check if the backdoor is already running.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c0239255-822c-4630-b7f1-35362bcb8f44",
-  "InsertDate": "2025-01-19T11:33:32Z",
-  "LastUpdateDate": "2025-01-19T11:33:32Z",
+  "InsertDate": "2025-01-21T09:27:14Z",
+  "LastUpdateDate": "2025-01-21T09:27:14Z",
   "Level": "high",
   "Name": "Triple Cross eBPF Rootkit Default LockFile",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where filepath = '/tmp/rootlog'",

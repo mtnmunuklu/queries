@@ -1,8 +1,8 @@
 {
   "Description": "Detects suspicious malformed user agent strings in proxy logs\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "7195a772-4b3f-43a4-a210-6a003d65caa1",
-  "InsertDate": "2025-01-19T11:33:42Z",
-  "LastUpdateDate": "2025-01-19T11:33:42Z",
+  "InsertDate": "2025-01-21T09:27:24Z",
+  "LastUpdateDate": "2025-01-21T09:27:24Z",
   "Level": "high",
   "Name": "Suspicious User Agent",
   "Query": "eql select * from _source_ where (((c-useragent = '_' or c-useragent = 'certutil url agent' or c-useragent = 'mozilla/5.0 (windows nt 10.0; win64; x64; rv:60.0)' or c-useragent = 'mozilla/5.0 (windows nt 6.3; wow64; rv:28.0) gecko/20100101 firefox/28.0' or c-useragent = 'https' or c-useragent = 'erbium-ua-4ce7c27cb4be9d32e333bf032c88235a' or c-useragent = 'x' or c-useragent = 'xxx') or (c-useragent like 'user-agent%' or c-useragent like 'mozilla/3.0 %' or c-useragent like 'mozilla/2.0 %' or c-useragent like 'mozilla/1.0 %' or c-useragent like 'mozilla %' or c-useragent like ' mozilla/%' or c-useragent like 'mozila/%' or c-useragent like 'mozilla/4.0 (compatible; msie 6.0; ms web services client protocol%') or (c-useragent like '% (compatible;msie %' or c-useragent like '%.0;windows nt %' or c-useragent like '%loader%')) and  not (c-useragent = 'mozilla/3.0 * acrobat *' and (cs-host like '%.acrobat.com' or cs-host like '%.adobe.com' or cs-host like '%.adobe.io')))",

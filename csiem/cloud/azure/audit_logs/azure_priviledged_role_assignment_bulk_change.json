@@ -1,8 +1,8 @@
 {
   "Description": "Detects when a user is removed from a privileged role. Bulk changes should be investigated.\n\nAuthor: Mark Morowczynski '@markmorow', Yochana Henderson, '@Yochana-H'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "102e11e3-2db5-4c9e-bc26-357d42585d21",
-  "InsertDate": "2025-01-19T11:33:24Z",
-  "LastUpdateDate": "2025-01-19T11:33:24Z",
+  "InsertDate": "2025-01-21T09:27:04Z",
+  "LastUpdateDate": "2025-01-21T09:27:04Z",
   "Level": "high",
   "Name": "Bulk Deletion Changes To Privileged Account Permissions",
   "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where (properties.message = 'remove eligible member (permanent)' or properties.message = 'remove eligible member (eligible)')",

@@ -1,8 +1,8 @@
 {
   "Description": "Change to authentication method could be an indicator of an attacker adding an auth method to the account so they can have continued access.\n\nAuthor: AlertIQ\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4d78a000-ab52-4564-88a5-7ab5242b20c7",
-  "InsertDate": "2025-01-19T11:33:24Z",
-  "LastUpdateDate": "2025-01-19T11:33:24Z",
+  "InsertDate": "2025-01-21T09:27:04Z",
+  "LastUpdateDate": "2025-01-21T09:27:04Z",
   "Level": "medium",
   "Name": "Change to Authentication Method",
   "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where loggedbyservice = 'authentication methods' and category = 'usermanagement' and operationname = 'user registered security info'",

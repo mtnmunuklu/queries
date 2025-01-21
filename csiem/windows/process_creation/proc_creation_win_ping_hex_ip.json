@@ -1,8 +1,8 @@
 {
   "Description": "Detects a ping command that uses a hex encoded IP address\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1a0d4aba-7668-4365-9ce4-6d79ab088dfd",
-  "InsertDate": "2025-01-19T11:34:57Z",
-  "LastUpdateDate": "2025-01-19T11:34:57Z",
+  "InsertDate": "2025-01-21T09:28:47Z",
+  "LastUpdateDate": "2025-01-21T09:28:47Z",
   "Level": "high",
   "Name": "Ping Hex IP",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\ping.exe' and command like '%0x%'",

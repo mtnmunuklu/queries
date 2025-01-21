@@ -1,8 +1,8 @@
 {
   "Description": "Detects the use of the spoolss named pipe over SMB. This can be used to trigger the authentication via NTLM of any machine that has the spoolservice enabled.\n\nAuthor: OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "214e8f95-100a-4e04-bb31-ef6cba8ce07e",
-  "InsertDate": "2025-01-19T11:33:47Z",
-  "LastUpdateDate": "2025-01-19T11:33:47Z",
+  "InsertDate": "2025-01-21T09:27:29Z",
+  "LastUpdateDate": "2025-01-21T09:27:29Z",
   "Level": "medium",
   "Name": "DCERPC SMB Spoolss Named Pipe",
   "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '5145' and sharename = '\\\\\\\\\\*\\\\ipc$' and relativetargetname = 'spoolss'",

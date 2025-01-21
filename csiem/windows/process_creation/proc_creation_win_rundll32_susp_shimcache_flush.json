@@ -1,8 +1,8 @@
 {
   "Description": "Detects actions that clear the local ShimCache and remove forensic evidence\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b0524451-19af-4efa-a46f-562a977f792e",
-  "InsertDate": "2025-01-19T11:35:20Z",
-  "LastUpdateDate": "2025-01-19T11:35:20Z",
+  "InsertDate": "2025-01-21T09:29:56Z",
+  "LastUpdateDate": "2025-01-21T09:29:56Z",
   "Level": "high",
   "Name": "ShimCache Flush",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((command like '%rundll32%' and command like '%apphelp.dll%') and (command like '%shimflushcache%' or command like '%#250%')) or ((command like '%rundll32%' and command like '%kernel32.dll%') and (command like '%baseflushappcompatcache%' or command like '%#46%')))",

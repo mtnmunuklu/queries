@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious PowerShell invocation command parameters\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "536e2947-3729-478c-9903-745aaffe60d2",
-  "InsertDate": "2025-01-19T11:35:02Z",
-  "LastUpdateDate": "2025-01-19T11:35:02Z",
+  "InsertDate": "2025-01-21T09:28:58Z",
+  "LastUpdateDate": "2025-01-21T09:28:58Z",
   "Level": "medium",
   "Name": "Suspicious PowerShell Invocations - Specific - ProcessCreation",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((command like '%-nop%' and command like '% -w %' and command like '%hidden%' and command like '% -c %' and command like '%[convert]::frombase64string%') or (command like '% -w %' and command like '%hidden%' and command like '%-noni%' and command like '%-nop%' and command like '% -c %' and command like '%iex%' and command like '%new-object%') or (command like '% -w %' and command like '%hidden%' and command like '%-ep%' and command like '%bypass%' and command like '%-enc%') or (command like '%powershell%' and command like '%reg%' and command like '%add%' and command like '%\\software\\%') or (command like '%bypass%' and command like '%-noprofile%' and command like '%-windowstyle%' and command like '%hidden%' and command like '%new-object%' and command like '%system.net.webclient%' and command like '%.download%') or (command like '%iex%' and command like '%new-object%' and command like '%net.webclient%' and command like '%.download%')) and  not (command like '%(new-object system.net.webclient).downloadstring('https://community.chocolatey.org/install.ps1%' or command like '%write-chocolateywarning%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((command like '%bypass%' and command like '%-noprofile%' and command like '%-windowstyle%' and command like '%hidden%' and command like '%new-object%' and command like '%system.net.webclient%' and command like '%.download%') or (command like '%iex%' and command like '%new-object%' and command like '%net.webclient%' and command like '%.download%') or (command like '%-nop%' and command like '% -w %' and command like '%hidden%' and command like '% -c %' and command like '%[convert]::frombase64string%') or (command like '% -w %' and command like '%hidden%' and command like '%-noni%' and command like '%-nop%' and command like '% -c %' and command like '%iex%' and command like '%new-object%') or (command like '% -w %' and command like '%hidden%' and command like '%-ep%' and command like '%bypass%' and command like '%-enc%') or (command like '%powershell%' and command like '%reg%' and command like '%add%' and command like '%\\software\\%')) and  not (command like '%(new-object system.net.webclient).downloadstring('https://community.chocolatey.org/install.ps1%' or command like '%write-chocolateywarning%'))",
   "Tags": [
     "attack.defense-evasion"
   ],

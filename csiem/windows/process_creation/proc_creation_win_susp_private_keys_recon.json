@@ -1,11 +1,11 @@
 {
   "Description": "Adversaries may search for private key certificate files on compromised systems for insecurely stored credential\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "213d6a77-3d55-4ce8-ba74-fcfef741974e",
-  "InsertDate": "2025-01-19T11:35:36Z",
-  "LastUpdateDate": "2025-01-19T11:35:36Z",
+  "InsertDate": "2025-01-21T09:30:27Z",
+  "LastUpdateDate": "2025-01-21T09:30:27Z",
   "Level": "medium",
   "Name": "Private Keys Reconnaissance Via CommandLine Tools",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%.key%' or command like '%.pgp%' or command like '%.gpg%' or command like '%.ppk%' or command like '%.p12%' or command like '%.pem%' or command like '%.pfx%' or command like '%.cer%' or command like '%.p7b%' or command like '%.asc%') and (((process_path like '%\\cmd.exe' and original_file_name = 'cmd.exe') and command like '%dir %') or (((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll')) and command like '%get-childitem %') or (process_path like '%\\findstr.exe' and original_file_name = 'findstr.exe')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%.key%' or command like '%.pgp%' or command like '%.gpg%' or command like '%.ppk%' or command like '%.p12%' or command like '%.pem%' or command like '%.pfx%' or command like '%.cer%' or command like '%.p7b%' or command like '%.asc%') and ((command like '%dir %' and (process_path like '%\\cmd.exe' and original_file_name = 'cmd.exe')) or (((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll')) and command like '%get-childitem %') or (process_path like '%\\findstr.exe' and original_file_name = 'findstr.exe')))",
   "Tags": [
     "attack.credential-access",
     "attack.t1552.004"

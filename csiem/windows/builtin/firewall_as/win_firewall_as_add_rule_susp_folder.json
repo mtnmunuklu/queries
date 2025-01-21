@@ -1,8 +1,8 @@
 {
   "Description": "Detects the addition of a new rule to the Windows Firewall exception list for an application located in a potentially suspicious location.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9e2575e7-2cb9-4da1-adc8-ed94221dca5e",
-  "InsertDate": "2025-01-19T11:33:45Z",
-  "LastUpdateDate": "2025-01-19T11:33:45Z",
+  "InsertDate": "2025-01-21T09:27:27Z",
+  "LastUpdateDate": "2025-01-21T09:27:27Z",
   "Level": "high",
   "Name": "New Firewall Rule Added In Windows Firewall Exception List For Potential Suspicious Application",
   "Query": "sourcetype='windows-firewall-as' eql select * from _source_ where (((eventid = '2004' or eventid = '2071' or eventid = '2097') and (applicationpath like '%:\\perflogs\\%' or applicationpath like '%:\\temp\\%' or applicationpath like '%:\\tmp\\%' or applicationpath like '%:\\users\\public\\%' or applicationpath like '%:\\windows\\tasks\\%' or applicationpath like '%:\\windows\\temp\\%' or applicationpath like '%\\appdata\\local\\temp\\%')) and  not action = '2')",

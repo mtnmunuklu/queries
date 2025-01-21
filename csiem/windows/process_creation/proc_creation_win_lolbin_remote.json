@@ -1,8 +1,8 @@
 {
   "Description": "Remote.exe is part of WinDbg in the Windows SDK and can be used for AWL bypass and running remote files.\n\nAuthor: Christopher Peacock @SecurePeacock, SCYTHE @scythe_io\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4eddc365-79b4-43ff-a9d7-99422dc34b93",
-  "InsertDate": "2025-01-19T11:34:48Z",
-  "LastUpdateDate": "2025-01-19T11:34:48Z",
+  "InsertDate": "2025-01-21T09:28:37Z",
+  "LastUpdateDate": "2025-01-21T09:28:37Z",
   "Level": "medium",
   "Name": "Use of Remote.exe",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\remote.exe' and original_file_name = 'remote.exe'",

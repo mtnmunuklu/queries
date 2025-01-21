@@ -1,11 +1,11 @@
 {
   "Description": "Identifies IPs from which users grant access to other users on azure resources and alerts when a previously unseen source IP address is used.\n\nAuthor: sawwinnnaung\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c1182e02-49a3-481c-b3de-0fadc4091488",
-  "InsertDate": "2025-01-19T11:33:23Z",
-  "LastUpdateDate": "2025-01-19T11:33:23Z",
+  "InsertDate": "2025-01-21T09:27:03Z",
+  "LastUpdateDate": "2025-01-21T09:27:03Z",
   "Level": "medium",
   "Name": "Rare Subscription-level Operations In Azure",
-  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (log like '%microsoft.documentdb/databaseaccounts/listkeys/action%' or log like '%microsoft.maps/accounts/listkeys/action%' or log like '%microsoft.media/mediaservices/listkeys/action%' or log like '%microsoft.cognitiveservices/accounts/listkeys/action%' or log like '%microsoft.storage/storageaccounts/listkeys/action%' or log like '%microsoft.compute/snapshots/write%' or log like '%microsoft.network/networksecuritygroups/write%')",
+  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where Query('Microsoft.DocumentDB/databaseAccounts/listKeys/action OR Microsoft.Maps/accounts/listKeys/action OR Microsoft.Media/mediaservices/listKeys/action OR Microsoft.CognitiveServices/accounts/listKeys/action OR Microsoft.Storage/storageAccounts/listKeys/action OR Microsoft.Compute/snapshots/write OR Microsoft.Network/networkSecurityGroups/write')",
   "Tags": [
     "attack.t1003"
   ],

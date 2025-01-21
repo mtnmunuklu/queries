@@ -1,8 +1,8 @@
 {
   "Description": "Detects an Antivirus alert in a highly relevant file path or with a relevant file name.\nThis event must not be ignored just because the AV has blocked the malware but investigate, how it came there in the first place.\n\n\nAuthor: Florian Roth (Nextron Systems), Arnim Rupp\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c9a88268-0047-4824-ba6e-4d81ce0b907c",
-  "InsertDate": "2025-01-19T11:33:20Z",
-  "LastUpdateDate": "2025-01-19T11:33:20Z",
+  "InsertDate": "2025-01-21T09:27:00Z",
+  "LastUpdateDate": "2025-01-21T09:27:00Z",
   "Level": "high",
   "Name": "Antivirus Relevant File Paths Alerts",
   "Query": "eql select * from _source_ where ((filename like '%:\\perflogs\\%' or filename like '%:\\temp\\%' or filename like '%:\\users\\default\\%' or filename like '%:\\users\\public\\%' or filename like '%:\\windows\\%' or filename like '%/www/%' or filename like '%\\inetpub\\%' or filename like '%\\tsclient\\%' or filename like '%apache%' or filename like '%nginx%' or filename like '%tomcat%' or filename like '%weblogic%') or (filename like '%.asax' or filename like '%.ashx' or filename like '%.asmx' or filename like '%.asp' or filename like '%.aspx' or filename like '%.bat' or filename like '%.cfm' or filename like '%.cgi' or filename like '%.chm' or filename like '%.cmd' or filename like '%.dat' or filename like '%.ear' or filename like '%.gif' or filename like '%.hta' or filename like '%.jpeg' or filename like '%.jpg' or filename like '%.jsp' or filename like '%.jspx' or filename like '%.lnk' or filename like '%.msc' or filename like '%.php' or filename like '%.pl' or filename like '%.png' or filename like '%.ps1' or filename like '%.psm1' or filename like '%.py' or filename like '%.pyc' or filename like '%.rb' or filename like '%.scf' or filename like '%.sct' or filename like '%.sh' or filename like '%.svg' or filename like '%.txt' or filename like '%.vbe' or filename like '%.vbs' or filename like '%.war' or filename like '%.wll' or filename like '%.wsf' or filename like '%.wsh' or filename like '%.xll' or filename like '%.xml'))",

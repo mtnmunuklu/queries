@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of host or user discovery utilities such as \"whoami\", \"hostname\", \"id\", etc.\nAdversaries may use the information from System Owner/User Discovery during automated discovery to shape follow-on behaviors, including whether or not the adversary fully infects the target and/or attempts specific actions.\n\n\nAuthor: Timur Zinniatullin, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9a0d8ca0-2385-4020-b6c6-cb6153ca56f3",
-  "InsertDate": "2025-01-19T11:33:31Z",
-  "LastUpdateDate": "2025-01-19T11:33:31Z",
+  "InsertDate": "2025-01-21T09:27:13Z",
+  "LastUpdateDate": "2025-01-21T09:27:13Z",
   "Level": "low",
   "Name": "System Owner or User Discovery - Linux",
   "Query": "sourcetype='linux-auditd' eql select * from _source_ where type = 'execve' and (a0 = 'hostname' or a0 = 'id' or a0 = 'last' or a0 = 'users' or a0 = 'w' or a0 = 'who' or a0 = 'whoami')",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects activity when a member is removed from a security-enabled global group\n\nAuthor: Alexandr Yampolskyi, SOC Prime\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "02c39d30-02b5-45d2-b435-8aebfe5a8629",
-  "InsertDate": "2025-01-19T11:33:46Z",
-  "LastUpdateDate": "2025-01-19T11:33:46Z",
+  "InsertDate": "2025-01-21T09:27:28Z",
+  "LastUpdateDate": "2025-01-21T09:27:28Z",
   "Level": "low",
   "Name": "A Member Was Removed From a Security-Enabled Global Group",
   "Query": "sourcetype='windows-security' eql select * from _source_ where (eventid = '633' or eventid = '4729')",

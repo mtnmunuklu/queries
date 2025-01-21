@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of AdvancedRun utility in the context of the TrustedInstaller, SYSTEM, Local Service or Network Service accounts\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "fa00b701-44c6-4679-994d-5a18afa8a707",
-  "InsertDate": "2025-01-19T11:35:06Z",
-  "LastUpdateDate": "2025-01-19T11:35:06Z",
+  "InsertDate": "2025-01-21T09:29:08Z",
+  "LastUpdateDate": "2025-01-21T09:29:08Z",
   "Level": "high",
   "Name": "PUA - AdvancedRun Suspicious Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%/exefilename%' or command like '%/commandline%') and ((command like '% /runas 8 %' or command like '% /runas 4 %' or command like '% /runas 10 %' or command like '% /runas 11 %') and (command like '%/runas 8' or command like '%/runas 4' or command like '%/runas 10' or command like '%/runas 11')))",

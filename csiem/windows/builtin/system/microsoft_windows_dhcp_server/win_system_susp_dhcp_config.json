@@ -1,8 +1,8 @@
 {
   "Description": "This rule detects a DHCP server in which a specified Callout DLL (in registry) was loaded\n\nAuthor: Dimitrios Slamaris\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "13fc89a9-971e-4ca6-b9dc-aa53a445bf40",
-  "InsertDate": "2025-01-19T11:33:51Z",
-  "LastUpdateDate": "2025-01-19T11:33:51Z",
+  "InsertDate": "2025-01-21T09:27:34Z",
+  "LastUpdateDate": "2025-01-21T09:27:34Z",
   "Level": "high",
   "Name": "DHCP Server Loaded the CallOut DLL",
   "Query": "sourcetype='windows-system' eql select * from _source_ where eventid = '1033' and provider_name = 'microsoft-windows-dhcp-server'",

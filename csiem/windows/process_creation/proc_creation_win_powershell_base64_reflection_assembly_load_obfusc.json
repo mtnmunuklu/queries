@@ -1,8 +1,8 @@
 {
   "Description": "Detects suspicious base64 encoded and obfuscated \"LOAD\" keyword used in .NET \"reflection.assembly\"\n\nAuthor: pH-T (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9c0295ce-d60d-40bd-bd74-84673b7592b1",
-  "InsertDate": "2025-01-19T11:34:59Z",
-  "LastUpdateDate": "2025-01-19T11:34:59Z",
+  "InsertDate": "2025-01-21T09:28:48Z",
+  "LastUpdateDate": "2025-01-21T09:28:48Z",
   "Level": "high",
   "Name": "Suspicious Encoded And Obfuscated Reflection Assembly Load Function Call",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%oga6acgaigbmaciakwaiag8ayqbkaciakq%' or command like '%oaogaoaciataaiacsaigbvageazaaiacka%' or command like '%6adoakaaiaewaigaraciabwbhagqaigapa%' or command like '%oga6acgaigbmag8aigaraciayqbkaciakq%' or command like '%oaogaoaciatabvaciakwaiageazaaiacka%' or command like '%6adoakaaiaewabwaiacsaigbhagqaigapa%' or command like '%oga6acgaigbmag8ayqaiacsaigbkaciakq%' or command like '%oaogaoaciatabvageaigaraciazaaiacka%' or command like '%6adoakaaiaewabwbhaciakwaiagqaigapa%' or command like '%oga6acgajwbmaccakwanag8ayqbkaccakq%' or command like '%oaogaoaccataanacsajwbvageazaanacka%' or command like '%6adoakaanaewajwaraccabwbhagqajwapa%' or command like '%oga6acgajwbmag8ajwaraccayqbkaccakq%' or command like '%oaogaoaccatabvaccakwanageazaanacka%' or command like '%6adoakaanaewabwanacsajwbhagqajwapa%' or command like '%oga6acgajwbmag8ayqanacsajwbkaccakq%' or command like '%oaogaoaccatabvageajwaraccazaanacka%' or command like '%6adoakaanaewabwbhaccakwanagqajwapa%')",

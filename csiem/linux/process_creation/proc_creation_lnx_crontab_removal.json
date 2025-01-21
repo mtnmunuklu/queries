@@ -1,8 +1,8 @@
 {
   "Description": "Detects usage of the 'crontab' utility to remove the current crontab.\nThis is a common occurrence where cryptocurrency miners compete against each other by removing traces of other miners to hijack the maximum amount of resources possible\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c2e234de-03a3-41e1-b39a-1e56dc17ba67",
-  "InsertDate": "2025-01-19T11:33:33Z",
-  "LastUpdateDate": "2025-01-19T11:33:33Z",
+  "InsertDate": "2025-01-21T09:27:15Z",
+  "LastUpdateDate": "2025-01-21T09:27:15Z",
   "Level": "medium",
   "Name": "Remove Scheduled Cron Task/Job",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where process_path like '%crontab' and command like '% -r%'",

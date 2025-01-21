@@ -1,11 +1,11 @@
 {
   "Description": "Detects potential DLL sideloading of DLLs that are known to be abused from suspicious locations\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "799a5f48-0ac1-4e0f-9152-71d137d48c2a",
-  "InsertDate": "2025-01-19T11:34:07Z",
-  "LastUpdateDate": "2025-01-19T11:34:07Z",
+  "InsertDate": "2025-01-21T09:27:50Z",
+  "LastUpdateDate": "2025-01-21T09:27:50Z",
   "Level": "high",
   "Name": "Abusable DLL Potential Sideloading From Suspicious Location",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((image_loaded like '%\\coreclr.dll' or image_loaded like '%\\facesdk.dll' or image_loaded like '%\\hpcustpartui.dll' or image_loaded like '%\\libcef.dll' or image_loaded like '%\\zipdll.dll') and (((image_loaded like '%:\\users\\%' and image_loaded like '%\\favorites\\%') and (image_loaded like '%:\\users\\%' and image_loaded like '%\\favourites\\%') and (image_loaded like '%:\\users\\%' and image_loaded like '%\\contacts\\%') and (image_loaded like '%:\\users\\%' and image_loaded like '%\\pictures\\%')) or (image_loaded like '%:\\perflogs\\%' or image_loaded like '%:\\users\\public\\%' or image_loaded like '%\\temporary internet%' or image_loaded like '%\\windows\\temp\\%')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((image_loaded like '%\\coreclr.dll' or image_loaded like '%\\facesdk.dll' or image_loaded like '%\\hpcustpartui.dll' or image_loaded like '%\\libcef.dll' or image_loaded like '%\\zipdll.dll') and ((image_loaded like '%:\\perflogs\\%' or image_loaded like '%:\\users\\public\\%' or image_loaded like '%\\temporary internet%' or image_loaded like '%\\windows\\temp\\%') or ((image_loaded like '%:\\users\\%' and image_loaded like '%\\favorites\\%') and (image_loaded like '%:\\users\\%' and image_loaded like '%\\favourites\\%') and (image_loaded like '%:\\users\\%' and image_loaded like '%\\contacts\\%') and (image_loaded like '%:\\users\\%' and image_loaded like '%\\pictures\\%'))))",
   "Tags": [
     "attack.execution",
     "attack.t1059"

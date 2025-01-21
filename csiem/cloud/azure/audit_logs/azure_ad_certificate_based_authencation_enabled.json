@@ -1,8 +1,8 @@
 {
   "Description": "Detects when certificate based authentication has been enabled in an Azure Active Directory tenant.\n\nAuthor: Harjot Shah Singh, '@cyb3rjy0t'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c2496b41-16a9-4016-a776-b23f8910dc58",
-  "InsertDate": "2025-01-19T11:33:23Z",
-  "LastUpdateDate": "2025-01-19T11:33:23Z",
+  "InsertDate": "2025-01-21T09:27:03Z",
+  "LastUpdateDate": "2025-01-21T09:27:03Z",
   "Level": "medium",
   "Name": "Certificate-Based Authentication Enabled",
   "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where operationname = 'authentication methods policy update' and targetresources.modifiedproperties like '%authenticationmethodspolicy%'",

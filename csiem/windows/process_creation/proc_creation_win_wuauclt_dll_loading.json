@@ -1,11 +1,11 @@
 {
   "Description": "Detects the use of the Windows Update Client binary (wuauclt.exe) for proxy execution.\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research), Florian Roth (Nextron Systems), Sreeman, FPT.EagleEye Team\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "af77cf95-c469-471c-b6a0-946c685c4798",
-  "InsertDate": "2025-01-19T11:35:58Z",
-  "LastUpdateDate": "2025-01-19T11:35:58Z",
+  "InsertDate": "2025-01-21T09:31:11Z",
+  "LastUpdateDate": "2025-01-21T09:31:11Z",
   "Level": "high",
   "Name": "Proxy Execution Via Wuauclt.EXE",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\wuauclt.exe' and original_file_name = 'wuauclt.exe') and (command like '%updatedeploymentprovider%' and command like '%runhandlercomserver%')) and  not ((command like '%:\\windows\\uus\\packages\\preview\\amd64\\updatedeploy.dll /classid%' or command like '%:\\windows\\uus\\amd64\\updatedeploy.dll /classid%') or (command like '%:\\windows\\winsxs\\%' and command like '%\\updatedeploy.dll /classid %') or command like '% /updatedeploymentprovider updatedeploymentprovider.dll %' or command like '% wuaueng.dll %'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((command like '%updatedeploymentprovider%' and command like '%runhandlercomserver%') and (process_path like '%\\wuauclt.exe' and original_file_name = 'wuauclt.exe')) and  not (command like '% wuaueng.dll %' or (command like '%:\\windows\\uus\\packages\\preview\\amd64\\updatedeploy.dll /classid%' or command like '%:\\windows\\uus\\amd64\\updatedeploy.dll /classid%') or (command like '%:\\windows\\winsxs\\%' and command like '%\\updatedeploy.dll /classid %') or command like '% /updatedeploymentprovider updatedeploymentprovider.dll %'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1218",

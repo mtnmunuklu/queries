@@ -1,8 +1,8 @@
 {
   "Description": "Detects the creation of a ISO file in the Outlook temp folder or in the Appdata temp folder. Typical of Qakbot TTP from end-July 2022.\n\nAuthor: @sam0x90\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "2f9356ae-bf43-41b8-b858-4496d83b2acb",
-  "InsertDate": "2025-01-19T11:34:00Z",
-  "LastUpdateDate": "2025-01-19T11:34:00Z",
+  "InsertDate": "2025-01-21T09:27:44Z",
+  "LastUpdateDate": "2025-01-21T09:27:44Z",
   "Level": "high",
   "Name": "ISO File Created Within Temp Folders",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((filepath like '%\\appdata\\local\\temp\\%' and filepath like '%.zip\\%') and filepath like '%.iso') or (filepath like '%\\appdata\\local\\microsoft\\windows\\inetcache\\content.outlook\\%' and filepath like '%.iso'))",

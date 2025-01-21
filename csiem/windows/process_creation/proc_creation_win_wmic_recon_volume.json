@@ -1,8 +1,8 @@
 {
   "Description": "An adversary might use WMI to discover information about the system, such as the volume name, size,\nfree space, and other disk information. This can be done using the `wmic` command-line utility and has been\nobserved being used by threat actors such as Volt Typhoon.\n\n\nAuthor: Stephen Lincoln `@slincoln-aiq`(AttackIQ)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c79da740-5030-45ec-a2e0-479e824a562c",
-  "InsertDate": "2025-01-19T11:35:56Z",
-  "LastUpdateDate": "2025-01-19T11:35:56Z",
+  "InsertDate": "2025-01-21T09:31:07Z",
+  "LastUpdateDate": "2025-01-21T09:31:07Z",
   "Level": "medium",
   "Name": "System Disk And Volume Reconnaissance Via Wmic.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\wmic.exe' and original_file_name = 'wmic.exe') and (command like '%volume%' or command like '%path win32_logicaldisk%'))",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of a renamed \"ftp.exe\" binary based on the PE metadata fields\n\nAuthor: Victor Sergeev, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "277a4393-446c-449a-b0ed-7fdc7795244c",
-  "InsertDate": "2025-01-19T11:35:16Z",
-  "LastUpdateDate": "2025-01-19T11:35:16Z",
+  "InsertDate": "2025-01-21T09:29:49Z",
+  "LastUpdateDate": "2025-01-21T09:29:49Z",
   "Level": "medium",
   "Name": "Renamed FTP.EXE Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (original_file_name = 'ftp.exe' and  not process_path like '%\\ftp.exe')",

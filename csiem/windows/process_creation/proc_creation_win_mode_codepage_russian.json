@@ -1,11 +1,11 @@
 {
   "Description": "Detects a CodePage modification using the \"mode.com\" utility to Russian language.\nThis behavior has been used by threat actors behind Dharma ransomware.\n\n\nAuthor: Joseliyo Sanchez, @Joseliyo_Jstnk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "12fbff88-16b5-4b42-9754-cd001a789fb3",
-  "InsertDate": "2025-01-19T11:34:50Z",
-  "LastUpdateDate": "2025-01-19T11:34:50Z",
+  "InsertDate": "2025-01-21T09:28:40Z",
+  "LastUpdateDate": "2025-01-21T09:28:40Z",
   "Level": "medium",
   "Name": "CodePage Modification Via MODE.COM To Russian Language",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\mode.com' and original_file_name = 'mode.com') and ((command like '% con %' and command like '% cp %' and command like '% select=%') and (command like '%=1251' or command like '%=866')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((command like '% con %' and command like '% cp %' and command like '% select=%') and (command like '%=1251' or command like '%=866')) and (process_path like '%\\mode.com' and original_file_name = 'mode.com'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1036"

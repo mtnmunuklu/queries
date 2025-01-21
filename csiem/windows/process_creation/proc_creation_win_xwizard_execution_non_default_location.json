@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of Xwizard tool from a non-default directory.\nWhen executed from a non-default directory, this utility can be abused in order to side load a custom version of \"xwizards.dll\".\n\n\nAuthor: Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "193d5ccd-6f59-40c6-b5b0-8e32d5ddd3d1",
-  "InsertDate": "2025-01-19T11:35:59Z",
-  "LastUpdateDate": "2025-01-19T11:35:59Z",
+  "InsertDate": "2025-01-21T09:31:11Z",
+  "LastUpdateDate": "2025-01-21T09:31:11Z",
   "Level": "high",
   "Name": "Xwizard.EXE Execution From Non-Default Location",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\xwizard.exe' and original_file_name = 'xwizard.exe') and  not (process_path like 'c:\\windows\\system32\\%' or process_path like 'c:\\windows\\syswow64\\%' or process_path like 'c:\\windows\\winsxs\\%'))",

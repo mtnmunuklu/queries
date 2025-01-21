@@ -1,11 +1,11 @@
 {
   "Description": "Detects executables launched from external WebDAV shares using the WebDAV Explorer integration, commonly seen in initial access campaigns.\n\n\nAuthor: Ahmed Farouk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1ae64f96-72b6-48b3-ad3d-e71dff6c6398",
-  "InsertDate": "2025-01-19T11:33:42Z",
-  "LastUpdateDate": "2025-01-19T11:33:42Z",
+  "InsertDate": "2025-01-21T09:27:24Z",
+  "LastUpdateDate": "2025-01-21T09:27:24Z",
   "Level": "high",
   "Name": "Suspicious External WebDAV Execution",
-  "Query": "eql select * from _source_ where (((c-useragent like 'microsoft-webdav-miniredir/%' and cs-method = 'get') and (c-uri like '%.7z' or c-uri like '%.bat' or c-uri like '%.dat' or c-uri like '%.cmd' or c-uri like '%.exe' or c-uri like '%.js' or c-uri like '%.lnk' or c-uri like '%.ps1' or c-uri like '%.rar' or c-uri like '%.url' or c-uri like '%.vbe' or c-uri like '%.vbs' or c-uri like '%.zip')) and  not (dst_ip cidr '127.0.0.0/8' or dst_ip cidr '10.0.0.0/8' or dst_ip cidr '172.16.0.0/12' or dst_ip cidr '192.168.0.0/16' or dst_ip cidr '169.254.0.0/16' or dst_ip cidr '::1/128' or dst_ip cidr 'fe80::/10' or dst_ip cidr 'fc00::/7'))",
+  "Query": "eql select * from _source_ where (((c-uri like '%.7z' or c-uri like '%.bat' or c-uri like '%.dat' or c-uri like '%.cmd' or c-uri like '%.exe' or c-uri like '%.js' or c-uri like '%.lnk' or c-uri like '%.ps1' or c-uri like '%.rar' or c-uri like '%.url' or c-uri like '%.vbe' or c-uri like '%.vbs' or c-uri like '%.zip') and (c-useragent like 'microsoft-webdav-miniredir/%' and cs-method = 'get')) and  not (dst_ip cidr '127.0.0.0/8' or dst_ip cidr '10.0.0.0/8' or dst_ip cidr '172.16.0.0/12' or dst_ip cidr '192.168.0.0/16' or dst_ip cidr '169.254.0.0/16' or dst_ip cidr '::1/128' or dst_ip cidr 'fe80::/10' or dst_ip cidr 'fc00::/7'))",
   "Tags": [
     "attack.initial-access",
     "attack.t1584",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects when an account makes changes to the ingress or egress rules of a security group.\nThis can indicate that an attacker is attempting to open up new attack vectors in the account, that they are trying to exfiltrate data over the network, or that they are trying to allow machines in that VPC/Subnet to contact a C\u0026C server.\n\n\nAuthor: jamesc-grafana\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6fb77778-040f-4015-9440-572aa9b6b580",
-  "InsertDate": "2025-01-19T11:33:20Z",
-  "LastUpdateDate": "2025-01-19T11:33:20Z",
+  "InsertDate": "2025-01-21T09:27:00Z",
+  "LastUpdateDate": "2025-01-21T09:27:00Z",
   "Level": "medium",
   "Name": "Ingress/Egress Security Group Modification",
   "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where eventsource = 'ec2.amazonaws.com' and (eventname = 'authorizesecuritygroupegress' or eventname = 'authorizesecuritygroupingress' or eventname = 'revokesecuritygroupegress' or eventname = 'revokesecuritygroupingress')",

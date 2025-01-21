@@ -1,8 +1,8 @@
 {
   "Description": "In Kaspersky's 2020 Incident Response Analyst Report they listed legitimate tool \"Mouse Lock\" as being used for both credential access and collection in security incidents.\n\nAuthor: Cian Heasley\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c9192ad9-75e5-43eb-8647-82a0a5b493e3",
-  "InsertDate": "2025-01-19T11:35:07Z",
-  "LastUpdateDate": "2025-01-19T11:35:07Z",
+  "InsertDate": "2025-01-21T09:29:12Z",
+  "LastUpdateDate": "2025-01-21T09:29:12Z",
   "Level": "medium",
   "Name": "PUA - Mouse Lock Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where product like '%mouse lock%' and company like '%misc314%' and command like '%mouse lock_%'",

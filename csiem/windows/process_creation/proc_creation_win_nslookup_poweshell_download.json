@@ -1,8 +1,8 @@
 {
   "Description": "Detects suspicious powershell download cradle using nslookup. This cradle uses nslookup to extract payloads from DNS records\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1b3b01c7-84e9-4072-86e5-fc285a41ff23",
-  "InsertDate": "2025-01-19T11:34:56Z",
-  "LastUpdateDate": "2025-01-19T11:34:56Z",
+  "InsertDate": "2025-01-21T09:28:45Z",
+  "LastUpdateDate": "2025-01-21T09:28:45Z",
   "Level": "medium",
   "Name": "Nslookup PowerShell Download Cradle - ProcessCreation",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\nslookup.exe%' and original_file_name = '\\nslookup.exe') and ((parent_process_path like '%\\powershell.exe' or parent_process_path like '%\\pwsh.exe') and (command like '% -q=txt %' or command like '% -querytype=txt %')))",

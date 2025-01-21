@@ -1,8 +1,8 @@
 {
   "Description": "Detects the shell open key manipulation (exefile and ms-settings) used for persistence and the pattern of UAC Bypass using fodhelper.exe, computerdefaults.exe, slui.exe via registry keys (e.g. UACMe 33 or 62)\n\nAuthor: Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "152f3630-77c1-4284-bcc0-4cc68ab2f6e7",
-  "InsertDate": "2025-01-19T11:36:03Z",
-  "LastUpdateDate": "2025-01-19T11:36:03Z",
+  "InsertDate": "2025-01-21T09:31:16Z",
+  "LastUpdateDate": "2025-01-21T09:31:16Z",
   "Level": "high",
   "Name": "Shell Open Registry Keys Manipulation",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((event_type = 'setvalue' and target_object like '%classes\\ms-settings\\shell\\open\\command\\symboliclinkvalue' and details like '%\\software\\classes\\{%') or target_object like '%classes\\ms-settings\\shell\\open\\command\\delegateexecute' or ((event_type = 'setvalue' and (target_object like '%classes\\ms-settings\\shell\\open\\command\\(default)' or target_object like '%classes\\exefile\\shell\\open\\command\\(default)')) and  not details = '(empty)'))",

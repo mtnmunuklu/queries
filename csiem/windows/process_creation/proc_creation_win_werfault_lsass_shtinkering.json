@@ -1,11 +1,11 @@
 {
   "Description": "Detects potential credential dumping via Windows Error Reporting LSASS Shtinkering technique which uses the Windows Error Reporting to dump lsass\n\nAuthor: @pbssubhash , Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9a4ccd1a-3526-4d99-b980-9f9c5d3a6ff3",
-  "InsertDate": "2025-01-19T11:35:50Z",
-  "LastUpdateDate": "2025-01-19T11:35:50Z",
+  "InsertDate": "2025-01-21T09:30:50Z",
+  "LastUpdateDate": "2025-01-21T09:30:50Z",
   "Level": "high",
   "Name": "Potential Credential Dumping Via WER",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((((puser like '%authori%' or puser like '%autori%') and (username like '%authori%' or username like '%autori%') and (command like '% -u -p %' and command like '% -ip %' and command like '% -s %')) and (process_path like '%\\werfault.exe' and original_file_name = 'werfault.exe')) and  not parent_process_path = 'c:\\windows\\system32\\lsass.exe')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\werfault.exe' and original_file_name = 'werfault.exe') and ((puser like '%authori%' or puser like '%autori%') and (username like '%authori%' or username like '%autori%') and (command like '% -u -p %' and command like '% -ip %' and command like '% -s %'))) and  not parent_process_path = 'c:\\windows\\system32\\lsass.exe')",
   "Tags": [
     "attack.credential-access",
     "attack.t1003.001"

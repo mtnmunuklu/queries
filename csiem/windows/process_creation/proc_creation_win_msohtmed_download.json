@@ -1,8 +1,8 @@
 {
   "Description": "Detects usage of \"MSOHTMED\" to download arbitrary files\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "459f2f98-397b-4a4a-9f47-6a5ec2f1c69d",
-  "InsertDate": "2025-01-19T11:34:53Z",
-  "LastUpdateDate": "2025-01-19T11:34:53Z",
+  "InsertDate": "2025-01-21T09:28:41Z",
+  "LastUpdateDate": "2025-01-21T09:28:41Z",
   "Level": "medium",
   "Name": "Arbitrary File Download Via MSOHTMED.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\msohtmed.exe' and original_file_name = 'msohtmed.exe') and (command like '%ftp://%' or command like '%http://%' or command like '%https://%'))",

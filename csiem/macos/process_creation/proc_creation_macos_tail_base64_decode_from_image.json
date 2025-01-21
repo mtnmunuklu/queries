@@ -1,11 +1,11 @@
 {
   "Description": "Detects the use of tail to extract bytes at an offset from an image and then decode the base64 value to create a new file with the decoded content. The detected execution is a bash one-liner.\n\n\nAuthor: Joseliyo Sanchez, @Joseliyo_Jstnk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "09a910bf-f71f-4737-9c40-88880ba5913d",
-  "InsertDate": "2025-01-19T11:33:39Z",
-  "LastUpdateDate": "2025-01-19T11:33:39Z",
+  "InsertDate": "2025-01-21T09:27:21Z",
+  "LastUpdateDate": "2025-01-21T09:27:21Z",
   "Level": "high",
   "Name": "Potential Base64 Decoded From Images",
-  "Query": "sourcetype like 'macos-%' eql select * from _source_ where (process_path like '%/bash' and (command like '%tail%' and command like '%-c%') and (command like '%base64%' and command like '%-d%' and command like '%\u003e%') and (command like '%.avif%' or command like '%.gif%' or command like '%.jfif%' or command like '%.jpeg%' or command like '%.jpg%' or command like '%.pjp%' or command like '%.pjpeg%' or command like '%.png%' or command like '%.svg%' or command like '%.webp%'))",
+  "Query": "sourcetype like 'macos-%' eql select * from _source_ where ((command like '%tail%' and command like '%-c%') and (command like '%base64%' and command like '%-d%' and command like '%\u003e%') and (command like '%.avif%' or command like '%.gif%' or command like '%.jfif%' or command like '%.jpeg%' or command like '%.jpg%' or command like '%.pjp%' or command like '%.pjpeg%' or command like '%.png%' or command like '%.svg%' or command like '%.webp%') and process_path like '%/bash')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1140"

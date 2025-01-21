@@ -1,11 +1,11 @@
 {
   "Description": "Detects command line activity that tries to clear or disable any ETW trace log which could be a sign of logging evasion.\n\n\nAuthor: @neu5ron, Florian Roth (Nextron Systems), Jonhnathan Ribeiro, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a238b5d0-ce2d-4414-a676-7a531b3d13d6",
-  "InsertDate": "2025-01-19T11:35:33Z",
-  "LastUpdateDate": "2025-01-19T11:35:33Z",
+  "InsertDate": "2025-01-21T09:30:16Z",
+  "LastUpdateDate": "2025-01-21T09:30:16Z",
   "Level": "high",
   "Name": "ETW Trace Evasion Activity",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%clear-log%' and command like '%/trace%') or (command like '%sl%' and command like '%/e:false%') or (command like '%set-log%' and command like '%/e:false%') or (command like '%logman%' and command like '%update%' and command like '%trace%' and command like '%--p%' and command like '%-ets%') or command like '%remove-etwtraceprovider%' or (command like '%set-etwtraceprovider%' and command like '%0x11%') or (command like '%cl%' and command like '%/trace%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%set-etwtraceprovider%' and command like '%0x11%') or (command like '%cl%' and command like '%/trace%') or (command like '%clear-log%' and command like '%/trace%') or (command like '%sl%' and command like '%/e:false%') or (command like '%set-log%' and command like '%/e:false%') or (command like '%logman%' and command like '%update%' and command like '%trace%' and command like '%--p%' and command like '%-ets%') or command like '%remove-etwtraceprovider%')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1070",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects the creation of files created by mimikatz such as \".kirbi\", \"mimilsa.log\", etc.\n\nAuthor: Florian Roth (Nextron Systems), David ANDRE\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9e099d99-44c2-42b6-a6d8-54c3545cab29",
-  "InsertDate": "2025-01-19T11:34:00Z",
-  "LastUpdateDate": "2025-01-19T11:34:00Z",
+  "InsertDate": "2025-01-21T09:27:43Z",
+  "LastUpdateDate": "2025-01-21T09:27:43Z",
   "Level": "critical",
   "Name": "HackTool - Mimikatz Kirbi File Creation",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%.kirbi' or filepath like '%mimilsa.log')",

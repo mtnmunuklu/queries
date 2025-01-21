@@ -1,8 +1,8 @@
 {
   "Description": "Detects the abuse of the exefile handler in new file association. Used for bypass of security products.\n\nAuthor: Andreas Hunkeler (@Karneades)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "44a22d59-b175-4f13-8c16-cbaef5b581ff",
-  "InsertDate": "2025-01-19T11:36:13Z",
-  "LastUpdateDate": "2025-01-19T11:36:13Z",
+  "InsertDate": "2025-01-21T09:31:39Z",
+  "LastUpdateDate": "2025-01-21T09:31:39Z",
   "Level": "high",
   "Name": "New File Association Using Exefile",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where target_object like '%classes\\.%' and details = 'exefile'",

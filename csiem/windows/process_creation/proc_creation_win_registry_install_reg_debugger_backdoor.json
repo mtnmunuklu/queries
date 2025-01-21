@@ -1,8 +1,8 @@
 {
   "Description": "Detects the registration of a debugger for a program that is available in the logon screen (sticky key backdoor).\n\nAuthor: Florian Roth (Nextron Systems), oscd.community, Jonhnathan Ribeiro\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ae215552-081e-44c7-805f-be16f975c8a2",
-  "InsertDate": "2025-01-19T11:35:12Z",
-  "LastUpdateDate": "2025-01-19T11:35:12Z",
+  "InsertDate": "2025-01-21T09:29:39Z",
+  "LastUpdateDate": "2025-01-21T09:29:39Z",
   "Level": "high",
   "Name": "Suspicious Debugger Registration Cmdline",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%\\currentversion\\image file execution options\\%' and (command like '%sethc.exe%' or command like '%utilman.exe%' or command like '%osk.exe%' or command like '%magnify.exe%' or command like '%narrator.exe%' or command like '%displayswitch.exe%' or command like '%atbroker.exe%' or command like '%helppane.exe%'))",

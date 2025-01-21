@@ -1,8 +1,8 @@
 {
   "Description": "Detects changes to the PowerShell execution policy registry key in order to bypass signing requirements for script execution from the CommandLine\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "cf2e938e-9a3e-4fe8-a347-411642b28a9f",
-  "InsertDate": "2025-01-19T11:35:12Z",
-  "LastUpdateDate": "2025-01-19T11:35:12Z",
+  "InsertDate": "2025-01-21T09:29:40Z",
+  "LastUpdateDate": "2025-01-21T09:29:40Z",
   "Level": "high",
   "Name": "Potential PowerShell Execution Policy Tampering - ProcCreation",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%\\shellids\\microsoft.powershell\\executionpolicy%' or command like '%\\policies\\microsoft\\windows\\powershell\\executionpolicy%') and (command like '%bypass%' or command like '%remotesigned%' or command like '%unrestricted%'))",

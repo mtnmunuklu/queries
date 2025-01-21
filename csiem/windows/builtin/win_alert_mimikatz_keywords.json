@@ -1,11 +1,11 @@
 {
   "Description": "This method detects mimikatz keywords in different Eventlogs (some of them only appear in older Mimikatz version that are however still used by different threat groups)\n\nAuthor: Florian Roth (Nextron Systems), David ANDRE (additional keywords)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "06d71506-7beb-4f22-8888-e2e5e2ca7fd8",
-  "InsertDate": "2025-01-19T11:33:54Z",
-  "LastUpdateDate": "2025-01-19T11:33:54Z",
+  "InsertDate": "2025-01-21T09:27:37Z",
+  "LastUpdateDate": "2025-01-21T09:27:37Z",
   "Level": "high",
   "Name": "Mimikatz Use",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((log like '%dpapi::masterkey%' or log like '%eo.oe.kiwi%' or log like '%event::clear%' or log like '%event::drop%' or log like '%gentilkiwi.com%' or log like '%kerberos::golden%' or log like '%kerberos::ptc%' or log like '%kerberos::ptt%' or log like '%kerberos::tgt%' or log like '%kiwi legit printer%' or log like '%lsadump::%' or log like '%mimidrv.sys%' or log like '%\\mimilib.dll%' or log like '%misc::printnightmare%' or log like '%misc::shadowcopies%' or log like '%misc::skeleton%' or log like '%privilege::backup%' or log like '%privilege::debug%' or log like '%privilege::driver%' or log like '%sekurlsa::%') and  not eventid = '15')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (Query('dpapi::masterkey OR eo.oe.kiwi OR event::clear OR event::drop OR gentilkiwi.com OR kerberos::golden OR kerberos::ptc OR kerberos::ptt OR kerberos::tgt OR Kiwi Legit Printer OR lsadump:: OR mimidrv.sys OR \\mimilib.dll OR misc::printnightmare OR misc::shadowcopies OR misc::skeleton OR privilege::backup OR privilege::debug OR privilege::driver OR sekurlsa::') and  not eventid = '15')",
   "Tags": [
     "attack.s0002",
     "attack.lateral-movement",

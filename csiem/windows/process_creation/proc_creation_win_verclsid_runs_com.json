@@ -1,11 +1,11 @@
 {
   "Description": "Detects when verclsid.exe is used to run COM object via GUID\n\nAuthor: Victor Sergeev, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d06be4b9-8045-428b-a567-740a26d9db25",
-  "InsertDate": "2025-01-19T11:35:47Z",
-  "LastUpdateDate": "2025-01-19T11:35:47Z",
+  "InsertDate": "2025-01-21T09:30:47Z",
+  "LastUpdateDate": "2025-01-21T09:30:47Z",
   "Level": "medium",
   "Name": "Verclsid.exe Runs COM Object",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\verclsid.exe' and original_file_name = 'verclsid.exe') and (command like '%/s%' and command like '%/c%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%/s%' and command like '%/c%') and (process_path like '%\\verclsid.exe' and original_file_name = 'verclsid.exe'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1218"

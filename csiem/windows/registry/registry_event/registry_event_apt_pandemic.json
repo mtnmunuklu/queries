@@ -1,8 +1,8 @@
 {
   "Description": "Detects Pandemic Windows Implant\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "47e0852a-cf81-4494-a8e6-31864f8c86ed",
-  "InsertDate": "2025-01-19T11:36:01Z",
-  "LastUpdateDate": "2025-01-19T11:36:01Z",
+  "InsertDate": "2025-01-21T09:31:13Z",
+  "LastUpdateDate": "2025-01-21T09:31:13Z",
   "Level": "critical",
   "Name": "Pandemic Registry Key",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where target_object like '%\\system\\currentcontrolset\\services\\null\\instance%'",

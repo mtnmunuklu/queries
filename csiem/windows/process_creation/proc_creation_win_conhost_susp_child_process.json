@@ -1,11 +1,11 @@
 {
   "Description": "Detects uncommon \"conhost\" child processes. This could be a sign of \"conhost\" usage as a LOLBIN or potential process injection activity.\n\nAuthor: omkar72\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "7dc2dedd-7603-461a-bc13-15803d132355",
-  "InsertDate": "2025-01-19T11:34:34Z",
-  "LastUpdateDate": "2025-01-19T11:34:34Z",
+  "InsertDate": "2025-01-21T09:28:22Z",
+  "LastUpdateDate": "2025-01-21T09:28:22Z",
   "Level": "medium",
   "Name": "Uncommon Child Process Of Conhost.EXE",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\conhost.exe' and  not (process_path like '%:\\windows\\system32\\conhost.exe' or process_path = 'null' or process_path = '') and  not provider_name = 'systemtraceprovider-process')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\conhost.exe' and  not (process_path = 'null' or process_path = '' or process_path like '%:\\windows\\system32\\conhost.exe') and  not provider_name = 'systemtraceprovider-process')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1202"

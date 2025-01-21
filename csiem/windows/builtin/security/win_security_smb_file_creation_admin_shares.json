@@ -1,8 +1,8 @@
 {
   "Description": "Look for non-system accounts SMB accessing a file with write (0x2) access mask via administrative share (i.e C$).\n\nAuthor: Jose Rodriguez (@Cyb3rPandaH), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b210394c-ba12-4f89-9117-44a2464b9511",
-  "InsertDate": "2025-01-19T11:33:49Z",
-  "LastUpdateDate": "2025-01-19T11:33:49Z",
+  "InsertDate": "2025-01-21T09:27:32Z",
+  "LastUpdateDate": "2025-01-21T09:27:32Z",
   "Level": "high",
   "Name": "SMB Create Remote File Admin Share",
   "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '5145' and sharename like '%c$' and accessmask = '0x2') and  not subjectusername like '%$')",

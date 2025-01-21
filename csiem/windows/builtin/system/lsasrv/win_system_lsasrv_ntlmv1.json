@@ -1,8 +1,8 @@
 {
   "Description": "Detects the reporting of NTLMv1 being used between a client and server. NTLMv1 is insecure as the underlying encryption algorithms can be brute-forced by modern hardware.\n\nAuthor: Tim Shelton, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e9d4ab66-a532-4ef7-a502-66a9e4a34f5d",
-  "InsertDate": "2025-01-19T11:33:51Z",
-  "LastUpdateDate": "2025-01-19T11:33:51Z",
+  "InsertDate": "2025-01-21T09:27:34Z",
+  "LastUpdateDate": "2025-01-21T09:27:34Z",
   "Level": "medium",
   "Name": "NTLMv1 Logon Between Client and Server",
   "Query": "sourcetype='windows-system' eql select * from _source_ where provider_name = 'lsasrv' and (eventid = '6038' or eventid = '6039')",

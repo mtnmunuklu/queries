@@ -1,8 +1,8 @@
 {
   "Description": "Detects usage of the \"sc.exe\" utility adding a new service with special permission seen used by threat actors which makes the service hidden and unremovable.\n\nAuthor: Andreas Hunkeler (@Karneades)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a537cfc3-4297-4789-92b5-345bfd845ad0",
-  "InsertDate": "2025-01-19T11:35:22Z",
-  "LastUpdateDate": "2025-01-19T11:35:22Z",
+  "InsertDate": "2025-01-21T09:29:59Z",
+  "LastUpdateDate": "2025-01-21T09:29:59Z",
   "Level": "high",
   "Name": "Service DACL Abuse To Hide Services Via Sc.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\sc.exe' and original_file_name = 'sc.exe') and (command like '%sdset%' and command like '%dclcwpdtsd%'))",

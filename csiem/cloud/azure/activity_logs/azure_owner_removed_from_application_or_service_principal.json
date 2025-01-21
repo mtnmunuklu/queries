@@ -1,8 +1,8 @@
 {
   "Description": "Identifies when a owner is was removed from a application or service principal in Azure.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "636e30d5-3736-42ea-96b1-e6e2f8429fd6",
-  "InsertDate": "2025-01-19T11:33:23Z",
-  "LastUpdateDate": "2025-01-19T11:33:23Z",
+  "InsertDate": "2025-01-21T09:27:03Z",
+  "LastUpdateDate": "2025-01-21T09:27:03Z",
   "Level": "medium",
   "Name": "Azure Owner Removed From Application or Service Principal",
   "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (properties.message = 'remove owner from service principal' or properties.message = 'remove owner from application')",

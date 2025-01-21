@@ -1,8 +1,8 @@
 {
   "Description": "Detects NetNTLM downgrade attack\n\nAuthor: Florian Roth (Nextron Systems), wagga\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d3abac66-f11c-4ed0-8acb-50cc29c97eed",
-  "InsertDate": "2025-01-19T11:33:48Z",
-  "LastUpdateDate": "2025-01-19T11:33:48Z",
+  "InsertDate": "2025-01-21T09:27:31Z",
+  "LastUpdateDate": "2025-01-21T09:27:31Z",
   "Level": "high",
   "Name": "NetNTLM Downgrade Attack",
   "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4657' and (objectname like '%\\registry\\machine\\system%' and objectname like '%controlset%' and objectname like '%\\control\\lsa%') and (objectvaluename = 'lmcompatibilitylevel' or objectvaluename = 'ntlmminclientsec' or objectvaluename = 'restrictsendingntlmtraffic')",

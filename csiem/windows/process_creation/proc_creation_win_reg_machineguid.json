@@ -1,8 +1,8 @@
 {
   "Description": "Use of reg to get MachineGuid information\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f5240972-3938-4e56-8e4b-e33893176c1f",
-  "InsertDate": "2025-01-19T11:35:10Z",
-  "LastUpdateDate": "2025-01-19T11:35:10Z",
+  "InsertDate": "2025-01-21T09:29:31Z",
+  "LastUpdateDate": "2025-01-21T09:29:31Z",
   "Level": "low",
   "Name": "Suspicious Query of MachineGUID",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\reg.exe' and (command like '%software\\microsoft\\cryptography%' and command like '%/v %' and command like '%machineguid%')",

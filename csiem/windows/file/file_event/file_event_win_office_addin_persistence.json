@@ -1,11 +1,11 @@
 {
   "Description": "Detects potential persistence activity via startup add-ins that load when Microsoft Office starts (.wll/.xll are simply .dll fit for Word or Excel).\n\nAuthor: NVISO\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "8e1cb247-6cf6-42fa-b440-3f27d57e9936",
-  "InsertDate": "2025-01-19T11:34:01Z",
-  "LastUpdateDate": "2025-01-19T11:34:01Z",
+  "InsertDate": "2025-01-21T09:27:44Z",
+  "LastUpdateDate": "2025-01-21T09:27:44Z",
   "Level": "high",
   "Name": "Potential Persistence Via Microsoft Office Add-In",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((filepath like '%\\microsoft\\word\\startup\\%' and filepath like '%.wll') or (filepath like '%\\microsoft\\excel\\startup\\%' and filepath like '%.xll') or (filepath like '%microsoft\\excel\\xlstart\\%' and filepath like '%.xlam') or (filepath like '%\\microsoft\\addins\\%' and (filepath like '%.xlam' or filepath like '%.xla' or filepath like '%.ppam')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((filepath like '%microsoft\\excel\\xlstart\\%' and filepath like '%.xlam') or (filepath like '%\\microsoft\\addins\\%' and (filepath like '%.xlam' or filepath like '%.xla' or filepath like '%.ppam')) or (filepath like '%\\microsoft\\word\\startup\\%' and filepath like '%.wll') or (filepath like '%\\microsoft\\excel\\startup\\%' and filepath like '%.xll'))",
   "Tags": [
     "attack.persistence",
     "attack.t1137.006"

@@ -1,8 +1,8 @@
 {
   "Description": "Detects WRITE_DAC access to a domain object\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "028c7842-4243-41cd-be6f-12f3cf1a26c7",
-  "InsertDate": "2025-01-19T11:33:46Z",
-  "LastUpdateDate": "2025-01-19T11:33:46Z",
+  "InsertDate": "2025-01-21T09:27:29Z",
+  "LastUpdateDate": "2025-01-21T09:27:29Z",
   "Level": "critical",
   "Name": "AD Object WriteDAC Access",
   "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4662' and objectserver = 'ds' and accessmask = '0x40000' and (objecttype = '19195a5b-6da0-11d0-afd3-00c04fd930c9' or objecttype = 'domaindns')",

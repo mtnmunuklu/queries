@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of certutil with certain flags that allow the utility to download files.\n\nAuthor: Florian Roth (Nextron Systems), Jonhnathan Ribeiro, oscd.community, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "19b08b1c-861d-4e75-a1ef-ea0c1baf202b",
-  "InsertDate": "2025-01-19T11:34:32Z",
-  "LastUpdateDate": "2025-01-19T11:34:32Z",
+  "InsertDate": "2025-01-21T09:28:19Z",
+  "LastUpdateDate": "2025-01-21T09:28:19Z",
   "Level": "medium",
   "Name": "Suspicious Download Via Certutil.EXE",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\certutil.exe' and original_file_name = 'certutil.exe') and (command like '%urlcache %' or command like '%verifyctl %') and command like '%http%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%http%' and (process_path like '%\\certutil.exe' and original_file_name = 'certutil.exe') and (command like '%urlcache %' or command like '%verifyctl %'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1027"

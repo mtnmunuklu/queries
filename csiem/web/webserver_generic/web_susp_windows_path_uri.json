@@ -1,8 +1,8 @@
 {
   "Description": "Detects suspicious Windows strings in URI which could indicate possible exfiltration or webshell communication\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9f6a34b4-2688-4eb7-a7f5-e39fef573d0e",
-  "InsertDate": "2025-01-19T11:33:42Z",
-  "LastUpdateDate": "2025-01-19T11:33:42Z",
+  "InsertDate": "2025-01-21T09:27:24Z",
+  "LastUpdateDate": "2025-01-21T09:27:24Z",
   "Level": "high",
   "Name": "Suspicious Windows Strings In URI",
   "Query": "eql select * from _source_ where (cs-uri-query like '%=c:/users%' or cs-uri-query like '%=c:/program%20files%' or cs-uri-query like '%=c:/windows%' or cs-uri-query like '%=c%3a%5cusers%' or cs-uri-query like '%=c%3a%5cprogram%20files%' or cs-uri-query like '%=c%3a%5cwindows%')",

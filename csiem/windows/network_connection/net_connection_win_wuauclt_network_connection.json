@@ -1,8 +1,8 @@
 {
   "Description": "Detects the use of the Windows Update Client binary (wuauclt.exe) to proxy execute code and making network connections.\nOne could easily make the DLL spawn a new process and inject to it to proxy the network connection and bypass this rule.\n\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c649a6c7-cd8c-4a78-9c04-000fc76df954",
-  "InsertDate": "2025-01-19T11:34:13Z",
-  "LastUpdateDate": "2025-01-19T11:34:13Z",
+  "InsertDate": "2025-01-21T09:27:56Z",
+  "LastUpdateDate": "2025-01-21T09:27:56Z",
   "Level": "medium",
   "Name": "Potentially Suspicious Wuauclt Network Connection",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%wuauclt%' and command like '% /runhandlercomserver%') and  not ((dst_ip cidr '127.0.0.0/8' or dst_ip cidr '10.0.0.0/8' or dst_ip cidr '169.254.0.0/16' or dst_ip cidr '172.16.0.0/12' or dst_ip cidr '192.168.0.0/16' or dst_ip cidr '::1/128' or dst_ip cidr 'fe80::/10' or dst_ip cidr 'fc00::/7') or (dst_ip cidr '20.184.0.0/13' or dst_ip cidr '20.192.0.0/10' or dst_ip cidr '23.79.0.0/16' or dst_ip cidr '51.10.0.0/15' or dst_ip cidr '51.103.0.0/16' or dst_ip cidr '51.104.0.0/15' or dst_ip cidr '52.224.0.0/11') or (command like '%:\\windows\\uus\\packages\\preview\\amd64\\updatedeploy.dll /classid%' or command like '%:\\windows\\uus\\amd64\\updatedeploy.dll /classid%') or (command like '%:\\windows\\winsxs\\%' and command like '%\\updatedeploy.dll /classid %') or command = 'null' or command = ''))",

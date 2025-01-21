@@ -1,8 +1,8 @@
 {
   "Description": "Detects PowerShell command line patterns in combincation with encoded commands that often appear in malware infection chains\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b9d9cc83-380b-4ba3-8d8f-60c0e7e2930c",
-  "InsertDate": "2025-01-19T11:34:58Z",
-  "LastUpdateDate": "2025-01-19T11:34:58Z",
+  "InsertDate": "2025-01-21T09:28:48Z",
+  "LastUpdateDate": "2025-01-21T09:28:48Z",
   "Level": "high",
   "Name": "Suspicious PowerShell Encoded Command Patterns",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll')) and (command like '% -e %' or command like '% -en %' or command like '% -enc %' or command like '% -enco%') and (command like '% jab%' or command like '% suvyi%' or command like '% sqbfafga%' or command like '% awv4i%' or command like '% iab%' or command like '% paa%' or command like '% aqblahga%')) and  not (parent_process_path like '%c:\\packages\\plugins\\microsoft.guestconfiguration.configurationforwindows\\%' or parent_process_path like '%\\gc_worker.exe%'))",

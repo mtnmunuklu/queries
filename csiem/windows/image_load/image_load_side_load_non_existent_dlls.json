@@ -1,8 +1,8 @@
 {
   "Description": "Detects DLL sideloading of system DLLs that are not present on the system by default (at least not in system directories).\nUsually this technique is used to achieve UAC bypass or privilege escalation.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), SBousseaden\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6b98b92b-4f00-4f62-b4fe-4d1920215771",
-  "InsertDate": "2025-01-19T11:34:09Z",
-  "LastUpdateDate": "2025-01-19T11:34:09Z",
+  "InsertDate": "2025-01-21T09:27:52Z",
+  "LastUpdateDate": "2025-01-21T09:27:52Z",
   "Level": "high",
   "Name": "Potential DLL Sideloading Of Non-Existent DLLs From System Folders",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((image_loaded like '%:\\windows\\system32\\tsmsisrv.dll' or image_loaded like '%:\\windows\\system32\\tsvipsrv.dll' or image_loaded like '%:\\windows\\system32\\wbem\\wbemcomn.dll' or image_loaded like '%:\\windows\\system32\\wlbsctrl.dll' or image_loaded like '%:\\windows\\system32\\wow64log.dll' or image_loaded like '%:\\windows\\system32\\wptsextensions.dll') and  not (signed = 'true' and signature_status = 'valid' and signature = 'microsoft windows'))",

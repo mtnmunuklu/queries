@@ -1,8 +1,8 @@
 {
   "Description": "Detects potential DLL sideloading of \"libvlc.dll\", a DLL that is legitimately used by \"VLC.exe\"\n\nAuthor: X__Junior\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "bf9808c4-d24f-44a2-8398-b65227d406b6",
-  "InsertDate": "2025-01-19T11:34:09Z",
-  "LastUpdateDate": "2025-01-19T11:34:09Z",
+  "InsertDate": "2025-01-21T09:27:51Z",
+  "LastUpdateDate": "2025-01-21T09:27:51Z",
   "Level": "medium",
   "Name": "Potential Libvlc.DLL Sideloading",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (image_loaded like '%\\libvlc.dll' and  not (image_loaded like 'c:\\program files (x86)\\videolan\\vlc\\%' or image_loaded like 'c:\\program files\\videolan\\vlc\\%'))",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of \"BitLockerToGo.EXE\".\nBitLocker To Go is BitLocker Drive Encryption on removable data drives. This feature includes the encryption of, USB flash drives, SD cards, External hard disk drives, Other drives that are formatted by using the NTFS, FAT16, FAT32, or exFAT file system.\nThis is a rarely used application and usage of it at all is worth investigating.\nMalware such as Lumma stealer has been seen using this process as a target for process hollowing.\n\n\nAuthor: Josh Nickels, mttaggart\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "7f2376f9-42ee-4dfc-9360-fecff9a88fc8",
-  "InsertDate": "2025-01-19T11:34:30Z",
-  "LastUpdateDate": "2025-01-19T11:34:30Z",
+  "InsertDate": "2025-01-21T09:28:17Z",
+  "LastUpdateDate": "2025-01-21T09:28:17Z",
   "Level": "low",
   "Name": "BitLockerTogo.EXE Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\bitlockertogo.exe'",

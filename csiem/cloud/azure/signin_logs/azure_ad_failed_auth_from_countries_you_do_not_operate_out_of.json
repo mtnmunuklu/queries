@@ -1,8 +1,8 @@
 {
   "Description": "Detect failed authentications from countries you do not operate out of.\n\nAuthor: MikeDuddington, '@dudders1'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "28870ae4-6a13-4616-bd1a-235a7fad7458",
-  "InsertDate": "2025-01-19T11:33:26Z",
-  "LastUpdateDate": "2025-01-19T11:33:26Z",
+  "InsertDate": "2025-01-21T09:27:05Z",
+  "LastUpdateDate": "2025-01-21T09:27:05Z",
   "Level": "low",
   "Name": "Failed Authentications From Countries You Do Not Operate Out Of",
   "Query": "sourcetype='azure-signinlogs' eql select * from _source_ where ( not status = 'success' and  not location like '%\u003ccountries you do operate out of e,g gb, use or for multiple\u003e%')",

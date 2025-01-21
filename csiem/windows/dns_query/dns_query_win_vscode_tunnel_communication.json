@@ -1,8 +1,8 @@
 {
   "Description": "Detects DNS query requests to Visual Studio Code tunnel domains. Attackers can abuse that feature to establish a reverse shell or persistence on a machine.\n\n\nAuthor: citron_ninja\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b3e6418f-7c7a-4fad-993a-93b65027a9f1",
-  "InsertDate": "2025-01-19T11:33:57Z",
-  "LastUpdateDate": "2025-01-19T11:33:57Z",
+  "InsertDate": "2025-01-21T09:27:40Z",
+  "LastUpdateDate": "2025-01-21T09:27:40Z",
   "Level": "medium",
   "Name": "DNS Query To Visual Studio Code Tunnels Domain",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where query_name like '%.tunnels.api.visualstudio.com'",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects suspicious child processes of \"BgInfo.exe\" which could be a sign of potential abuse of the binary to proxy execution via external VBScript\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "811f459f-9231-45d4-959a-0266c6311987",
-  "InsertDate": "2025-01-19T11:34:30Z",
-  "LastUpdateDate": "2025-01-19T11:34:30Z",
+  "InsertDate": "2025-01-21T09:28:17Z",
+  "LastUpdateDate": "2025-01-21T09:28:17Z",
   "Level": "high",
   "Name": "Suspicious Child Process Of BgInfo.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_process_path like '%\\bginfo.exe' or parent_process_path like '%\\bginfo64.exe') and ((process_path like '%\\calc.exe' or process_path like '%\\cmd.exe' or process_path like '%\\cscript.exe' or process_path like '%\\mshta.exe' or process_path like '%\\notepad.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\wscript.exe') and (process_path like '%\\appdata\\local\\%' or process_path like '%\\appdata\\roaming\\%' or process_path like '%:\\users\\public\\%' or process_path like '%:\\temp\\%' or process_path like '%:\\windows\\temp\\%' or process_path like '%:\\perflogs\\%')))",

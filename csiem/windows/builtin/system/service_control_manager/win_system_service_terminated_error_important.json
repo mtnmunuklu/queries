@@ -1,8 +1,8 @@
 {
   "Description": "Detects important or interesting Windows services that got terminated for whatever reason\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d6b5520d-3934-48b4-928c-2aa3f92d6963",
-  "InsertDate": "2025-01-19T11:33:54Z",
-  "LastUpdateDate": "2025-01-19T11:33:54Z",
+  "InsertDate": "2025-01-21T09:27:37Z",
+  "LastUpdateDate": "2025-01-21T09:27:37Z",
   "Level": "high",
   "Name": "Important Windows Service Terminated With Error",
   "Query": "sourcetype='windows-system' eql select * from _source_ where ((provider_name = 'service control manager' and eventid = '7023') and ((param1 like '% antivirus%' or param1 like '% firewall%' or param1 like '%application guard%' or param1 like '%bitlocker drive encryption service%' or param1 like '%encrypting file system%' or param1 like '%microsoft defender%' or param1 like '%threat protection%' or param1 like '%windows event log%') and (binary like '%770069006e0064006500660065006e006400%' or binary like '%4500760065006e0074004c006f006700%' or binary like '%6d0070007300730076006300%' or binary like '%530065006e0073006500%' or binary like '%450046005300%' or binary like '%420044004500530056004300%')))",

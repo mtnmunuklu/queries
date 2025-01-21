@@ -1,8 +1,8 @@
 {
   "Description": "Detects the use of at/atd which are utilities that are used to schedule tasks.\nThey are often abused by adversaries to maintain persistence or to perform task scheduling for initial or recurring execution of malicious code\n\n\nAuthor: Ömer Günal, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d2d642d7-b393-43fe-bae4-e81ed5915c4b",
-  "InsertDate": "2025-01-19T11:33:33Z",
-  "LastUpdateDate": "2025-01-19T11:33:33Z",
+  "InsertDate": "2025-01-21T09:27:14Z",
+  "LastUpdateDate": "2025-01-21T09:27:14Z",
   "Level": "low",
   "Name": "Scheduled Task/Job At",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where (process_path like '%/at' or process_path like '%/atd')",

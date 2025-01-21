@@ -1,8 +1,8 @@
 {
   "Description": "Adversaries may attempt to get a listing of other systems by IP address, hostname, or other logical identifier on a network that may be used for Lateral Movement from the current system\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f8ad2e2c-40b6-4117-84d7-20b89896ab23",
-  "InsertDate": "2025-01-19T11:35:34Z",
-  "LastUpdateDate": "2025-01-19T11:35:34Z",
+  "InsertDate": "2025-01-21T09:30:23Z",
+  "LastUpdateDate": "2025-01-21T09:30:23Z",
   "Level": "medium",
   "Name": "Suspicious Scan Loop Network",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%for %' or command like '%foreach %') and (command like '%nslookup%' or command like '%ping%'))",

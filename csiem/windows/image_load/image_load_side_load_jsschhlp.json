@@ -1,8 +1,8 @@
 {
   "Description": "Detects potential DLL sideloading using JUSTSYSTEMS Japanese word processor\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "68654bf0-4412-43d5-bfe8-5eaa393cd939",
-  "InsertDate": "2025-01-19T11:34:08Z",
-  "LastUpdateDate": "2025-01-19T11:34:08Z",
+  "InsertDate": "2025-01-21T09:27:51Z",
+  "LastUpdateDate": "2025-01-21T09:27:51Z",
   "Level": "medium",
   "Name": "Potential DLL Sideloading Via JsSchHlp",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (image_loaded like '%\\jsespr.dll' and  not image_loaded like 'c:\\program files\\common files\\justsystem\\jsschhlp\\%')",

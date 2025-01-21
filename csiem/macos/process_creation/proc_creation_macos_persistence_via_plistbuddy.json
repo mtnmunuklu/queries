@@ -1,8 +1,8 @@
 {
   "Description": "Detects potential persistence activity using LaunchAgents or LaunchDaemons via the PlistBuddy utility\n\nAuthor: Sohan G (D4rkCiph3r)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "65d506d3-fcfe-4071-b4b2-bcefe721bbbb",
-  "InsertDate": "2025-01-19T11:33:38Z",
-  "LastUpdateDate": "2025-01-19T11:33:38Z",
+  "InsertDate": "2025-01-21T09:27:20Z",
+  "LastUpdateDate": "2025-01-21T09:27:20Z",
   "Level": "high",
   "Name": "Potential Persistence Via PlistBuddy",
   "Query": "sourcetype like 'macos-%' eql select * from _source_ where process_path like '%/plistbuddy' and (command like '%runatload%' and command like '%true%') and (command like '%launchagents%' or command like '%launchdaemons%')",

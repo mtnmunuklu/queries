@@ -1,8 +1,8 @@
 {
   "Description": "Detects potential DLL hijack of \"iertutil.dll\" found in the DCOM InternetExplorer.Application Class over the network\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g, Open Threat Research (OTR), wagga\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "2f7979ae-f82b-45af-ac1d-2b10e93b0baa",
-  "InsertDate": "2025-01-19T11:33:59Z",
-  "LastUpdateDate": "2025-01-19T11:33:59Z",
+  "InsertDate": "2025-01-21T09:27:43Z",
+  "LastUpdateDate": "2025-01-21T09:27:43Z",
   "Level": "critical",
   "Name": "Potential DCOM InternetExplorer.Application DLL Hijack",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path = 'system' and filepath like '%\\internet explorer\\iertutil.dll'",

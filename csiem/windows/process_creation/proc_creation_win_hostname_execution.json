@@ -1,8 +1,8 @@
 {
   "Description": "Use of hostname to get information\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "7be5fb68-f9ef-476d-8b51-0256ebece19e",
-  "InsertDate": "2025-01-19T11:34:45Z",
-  "LastUpdateDate": "2025-01-19T11:34:45Z",
+  "InsertDate": "2025-01-21T09:28:33Z",
+  "LastUpdateDate": "2025-01-21T09:28:33Z",
   "Level": "low",
   "Name": "Suspicious Execution of Hostname",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\hostname.exe'",

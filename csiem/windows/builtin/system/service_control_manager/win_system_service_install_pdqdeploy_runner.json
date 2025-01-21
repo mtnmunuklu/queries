@@ -1,8 +1,8 @@
 {
   "Description": "Detects PDQDeploy service installation on the target system.\nWhen a package is deployed via PDQDeploy it installs a remote service on the target machine with the name \"PDQDeployRunner-X\" where \"X\" is an integer starting from 1\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b98a10af-1e1e-44a7-bab2-4cc026917648",
-  "InsertDate": "2025-01-19T11:33:53Z",
-  "LastUpdateDate": "2025-01-19T11:33:53Z",
+  "InsertDate": "2025-01-21T09:27:36Z",
+  "LastUpdateDate": "2025-01-21T09:27:36Z",
   "Level": "medium",
   "Name": "New PDQDeploy Service - Client Side",
   "Query": "sourcetype='windows-system' eql select * from _source_ where ((provider_name = 'service control manager' and eventid = '7045') and (imagepath like '%pdqdeployrunner-%' and servicename like 'pdqdeployrunner-%'))",

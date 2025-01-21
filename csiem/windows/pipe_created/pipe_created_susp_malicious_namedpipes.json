@@ -1,8 +1,8 @@
 {
   "Description": "Detects the creation of a named pipe seen used by known APTs or malware.\n\nAuthor: Florian Roth (Nextron Systems), blueteam0ps, elhoim\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "fe3ac066-98bb-432a-b1e7-a5229cb39d4a",
-  "InsertDate": "2025-01-19T11:34:13Z",
-  "LastUpdateDate": "2025-01-19T11:34:13Z",
+  "InsertDate": "2025-01-21T09:27:57Z",
+  "LastUpdateDate": "2025-01-21T09:27:57Z",
   "Level": "critical",
   "Name": "Malicious Named Pipe Created",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where (pipe_name = '\\46a676ab7f179e511e30dd2dc41bd388' or pipe_name = '\\583da945-62af-10e8-4902-a8f205c72b2e' or pipe_name = '\\6e7645c4-32c5-4fe3-aabf-e94c2f4370e7' or pipe_name = '\\9f81f59bc58452127884ce513865ed20' or pipe_name = '\\adschemerpc' or pipe_name = '\\ahexec' or pipe_name = '\\anonymouspipe' or pipe_name = '\\bc31a7' or pipe_name = '\\bc367' or pipe_name = '\\bizkaz' or pipe_name = '\\csexecsvc' or pipe_name = '\\dce_3d' or pipe_name = '\\e710f28d59aa529d6792ca6ff0ca1b34' or pipe_name = '\\gruntsvc' or pipe_name = '\\isapi_dg' or pipe_name = '\\isapi_dg2' or pipe_name = '\\isapi_http' or pipe_name = '\\jaccdpqnvbrrxlaf' or pipe_name = '\\lsassw' or pipe_name = '\\namepipe_morewindows' or pipe_name = '\\pcheap_reuse' or pipe_name = '\\posh*' or pipe_name = '\\rpchlp_3' or pipe_name = '\\sdlrpc' or pipe_name = '\\svcctl' or pipe_name = '\\testpipe' or pipe_name = '\\winsession')",

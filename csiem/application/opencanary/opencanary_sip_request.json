@@ -1,8 +1,8 @@
 {
   "Description": "Detects instances where an SIP service on an OpenCanary node has had a SIP request.\n\nAuthor: Security Onion Solutions\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e30de276-68ec-435c-ab99-ef3befec6c61",
-  "InsertDate": "2025-01-19T11:33:19Z",
-  "LastUpdateDate": "2025-01-19T11:33:19Z",
+  "InsertDate": "2025-01-21T09:26:59Z",
+  "LastUpdateDate": "2025-01-21T09:26:59Z",
   "Level": "high",
   "Name": "OpenCanary - SIP Request",
   "Query": "sourcetype like 'opencanary-%' eql select * from _source_ where logtype = '15001'",

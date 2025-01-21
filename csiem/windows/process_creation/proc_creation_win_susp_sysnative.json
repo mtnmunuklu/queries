@@ -1,8 +1,8 @@
 {
   "Description": "Detects process creation events that use the Sysnative folder (common for CobaltStrike spawns)\n\nAuthor: Max Altgelt (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "3c1b5fb0-c72f-45ba-abd1-4d4c353144ab",
-  "InsertDate": "2025-01-19T11:35:37Z",
-  "LastUpdateDate": "2025-01-19T11:35:37Z",
+  "InsertDate": "2025-01-21T09:30:31Z",
+  "LastUpdateDate": "2025-01-21T09:30:31Z",
   "Level": "medium",
   "Name": "Process Creation Using Sysnative Folder",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where command like '%:\\windows\\sysnative\\%' and process_path like '%:\\windows\\sysnative\\%'",

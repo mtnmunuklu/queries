@@ -1,8 +1,8 @@
 {
   "Description": "Detects attempts to bypass User Account Control (UAC) by hijacking the Microsoft Management Console (MMC) Windows Firewall snap-in\n\nAuthor: Tim Rauch, Elastic (idea)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e52cb31c-10ed-4aea-bcb7-593c9f4a315b",
-  "InsertDate": "2025-01-19T11:35:45Z",
-  "LastUpdateDate": "2025-01-19T11:35:45Z",
+  "InsertDate": "2025-01-21T09:30:42Z",
+  "LastUpdateDate": "2025-01-21T09:30:42Z",
   "Level": "medium",
   "Name": "UAC Bypass via Windows Firewall Snap-In Hijack",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_process_path like '%\\mmc.exe' and parent_command_line like '%wf.msc%') and  not process_path like '%\\werfault.exe')",

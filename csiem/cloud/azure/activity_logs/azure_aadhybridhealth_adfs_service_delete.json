@@ -1,8 +1,8 @@
 {
   "Description": "This detection uses azureactivity logs (Administrative category) to identify the deletion of an Azure AD Hybrid health AD FS service instance in a tenant.\nA threat actor can create a new AD Health ADFS service and create a fake server to spoof AD FS signing logs.\nThe health AD FS service can then be deleted after it is not longer needed via HTTP requests to Azure.\n\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research), MSTIC\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "48739819-8230-4ee3-a8ea-e0289d1fb0ff",
-  "InsertDate": "2025-01-19T11:33:22Z",
-  "LastUpdateDate": "2025-01-19T11:33:22Z",
+  "InsertDate": "2025-01-21T09:27:02Z",
+  "LastUpdateDate": "2025-01-21T09:27:02Z",
   "Level": "medium",
   "Name": "Azure Active Directory Hybrid Health AD FS Service Delete",
   "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where categoryvalue = 'administrative' and resourceprovidervalue = 'microsoft.adhybridhealthservice' and resourceid like '%adfederationservice%' and operationnamevalue = 'microsoft.adhybridhealthservice/services/delete'",

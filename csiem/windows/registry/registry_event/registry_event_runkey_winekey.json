@@ -1,8 +1,8 @@
 {
   "Description": "Detects potential malicious modification of run keys by winekey or team9 backdoor\n\nAuthor: omkar72\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b98968aa-dbc0-4a9c-ac35-108363cbf8d5",
-  "InsertDate": "2025-01-19T11:36:03Z",
-  "LastUpdateDate": "2025-01-19T11:36:03Z",
+  "InsertDate": "2025-01-21T09:31:16Z",
+  "LastUpdateDate": "2025-01-21T09:31:16Z",
   "Level": "high",
   "Name": "WINEKEY Registry Modification",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where target_object like '%software\\microsoft\\windows\\currentversion\\run\\backup mgr'",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects the pattern of UAC Bypass using DismHost DLL hijacking (UACMe 63)\n\nAuthor: Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "853e74f9-9392-4935-ad3b-2e8c040dae86",
-  "InsertDate": "2025-01-19T11:35:45Z",
-  "LastUpdateDate": "2025-01-19T11:35:45Z",
+  "InsertDate": "2025-01-21T09:30:42Z",
+  "LastUpdateDate": "2025-01-21T09:30:42Z",
   "Level": "high",
   "Name": "UAC Bypass Using DismHost",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%c:\\users\\%' and parent_process_path like '%\\appdata\\local\\temp\\%' and parent_process_path like '%\\dismhost.exe%') and (integrity_level = 'high' or integrity_level = 'system' or integrity_level = 's-1-16-16384' or integrity_level = 's-1-16-12288')",

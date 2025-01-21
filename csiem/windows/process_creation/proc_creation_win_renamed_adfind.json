@@ -1,8 +1,8 @@
 {
   "Description": "Detects the use of a renamed Adfind.exe. AdFind continues to be seen across majority of breaches. It is used to domain trust discovery to plan out subsequent steps in the attack chain.\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "df55196f-f105-44d3-a675-e9dfb6cc2f2b",
-  "InsertDate": "2025-01-19T11:35:15Z",
-  "LastUpdateDate": "2025-01-19T11:35:15Z",
+  "InsertDate": "2025-01-21T09:29:47Z",
+  "LastUpdateDate": "2025-01-21T09:29:47Z",
   "Level": "high",
   "Name": "Renamed AdFind Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((command like '%domainlist%' or command like '%trustdmp%' or command like '%dcmodes%' or command like '%adinfo%' or command like '% dclist %' or command like '%computer_pwdnotreqd%' or command like '%objectcategory=%' or command like '%-subnets -f%' or command like '%name=\"domain admins\"%' or command like '%-sc u:%' or command like '%domainncs%' or command like '%dompol%' or command like '% oudmp %' or command like '%subnetdmp%' or command like '%gpodmp%' or command like '%fspdmp%' or command like '%users_noexpire%' or command like '%computers_active%' or command like '%computers_pwdnotreqd%') or (hashes like '%imphash=bca5675746d13a1f246e2da3c2217492%' or hashes like '%imphash=53e117a96057eaf19c41380d0e87f1c2%') or original_file_name = 'adfind.exe') and  not process_path like '%\\adfind.exe')",

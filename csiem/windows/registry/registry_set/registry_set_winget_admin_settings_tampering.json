@@ -1,8 +1,8 @@
 {
   "Description": "Detects changes to the AppInstaller (winget) admin settings. Such as enabling local manifest installations or disabling installer hash checks\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6db5eaf9-88f7-4ed9-af7d-9ef2ad12f236",
-  "InsertDate": "2025-01-19T11:36:23Z",
-  "LastUpdateDate": "2025-01-19T11:36:23Z",
+  "InsertDate": "2025-01-21T09:32:01Z",
+  "LastUpdateDate": "2025-01-21T09:32:01Z",
   "Level": "low",
   "Name": "Winget Admin Settings Modification",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where process_path like '%\\winget.exe' and target_object like '\\registry\\a\\%' and target_object like '%\\localstate\\admin_settings'",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects macOS Gatekeeper bypass via xattr utility\n\nAuthor: Daniil Yugoslavskiy, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f5141b6d-9f42-41c6-a7bf-2a780678b29b",
-  "InsertDate": "2025-01-19T11:33:39Z",
-  "LastUpdateDate": "2025-01-19T11:33:39Z",
+  "InsertDate": "2025-01-21T09:27:21Z",
+  "LastUpdateDate": "2025-01-21T09:27:21Z",
   "Level": "low",
   "Name": "Gatekeeper Bypass via Xattr",
   "Query": "sourcetype like 'macos-%' eql select * from _source_ where process_path like '%/xattr' and (command like '%-d%' and command like '%com.apple.quarantine%')",

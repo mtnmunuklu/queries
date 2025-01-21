@@ -1,8 +1,8 @@
 {
   "Description": "Detects when an application exports a certificate (and potentially the private key as well) from the local Windows certificate store.\n\nAuthor: Zach Mathis\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "58c0bff0-40a0-46e8-b5e8-b734b84d2017",
-  "InsertDate": "2025-01-19T11:33:44Z",
-  "LastUpdateDate": "2025-01-19T11:33:44Z",
+  "InsertDate": "2025-01-21T09:27:26Z",
+  "LastUpdateDate": "2025-01-21T09:27:26Z",
   "Level": "medium",
   "Name": "Certificate Exported From Local Certificate Store",
   "Query": "sourcetype='windows-certificateservicesclient-lifecycle-system' eql select * from _source_ where eventid = '1007'",

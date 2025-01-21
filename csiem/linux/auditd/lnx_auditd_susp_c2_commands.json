@@ -1,8 +1,8 @@
 {
   "Description": "Detects suspicious activities as declared by Florian Roth in its 'Best Practice Auditd Configuration'.\nThis includes the detection of the following commands; wget, curl, base64, nc, netcat, ncat, ssh, socat, wireshark, rawshark, rdesktop, nmap.\nThese commands match a few techniques from the tactics \"Command and Control\", including not exhaustively the following; Application Layer Protocol (T1071), Non-Application Layer Protocol (T1095), Data Encoding (T1132)\n\n\nAuthor: Marie Euler\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f7158a64-6204-4d6d-868a-6e6378b467e0",
-  "InsertDate": "2025-01-19T11:33:31Z",
-  "LastUpdateDate": "2025-01-19T11:33:31Z",
+  "InsertDate": "2025-01-21T09:27:12Z",
+  "LastUpdateDate": "2025-01-21T09:27:12Z",
   "Level": "medium",
   "Name": "Suspicious C2 Activities",
   "Query": "sourcetype='linux-auditd' eql select * from _source_ where key = 'susp_activity'",

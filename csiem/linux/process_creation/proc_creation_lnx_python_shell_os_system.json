@@ -1,11 +1,11 @@
 {
   "Description": "Detects execution of inline Python code via the \"-c\" in order to call the \"system\" function from the \"os\" library, and spawn a shell.\n\n\nAuthor: Li Ling, Andy Parkidomo, Robert Rakowski, Blake Hartstein (Bloomberg L.P.)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "2d2f44ff-4611-4778-a8fc-323a0e9850cc",
-  "InsertDate": "2025-01-19T11:33:35Z",
-  "LastUpdateDate": "2025-01-19T11:33:35Z",
+  "InsertDate": "2025-01-21T09:27:17Z",
+  "LastUpdateDate": "2025-01-21T09:27:17Z",
   "Level": "high",
   "Name": "Inline Python Execution - Spawn Shell Via OS System Library",
-  "Query": "sourcetype like 'linux-%' eql select * from _source_ where (((command like '% -c %' and command like '%os.system(%') and (command like '%/bin/bash%' or command like '%/bin/dash%' or command like '%/bin/fish%' or command like '%/bin/sh%' or command like '%/bin/zsh%')) and ((process_path like '%/python' or process_path like '%/python2' or process_path like '%/python3') and (process_path like '%/python2.%' or process_path like '%/python3.%')))",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where (((process_path like '%/python' or process_path like '%/python2' or process_path like '%/python3') and (process_path like '%/python2.%' or process_path like '%/python3.%')) and ((command like '% -c %' and command like '%os.system(%') and (command like '%/bin/bash%' or command like '%/bin/dash%' or command like '%/bin/fish%' or command like '%/bin/sh%' or command like '%/bin/zsh%')))",
   "Tags": [
     "attack.execution",
     "attack.t1059"

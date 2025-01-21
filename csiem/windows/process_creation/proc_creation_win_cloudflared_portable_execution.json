@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of the \"cloudflared\" binary from a non standard location.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "fadb84f0-4e84-4f6d-a1ce-9ef2bffb6ccd",
-  "InsertDate": "2025-01-19T11:34:32Z",
-  "LastUpdateDate": "2025-01-19T11:34:32Z",
+  "InsertDate": "2025-01-21T09:28:19Z",
+  "LastUpdateDate": "2025-01-21T09:28:19Z",
   "Level": "medium",
   "Name": "Cloudflared Portable Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\cloudflared.exe' and  not (process_path like '%:\\program files (x86)\\cloudflared\\%' or process_path like '%:\\program files\\cloudflared\\%'))",

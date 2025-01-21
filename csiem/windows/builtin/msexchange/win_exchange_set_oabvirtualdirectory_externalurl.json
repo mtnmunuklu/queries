@@ -1,8 +1,8 @@
 {
   "Description": "Rule to detect an adversary setting OabVirtualDirectory External URL property to a script in Exchange Management log\n\nAuthor: Jose Rodriguez @Cyb3rPandaH\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9db37458-4df2-46a5-95ab-307e7f29e675",
-  "InsertDate": "2025-01-19T11:33:45Z",
-  "LastUpdateDate": "2025-01-19T11:33:45Z",
+  "InsertDate": "2025-01-21T09:27:27Z",
+  "LastUpdateDate": "2025-01-21T09:27:27Z",
   "Level": "high",
   "Name": "Exchange Set OabVirtualDirectory ExternalUrl Property",
   "Query": "sourcetype='windows-msexchange-management' eql select * from _source_ where ( = 'set-oabvirtualdirectory' and  = 'externalurl' and  = 'page_load' and  = 'script')",

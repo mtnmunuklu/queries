@@ -1,8 +1,8 @@
 {
   "Description": "Detects potential DLL sideloading of rcdll.dll\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6e78b74f-c762-4800-82ad-f66787f10c8a",
-  "InsertDate": "2025-01-19T11:34:09Z",
-  "LastUpdateDate": "2025-01-19T11:34:09Z",
+  "InsertDate": "2025-01-21T09:27:52Z",
+  "LastUpdateDate": "2025-01-21T09:27:52Z",
   "Level": "high",
   "Name": "Potential Rcdll.DLL Sideloading",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (image_loaded like '%\\rcdll.dll' and  not (image_loaded like 'c:\\program files (x86)\\microsoft visual studio\\%' or image_loaded like 'c:\\program files (x86)\\windows kits\\%'))",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects Access to Domain Group Policies stored in SYSVOL\n\nAuthor: Markus Neis, Jonhnathan Ribeiro, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "05f3c945-dcc8-4393-9f3d-af65077a8f86",
-  "InsertDate": "2025-01-19T11:35:37Z",
-  "LastUpdateDate": "2025-01-19T11:35:37Z",
+  "InsertDate": "2025-01-21T09:30:32Z",
+  "LastUpdateDate": "2025-01-21T09:30:32Z",
   "Level": "medium",
   "Name": "Suspicious SYSVOL Domain Group Policy Access",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%\\sysvol\\%' and command like '%\\policies\\%')",

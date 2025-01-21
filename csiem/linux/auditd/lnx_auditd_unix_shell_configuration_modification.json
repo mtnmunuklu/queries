@@ -1,8 +1,8 @@
 {
   "Description": "Detect unix shell configuration modification. Adversaries may establish persistence through executing malicious commands triggered when a new shell is opened.\n\nAuthor: Peter Matkovski, IAI\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a94cdd87-6c54-4678-a6cc-2814ffe5a13d",
-  "InsertDate": "2025-01-19T11:33:31Z",
-  "LastUpdateDate": "2025-01-19T11:33:31Z",
+  "InsertDate": "2025-01-21T09:27:13Z",
+  "LastUpdateDate": "2025-01-21T09:27:13Z",
   "Level": "medium",
   "Name": "Unix Shell Configuration Modification",
   "Query": "sourcetype='linux-auditd' eql select * from _source_ where type = 'path' and (process_path = '/etc/shells' or process_path = '/etc/profile' or process_path = '/etc/profile.d/*' or process_path = '/etc/bash.bashrc' or process_path = '/etc/bashrc' or process_path = '/etc/zsh/zprofile' or process_path = '/etc/zsh/zshrc' or process_path = '/etc/zsh/zlogin' or process_path = '/etc/zsh/zlogout' or process_path = '/etc/csh.cshrc' or process_path = '/etc/csh.login' or process_path = '/root/.bashrc' or process_path = '/root/.bash_profile' or process_path = '/root/.profile' or process_path = '/root/.zshrc' or process_path = '/root/.zprofile' or process_path = '/home/*/.bashrc' or process_path = '/home/*/.zshrc' or process_path = '/home/*/.bash_profile' or process_path = '/home/*/.zprofile' or process_path = '/home/*/.profile' or process_path = '/home/*/.bash_login' or process_path = '/home/*/.bash_logout' or process_path = '/home/*/.zlogin' or process_path = '/home/*/.zlogout')",

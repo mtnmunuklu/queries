@@ -1,8 +1,8 @@
 {
   "Description": "Rule to detect the Hybrid Connection Manager service installation.\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0ee4d8a5-4e67-4faf-acfa-62a78457d1f2",
-  "InsertDate": "2025-01-19T11:33:47Z",
-  "LastUpdateDate": "2025-01-19T11:33:47Z",
+  "InsertDate": "2025-01-21T09:27:30Z",
+  "LastUpdateDate": "2025-01-21T09:27:30Z",
   "Level": "high",
   "Name": "HybridConnectionManager Service Installation",
   "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4697' and servicename = 'hybridconnectionmanager' and servicefilename like '%hybridconnectionmanager%'",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects a possible process memory dump that uses a white-listed filename like TrolleyExpress.exe as a way to dump the LSASS process memory without Microsoft Defender interference\n\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4be8b654-0c01-4c9d-a10c-6b28467fc651",
-  "InsertDate": "2025-01-19T11:34:28Z",
-  "LastUpdateDate": "2025-01-19T11:34:28Z",
+  "InsertDate": "2025-01-21T09:28:15Z",
+  "LastUpdateDate": "2025-01-21T09:28:15Z",
   "Level": "high",
   "Name": "LSASS Access From Potentially White-Listed Processes",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where dst_process_path like '%\\lsass.exe' and (process_path like '%\\trolleyexpress.exe' or process_path like '%\\processdump.exe' or process_path like '%\\dump64.exe') and (granted_access like '%10' or granted_access like '%30' or granted_access like '%50' or granted_access like '%70' or granted_access like '%90' or granted_access like '%b0' or granted_access like '%d0' or granted_access like '%f0' or granted_access like '%18' or granted_access like '%38' or granted_access like '%58' or granted_access like '%78' or granted_access like '%98' or granted_access like '%b8' or granted_access like '%d8' or granted_access like '%f8' or granted_access like '%1a' or granted_access like '%3a' or granted_access like '%5a' or granted_access like '%7a' or granted_access like '%9a' or granted_access like '%ba' or granted_access like '%da' or granted_access like '%fa' or granted_access like '%0x14c2' or granted_access like '%ff')",

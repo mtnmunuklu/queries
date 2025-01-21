@@ -1,8 +1,8 @@
 {
   "Description": "Detects execution of \"findstr\" to search for common names of security tools. Attackers often pipe the results of recon commands such as \"tasklist\" or \"whoami\" to \"findstr\" in order to filter out the results.\nThis detection focuses on the keywords that the attacker might use as a filter.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4fe074b4-b833-4081-8f24-7dcfeca72b42",
-  "InsertDate": "2025-01-19T11:34:37Z",
-  "LastUpdateDate": "2025-01-19T11:34:37Z",
+  "InsertDate": "2025-01-21T09:28:26Z",
+  "LastUpdateDate": "2025-01-21T09:28:26Z",
   "Level": "medium",
   "Name": "Security Tools Keyword Lookup Via Findstr.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\find.exe' or process_path like '%\\findstr.exe') and (original_file_name = 'find.exe' or original_file_name = 'findstr.exe')) and (command like '% avira' or command like '% avira\"' or command like '% cb' or command like '% cb\"' or command like '% cylance' or command like '% cylance\"' or command like '% defender' or command like '% defender\"' or command like '% kaspersky' or command like '% kaspersky\"' or command like '% kes' or command like '% kes\"' or command like '% mc' or command like '% mc\"' or command like '% sec' or command like '% sec\"' or command like '% sentinel' or command like '% sentinel\"' or command like '% symantec' or command like '% symantec\"' or command like '% virus' or command like '% virus\"'))",

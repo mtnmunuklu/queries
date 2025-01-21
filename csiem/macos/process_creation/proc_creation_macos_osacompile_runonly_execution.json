@@ -1,8 +1,8 @@
 {
   "Description": "Detects potential suspicious run-only executions compiled using OSACompile\n\nAuthor: Sohan G (D4rkCiph3r)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b9d9b652-d8ed-4697-89a2-a1186ee680ac",
-  "InsertDate": "2025-01-19T11:33:38Z",
-  "LastUpdateDate": "2025-01-19T11:33:38Z",
+  "InsertDate": "2025-01-21T09:27:20Z",
+  "LastUpdateDate": "2025-01-21T09:27:20Z",
   "Level": "high",
   "Name": "OSACompile Run-Only Execution",
   "Query": "sourcetype like 'macos-%' eql select * from _source_ where (command like '%osacompile%' and command like '% -x %' and command like '% -e %')",

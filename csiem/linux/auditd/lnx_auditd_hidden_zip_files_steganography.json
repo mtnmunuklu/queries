@@ -1,8 +1,8 @@
 {
   "Description": "Detects appending of zip file to image\n\nAuthor: Pawel Mazur\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "45810b50-7edc-42ca-813b-bdac02fb946b",
-  "InsertDate": "2025-01-19T11:33:30Z",
-  "LastUpdateDate": "2025-01-19T11:33:30Z",
+  "InsertDate": "2025-01-21T09:27:12Z",
+  "LastUpdateDate": "2025-01-21T09:27:12Z",
   "Level": "low",
   "Name": "Steganography Hide Zip Information in Picture File",
   "Query": "sourcetype='linux-auditd' eql select * from _source_ where ((type = 'execve' and a0 = 'cat') and (a1 like '%.jpg' or a1 like '%.png') and a2 like '%.zip')",

@@ -1,8 +1,8 @@
 {
   "Description": "Ransomware create txt file in the user Desktop\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "caf02a0a-1e1c-4552-9b48-5e070bd88d11",
-  "InsertDate": "2025-01-19T11:34:03Z",
-  "LastUpdateDate": "2025-01-19T11:34:03Z",
+  "InsertDate": "2025-01-21T09:27:46Z",
+  "LastUpdateDate": "2025-01-21T09:27:46Z",
   "Level": "high",
   "Name": "Suspicious Creation TXT File in User Desktop",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\cmd.exe' and (filepath like '%\\users\\%' and filepath like '%\\desktop\\%') and filepath like '%.txt'",

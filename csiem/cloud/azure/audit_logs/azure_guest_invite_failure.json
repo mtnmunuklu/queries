@@ -1,8 +1,8 @@
 {
   "Description": "Detects when a user that doesn't have permissions to invite a guest user attempts to invite one.\n\nAuthor: Mark Morowczynski '@markmorow', Yochana Henderson, '@Yochana-H'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0b4b72e3-4c53-4d5b-b198-2c58cfef39a9",
-  "InsertDate": "2025-01-19T11:33:24Z",
-  "LastUpdateDate": "2025-01-19T11:33:24Z",
+  "InsertDate": "2025-01-21T09:27:04Z",
+  "LastUpdateDate": "2025-01-21T09:27:04Z",
   "Level": "medium",
   "Name": "Guest User Invited By Non Approved Inviters",
   "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where properties.message = 'invite external user' and status = 'failure'",

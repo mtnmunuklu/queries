@@ -1,8 +1,8 @@
 {
   "Description": "Transferring files with well-known filenames (sensitive files with credential data) using network shares\n\nAuthor: Teymur Kheirkhabarov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "910ab938-668b-401b-b08c-b596e80fdca5",
-  "InsertDate": "2025-01-19T11:33:50Z",
-  "LastUpdateDate": "2025-01-19T11:33:50Z",
+  "InsertDate": "2025-01-21T09:27:33Z",
+  "LastUpdateDate": "2025-01-21T09:27:33Z",
   "Level": "medium",
   "Name": "Transferring Files with Credential Data via Network Shares",
   "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '5145' and (relativetargetname like '%\\mimidrv%' or relativetargetname like '%\\lsass%' or relativetargetname like '%\\windows\\minidump\\%' or relativetargetname like '%\\hiberfil%' or relativetargetname like '%\\sqldmpr%' or relativetargetname like '%\\sam%' or relativetargetname like '%\\ntds.dit%' or relativetargetname like '%\\security%')",

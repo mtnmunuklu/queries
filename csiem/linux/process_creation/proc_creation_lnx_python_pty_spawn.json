@@ -1,8 +1,8 @@
 {
   "Description": "Detects a python process calling to the PTY module in order to spawn a pretty tty which could be indicative of potential reverse shell activity.\n\n\nAuthor: Nextron Systems\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c4042d54-110d-45dd-a0e1-05c47822c937",
-  "InsertDate": "2025-01-19T11:33:35Z",
-  "LastUpdateDate": "2025-01-19T11:33:35Z",
+  "InsertDate": "2025-01-21T09:27:17Z",
+  "LastUpdateDate": "2025-01-21T09:27:17Z",
   "Level": "medium",
   "Name": "Python Spawning Pretty TTY Via PTY Module",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where (((process_path like '%/python' or process_path like '%/python2' or process_path like '%/python3') and (process_path like '%/python2.%' or process_path like '%/python3.%')) and (command like '%import pty%' or command like '%from pty %') and command like '%spawn%')",

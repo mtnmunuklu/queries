@@ -1,8 +1,8 @@
 {
   "Description": "Detects a service binary running in a suspicious directory\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "883faa95-175a-4e22-8181-e5761aeb373c",
-  "InsertDate": "2025-01-19T11:35:37Z",
-  "LastUpdateDate": "2025-01-19T11:35:37Z",
+  "InsertDate": "2025-01-21T09:30:30Z",
+  "LastUpdateDate": "2025-01-21T09:30:30Z",
   "Level": "high",
   "Name": "Suspicious Service Binary Directory",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\users\\public\\%' or process_path like '%\\$recycle.bin%' or process_path like '%\\users\\all users\\%' or process_path like '%\\users\\default\\%' or process_path like '%\\users\\contacts\\%' or process_path like '%\\users\\searches\\%' or process_path like '%c:\\perflogs\\%' or process_path like '%\\config\\systemprofile\\%' or process_path like '%\\windows\\fonts\\%' or process_path like '%\\windows\\ime\\%' or process_path like '%\\windows\\addins\\%') and (parent_process_path like '%\\services.exe' or parent_process_path like '%\\svchost.exe')",

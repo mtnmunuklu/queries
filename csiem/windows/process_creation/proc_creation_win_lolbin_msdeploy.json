@@ -1,8 +1,8 @@
 {
   "Description": "Detects file execution using the msdeploy.exe lolbin\n\nAuthor: Beyu Denis, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "646bc99f-6682-4b47-a73a-17b1b64c9d34",
-  "InsertDate": "2025-01-19T11:34:48Z",
-  "LastUpdateDate": "2025-01-19T11:34:48Z",
+  "InsertDate": "2025-01-21T09:28:37Z",
+  "LastUpdateDate": "2025-01-21T09:28:37Z",
   "Level": "medium",
   "Name": "Execute Files with Msdeploy.exe",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%verb:sync%' and command like '%-source:runcommand%' and command like '%-dest:runcommand%') and process_path like '%\\msdeploy.exe'",

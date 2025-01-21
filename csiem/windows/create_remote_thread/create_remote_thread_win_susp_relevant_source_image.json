@@ -1,8 +1,8 @@
 {
   "Description": "Detects uncommon processes creating remote threads.\n\nAuthor: Perez Diego (@darkquassar), oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "02d1d718-dd13-41af-989d-ea85c7fab93f",
-  "InsertDate": "2025-01-19T11:33:55Z",
-  "LastUpdateDate": "2025-01-19T11:33:55Z",
+  "InsertDate": "2025-01-21T09:27:39Z",
+  "LastUpdateDate": "2025-01-21T09:27:39Z",
   "Level": "high",
   "Name": "Rare Remote Thread Creation By Uncommon Source Image",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where (process_path like '%\\bash.exe' or process_path like '%\\cscript.exe' or process_path like '%\\cvtres.exe' or process_path like '%\\defrag.exe' or process_path like '%\\dialer.exe' or process_path like '%\\dnx.exe' or process_path like '%\\esentutl.exe' or process_path like '%\\excel.exe' or process_path like '%\\expand.exe' or process_path like '%\\find.exe' or process_path like '%\\findstr.exe' or process_path like '%\\forfiles.exe' or process_path like '%\\gpupdate.exe' or process_path like '%\\hh.exe' or process_path like '%\\installutil.exe' or process_path like '%\\lync.exe' or process_path like '%\\makecab.exe' or process_path like '%\\mdnsresponder.exe' or process_path like '%\\monitoringhost.exe' or process_path like '%\\msbuild.exe' or process_path like '%\\mshta.exe' or process_path like '%\\mspaint.exe' or process_path like '%\\outlook.exe' or process_path like '%\\ping.exe' or process_path like '%\\provtool.exe' or process_path like '%\\python.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\robocopy.exe' or process_path like '%\\runonce.exe' or process_path like '%\\sapcimc.exe' or process_path like '%\\smartscreen.exe' or process_path like '%\\spoolsv.exe' or process_path like '%\\tstheme.exe' or process_path like '%\\userinit.exe' or process_path like '%\\vssadmin.exe' or process_path like '%\\vssvc.exe' or process_path like '%\\w3wp.exe' or process_path like '%\\winscp.exe' or process_path like '%\\winword.exe' or process_path like '%\\wmic.exe' or process_path like '%\\wscript.exe')",

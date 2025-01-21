@@ -1,8 +1,8 @@
 {
   "Description": "Alert on when a user has performed an eDiscovery search or exported a PST file from the search. This PST file usually has sensitive information including email body content\n\nAuthor: Sorina Ionescu\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "18b88d08-d73e-4f21-bc25-4b9892a4fdd0",
-  "InsertDate": "2025-01-19T11:33:28Z",
-  "LastUpdateDate": "2025-01-19T11:33:28Z",
+  "InsertDate": "2025-01-21T09:27:09Z",
+  "LastUpdateDate": "2025-01-21T09:27:09Z",
   "Level": "medium",
   "Name": "PST Export Alert Using eDiscovery Alert",
   "Query": "sourcetype='m365-threat_management' eql select * from _source_ where eventsource = 'securitycompliancecenter' and eventname = 'ediscovery search started or exported' and status = 'success'",

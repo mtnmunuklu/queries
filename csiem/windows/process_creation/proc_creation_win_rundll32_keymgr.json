@@ -1,8 +1,8 @@
 {
   "Description": "Detects the invocation of the Stored User Names and Passwords dialogue (Key Manager)\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a4694263-59a8-4608-a3a0-6f8d3a51664c",
-  "InsertDate": "2025-01-19T11:35:18Z",
-  "LastUpdateDate": "2025-01-19T11:35:18Z",
+  "InsertDate": "2025-01-21T09:29:54Z",
+  "LastUpdateDate": "2025-01-21T09:29:54Z",
   "Level": "high",
   "Name": "Suspicious Key Manager Access",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\rundll32.exe' and original_file_name = 'rundll32.exe') and (command like '%keymgr%' and command like '%krshowkeymgr%'))",

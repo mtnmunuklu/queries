@@ -1,8 +1,8 @@
 {
   "Description": "Detects S3 Browser utility creating IAM User or AccessKey.\n\nAuthor: daniel.bohannon@permiso.io (@danielhbohannon)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "db014773-d9d9-4792-91e5-133337c0ffee",
-  "InsertDate": "2025-01-19T11:33:21Z",
-  "LastUpdateDate": "2025-01-19T11:33:21Z",
+  "InsertDate": "2025-01-21T09:27:01Z",
+  "LastUpdateDate": "2025-01-21T09:27:01Z",
   "Level": "high",
   "Name": "AWS IAM S3Browser User or AccessKey Creation",
   "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where eventsource = 'iam.amazonaws.com' and (eventname = 'createuser' or eventname = 'createaccesskey') and useragent like '%s3 browser%'",

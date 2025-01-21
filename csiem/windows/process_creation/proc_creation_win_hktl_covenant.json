@@ -1,8 +1,8 @@
 {
   "Description": "Detects suspicious command lines used in Covenant luanchers\n\nAuthor: Florian Roth (Nextron Systems), Jonhnathan Ribeiro, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c260b6db-48ba-4b4a-a76f-2f67644e99d2",
-  "InsertDate": "2025-01-19T11:34:40Z",
-  "LastUpdateDate": "2025-01-19T11:34:40Z",
+  "InsertDate": "2025-01-21T09:28:28Z",
+  "LastUpdateDate": "2025-01-21T09:28:28Z",
   "Level": "high",
   "Name": "HackTool - Covenant PowerShell Launcher",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((command like '%-sta%' and command like '%-nop%' and command like '%-window%' and command like '%hidden%') and (command like '%-command%' or command like '%-encodedcommand%')) or (command like '%sv o (new-object io.memorysteam);sv d %' or command like '%mshta file.hta%' or command like '%grunthttp%' or command like '%-encodedcommand cwb2acaabwaga%'))",

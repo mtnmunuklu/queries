@@ -1,8 +1,8 @@
 {
   "Description": "Adversaries may look for folders and drives shared on remote systems as a means of identifying sources of information to gather as\na precursor for Collection and to identify potential systems of interest for Lateral Movement.\nNetworks often contain shared network drives and folders that enable users to access file directories on various systems across a network.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "95f0643a-ed40-467c-806b-aac9542ec5ab",
-  "InsertDate": "2025-01-19T11:34:25Z",
-  "LastUpdateDate": "2025-01-19T11:34:25Z",
+  "InsertDate": "2025-01-21T09:28:11Z",
+  "LastUpdateDate": "2025-01-21T09:28:11Z",
   "Level": "low",
   "Name": "Suspicious Get Information for SMB Share",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where scriptblocktext like '%get-smbshare%'",

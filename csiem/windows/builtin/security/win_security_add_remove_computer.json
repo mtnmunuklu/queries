@@ -1,8 +1,8 @@
 {
   "Description": "Detects the creation or removal of a computer. Can be used to detect attacks such as DCShadow via the creation of a new SPN.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "20d96d95-5a20-4cf1-a483-f3bda8a7c037",
-  "InsertDate": "2025-01-19T11:33:46Z",
-  "LastUpdateDate": "2025-01-19T11:33:46Z",
+  "InsertDate": "2025-01-21T09:27:29Z",
+  "LastUpdateDate": "2025-01-21T09:27:29Z",
   "Level": "low",
   "Name": "Add or Remove Computer from DC",
   "Query": "sourcetype='windows-security' eql select * from _source_ where (eventid = '4741' or eventid = '4743')",

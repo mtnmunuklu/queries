@@ -1,8 +1,8 @@
 {
   "Description": "Detects Wscript/Cscript executing a file with an uncommon (i.e. non-script) extension\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "99b7460d-c9f1-40d7-a316-1f36f61d52ee",
-  "InsertDate": "2025-01-19T11:35:58Z",
-  "LastUpdateDate": "2025-01-19T11:35:58Z",
+  "InsertDate": "2025-01-21T09:31:10Z",
+  "LastUpdateDate": "2025-01-21T09:31:10Z",
   "Level": "high",
   "Name": "Cscript/Wscript Uncommon Script Extension Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((original_file_name = 'wscript.exe' or original_file_name = 'cscript.exe') and (process_path like '%\\wscript.exe' or process_path like '%\\cscript.exe')) and (command like '%.csv%' or command like '%.dat%' or command like '%.doc%' or command like '%.gif%' or command like '%.jpeg%' or command like '%.jpg%' or command like '%.png%' or command like '%.ppt%' or command like '%.txt%' or command like '%.xls%' or command like '%.xml%'))",

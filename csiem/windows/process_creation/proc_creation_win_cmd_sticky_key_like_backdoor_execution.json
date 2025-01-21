@@ -1,8 +1,8 @@
 {
   "Description": "Detects the usage and installation of a backdoor that uses an option to register a malicious debugger for built-in tools that are accessible in the login screen\n\nAuthor: Florian Roth (Nextron Systems), @twjackomo, Jonhnathan Ribeiro, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "2fdefcb3-dbda-401e-ae23-f0db027628bc",
-  "InsertDate": "2025-01-19T11:34:34Z",
-  "LastUpdateDate": "2025-01-19T11:34:34Z",
+  "InsertDate": "2025-01-21T09:28:21Z",
+  "LastUpdateDate": "2025-01-21T09:28:21Z",
   "Level": "critical",
   "Name": "Sticky Key Like Backdoor Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where parent_process_path like '%\\winlogon.exe' and (process_path like '%\\cmd.exe' or process_path like '%\\cscript.exe' or process_path like '%\\mshta.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\wscript.exe' or process_path like '%\\wt.exe') and (command like '%sethc.exe%' or command like '%utilman.exe%' or command like '%osk.exe%' or command like '%magnify.exe%' or command like '%narrator.exe%' or command like '%displayswitch.exe%')",

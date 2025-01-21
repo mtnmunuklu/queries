@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious Django web application framework exceptions that could indicate exploitation attempts\n\nAuthor: Thomas Patzke\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "fd435618-981e-4a7c-81f8-f78ce480d616",
-  "InsertDate": "2025-01-19T11:33:18Z",
-  "LastUpdateDate": "2025-01-19T11:33:18Z",
+  "InsertDate": "2025-01-21T09:26:58Z",
+  "LastUpdateDate": "2025-01-21T09:26:58Z",
   "Level": "medium",
   "Name": "Django Framework Exceptions",
-  "Query": "sourcetype like 'django-%' eql select * from _source_ where (log like '%suspiciousoperation%' or log like '%disallowedhost%' or log like '%disallowedmodeladminlookup%' or log like '%disallowedmodeladmintofield%' or log like '%disallowedredirect%' or log like '%invalidsessionkey%' or log like '%requestdatatoobig%' or log like '%suspiciousfileoperation%' or log like '%suspiciousmultipartform%' or log like '%suspicioussession%' or log like '%toomanyfieldssent%' or log like '%permissiondenied%')",
+  "Query": "sourcetype like 'django-%' eql select * from _source_ where Query('SuspiciousOperation OR DisallowedHost OR DisallowedModelAdminLookup OR DisallowedModelAdminToField OR DisallowedRedirect OR InvalidSessionKey OR RequestDataTooBig OR SuspiciousFileOperation OR SuspiciousMultipartForm OR SuspiciousSession OR TooManyFieldsSent OR PermissionDenied')",
   "Tags": [
     "attack.initial-access",
     "attack.t1190"

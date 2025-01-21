@@ -1,8 +1,8 @@
 {
   "Description": "Detects the usage of nimgrab, a tool bundled with the Nim programming framework and used for downloading files.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "74a12f18-505c-4114-8d0b-8448dd5485c6",
-  "InsertDate": "2025-01-19T11:35:07Z",
-  "LastUpdateDate": "2025-01-19T11:35:07Z",
+  "InsertDate": "2025-01-21T09:29:15Z",
+  "LastUpdateDate": "2025-01-21T09:29:15Z",
   "Level": "high",
   "Name": "PUA - Nimgrab Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((hashes like '%md5=2dd44c3c29d667f5c0ef5f9d7c7ffb8b%' or hashes like '%sha256=f266609e91985f0fe3e31c5e8faeeec4ffa5e0322d8b6f15fe69f4c5165b9559%' or hashes like '%imphash=c07fddd21d123ea9b3a08eef44aaac45%') or process_path like '%\\nimgrab.exe')",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects suspicious parent processes that should not have any children or should only have a single possible child program\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "cbec226f-63d9-4eca-9f52-dfb6652f24df",
-  "InsertDate": "2025-01-19T11:35:35Z",
-  "LastUpdateDate": "2025-01-19T11:35:35Z",
+  "InsertDate": "2025-01-21T09:30:26Z",
+  "LastUpdateDate": "2025-01-21T09:30:26Z",
   "Level": "high",
   "Name": "Suspicious Process Parents",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_process_path like '%\\minesweeper.exe' or parent_process_path like '%\\winver.exe' or parent_process_path like '%\\bitsadmin.exe') or ((parent_process_path like '%\\csrss.exe' or parent_process_path like '%\\certutil.exe' or parent_process_path like '%\\eventvwr.exe' or parent_process_path like '%\\calc.exe' or parent_process_path like '%\\notepad.exe') and  not ((process_path like '%\\werfault.exe' or process_path like '%\\wermgr.exe' or process_path like '%\\conhost.exe' or process_path like '%\\mmc.exe' or process_path like '%\\win32calc.exe' or process_path like '%\\notepad.exe') or process_path = 'null')))",

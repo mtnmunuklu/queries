@@ -1,8 +1,8 @@
 {
   "Description": "Detects removal of an exported Exchange mailbox which could be to cover tracks from ProxyShell exploit\n\nAuthor: Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "09570ae5-889e-43ea-aac0-0e1221fb3d95",
-  "InsertDate": "2025-01-19T11:33:45Z",
-  "LastUpdateDate": "2025-01-19T11:33:45Z",
+  "InsertDate": "2025-01-21T09:27:27Z",
+  "LastUpdateDate": "2025-01-21T09:27:27Z",
   "Level": "high",
   "Name": "Remove Exported Mailbox from Exchange Webserver",
   "Query": "sourcetype='windows-msexchange-management' eql select * from _source_ where ( = 'remove-mailboxexportrequest' and  = ' -identity ' and  = ' -confirm \"false\"')",

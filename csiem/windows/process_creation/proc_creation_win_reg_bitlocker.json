@@ -1,8 +1,8 @@
 {
   "Description": "Detects suspicious addition to BitLocker related registry keys via the reg.exe utility\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0e0255bf-2548-47b8-9582-c0955c9283f5",
-  "InsertDate": "2025-01-19T11:35:09Z",
-  "LastUpdateDate": "2025-01-19T11:35:09Z",
+  "InsertDate": "2025-01-21T09:29:26Z",
+  "LastUpdateDate": "2025-01-21T09:29:26Z",
   "Level": "high",
   "Name": "Suspicious Reg Add BitLocker",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%reg%' and command like '%add%' and command like '%\\software\\policies\\microsoft\\fve%' and command like '%/v%' and command like '%/f%') and (command like '%enablebdewithnotpm%' or command like '%useadvancedstartup%' or command like '%usetpm%' or command like '%usetpmkey%' or command like '%usetpmkeypin%' or command like '%recoverykeymessagesource%' or command like '%usetpmpin%' or command like '%recoverykeymessage%')",

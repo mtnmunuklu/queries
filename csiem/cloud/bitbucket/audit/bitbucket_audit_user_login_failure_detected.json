@@ -1,8 +1,8 @@
 {
   "Description": "Detects user authentication failure events.\nPlease note that this rule can be noisy and it is recommended to use with correlation based on \"author.name\" field.\n\n\nAuthor: Muhammad Faisal (@faisalusuf)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "70ed1d26-0050-4b38-a599-92c53d57d45a",
-  "InsertDate": "2025-01-19T11:33:27Z",
-  "LastUpdateDate": "2025-01-19T11:33:27Z",
+  "InsertDate": "2025-01-21T09:27:07Z",
+  "LastUpdateDate": "2025-01-21T09:27:07Z",
   "Level": "medium",
   "Name": "Bitbucket User Login Failure",
   "Query": "sourcetype='bitbucket-audit' eql select * from _source_ where audittype.category = 'authentication' and audittype.action = 'user login failed'",

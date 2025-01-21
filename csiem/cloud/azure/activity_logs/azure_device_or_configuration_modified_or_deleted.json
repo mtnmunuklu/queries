@@ -1,8 +1,8 @@
 {
   "Description": "Identifies when a device or device configuration in azure is modified or deleted.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "46530378-f9db-4af9-a9e5-889c177d3881",
-  "InsertDate": "2025-01-19T11:33:22Z",
-  "LastUpdateDate": "2025-01-19T11:33:22Z",
+  "InsertDate": "2025-01-21T09:27:02Z",
+  "LastUpdateDate": "2025-01-21T09:27:02Z",
   "Level": "medium",
   "Name": "Azure Device or Configuration Modified or Deleted",
   "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (properties.message = 'delete device' or properties.message = 'delete device configuration' or properties.message = 'update device' or properties.message = 'update device configuration')",

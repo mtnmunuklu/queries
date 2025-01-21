@@ -1,8 +1,8 @@
 {
   "Description": "Adversaries may disable security tools to avoid possible detection of their tools and activities by uninstalling Crowdstrike Falcon\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f0f7be61-9cf5-43be-9836-99d6ef448a18",
-  "InsertDate": "2025-01-19T11:35:47Z",
-  "LastUpdateDate": "2025-01-19T11:35:47Z",
+  "InsertDate": "2025-01-21T09:30:46Z",
+  "LastUpdateDate": "2025-01-21T09:30:46Z",
   "Level": "high",
   "Name": "Uninstall Crowdstrike Falcon Sensor",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%\\windowssensor.exe%' and command like '% /uninstall%' and command like '% /quiet%')",

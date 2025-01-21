@@ -1,8 +1,8 @@
 {
   "Description": "Detects threat actors proxy executing code and bypassing application controls by leveraging wmic and the `/FORMAT` argument switch to download and execute an XSL file (i.e js, vbs, etc).\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "06ce37c2-61ab-4f05-9ff5-b1a96d18ae32",
-  "InsertDate": "2025-01-19T11:34:10Z",
-  "LastUpdateDate": "2025-01-19T11:34:10Z",
+  "InsertDate": "2025-01-21T09:27:54Z",
+  "LastUpdateDate": "2025-01-21T09:27:54Z",
   "Level": "medium",
   "Name": "WMIC Loading Scripting Libraries",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\wmic.exe' and (image_loaded like '%\\jscript.dll' or image_loaded like '%\\vbscript.dll')",

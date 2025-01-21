@@ -1,8 +1,8 @@
 {
   "Description": "Detects the creation of screensaver files (.scr) outside of system folders. Attackers may execute an application as an \".SCR\" file using \"rundll32.exe desk.cpl,InstallScreenSaver\" for example.\n\nAuthor: Christopher Peacock @securepeacock, SCYTHE @scythe_io\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c048f047-7e2a-4888-b302-55f509d4a91d",
-  "InsertDate": "2025-01-19T11:34:01Z",
-  "LastUpdateDate": "2025-01-19T11:34:01Z",
+  "InsertDate": "2025-01-21T09:27:44Z",
+  "LastUpdateDate": "2025-01-21T09:27:44Z",
   "Level": "medium",
   "Name": "SCR File Write Event",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%.scr' and  not (filepath like '%:\\$windows.~bt\\newos\\%' or filepath like '%:\\windows\\system32\\%' or filepath like '%:\\windows\\syswow64\\%' or filepath like '%:\\windows\\winsxs\\%' or filepath like '%:\\wudownloadcache\\%'))",

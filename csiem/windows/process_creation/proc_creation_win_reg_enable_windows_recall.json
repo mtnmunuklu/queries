@@ -1,11 +1,11 @@
 {
   "Description": "Detects the enabling of the Windows Recall feature via registry manipulation.\nWindows Recall can be enabled by deleting the existing \"DisableAIDataAnalysis\" value, or setting it to 0.\nAdversaries may enable Windows Recall as part of post-exploitation discovery and collection activities.\nThis rule assumes that Recall is already explicitly disabled on the host, and subsequently enabled by the adversary.\n\n\nAuthor: Sajid Nawaz Khan\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "817f252c-5143-4dae-b418-48c3e9f63728",
-  "InsertDate": "2025-01-19T11:35:10Z",
-  "LastUpdateDate": "2025-01-19T11:35:10Z",
+  "InsertDate": "2025-01-21T09:29:30Z",
+  "LastUpdateDate": "2025-01-21T09:29:30Z",
   "Level": "medium",
   "Name": "Windows Recall Feature Enabled Via Reg.EXE",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\reg.exe' and original_file_name = 'reg.exe') and (command like '%microsoft\\windows\\windowsai%' and command like '%disableaidataanalysis%') and ((command like '%add%' or command like '%0%') or command like '%delete%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\reg.exe' and original_file_name = 'reg.exe') and (command like '%microsoft\\windows\\windowsai%' and command like '%disableaidataanalysis%') and (command like '%delete%' or (command like '%add%' or command like '%0%')))",
   "Tags": [
     "attack.collection",
     "attack.t1113"

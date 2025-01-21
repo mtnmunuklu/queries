@@ -1,8 +1,8 @@
 {
   "Description": "Detects the installation of a DNS plugin DLL via ServerLevelPluginDll parameter in registry, which can be used to execute code in context of the DNS server (restart required)\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f63b56ee-3f79-4b8a-97fb-5c48007e8573",
-  "InsertDate": "2025-01-19T11:34:36Z",
-  "LastUpdateDate": "2025-01-19T11:34:36Z",
+  "InsertDate": "2025-01-21T09:28:24Z",
+  "LastUpdateDate": "2025-01-21T09:28:24Z",
   "Level": "high",
   "Name": "New DNS ServerLevelPluginDll Installed Via Dnscmd.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\dnscmd.exe' and (command like '%/config%' and command like '%/serverlevelplugindll%')",

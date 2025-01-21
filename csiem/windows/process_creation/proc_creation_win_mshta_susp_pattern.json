@@ -1,8 +1,8 @@
 {
   "Description": "Detects suspicious mshta process execution patterns\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e32f92d1-523e-49c3-9374-bdb13b46a3ba",
-  "InsertDate": "2025-01-19T11:34:52Z",
-  "LastUpdateDate": "2025-01-19T11:34:52Z",
+  "InsertDate": "2025-01-21T09:28:41Z",
+  "LastUpdateDate": "2025-01-21T09:28:41Z",
   "Level": "high",
   "Name": "Suspicious Mshta.EXE Execution Patterns",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\mshta.exe' and original_file_name = 'mshta.exe') and ((parent_process_path like '%\\cmd.exe' or parent_process_path like '%\\cscript.exe' or parent_process_path like '%\\powershell.exe' or parent_process_path like '%\\pwsh.exe' or parent_process_path like '%\\regsvr32.exe' or parent_process_path like '%\\rundll32.exe' or parent_process_path like '%\\wscript.exe') and (command like '%\\appdata\\local\\%' or command like '%c:\\programdata\\%' or command like '%c:\\users\\public\\%' or command like '%c:\\windows\\temp\\%'))) or ((process_path like '%\\mshta.exe' and original_file_name = 'mshta.exe') and  not ((process_path like 'c:\\windows\\system32\\%' or process_path like 'c:\\windows\\syswow64\\%') and (command like '%.htm%' or command like '%.hta%') and (command like '%mshta.exe' or command like '%mshta'))))",

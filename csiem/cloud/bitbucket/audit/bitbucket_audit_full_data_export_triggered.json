@@ -1,8 +1,8 @@
 {
   "Description": "Detects when full data export is attempted.\n\nAuthor: Muhammad Faisal (@faisalusuf)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "195e1b9d-bfc2-4ffa-ab4e-35aef69815f8",
-  "InsertDate": "2025-01-19T11:33:26Z",
-  "LastUpdateDate": "2025-01-19T11:33:26Z",
+  "InsertDate": "2025-01-21T09:27:06Z",
+  "LastUpdateDate": "2025-01-21T09:27:06Z",
   "Level": "high",
   "Name": "Bitbucket Full Data Export Triggered",
   "Query": "sourcetype='bitbucket-audit' eql select * from _source_ where audittype.category = 'data pipeline' and audittype.action = 'full data export triggered'",

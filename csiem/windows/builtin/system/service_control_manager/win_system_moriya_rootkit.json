@@ -1,8 +1,8 @@
 {
   "Description": "Detects the use of Moriya rootkit as described in the securelist's Operation TunnelSnake report\n\nAuthor: Bhabesh Raj\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "25b9c01c-350d-4b95-bed1-836d04a4f324",
-  "InsertDate": "2025-01-19T11:33:53Z",
-  "LastUpdateDate": "2025-01-19T11:33:53Z",
+  "InsertDate": "2025-01-21T09:27:36Z",
+  "LastUpdateDate": "2025-01-21T09:27:36Z",
   "Level": "critical",
   "Name": "Moriya Rootkit - System",
   "Query": "sourcetype='windows-system' eql select * from _source_ where provider_name = 'service control manager' and eventid = '7045' and servicename = 'zznetsvc'",

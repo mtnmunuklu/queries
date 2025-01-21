@@ -1,8 +1,8 @@
 {
   "Description": "Monitor and alert for users added to device admin roles.\n\nAuthor: Michael Epping, '@mepples21'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "11c767ae-500b-423b-bae3-b234450736ed",
-  "InsertDate": "2025-01-19T11:33:24Z",
-  "LastUpdateDate": "2025-01-19T11:33:24Z",
+  "InsertDate": "2025-01-21T09:27:03Z",
+  "LastUpdateDate": "2025-01-21T09:27:03Z",
   "Level": "high",
   "Name": "Users Added to Global or Device Admin Roles",
   "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where category = 'rolemanagement' and (operationname like '%add%' and operationname like '%member to role%') and (targetresources like '%7698a772-787b-4ac8-901f-60d6b08affd2%' or targetresources like '%62e90394-69f5-4237-9190-012177145e10%')",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects potential RDP connection via Mstsc using a local \".rdp\" file located in suspicious locations.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6e22722b-dfb1-4508-a911-49ac840b40f8",
-  "InsertDate": "2025-01-19T11:34:53Z",
-  "LastUpdateDate": "2025-01-19T11:34:53Z",
+  "InsertDate": "2025-01-21T09:28:42Z",
+  "LastUpdateDate": "2025-01-21T09:28:42Z",
   "Level": "high",
   "Name": "Suspicious Mstsc.EXE Execution With Local RDP File",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\mstsc.exe' and original_file_name = 'mstsc.exe') and (command like '%.rdp' or command like '%.rdp\"') and (command like '%:\\users\\public\\%' or command like '%:\\windows\\system32\\spool\\drivers\\color%' or command like '%:\\windows\\system32\\tasks_migrated %' or command like '%:\\windows\\tasks\\%' or command like '%:\\windows\\temp\\%' or command like '%:\\windows\\tracing\\%' or command like '%\\appdata\\local\\temp\\%' or command like '%\\downloads\\%'))",

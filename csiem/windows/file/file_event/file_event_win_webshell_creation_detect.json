@@ -1,11 +1,11 @@
 {
   "Description": "Detects the creation of files with certain extensions on a static web site. This can be indicative of potential uploads of a web shell.\n\nAuthor: Beyu Denis, oscd.community, Tim Shelton, Thurein Oo\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "39f1f9f2-9636-45de-98f6-a4046aa8e4b9",
-  "InsertDate": "2025-01-19T11:34:06Z",
-  "LastUpdateDate": "2025-01-19T11:34:06Z",
+  "InsertDate": "2025-01-21T09:27:49Z",
+  "LastUpdateDate": "2025-01-21T09:27:49Z",
   "Level": "medium",
   "Name": "Potential Webshell Creation On Static Website",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((filepath like '%\\inetpub\\wwwroot\\%' and (filepath like '%.ashx%' or filepath like '%.asp%' or filepath like '%.ph%' or filepath like '%.soap%')) or ((filepath like '%\\www\\%' or filepath like '%\\htdocs\\%' or filepath like '%\\html\\%') and filepath like '%.ph%')) and  not ((filepath like '%\\appdata\\local\\temp\\%' or filepath like '%\\windows\\temp\\%') or process_path = 'system' or filepath like '%\\xampp%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((filepath like '%\\inetpub\\wwwroot\\%' and (filepath like '%.ashx%' or filepath like '%.asp%' or filepath like '%.ph%' or filepath like '%.soap%')) or (filepath like '%.ph%' and (filepath like '%\\www\\%' or filepath like '%\\htdocs\\%' or filepath like '%\\html\\%'))) and  not ((filepath like '%\\appdata\\local\\temp\\%' or filepath like '%\\windows\\temp\\%') or process_path = 'system' or filepath like '%\\xampp%'))",
   "Tags": [
     "attack.persistence",
     "attack.t1505.003"

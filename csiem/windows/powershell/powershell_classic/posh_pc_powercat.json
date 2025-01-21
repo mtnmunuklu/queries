@@ -1,8 +1,8 @@
 {
   "Description": "Adversaries may use a non-application layer protocol for communication between host and C2 server or among infected hosts within a network\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c5b20776-639a-49bf-94c7-84f912b91c15",
-  "InsertDate": "2025-01-19T11:34:14Z",
-  "LastUpdateDate": "2025-01-19T11:34:14Z",
+  "InsertDate": "2025-01-21T09:27:58Z",
+  "LastUpdateDate": "2025-01-21T09:27:58Z",
   "Level": "medium",
   "Name": "Netcat The Powershell Version",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where (data like '%powercat %' or data like '%powercat.ps1%')",

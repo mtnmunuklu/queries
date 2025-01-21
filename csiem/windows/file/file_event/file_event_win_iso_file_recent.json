@@ -1,8 +1,8 @@
 {
   "Description": "Detects the creation of recent element file that points to an .ISO, .IMG, .VHD or .VHDX file as often used in phishing attacks.\nThis can be a false positive on server systems but on workstations users should rarely mount .iso or .img files.\n\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4358e5a5-7542-4dcb-b9f3-87667371839b",
-  "InsertDate": "2025-01-19T11:34:01Z",
-  "LastUpdateDate": "2025-01-19T11:34:01Z",
+  "InsertDate": "2025-01-21T09:27:44Z",
+  "LastUpdateDate": "2025-01-21T09:27:44Z",
   "Level": "medium",
   "Name": "ISO or Image Mount Indicator in Recent Files",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%.iso.lnk' or filepath like '%.img.lnk' or filepath like '%.vhd.lnk' or filepath like '%.vhdx.lnk') and filepath like '%\\microsoft\\windows\\recent\\%'",

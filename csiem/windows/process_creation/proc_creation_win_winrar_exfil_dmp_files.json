@@ -1,8 +1,8 @@
 {
   "Description": "Detects execution of WinRAR in order to compress a file with a \".dmp\"/\".dump\" extension, which could be a step in a process of dump file exfiltration.\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1ac14d38-3dfc-4635-92c7-e3fd1c5f5bfc",
-  "InsertDate": "2025-01-19T11:35:53Z",
-  "LastUpdateDate": "2025-01-19T11:35:53Z",
+  "InsertDate": "2025-01-21T09:30:56Z",
+  "LastUpdateDate": "2025-01-21T09:30:56Z",
   "Level": "medium",
   "Name": "Winrar Compressing Dump Files",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\rar.exe' or process_path like '%\\winrar.exe') and description = 'command line rar') and (command like '%.dmp%' or command like '%.dump%' or command like '%.hdmp%'))",

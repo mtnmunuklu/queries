@@ -1,8 +1,8 @@
 {
   "Description": "Detects the creation of files with an \"LNK\" as a second extension. This is sometimes used by malware as a method to abuse the fact that Windows hides the \"LNK\" extension by default.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "3215aa19-f060-4332-86d5-5602511f3ca8",
-  "InsertDate": "2025-01-19T11:34:04Z",
-  "LastUpdateDate": "2025-01-19T11:34:04Z",
+  "InsertDate": "2025-01-21T09:27:47Z",
+  "LastUpdateDate": "2025-01-21T09:27:47Z",
   "Level": "medium",
   "Name": "Suspicious LNK Double Extension File Created",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((filepath like '%.lnk' and (filepath like '%.doc.%' or filepath like '%.docx.%' or filepath like '%.jpg.%' or filepath like '%.pdf.%' or filepath like '%.ppt.%' or filepath like '%.pptx.%' or filepath like '%.xls.%' or filepath like '%.xlsx.%')) and  not filepath like '%\\appdata\\roaming\\microsoft\\windows\\recent\\%' and  not (((process_path like '%\\excel.exe' or process_path like '%\\powerpnt.exe' or process_path like '%\\winword.exe') and filepath like '%\\appdata\\roaming\\microsoft\\office\\recent\\%') or (process_path like '%\\excel.exe' and filepath like '%\\appdata\\roaming\\microsoft\\excel%') or (process_path like '%\\powerpnt.exe' and filepath like '%\\appdata\\roaming\\microsoft\\powerpoint%') or (process_path like '%\\winword.exe' and filepath like '%\\appdata\\roaming\\microsoft\\word%')))",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects the executiob of TTDInject.exe, which is used by Windows 10 v1809 and newer to debug time travel (underlying call of tttracer.exe)\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b27077d6-23e6-45d2-81a0-e2b356eea5fd",
-  "InsertDate": "2025-01-19T11:34:49Z",
-  "LastUpdateDate": "2025-01-19T11:34:49Z",
+  "InsertDate": "2025-01-21T09:28:38Z",
+  "LastUpdateDate": "2025-01-21T09:28:38Z",
   "Level": "medium",
   "Name": "Use of TTDInject.exe",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%ttdinject.exe' and original_file_name = 'ttdinject.exe'",

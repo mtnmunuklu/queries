@@ -1,8 +1,8 @@
 {
   "Description": "Detects UAC Bypass Attempt Using Microsoft Connection Manager Profile Installer Autoelevate-capable COM Objects (e.g. UACMe ID of 41, 43, 58 or 65)\n\nAuthor: Nik Seetharaman, Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4b60e6f2-bf39-47b4-b4ea-398e33cfe253",
-  "InsertDate": "2025-01-19T11:35:45Z",
-  "LastUpdateDate": "2025-01-19T11:35:45Z",
+  "InsertDate": "2025-01-21T09:30:41Z",
+  "LastUpdateDate": "2025-01-21T09:30:41Z",
   "Level": "high",
   "Name": "CMSTP UAC Bypass via COM Object Access",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where parent_process_path like '%\\dllhost.exe' and (parent_command_line like '% /processid:{3e5fc7f9-9a51-4367-9063-a120244fbec7}%' or parent_command_line like '% /processid:{3e000d72-a845-4cd9-bd83-80c07c3b881f}%' or parent_command_line like '% /processid:{bd54c901-076b-434e-b6c7-17c531f4ab41}%' or parent_command_line like '% /processid:{d2e7041b-2927-42fb-8e9f-7ce93b6dc937}%' or parent_command_line like '% /processid:{e9495b87-d950-4ab5-87a5-ff6d70bf3e90}%') and (integrity_level = 'high' or integrity_level = 'system' or integrity_level = 's-1-16-16384' or integrity_level = 's-1-16-12288')",

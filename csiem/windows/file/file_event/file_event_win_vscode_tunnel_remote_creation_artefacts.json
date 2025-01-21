@@ -1,8 +1,8 @@
 {
   "Description": "Detects the creation of file by the \"node.exe\" process in the \".vscode-server\" directory. Could be a sign of remote file creation via VsCode tunnel feature\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "56e05d41-ce99-4ecd-912d-93f019ee0b71",
-  "InsertDate": "2025-01-19T11:34:05Z",
-  "LastUpdateDate": "2025-01-19T11:34:05Z",
+  "InsertDate": "2025-01-21T09:27:48Z",
+  "LastUpdateDate": "2025-01-21T09:27:48Z",
   "Level": "medium",
   "Name": "Visual Studio Code Tunnel Remote File Creation",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\servers\\stable-%' and process_path like '%\\server\\node.exe' and filepath like '%\\.vscode-server\\data\\user\\history\\%'",

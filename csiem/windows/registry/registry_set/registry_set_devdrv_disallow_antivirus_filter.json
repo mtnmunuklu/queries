@@ -1,8 +1,8 @@
 {
   "Description": "Detects activity that indicates a user disabling the ability for Antivirus mini filter to inspect a \"Dev Drive\".\n\n\nAuthor: @kostastsale, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "31e124fb-5dc4-42a0-83b3-44a69c77b271",
-  "InsertDate": "2025-01-19T11:36:10Z",
-  "LastUpdateDate": "2025-01-19T11:36:10Z",
+  "InsertDate": "2025-01-21T09:31:29Z",
+  "LastUpdateDate": "2025-01-21T09:31:29Z",
   "Level": "high",
   "Name": "Antivirus Filter Driver Disallowed On Dev Drive - Registry",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where target_object like '%\\filtermanager\\fltmgrdevdriveallowantivirusfilter' and details = 'dword (0x00000000)'",

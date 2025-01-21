@@ -1,8 +1,8 @@
 {
   "Description": "Detects network connections to Visual Studio Code tunnel domains initiated by a process on a system. Attackers can abuse that feature to establish a reverse shell or persistence on a machine.\n\n\nAuthor: Kamran Saifullah\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4b657234-038e-4ad5-997c-4be42340bce4",
-  "InsertDate": "2025-01-19T11:34:11Z",
-  "LastUpdateDate": "2025-01-19T11:34:11Z",
+  "InsertDate": "2025-01-21T09:27:55Z",
+  "LastUpdateDate": "2025-01-21T09:27:55Z",
   "Level": "medium",
   "Name": "Network Connection Initiated To Visual Studio Code Tunnels Domain",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where initiated = 'true' and dst_host like '%.tunnels.api.visualstudio.com'",
