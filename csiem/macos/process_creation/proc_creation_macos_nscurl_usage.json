@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of the nscurl utility in order to download files.\n\nAuthor: Daniel Cortez\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6d8a7cf1-8085-423b-b87d-7e880faabbdf",
-  "InsertDate": "2025-01-21T09:27:20Z",
-  "LastUpdateDate": "2025-01-21T09:27:20Z",
+  "InsertDate": "2025-01-25T21:19:38Z",
+  "LastUpdateDate": "2025-01-25T21:19:38Z",
   "Level": "medium",
   "Name": "File Download Via Nscurl - MacOS",
   "Query": "sourcetype like 'macos-%' eql select * from _source_ where process_path like '%/nscurl' and (command like '%--download %' or command like '%--download-directory %' or command like '%--output %' or command like '%-dir %' or command like '%-dl %' or command like '%-ld%' or command like '%-o %')",

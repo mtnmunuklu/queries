@@ -1,11 +1,11 @@
 {
   "Description": "Detects PowerShell commands that decrypt an \".LNK\" \"file to drop the next stage of the malware.\n\nAuthor: X__Junior (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "434c08ba-8406-4d15-8b24-782cb071a691",
-  "InsertDate": "2025-01-21T09:28:50Z",
-  "LastUpdateDate": "2025-01-21T09:28:50Z",
+  "InsertDate": "2025-01-25T21:22:06Z",
+  "LastUpdateDate": "2025-01-25T21:22:06Z",
   "Level": "high",
   "Name": "PowerShell Execution With Potential Decryption Capabilities",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll')) and (command like '%get-childitem %' or command like '%dir %' or command like '%gci %' or command like '%ls %') and (command like '%get-content %' or command like '%gc %' or command like '%cat %' or command like '%type %' or command like '%readallbytes%') and ((command like '% ^| %' and command like '%\\*.lnk%' and command like '%-recurse%' and command like '%-skip %') and (command like '% -expandproperty %' and command like '%\\*.lnk%' and command like '%writeallbytes%' and command like '% .length %')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'PowerShell.EXE' or original_file_name = 'pwsh.dll')) and (command like '%Get-ChildItem %' or command like '%dir %' or command like '%gci %' or command like '%ls %') and (command like '%Get-Content %' or command like '%gc %' or command like '%cat %' or command like '%type %' or command like '%ReadAllBytes%') and ((command like '% ^| %' and command like '%\\*.lnk%' and command like '%-Recurse%' and command like '%-Skip %') and (command like '% -ExpandProperty %' and command like '%\\*.lnk%' and command like '%WriteAllBytes%' and command like '% .length %')))",
   "Tags": [
     "attack.execution"
   ],

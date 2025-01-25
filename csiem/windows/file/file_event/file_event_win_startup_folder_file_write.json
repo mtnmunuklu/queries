@@ -1,11 +1,11 @@
 {
   "Description": "A General detection for files being created in the Windows startup directory. This could be an indicator of persistence.\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "2aa0a6b4-a865-495b-ab51-c28249537b75",
-  "InsertDate": "2025-01-21T09:27:46Z",
-  "LastUpdateDate": "2025-01-21T09:27:46Z",
+  "InsertDate": "2025-01-25T21:21:01Z",
+  "LastUpdateDate": "2025-01-25T21:21:01Z",
   "Level": "medium",
   "Name": "Startup Folder File Write",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%\\microsoft\\windows\\start menu\\programs\\startup%' and  not (process_path = 'c:\\windows\\system32\\wuauclt.exe' and filepath like 'c:\\$windows.~bt\\newos\\%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp%' and  not (process_path = 'C:\\Windows\\System32\\wuauclt.exe' and filepath like 'C:\\$WINDOWS.~BT\\NewOS\\%'))",
   "Tags": [
     "attack.persistence",
     "attack.t1547.001"

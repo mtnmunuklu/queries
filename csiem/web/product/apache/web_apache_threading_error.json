@@ -1,8 +1,8 @@
 {
   "Description": "Detects an issue in apache logs that reports threading related errors\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e9a2b582-3f6a-48ac-b4a1-6849cdc50b3c",
-  "InsertDate": "2025-01-21T09:27:23Z",
-  "LastUpdateDate": "2025-01-21T09:27:23Z",
+  "InsertDate": "2025-01-25T21:19:49Z",
+  "LastUpdateDate": "2025-01-25T21:19:49Z",
   "Level": "medium",
   "Name": "Apache Threading Error",
   "Query": "eql select * from _source_ where Query('__pthread_tpp_change_priority: Assertion `new_prio == -1 || (new_prio \u003e= fifo_min_prio \u0026\u0026 new_prio \u003c= fifo_max_prio)')",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects instances where a VNC service on an OpenCanary node has had a connection attempt.\n\nAuthor: Security Onion Solutions\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9db5446c-b44a-4291-8b89-fcab5609c3b3",
-  "InsertDate": "2025-01-21T09:26:59Z",
-  "LastUpdateDate": "2025-01-21T09:26:59Z",
+  "InsertDate": "2025-01-25T21:18:23Z",
+  "LastUpdateDate": "2025-01-25T21:18:23Z",
   "Level": "high",
   "Name": "OpenCanary - VNC Connection Attempt",
   "Query": "sourcetype like 'opencanary-%' eql select * from _source_ where logtype = '12001'",

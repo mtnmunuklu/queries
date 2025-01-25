@@ -1,11 +1,11 @@
 {
   "Description": "Detects an access to authentication tokens and accounts of Microsoft Teams desktop application.\n\nAuthor: @SerkinValery\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "25cde13e-8e20-4c29-b949-4e795b76f16f",
-  "InsertDate": "2025-01-21T09:27:33Z",
-  "LastUpdateDate": "2025-01-21T09:27:33Z",
+  "InsertDate": "2025-01-25T21:20:28Z",
+  "LastUpdateDate": "2025-01-25T21:20:28Z",
   "Level": "high",
   "Name": "Suspicious Teams Application Related ObjectAcess Event",
-  "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '4663' and (objectname like '%\\microsoft\\teams\\cookies%' or objectname like '%\\microsoft\\teams\\local storage\\leveldb%')) and  not processname like '%\\microsoft\\teams\\current\\teams.exe%')",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '4663' and (objectname like '%\\Microsoft\\Teams\\Cookies%' or objectname like '%\\Microsoft\\Teams\\Local Storage\\leveldb%')) and  not processname like '%\\Microsoft\\Teams\\current\\Teams.exe%')",
   "Tags": [
     "attack.credential-access",
     "attack.t1528"

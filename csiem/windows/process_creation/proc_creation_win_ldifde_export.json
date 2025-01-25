@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of \"ldifde.exe\" in order to export organizational Active Directory structure.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4f7a6757-ff79-46db-9687-66501a02d9ec",
-  "InsertDate": "2025-01-21T09:28:35Z",
-  "LastUpdateDate": "2025-01-21T09:28:35Z",
+  "InsertDate": "2025-01-25T21:21:55Z",
+  "LastUpdateDate": "2025-01-25T21:21:55Z",
   "Level": "medium",
   "Name": "Active Directory Structure Export Via Ldifde.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\ldifde.exe' and original_file_name = 'ldifde.exe') and command like '%-f%') and  not command like '% -i%')",

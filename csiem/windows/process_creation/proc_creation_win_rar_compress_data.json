@@ -1,8 +1,8 @@
 {
   "Description": "Detects usage of \"rar\" to add files to an archive for potential compression. An adversary may compress data (e.g. sensitive documents) that is collected prior to exfiltration in order to make it portable and minimize the amount of data sent over the network.\n\nAuthor: Timur Zinniatullin, E.M. Anhaus, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6f3e2987-db24-4c78-a860-b4f4095a7095",
-  "InsertDate": "2025-01-21T09:29:23Z",
-  "LastUpdateDate": "2025-01-21T09:29:23Z",
+  "InsertDate": "2025-01-25T21:22:13Z",
+  "LastUpdateDate": "2025-01-25T21:22:13Z",
   "Level": "low",
   "Name": "Files Added To An Archive Using Rar.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\rar.exe' and command like '% a %'",

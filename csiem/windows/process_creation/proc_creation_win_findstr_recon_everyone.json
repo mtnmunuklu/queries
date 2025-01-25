@@ -1,11 +1,11 @@
 {
   "Description": "Detects usage of findstr with the \"EVERYONE\" or \"BUILTIN\" keywords.\nThis was seen being used in combination with \"icacls\" and other utilities to spot misconfigured files or folders permissions.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "47e4bab7-c626-47dc-967b-255608c9a920",
-  "InsertDate": "2025-01-21T09:28:26Z",
-  "LastUpdateDate": "2025-01-21T09:28:26Z",
+  "InsertDate": "2025-01-25T21:21:44Z",
+  "LastUpdateDate": "2025-01-25T21:21:44Z",
   "Level": "medium",
   "Name": "Permission Misconfiguration Reconnaissance Via Findstr.EXE",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((((process_path like '%\\find.exe' or process_path like '%\\findstr.exe') and (original_file_name = 'find.exe' or original_file_name = 'findstr.exe')) and (command like '%\"everyone\"%' or command like '%'everyone'%' or command like '%\"builtin\\\\\"%' or command like '%'builtin\\'%')) or (command like '%icacls %' and command like '%findstr %' and command like '%everyone%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((((process_path like '%\\find.exe' or process_path like '%\\findstr.exe') and (original_file_name = 'FIND.EXE' or original_file_name = 'FINDSTR.EXE')) and (command like '%\"Everyone\"%' or command like '%'Everyone'%' or command like '%\"BUILTIN\\\\\"%' or command like '%'BUILTIN\\'%')) or (command like '%icacls %' and command like '%findstr %' and command like '%Everyone%'))",
   "Tags": [
     "attack.credential-access",
     "attack.t1552.006"

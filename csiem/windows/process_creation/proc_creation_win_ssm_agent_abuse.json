@@ -1,8 +1,8 @@
 {
   "Description": "Detects potential Amazon SSM agent hijack attempts as outlined in the Mitiga research report.\n\nAuthor: Muhammad Faisal\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d20ee2f4-822c-4827-9e15-41500b1fff10",
-  "InsertDate": "2025-01-21T09:30:10Z",
-  "LastUpdateDate": "2025-01-21T09:30:10Z",
+  "InsertDate": "2025-01-25T21:22:25Z",
+  "LastUpdateDate": "2025-01-25T21:22:25Z",
   "Level": "medium",
   "Name": "Potential Amazon SSM Agent Hijacking",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\amazon-ssm-agent.exe' and (command like '%-register %' and command like '%-code %' and command like '%-id %' and command like '%-region %')",

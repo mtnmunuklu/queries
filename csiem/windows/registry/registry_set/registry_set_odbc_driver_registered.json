@@ -1,11 +1,11 @@
 {
   "Description": "Detects the registration of a new ODBC driver.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "3390fbef-c98d-4bdd-a863-d65ed7c610dd",
-  "InsertDate": "2025-01-21T09:31:41Z",
-  "LastUpdateDate": "2025-01-21T09:31:41Z",
+  "InsertDate": "2025-01-25T21:22:47Z",
+  "LastUpdateDate": "2025-01-25T21:22:47Z",
   "Level": "low",
   "Name": "New ODBC Driver Registered",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object like '%\\software\\odbc\\odbcinst.ini\\%' and target_object like '%\\driver') and  not (target_object like '%\\sql server\\%' and details = '%windir%\\system32\\sqlsrv32.dll') and  not ((target_object like '%\\microsoft access %' and details like 'c:\\progra%' and details like '%\\aceodbc.dll') or (target_object like '%\\microsoft excel driver%' and details like 'c:\\progra%' and details like '%\\aceodbc.dll')))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object like '%\\SOFTWARE\\ODBC\\ODBCINST.INI\\%' and target_object like '%\\Driver') and  not (target_object like '%\\SQL Server\\%' and details = '%WINDIR%\\System32\\SQLSRV32.dll') and  not ((target_object like '%\\Microsoft Access %' and details like 'C:\\Progra%' and details like '%\\ACEODBC.DLL') or (target_object like '%\\Microsoft Excel Driver%' and details like 'C:\\Progra%' and details like '%\\ACEODBC.DLL')))",
   "Tags": [
     "attack.persistence"
   ],

@@ -1,11 +1,11 @@
 {
   "Description": "Detect usage of the \"coregen.exe\" (Microsoft CoreCLR Native Image Generator) binary to sideload arbitrary DLLs.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0fa66f66-e3f6-4a9c-93f8-4f2610b00171",
-  "InsertDate": "2025-01-21T09:27:51Z",
-  "LastUpdateDate": "2025-01-21T09:27:51Z",
+  "InsertDate": "2025-01-25T21:21:08Z",
+  "LastUpdateDate": "2025-01-25T21:21:08Z",
   "Level": "medium",
   "Name": "Potential DLL Sideloading Using Coregen.exe",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\coregen.exe' and  not (image_loaded like 'c:\\program files (x86)\\microsoft silverlight\\%' or image_loaded like 'c:\\program files\\microsoft silverlight\\%' or image_loaded like 'c:\\windows\\system32\\%' or image_loaded like 'c:\\windows\\syswow64\\%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\coregen.exe' and  not (image_loaded like 'C:\\Program Files (x86)\\Microsoft Silverlight\\%' or image_loaded like 'C:\\Program Files\\Microsoft Silverlight\\%' or image_loaded like 'C:\\Windows\\System32\\%' or image_loaded like 'C:\\Windows\\SysWOW64\\%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1218",

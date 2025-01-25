@@ -1,11 +1,11 @@
 {
   "Description": "Detects changing the PowerShell script execution policy to a potentially insecure level using the \"-ExecutionPolicy\" flag.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "87e3c4e8-a6a8-4ad9-bb4f-46e7ff99a180",
-  "InsertDate": "2025-01-21T09:29:02Z",
-  "LastUpdateDate": "2025-01-21T09:29:02Z",
+  "InsertDate": "2025-01-25T21:22:10Z",
+  "LastUpdateDate": "2025-01-25T21:22:10Z",
   "Level": "medium",
   "Name": "Change PowerShell Policies to an Insecure Level",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll') and (process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe')) and (command like '%-executionpolicy %' or command like '% -ep %' or command like '% -exec %') and (command like '%bypass%' or command like '%unrestricted%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((original_file_name = 'PowerShell.EXE' or original_file_name = 'pwsh.dll') and (process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe')) and (command like '%-executionpolicy %' or command like '% -ep %' or command like '% -exec %') and (command like '%Bypass%' or command like '%Unrestricted%'))",
   "Tags": [
     "attack.execution",
     "attack.t1059.001"

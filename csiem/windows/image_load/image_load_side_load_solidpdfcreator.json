@@ -1,11 +1,11 @@
 {
   "Description": "Detects potential DLL sideloading of \"SolidPDFCreator.dll\"\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a2edbce1-95c8-4291-8676-0d45146862b3",
-  "InsertDate": "2025-01-21T09:27:52Z",
-  "LastUpdateDate": "2025-01-21T09:27:52Z",
+  "InsertDate": "2025-01-25T21:21:10Z",
+  "LastUpdateDate": "2025-01-25T21:21:10Z",
   "Level": "medium",
   "Name": "Potential SolidPDFCreator.DLL Sideloading",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (image_loaded like '%\\solidpdfcreator.dll' and  not (process_path like '%\\solidpdfcreator.exe' and (image_loaded like 'c:\\program files (x86)\\soliddocuments\\solidpdfcreator\\%' or image_loaded like 'c:\\program files\\soliddocuments\\solidpdfcreator\\%')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (image_loaded like '%\\SolidPDFCreator.dll' and  not (process_path like '%\\SolidPDFCreator.exe' and (image_loaded like 'C:\\Program Files (x86)\\SolidDocuments\\SolidPDFCreator\\%' or image_loaded like 'C:\\Program Files\\SolidDocuments\\SolidPDFCreator\\%')))",
   "Tags": [
     "attack.defense-evasion",
     "attack.privilege-escalation",

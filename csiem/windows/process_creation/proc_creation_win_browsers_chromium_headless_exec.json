@@ -1,8 +1,8 @@
 {
   "Description": "Detects execution of Chromium based browser in headless mode\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ef9dcfed-690c-4c5d-a9d1-482cd422225c",
-  "InsertDate": "2025-01-21T09:28:17Z",
-  "LastUpdateDate": "2025-01-21T09:28:17Z",
+  "InsertDate": "2025-01-25T21:21:36Z",
+  "LastUpdateDate": "2025-01-25T21:21:36Z",
   "Level": "medium",
   "Name": "Browser Execution In Headless Mode",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\brave.exe' or process_path like '%\\chrome.exe' or process_path like '%\\msedge.exe' or process_path like '%\\opera.exe' or process_path like '%\\vivaldi.exe') and command like '%--headless%'",

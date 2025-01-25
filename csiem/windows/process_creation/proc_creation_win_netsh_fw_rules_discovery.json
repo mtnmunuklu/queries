@@ -1,8 +1,8 @@
 {
   "Description": "Adversaries may look for details about the network configuration and settings of systems they access or through information discovery of remote systems\n\nAuthor: frack113, Christopher Peacock '@securepeacock', SCYTHE '@scythe_io'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0e4164da-94bc-450d-a7be-a4b176179f1f",
-  "InsertDate": "2025-01-21T09:28:44Z",
-  "LastUpdateDate": "2025-01-21T09:28:44Z",
+  "InsertDate": "2025-01-25T21:22:02Z",
+  "LastUpdateDate": "2025-01-25T21:22:02Z",
   "Level": "low",
   "Name": "Firewall Configuration Discovery Via Netsh.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\netsh.exe' and original_file_name = 'netsh.exe') and ((command like '%netsh %' and command like '%show %' and command like '%firewall %') and (command like '%config %' or command like '%state %' or command like '%rule %' or command like '%name=all%')))",

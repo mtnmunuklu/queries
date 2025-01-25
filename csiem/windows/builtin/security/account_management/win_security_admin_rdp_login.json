@@ -1,11 +1,11 @@
 {
   "Description": "Detect remote login by Administrator user (depending on internal pattern).\n\nAuthor: juju4\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0f63e1ef-1eb9-4226-9d54-8927ca08520a",
-  "InsertDate": "2025-01-21T09:27:28Z",
-  "LastUpdateDate": "2025-01-21T09:27:28Z",
+  "InsertDate": "2025-01-25T21:20:11Z",
+  "LastUpdateDate": "2025-01-25T21:20:11Z",
   "Level": "low",
   "Name": "Admin User Remote Logon",
-  "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4624' and logontype = '10' and authenticationpackagename = 'negotiate' and targetusername like 'admin%'",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4624' and logontype = '10' and authenticationpackagename = 'Negotiate' and targetusername like 'Admin%'",
   "Tags": [
     "attack.lateral-movement",
     "attack.t1078.001",

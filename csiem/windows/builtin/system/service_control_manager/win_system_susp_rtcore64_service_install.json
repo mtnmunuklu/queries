@@ -1,11 +1,11 @@
 {
   "Description": "Detects the installation of RTCore service. Which could be an indication of Micro-Star MSI Afterburner vulnerable driver abuse\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "91c49341-e2ef-40c0-ac45-49ec5c3fe26c",
-  "InsertDate": "2025-01-21T09:27:37Z",
-  "LastUpdateDate": "2025-01-21T09:27:37Z",
+  "InsertDate": "2025-01-25T21:20:39Z",
+  "LastUpdateDate": "2025-01-25T21:20:39Z",
   "Level": "high",
   "Name": "RTCore Suspicious Service Installation",
-  "Query": "sourcetype='windows-system' eql select * from _source_ where provider_name = 'service control manager' and eventid = '7045' and servicename = 'rtcore64'",
+  "Query": "sourcetype='windows-system' eql select * from _source_ where provider_name = 'Service Control Manager' and eventid = '7045' and servicename = 'RTCore64'",
   "Tags": [
     "attack.persistence"
   ],

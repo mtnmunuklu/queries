@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of \"dctask64.exe\", a signed binary by ZOHO Corporation part of ManageEngine Endpoint Central.\nThis binary can be abused for DLL injection, arbitrary command and process execution.\n\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6345b048-8441-43a7-9bed-541133633d7a",
-  "InsertDate": "2025-01-21T09:28:23Z",
-  "LastUpdateDate": "2025-01-21T09:28:23Z",
+  "InsertDate": "2025-01-25T21:21:41Z",
+  "LastUpdateDate": "2025-01-25T21:21:41Z",
   "Level": "high",
   "Name": "ManageEngine Endpoint Central Dctask64.EXE Potential Abuse",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '% executecmd64 %' or command like '% invokeexe %' or command like '% injectdll %') and (process_path like '%\\dctask64.exe' and (hashes like '%6834b1b94e49701d77ccb3c0895e1afd%' or hashes like '%1bb6f93b129f398c7c4a76bb97450bba%' or hashes like '%faa2ac19875fade461c8d89dcf2710a3%' or hashes like '%f1039ced4b91572ab7847d26032e6bbf%')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\dctask64.exe' and (hashes like '%IMPHASH=6834B1B94E49701D77CCB3C0895E1AFD%' or hashes like '%IMPHASH=1BB6F93B129F398C7C4A76BB97450BBA%' or hashes like '%IMPHASH=FAA2AC19875FADE461C8D89DCF2710A3%' or hashes like '%IMPHASH=F1039CED4B91572AB7847D26032E6BBF%')) and (command like '% executecmd64 %' or command like '% invokeexe %' or command like '% injectDll %'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1055.001"

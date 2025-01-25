@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious ways to download files from Microsoft domains that are used to store attachments in Emails or OneNote documents\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "00d49ed5-4491-4271-a8db-650a4ef6f8c1",
-  "InsertDate": "2025-01-21T09:30:14Z",
-  "LastUpdateDate": "2025-01-21T09:30:14Z",
+  "InsertDate": "2025-01-25T21:22:26Z",
+  "LastUpdateDate": "2025-01-25T21:22:26Z",
   "Level": "high",
   "Name": "Suspicious Download from Office Domain",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\curl.exe' or process_path like '%\\wget.exe') and (command like '%invoke-webrequest%' or command like '%iwr %' or command like '%curl %' or command like '%wget %' or command like '%start-bitstransfer%' or command like '%.downloadfile(%' or command like '%.downloadstring(%')) and (command like '%https://attachment.outlook.live.net/owa/%' or command like '%https://onenoteonlinesync.onenote.com/onenoteonlinesync/%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\curl.exe' or process_path like '%\\wget.exe') and (command like '%Invoke-WebRequest%' or command like '%iwr %' or command like '%curl %' or command like '%wget %' or command like '%Start-BitsTransfer%' or command like '%.DownloadFile(%' or command like '%.DownloadString(%')) and (command like '%https://attachment.outlook.live.net/owa/%' or command like '%https://onenoteonlinesync.onenote.com/onenoteonlinesync/%'))",
   "Tags": [
     "attack.command-and-control",
     "attack.t1105",

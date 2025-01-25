@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious Windows Update Agent activity in which a wuauclt.exe process command line doesn't contain any command line flags\n\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "52d097e2-063e-4c9c-8fbb-855c8948d135",
-  "InsertDate": "2025-01-21T09:31:11Z",
-  "LastUpdateDate": "2025-01-21T09:31:11Z",
+  "InsertDate": "2025-01-25T21:22:39Z",
+  "LastUpdateDate": "2025-01-25T21:22:39Z",
   "Level": "high",
   "Name": "Suspicious Windows Update Agent Empty Cmdline",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\wuauclt.exe' and original_file_name = 'wuauclt.exe') and (command like '%wuauclt' or command like '%wuauclt.exe'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\Wuauclt.exe' and original_file_name = 'Wuauclt.exe') and (command like '%Wuauclt' or command like '%Wuauclt.exe'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1036"

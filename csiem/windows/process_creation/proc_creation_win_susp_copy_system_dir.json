@@ -1,11 +1,11 @@
 {
   "Description": "Detects a suspicious copy operation that tries to copy a program from system (System32, SysWOW64, WinSxS) directories to another on disk.\nOften used to move LOLBINs such as 'certutil' or 'desktopimgdownldr' to a different location with a different name in order to bypass detections based on locations.\n\n\nAuthor: Florian Roth (Nextron Systems), Markus Neis, Tim Shelton (HAWK.IO), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "fff9d2b7-e11c-4a69-93d3-40ef66189767",
-  "InsertDate": "2025-01-21T09:30:13Z",
-  "LastUpdateDate": "2025-01-21T09:30:13Z",
+  "InsertDate": "2025-01-25T21:22:26Z",
+  "LastUpdateDate": "2025-01-25T21:22:26Z",
   "Level": "medium",
   "Name": "Suspicious Copy From or To System Directory",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((((process_path like '%\\robocopy.exe' or process_path like '%\\xcopy.exe') and (original_file_name = 'robocopy.exe' or original_file_name = 'xcopy.exe')) or (process_path like '%\\cmd.exe' and command like '%copy %') or ((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (command like '%copy-item%' or command like '% copy %' or command like '%cpi %' or command like '% cp %'))) and (command like '%\\system32%' or command like '%\\syswow64%' or command like '%\\winsxs%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\cmd.exe' and command like '%copy %') or ((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (command like '%copy-item%' or command like '% copy %' or command like '%cpi %' or command like '% cp %')) or ((process_path like '%\\robocopy.exe' or process_path like '%\\xcopy.exe') and (original_file_name = 'robocopy.exe' or original_file_name = 'XCOPY.EXE'))) and (command like '%\\System32%' or command like '%\\SysWOW64%' or command like '%\\WinSxS%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1036.003"

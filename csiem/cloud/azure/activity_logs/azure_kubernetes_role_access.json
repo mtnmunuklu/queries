@@ -1,11 +1,11 @@
 {
   "Description": "Identifies when ClusterRoles/Roles are being modified or deleted.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "818fee0c-e0ec-4e45-824e-83e4817b0887",
-  "InsertDate": "2025-01-21T09:27:02Z",
-  "LastUpdateDate": "2025-01-21T09:27:02Z",
+  "InsertDate": "2025-01-25T21:18:32Z",
+  "LastUpdateDate": "2025-01-25T21:18:32Z",
   "Level": "medium",
   "Name": "Azure Kubernetes Sensitive Role Access",
-  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (operationname = 'microsoft.kubernetes/connectedclusters/rbac.authorization.k8s.io/roles/write' or operationname = 'microsoft.kubernetes/connectedclusters/rbac.authorization.k8s.io/roles/delete' or operationname = 'microsoft.kubernetes/connectedclusters/rbac.authorization.k8s.io/roles/bind/action' or operationname = 'microsoft.kubernetes/connectedclusters/rbac.authorization.k8s.io/roles/escalate/action' or operationname = 'microsoft.kubernetes/connectedclusters/rbac.authorization.k8s.io/clusterroles/write' or operationname = 'microsoft.kubernetes/connectedclusters/rbac.authorization.k8s.io/clusterroles/delete' or operationname = 'microsoft.kubernetes/connectedclusters/rbac.authorization.k8s.io/clusterroles/bind/action' or operationname = 'microsoft.kubernetes/connectedclusters/rbac.authorization.k8s.io/clusterroles/escalate/action')",
+  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (operationname = 'MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/RBAC.AUTHORIZATION.K8S.IO/ROLES/WRITE' or operationname = 'MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/RBAC.AUTHORIZATION.K8S.IO/ROLES/DELETE' or operationname = 'MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/RBAC.AUTHORIZATION.K8S.IO/ROLES/BIND/ACTION' or operationname = 'MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/RBAC.AUTHORIZATION.K8S.IO/ROLES/ESCALATE/ACTION' or operationname = 'MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/RBAC.AUTHORIZATION.K8S.IO/CLUSTERROLES/WRITE' or operationname = 'MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/RBAC.AUTHORIZATION.K8S.IO/CLUSTERROLES/DELETE' or operationname = 'MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/RBAC.AUTHORIZATION.K8S.IO/CLUSTERROLES/BIND/ACTION' or operationname = 'MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/RBAC.AUTHORIZATION.K8S.IO/CLUSTERROLES/ESCALATE/ACTION')",
   "Tags": [
     "attack.impact"
   ],

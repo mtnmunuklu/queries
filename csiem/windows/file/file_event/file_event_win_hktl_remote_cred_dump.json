@@ -1,11 +1,11 @@
 {
   "Description": "Detects default filenames output from the execution of CrackMapExec and Impacket-secretsdump against an endpoint.\n\nAuthor: SecurityAura\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6e2a900a-ced9-4e4a-a9c2-13e706f9518a",
-  "InsertDate": "2025-01-21T09:27:43Z",
-  "LastUpdateDate": "2025-01-21T09:27:43Z",
+  "InsertDate": "2025-01-25T21:20:56Z",
+  "LastUpdateDate": "2025-01-25T21:20:56Z",
   "Level": "high",
   "Name": "HackTool - Potential Remote Credential Dumping Activity Via CrackMapExec Or Impacket-Secretsdump",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\svchost.exe' and filepath re '\\\\Windows\\\\System32\\\\[a-zA-Z0-9]{8}\\.tmp$'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\svchost.exe' and filepath rlike '\\\\Windows\\\\System32\\\\[a-zA-Z0-9]{8}\\.tmp$'",
   "Tags": [
     "attack.credential-access",
     "attack.t1003"

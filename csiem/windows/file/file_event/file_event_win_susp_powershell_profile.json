@@ -1,11 +1,11 @@
 {
   "Description": "Detects the creation or modification of a powershell profile which could indicate suspicious activity as the profile can be used as a mean of persistence\n\nAuthor: HieuTT35, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b5b78988-486d-4a80-b991-930eff3ff8bf",
-  "InsertDate": "2025-01-21T09:27:47Z",
-  "LastUpdateDate": "2025-01-21T09:27:47Z",
+  "InsertDate": "2025-01-25T21:21:02Z",
+  "LastUpdateDate": "2025-01-25T21:21:02Z",
   "Level": "medium",
   "Name": "PowerShell Profile Modification",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%\\microsoft.powershell_profile.ps1' or filepath like '%\\powershell\\profile.ps1' or filepath like '%\\program files\\powershell\\7-preview\\profile.ps1' or filepath like '%\\program files\\powershell\\7\\profile.ps1' or filepath like '%\\windows\\system32\\windowspowershell\\v1.0\\profile.ps1' or filepath like '%\\windowspowershell\\profile.ps1')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%\\Microsoft.PowerShell_profile.ps1' or filepath like '%\\PowerShell\\profile.ps1' or filepath like '%\\Program Files\\PowerShell\\7-preview\\profile.ps1' or filepath like '%\\Program Files\\PowerShell\\7\\profile.ps1' or filepath like '%\\Windows\\System32\\WindowsPowerShell\\v1.0\\profile.ps1' or filepath like '%\\WindowsPowerShell\\profile.ps1')",
   "Tags": [
     "attack.persistence",
     "attack.privilege-escalation",

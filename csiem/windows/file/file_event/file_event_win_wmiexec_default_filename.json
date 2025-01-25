@@ -1,11 +1,11 @@
 {
   "Description": "Detects the creation of the default output filename used by the wmiexec tool\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "8d5aca11-22b3-4f22-b7ba-90e60533e1fb",
-  "InsertDate": "2025-01-21T09:27:49Z",
-  "LastUpdateDate": "2025-01-21T09:27:49Z",
+  "InsertDate": "2025-01-25T21:21:05Z",
+  "LastUpdateDate": "2025-01-25T21:21:05Z",
   "Level": "critical",
   "Name": "Wmiexec Default Output File",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where filepath re '\\\\Windows\\\\__1\\d{9}\\.\\d{1,7}$' and filepath re 'C:\\\\__1\\d{9}\\.\\d{1,7}$' and filepath re 'D:\\\\__1\\d{9}\\.\\d{1,7}$'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where filepath rlike '\\\\Windows\\\\__1\\d{9}\\.\\d{1,7}$' and filepath rlike 'C:\\\\__1\\d{9}\\.\\d{1,7}$' and filepath rlike 'D:\\\\__1\\d{9}\\.\\d{1,7}$'",
   "Tags": [
     "attack.lateral-movement",
     "attack.t1047"

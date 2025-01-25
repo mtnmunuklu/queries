@@ -1,11 +1,11 @@
 {
   "Description": "Identifies when a firewall is created, modified, or deleted.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "512cf937-ea9b-4332-939c-4c2c94baadcd",
-  "InsertDate": "2025-01-21T09:27:02Z",
-  "LastUpdateDate": "2025-01-21T09:27:02Z",
+  "InsertDate": "2025-01-25T21:18:31Z",
+  "LastUpdateDate": "2025-01-25T21:18:31Z",
   "Level": "medium",
   "Name": "Azure Firewall Modified or Deleted",
-  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (operationname = 'microsoft.network/azurefirewalls/write' or operationname = 'microsoft.network/azurefirewalls/delete')",
+  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (operationname = 'MICROSOFT.NETWORK/AZUREFIREWALLS/WRITE' or operationname = 'MICROSOFT.NETWORK/AZUREFIREWALLS/DELETE')",
   "Tags": [
     "attack.impact",
     "attack.defense-evasion",

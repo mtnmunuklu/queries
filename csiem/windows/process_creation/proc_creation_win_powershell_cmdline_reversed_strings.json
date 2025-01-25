@@ -1,11 +1,11 @@
 {
   "Description": "Detects the presence of reversed PowerShell commands in the CommandLine. This is often used as a method of obfuscation by attackers\n\nAuthor: Teymur Kheirkhabarov (idea), Vasiliy Burov (rule), oscd.community, Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b6b49cd1-34d6-4ead-b1bf-176e9edba9a4",
-  "InsertDate": "2025-01-21T09:28:49Z",
-  "LastUpdateDate": "2025-01-21T09:28:49Z",
+  "InsertDate": "2025-01-25T21:22:06Z",
+  "LastUpdateDate": "2025-01-25T21:22:06Z",
   "Level": "high",
   "Name": "Potential PowerShell Obfuscation Via Reversed Commands",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll')) and (command like '%hctac%' or command like '%kaerb%' or command like '%dnammoc%' or command like '%ekovn%' or command like '%elifd%' or command like '%rahc%' or command like '%etirw%' or command like '%golon%' or command like '%tninon%' or command like '%eddih%' or command like '%tpircs%' or command like '%ssecorp%' or command like '%llehsrewop%' or command like '%esnopser%' or command like '%daolnwod%' or command like '%tneilcbew%' or command like '%tneilc%' or command like '%ptth%' or command like '%elifotevas%' or command like '%46esab%' or command like '%htappmetteg%' or command like '%tcejbo%' or command like '%maerts%' or command like '%hcaerof%' or command like '%retupmoc%')) and  not (command like '% -encodedcommand %' or command like '% -enc %'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'PowerShell.EXE' or original_file_name = 'pwsh.dll')) and (command like '%hctac%' or command like '%kaerb%' or command like '%dnammoc%' or command like '%ekovn%' or command like '%eliFd%' or command like '%rahc%' or command like '%etirw%' or command like '%golon%' or command like '%tninon%' or command like '%eddih%' or command like '%tpircS%' or command like '%ssecorp%' or command like '%llehsrewop%' or command like '%esnopser%' or command like '%daolnwod%' or command like '%tneilCbeW%' or command like '%tneilc%' or command like '%ptth%' or command like '%elifotevas%' or command like '%46esab%' or command like '%htaPpmeTteG%' or command like '%tcejbO%' or command like '%maerts%' or command like '%hcaerof%' or command like '%retupmoc%')) and  not (command like '% -EncodedCommand %' or command like '% -enc %'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1027",

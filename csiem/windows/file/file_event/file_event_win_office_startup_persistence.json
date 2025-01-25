@@ -1,11 +1,11 @@
 {
   "Description": "Detects creation of Microsoft Office files inside of one of the default startup folders in order to achieve persistence.\n\nAuthor: Max Altgelt (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0e20c89d-2264-44ae-8238-aeeaba609ece",
-  "InsertDate": "2025-01-21T09:27:45Z",
-  "LastUpdateDate": "2025-01-21T09:27:45Z",
+  "InsertDate": "2025-01-25T21:20:59Z",
+  "LastUpdateDate": "2025-01-25T21:20:59Z",
   "Level": "high",
   "Name": "Potential Persistence Via Microsoft Office Startup Folder",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((((filepath like '%\\microsoft\\word\\startup%' and (filepath like '%\\office%' and filepath like '%\\program files%' and filepath like '%\\startup%')) and (filepath like '%.doc' or filepath like '%.docm' or filepath like '%.docx' or filepath like '%.dot' or filepath like '%.dotm' or filepath like '%.rtf')) or ((filepath like '%\\microsoft\\excel\\xlstart%' and (filepath like '%\\office%' and filepath like '%\\program files%' and filepath like '%\\xlstart%')) and (filepath like '%.xls' or filepath like '%.xlsm' or filepath like '%.xlsx' or filepath like '%.xlt' or filepath like '%.xltm'))) and  not (process_path like '%\\winword.exe' or process_path like '%\\excel.exe'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((((filepath like '%\\Microsoft\\Word\\STARTUP%' and (filepath like '%\\Office%' and filepath like '%\\Program Files%' and filepath like '%\\STARTUP%')) and (filepath like '%.doc' or filepath like '%.docm' or filepath like '%.docx' or filepath like '%.dot' or filepath like '%.dotm' or filepath like '%.rtf')) or ((filepath like '%\\Microsoft\\Excel\\XLSTART%' and (filepath like '%\\Office%' and filepath like '%\\Program Files%' and filepath like '%\\XLSTART%')) and (filepath like '%.xls' or filepath like '%.xlsm' or filepath like '%.xlsx' or filepath like '%.xlt' or filepath like '%.xltm'))) and  not (process_path like '%\\WINWORD.exe' or process_path like '%\\EXCEL.exe'))",
   "Tags": [
     "attack.persistence",
     "attack.t1137"

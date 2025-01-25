@@ -1,8 +1,8 @@
 {
   "Description": "Detects creation of a container with a hostPath mount.\nA hostPath volume mounts a directory or a file from the node to the container.\nAttackers who have permissions to create a new pod in the cluster may create one with a writable hostPath volume and chroot to escape to the underlying node.\n\n\nAuthor: Leo Tsaousis (@laripping)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "402b955c-8fe0-4a8c-b635-622b4ac5f902",
-  "InsertDate": "2025-01-21T09:26:58Z",
-  "LastUpdateDate": "2025-01-21T09:26:58Z",
+  "InsertDate": "2025-01-25T21:18:21Z",
+  "LastUpdateDate": "2025-01-25T21:18:21Z",
   "Level": "low",
   "Name": "Container With A hostPath Mount Created",
   "Query": "sourcetype='kubernetes-audit' eql select * from _source_ where verb = 'create' and objectref.resource = 'pods' and hostpath = '*'",

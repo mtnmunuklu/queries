@@ -1,11 +1,11 @@
 {
   "Description": "Detects a typical pattern of a CobaltStrike BOF which inject into other processes\n\nAuthor: Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "09706624-b7f6-455d-9d02-adee024cee1d",
-  "InsertDate": "2025-01-21T09:28:14Z",
-  "LastUpdateDate": "2025-01-21T09:28:14Z",
+  "InsertDate": "2025-01-25T21:21:33Z",
+  "LastUpdateDate": "2025-01-25T21:21:33Z",
   "Level": "high",
   "Name": "HackTool - CobaltStrike BOF Injection Pattern",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where call_trace re '^C:\\\\Windows\\\\SYSTEM32\\\\ntdll\\.dll\\+[a-z0-9]{4,6}\\|C:\\\\Windows\\\\System32\\\\KERNELBASE\\.dll\\+[a-z0-9]{4,6}\\|UNKNOWN\\([A-Z0-9]{16}\\)$' and (granted_access = '0x1028' or granted_access = '0x1fffff')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where call_trace rlike '^C:\\\\Windows\\\\SYSTEM32\\\\ntdll\\.dll\\+[a-z0-9]{4,6}\\|C:\\\\Windows\\\\System32\\\\KERNELBASE\\.dll\\+[a-z0-9]{4,6}\\|UNKNOWN\\([A-Z0-9]{16}\\)$' and (granted_access = '0x1028' or granted_access = '0x1fffff')",
   "Tags": [
     "attack.execution",
     "attack.t1106",

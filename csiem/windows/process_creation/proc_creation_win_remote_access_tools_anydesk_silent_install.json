@@ -1,8 +1,8 @@
 {
   "Description": "Detects AnyDesk Remote Desktop silent installation. Which can be used by attackers to gain remote access.\n\nAuthor: Ján Trenčanský\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "114e7f1c-f137-48c8-8f54-3088c24ce4b9",
-  "InsertDate": "2025-01-21T09:29:44Z",
-  "LastUpdateDate": "2025-01-21T09:29:44Z",
+  "InsertDate": "2025-01-25T21:22:17Z",
+  "LastUpdateDate": "2025-01-25T21:22:17Z",
   "Level": "high",
   "Name": "Remote Access Tool - AnyDesk Silent Installation",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%--install%' and command like '%--start-with-win%' and command like '%--silent%')",

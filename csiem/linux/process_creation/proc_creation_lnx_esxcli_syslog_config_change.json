@@ -1,8 +1,8 @@
 {
   "Description": "Detects changes to the ESXi syslog configuration via \"esxcli\"\n\nAuthor: Cedric Maurugeon\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "38eb1dbb-011f-40b1-a126-cf03a0210563",
-  "InsertDate": "2025-01-21T09:27:16Z",
-  "LastUpdateDate": "2025-01-21T09:27:16Z",
+  "InsertDate": "2025-01-25T21:19:22Z",
+  "LastUpdateDate": "2025-01-25T21:19:22Z",
   "Level": "medium",
   "Name": "ESXi Syslog Configuration Change Via ESXCLI",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where process_path like '%/esxcli' and (command like '%system%' and command like '%syslog%' and command like '%config%') and command like '% set%'",

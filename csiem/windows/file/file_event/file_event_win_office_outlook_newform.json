@@ -1,11 +1,11 @@
 {
   "Description": "Detects the creation of a new Outlook form which can contain malicious code\n\nAuthor: Tobias Michalski (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c3edc6a5-d9d4-48d8-930e-aab518390917",
-  "InsertDate": "2025-01-21T09:27:45Z",
-  "LastUpdateDate": "2025-01-21T09:27:45Z",
+  "InsertDate": "2025-01-25T21:20:59Z",
+  "LastUpdateDate": "2025-01-25T21:20:59Z",
   "Level": "high",
   "Name": "Potential Persistence Via Outlook Form",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\outlook.exe' and (filepath like '%\\appdata\\local\\microsoft\\forms\\ipm%' or filepath like '%\\local settings\\application data\\microsoft\\forms%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\outlook.exe' and (filepath like '%\\AppData\\Local\\Microsoft\\FORMS\\IPM%' or filepath like '%\\Local Settings\\Application Data\\Microsoft\\Forms%')",
   "Tags": [
     "attack.persistence",
     "attack.t1137.003"

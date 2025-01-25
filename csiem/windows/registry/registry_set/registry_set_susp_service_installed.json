@@ -1,11 +1,11 @@
 {
   "Description": "Detects installation of NalDrv or PROCEXP152 services via registry-keys to non-system32 folders.\nBoth services are used in the tool Ghost-In-The-Logs (https://github.com/bats3c/Ghost-In-The-Logs), which uses KDU (https://github.com/hfiref0x/KDU)\n\n\nAuthor: xknow (@xknow_infosec), xorxes (@xor_xes)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f2485272-a156-4773-82d7-1d178bc4905b",
-  "InsertDate": "2025-01-21T09:31:55Z",
-  "LastUpdateDate": "2025-01-21T09:31:55Z",
+  "InsertDate": "2025-01-25T21:22:50Z",
+  "LastUpdateDate": "2025-01-25T21:22:50Z",
   "Level": "medium",
   "Name": "Suspicious Service Installed",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object = 'hklm\\system\\currentcontrolset\\services\\naldrv\\imagepath' or target_object = 'hklm\\system\\currentcontrolset\\services\\procexp152\\imagepath') and  not ((process_path like '%\\procexp64.exe' or process_path like '%\\procexp.exe' or process_path like '%\\procmon64.exe' or process_path like '%\\procmon.exe' or process_path like '%\\handle.exe' or process_path like '%\\handle64.exe') and details like '%\\windows\\system32\\drivers\\procexp152.sys%'))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object = 'HKLM\\System\\CurrentControlSet\\Services\\NalDrv\\ImagePath' or target_object = 'HKLM\\System\\CurrentControlSet\\Services\\PROCEXP152\\ImagePath') and  not ((process_path like '%\\procexp64.exe' or process_path like '%\\procexp.exe' or process_path like '%\\procmon64.exe' or process_path like '%\\procmon.exe' or process_path like '%\\handle.exe' or process_path like '%\\handle64.exe') and details like '%\\WINDOWS\\system32\\Drivers\\PROCEXP152.SYS%'))",
   "Tags": [
     "attack.t1562.001",
     "attack.defense-evasion"

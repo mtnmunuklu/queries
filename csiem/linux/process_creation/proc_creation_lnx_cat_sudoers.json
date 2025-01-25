@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of a cat /etc/sudoers to list all users that have sudo rights\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0f79c4d2-4e1f-4683-9c36-b5469a665e06",
-  "InsertDate": "2025-01-21T09:27:15Z",
-  "LastUpdateDate": "2025-01-21T09:27:15Z",
+  "InsertDate": "2025-01-25T21:19:20Z",
+  "LastUpdateDate": "2025-01-25T21:19:20Z",
   "Level": "medium",
   "Name": "Cat Sudoers",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where (process_path like '%/cat' or process_path like '%grep' or process_path like '%/head' or process_path like '%/tail' or process_path like '%/more') and command like '% /etc/sudoers%'",

@@ -1,11 +1,11 @@
 {
   "Description": "Detects possible Sysmon filter driver unloaded via fltmc.exe\n\nAuthor: Kirill Kiryanov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4d7cda18-1b12-4e52-b45c-d28653210df8",
-  "InsertDate": "2025-01-21T09:28:26Z",
-  "LastUpdateDate": "2025-01-21T09:28:26Z",
+  "InsertDate": "2025-01-25T21:21:44Z",
+  "LastUpdateDate": "2025-01-25T21:21:44Z",
   "Level": "high",
   "Name": "Sysmon Driver Unloaded Via Fltmc.EXE",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\fltmc.exe' and original_file_name = 'fltmc.exe') and (command like '%unload%' and command like '%sysmon%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\fltMC.exe' and original_file_name = 'fltMC.exe') and (command like '%unload%' and command like '%sysmon%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1070",

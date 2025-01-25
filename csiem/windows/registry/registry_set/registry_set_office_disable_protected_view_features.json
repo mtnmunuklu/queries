@@ -1,11 +1,11 @@
 {
   "Description": "Detects changes to Microsoft Office protected view registry keys with which the attacker disables this feature.\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a5c7a43f-6009-4a8c-80c5-32abf1c53ecc",
-  "InsertDate": "2025-01-21T09:31:42Z",
-  "LastUpdateDate": "2025-01-21T09:31:42Z",
+  "InsertDate": "2025-01-25T21:22:47Z",
+  "LastUpdateDate": "2025-01-25T21:22:47Z",
   "Level": "high",
   "Name": "Microsoft Office Protected View Disabled",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object like '%\\software\\microsoft\\office\\%' and target_object like '%\\security\\protectedview\\%') and ((details = 'dword (0x00000001)' and (target_object like '%\\disableattachementsinpv' or target_object like '%\\disableinternetfilesinpv' or target_object like '%\\disableintranetcheck' or target_object like '%\\disableunsafelocationsinpv')) or (details = 'dword (0x00000000)' and (target_object like '%\\enabledatabasefileprotectedview' or target_object like '%\\enableforeigntextfileprotectedview'))))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object like '%\\SOFTWARE\\Microsoft\\Office\\%' and target_object like '%\\Security\\ProtectedView\\%') and ((details = 'DWORD (0x00000001)' and (target_object like '%\\DisableAttachementsInPV' or target_object like '%\\DisableInternetFilesInPV' or target_object like '%\\DisableIntranetCheck' or target_object like '%\\DisableUnsafeLocationsInPV')) or (details = 'DWORD (0x00000000)' and (target_object like '%\\enabledatabasefileprotectedview' or target_object like '%\\enableforeigntextfileprotectedview'))))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1562.001"

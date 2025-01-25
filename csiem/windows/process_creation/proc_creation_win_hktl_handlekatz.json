@@ -1,11 +1,11 @@
 {
   "Description": "Detects the use of HandleKatz, a tool that demonstrates the usage of cloned handles to Lsass in order to create an obfuscated memory dump of the same\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ca621ba5-54ab-4035-9942-d378e6fcde3c",
-  "InsertDate": "2025-01-21T09:28:29Z",
-  "LastUpdateDate": "2025-01-21T09:28:29Z",
+  "InsertDate": "2025-01-25T21:21:48Z",
+  "LastUpdateDate": "2025-01-25T21:21:48Z",
   "Level": "high",
   "Name": "HackTool - HandleKatz LSASS Dumper Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\loader.exe' and command like '%--pid:%') or (hashes like '%imphash=38d9e015591bbfd4929e0d0f47fa0055%' or hashes like '%imphash=0e2216679ca6e1094d63322e3412d650%') or ((command like '%--pid:%' and command like '%--outfile:%') and (command like '%.dmp%' or command like '%lsass%' or command like '%.obf%' or command like '%dump%')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\loader.exe' and command like '%--pid:%') or (hashes like '%IMPHASH=38D9E015591BBFD4929E0D0F47FA0055%' or hashes like '%IMPHASH=0E2216679CA6E1094D63322E3412D650%') or ((command like '%--pid:%' and command like '%--outfile:%') and (command like '%.dmp%' or command like '%lsass%' or command like '%.obf%' or command like '%dump%')))",
   "Tags": [
     "attack.credential-access",
     "attack.t1003.001"

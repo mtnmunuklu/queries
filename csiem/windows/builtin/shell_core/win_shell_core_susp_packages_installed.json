@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious application installed by looking at the added shortcut to the app resolver cache\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "83c161b6-ca67-4f33-8ad0-644a0737cf07",
-  "InsertDate": "2025-01-21T09:27:34Z",
-  "LastUpdateDate": "2025-01-21T09:27:34Z",
+  "InsertDate": "2025-01-25T21:20:30Z",
+  "LastUpdateDate": "2025-01-25T21:20:30Z",
   "Level": "medium",
   "Name": "Suspicious Application Installed",
-  "Query": "sourcetype='windows-shell-core' eql select * from _source_ where ((eventid = '28115' and (name like '%zenmap%' or name like '%anydesk%' or name like '%wireshark%' or name like '%openvpn%')) or (eventid = '28115' and (appid like '%zenmap.exe%' or appid like '%prokzult ad%' or appid like '%wireshark%' or appid like '%openvpn%')))",
+  "Query": "sourcetype='windows-shell-core' eql select * from _source_ where ((eventid = '28115' and (name like '%Zenmap%' or name like '%AnyDesk%' or name like '%wireshark%' or name like '%openvpn%')) or (eventid = '28115' and (appid like '%zenmap.exe%' or appid like '%prokzult ad%' or appid like '%wireshark%' or appid like '%openvpn%')))",
   "Tags": [
     "attack.execution"
   ],

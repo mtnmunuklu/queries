@@ -1,8 +1,8 @@
 {
   "Description": "Detects executable names or flags used by Htran or Htran-like tools (e.g. NATBypass)\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f5e3b62f-e577-4e59-931e-0a15b2b94e1e",
-  "InsertDate": "2025-01-21T09:28:29Z",
-  "LastUpdateDate": "2025-01-21T09:28:29Z",
+  "InsertDate": "2025-01-25T21:21:48Z",
+  "LastUpdateDate": "2025-01-25T21:21:48Z",
   "Level": "high",
   "Name": "HackTool - Htran/NATBypass Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\htran.exe' or process_path like '%\\lcx.exe') or (command like '%.exe -tran %' or command like '%.exe -slave %'))",

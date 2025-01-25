@@ -1,11 +1,11 @@
 {
   "Description": "Detects the process injection of a LittleCorporal generated Maldoc.\n\nAuthor: Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "7bdde3bf-2a42-4c39-aa31-a92b3e17afac",
-  "InsertDate": "2025-01-21T09:28:14Z",
-  "LastUpdateDate": "2025-01-21T09:28:14Z",
+  "InsertDate": "2025-01-25T21:21:33Z",
+  "LastUpdateDate": "2025-01-25T21:21:33Z",
   "Level": "high",
   "Name": "HackTool - LittleCorporal Generated Maldoc Injection",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\winword.exe' and (call_trace like '%:\\windows\\microsoft.net\\framework64\\v2.%' and call_trace like '%unknown%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\winword.exe' and (call_trace like '%:\\Windows\\Microsoft.NET\\Framework64\\v2.%' and call_trace like '%UNKNOWN%')",
   "Tags": [
     "attack.execution",
     "attack.t1204.002",

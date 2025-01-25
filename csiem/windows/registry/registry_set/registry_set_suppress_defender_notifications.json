@@ -1,11 +1,11 @@
 {
   "Description": "Detect set Notification_Suppress to 1 to disable the Windows security center notification\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0c93308a-3f1b-40a9-b649-57ea1a1c1d63",
-  "InsertDate": "2025-01-21T09:31:54Z",
-  "LastUpdateDate": "2025-01-21T09:31:54Z",
+  "InsertDate": "2025-01-25T21:22:50Z",
+  "LastUpdateDate": "2025-01-25T21:22:50Z",
   "Level": "medium",
   "Name": "Activate Suppression of Windows Security Center Notifications",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where target_object like '%software\\policies\\microsoft\\windows defender\\ux configuration\\notification_suppress' and details = 'dword (0x00000001)'",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where target_object like '%SOFTWARE\\Policies\\Microsoft\\Windows Defender\\UX Configuration\\Notification_Suppress' and details = 'DWORD (0x00000001)'",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1112"

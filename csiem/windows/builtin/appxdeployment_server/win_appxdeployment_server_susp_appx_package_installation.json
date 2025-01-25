@@ -1,8 +1,8 @@
 {
   "Description": "Detects an appx package installation with the error code \"0x80073cff\" which indicates that the package didn't meet the signing requirements and could be suspicious\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "898d5fc9-fbc3-43de-93ad-38e97237c344",
-  "InsertDate": "2025-01-21T09:27:26Z",
-  "LastUpdateDate": "2025-01-21T09:27:26Z",
+  "InsertDate": "2025-01-25T21:20:03Z",
+  "LastUpdateDate": "2025-01-25T21:20:03Z",
   "Level": "medium",
   "Name": "Suspicious AppX Package Installation Attempt",
   "Query": "sourcetype='windows-appxdeployment-server' eql select * from _source_ where eventid = '401' and errorcode = '0x80073cff'",

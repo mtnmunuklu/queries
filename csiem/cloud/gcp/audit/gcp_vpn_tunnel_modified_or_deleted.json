@@ -1,11 +1,11 @@
 {
   "Description": "Identifies when a VPN Tunnel Modified or Deleted in Google Cloud.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "99980a85-3a61-43d3-ac0f-b68d6b4797b1",
-  "InsertDate": "2025-01-21T09:27:08Z",
-  "LastUpdateDate": "2025-01-21T09:27:08Z",
+  "InsertDate": "2025-01-25T21:19:02Z",
+  "LastUpdateDate": "2025-01-25T21:19:02Z",
   "Level": "medium",
   "Name": "Google Cloud VPN Tunnel Modified or Deleted",
-  "Query": "sourcetype='gcp-gcp.audit' eql select * from _source_ where (gcp.audit.method_name = 'compute.vpntunnels.insert' or gcp.audit.method_name = 'compute.vpntunnels.delete')",
+  "Query": "sourcetype='gcp-gcp.audit' eql select * from _source_ where (gcp.audit.method_name = 'compute.vpnTunnels.insert' or gcp.audit.method_name = 'compute.vpnTunnels.delete')",
   "Tags": [
     "attack.impact"
   ],

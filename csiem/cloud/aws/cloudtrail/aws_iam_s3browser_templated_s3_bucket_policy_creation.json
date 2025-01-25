@@ -1,11 +1,11 @@
 {
   "Description": "Detects S3 browser utility creating Inline IAM policy containing default S3 bucket name placeholder value of \"\u003cYOUR-BUCKET-NAME\u003e\".\n\nAuthor: daniel.bohannon@permiso.io (@danielhbohannon)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "db014773-7375-4f4e-b83b-133337c0ffee",
-  "InsertDate": "2025-01-21T09:27:01Z",
-  "LastUpdateDate": "2025-01-21T09:27:01Z",
+  "InsertDate": "2025-01-25T21:18:27Z",
+  "LastUpdateDate": "2025-01-25T21:18:27Z",
   "Level": "high",
   "Name": "AWS IAM S3Browser Templated S3 Bucket Policy Creation",
-  "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where eventsource = 'iam.amazonaws.com' and eventname = 'putuserpolicy' and useragent like '%s3 browser%' and (requestparameters like '%\"arn:aws:s3:::\u003cyour-bucket-name\u003e/*\"%' and requestparameters like '%\"s3:getobject\"%' and requestparameters like '%\"allow\"%')",
+  "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where eventsource = 'iam.amazonaws.com' and eventname = 'PutUserPolicy' and useragent like '%S3 Browser%' and (requestparameters like '%\"arn:aws:s3:::\u003cYOUR-BUCKET-NAME\u003e/*\"%' and requestparameters like '%\"s3:GetObject\"%' and requestparameters like '%\"Allow\"%')",
   "Tags": [
     "attack.execution",
     "attack.t1059.009",

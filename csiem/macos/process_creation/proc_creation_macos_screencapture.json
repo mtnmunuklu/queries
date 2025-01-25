@@ -1,8 +1,8 @@
 {
   "Description": "Detects attempts to use screencapture to collect macOS screenshots\n\nAuthor: remotephone, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0877ed01-da46-4c49-8476-d49cdd80dfa7",
-  "InsertDate": "2025-01-21T09:27:20Z",
-  "LastUpdateDate": "2025-01-21T09:27:20Z",
+  "InsertDate": "2025-01-25T21:19:38Z",
+  "LastUpdateDate": "2025-01-25T21:19:38Z",
   "Level": "low",
   "Name": "Screen Capture - macOS",
   "Query": "sourcetype like 'macos-%' eql select * from _source_ where process_path = '/usr/sbin/screencapture'",

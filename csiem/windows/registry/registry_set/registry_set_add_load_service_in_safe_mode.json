@@ -1,11 +1,11 @@
 {
   "Description": "Detects the modification of the registry to allow a driver or service to persist in Safe Mode.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1547e27c-3974-43e2-a7d7-7f484fb928ec",
-  "InsertDate": "2025-01-21T09:31:18Z",
-  "LastUpdateDate": "2025-01-21T09:31:18Z",
+  "InsertDate": "2025-01-25T21:22:42Z",
+  "LastUpdateDate": "2025-01-25T21:22:42Z",
   "Level": "high",
   "Name": "Registry Persistence via Service in Safe Mode",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (((target_object like '%\\control\\safeboot\\minimal\\%' or target_object like '%\\control\\safeboot\\network\\%') and target_object like '%\\(default)' and details = 'service') and  not (process_path = 'c:\\windows\\system32\\msiexec.exe' and (target_object like '%\\control\\safeboot\\minimal\\savservice\\(default)' or target_object like '%\\control\\safeboot\\network\\savservice\\(default)')))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (((target_object like '%\\Control\\SafeBoot\\Minimal\\%' or target_object like '%\\Control\\SafeBoot\\Network\\%') and target_object like '%\\(Default)' and details = 'Service') and  not (process_path = 'C:\\WINDOWS\\system32\\msiexec.exe' and (target_object like '%\\Control\\SafeBoot\\Minimal\\SAVService\\(Default)' or target_object like '%\\Control\\SafeBoot\\Network\\SAVService\\(Default)')))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1564.001"

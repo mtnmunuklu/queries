@@ -1,11 +1,11 @@
 {
   "Description": "Potential adversaries stopping ETW providers recording loaded .NET assemblies.\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a4c90ea1-2634-4ca0-adbb-35eae169b6fc",
-  "InsertDate": "2025-01-21T09:27:30Z",
-  "LastUpdateDate": "2025-01-21T09:27:30Z",
+  "InsertDate": "2025-01-25T21:20:17Z",
+  "LastUpdateDate": "2025-01-25T21:20:17Z",
   "Level": "high",
   "Name": "ETW Logging Disabled In .NET Processes - Registry",
-  "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '4657' and objectname like '%\\environment%' and (objectvaluename = 'complus_etwenabled' or objectvaluename = 'complus_etwflags') and newvalue = '0') or (eventid = '4657' and objectname like '%\\software\\microsoft\\.netframework' and objectvaluename = 'etwenabled' and newvalue = '0'))",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '4657' and objectname like '%\\Environment%' and (objectvaluename = 'COMPlus_ETWEnabled' or objectvaluename = 'COMPlus_ETWFlags') and newvalue = '0') or (eventid = '4657' and objectname like '%\\SOFTWARE\\Microsoft\\.NETFramework' and objectvaluename = 'ETWEnabled' and newvalue = '0'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1112",

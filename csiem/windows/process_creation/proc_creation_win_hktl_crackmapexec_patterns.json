@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious process patterns found in logs when CrackMapExec is used\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f26307d8-14cd-47e3-a26b-4b4769f24af6",
-  "InsertDate": "2025-01-21T09:28:28Z",
-  "LastUpdateDate": "2025-01-21T09:28:28Z",
+  "InsertDate": "2025-01-25T21:21:47Z",
+  "LastUpdateDate": "2025-01-25T21:21:47Z",
   "Level": "high",
   "Name": "HackTool - CrackMapExec Process Patterns",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%do rundll32.exe c:\\windows\\system32\\comsvcs.dll, minidump%' and command like '%\\windows\\temp\\%' and command like '% full%' and command like '%%%b%') or (command like '%tasklist /v /fo csv%' and command like '%findstr /i \"lsass\"%') or ((command like '%tasklist /fi %' and command like '%imagename eq lsass.exe%') and (command like '%cmd.exe /c %' or command like '%cmd.exe /r %' or command like '%cmd.exe /k %' or command like '%cmd /c %' or command like '%cmd /r %' or command like '%cmd /k %') and (username like '%authori%' or username like '%autori%')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%do rundll32.exe C:\\windows\\System32\\comsvcs.dll, MiniDump%' and command like '%\\Windows\\Temp\\%' and command like '% full%' and command like '%%%B%') or (command like '%tasklist /v /fo csv%' and command like '%findstr /i \"lsass\"%') or ((command like '%tasklist /fi %' and command like '%Imagename eq lsass.exe%') and (command like '%cmd.exe /c %' or command like '%cmd.exe /r %' or command like '%cmd.exe /k %' or command like '%cmd /c %' or command like '%cmd /r %' or command like '%cmd /k %') and (username like '%AUTHORI%' or username like '%AUTORI%')))",
   "Tags": [
     "attack.credential-access",
     "attack.t1003.001"

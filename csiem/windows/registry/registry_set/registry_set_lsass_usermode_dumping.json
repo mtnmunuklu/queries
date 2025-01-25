@@ -1,11 +1,11 @@
 {
   "Description": "Detects the setting of the \"DumpType\" registry value to \"2\" which stands for a \"Full Dump\". Technique such as LSASS Shtinkering requires this value to be \"2\" in order to dump LSASS.\n\nAuthor: @pbssubhash\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "33efc23c-6ea2-4503-8cfe-bdf82ce8f719",
-  "InsertDate": "2025-01-21T09:31:40Z",
-  "LastUpdateDate": "2025-01-21T09:31:40Z",
+  "InsertDate": "2025-01-25T21:22:47Z",
+  "LastUpdateDate": "2025-01-25T21:22:47Z",
   "Level": "high",
   "Name": "Lsass Full Dump Request Via DumpType Registry Settings",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\software\\microsoft\\windows\\windows error reporting\\localdumps\\dumptype%' or target_object like '%\\software\\microsoft\\windows\\windows error reporting\\localdumps\\lsass.exe\\dumptype%') and details = 'dword (0x00000002)'",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\SOFTWARE\\Microsoft\\Windows\\Windows Error Reporting\\LocalDumps\\DumpType%' or target_object like '%\\SOFTWARE\\Microsoft\\Windows\\Windows Error Reporting\\LocalDumps\\lsass.exe\\DumpType%') and details = 'DWORD (0x00000002)'",
   "Tags": [
     "attack.credential-access",
     "attack.t1003.001"

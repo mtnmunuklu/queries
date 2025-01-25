@@ -1,11 +1,11 @@
 {
   "Description": "Identifies when Rule Collections (Application, NAT, and Network) is being modified or deleted.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "025c9fe7-db72-49f9-af0d-31341dd7dd57",
-  "InsertDate": "2025-01-21T09:27:02Z",
-  "LastUpdateDate": "2025-01-21T09:27:02Z",
+  "InsertDate": "2025-01-25T21:18:31Z",
+  "LastUpdateDate": "2025-01-25T21:18:31Z",
   "Level": "medium",
   "Name": "Azure Firewall Rule Collection Modified or Deleted",
-  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (operationname = 'microsoft.network/azurefirewalls/applicationrulecollections/write' or operationname = 'microsoft.network/azurefirewalls/applicationrulecollections/delete' or operationname = 'microsoft.network/azurefirewalls/natrulecollections/write' or operationname = 'microsoft.network/azurefirewalls/natrulecollections/delete' or operationname = 'microsoft.network/azurefirewalls/networkrulecollections/write' or operationname = 'microsoft.network/azurefirewalls/networkrulecollections/delete')",
+  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (operationname = 'MICROSOFT.NETWORK/AZUREFIREWALLS/APPLICATIONRULECOLLECTIONS/WRITE' or operationname = 'MICROSOFT.NETWORK/AZUREFIREWALLS/APPLICATIONRULECOLLECTIONS/DELETE' or operationname = 'MICROSOFT.NETWORK/AZUREFIREWALLS/NATRULECOLLECTIONS/WRITE' or operationname = 'MICROSOFT.NETWORK/AZUREFIREWALLS/NATRULECOLLECTIONS/DELETE' or operationname = 'MICROSOFT.NETWORK/AZUREFIREWALLS/NETWORKRULECOLLECTIONS/WRITE' or operationname = 'MICROSOFT.NETWORK/AZUREFIREWALLS/NETWORKRULECOLLECTIONS/DELETE')",
   "Tags": [
     "attack.impact",
     "attack.defense-evasion",

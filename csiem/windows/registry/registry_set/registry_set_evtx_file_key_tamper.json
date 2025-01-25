@@ -1,11 +1,11 @@
 {
   "Description": "Detects tampering with EventLog service \"file\" key. In order to change the default location of an Evtx file. This technique is used to tamper with log collection and alerting\n\nAuthor: D3F7A5105\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0cb8d736-995d-4ce7-a31e-1e8d452a1459",
-  "InsertDate": "2025-01-21T09:31:38Z",
-  "LastUpdateDate": "2025-01-21T09:31:38Z",
+  "InsertDate": "2025-01-25T21:22:46Z",
+  "LastUpdateDate": "2025-01-25T21:22:46Z",
   "Level": "high",
   "Name": "Potential EventLog File Location Tampering",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object like '%\\system\\currentcontrolset\\services\\eventlog\\%' and target_object like '%\\file') and  not details like '%\\system32\\winevt\\logs\\%')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object like '%\\SYSTEM\\CurrentControlSet\\Services\\EventLog\\%' and target_object like '%\\File') and  not details like '%\\System32\\Winevt\\Logs\\%')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1562.002"

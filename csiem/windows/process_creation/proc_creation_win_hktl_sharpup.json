@@ -1,11 +1,11 @@
 {
   "Description": "Detects the use of SharpUp, a tool for local privilege escalation\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c484e533-ee16-4a93-b6ac-f0ea4868b2f1",
-  "InsertDate": "2025-01-21T09:28:32Z",
-  "LastUpdateDate": "2025-01-21T09:28:32Z",
+  "InsertDate": "2025-01-25T21:21:53Z",
+  "LastUpdateDate": "2025-01-25T21:21:53Z",
   "Level": "critical",
   "Name": "HackTool - SharpUp PrivEsc Tool Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\sharpup.exe' and description = 'sharpup' and (command like '%hijackablepaths%' or command like '%unquotedservicepath%' or command like '%processdllhijack%' or command like '%modifiableservicebinaries%' or command like '%modifiablescheduledtask%' or command like '%domaingpppassword%' or command like '%cachedgpppassword%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\SharpUp.exe' and description = 'SharpUp' and (command like '%HijackablePaths%' or command like '%UnquotedServicePath%' or command like '%ProcessDLLHijack%' or command like '%ModifiableServiceBinaries%' or command like '%ModifiableScheduledTask%' or command like '%DomainGPPPassword%' or command like '%CachedGPPPassword%')",
   "Tags": [
     "attack.privilege-escalation",
     "attack.t1615",

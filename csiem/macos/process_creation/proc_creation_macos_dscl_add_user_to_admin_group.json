@@ -1,11 +1,11 @@
 {
   "Description": "Detects attempts to create and add an account to the admin group via \"dscl\"\n\nAuthor: Sohan G (D4rkCiph3r)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b743623c-2776-40e0-87b1-682b975d0ca5",
-  "InsertDate": "2025-01-21T09:27:19Z",
-  "LastUpdateDate": "2025-01-21T09:27:19Z",
+  "InsertDate": "2025-01-25T21:19:35Z",
+  "LastUpdateDate": "2025-01-25T21:19:35Z",
   "Level": "medium",
   "Name": "User Added To Admin Group Via Dscl",
-  "Query": "sourcetype like 'macos-%' eql select * from _source_ where process_path like '%/dscl' and (command like '% -append %' and command like '% /groups/admin %' and command like '% groupmembership %')",
+  "Query": "sourcetype like 'macos-%' eql select * from _source_ where process_path like '%/dscl' and (command like '% -append %' and command like '% /Groups/admin %' and command like '% GroupMembership %')",
   "Tags": [
     "attack.initial-access",
     "attack.privilege-escalation",

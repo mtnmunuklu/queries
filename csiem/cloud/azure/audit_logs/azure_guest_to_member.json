@@ -1,11 +1,11 @@
 {
   "Description": "Detects the change of user type from \"Guest\" to \"Member\" for potential elevation of privilege.\n\nAuthor: MikeDuddington, '@dudders1'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "8dee7a0d-43fd-4b3c-8cd1-605e189d195e",
-  "InsertDate": "2025-01-21T09:27:04Z",
-  "LastUpdateDate": "2025-01-21T09:27:04Z",
+  "InsertDate": "2025-01-25T21:18:41Z",
+  "LastUpdateDate": "2025-01-25T21:18:41Z",
   "Level": "medium",
   "Name": "User State Changed From Guest To Member",
-  "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where category = 'usermanagement' and operationname = 'update user' and properties.message = '\"displayname\":\"usertype\",\"oldvalue\":\"[\\\"guest\\\"]\",\"newvalue\":\"[\\\"member\\\"]\"'",
+  "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where category = 'UserManagement' and operationname = 'Update user' and properties.message = '\"displayName\":\"UserType\",\"oldValue\":\"[\\\"Guest\\\"]\",\"newValue\":\"[\\\"Member\\\"]\"'",
   "Tags": [
     "attack.privilege-escalation",
     "attack.initial-access",

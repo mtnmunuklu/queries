@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious ways to download files or content using PowerShell\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6e897651-f157-4d8f-aaeb-df8151488385",
-  "InsertDate": "2025-01-21T09:28:55Z",
-  "LastUpdateDate": "2025-01-21T09:28:55Z",
+  "InsertDate": "2025-01-25T21:22:07Z",
+  "LastUpdateDate": "2025-01-25T21:22:07Z",
   "Level": "medium",
   "Name": "PowerShell Web Download",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%.downloadstring(%' or command like '%.downloadfile(%' or command like '%invoke-webrequest %' or command like '%iwr %')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%.DownloadString(%' or command like '%.DownloadFile(%' or command like '%Invoke-WebRequest %' or command like '%iwr %')",
   "Tags": [
     "attack.command-and-control",
     "attack.execution",

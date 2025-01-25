@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a successful login to the Microsoft Intune Company Portal which could allow bypassing Conditional Access Policies and InTune device trust using a tool like TokenSmith.\n\n\nAuthor: Josh Nickels, Marius Rothenbücher\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "13f2d3f5-6497-44a7-bf5f-dc13ffafe5dc",
+  "InsertDate": "2025-01-25T21:19:04Z",
+  "LastUpdateDate": "2025-01-25T21:19:04Z",
+  "Level": "high",
+  "Name": "Azure Login Bypassing Conditional Access Policies",
+  "Query": "sourcetype='m365-audit' eql select * from _source_ where ((operation = 'UserLoggedIn' and applicationid = '9ba1a5c7-f17a-4de9-a1f1-6178c8d51223' and resultstatus = 'Success' and requesttype = 'Cmsi:Cmsi') and  not objectid = '0000000a-0000-0000-c000-000000000000')",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1078"
+  ],
+  "Version": "0.1"
+}

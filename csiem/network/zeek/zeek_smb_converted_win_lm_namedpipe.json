@@ -1,11 +1,11 @@
 {
   "Description": "This detection excludes known namped pipes accessible remotely and notify on newly observed ones, may help to detect lateral movement and remote exec using named pipes\n\nAuthor: Samir Bousseaden, @neu5ron, Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "021310d9-30a6-480a-84b7-eaa69aeb92bb",
-  "InsertDate": "2025-01-21T09:27:23Z",
-  "LastUpdateDate": "2025-01-21T09:27:23Z",
+  "InsertDate": "2025-01-25T21:19:48Z",
+  "LastUpdateDate": "2025-01-25T21:19:48Z",
   "Level": "high",
   "Name": "First Time Seen Remote Named Pipe - Zeek",
-  "Query": "sourcetype='zeek-smb_files' eql select * from _source_ where (path = '\\\\\\\\\\*\\\\ipc$' and  not Query('samr OR lsarpc OR winreg OR netlogon OR srvsvc OR protected_storage OR wkssvc OR browser OR netdfs OR svcctl OR spoolss OR ntsvcs OR LSM_API_service OR HydraLsPipe OR TermSrv_API_service OR MsFteWds'))",
+  "Query": "sourcetype='zeek-smb_files' eql select * from _source_ where (path = '\\\\\\\\\\*\\\\IPC$' and  not Query('samr OR lsarpc OR winreg OR netlogon OR srvsvc OR protected_storage OR wkssvc OR browser OR netdfs OR svcctl OR spoolss OR ntsvcs OR LSM_API_service OR HydraLsPipe OR TermSrv_API_service OR MsFteWds'))",
   "Tags": [
     "attack.lateral-movement",
     "attack.t1021.002"

@@ -1,8 +1,8 @@
 {
   "Description": "Detects User Agent strings that end with an equal sign, which can be a sign of base64 encoding.\n\nAuthor: Florian Roth (Nextron Systems), Brian Ingram (update)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "894a8613-cf12-48b3-8e57-9085f54aa0c3",
-  "InsertDate": "2025-01-21T09:27:24Z",
-  "LastUpdateDate": "2025-01-21T09:27:24Z",
+  "InsertDate": "2025-01-25T21:19:55Z",
+  "LastUpdateDate": "2025-01-25T21:19:55Z",
   "Level": "medium",
   "Name": "Potential Base64 Encoded User-Agent",
   "Query": "eql select * from _source_ where c-useragent like '%='",

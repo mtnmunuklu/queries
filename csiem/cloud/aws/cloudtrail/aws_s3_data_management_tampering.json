@@ -1,11 +1,11 @@
 {
   "Description": "Detects when a user tampers with S3 data management in Amazon Web Services.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "78b3756a-7804-4ef7-8555-7b9024a02e2d",
-  "InsertDate": "2025-01-21T09:27:01Z",
-  "LastUpdateDate": "2025-01-21T09:27:01Z",
+  "InsertDate": "2025-01-25T21:18:28Z",
+  "LastUpdateDate": "2025-01-25T21:18:28Z",
   "Level": "low",
   "Name": "AWS S3 Data Management Tampering",
-  "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where eventsource = 's3.amazonaws.com' and (eventname = 'putbucketlogging' or eventname = 'putbucketwebsite' or eventname = 'putencryptionconfiguration' or eventname = 'putlifecycleconfiguration' or eventname = 'putreplicationconfiguration' or eventname = 'replicateobject' or eventname = 'restoreobject')",
+  "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where eventsource = 's3.amazonaws.com' and (eventname = 'PutBucketLogging' or eventname = 'PutBucketWebsite' or eventname = 'PutEncryptionConfiguration' or eventname = 'PutLifecycleConfiguration' or eventname = 'PutReplicationConfiguration' or eventname = 'ReplicateObject' or eventname = 'RestoreObject')",
   "Tags": [
     "attack.exfiltration",
     "attack.t1537"

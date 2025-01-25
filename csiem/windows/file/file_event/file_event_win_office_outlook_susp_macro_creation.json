@@ -1,11 +1,11 @@
 {
   "Description": "Detects the creation of a macro file for Outlook.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "117d3d3a-755c-4a61-b23e-9171146d094c",
-  "InsertDate": "2025-01-21T09:27:45Z",
-  "LastUpdateDate": "2025-01-21T09:27:45Z",
+  "InsertDate": "2025-01-25T21:20:59Z",
+  "LastUpdateDate": "2025-01-25T21:20:59Z",
   "Level": "high",
   "Name": "Suspicious Outlook Macro Created",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%\\microsoft\\outlook\\vbaproject.otm' and  not process_path like '%\\outlook.exe')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%\\Microsoft\\Outlook\\VbaProject.OTM' and  not process_path like '%\\outlook.exe')",
   "Tags": [
     "attack.persistence",
     "attack.command-and-control",

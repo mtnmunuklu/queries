@@ -1,11 +1,11 @@
 {
   "Description": "Detects windows utilities loading an unsigned or untrusted DLL.\nAdversaries often abuse those programs to proxy execution of malicious code.\n\n\nAuthor: Swachchhanda Shrawan Poudel\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b5de0c9a-6f19-43e0-af4e-55ad01f550af",
-  "InsertDate": "2025-01-21T09:27:54Z",
-  "LastUpdateDate": "2025-01-21T09:27:54Z",
+  "InsertDate": "2025-01-25T21:21:11Z",
+  "LastUpdateDate": "2025-01-25T21:21:11Z",
   "Level": "medium",
   "Name": "Unsigned DLL Loaded by Windows Utility",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\installutil.exe' or process_path like '%\\regasm.exe' or process_path like '%\\regsvcs.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe') and  not ((signature_status = 'errorchaining' or signature_status = 'errorcode_endpoint' or signature_status = 'errorexpired' or signature_status = 'trusted') or signed = 'null' or (signed = '' or signed = '-') or signature_status = 'null' or (signature_status = '' or signature_status = '-') or signed = 'true'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\InstallUtil.exe' or process_path like '%\\RegAsm.exe' or process_path like '%\\RegSvcs.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe') and  not ((signature_status = 'errorChaining' or signature_status = 'errorCode_endpoint' or signature_status = 'errorExpired' or signature_status = 'trusted') or signed = 'null' or (signed = '' or signed = '-') or signature_status = 'null' or (signature_status = '' or signature_status = '-') or signed = 'true'))",
   "Tags": [
     "attack.t1218.011",
     "attack.t1218.010",

@@ -1,8 +1,8 @@
 {
   "Description": "Adversaries may attempt to enumerate software for a variety of reasons, such as figuring out what security measures are present or if the compromised system has a version of software that is vulnerable.\n\nAuthor: Nikita Nazarov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e13f668e-7f95-443d-98d2-1816a7648a7b",
-  "InsertDate": "2025-01-21T09:29:33Z",
-  "LastUpdateDate": "2025-01-21T09:29:33Z",
+  "InsertDate": "2025-01-25T21:22:15Z",
+  "LastUpdateDate": "2025-01-25T21:22:15Z",
   "Level": "medium",
   "Name": "Detected Windows Software Discovery",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\reg.exe' and (command like '%query%' and command like '%\\software\\%' and command like '%/v%' and command like '%svcversion%')",

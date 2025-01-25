@@ -1,11 +1,11 @@
 {
   "Description": "Detects execution of the \"esxcli\" command with the \"storage\" flag in order to retrieve information about the storage status and other related information. Seen used by malware such as DarkSide and LockBit.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Cedric Maurugeon\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f41dada5-3f56-4232-8503-3fb7f9cf2d60",
-  "InsertDate": "2025-01-21T09:27:16Z",
-  "LastUpdateDate": "2025-01-21T09:27:16Z",
+  "InsertDate": "2025-01-25T21:19:22Z",
+  "LastUpdateDate": "2025-01-25T21:19:22Z",
   "Level": "medium",
   "Name": "ESXi Storage Information Discovery Via ESXCLI",
-  "Query": "sourcetype like 'linux-%' eql select * from _source_ where ((command like '% get%' or command like '% list%') and (process_path like '%/esxcli' and command like '%storage%'))",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where ((process_path like '%/esxcli' and command like '%storage%') and (command like '% get%' or command like '% list%'))",
   "Tags": [
     "attack.discovery",
     "attack.t1033",

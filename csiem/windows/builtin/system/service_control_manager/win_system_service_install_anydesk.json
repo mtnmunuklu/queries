@@ -1,11 +1,11 @@
 {
   "Description": "Detects the installation of the anydesk software service. Which could be an indication of anydesk abuse if you the software isn't already used.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "530a6faa-ff3d-4022-b315-50828e77eef5",
-  "InsertDate": "2025-01-21T09:27:36Z",
-  "LastUpdateDate": "2025-01-21T09:27:36Z",
+  "InsertDate": "2025-01-25T21:20:36Z",
+  "LastUpdateDate": "2025-01-25T21:20:36Z",
   "Level": "medium",
   "Name": "Anydesk Remote Access Software Service Installation",
-  "Query": "sourcetype='windows-system' eql select * from _source_ where provider_name = 'service control manager' and eventid = '7045' and servicename = 'anydesk service'",
+  "Query": "sourcetype='windows-system' eql select * from _source_ where provider_name = 'Service Control Manager' and eventid = '7045' and servicename = 'AnyDesk Service'",
   "Tags": [
     "attack.persistence"
   ],

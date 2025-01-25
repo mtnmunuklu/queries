@@ -1,11 +1,11 @@
 {
   "Description": "Detects when a user downloads a file by using CertOC.exe\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "70ad0861-d1fe-491c-a45f-fa48148a300d",
-  "InsertDate": "2025-01-21T09:28:18Z",
-  "LastUpdateDate": "2025-01-21T09:28:18Z",
+  "InsertDate": "2025-01-25T21:21:37Z",
+  "LastUpdateDate": "2025-01-25T21:21:37Z",
   "Level": "medium",
   "Name": "File Download via CertOC.EXE",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\certoc.exe' and original_file_name = 'certoc.exe') and (command like '%-getcacaps%' and command like '%http%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\certoc.exe' and original_file_name = 'CertOC.exe') and (command like '%-GetCACAPS%' and command like '%http%'))",
   "Tags": [
     "attack.command-and-control",
     "attack.t1105"

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the execution of a shell as sub process of \"rsync\" without the expected command line flag \"-e\" being used, which could be an indication of exploitation as described in CVE-2024-12084. This behavior is commonly associated with attempts to execute arbitrary commands or escalate privileges, potentially leading to unauthorized access or further exploitation.\n\n\nAuthor: Florian Roth\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "297241f3-8108-4b3a-8c15-2dda9f844594",
+  "InsertDate": "2025-01-25T21:19:29Z",
+  "LastUpdateDate": "2025-01-25T21:19:29Z",
+  "Level": "high",
+  "Name": "Suspicious Invocation of Shell via Rsync",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where (((parent_process_path like '%/rsync' or parent_process_path like '%/rsyncd') and (process_path like '%/ash' or process_path like '%/bash' or process_path like '%/csh' or process_path like '%/dash' or process_path like '%/ksh' or process_path like '%/sh' or process_path like '%/tcsh' or process_path like '%/zsh')) and  not command like '% -e %')",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059",
+    "attack.t1203"
+  ],
+  "Version": "0.1"
+}

@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious local connections via a named pipe to the AD FS configuration database (Windows Internal Database).\nUsed to access information such as the AD FS configuration settings which contains sensitive information used to sign SAML tokens.\n\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1ea13e8c-03ea-409b-877d-ce5c3d2c1cb3",
-  "InsertDate": "2025-01-21T09:27:57Z",
-  "LastUpdateDate": "2025-01-21T09:27:57Z",
+  "InsertDate": "2025-01-25T21:21:16Z",
+  "LastUpdateDate": "2025-01-25T21:21:16Z",
   "Level": "medium",
   "Name": "ADFS Database Named Pipe Connection By Uncommon Tool",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (pipe_name = '\\microsoft##wid\\tsql\\query' and  not (process_path like '%:\\windows\\system32\\mmc.exe' or process_path like '%:\\windows\\system32\\svchost.exe' or process_path like '%:\\windows\\system32\\wsmprovhost.exe' or process_path like '%:\\windows\\syswow64\\mmc.exe' or process_path like '%:\\windows\\syswow64\\wsmprovhost.exe' or process_path like '%:\\windows\\wid\\binn\\sqlwriter.exe' or process_path like '%\\azureadconnect.exe' or process_path like '%\\microsoft.identity.health.adfs.pshsurrogate.exe' or process_path like '%\\microsoft.identityserver.servicehost.exe' or process_path like '%\\microsoft.tri.sensor.exe' or process_path like '%\\sqlservr.exe' or process_path like '%\\tssdis.exe'))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (pipe_name = '\\MICROSOFT##WID\\tsql\\query' and  not (process_path like '%:\\Windows\\System32\\mmc.exe' or process_path like '%:\\Windows\\system32\\svchost.exe' or process_path like '%:\\Windows\\System32\\wsmprovhost.exe' or process_path like '%:\\Windows\\SysWOW64\\mmc.exe' or process_path like '%:\\Windows\\SysWOW64\\wsmprovhost.exe' or process_path like '%:\\Windows\\WID\\Binn\\sqlwriter.exe' or process_path like '%\\AzureADConnect.exe' or process_path like '%\\Microsoft.Identity.Health.Adfs.PshSurrogate.exe' or process_path like '%\\Microsoft.IdentityServer.ServiceHost.exe' or process_path like '%\\Microsoft.Tri.Sensor.exe' or process_path like '%\\sqlservr.exe' or process_path like '%\\tssdis.exe'))",
   "Tags": [
     "attack.collection",
     "attack.t1005"

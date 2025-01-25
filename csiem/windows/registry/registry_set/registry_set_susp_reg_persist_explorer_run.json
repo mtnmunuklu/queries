@@ -1,11 +1,11 @@
 {
   "Description": "Detects a possible persistence mechanism using RUN key for Windows Explorer and pointing to a suspicious folder\n\nAuthor: Florian Roth (Nextron Systems), oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b7916c2a-fa2f-4795-9477-32b731f70f11",
-  "InsertDate": "2025-01-21T09:31:55Z",
-  "LastUpdateDate": "2025-01-21T09:31:55Z",
+  "InsertDate": "2025-01-25T21:22:50Z",
+  "LastUpdateDate": "2025-01-25T21:22:50Z",
   "Level": "high",
   "Name": "Registry Persistence via Explorer Run Key",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where target_object like '%\\microsoft\\windows\\currentversion\\policies\\explorer\\run' and (details like '%:\\$recycle.bin\\%' or details like '%:\\programdata\\%' or details like '%:\\temp\\%' or details like '%:\\users\\default\\%' or details like '%:\\users\\public\\%' or details like '%:\\windows\\temp\\%' or details like '%\\appdata\\local\\temp\\%')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where target_object like '%\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\Run' and (details like '%:\\$Recycle.bin\\%' or details like '%:\\ProgramData\\%' or details like '%:\\Temp\\%' or details like '%:\\Users\\Default\\%' or details like '%:\\Users\\Public\\%' or details like '%:\\Windows\\Temp\\%' or details like '%\\AppData\\Local\\Temp\\%')",
   "Tags": [
     "attack.persistence",
     "attack.t1547.001"

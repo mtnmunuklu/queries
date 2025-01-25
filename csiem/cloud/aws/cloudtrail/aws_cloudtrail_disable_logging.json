@@ -1,11 +1,11 @@
 {
   "Description": "Detects disabling, deleting and updating of a Trail\n\nAuthor: vitaliy0x1\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4db60cc0-36fb-42b7-9b58-a5b53019fb74",
-  "InsertDate": "2025-01-21T09:27:00Z",
-  "LastUpdateDate": "2025-01-21T09:27:00Z",
+  "InsertDate": "2025-01-25T21:18:25Z",
+  "LastUpdateDate": "2025-01-25T21:18:25Z",
   "Level": "medium",
   "Name": "AWS CloudTrail Important Change",
-  "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where eventsource = 'cloudtrail.amazonaws.com' and (eventname = 'stoplogging' or eventname = 'updatetrail' or eventname = 'deletetrail')",
+  "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where eventsource = 'cloudtrail.amazonaws.com' and (eventname = 'StopLogging' or eventname = 'UpdateTrail' or eventname = 'DeleteTrail')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1562.001"

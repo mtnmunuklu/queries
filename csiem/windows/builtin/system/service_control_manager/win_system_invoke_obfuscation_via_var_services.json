@@ -1,11 +1,11 @@
 {
   "Description": "Detects Obfuscated Powershell via VAR++ LAUNCHER\n\nAuthor: Timur Zinniatullin, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "14bcba49-a428-42d9-b943-e2ce0f0f7ae6",
-  "InsertDate": "2025-01-21T09:27:36Z",
-  "LastUpdateDate": "2025-01-21T09:27:36Z",
+  "InsertDate": "2025-01-25T21:20:35Z",
+  "LastUpdateDate": "2025-01-25T21:20:35Z",
   "Level": "high",
   "Name": "Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION - System",
-  "Query": "sourcetype='windows-system' eql select * from _source_ where provider_name = 'service control manager' and eventid = '7045' and (imagepath like '%\u0026\u0026set%' and imagepath like '%cmd%' and imagepath like '%/c%' and imagepath like '%-f%') and (imagepath like '%{0}%' or imagepath like '%{1}%' or imagepath like '%{2}%' or imagepath like '%{3}%' or imagepath like '%{4}%' or imagepath like '%{5}%')",
+  "Query": "sourcetype='windows-system' eql select * from _source_ where provider_name = 'Service Control Manager' and eventid = '7045' and (imagepath like '%\u0026\u0026set%' and imagepath like '%cmd%' and imagepath like '%/c%' and imagepath like '%-f%') and (imagepath like '%{0}%' or imagepath like '%{1}%' or imagepath like '%{2}%' or imagepath like '%{3}%' or imagepath like '%{4}%' or imagepath like '%{5}%')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1027",

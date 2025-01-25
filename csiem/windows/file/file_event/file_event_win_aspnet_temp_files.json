@@ -1,11 +1,11 @@
 {
   "Description": "Detects the creation of new DLL assembly files by \"aspnet_compiler.exe\", which could be a sign of \"aspnet_compiler\" abuse to proxy execution through a build provider.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4c7f49ee-2638-43bb-b85b-ce676c30b260",
-  "InsertDate": "2025-01-21T09:27:42Z",
-  "LastUpdateDate": "2025-01-21T09:27:42Z",
+  "InsertDate": "2025-01-25T21:20:53Z",
+  "LastUpdateDate": "2025-01-25T21:20:53Z",
   "Level": "medium",
   "Name": "Assembly DLL Creation Via AspNetCompiler",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\aspnet_compiler.exe' and (filepath like '%\\temporary asp.net files\\%' and filepath like '%\\assembly\\tmp\\%' and filepath like '%.dll%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\aspnet_compiler.exe' and (filepath like '%\\Temporary ASP.NET Files\\%' and filepath like '%\\assembly\\tmp\\%' and filepath like '%.dll%')",
   "Tags": [
     "attack.execution"
   ],

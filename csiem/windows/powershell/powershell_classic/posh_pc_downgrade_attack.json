@@ -1,11 +1,11 @@
 {
   "Description": "Detects PowerShell downgrade attack by comparing the host versions with the actually used engine version 2.0\n\nAuthor: Florian Roth (Nextron Systems), Lee Holmes (idea), Harish Segar (improvements)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6331d09b-4785-4c13-980f-f96661356249",
-  "InsertDate": "2025-01-21T09:27:57Z",
-  "LastUpdateDate": "2025-01-21T09:27:57Z",
+  "InsertDate": "2025-01-25T21:21:17Z",
+  "LastUpdateDate": "2025-01-25T21:21:17Z",
   "Level": "medium",
   "Name": "PowerShell Downgrade Attack - PowerShell",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (data like '%engineversion=2.%' and  not data like '%hostversion=2.%')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (data like '%EngineVersion=2.%' and  not data like '%HostVersion=2.%')",
   "Tags": [
     "attack.defense-evasion",
     "attack.execution",

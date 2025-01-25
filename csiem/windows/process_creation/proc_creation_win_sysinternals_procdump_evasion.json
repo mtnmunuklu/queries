@@ -1,8 +1,8 @@
 {
   "Description": "Detects uses of the SysInternals ProcDump utility in which ProcDump or its output get renamed, or a dump file is moved or copied to a different name\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "79b06761-465f-4f88-9ef2-150e24d3d737",
-  "InsertDate": "2025-01-21T09:30:37Z",
-  "LastUpdateDate": "2025-01-21T09:30:37Z",
+  "InsertDate": "2025-01-25T21:22:32Z",
+  "LastUpdateDate": "2025-01-25T21:22:32Z",
   "Level": "high",
   "Name": "Potential SysInternals ProcDump Evasion",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%copy procdump%' or command like '%move procdump%') or ((command like '%copy %' and command like '%.dmp %') and (command like '%2.dmp%' or command like '%lsass%' or command like '%out.dmp%')) or (command like '%copy lsass.exe_%' or command like '%move lsass.exe_%'))",

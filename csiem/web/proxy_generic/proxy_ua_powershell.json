@@ -1,11 +1,11 @@
 {
   "Description": "Detects Windows PowerShell Web Access\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c8557060-9221-4448-8794-96320e6f3e74",
-  "InsertDate": "2025-01-21T09:27:24Z",
-  "LastUpdateDate": "2025-01-21T09:27:24Z",
+  "InsertDate": "2025-01-25T21:19:54Z",
+  "LastUpdateDate": "2025-01-25T21:19:54Z",
   "Level": "medium",
   "Name": "Windows PowerShell User Agent",
-  "Query": "eql select * from _source_ where c-useragent like '% windowspowershell/%'",
+  "Query": "eql select * from _source_ where c-useragent like '% WindowsPowerShell/%'",
   "Tags": [
     "attack.defense-evasion",
     "attack.command-and-control",

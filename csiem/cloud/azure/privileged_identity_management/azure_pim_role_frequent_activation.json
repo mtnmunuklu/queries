@@ -1,11 +1,11 @@
 {
   "Description": "Identifies when the same privilege role has multiple activations by the same user.\n\nAuthor: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "645fd80d-6c07-435b-9e06-7bc1b5656cba",
-  "InsertDate": "2025-01-21T09:27:05Z",
-  "LastUpdateDate": "2025-01-21T09:27:05Z",
+  "InsertDate": "2025-01-25T21:18:52Z",
+  "LastUpdateDate": "2025-01-25T21:18:52Z",
   "Level": "high",
   "Name": "Roles Activated Too Frequently",
-  "Query": "sourcetype='azure-pim' eql select * from _source_ where riskeventtype = 'sequentialactivationrenewalsalertincident'",
+  "Query": "sourcetype='azure-pim' eql select * from _source_ where riskeventtype = 'sequentialActivationRenewalsAlertIncident'",
   "Tags": [
     "attack.t1078",
     "attack.persistence",

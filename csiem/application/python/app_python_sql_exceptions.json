@@ -1,8 +1,8 @@
 {
   "Description": "Generic rule for SQL exceptions in Python according to PEP 249\n\nAuthor: Thomas Patzke\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "19aefed0-ffd4-47dc-a7fc-f8b1425e84f9",
-  "InsertDate": "2025-01-21T09:26:59Z",
-  "LastUpdateDate": "2025-01-21T09:26:59Z",
+  "InsertDate": "2025-01-25T21:18:23Z",
+  "LastUpdateDate": "2025-01-25T21:18:23Z",
   "Level": "medium",
   "Name": "Python SQL Exceptions",
   "Query": "sourcetype like 'python-%' eql select * from _source_ where Query('DataError OR IntegrityError OR ProgrammingError OR OperationalError')",

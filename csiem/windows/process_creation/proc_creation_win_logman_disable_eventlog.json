@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of \"logman\" utility in order to disable or delete Windows trace sessions\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "cd1f961e-0b96-436b-b7c6-38da4583ec00",
-  "InsertDate": "2025-01-21T09:28:36Z",
-  "LastUpdateDate": "2025-01-21T09:28:36Z",
+  "InsertDate": "2025-01-25T21:21:56Z",
+  "LastUpdateDate": "2025-01-25T21:21:56Z",
   "Level": "high",
   "Name": "Suspicious Windows Trace ETW Session Tamper Via Logman.EXE",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\logman.exe' and original_file_name = 'logman.exe') and (command like '%stop %' or command like '%delete %') and (command like '%circular kernel context logger%' or command like '%eventlog-%' or command like '%sysmon trace%' or command like '%sysmondnsetwsession%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\logman.exe' and original_file_name = 'Logman.exe') and (command like '%stop %' or command like '%delete %') and (command like '%Circular Kernel Context Logger%' or command like '%EventLog-%' or command like '%SYSMON TRACE%' or command like '%SysmonDnsEtwSession%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1562.001",

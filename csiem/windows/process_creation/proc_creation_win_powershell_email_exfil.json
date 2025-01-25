@@ -1,11 +1,11 @@
 {
   "Description": "Detects email exfiltration via powershell cmdlets\n\nAuthor: Nasreddine Bencherchali (Nextron Systems),  Azure-Sentinel (idea)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "312d0384-401c-4b8b-abdf-685ffba9a332",
-  "InsertDate": "2025-01-21T09:28:56Z",
-  "LastUpdateDate": "2025-01-21T09:28:56Z",
+  "InsertDate": "2025-01-25T21:22:07Z",
+  "LastUpdateDate": "2025-01-25T21:22:07Z",
   "Level": "high",
   "Name": "Email Exifiltration Via Powershell",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (command like '%add-pssnapin%' and command like '%get-recipient%' and command like '%-expandproperty%' and command like '%emailaddresses%' and command like '%smtpaddress%' and command like '%-hidetableheaders%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (command like '%Add-PSSnapin%' and command like '%Get-Recipient%' and command like '%-ExpandProperty%' and command like '%EmailAddresses%' and command like '%SmtpAddress%' and command like '%-hidetableheaders%')",
   "Tags": [
     "attack.exfiltration"
   ],

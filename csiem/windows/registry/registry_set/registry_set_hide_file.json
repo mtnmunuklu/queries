@@ -1,11 +1,11 @@
 {
   "Description": "Detects modifications to the \"Hidden\" and \"ShowSuperHidden\" explorer registry values in order to disable showing of hidden files and system files.\nThis technique is abused by several malware families to hide their files from normal users.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "5a5152f1-463f-436b-b2f5-8eceb3964b42",
-  "InsertDate": "2025-01-21T09:31:39Z",
-  "LastUpdateDate": "2025-01-21T09:31:39Z",
+  "InsertDate": "2025-01-25T21:22:46Z",
+  "LastUpdateDate": "2025-01-25T21:22:46Z",
   "Level": "medium",
   "Name": "Displaying Hidden Files Feature Disabled",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\microsoft\\windows\\currentversion\\explorer\\advanced\\showsuperhidden' or target_object like '%\\microsoft\\windows\\currentversion\\explorer\\advanced\\hidden') and details = 'dword (0x00000000)'",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ShowSuperHidden' or target_object like '%\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Hidden') and details = 'DWORD (0x00000000)'",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1564.001"

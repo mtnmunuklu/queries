@@ -1,11 +1,11 @@
 {
   "Description": "Detects tampering with attachment manager settings policies attachments (See reference for more information)\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ee77a5db-b0f3-4be2-bfd4-b58be1c6b15a",
-  "InsertDate": "2025-01-21T09:31:50Z",
-  "LastUpdateDate": "2025-01-21T09:31:50Z",
+  "InsertDate": "2025-01-25T21:22:49Z",
+  "LastUpdateDate": "2025-01-25T21:22:49Z",
   "Level": "high",
   "Name": "Potential Attachment Manager Settings Attachments Tamper",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\software\\microsoft\\windows\\currentversion\\policies\\attachments\\%' and ((target_object like '%\\savezoneinformation' and details = 'dword (0x00000002)') or (target_object like '%\\scanwithantivirus' and details = 'dword (0x00000001)') or (target_object like '%\\hidezoneinfoonproperties' and details = 'dword (0x00000001)')))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Attachments\\%' and ((target_object like '%\\HideZoneInfoOnProperties' and details = 'DWORD (0x00000001)') or (target_object like '%\\SaveZoneInformation' and details = 'DWORD (0x00000002)') or (target_object like '%\\ScanWithAntiVirus' and details = 'DWORD (0x00000001)')))",
   "Tags": [
     "attack.defense-evasion"
   ],

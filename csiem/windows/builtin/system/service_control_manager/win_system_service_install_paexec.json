@@ -1,11 +1,11 @@
 {
   "Description": "Detects PAExec service installation\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "de7ce410-b3fb-4e8a-b38c-3b999e2c3420",
-  "InsertDate": "2025-01-21T09:27:36Z",
-  "LastUpdateDate": "2025-01-21T09:27:36Z",
+  "InsertDate": "2025-01-25T21:20:37Z",
+  "LastUpdateDate": "2025-01-25T21:20:37Z",
   "Level": "medium",
   "Name": "PAExec Service Installation",
-  "Query": "sourcetype='windows-system' eql select * from _source_ where ((provider_name = 'service control manager' and eventid = '7045') and (servicename like 'paexec-%' and imagepath like 'c:\\windows\\paexec-%'))",
+  "Query": "sourcetype='windows-system' eql select * from _source_ where ((provider_name = 'Service Control Manager' and eventid = '7045') and (servicename like 'PAExec-%' and imagepath like 'C:\\WINDOWS\\PAExec-%'))",
   "Tags": [
     "attack.execution",
     "attack.t1569.002"

@@ -1,11 +1,11 @@
 {
   "Description": "Detects execution of commands via the run dialog box on Windows by checking values of the \"RunMRU\" registry key.\nThis technique was seen being abused by threat actors to deceive users into pasting and executing malicious commands, often disguised as CAPTCHA verification steps.\n\n\nAuthor: Ahmed Farouk, Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a7df0e9e-91a5-459a-a003-4cde67c2ff5d",
-  "InsertDate": "2025-01-21T09:31:51Z",
-  "LastUpdateDate": "2025-01-21T09:31:51Z",
+  "InsertDate": "2025-01-25T21:22:49Z",
+  "LastUpdateDate": "2025-01-25T21:22:49Z",
   "Level": "high",
   "Name": "Potentially Suspicious Command Executed Via Run Dialog Box - Registry",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\microsoft\\windows\\currentversion\\explorer\\runmru%' and (((details like '%powershell%' or details like '%pwsh%') and (details like '% -e %' or details like '% -ec %' or details like '% -en %' or details like '% -enc %' or details like '% -enco%' or details like '%ftp%' or details like '%hidden%' or details like '%http%' or details like '%iex%' or details like '%invoke-%')) or (details like '%wmic%' and (details like '%shadowcopy%' or details like '%process call create%'))))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\Microsoft\\Windows\\CurrentVersion\\Explorer\\RunMRU%' and (((details like '%powershell%' or details like '%pwsh%') and (details like '% -e %' or details like '% -ec %' or details like '% -en %' or details like '% -enc %' or details like '% -enco%' or details like '%ftp%' or details like '%Hidden%' or details like '%http%' or details like '%iex%' or details like '%Invoke-%')) or (details like '%wmic%' and (details like '%shadowcopy%' or details like '%process call create%'))))",
   "Tags": [
     "attack.execution",
     "attack.t1059.001"

@@ -1,11 +1,11 @@
 {
   "Description": "Detects potential mimikatz-like tools accessing LSASS from non system account\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "962fe167-e48d-4fd6-9974-11e5b9a5d6d1",
-  "InsertDate": "2025-01-21T09:27:31Z",
-  "LastUpdateDate": "2025-01-21T09:27:31Z",
+  "InsertDate": "2025-01-25T21:20:20Z",
+  "LastUpdateDate": "2025-01-25T21:20:20Z",
   "Level": "medium",
   "Name": "LSASS Access From Non System Account",
-  "Query": "sourcetype='windows-security' eql select * from _source_ where (((eventid = '4663' or eventid = '4656') and (accessmask = '0x100000' or accessmask = '0x1010' or accessmask = '0x1400' or accessmask = '0x1410' or accessmask = '0x1418' or accessmask = '0x1438' or accessmask = '0x143a' or accessmask = '0x1f0fff' or accessmask = '0x1f1fff' or accessmask = '0x1f2fff' or accessmask = '0x1f3fff' or accessmask = '0x40' or accessmask = '143a' or accessmask = '1f0fff' or accessmask = '1f1fff' or accessmask = '1f2fff' or accessmask = '1f3fff') and objecttype = 'process' and objectname like '%\\lsass.exe') and  not ((processname like '%:\\program files\\%' or processname like '%:\\program files (x86)\\%') or (processname = 'c:\\windows\\system32\\wbem\\wmiprvse.exe' and accessmask = '0x1410') or subjectusername like '%$') and  not processname like '%\\steamlibrary\\steamapps\\%')",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where (((eventid = '4663' or eventid = '4656') and (accessmask = '0x100000' or accessmask = '0x1010' or accessmask = '0x1400' or accessmask = '0x1410' or accessmask = '0x1418' or accessmask = '0x1438' or accessmask = '0x143a' or accessmask = '0x1f0fff' or accessmask = '0x1f1fff' or accessmask = '0x1f2fff' or accessmask = '0x1f3fff' or accessmask = '0x40' or accessmask = '143a' or accessmask = '1f0fff' or accessmask = '1f1fff' or accessmask = '1f2fff' or accessmask = '1f3fff') and objecttype = 'Process' and objectname like '%\\lsass.exe') and  not (subjectusername like '%$' or (processname like '%:\\Program Files\\%' or processname like '%:\\Program Files (x86)\\%') or (processname = 'C:\\Windows\\System32\\wbem\\WmiPrvSE.exe' and accessmask = '0x1410')) and  not processname like '%\\SteamLibrary\\steamapps\\%')",
   "Tags": [
     "attack.credential-access",
     "attack.t1003.001"

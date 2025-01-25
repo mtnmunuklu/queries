@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious Plink tunnel port forwarding to a local port\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "48a61b29-389f-4032-b317-b30de6b95314",
-  "InsertDate": "2025-01-21T09:28:47Z",
-  "LastUpdateDate": "2025-01-21T09:28:47Z",
+  "InsertDate": "2025-01-25T21:22:04Z",
+  "LastUpdateDate": "2025-01-25T21:22:04Z",
   "Level": "high",
   "Name": "Suspicious Plink Port Forwarding",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where description = 'command-line ssh, telnet, and rlogin client' and command like '% -r %'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where description = 'Command-line SSH, Telnet, and Rlogin client' and command like '% -R %'",
   "Tags": [
     "attack.command-and-control",
     "attack.t1572",

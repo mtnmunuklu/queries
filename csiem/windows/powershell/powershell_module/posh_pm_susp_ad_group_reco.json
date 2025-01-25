@@ -1,11 +1,11 @@
 {
   "Description": "Adversaries may attempt to find domain-level groups and permission settings.\nThe knowledge of domain-level permission groups can help adversaries determine which groups exist and which users belong to a particular group.\nAdversaries may use this information to determine which users have elevated permissions, such as domain administrators.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "815bfc17-7fc6-4908-a55e-2f37b98cedb4",
-  "InsertDate": "2025-01-21T09:28:00Z",
-  "LastUpdateDate": "2025-01-21T09:28:00Z",
+  "InsertDate": "2025-01-25T21:21:20Z",
+  "LastUpdateDate": "2025-01-25T21:21:20Z",
   "Level": "low",
   "Name": "AD Groups Or Users Enumeration Using PowerShell - PoshModule",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((payload like '%get-adprincipalgroupmembership%' and contextinfo like '%get-adprincipalgroupmembership%') or ((payload like '%get-aduser%' and payload like '%-f %' and payload like '%-pr %' and payload like '%doesnotrequirepreauth%') and (contextinfo like '%get-aduser%' and contextinfo like '%-f %' and contextinfo like '%-pr %' and contextinfo like '%doesnotrequirepreauth%')))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((payload like '%get-ADPrincipalGroupMembership%' and contextinfo like '%get-ADPrincipalGroupMembership%') or ((payload like '%get-aduser%' and payload like '%-f %' and payload like '%-pr %' and payload like '%DoesNotRequirePreAuth%') and (contextinfo like '%get-aduser%' and contextinfo like '%-f %' and contextinfo like '%-pr %' and contextinfo like '%DoesNotRequirePreAuth%')))",
   "Tags": [
     "attack.discovery",
     "attack.t1069.001"

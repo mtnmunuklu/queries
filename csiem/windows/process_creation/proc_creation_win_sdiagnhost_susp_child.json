@@ -1,8 +1,8 @@
 {
   "Description": "Detects sdiagnhost.exe calling a suspicious child process (e.g. used in exploits for Follina / CVE-2022-30190)\n\nAuthor: Nextron Systems, @Kostastsale\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f3d39c45-de1a-4486-a687-ab126124f744",
-  "InsertDate": "2025-01-21T09:30:05Z",
-  "LastUpdateDate": "2025-01-21T09:30:05Z",
+  "InsertDate": "2025-01-25T21:22:24Z",
+  "LastUpdateDate": "2025-01-25T21:22:24Z",
   "Level": "high",
   "Name": "Sdiagnhost Calling Suspicious Child Process",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_process_path like '%\\sdiagnhost.exe' and (process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\cmd.exe' or process_path like '%\\mshta.exe' or process_path like '%\\cscript.exe' or process_path like '%\\wscript.exe' or process_path like '%\\taskkill.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\calc.exe')) and  not ((process_path like '%\\cmd.exe' and command like '%bits%') or (process_path like '%\\powershell.exe' and (command like '%-noprofile -' or command like '%-noprofile'))))",

@@ -1,11 +1,11 @@
 {
   "Description": "Identifies when a virtual network device is being modified or deleted.\nThis can be a network interface, network virtual appliance, virtual hub, or virtual router.\n\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "15ef3fac-f0f0-4dc4-ada0-660aa72980b3",
-  "InsertDate": "2025-01-21T09:27:03Z",
-  "LastUpdateDate": "2025-01-21T09:27:03Z",
+  "InsertDate": "2025-01-25T21:18:33Z",
+  "LastUpdateDate": "2025-01-25T21:18:33Z",
   "Level": "medium",
   "Name": "Azure Virtual Network Device Modified or Deleted",
-  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (operationname = 'microsoft.network/networkinterfaces/tapconfigurations/write' or operationname = 'microsoft.network/networkinterfaces/tapconfigurations/delete' or operationname = 'microsoft.network/networkinterfaces/write' or operationname = 'microsoft.network/networkinterfaces/join/action' or operationname = 'microsoft.network/networkinterfaces/delete' or operationname = 'microsoft.network/networkvirtualappliances/delete' or operationname = 'microsoft.network/networkvirtualappliances/write' or operationname = 'microsoft.network/virtualhubs/delete' or operationname = 'microsoft.network/virtualhubs/write' or operationname = 'microsoft.network/virtualrouters/write' or operationname = 'microsoft.network/virtualrouters/delete')",
+  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (operationname = 'MICROSOFT.NETWORK/NETWORKINTERFACES/TAPCONFIGURATIONS/WRITE' or operationname = 'MICROSOFT.NETWORK/NETWORKINTERFACES/TAPCONFIGURATIONS/DELETE' or operationname = 'MICROSOFT.NETWORK/NETWORKINTERFACES/WRITE' or operationname = 'MICROSOFT.NETWORK/NETWORKINTERFACES/JOIN/ACTION' or operationname = 'MICROSOFT.NETWORK/NETWORKINTERFACES/DELETE' or operationname = 'MICROSOFT.NETWORK/NETWORKVIRTUALAPPLIANCES/DELETE' or operationname = 'MICROSOFT.NETWORK/NETWORKVIRTUALAPPLIANCES/WRITE' or operationname = 'MICROSOFT.NETWORK/VIRTUALHUBS/DELETE' or operationname = 'MICROSOFT.NETWORK/VIRTUALHUBS/WRITE' or operationname = 'MICROSOFT.NETWORK/VIRTUALROUTERS/WRITE' or operationname = 'MICROSOFT.NETWORK/VIRTUALROUTERS/DELETE')",
   "Tags": [
     "attack.impact"
   ],

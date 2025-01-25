@@ -1,11 +1,11 @@
 {
   "Description": "Monitor and alert for Bitlocker key retrieval.\n\nAuthor: Michael Epping, '@mepples21'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a0413867-daf3-43dd-9245-734b3a787942",
-  "InsertDate": "2025-01-21T09:27:03Z",
-  "LastUpdateDate": "2025-01-21T09:27:03Z",
+  "InsertDate": "2025-01-25T21:18:35Z",
+  "LastUpdateDate": "2025-01-25T21:18:35Z",
   "Level": "medium",
   "Name": "Bitlocker Key Retrieval",
-  "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where category = 'keymanagement' and operationname = 'read bitlocker key'",
+  "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where category = 'KeyManagement' and operationname = 'Read BitLocker key'",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1078.004"

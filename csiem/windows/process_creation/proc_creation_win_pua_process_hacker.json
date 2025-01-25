@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of Process Hacker based on binary metadata information (Image, Hash, Imphash, etc).\nProcess Hacker is a tool to view and manipulate processes, kernel options and other low level options.\nThreat actors abused older vulnerable versions to manipulate system processes.\n\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "811e0002-b13b-4a15-9d00-a613fce66e42",
-  "InsertDate": "2025-01-21T09:29:19Z",
-  "LastUpdateDate": "2025-01-21T09:29:19Z",
+  "InsertDate": "2025-01-25T21:22:13Z",
+  "LastUpdateDate": "2025-01-25T21:22:13Z",
   "Level": "medium",
   "Name": "PUA - Process Hacker Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\processhacker_%' and process_path like '%\\processhacker.exe' and (original_file_name = 'processhacker.exe' or original_file_name = 'process hacker') and description = 'process hacker' and product = 'process hacker' and (hashes like '%md5=68f9b52895f4d34e74112f3129b3b00d%' or hashes like '%md5=b365af317ae730a67c936f21432b9c71%' or hashes like '%sha1=a0bdfac3ce1880b32ff9b696458327ce352e3b1d%' or hashes like '%sha1=c5e2018bf7c0f314fed4fd7fe7e69fa2e648359e%' or hashes like '%sha256=d4a0fe56316a2c45b9ba9ac1005363309a3edc7acf9e4df64d326a0ff273e80f%' or hashes like '%sha256=bd2c2cf0631d881ed382817afcce2b093f4e412ffb170a719e2762f250abfea4%' or hashes like '%imphash=3695333c60dedecdcaff1590409aa462%' or hashes like '%imphash=04de0ad9c37eb7bd52043d2ecac958df%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\ProcessHacker_%' and process_path like '%\\ProcessHacker.exe' and (original_file_name = 'ProcessHacker.exe' or original_file_name = 'Process Hacker') and description = 'Process Hacker' and product = 'Process Hacker' and (hashes like '%MD5=68F9B52895F4D34E74112F3129B3B00D%' or hashes like '%MD5=B365AF317AE730A67C936F21432B9C71%' or hashes like '%SHA1=A0BDFAC3CE1880B32FF9B696458327CE352E3B1D%' or hashes like '%SHA1=C5E2018BF7C0F314FED4FD7FE7E69FA2E648359E%' or hashes like '%SHA256=D4A0FE56316A2C45B9BA9AC1005363309A3EDC7ACF9E4DF64D326A0FF273E80F%' or hashes like '%SHA256=BD2C2CF0631D881ED382817AFCCE2B093F4E412FFB170A719E2762F250ABFEA4%' or hashes like '%IMPHASH=3695333C60DEDECDCAFF1590409AA462%' or hashes like '%IMPHASH=04DE0AD9C37EB7BD52043D2ECAC958DF%')",
   "Tags": [
     "attack.defense-evasion",
     "attack.discovery",

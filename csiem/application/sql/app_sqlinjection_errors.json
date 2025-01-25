@@ -1,8 +1,8 @@
 {
   "Description": "Detects SQL error messages that indicate probing for an injection attack\n\nAuthor: Bjoern Kimminich\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "8a670c6d-7189-4b1c-8017-a417ca84a086",
-  "InsertDate": "2025-01-21T09:27:00Z",
-  "LastUpdateDate": "2025-01-21T09:27:00Z",
+  "InsertDate": "2025-01-25T21:18:25Z",
+  "LastUpdateDate": "2025-01-25T21:18:25Z",
   "Level": "high",
   "Name": "Suspicious SQL Error Messages",
   "Query": "sourcetype like 'sql-%' eql select * from _source_ where Query('quoted string not properly terminated OR You have an error in your SQL syntax OR Unclosed quotation mark OR near \"*\": syntax error OR SELECTs to the left and right of UNION do not have the same number of result columns')",

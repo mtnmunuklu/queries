@@ -1,11 +1,11 @@
 {
   "Description": "Detects file and folder permission changes.\n\nAuthor: Jakob Weinzettl, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "74c01ace-0152-4094-8ae2-6fd776dd43e5",
-  "InsertDate": "2025-01-21T09:27:12Z",
-  "LastUpdateDate": "2025-01-21T09:27:12Z",
+  "InsertDate": "2025-01-25T21:19:10Z",
+  "LastUpdateDate": "2025-01-25T21:19:10Z",
   "Level": "low",
   "Name": "File or Folder Permissions Change",
-  "Query": "sourcetype='linux-auditd' eql select * from _source_ where type = 'execve' and (a0 like '%chmod%' or a0 like '%chown%')",
+  "Query": "sourcetype='linux-auditd' eql select * from _source_ where type = 'EXECVE' and (a0 like '%chmod%' or a0 like '%chown%')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1222.002"

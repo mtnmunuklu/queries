@@ -1,11 +1,11 @@
 {
   "Description": "Detects the creation of Self Extraction Directive files (.sed) in a potentially suspicious location.\nThese files are used by the \"iexpress.exe\" utility in order to create self extracting packages.\nAttackers were seen abusing this utility and creating PE files with embedded \".sed\" entries.\n\n\nAuthor: Joseliyo Sanchez, @Joseliyo_Jstnk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "760e75d8-c3b5-409b-a9bf-6130b4c4603f",
-  "InsertDate": "2025-01-21T09:27:46Z",
-  "LastUpdateDate": "2025-01-21T09:27:46Z",
+  "InsertDate": "2025-01-25T21:21:01Z",
+  "LastUpdateDate": "2025-01-25T21:21:01Z",
   "Level": "medium",
   "Name": "Self Extraction Directive File Created In Potentially Suspicious Location",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%:\\programdata\\%' or filepath like '%:\\temp\\%' or filepath like '%:\\windows\\system32\\tasks\\%' or filepath like '%:\\windows\\tasks\\%' or filepath like '%:\\windows\\temp\\%' or filepath like '%\\appdata\\local\\temp\\%') and filepath like '%.sed'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%:\\ProgramData\\%' or filepath like '%:\\Temp\\%' or filepath like '%:\\Windows\\System32\\Tasks\\%' or filepath like '%:\\Windows\\Tasks\\%' or filepath like '%:\\Windows\\Temp\\%' or filepath like '%\\AppData\\Local\\Temp\\%') and filepath like '%.sed'",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1218"

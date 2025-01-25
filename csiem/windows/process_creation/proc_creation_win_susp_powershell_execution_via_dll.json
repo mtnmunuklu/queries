@@ -1,11 +1,11 @@
 {
   "Description": "Detects potential PowerShell execution from a DLL instead of the usual PowerShell process as seen used in PowerShdll.\nThis detection assumes that PowerShell commands are passed via the CommandLine.\n\n\nAuthor: Markus Neis, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6812a10b-60ea-420c-832f-dfcc33b646ba",
-  "InsertDate": "2025-01-21T09:30:26Z",
-  "LastUpdateDate": "2025-01-21T09:30:26Z",
+  "InsertDate": "2025-01-25T21:22:29Z",
+  "LastUpdateDate": "2025-01-25T21:22:29Z",
   "Level": "high",
   "Name": "Potential PowerShell Execution Via DLL",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\installutil.exe' or process_path like '%\\regasm.exe' or process_path like '%\\regsvcs.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe') and (original_file_name = 'installutil.exe' or original_file_name = 'regasm.exe' or original_file_name = 'regsvcs.exe' or original_file_name = 'regsvr32.exe' or original_file_name = 'rundll32.exe')) and (command like '%default.getstring%' or command like '%downloadstring%' or command like '%frombase64string%' or command like '%icm %' or command like '%iex %' or command like '%invoke-command%' or command like '%invoke-expression%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%Default.GetString%' or command like '%DownloadString%' or command like '%FromBase64String%' or command like '%ICM %' or command like '%IEX %' or command like '%Invoke-Command%' or command like '%Invoke-Expression%') and ((process_path like '%\\InstallUtil.exe' or process_path like '%\\RegAsm.exe' or process_path like '%\\RegSvcs.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe') and (original_file_name = 'InstallUtil.exe' or original_file_name = 'RegAsm.exe' or original_file_name = 'RegSvcs.exe' or original_file_name = 'REGSVR32.EXE' or original_file_name = 'RUNDLL32.EXE')))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1218.011"

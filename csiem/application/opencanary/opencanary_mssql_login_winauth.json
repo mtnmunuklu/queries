@@ -1,8 +1,8 @@
 {
   "Description": "Detects instances where an MSSQL service on an OpenCanary node has had a login attempt using Windows Authentication.\n\n\nAuthor: Security Onion Solutions\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6e78f90f-0043-4a01-ac41-f97681613a66",
-  "InsertDate": "2025-01-21T09:26:59Z",
-  "LastUpdateDate": "2025-01-21T09:26:59Z",
+  "InsertDate": "2025-01-25T21:18:22Z",
+  "LastUpdateDate": "2025-01-25T21:18:22Z",
   "Level": "high",
   "Name": "OpenCanary - MSSQL Login Attempt Via Windows Authentication",
   "Query": "sourcetype like 'opencanary-%' eql select * from _source_ where logtype = '9002'",

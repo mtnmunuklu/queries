@@ -1,11 +1,11 @@
 {
   "Description": "Adversaries may employ a known encryption algorithm to conceal command and control traffic rather than relying on any inherent protections provided by a communication protocol.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "195626f3-5f1b-4403-93b7-e6cfd4d6a078",
-  "InsertDate": "2025-01-21T09:28:11Z",
-  "LastUpdateDate": "2025-01-21T09:28:11Z",
+  "InsertDate": "2025-01-25T21:21:31Z",
+  "LastUpdateDate": "2025-01-25T21:21:31Z",
   "Level": "low",
   "Name": "Suspicious SSL Connection",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%system.net.security.sslstream%' and scriptblocktext like '%net.security.remotecertificatevalidationcallback%' and scriptblocktext like '%.authenticateasclient%')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%System.Net.Security.SslStream%' and scriptblocktext like '%Net.Security.RemoteCertificateValidationCallback%' and scriptblocktext like '%.AuthenticateAsClient%')",
   "Tags": [
     "attack.command-and-control",
     "attack.t1573"

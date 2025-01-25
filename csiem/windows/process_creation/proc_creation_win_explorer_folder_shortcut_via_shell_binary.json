@@ -1,8 +1,8 @@
 {
   "Description": "Detects the initial execution of \"cmd.exe\" which spawns \"explorer.exe\" with the appropriate command line arguments for opening the \"My Computer\" folder.\n\n\nAuthor: @Kostastsale\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c3d76afc-93df-461e-8e67-9b2bad3f2ac4",
-  "InsertDate": "2025-01-21T09:28:25Z",
-  "LastUpdateDate": "2025-01-21T09:28:25Z",
+  "InsertDate": "2025-01-25T21:21:43Z",
+  "LastUpdateDate": "2025-01-25T21:21:43Z",
   "Level": "high",
   "Name": "File Explorer Folder Opened Using Explorer Folder Shortcut Via Shell",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\cmd.exe' or parent_process_path like '%\\powershell.exe' or parent_process_path like '%\\pwsh.exe') and process_path like '%\\explorer.exe' and command like '%shell:mycomputerfolder%'",

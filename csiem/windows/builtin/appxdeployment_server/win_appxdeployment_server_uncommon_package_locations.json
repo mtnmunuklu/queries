@@ -1,11 +1,11 @@
 {
   "Description": "Detects an appx package added the pipeline of the \"to be processed\" packages which is located in uncommon locations\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c977cb50-3dff-4a9f-b873-9290f56132f1",
-  "InsertDate": "2025-01-21T09:27:26Z",
-  "LastUpdateDate": "2025-01-21T09:27:26Z",
+  "InsertDate": "2025-01-25T21:20:03Z",
+  "LastUpdateDate": "2025-01-25T21:20:03Z",
   "Level": "medium",
   "Name": "Uncommon AppX Package Locations",
-  "Query": "sourcetype='windows-appxdeployment-server' eql select * from _source_ where (eventid = '854' and  not ((path like '%c:\\program files\\windowsapps\\%' or path like '%c:\\program files (x86)\\%' or path like '%c:\\windows\\systemapps\\%' or path like '%c:\\windows\\printdialog\\%' or path like '%c:\\windows\\immersivecontrolpanel\\%' or path like '%x-windowsupdate://%' or path like '%file:///c:/program%20files%') or (path like '%https://statics.teams.cdn.live.net/%' or path like '%https://statics.teams.cdn.office.net/%' or path like '%microsoft.com%' or path like '%https://installer.teams.static.microsoft/%')))",
+  "Query": "sourcetype='windows-appxdeployment-server' eql select * from _source_ where (eventid = '854' and  not ((path like '%C:\\Program Files\\WindowsApps\\%' or path like '%C:\\Program Files (x86)\\%' or path like '%C:\\Windows\\SystemApps\\%' or path like '%C:\\Windows\\PrintDialog\\%' or path like '%C:\\Windows\\ImmersiveControlPanel\\%' or path like '%x-windowsupdate://%' or path like '%file:///C:/Program%20Files%') or (path like '%https://statics.teams.cdn.live.net/%' or path like '%https://statics.teams.cdn.office.net/%' or path like '%microsoft.com%' or path like '%https://installer.teams.static.microsoft/%')))",
   "Tags": [
     "attack.defense-evasion"
   ],

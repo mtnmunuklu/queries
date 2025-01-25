@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious powershell invocations from interpreters or unusual programs\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "95eadcb2-92e4-4ed1-9031-92547773a6db",
-  "InsertDate": "2025-01-21T09:29:01Z",
-  "LastUpdateDate": "2025-01-21T09:29:01Z",
+  "InsertDate": "2025-01-25T21:22:10Z",
+  "LastUpdateDate": "2025-01-25T21:22:10Z",
   "Level": "medium",
   "Name": "Suspicious PowerShell Invocation From Script Engines",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((parent_process_path like '%\\wscript.exe' or parent_process_path like '%\\cscript.exe') and (process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe')) and  not current_directory like '%\\health service state\\%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((parent_process_path like '%\\wscript.exe' or parent_process_path like '%\\cscript.exe') and (process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe')) and  not current_directory like '%\\Health Service State\\%')",
   "Tags": [
     "attack.execution",
     "attack.t1059.001"

@@ -1,11 +1,11 @@
 {
   "Description": "Detects the presence of a base64 version of the shebang in the commandline, which could indicate a malicious payload about to be decoded\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "fe2f9663-41cb-47e2-b954-8a228f3b9dff",
-  "InsertDate": "2025-01-21T09:27:15Z",
-  "LastUpdateDate": "2025-01-21T09:27:15Z",
+  "InsertDate": "2025-01-25T21:19:19Z",
+  "LastUpdateDate": "2025-01-25T21:19:19Z",
   "Level": "medium",
   "Name": "Linux Base64 Encoded Shebang In CLI",
-  "Query": "sourcetype like 'linux-%' eql select * from _source_ where (command like '%iyevymlul2jhc2%' or command like '%iyevymlul2rhc2%' or command like '%iyevymlul3pza%' or command like '%iyevymlul2zpc2%' or command like '%iyevymlul3no%')",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where (command like '%IyEvYmluL2Jhc2%' or command like '%IyEvYmluL2Rhc2%' or command like '%IyEvYmluL3pza%' or command like '%IyEvYmluL2Zpc2%' or command like '%IyEvYmluL3No%')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1140"

@@ -1,11 +1,11 @@
 {
   "Description": "Detects usage of the Get-ADComputer cmdlet to collect computer information and output it to a file\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "db885529-903f-4c5d-9864-28fe199e6370",
-  "InsertDate": "2025-01-21T09:28:02Z",
-  "LastUpdateDate": "2025-01-21T09:28:02Z",
+  "InsertDate": "2025-01-25T21:21:22Z",
+  "LastUpdateDate": "2025-01-25T21:21:22Z",
   "Level": "medium",
   "Name": "Computer Discovery And Export Via Get-ADComputer Cmdlet - PowerShell",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%get-adcomputer %' and scriptblocktext like '% -filter \\*%') and (scriptblocktext like '% | select %' or scriptblocktext like '%out-file%' or scriptblocktext like '%set-content%' or scriptblocktext like '%add-content%')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%Get-ADComputer %' and scriptblocktext like '% -Filter \\*%') and (scriptblocktext like '% | Select %' or scriptblocktext like '%Out-File%' or scriptblocktext like '%Set-Content%' or scriptblocktext like '%Add-Content%')",
   "Tags": [
     "attack.discovery",
     "attack.t1033"

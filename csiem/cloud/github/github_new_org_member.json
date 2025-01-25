@@ -1,8 +1,8 @@
 {
   "Description": "Detects when a new member is added or invited to a github organization.\n\nAuthor: Muhammad Faisal (@faisalusuf)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "3908d64a-3c06-4091-b503-b3a94424533b",
-  "InsertDate": "2025-01-21T09:27:08Z",
-  "LastUpdateDate": "2025-01-21T09:27:08Z",
+  "InsertDate": "2025-01-25T21:19:03Z",
+  "LastUpdateDate": "2025-01-25T21:19:03Z",
   "Level": "informational",
   "Name": "New Github Organization Member Added",
   "Query": "sourcetype='github-audit' eql select * from _source_ where (action = 'org.add_member' or action = 'org.invite_member')",

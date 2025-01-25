@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious command line flags that let the user set a target user and command as e.g. seen in PsExec-like tools\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "50d66fb0-03f8-4da0-8add-84e77d12a020",
-  "InsertDate": "2025-01-21T09:30:27Z",
-  "LastUpdateDate": "2025-01-21T09:30:27Z",
+  "InsertDate": "2025-01-25T21:22:29Z",
+  "LastUpdateDate": "2025-01-25T21:22:29Z",
   "Level": "medium",
   "Name": "Suspicious RunAs-Like Flag Combination",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '% -u system %' or command like '% --user system %' or command like '% -u nt%' or command like '% -u \"nt%' or command like '% -u 'nt%' or command like '% --system %' or command like '% -u administrator %') and (command like '% -c cmd%' or command like '% -c \"cmd%' or command like '% -c powershell%' or command like '% -c \"powershell%' or command like '% --command cmd%' or command like '% --command powershell%' or command like '% -c whoami%' or command like '% -c wscript%' or command like '% -c cscript%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '% -c cmd%' or command like '% -c \"cmd%' or command like '% -c powershell%' or command like '% -c \"powershell%' or command like '% --command cmd%' or command like '% --command powershell%' or command like '% -c whoami%' or command like '% -c wscript%' or command like '% -c cscript%') and (command like '% -u system %' or command like '% --user system %' or command like '% -u NT%' or command like '% -u \"NT%' or command like '% -u 'NT%' or command like '% --system %' or command like '% -u administrator %'))",
   "Tags": [
     "attack.privilege-escalation"
   ],

@@ -1,11 +1,11 @@
 {
   "Description": "Detects tampering with attachment manager settings policies associations to lower the default file type risks (See reference for more information)\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a9b6c011-ab69-4ddb-bc0a-c4f21c80ec47",
-  "InsertDate": "2025-01-21T09:31:50Z",
-  "LastUpdateDate": "2025-01-21T09:31:50Z",
+  "InsertDate": "2025-01-25T21:22:49Z",
+  "LastUpdateDate": "2025-01-25T21:22:49Z",
   "Level": "high",
   "Name": "Potential Attachment Manager Settings Associations Tamper",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\software\\microsoft\\windows\\currentversion\\policies\\associations\\%' and ((target_object like '%\\defaultfiletyperisk' and details = 'dword (0x00006152)') or (target_object like '%\\lowriskfiletypes' and (details like '%.zip;%' or details like '%.rar;%' or details like '%.exe;%' or details like '%.bat;%' or details like '%.com;%' or details like '%.cmd;%' or details like '%.reg;%' or details like '%.msi;%' or details like '%.htm;%' or details like '%.html;%'))))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Associations\\%' and ((target_object like '%\\DefaultFileTypeRisk' and details = 'DWORD (0x00006152)') or (target_object like '%\\LowRiskFileTypes' and (details like '%.zip;%' or details like '%.rar;%' or details like '%.exe;%' or details like '%.bat;%' or details like '%.com;%' or details like '%.cmd;%' or details like '%.reg;%' or details like '%.msi;%' or details like '%.htm;%' or details like '%.html;%'))))",
   "Tags": [
     "attack.defense-evasion"
   ],

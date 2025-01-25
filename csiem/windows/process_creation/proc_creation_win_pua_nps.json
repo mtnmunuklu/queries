@@ -1,11 +1,11 @@
 {
   "Description": "Detects the use of NPS, a port forwarding and intranet penetration proxy server\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "68d37776-61db-42f5-bf54-27e87072d17e",
-  "InsertDate": "2025-01-21T09:29:18Z",
-  "LastUpdateDate": "2025-01-21T09:29:18Z",
+  "InsertDate": "2025-01-25T21:22:12Z",
+  "LastUpdateDate": "2025-01-25T21:22:12Z",
   "Level": "high",
   "Name": "PUA - NPS Tunneling Tool Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((hashes like '%md5=ae8acf66bfe3a44148964048b826d005%' or hashes like '%sha1=cea49e9b9b67f3a13ad0be1c2655293ea3c18181%' or hashes like '%sha256=5a456283392ffceeeaca3d3426c306eb470304637520d72fed1cc1febbbd6856%') or process_path like '%\\npc.exe' or (command like '% -server=%' and command like '% -vkey=%' and command like '% -password=%') or command like '% -config=npc%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((hashes like '%MD5=AE8ACF66BFE3A44148964048B826D005%' or hashes like '%SHA1=CEA49E9B9B67F3A13AD0BE1C2655293EA3C18181%' or hashes like '%SHA256=5A456283392FFCEEEACA3D3426C306EB470304637520D72FED1CC1FEBBBD6856%') or process_path like '%\\npc.exe' or (command like '% -server=%' and command like '% -vkey=%' and command like '% -password=%') or command like '% -config=npc%')",
   "Tags": [
     "attack.command-and-control",
     "attack.t1090"

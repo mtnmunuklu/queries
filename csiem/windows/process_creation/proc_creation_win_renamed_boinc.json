@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of a renamed BOINC binary.\n\nAuthor: Matt Anderson (Huntress)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "30d07da2-83ab-45d8-ae75-ec7c0edcaffc",
-  "InsertDate": "2025-01-21T09:29:48Z",
-  "LastUpdateDate": "2025-01-21T09:29:48Z",
+  "InsertDate": "2025-01-25T21:22:19Z",
+  "LastUpdateDate": "2025-01-25T21:22:19Z",
   "Level": "medium",
   "Name": "Renamed BOINC Client Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (original_file_name = 'boinc.exe' and  not process_path like '%\\boinc.exe')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (original_file_name = 'BOINC.exe' and  not process_path like '%\\BOINC.exe')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1553"

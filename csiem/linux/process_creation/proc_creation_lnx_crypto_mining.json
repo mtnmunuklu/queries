@@ -1,11 +1,11 @@
 {
   "Description": "Detects command line parameters or strings often used by crypto miners\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9069ea3c-b213-4c52-be13-86506a227ab1",
-  "InsertDate": "2025-01-21T09:27:15Z",
-  "LastUpdateDate": "2025-01-21T09:27:15Z",
+  "InsertDate": "2025-01-25T21:19:21Z",
+  "LastUpdateDate": "2025-01-25T21:19:21Z",
   "Level": "high",
   "Name": "Linux Crypto Mining Indicators",
-  "Query": "sourcetype like 'linux-%' eql select * from _source_ where (command like '% --cpu-priority=%' or command like '%--donate-level=0%' or command like '% -o pool.%' or command like '% --nicehash%' or command like '% --algo=rx/0 %' or command like '%stratum+tcp://%' or command like '%stratum+udp://%' or command like '%sh -c /sbin/modprobe msr allow_writes=on%' or command like '%ls1kb25hdgutbgv2zww9%' or command like '%0tzg9uyxrllwxldmvsp%' or command like '%tlwrvbmf0zs1szxzlbd%' or command like '%c3ryyxr1bst0y3a6ly%' or command like '%n0cmf0dw0rdgnwoi8v%' or command like '%zdhjhdhvtk3rjcdovl%' or command like '%c3ryyxr1bst1zha6ly%' or command like '%n0cmf0dw0rdwrwoi8v%' or command like '%zdhjhdhvtk3vkcdovl%')",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where (command like '% --cpu-priority=%' or command like '%--donate-level=0%' or command like '% -o pool.%' or command like '% --nicehash%' or command like '% --algo=rx/0 %' or command like '%stratum+tcp://%' or command like '%stratum+udp://%' or command like '%sh -c /sbin/modprobe msr allow_writes=on%' or command like '%LS1kb25hdGUtbGV2ZWw9%' or command like '%0tZG9uYXRlLWxldmVsP%' or command like '%tLWRvbmF0ZS1sZXZlbD%' or command like '%c3RyYXR1bSt0Y3A6Ly%' or command like '%N0cmF0dW0rdGNwOi8v%' or command like '%zdHJhdHVtK3RjcDovL%' or command like '%c3RyYXR1bSt1ZHA6Ly%' or command like '%N0cmF0dW0rdWRwOi8v%' or command like '%zdHJhdHVtK3VkcDovL%')",
   "Tags": [
     "attack.impact",
     "attack.t1496"

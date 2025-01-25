@@ -1,8 +1,8 @@
 {
   "Description": "Detects logons using NTLM, which could be caused by a legacy source or attackers\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "98c3bcf1-56f2-49dc-9d8d-c66cf190238b",
-  "InsertDate": "2025-01-21T09:27:28Z",
-  "LastUpdateDate": "2025-01-21T09:27:28Z",
+  "InsertDate": "2025-01-25T21:20:10Z",
+  "LastUpdateDate": "2025-01-25T21:20:10Z",
   "Level": "low",
   "Name": "NTLM Logon",
   "Query": "sourcetype='windows-ntlm' eql select * from _source_ where eventid = '8002'",

@@ -1,11 +1,11 @@
 {
   "Description": "Detects the creation of suspicious files and folders inside the user's AppData folder but not inside any of the common and well known directories (Local, Romaing, LocalLow). This method could be used as a method to bypass detection who exclude the AppData folder in fear of FPs\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d7b50671-d1ad-4871-aa60-5aa5b331fe04",
-  "InsertDate": "2025-01-21T09:27:44Z",
-  "LastUpdateDate": "2025-01-21T09:27:44Z",
+  "InsertDate": "2025-01-25T21:20:57Z",
+  "LastUpdateDate": "2025-01-25T21:20:57Z",
   "Level": "high",
   "Name": "Suspicious File Creation In Uncommon AppData Folder",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((filepath like 'c:\\users\\%' and filepath like '%\\appdata\\%' and (filepath like '%.bat' or filepath like '%.cmd' or filepath like '%.cpl' or filepath like '%.dll' or filepath like '%.exe' or filepath like '%.hta' or filepath like '%.iso' or filepath like '%.lnk' or filepath like '%.msi' or filepath like '%.ps1' or filepath like '%.psm1' or filepath like '%.scr' or filepath like '%.vbe' or filepath like '%.vbs')) and  not (filepath like 'c:\\users\\%' and (filepath like '%\\appdata\\local\\%' or filepath like '%\\appdata\\locallow\\%' or filepath like '%\\appdata\\roaming\\%')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((filepath like 'C:\\Users\\%' and filepath like '%\\AppData\\%' and (filepath like '%.bat' or filepath like '%.cmd' or filepath like '%.cpl' or filepath like '%.dll' or filepath like '%.exe' or filepath like '%.hta' or filepath like '%.iso' or filepath like '%.lnk' or filepath like '%.msi' or filepath like '%.ps1' or filepath like '%.psm1' or filepath like '%.scr' or filepath like '%.vbe' or filepath like '%.vbs')) and  not (filepath like 'C:\\Users\\%' and (filepath like '%\\AppData\\Local\\%' or filepath like '%\\AppData\\LocalLow\\%' or filepath like '%\\AppData\\Roaming\\%')))",
   "Tags": [
     "attack.defense-evasion",
     "attack.execution"

@@ -1,11 +1,11 @@
 {
   "Description": "Detects uncommon outbound network activity via Kerberos default port indicating possible lateral movement or first stage PrivEsc via delegation.\n\n\nAuthor: Ilyas Ochkov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e54979bd-c5f9-4d6c-967b-a04b19ac4c74",
-  "InsertDate": "2025-01-21T09:27:56Z",
-  "LastUpdateDate": "2025-01-21T09:27:56Z",
+  "InsertDate": "2025-01-25T21:21:15Z",
+  "LastUpdateDate": "2025-01-25T21:21:15Z",
   "Level": "medium",
   "Name": "Uncommon Outbound Kerberos Connection",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((dst_port = '88' and initiated = 'true') and  not process_path = 'c:\\windows\\system32\\lsass.exe' and  not ((process_path = 'c:\\program files (x86)\\google\\chrome\\application\\chrome.exe' or process_path = 'c:\\program files\\google\\chrome\\application\\chrome.exe') or (process_path = 'c:\\program files (x86)\\mozilla firefox\\firefox.exe' or process_path = 'c:\\program files\\mozilla firefox\\firefox.exe') or process_path like '%\\tomcat\\bin\\tomcat8.exe'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((dst_port = '88' and initiated = 'true') and  not process_path = 'C:\\Windows\\System32\\lsass.exe' and  not ((process_path = 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe' or process_path = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe') or (process_path = 'C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe' or process_path = 'C:\\Program Files\\Mozilla Firefox\\firefox.exe') or process_path like '%\\tomcat\\bin\\tomcat8.exe'))",
   "Tags": [
     "attack.credential-access",
     "attack.t1558",

@@ -1,11 +1,11 @@
 {
   "Description": "Detects the use of various CLI utilities exfiltrating data via web requests\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "7d1aaf3d-4304-425c-b7c3-162055e0b3ab",
-  "InsertDate": "2025-01-21T09:30:14Z",
-  "LastUpdateDate": "2025-01-21T09:30:14Z",
+  "InsertDate": "2025-01-25T21:22:26Z",
+  "LastUpdateDate": "2025-01-25T21:22:26Z",
   "Level": "high",
   "Name": "Potential Data Exfiltration Activity Via CommandLine Tools",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\cmd.exe') and (command like '%invoke-webrequest%' or command like '%iwr %' or command like '%wget %' or command like '%curl %') and (command like '% -ur%' and command like '% -me%' and command like '% -b%' and command like '% post %')) or ((process_path like '%\\curl.exe' and command like '%--ur%') and (command like '% -d %' or command like '% --data %')) or (process_path like '%\\wget.exe' and (command like '%--post-data%' or command like '%--post-file%'))) and ((command like '%get-content%' or command like '%getbytes%' or command like '%hostname%' or command like '%ifconfig%' or command like '%ipconfig%' or command like '%net view%' or command like '%netstat%' or command like '%nltest%' or command like '%qprocess%' or command like '%sc query%' or command like '%systeminfo%' or command like '%tasklist%' or command like '%tobase64string%' or command like '%whoami%') and (command like '%type %' and command like '% \u003e %' and command like '% c:\\%')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\cmd.exe') and (command like '%Invoke-WebRequest%' or command like '%iwr %' or command like '%wget %' or command like '%curl %') and (command like '% -ur%' and command like '% -me%' and command like '% -b%' and command like '% POST %')) or ((process_path like '%\\curl.exe' and command like '%--ur%') and (command like '% -d %' or command like '% --data %')) or (process_path like '%\\wget.exe' and (command like '%--post-data%' or command like '%--post-file%'))) and ((command like '%Get-Content%' or command like '%GetBytes%' or command like '%hostname%' or command like '%ifconfig%' or command like '%ipconfig%' or command like '%net view%' or command like '%netstat%' or command like '%nltest%' or command like '%qprocess%' or command like '%sc query%' or command like '%systeminfo%' or command like '%tasklist%' or command like '%ToBase64String%' or command like '%whoami%') and (command like '%type %' and command like '% \u003e %' and command like '% C:\\%')))",
   "Tags": [
     "attack.execution",
     "attack.t1059.001"

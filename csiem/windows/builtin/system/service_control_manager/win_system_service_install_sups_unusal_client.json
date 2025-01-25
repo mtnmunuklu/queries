@@ -1,11 +1,11 @@
 {
   "Description": "Detects a service installed by a client which has PID 0 or whose parent has PID 0\n\nAuthor: Tim Rauch (Nextron Systems), Elastic (idea)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "71c276aa-49cd-43d2-b920-2dcd3e6962d5",
-  "InsertDate": "2025-01-21T09:27:36Z",
-  "LastUpdateDate": "2025-01-21T09:27:36Z",
+  "InsertDate": "2025-01-25T21:20:38Z",
+  "LastUpdateDate": "2025-01-25T21:20:38Z",
   "Level": "high",
   "Name": "Service Installed By Unusual Client - System",
-  "Query": "sourcetype='windows-system' eql select * from _source_ where provider_name = 'service control manager' and eventid = '7045' and processid = '0'",
+  "Query": "sourcetype='windows-system' eql select * from _source_ where provider_name = 'Service Control Manager' and eventid = '7045' and processid = '0'",
   "Tags": [
     "attack.privilege-escalation",
     "attack.t1543"

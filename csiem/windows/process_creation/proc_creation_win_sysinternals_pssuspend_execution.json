@@ -1,8 +1,8 @@
 {
   "Description": "Detects usage of Sysinternals PsSuspend which can be abused to suspend critical processes\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "48bbc537-b652-4b4e-bd1d-281172df448f",
-  "InsertDate": "2025-01-21T09:30:38Z",
-  "LastUpdateDate": "2025-01-21T09:30:38Z",
+  "InsertDate": "2025-01-25T21:22:32Z",
+  "LastUpdateDate": "2025-01-25T21:22:32Z",
   "Level": "medium",
   "Name": "Sysinternals PsSuspend Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where original_file_name = 'pssuspend.exe' and (process_path like '%\\pssuspend.exe' or process_path like '%\\pssuspend64.exe')",

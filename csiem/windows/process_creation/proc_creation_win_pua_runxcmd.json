@@ -1,11 +1,11 @@
 {
   "Description": "Detects the use of the RunXCmd tool to execute commands with System or TrustedInstaller accounts\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "93199800-b52a-4dec-b762-75212c196542",
-  "InsertDate": "2025-01-21T09:29:20Z",
-  "LastUpdateDate": "2025-01-21T09:29:20Z",
+  "InsertDate": "2025-01-25T21:22:13Z",
+  "LastUpdateDate": "2025-01-25T21:22:13Z",
   "Level": "high",
   "Name": "PUA - RunXCmd Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%/exec=%' and (command like '% /account=system %' or command like '% /account=ti %'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '% /account=system %' or command like '% /account=ti %') and command like '%/exec=%')",
   "Tags": [
     "attack.execution",
     "attack.t1569.002",

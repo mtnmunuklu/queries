@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of an AnyDesk binary with a version prior to 8.0.8.\nPrior to version 8.0.8, the Anydesk application used a signing certificate that got compromised by threat actors.\nUse this rule to detect instances of older versions of Anydesk using the compromised certificate\nThis is recommended in order to avoid attackers leveraging the certificate and signing their binaries to bypass detections.\n\n\nAuthor: Sai Prashanth Pulisetti, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "41f407b5-3096-44ea-a74f-96d04fbc41be",
-  "InsertDate": "2025-01-21T09:29:44Z",
-  "LastUpdateDate": "2025-01-21T09:29:44Z",
+  "InsertDate": "2025-01-25T21:22:17Z",
+  "LastUpdateDate": "2025-01-25T21:22:17Z",
   "Level": "medium",
   "Name": "Remote Access Tool - AnyDesk Execution With Known Revoked Signing Certificate",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((file_version like '7.0.%' or file_version like '7.1.%' or file_version like '8.0.1%' or file_version like '8.0.2%' or file_version like '8.0.3%' or file_version like '8.0.4%' or file_version like '8.0.5%' or file_version like '8.0.6%' or file_version like '8.0.7%') and (process_path like '%\\anydesk.exe' and description = 'anydesk' and product = 'anydesk' and company = 'anydesk software gmbh')) and  not (command like '% --remove%' or command like '% --uninstall%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\AnyDesk.exe' and description = 'AnyDesk' and product = 'AnyDesk' and company = 'AnyDesk Software GmbH') and (file_version like '7.0.%' or file_version like '7.1.%' or file_version like '8.0.1%' or file_version like '8.0.2%' or file_version like '8.0.3%' or file_version like '8.0.4%' or file_version like '8.0.5%' or file_version like '8.0.6%' or file_version like '8.0.7%')) and  not (command like '% --remove%' or command like '% --uninstall%'))",
   "Tags": [
     "attack.execution",
     "attack.initial-access"

@@ -1,8 +1,8 @@
 {
   "Description": "Detects the creation of a file with the name \"code_tunnel.json\" which indicate execution and usage of VsCode tunneling utility by an \"Image\" or \"Process\" other than VsCode.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d102b8f5-61dc-4e68-bd83-9a3187c67377",
-  "InsertDate": "2025-01-21T09:27:49Z",
-  "LastUpdateDate": "2025-01-21T09:27:49Z",
+  "InsertDate": "2025-01-25T21:21:04Z",
+  "LastUpdateDate": "2025-01-25T21:21:04Z",
   "Level": "high",
   "Name": "Renamed VsCode Code Tunnel Execution - File Indicator",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%\\code_tunnel.json' and  not (process_path like '%\\code-tunnel.exe' or process_path like '%\\code.exe'))",

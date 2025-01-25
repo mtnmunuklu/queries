@@ -1,11 +1,11 @@
 {
   "Description": "Detects potential RDP connection via Mstsc using a local \".rdp\" file\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Christopher Peacock @securepeacock\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "5fdce3ac-e7f9-4ecd-a3aa-a4d78ebbf0af",
-  "InsertDate": "2025-01-21T09:28:42Z",
-  "LastUpdateDate": "2025-01-21T09:28:42Z",
+  "InsertDate": "2025-01-25T21:22:01Z",
+  "LastUpdateDate": "2025-01-25T21:22:01Z",
   "Level": "low",
   "Name": "Mstsc.EXE Execution With Local RDP File",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\mstsc.exe' and original_file_name = 'mstsc.exe') and (command like '%.rdp' or command like '%.rdp\"')) and  not (parent_process_path = 'c:\\windows\\system32\\lxss\\wslhost.exe' and command like '%c:\\programdata\\microsoft\\wsl\\wslg.rdp%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\mstsc.exe' and original_file_name = 'mstsc.exe') and (command like '%.rdp' or command like '%.rdp\"')) and  not (parent_process_path = 'C:\\Windows\\System32\\lxss\\wslhost.exe' and command like '%C:\\ProgramData\\Microsoft\\WSL\\wslg.rdp%'))",
   "Tags": [
     "attack.command-and-control",
     "attack.t1219"

@@ -1,11 +1,11 @@
 {
   "Description": "Detects the creation or patching of potential malicious RoleBinding/ClusterRoleBinding.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "25cb259b-bbdc-4b87-98b7-90d7c72f8743",
-  "InsertDate": "2025-01-21T09:27:02Z",
-  "LastUpdateDate": "2025-01-21T09:27:02Z",
+  "InsertDate": "2025-01-25T21:18:32Z",
+  "LastUpdateDate": "2025-01-25T21:18:32Z",
   "Level": "medium",
   "Name": "Azure Kubernetes RoleBinding/ClusterRoleBinding Modified and Deleted",
-  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (operationname = 'microsoft.kubernetes/connectedclusters/rbac.authorization.k8s.io/clusterrolebindings/write' or operationname = 'microsoft.kubernetes/connectedclusters/rbac.authorization.k8s.io/clusterrolebindings/delete' or operationname = 'microsoft.kubernetes/connectedclusters/rbac.authorization.k8s.io/rolebindings/write' or operationname = 'microsoft.kubernetes/connectedclusters/rbac.authorization.k8s.io/rolebindings/delete')",
+  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (operationname = 'MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/RBAC.AUTHORIZATION.K8S.IO/CLUSTERROLEBINDINGS/WRITE' or operationname = 'MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/RBAC.AUTHORIZATION.K8S.IO/CLUSTERROLEBINDINGS/DELETE' or operationname = 'MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/RBAC.AUTHORIZATION.K8S.IO/ROLEBINDINGS/WRITE' or operationname = 'MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/RBAC.AUTHORIZATION.K8S.IO/ROLEBINDINGS/DELETE')",
   "Tags": [
     "attack.impact",
     "attack.credential-access"

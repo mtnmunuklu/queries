@@ -1,11 +1,11 @@
 {
   "Description": "Detects the presence of an LSASS dump file in the \"CrashDumps\" folder. This could be a sign of LSASS credential dumping. Techniques such as the LSASS Shtinkering have been seen abusing the Windows Error Reporting to dump said process.\n\nAuthor: @pbssubhash\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6902955a-01b7-432c-b32a-6f5f81d8f625",
-  "InsertDate": "2025-01-21T09:27:44Z",
-  "LastUpdateDate": "2025-01-21T09:27:44Z",
+  "InsertDate": "2025-01-25T21:20:57Z",
+  "LastUpdateDate": "2025-01-25T21:20:57Z",
   "Level": "high",
   "Name": "LSASS Process Dump Artefact In CrashDumps Folder",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where filepath like 'c:\\windows\\system32\\config\\systemprofile\\appdata\\local\\crashdumps\\%' and filepath like '%lsass.exe.%' and filepath like '%.dmp'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where filepath like 'C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\CrashDumps\\%' and filepath like '%lsass.exe.%' and filepath like '%.dmp'",
   "Tags": [
     "attack.credential-access",
     "attack.t1003.001"

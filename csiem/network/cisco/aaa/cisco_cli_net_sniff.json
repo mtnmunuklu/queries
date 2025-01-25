@@ -1,8 +1,8 @@
 {
   "Description": "Show when a monitor or a span/rspan is setup or modified\n\nAuthor: Austin Clark\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b9e1f193-d236-4451-aaae-2f3d2102120d",
-  "InsertDate": "2025-01-21T09:27:22Z",
-  "LastUpdateDate": "2025-01-21T09:27:22Z",
+  "InsertDate": "2025-01-25T21:19:43Z",
+  "LastUpdateDate": "2025-01-25T21:19:43Z",
   "Level": "medium",
   "Name": "Cisco Sniffing",
   "Query": "sourcetype='cisco-aaa' eql select * from _source_ where Query('monitor capture point OR set span OR set rspan')",

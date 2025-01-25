@@ -1,11 +1,11 @@
 {
   "Description": "Detects DNS queries to a TeamViewer domain only resolved by a TeamViewer client by an image that isn't named TeamViewer (sometimes used by threat actors for obfuscation)\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "778ba9a8-45e4-4b80-8e3e-34a419f0b85e",
-  "InsertDate": "2025-01-21T09:27:40Z",
-  "LastUpdateDate": "2025-01-21T09:27:40Z",
+  "InsertDate": "2025-01-25T21:20:48Z",
+  "LastUpdateDate": "2025-01-25T21:20:48Z",
   "Level": "medium",
   "Name": "TeamViewer Domain Query By Non-TeamViewer Application",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((query_name = 'taf.teamviewer.com' or query_name = 'udp.ping.teamviewer.com') and  not process_path like '%teamviewer%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((query_name = 'taf.teamviewer.com' or query_name = 'udp.ping.teamviewer.com') and  not process_path like '%TeamViewer%')",
   "Tags": [
     "attack.command-and-control",
     "attack.t1219"

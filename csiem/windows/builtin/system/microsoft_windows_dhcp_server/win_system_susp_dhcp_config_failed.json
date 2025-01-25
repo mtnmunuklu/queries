@@ -1,11 +1,11 @@
 {
   "Description": "This rule detects a DHCP server error in which a specified Callout DLL (in registry) could not be loaded\n\nAuthor: Dimitrios Slamaris, @atc_project (fix)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "75edd3fd-7146-48e5-9848-3013d7f0282c",
-  "InsertDate": "2025-01-21T09:27:34Z",
-  "LastUpdateDate": "2025-01-21T09:27:34Z",
+  "InsertDate": "2025-01-25T21:20:31Z",
+  "LastUpdateDate": "2025-01-25T21:20:31Z",
   "Level": "high",
   "Name": "DHCP Server Error Failed Loading the CallOut DLL",
-  "Query": "sourcetype='windows-system' eql select * from _source_ where (eventid = '1031' or eventid = '1032' or eventid = '1034') and provider_name = 'microsoft-windows-dhcp-server'",
+  "Query": "sourcetype='windows-system' eql select * from _source_ where (eventid = '1031' or eventid = '1032' or eventid = '1034') and provider_name = 'Microsoft-Windows-DHCP-Server'",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1574.002"

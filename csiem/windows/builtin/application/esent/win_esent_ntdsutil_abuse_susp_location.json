@@ -1,11 +1,11 @@
 {
   "Description": "Detects potential abuse of ntdsutil to dump ntds.dit database to a suspicious location\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "94dc4390-6b7c-4784-8ffc-335334404650",
-  "InsertDate": "2025-01-21T09:27:25Z",
-  "LastUpdateDate": "2025-01-21T09:27:25Z",
+  "InsertDate": "2025-01-25T21:20:00Z",
+  "LastUpdateDate": "2025-01-25T21:20:00Z",
   "Level": "medium",
   "Name": "Dump Ntds.dit To Suspicious Location",
-  "Query": "sourcetype='windows-application' eql select * from _source_ where ((provider_name = 'esent' and eventid = '325' and data like '%ntds.dit%') and (data like '%:\\ntds.dit%' or data like '%\\appdata\\%' or data like '%\\desktop\\%' or data like '%\\downloads\\%' or data like '%\\perflogs\\%' or data like '%\\temp\\%' or data like '%\\users\\public\\%'))",
+  "Query": "sourcetype='windows-application' eql select * from _source_ where ((provider_name = 'ESENT' and eventid = '325' and data like '%ntds.dit%') and (data like '%:\\ntds.dit%' or data like '%\\Appdata\\%' or data like '%\\Desktop\\%' or data like '%\\Downloads\\%' or data like '%\\Perflogs\\%' or data like '%\\Temp\\%' or data like '%\\Users\\Public\\%'))",
   "Tags": [
     "attack.execution"
   ],

@@ -1,11 +1,11 @@
 {
   "Description": "Detects enumeration of local network configuration\n\nAuthor: remotephone, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "58800443-f9fc-4d55-ae0c-98a3966dfb97",
-  "InsertDate": "2025-01-21T09:27:21Z",
-  "LastUpdateDate": "2025-01-21T09:27:21Z",
+  "InsertDate": "2025-01-25T21:19:40Z",
+  "LastUpdateDate": "2025-01-25T21:19:40Z",
   "Level": "informational",
   "Name": "System Network Discovery - macOS",
-  "Query": "sourcetype like 'macos-%' eql select * from _source_ where (((process_path like '%/arp' or process_path like '%/ifconfig' or process_path like '%/netstat' or process_path like '%/networksetup' or process_path like '%/socketfilterfw') or (process_path = '/usr/bin/defaults' and (command like '%/library/preferences/com.apple.alf%' and command like '%read%'))) and  not parent_process_path like '%/wifivelocityd')",
+  "Query": "sourcetype like 'macos-%' eql select * from _source_ where (((process_path like '%/arp' or process_path like '%/ifconfig' or process_path like '%/netstat' or process_path like '%/networksetup' or process_path like '%/socketfilterfw') or (process_path = '/usr/bin/defaults' and (command like '%/Library/Preferences/com.apple.alf%' and command like '%read%'))) and  not parent_process_path like '%/wifivelocityd')",
   "Tags": [
     "attack.discovery",
     "attack.t1016"

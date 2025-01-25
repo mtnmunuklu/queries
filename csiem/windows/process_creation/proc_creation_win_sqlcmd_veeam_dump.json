@@ -1,11 +1,11 @@
 {
   "Description": "Detects dump of credentials in VeeamBackup dbo\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b57ba453-b384-4ab9-9f40-1038086b4e53",
-  "InsertDate": "2025-01-21T09:30:09Z",
-  "LastUpdateDate": "2025-01-21T09:30:09Z",
+  "InsertDate": "2025-01-25T21:22:24Z",
+  "LastUpdateDate": "2025-01-25T21:22:24Z",
   "Level": "high",
   "Name": "VeeamBackup Database Credentials Dump Via Sqlcmd.EXE",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\sqlcmd.exe' and (command like '%select%' and command like '%top%' and command like '%[veeambackup].[dbo].[credentials]%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\sqlcmd.exe' and (command like '%SELECT%' and command like '%TOP%' and command like '%[VeeamBackup].[dbo].[Credentials]%'))",
   "Tags": [
     "attack.collection",
     "attack.t1005"

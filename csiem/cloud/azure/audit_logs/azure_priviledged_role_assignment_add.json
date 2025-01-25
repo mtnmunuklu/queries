@@ -1,11 +1,11 @@
 {
   "Description": "Detects when a user is added to a privileged role.\n\nAuthor: Mark Morowczynski '@markmorow', Yochana Henderson, '@Yochana-H'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "49a268a4-72f4-4e38-8a7b-885be690c5b5",
-  "InsertDate": "2025-01-21T09:27:04Z",
-  "LastUpdateDate": "2025-01-21T09:27:04Z",
+  "InsertDate": "2025-01-25T21:18:41Z",
+  "LastUpdateDate": "2025-01-25T21:18:41Z",
   "Level": "high",
   "Name": "User Added To Privilege Role",
-  "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where (properties.message = 'add eligible member (permanent)' or properties.message = 'add eligible member (eligible)')",
+  "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where (properties.message = 'Add eligible member (permanent)' or properties.message = 'Add eligible member (eligible)')",
   "Tags": [
     "attack.privilege-escalation",
     "attack.defense-evasion",

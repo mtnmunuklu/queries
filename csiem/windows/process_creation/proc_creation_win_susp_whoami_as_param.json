@@ -1,8 +1,8 @@
 {
   "Description": "Detects a suspicious process command line that uses whoami as first parameter (as e.g. used by EfsPotato)\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e9142d84-fbe0-401d-ac50-3e519fb00c89",
-  "InsertDate": "2025-01-21T09:30:35Z",
-  "LastUpdateDate": "2025-01-21T09:30:35Z",
+  "InsertDate": "2025-01-25T21:22:31Z",
+  "LastUpdateDate": "2025-01-25T21:22:31Z",
   "Level": "high",
   "Name": "WhoAmI as Parameter",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where command like '%.exe whoami%'",

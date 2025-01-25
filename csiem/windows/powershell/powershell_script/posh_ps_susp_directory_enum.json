@@ -1,11 +1,11 @@
 {
   "Description": "Detects technique used by MAZE ransomware to enumerate directories using Powershell\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "162e69a7-7981-4344-84a9-0f1c9a217a52",
-  "InsertDate": "2025-01-21T09:28:08Z",
-  "LastUpdateDate": "2025-01-21T09:28:08Z",
+  "InsertDate": "2025-01-25T21:21:29Z",
+  "LastUpdateDate": "2025-01-25T21:21:29Z",
   "Level": "medium",
   "Name": "Powershell Directory Enumeration",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%foreach%' and scriptblocktext like '%get-childitem%' and scriptblocktext like '%-path %' and scriptblocktext like '%-erroraction %' and scriptblocktext like '%silentlycontinue%' and scriptblocktext like '%out-file %' and scriptblocktext like '%-append%')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%foreach%' and scriptblocktext like '%Get-ChildItem%' and scriptblocktext like '%-Path %' and scriptblocktext like '%-ErrorAction %' and scriptblocktext like '%SilentlyContinue%' and scriptblocktext like '%Out-File %' and scriptblocktext like '%-append%')",
   "Tags": [
     "attack.discovery",
     "attack.t1083"

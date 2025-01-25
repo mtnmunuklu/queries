@@ -1,11 +1,11 @@
 {
   "Description": "Detects the use of \"DumpMinitool.exe\" a tool that allows the dump of process memory via the use of the \"MiniDumpWriteDump\"\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "dee0a7a3-f200-4112-a99b-952196d81e42",
-  "InsertDate": "2025-01-21T09:28:25Z",
-  "LastUpdateDate": "2025-01-21T09:28:25Z",
+  "InsertDate": "2025-01-25T21:21:43Z",
+  "LastUpdateDate": "2025-01-25T21:21:43Z",
   "Level": "medium",
   "Name": "DumpMinitool Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\dumpminitool.exe' or process_path like '%\\dumpminitool.x86.exe' or process_path like '%\\dumpminitool.arm64.exe') and (original_file_name = 'dumpminitool.exe' or original_file_name = 'dumpminitool.x86.exe' or original_file_name = 'dumpminitool.arm64.exe')) and (command like '% full%' or command like '% mini%' or command like '% withheap%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\DumpMinitool.exe' or process_path like '%\\DumpMinitool.x86.exe' or process_path like '%\\DumpMinitool.arm64.exe') and (original_file_name = 'DumpMinitool.exe' or original_file_name = 'DumpMinitool.x86.exe' or original_file_name = 'DumpMinitool.arm64.exe')) and (command like '% Full%' or command like '% Mini%' or command like '% WithHeap%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1036",

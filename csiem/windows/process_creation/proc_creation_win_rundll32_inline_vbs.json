@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious process related to rundll32 based on command line that invokes inline VBScript as seen being used by UNC2452\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1cc50f3f-1fc8-4acf-b2e9-6f172e1fdebd",
-  "InsertDate": "2025-01-21T09:29:54Z",
-  "LastUpdateDate": "2025-01-21T09:29:54Z",
+  "InsertDate": "2025-01-25T21:22:20Z",
+  "LastUpdateDate": "2025-01-25T21:22:20Z",
   "Level": "high",
   "Name": "Suspicious Rundll32 Invoking Inline VBScript",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%rundll32.exe%' and command like '%execute%' and command like '%regread%' and command like '%window.close%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%rundll32.exe%' and command like '%Execute%' and command like '%RegRead%' and command like '%window.close%')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1055"

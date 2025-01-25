@@ -1,11 +1,11 @@
 {
   "Description": "Detects attempts to remove Windows Defender configuration using the 'MpPreference' cmdlet\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ae2bdd58-0681-48ac-be7f-58ab4e593458",
-  "InsertDate": "2025-01-21T09:28:12Z",
-  "LastUpdateDate": "2025-01-21T09:28:12Z",
+  "InsertDate": "2025-01-25T21:21:32Z",
+  "LastUpdateDate": "2025-01-25T21:21:32Z",
   "Level": "high",
   "Name": "Tamper Windows Defender Remove-MpPreference - ScriptBlockLogging",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%remove-mppreference%' and (scriptblocktext like '%-controlledfolderaccessprotectedfolders %' or scriptblocktext like '%-attacksurfacereductionrules_ids %' or scriptblocktext like '%-attacksurfacereductionrules_actions %' or scriptblocktext like '%-checkforsignaturesbeforerunningscan %'))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%Remove-MpPreference%' and (scriptblocktext like '%-ControlledFolderAccessProtectedFolders %' or scriptblocktext like '%-AttackSurfaceReductionRules_Ids %' or scriptblocktext like '%-AttackSurfaceReductionRules_Actions %' or scriptblocktext like '%-CheckForSignaturesBeforeRunningScan %'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1562.001"

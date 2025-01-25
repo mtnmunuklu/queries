@@ -1,11 +1,11 @@
 {
   "Description": "Detects Obfuscated use of Environment Variables to execute PowerShell\n\nAuthor: Jonathan Cheong, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "27aec9c9-dbb0-4939-8422-1742242471d0",
-  "InsertDate": "2025-01-21T09:28:30Z",
-  "LastUpdateDate": "2025-01-21T09:28:30Z",
+  "InsertDate": "2025-01-25T21:21:49Z",
+  "LastUpdateDate": "2025-01-25T21:21:49Z",
   "Level": "high",
   "Name": "Invoke-Obfuscation VAR+ Launcher",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where command re 'cmd.{0,5}(?:/c|/r)(?:\\s|)\\\"set\\s[a-zA-Z]{3,6}.*(?:\\{\\d\\}){1,}\\\\\\\"\\s+?\\-f(?:.*\\)){1,}.*\\\"'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where command rlike 'cmd.{0,5}(?:/c|/r)(?:\\s|)\\\"set\\s[a-zA-Z]{3,6}.*(?:\\{\\d\\}){1,}\\\\\\\"\\s+?\\-f(?:.*\\)){1,}.*\\\"'",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1027",

@@ -1,11 +1,11 @@
 {
   "Description": "Detects loading and execution of an unsigned thor scanner binary.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ea5c131b-380d-49f9-aeb3-920694da4d4b",
-  "InsertDate": "2025-01-21T09:27:54Z",
-  "LastUpdateDate": "2025-01-21T09:27:54Z",
+  "InsertDate": "2025-01-25T21:21:11Z",
+  "LastUpdateDate": "2025-01-25T21:21:11Z",
   "Level": "high",
   "Name": "Suspicious Unsigned Thor Scanner Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\thor.exe' or process_path like '%\\thor64.exe') and (image_loaded like '%\\thor.exe' or image_loaded like '%\\thor64.exe')) and  not (signed = 'true' and signature_status = 'valid' and signature = 'nextron systems gmbh'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\thor.exe' or process_path like '%\\thor64.exe') and (image_loaded like '%\\thor.exe' or image_loaded like '%\\thor64.exe')) and  not (signed = 'true' and signature_status = 'valid' and signature = 'Nextron Systems GmbH'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1574.002"

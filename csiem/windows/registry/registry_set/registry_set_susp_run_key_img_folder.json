@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious new RUN key element pointing to an executable in a suspicious folder\n\nAuthor: Florian Roth (Nextron Systems), Markus Neis, Sander Wiebing\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "02ee49e2-e294-4d0f-9278-f5b3212fc588",
-  "InsertDate": "2025-01-21T09:31:55Z",
-  "LastUpdateDate": "2025-01-21T09:31:55Z",
+  "InsertDate": "2025-01-25T21:22:50Z",
+  "LastUpdateDate": "2025-01-25T21:22:50Z",
   "Level": "high",
   "Name": "New RUN Key Pointing to Suspicious Folder",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (((target_object like '%\\software\\microsoft\\windows\\currentversion\\run\\%' or target_object like '%\\software\\microsoft\\windows\\currentversion\\runonce\\%') and ((details like '%:\\$recycle.bin\\%' or details like '%:\\temp\\%' or details like '%:\\users\\default\\%' or details like '%:\\users\\desktop\\%' or details like '%:\\users\\public\\%' or details like '%:\\windows\\temp\\%' or details like '%\\appdata\\local\\temp\\%' or details like '%%temp%\\%' or details like '%%tmp%\\%') and (details like '%public%\\%' or details like 'wscript%' or details like 'cscript%'))) and  not (target_object like '%\\microsoft\\windows\\currentversion\\runonce\\%' and process_path like 'c:\\windows\\softwaredistribution\\download\\%' and (details like '%rundll32.exe %' and details like '%c:\\windows\\system32\\advpack.dll,delnoderundll32%') and (details like '%\\appdata\\local\\temp\\%' or details like '%c:\\windows\\temp\\%')))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (((target_object like '%\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\%' or target_object like '%\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\%') and ((details like '%:\\$Recycle.bin\\%' or details like '%:\\Temp\\%' or details like '%:\\Users\\Default\\%' or details like '%:\\Users\\Desktop\\%' or details like '%:\\Users\\Public\\%' or details like '%:\\Windows\\Temp\\%' or details like '%\\AppData\\Local\\Temp\\%' or details like '%%temp%\\%' or details like '%%tmp%\\%') and (details like '%Public%\\%' or details like 'wscript%' or details like 'cscript%'))) and  not (target_object like '%\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\%' and process_path like 'C:\\Windows\\SoftwareDistribution\\Download\\%' and (details like '%rundll32.exe %' and details like '%C:\\WINDOWS\\system32\\advpack.dll,DelNodeRunDLL32%') and (details like '%\\AppData\\Local\\Temp\\%' or details like '%C:\\Windows\\Temp\\%')))",
   "Tags": [
     "attack.persistence",
     "attack.t1547.001"

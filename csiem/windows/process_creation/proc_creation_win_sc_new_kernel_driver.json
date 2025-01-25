@@ -1,11 +1,11 @@
 {
   "Description": "Detects creation of a new service (kernel driver) with the type \"kernel\"\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "431a1fdb-4799-4f3b-91c3-a683b003fc49",
-  "InsertDate": "2025-01-21T09:29:58Z",
-  "LastUpdateDate": "2025-01-21T09:29:58Z",
+  "InsertDate": "2025-01-25T21:22:22Z",
+  "LastUpdateDate": "2025-01-25T21:22:22Z",
   "Level": "medium",
   "Name": "New Kernel Driver Via SC.EXE",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\sc.exe' and (command like '%create%' or command like '%config%') and (command like '%binpath%' and command like '%type%' and command like '%kernel%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\sc.exe' and (command like '%create%' or command like '%config%') and (command like '%binPath%' and command like '%type%' and command like '%kernel%')",
   "Tags": [
     "attack.persistence",
     "attack.privilege-escalation",

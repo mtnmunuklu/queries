@@ -1,8 +1,8 @@
 {
   "Description": "Detects when an application Sign-on Policy is modified or deleted.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "8f668cc4-c18e-45fe-ad00-624a981cf88a",
-  "InsertDate": "2025-01-21T09:27:10Z",
-  "LastUpdateDate": "2025-01-21T09:27:10Z",
+  "InsertDate": "2025-01-25T21:19:07Z",
+  "LastUpdateDate": "2025-01-25T21:19:07Z",
   "Level": "medium",
   "Name": "Okta Application Sign-On Policy Modified or Deleted",
   "Query": "sourcetype='okta-okta' eql select * from _source_ where (eventtype = 'application.policy.sign_on.update' or eventtype = 'application.policy.sign_on.rule.delete')",

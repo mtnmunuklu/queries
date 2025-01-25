@@ -1,11 +1,11 @@
 {
   "Description": "Detects installation of a remote msi file from web.\n\nAuthor: Stamatis Chatzimangou\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "5594e67a-7f92-4a04-b65d-1a42fd824a60",
-  "InsertDate": "2025-01-21T09:27:25Z",
-  "LastUpdateDate": "2025-01-21T09:27:25Z",
+  "InsertDate": "2025-01-25T21:20:01Z",
+  "LastUpdateDate": "2025-01-25T21:20:01Z",
   "Level": "medium",
   "Name": "MSI Installation From Web",
-  "Query": "sourcetype='windows-application' eql select * from _source_ where provider_name = 'msiinstaller' and (eventid = '1040' or eventid = '1042') and data like '%://%'",
+  "Query": "sourcetype='windows-application' eql select * from _source_ where provider_name = 'MsiInstaller' and (eventid = '1040' or eventid = '1042') and data like '%://%'",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1218",

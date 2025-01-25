@@ -1,11 +1,11 @@
 {
   "Description": "Detects code execution via Pester.bat (Pester - Powershell Modulte for testing)\n\nAuthor: frack113, Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "18988e1b-9087-4f8a-82fe-0414dce49878",
-  "InsertDate": "2025-01-21T09:28:37Z",
-  "LastUpdateDate": "2025-01-21T09:28:37Z",
+  "InsertDate": "2025-01-25T21:21:57Z",
+  "LastUpdateDate": "2025-01-25T21:21:57Z",
   "Level": "medium",
   "Name": "Execute Code with Pester.bat as Parent",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((parent_process_path like '%\\powershell.exe' or parent_process_path like '%\\pwsh.exe') and parent_command_line like '%\\windowspowershell\\modules\\pester\\%') and (parent_command_line like '%{ invoke-pester -enableexit ;%' or parent_command_line like '%{ get-help \"%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((parent_process_path like '%\\powershell.exe' or parent_process_path like '%\\pwsh.exe') and parent_command_line like '%\\WindowsPowerShell\\Modules\\Pester\\%') and (parent_command_line like '%{ Invoke-Pester -EnableExit ;%' or parent_command_line like '%{ Get-Help \"%'))",
   "Tags": [
     "attack.execution",
     "attack.t1059.001",

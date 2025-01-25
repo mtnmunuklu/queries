@@ -1,11 +1,11 @@
 {
   "Description": "Detects removing immutable file attribute.\n\nAuthor: Jakob Weinzettl, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a5b977d6-8a81-4475-91b9-49dbfcd941f7",
-  "InsertDate": "2025-01-21T09:27:11Z",
-  "LastUpdateDate": "2025-01-21T09:27:11Z",
+  "InsertDate": "2025-01-25T21:19:10Z",
+  "LastUpdateDate": "2025-01-25T21:19:10Z",
   "Level": "medium",
   "Name": "Remove Immutable File Attribute - Auditd",
-  "Query": "sourcetype='linux-auditd' eql select * from _source_ where type = 'execve' and a0 like '%chattr%' and a1 like '%-i%'",
+  "Query": "sourcetype='linux-auditd' eql select * from _source_ where type = 'EXECVE' and a0 like '%chattr%' and a1 like '%-i%'",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1222.002"

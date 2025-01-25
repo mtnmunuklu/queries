@@ -1,11 +1,11 @@
 {
   "Description": "Detects when an app is assigned Azure AD roles, such as global administrator, or Azure RBAC roles, such as subscription owner.\n\nAuthor: Bailey Bercik '@baileybercik', Mark Morowczynski '@markmorow'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b04934b2-0a68-4845-8a19-bdfed3a68a7a",
-  "InsertDate": "2025-01-21T09:27:04Z",
-  "LastUpdateDate": "2025-01-21T09:27:04Z",
+  "InsertDate": "2025-01-25T21:18:38Z",
+  "LastUpdateDate": "2025-01-25T21:18:38Z",
   "Level": "medium",
   "Name": "App Assigned To Azure RBAC/Microsoft Entra Role",
-  "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where targetresources.type = 'service principal' and (properties.message = 'add member to role' or properties.message = 'add eligible member to role' or properties.message = 'add scoped member to role')",
+  "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where targetresources.type = 'Service Principal' and (properties.message = 'Add member to role' or properties.message = 'Add eligible member to role' or properties.message = 'Add scoped member to role')",
   "Tags": [
     "attack.persistence",
     "attack.privilege-escalation",

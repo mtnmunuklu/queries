@@ -1,11 +1,11 @@
 {
   "Description": "Monitor and alert on conditional access changes. Is Initiated by (actor) approved to make changes? Review Modified Properties and compare \"old\" vs \"new\" value.\n\nAuthor: Corissa Koopmans, '@corissalea'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "50a3c7aa-ec29-44a4-92c1-fce229eef6fc",
-  "InsertDate": "2025-01-21T09:27:03Z",
-  "LastUpdateDate": "2025-01-21T09:27:03Z",
+  "InsertDate": "2025-01-25T21:18:35Z",
+  "LastUpdateDate": "2025-01-25T21:18:35Z",
   "Level": "medium",
   "Name": "CA Policy Updated by Non Approved Actor",
-  "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where properties.message = 'update conditional access policy'",
+  "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where properties.message = 'Update conditional access policy'",
   "Tags": [
     "attack.defense-evasion",
     "attack.persistence",

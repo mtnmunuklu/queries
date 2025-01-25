@@ -1,11 +1,11 @@
 {
   "Description": "Detects when an ElastiCache security group has been created.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4ae68615-866f-4304-b24b-ba048dfa5ca7",
-  "InsertDate": "2025-01-21T09:27:01Z",
-  "LastUpdateDate": "2025-01-21T09:27:01Z",
+  "InsertDate": "2025-01-25T21:18:27Z",
+  "LastUpdateDate": "2025-01-25T21:18:27Z",
   "Level": "low",
   "Name": "AWS ElastiCache Security Group Created",
-  "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where eventsource = 'elasticache.amazonaws.com' and eventname = 'createcachesecuritygroup'",
+  "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where eventsource = 'elasticache.amazonaws.com' and eventname = 'CreateCacheSecurityGroup'",
   "Tags": [
     "attack.persistence",
     "attack.t1136",

@@ -1,11 +1,11 @@
 {
   "Description": "Detects process activity patterns as seen being used by Sliver C2 framework implants\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "42333b2c-b425-441c-b70e-99404a17170f",
-  "InsertDate": "2025-01-21T09:28:33Z",
-  "LastUpdateDate": "2025-01-21T09:28:33Z",
+  "InsertDate": "2025-01-25T21:21:53Z",
+  "LastUpdateDate": "2025-01-25T21:21:53Z",
   "Level": "critical",
   "Name": "HackTool - Sliver C2 Implant Activity Pattern",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where command like '%-noexit -command [console]::outputencoding=[text.utf8encoding]::utf8%'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where command like '%-NoExit -Command [Console]::OutputEncoding=[Text.UTF8Encoding]::UTF8%'",
   "Tags": [
     "attack.execution",
     "attack.t1059"

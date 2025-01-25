@@ -1,11 +1,11 @@
 {
   "Description": "Detects the creation of a schtask that executes a file from C:\\Users\\\u003cUSER\u003e\\AppData\\Local\n\nAuthor: pH-T (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c5c00f49-b3f9-45a6-997e-cfdecc6e1967",
-  "InsertDate": "2025-01-21T09:30:00Z",
-  "LastUpdateDate": "2025-01-21T09:30:00Z",
+  "InsertDate": "2025-01-25T21:22:22Z",
+  "LastUpdateDate": "2025-01-25T21:22:22Z",
   "Level": "high",
   "Name": "Suspicious Schtasks Execution AppData Folder",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\schtasks.exe' and (command like '%/create%' and command like '%/ru%' and command like '%/tr%' and command like '%c:\\users\\%' and command like '%\\appdata\\local\\%') and (command like '%nt aut%' or command like '% system %')) and  not ((parent_process_path like '%\\appdata\\local\\temp\\%' and parent_process_path like '%teamviewer_.exe%') and process_path like '%\\schtasks.exe' and command like '%/tn tvinstallrestore%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\schtasks.exe' and (command like '%/Create%' and command like '%/RU%' and command like '%/TR%' and command like '%C:\\Users\\%' and command like '%\\AppData\\Local\\%') and (command like '%NT AUT%' or command like '% SYSTEM %')) and  not ((parent_process_path like '%\\AppData\\Local\\Temp\\%' and parent_process_path like '%TeamViewer_.exe%') and process_path like '%\\schtasks.exe' and command like '%/TN TVInstallRestore%'))",
   "Tags": [
     "attack.execution",
     "attack.persistence",

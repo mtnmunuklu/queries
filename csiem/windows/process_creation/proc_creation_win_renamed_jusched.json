@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of a renamed \"jusched.exe\" as seen used by the cobalt group\n\nAuthor: Markus Neis, Swisscom\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "edd8a48c-1b9f-4ba1-83aa-490338cd1ccb",
-  "InsertDate": "2025-01-21T09:29:49Z",
-  "LastUpdateDate": "2025-01-21T09:29:49Z",
+  "InsertDate": "2025-01-25T21:22:19Z",
+  "LastUpdateDate": "2025-01-25T21:22:19Z",
   "Level": "high",
   "Name": "Renamed Jusched.EXE Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((description = 'java update scheduler' or description = 'java(tm) update scheduler') and  not process_path like '%\\jusched.exe')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((description = 'Java Update Scheduler' or description = 'Java(TM) Update Scheduler') and  not process_path like '%\\jusched.exe')",
   "Tags": [
     "attack.execution",
     "attack.defense-evasion",

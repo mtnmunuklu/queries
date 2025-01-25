@@ -1,11 +1,11 @@
 {
   "Description": "Detects usage of bitsadmin downloading a file with a suspicious extension\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "5b80a791-ad9b-4b75-bcc1-ad4e1e89c200",
-  "InsertDate": "2025-01-21T09:28:17Z",
-  "LastUpdateDate": "2025-01-21T09:28:17Z",
+  "InsertDate": "2025-01-25T21:21:36Z",
+  "LastUpdateDate": "2025-01-25T21:21:36Z",
   "Level": "high",
   "Name": "File With Suspicious Extension Downloaded Via Bitsadmin",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '% /transfer %' or command like '% /create %' or command like '% /addfile %') and (command like '%.7z%' or command like '%.asax%' or command like '%.ashx%' or command like '%.asmx%' or command like '%.asp%' or command like '%.aspx%' or command like '%.bat%' or command like '%.cfm%' or command like '%.cgi%' or command like '%.chm%' or command like '%.cmd%' or command like '%.dll%' or command like '%.gif%' or command like '%.jpeg%' or command like '%.jpg%' or command like '%.jsp%' or command like '%.jspx%' or command like '%.log%' or command like '%.png%' or command like '%.ps1%' or command like '%.psm1%' or command like '%.rar%' or command like '%.scf%' or command like '%.sct%' or command like '%.txt%' or command like '%.vbe%' or command like '%.vbs%' or command like '%.war%' or command like '%.wsf%' or command like '%.wsh%' or command like '%.xll%' or command like '%.zip%') and (process_path like '%\\bitsadmin.exe' and original_file_name = 'bitsadmin.exe'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\bitsadmin.exe' and original_file_name = 'bitsadmin.exe') and (command like '% /transfer %' or command like '% /create %' or command like '% /addfile %') and (command like '%.7z%' or command like '%.asax%' or command like '%.ashx%' or command like '%.asmx%' or command like '%.asp%' or command like '%.aspx%' or command like '%.bat%' or command like '%.cfm%' or command like '%.cgi%' or command like '%.chm%' or command like '%.cmd%' or command like '%.dll%' or command like '%.gif%' or command like '%.jpeg%' or command like '%.jpg%' or command like '%.jsp%' or command like '%.jspx%' or command like '%.log%' or command like '%.png%' or command like '%.ps1%' or command like '%.psm1%' or command like '%.rar%' or command like '%.scf%' or command like '%.sct%' or command like '%.txt%' or command like '%.vbe%' or command like '%.vbs%' or command like '%.war%' or command like '%.wsf%' or command like '%.wsh%' or command like '%.xll%' or command like '%.zip%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.persistence",

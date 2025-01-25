@@ -1,8 +1,8 @@
 {
   "Description": "Detects the creation of a office macro file from a a suspicious process\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b1c50487-1967-4315-a026-6491686d860e",
-  "InsertDate": "2025-01-21T09:27:44Z",
-  "LastUpdateDate": "2025-01-21T09:27:44Z",
+  "InsertDate": "2025-01-25T21:20:58Z",
+  "LastUpdateDate": "2025-01-25T21:20:58Z",
   "Level": "high",
   "Name": "Office Macro File Creation From Suspicious Process",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\cscript.exe' or process_path like '%\\mshta.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\wscript.exe') and (parent_process_path like '%\\cscript.exe' or parent_process_path like '%\\mshta.exe' or parent_process_path like '%\\regsvr32.exe' or parent_process_path like '%\\rundll32.exe' or parent_process_path like '%\\wscript.exe')) and (filepath like '%.docm' or filepath like '%.dotm' or filepath like '%.xlsm' or filepath like '%.xltm' or filepath like '%.potm' or filepath like '%.pptm'))",

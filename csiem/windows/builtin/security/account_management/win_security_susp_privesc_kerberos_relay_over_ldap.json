@@ -1,11 +1,11 @@
 {
   "Description": "Detects a suspicious local successful logon event where the Logon Package is Kerberos, the remote address is set to localhost, and the target user SID is the built-in local Administrator account.\nThis may indicate an attempt to leverage a Kerberos relay attack variant that can be used to elevate privilege locally from a domain joined limited user to local System privileges.\n\n\nAuthor: Elastic, @SBousseaden\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "749c9f5e-b353-4b90-a9c1-05243357ca4b",
-  "InsertDate": "2025-01-21T09:27:28Z",
-  "LastUpdateDate": "2025-01-21T09:27:28Z",
+  "InsertDate": "2025-01-25T21:20:13Z",
+  "LastUpdateDate": "2025-01-25T21:20:13Z",
   "Level": "high",
   "Name": "Potential Privilege Escalation via Local Kerberos Relay over LDAP",
-  "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '4624' and logontype = '3' and authenticationpackagename = 'kerberos' and ipaddress = '127.0.0.1' and targetusersid like 's-1-5-21-%' and targetusersid like '%-500') and  not ipport = '0')",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '4624' and logontype = '3' and authenticationpackagename = 'Kerberos' and ipaddress = '127.0.0.1' and targetusersid like 'S-1-5-21-%' and targetusersid like '%-500') and  not ipport = '0')",
   "Tags": [
     "attack.privilege-escalation",
     "attack.credential-access",

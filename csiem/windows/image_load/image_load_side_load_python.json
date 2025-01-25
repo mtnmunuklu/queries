@@ -1,11 +1,11 @@
 {
   "Description": "Detects potential DLL sideloading of Python DLL files.\n\nAuthor: Swachchhanda Shrawan Poudel\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d36f7c12-14a3-4d48-b6b8-774b9c66f44d",
-  "InsertDate": "2025-01-21T09:27:52Z",
-  "LastUpdateDate": "2025-01-21T09:27:52Z",
+  "InsertDate": "2025-01-25T21:21:09Z",
+  "LastUpdateDate": "2025-01-25T21:21:09Z",
   "Level": "medium",
   "Name": "Potential Python DLL SideLoading",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((image_loaded like '%\\python39.dll' or image_loaded like '%\\python310.dll' or image_loaded like '%\\python311.dll' or image_loaded like '%\\python312.dll') and  not (((image_loaded like 'c:\\program files\\python3%' or image_loaded like 'c:\\program files (x86)\\python3%') and image_loaded like '%\\appdata\\local\\programs\\python\\python3%') or (product = 'python' and signed = 'true' and description = 'python' and company = 'python software foundation')) and  not (image_loaded like 'c:\\program files\\microsoft visual studio\\%' or (image_loaded like '%\\cpython\\externals\\%' or image_loaded like '%\\cpython\\pcbuild\\%')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((image_loaded like '%\\python39.dll' or image_loaded like '%\\python310.dll' or image_loaded like '%\\python311.dll' or image_loaded like '%\\python312.dll') and  not ((product = 'Python' and signed = 'true' and description = 'Python' and company = 'Python Software Foundation') or ((image_loaded like 'C:\\Program Files\\Python3%' or image_loaded like 'C:\\Program Files (x86)\\Python3%') and image_loaded like '%\\AppData\\Local\\Programs\\Python\\Python3%')) and  not ((image_loaded like '%\\cpython\\externals\\%' or image_loaded like '%\\cpython\\PCbuild\\%') or image_loaded like 'C:\\Program Files\\Microsoft Visual Studio\\%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1574.002"

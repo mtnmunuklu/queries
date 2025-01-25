@@ -1,11 +1,11 @@
 {
   "Description": "Detects the use of various web request commands with commandline tools and Windows PowerShell cmdlets (including aliases) via CommandLine\n\nAuthor: James Pemberton / @4A616D6573, Endgame, JHasenbusch, oscd.community, Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9fc51a3c-81b3-4fa7-b35f-7c02cf10fd2d",
-  "InsertDate": "2025-01-21T09:30:35Z",
-  "LastUpdateDate": "2025-01-21T09:30:35Z",
+  "InsertDate": "2025-01-25T21:22:31Z",
+  "LastUpdateDate": "2025-01-25T21:22:31Z",
   "Level": "medium",
   "Name": "Usage Of Web Request Commands And Cmdlets",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%[system.net.webrequest]::create%' or command like '%curl %' or command like '%invoke-restmethod%' or command like '%invoke-webrequest%' or command like '%iwr %' or command like '%net.webclient%' or command like '%resume-bitstransfer%' or command like '%start-bitstransfer%' or command like '%wget %' or command like '%winhttp.winhttprequest%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%[System.Net.WebRequest]::create%' or command like '%curl %' or command like '%Invoke-RestMethod%' or command like '%Invoke-WebRequest%' or command like '%iwr %' or command like '%Net.WebClient%' or command like '%Resume-BitsTransfer%' or command like '%Start-BitsTransfer%' or command like '%wget %' or command like '%WinHttp.WinHttpRequest%')",
   "Tags": [
     "attack.execution",
     "attack.t1059.001"

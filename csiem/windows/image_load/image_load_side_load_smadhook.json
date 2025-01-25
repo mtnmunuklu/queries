@@ -1,11 +1,11 @@
 {
   "Description": "Detects potential DLL sideloading of \"SmadHook.dll\", a DLL used by SmadAV antivirus\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "24b6cf51-6122-469e-861a-22974e9c1e5b",
-  "InsertDate": "2025-01-21T09:27:52Z",
-  "LastUpdateDate": "2025-01-21T09:27:52Z",
+  "InsertDate": "2025-01-25T21:21:10Z",
+  "LastUpdateDate": "2025-01-25T21:21:10Z",
   "Level": "high",
   "Name": "Potential SmadHook.DLL Sideloading",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((image_loaded like '%\\smadhook32c.dll' or image_loaded like '%\\smadhook64c.dll') and  not ((process_path = 'c:\\program files (x86)\\smadav\\smadavprotect32.exe' or process_path = 'c:\\program files (x86)\\smadav\\smadavprotect64.exe' or process_path = 'c:\\program files\\smadav\\smadavprotect32.exe' or process_path = 'c:\\program files\\smadav\\smadavprotect64.exe') and (image_loaded like 'c:\\program files (x86)\\smadav\\%' or image_loaded like 'c:\\program files\\smadav\\%')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((image_loaded like '%\\SmadHook32c.dll' or image_loaded like '%\\SmadHook64c.dll') and  not ((process_path = 'C:\\Program Files (x86)\\SMADAV\\SmadavProtect32.exe' or process_path = 'C:\\Program Files (x86)\\SMADAV\\SmadavProtect64.exe' or process_path = 'C:\\Program Files\\SMADAV\\SmadavProtect32.exe' or process_path = 'C:\\Program Files\\SMADAV\\SmadavProtect64.exe') and (image_loaded like 'C:\\Program Files (x86)\\SMADAV\\%' or image_loaded like 'C:\\Program Files\\SMADAV\\%')))",
   "Tags": [
     "attack.defense-evasion",
     "attack.privilege-escalation",

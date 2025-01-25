@@ -1,11 +1,11 @@
 {
   "Description": "Identifies when suspicious SAML activity has occurred in AWS. An adversary could gain backdoor access via SAML.\n\nAuthor: Austin Songer\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f43f5d2f-3f2a-4cc8-b1af-81fde7dbaf0e",
-  "InsertDate": "2025-01-21T09:27:01Z",
-  "LastUpdateDate": "2025-01-21T09:27:01Z",
+  "InsertDate": "2025-01-25T21:18:29Z",
+  "LastUpdateDate": "2025-01-25T21:18:29Z",
   "Level": "medium",
   "Name": "AWS Suspicious SAML Activity",
-  "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where ((eventsource = 'iam.amazonaws.com' and eventname = 'updatesamlprovider') or (eventsource = 'sts.amazonaws.com' and eventname = 'assumerolewithsaml'))",
+  "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where ((eventsource = 'sts.amazonaws.com' and eventname = 'AssumeRoleWithSAML') or (eventsource = 'iam.amazonaws.com' and eventname = 'UpdateSAMLProvider'))",
   "Tags": [
     "attack.initial-access",
     "attack.t1078",

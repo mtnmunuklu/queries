@@ -1,11 +1,11 @@
 {
   "Description": "Detects changes to the \"StrongAuthenticationRequirement\" value, where the state is set to \"0\" or \"Disabled\".\nThreat actors were seen disabling multi factor authentication for users in order to maintain or achieve access to the account. Also see in SIM Swap attacks.\n\n\nAuthor: Harjot Singh (@cyb3rjy0t)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b18454c8-0be3-41f7-86bc-9c614611b839",
-  "InsertDate": "2025-01-21T09:27:04Z",
-  "LastUpdateDate": "2025-01-21T09:27:04Z",
+  "InsertDate": "2025-01-25T21:18:42Z",
+  "LastUpdateDate": "2025-01-25T21:18:42Z",
   "Level": "medium",
   "Name": "Multi Factor Authentication Disabled For User Account",
-  "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where loggedbyservice = 'core directory' and category = 'usermanagement' and operationname = 'update user' and targetresources.modifiedproperties.displayname = 'strongauthenticationrequirement' and targetresources.modifiedproperties.newvalue like '%state\":0%'",
+  "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where loggedbyservice = 'Core Directory' and category = 'UserManagement' and operationname = 'Update user' and targetresources.modifiedproperties.displayname = 'StrongAuthenticationRequirement' and targetresources.modifiedproperties.newvalue like '%State\":0%'",
   "Tags": [
     "attack.credential-access",
     "attack.persistence"

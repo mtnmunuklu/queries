@@ -1,11 +1,11 @@
 {
   "Description": "Detects a potential remote threat creation with certain characteristics which are typical for Cobalt Strike beacons\n\nAuthor: Olaf Hartong, Florian Roth (Nextron Systems), Aleksey Potapov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6309645e-122d-4c5b-bb2b-22e4f9c2fa42",
-  "InsertDate": "2025-01-21T09:27:38Z",
-  "LastUpdateDate": "2025-01-21T09:27:38Z",
+  "InsertDate": "2025-01-25T21:20:42Z",
+  "LastUpdateDate": "2025-01-25T21:20:42Z",
   "Level": "high",
   "Name": "HackTool - Potential CobaltStrike Process Injection",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (start_address like '%0b80' or start_address like '%0c7c' or start_address like '%0c88')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (start_address like '%0B80' or start_address like '%0C7C' or start_address like '%0C88')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1055.001"

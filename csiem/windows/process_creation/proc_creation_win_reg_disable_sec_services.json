@@ -1,11 +1,11 @@
 {
   "Description": "Detects execution of \"reg.exe\" to disable security services such as Windows Defender.\n\nAuthor: Florian Roth (Nextron Systems), John Lambert (idea), elhoim\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "5e95028c-5229-4214-afae-d653d573d0ec",
-  "InsertDate": "2025-01-21T09:29:29Z",
-  "LastUpdateDate": "2025-01-21T09:29:29Z",
+  "InsertDate": "2025-01-25T21:22:14Z",
+  "LastUpdateDate": "2025-01-25T21:22:14Z",
   "Level": "high",
   "Name": "Security Service Disabled Via Reg.EXE",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%reg%' and command like '%add%') and ((command like '%d 4%' and command like '%v start%') and (command like '%\\appidsvc%' or command like '%\\msmpsvc%' or command like '%\\nissrv%' or command like '%\\securityhealthservice%' or command like '%\\sense%' or command like '%\\usosvc%' or command like '%\\wdboot%' or command like '%\\wdfilter%' or command like '%\\wdnisdrv%' or command like '%\\wdnissvc%' or command like '%\\windefend%' or command like '%\\wscsvc%' or command like '%\\wuauserv%')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%reg%' and command like '%add%') and ((command like '%d 4%' and command like '%v Start%') and (command like '%\\AppIDSvc%' or command like '%\\MsMpSvc%' or command like '%\\NisSrv%' or command like '%\\SecurityHealthService%' or command like '%\\Sense%' or command like '%\\UsoSvc%' or command like '%\\WdBoot%' or command like '%\\WdFilter%' or command like '%\\WdNisDrv%' or command like '%\\WdNisSvc%' or command like '%\\WinDefend%' or command like '%\\wscsvc%' or command like '%\\wuauserv%')))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1562.001"

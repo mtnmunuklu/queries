@@ -1,8 +1,8 @@
 {
   "Description": "Detects usage of the PHP CLI with the \"-r\" flag which allows it to run inline PHP code. The rule looks for calls to the \"fsockopen\" function which allows the creation of sockets.\nAttackers often leverage this in combination with functions such as \"exec\" or \"fopen\" to initiate a reverse shell connection.\n\n\nAuthor: @d4ns4n_\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c6714a24-d7d5-4283-a36b-3ffd091d5f7e",
-  "InsertDate": "2025-01-21T09:27:17Z",
-  "LastUpdateDate": "2025-01-21T09:27:17Z",
+  "InsertDate": "2025-01-25T21:19:27Z",
+  "LastUpdateDate": "2025-01-25T21:19:27Z",
   "Level": "high",
   "Name": "Potential PHP Reverse Shell",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where process_path like '%/php%' and (command like '% -r %' and command like '%fsockopen%') and (command like '%ash%' or command like '%bash%' or command like '%bsh%' or command like '%csh%' or command like '%ksh%' or command like '%pdksh%' or command like '%sh%' or command like '%tcsh%' or command like '%zsh%')",

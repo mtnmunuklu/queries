@@ -1,11 +1,11 @@
 {
   "Description": "Detects usage of Metasploit SMB PsExec (exploit/windows/smb/psexec) and Impacket psexec.py by triggering on specific service installation\n\nAuthor: Bartlomiej Czyz, Relativity\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6fb63b40-e02a-403e-9ffd-3bcc1d749442",
-  "InsertDate": "2025-01-21T09:27:31Z",
-  "LastUpdateDate": "2025-01-21T09:27:31Z",
+  "InsertDate": "2025-01-25T21:20:21Z",
+  "LastUpdateDate": "2025-01-25T21:20:21Z",
   "Level": "high",
   "Name": "Metasploit Or Impacket Service Installation Via SMB PsExec",
-  "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '4697' and servicefilename re '^%systemroot%\\\\[a-zA-Z]{8}\\.exe$' and servicename re '(^[a-zA-Z]{4}$)|(^[a-zA-Z]{8}$)|(^[a-zA-Z]{16}$)' and servicestarttype = '3' and servicetype = '0x10') and  not servicename = 'psexesvc')",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '4697' and servicefilename rlike '^%systemroot%\\\\[a-zA-Z]{8}\\.exe$' and servicename rlike '(^[a-zA-Z]{4}$)|(^[a-zA-Z]{8}$)|(^[a-zA-Z]{16}$)' and servicestarttype = '3' and servicetype = '0x10') and  not servicename = 'PSEXESVC')",
   "Tags": [
     "attack.lateral-movement",
     "attack.t1021.002",

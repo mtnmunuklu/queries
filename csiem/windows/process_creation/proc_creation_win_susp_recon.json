@@ -1,11 +1,11 @@
 {
   "Description": "Once established within a system or network, an adversary may use automated techniques for collecting internal data.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "aa2efee7-34dd-446e-8a37-40790a66efd7",
-  "InsertDate": "2025-01-21T09:30:27Z",
-  "LastUpdateDate": "2025-01-21T09:30:27Z",
+  "InsertDate": "2025-01-25T21:22:29Z",
+  "LastUpdateDate": "2025-01-25T21:22:29Z",
   "Level": "medium",
   "Name": "Recon Information for Export with Command Prompt",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\tree.com' or process_path like '%\\wmic.exe' or process_path like '%\\doskey.exe' or process_path like '%\\sc.exe') and (original_file_name = 'wmic.exe' or original_file_name = 'doskey.exe' or original_file_name = 'sc.exe')) and (parent_command_line like '% \u003e %temp%\\%' or parent_command_line like '% \u003e %tmp%\\%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_command_line like '% \u003e %TEMP%\\%' or parent_command_line like '% \u003e %TMP%\\%') and ((process_path like '%\\tree.com' or process_path like '%\\WMIC.exe' or process_path like '%\\doskey.exe' or process_path like '%\\sc.exe') and (original_file_name = 'wmic.exe' or original_file_name = 'DOSKEY.EXE' or original_file_name = 'sc.exe')))",
   "Tags": [
     "attack.collection",
     "attack.t1119"

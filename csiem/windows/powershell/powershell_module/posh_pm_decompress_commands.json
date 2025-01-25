@@ -1,11 +1,11 @@
 {
   "Description": "A General detection for specific decompress commands in PowerShell logs. This could be an adversary decompressing files.\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1ddc1472-8e52-4f7d-9f11-eab14fc171f5",
-  "InsertDate": "2025-01-21T09:27:58Z",
-  "LastUpdateDate": "2025-01-21T09:27:58Z",
+  "InsertDate": "2025-01-25T21:21:18Z",
+  "LastUpdateDate": "2025-01-25T21:21:18Z",
   "Level": "informational",
   "Name": "PowerShell Decompress Commands",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where payload like '%expand-archive%'",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where payload like '%Expand-Archive%'",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1140"

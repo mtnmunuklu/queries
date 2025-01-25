@@ -1,11 +1,11 @@
 {
   "Description": "Detect the usage of \"DirLister.exe\" a utility for quickly listing folder or drive contents. It was seen used by BlackCat ransomware to create a list of accessible directories and files.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b4dc61f5-6cce-468e-a608-b48b469feaa2",
-  "InsertDate": "2025-01-21T09:28:23Z",
-  "LastUpdateDate": "2025-01-21T09:28:23Z",
+  "InsertDate": "2025-01-25T21:21:42Z",
+  "LastUpdateDate": "2025-01-25T21:21:42Z",
   "Level": "low",
   "Name": "DirLister Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where original_file_name = 'dirlister.exe' and process_path like '%\\dirlister.exe'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where original_file_name = 'DirLister.exe' and process_path like '%\\dirlister.exe'",
   "Tags": [
     "attack.discovery",
     "attack.t1083"

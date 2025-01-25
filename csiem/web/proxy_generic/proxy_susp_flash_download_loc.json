@@ -1,8 +1,8 @@
 {
   "Description": "Detects a flashplayer update from an unofficial location\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4922a5dd-6743-4fc2-8e81-144374280997",
-  "InsertDate": "2025-01-21T09:27:23Z",
-  "LastUpdateDate": "2025-01-21T09:27:23Z",
+  "InsertDate": "2025-01-25T21:19:51Z",
+  "LastUpdateDate": "2025-01-25T21:19:51Z",
   "Level": "high",
   "Name": "Flash Player Update from Suspicious Location",
   "Query": "eql select * from _source_ where ((c-uri like '%/flash_install.php%' and c-uri like '%/install_flash_player.exe') and  not cs-host like '%.adobe.com')",

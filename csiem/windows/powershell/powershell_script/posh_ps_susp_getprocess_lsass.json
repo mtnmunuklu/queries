@@ -1,11 +1,11 @@
 {
   "Description": "Detects a Get-Process command on lsass process, which is in almost all cases a sign of malicious activity\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "84c174ab-d3ef-481f-9c86-a50d0b8e3edb",
-  "InsertDate": "2025-01-21T09:28:10Z",
-  "LastUpdateDate": "2025-01-21T09:28:10Z",
+  "InsertDate": "2025-01-25T21:21:30Z",
+  "LastUpdateDate": "2025-01-25T21:21:30Z",
   "Level": "high",
   "Name": "PowerShell Get-Process LSASS in ScriptBlock",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where scriptblocktext like '%get-process lsass%'",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where scriptblocktext like '%Get-Process lsass%'",
   "Tags": [
     "attack.credential-access",
     "attack.t1003.001"

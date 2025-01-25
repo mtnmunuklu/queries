@@ -1,11 +1,11 @@
 {
   "Description": "Detects abusing Windows 10 Narrator's Feedback-Hub\n\nAuthor: Dmitriy Lifanov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f663a6d9-9d1b-49b8-b2b1-0637914d199a",
-  "InsertDate": "2025-01-21T09:31:14Z",
-  "LastUpdateDate": "2025-01-21T09:31:14Z",
+  "InsertDate": "2025-01-25T21:22:41Z",
+  "LastUpdateDate": "2025-01-25T21:22:41Z",
   "Level": "high",
   "Name": "Narrator's Feedback-Hub Persistence",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((event_type = 'deletevalue' and target_object like '%\\appxypsaf9f1qserqevf0sws76dx4k9a5206\\shell\\open\\command\\delegateexecute') or target_object like '%\\appxypsaf9f1qserqevf0sws76dx4k9a5206\\shell\\open\\command\\(default)')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((event_type = 'DeleteValue' and target_object like '%\\AppXypsaf9f1qserqevf0sws76dx4k9a5206\\Shell\\open\\command\\DelegateExecute') or target_object like '%\\AppXypsaf9f1qserqevf0sws76dx4k9a5206\\Shell\\open\\command\\(Default)')",
   "Tags": [
     "attack.persistence",
     "attack.t1547.001"

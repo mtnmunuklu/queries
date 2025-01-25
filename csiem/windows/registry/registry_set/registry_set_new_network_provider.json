@@ -1,11 +1,11 @@
 {
   "Description": "Detects when an attacker tries to add a new network provider in order to dump clear text credentials, similar to how the NPPSpy tool does it\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0442defa-b4a2-41c9-ae2c-ea7042fc4701",
-  "InsertDate": "2025-01-21T09:31:41Z",
-  "LastUpdateDate": "2025-01-21T09:31:41Z",
+  "InsertDate": "2025-01-25T21:22:47Z",
+  "LastUpdateDate": "2025-01-25T21:22:47Z",
   "Level": "medium",
   "Name": "Potential Credential Dumping Attempt Using New NetworkProvider - REG",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object like '%\\system\\currentcontrolset\\services\\%' and target_object like '%\\networkprovider%') and  not ((target_object like '%\\system\\currentcontrolset\\services\\webclient\\networkprovider%' or target_object like '%\\system\\currentcontrolset\\services\\lanmanworkstation\\networkprovider%' or target_object like '%\\system\\currentcontrolset\\services\\rdpnp\\networkprovider%') or process_path = 'c:\\windows\\system32\\poqexec.exe'))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object like '%\\System\\CurrentControlSet\\Services\\%' and target_object like '%\\NetworkProvider%') and  not (process_path = 'C:\\Windows\\System32\\poqexec.exe' or (target_object like '%\\System\\CurrentControlSet\\Services\\WebClient\\NetworkProvider%' or target_object like '%\\System\\CurrentControlSet\\Services\\LanmanWorkstation\\NetworkProvider%' or target_object like '%\\System\\CurrentControlSet\\Services\\RDPNP\\NetworkProvider%')))",
   "Tags": [
     "attack.credential-access",
     "attack.t1003"

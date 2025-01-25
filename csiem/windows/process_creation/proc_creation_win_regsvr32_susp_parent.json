@@ -1,11 +1,11 @@
 {
   "Description": "Detects various command line and scripting engines/processes such as \"PowerShell\", \"Wscript\", \"Cmd\", etc. spawning a \"regsvr32\" instance.\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ab37a6ec-6068-432b-a64e-2c7bf95b1d22",
-  "InsertDate": "2025-01-21T09:29:42Z",
-  "LastUpdateDate": "2025-01-21T09:29:42Z",
+  "InsertDate": "2025-01-25T21:22:17Z",
+  "LastUpdateDate": "2025-01-25T21:22:17Z",
   "Level": "medium",
   "Name": "Scripting/CommandLine Process Spawned Regsvr32",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((parent_process_path like '%\\cmd.exe' or parent_process_path like '%\\cscript.exe' or parent_process_path like '%\\mshta.exe' or parent_process_path like '%\\powershell_ise.exe' or parent_process_path like '%\\powershell.exe' or parent_process_path like '%\\pwsh.exe' or parent_process_path like '%\\wscript.exe') and process_path like '%\\regsvr32.exe') and  not (parent_process_path = 'c:\\windows\\system32\\cmd.exe' and command like '% /s c:\\windows\\system32\\rpcproxy\\rpcproxy.dll'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((parent_process_path like '%\\cmd.exe' or parent_process_path like '%\\cscript.exe' or parent_process_path like '%\\mshta.exe' or parent_process_path like '%\\powershell_ise.exe' or parent_process_path like '%\\powershell.exe' or parent_process_path like '%\\pwsh.exe' or parent_process_path like '%\\wscript.exe') and process_path like '%\\regsvr32.exe') and  not (parent_process_path = 'C:\\Windows\\System32\\cmd.exe' and command like '% /s C:\\Windows\\System32\\RpcProxy\\RpcProxy.dll'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1218.010"

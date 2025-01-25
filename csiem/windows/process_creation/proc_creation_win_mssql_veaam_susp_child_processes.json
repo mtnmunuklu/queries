@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious child processes of the Veeam service process. This could indicate potential RCE or SQL Injection.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d55b793d-f847-4eea-b59a-5ab09908ac90",
-  "InsertDate": "2025-01-21T09:28:42Z",
-  "LastUpdateDate": "2025-01-21T09:28:42Z",
+  "InsertDate": "2025-01-25T21:22:01Z",
+  "LastUpdateDate": "2025-01-25T21:22:01Z",
   "Level": "critical",
   "Name": "Suspicious Child Process Of Veeam Dabatase",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_process_path like '%\\sqlservr.exe' and parent_command_line like '%veeamsql%') and (((process_path like '%\\cmd.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\wsl.exe' or process_path like '%\\wt.exe') and (command like '%-ex %' or command like '%bypass%' or command like '%cscript%' or command like '%downloadstring%' or command like '%http://%' or command like '%https://%' or command like '%mshta%' or command like '%regsvr32%' or command like '%rundll32%' or command like '%wscript%' or command like '%copy %')) or (process_path like '%\\net.exe' or process_path like '%\\net1.exe' or process_path like '%\\netstat.exe' or process_path like '%\\nltest.exe' or process_path like '%\\ping.exe' or process_path like '%\\tasklist.exe' or process_path like '%\\whoami.exe')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_process_path like '%\\sqlservr.exe' and parent_command_line like '%VEEAMSQL%') and (((process_path like '%\\cmd.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\wsl.exe' or process_path like '%\\wt.exe') and (command like '%-ex %' or command like '%bypass%' or command like '%cscript%' or command like '%DownloadString%' or command like '%http://%' or command like '%https://%' or command like '%mshta%' or command like '%regsvr32%' or command like '%rundll32%' or command like '%wscript%' or command like '%copy %')) or (process_path like '%\\net.exe' or process_path like '%\\net1.exe' or process_path like '%\\netstat.exe' or process_path like '%\\nltest.exe' or process_path like '%\\ping.exe' or process_path like '%\\tasklist.exe' or process_path like '%\\whoami.exe')))",
   "Tags": [
     "attack.initial-access",
     "attack.persistence",

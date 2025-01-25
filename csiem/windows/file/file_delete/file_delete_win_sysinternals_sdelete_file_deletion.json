@@ -1,11 +1,11 @@
 {
   "Description": "Detects the deletion of files by the Sysinternals SDelete utility. It looks for the common name pattern used to rename files.\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6ddab845-b1b8-49c2-bbf7-1a11967f64bc",
-  "InsertDate": "2025-01-21T09:27:42Z",
-  "LastUpdateDate": "2025-01-21T09:27:42Z",
+  "InsertDate": "2025-01-25T21:20:52Z",
+  "LastUpdateDate": "2025-01-25T21:20:52Z",
   "Level": "medium",
   "Name": "File Deleted Via Sysinternals SDelete",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((filepath like '%.aaa' or filepath like '%.zzz') and  not filepath like '%\\wireshark\\radius\\dictionary.alcatel-lucent.aaa')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((filepath like '%.AAA' or filepath like '%.ZZZ') and  not filepath like '%\\Wireshark\\radius\\dictionary.alcatel-lucent.aaa')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1070.004"

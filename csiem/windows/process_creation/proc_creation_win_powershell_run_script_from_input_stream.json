@@ -1,11 +1,11 @@
 {
   "Description": "Detects PowerShell script execution via input stream redirect\n\nAuthor: Moriarty Meng (idea), Anton Kutepov (rule), oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c83bf4b5-cdf0-437c-90fa-43d734f7c476",
-  "InsertDate": "2025-01-21T09:29:01Z",
-  "LastUpdateDate": "2025-01-21T09:29:01Z",
+  "InsertDate": "2025-01-25T21:22:09Z",
+  "LastUpdateDate": "2025-01-25T21:22:09Z",
   "Level": "high",
   "Name": "Run PowerShell Script from Redirected Input Stream",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and command re '\\s-\\s*\u003c'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and command rlike '\\s-\\s*\u003c'",
   "Tags": [
     "attack.defense-evasion",
     "attack.execution",

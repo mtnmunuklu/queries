@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of \"forfiles\" from a non-default location, in order to potentially spawn a custom \"cmd.exe\" from the current working directory.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Anish Bogati\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f53714ec-5077-420e-ad20-907ff9bb2958",
-  "InsertDate": "2025-01-21T09:28:26Z",
-  "LastUpdateDate": "2025-01-21T09:28:26Z",
+  "InsertDate": "2025-01-25T21:21:44Z",
+  "LastUpdateDate": "2025-01-25T21:21:44Z",
   "Level": "high",
   "Name": "Forfiles.EXE Child Process Masquerading",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((parent_command_line like '%.exe' or parent_command_line like '%.exe\"') and process_path like '%\\cmd.exe' and command like '/c echo \"%') and  not ((parent_process_path like '%:\\windows\\system32\\%' or parent_process_path like '%:\\windows\\syswow64\\%') and parent_process_path like '%\\forfiles.exe' and (process_path like '%:\\windows\\system32\\%' or process_path like '%:\\windows\\syswow64\\%') and process_path like '%\\cmd.exe'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((parent_command_line like '%.exe' or parent_command_line like '%.exe\"') and process_path like '%\\cmd.exe' and command like '/c echo \"%') and  not ((parent_process_path like '%:\\Windows\\System32\\%' or parent_process_path like '%:\\Windows\\SysWOW64\\%') and parent_process_path like '%\\forfiles.exe' and (process_path like '%:\\Windows\\System32\\%' or process_path like '%:\\Windows\\SysWOW64\\%') and process_path like '%\\cmd.exe'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1036"

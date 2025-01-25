@@ -1,11 +1,11 @@
 {
   "Description": "Detects registry changes to Microsoft Office \"AccessVBOM\" to a value of \"1\" which disables trust access for VBA on the victim machine and lets attackers execute malicious macros without any Microsoft Office warnings.\n\nAuthor: Trent Liffick (@tliffick), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1a5c46e9-f32f-42f7-b2bc-6e9084db7fbf",
-  "InsertDate": "2025-01-21T09:31:42Z",
-  "LastUpdateDate": "2025-01-21T09:31:42Z",
+  "InsertDate": "2025-01-25T21:22:47Z",
+  "LastUpdateDate": "2025-01-25T21:22:47Z",
   "Level": "high",
   "Name": "Trust Access Disable For VBApplications",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where target_object like '%\\security\\accessvbom' and details = 'dword (0x00000001)'",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where target_object like '%\\Security\\AccessVBOM' and details = 'DWORD (0x00000001)'",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1112"

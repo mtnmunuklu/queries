@@ -1,8 +1,8 @@
 {
   "Description": "Detects system information discovery commands\n\nAuthor: Ömer Günal, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "42df45e7-e6e9-43b5-8f26-bec5b39cc239",
-  "InsertDate": "2025-01-21T09:27:18Z",
-  "LastUpdateDate": "2025-01-21T09:27:18Z",
+  "InsertDate": "2025-01-25T21:19:32Z",
+  "LastUpdateDate": "2025-01-25T21:19:32Z",
   "Level": "informational",
   "Name": "System Information Discovery",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where (process_path like '%/uname' or process_path like '%/hostname' or process_path like '%/uptime' or process_path like '%/lspci' or process_path like '%/dmidecode' or process_path like '%/lscpu' or process_path like '%/lsmod')",

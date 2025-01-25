@@ -1,11 +1,11 @@
 {
   "Description": "Adversaries may install a root certificate on a compromised system to avoid warnings when connecting to adversary controlled web servers.\n\nAuthor: oscd.community, @redcanary, Zach Stanford @svch0st\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "42821614-9264-4761-acfc-5772c3286f76",
-  "InsertDate": "2025-01-21T09:28:07Z",
-  "LastUpdateDate": "2025-01-21T09:28:07Z",
+  "InsertDate": "2025-01-25T21:21:28Z",
+  "LastUpdateDate": "2025-01-25T21:21:28Z",
   "Level": "medium",
   "Name": "Root Certificate Installed - PowerShell",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((scriptblocktext like '%move-item%' and scriptblocktext like '%cert:\\localmachine\\root%') or (scriptblocktext like '%import-certificate%' and scriptblocktext like '%cert:\\localmachine\\root%'))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((scriptblocktext like '%Move-Item%' and scriptblocktext like '%Cert:\\LocalMachine\\Root%') or (scriptblocktext like '%Import-Certificate%' and scriptblocktext like '%Cert:\\LocalMachine\\Root%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1553.004"

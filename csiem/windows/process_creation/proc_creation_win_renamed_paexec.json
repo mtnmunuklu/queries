@@ -1,11 +1,11 @@
 {
   "Description": "Detects execution of renamed version of PAExec. Often used by attackers\n\nAuthor: Florian Roth (Nextron Systems), Jason Lynch\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c4e49831-1496-40cf-8ce1-b53f942b02f9",
-  "InsertDate": "2025-01-21T09:29:50Z",
-  "LastUpdateDate": "2025-01-21T09:29:50Z",
+  "InsertDate": "2025-01-25T21:22:20Z",
+  "LastUpdateDate": "2025-01-25T21:22:20Z",
   "Level": "high",
   "Name": "Renamed PAExec Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((description = 'paexec application' and original_file_name = 'paexec.exe' and product like '%paexec%' and (hashes like '%imphash=11d40a7b7876288f919ab819cc2d9802%' or hashes like '%imphash=6444f8a34e99b8f7d9647de66aabe516%' or hashes like '%imphash=dfd6aa3f7b2b1035b76b718f1ddc689f%' or hashes like '%imphash=1a6cca4d5460b1710a12dea39e4a592c%')) and  not (process_path like '%\\paexec.exe' and process_path like 'c:\\windows\\paexec-%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((description = 'PAExec Application' and original_file_name = 'PAExec.exe' and product like '%PAExec%' and (hashes like '%IMPHASH=11D40A7B7876288F919AB819CC2D9802%' or hashes like '%IMPHASH=6444f8a34e99b8f7d9647de66aabe516%' or hashes like '%IMPHASH=dfd6aa3f7b2b1035b76b718f1ddc689f%' or hashes like '%IMPHASH=1a6cca4d5460b1710a12dea39e4a592c%')) and  not (process_path like '%\\paexec.exe' and process_path like 'C:\\Windows\\PAExec-%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1202"

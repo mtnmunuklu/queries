@@ -1,11 +1,11 @@
 {
   "Description": "Identifies when a Firewall Policy is Modified or Deleted.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "83c17918-746e-4bd9-920b-8e098bf88c23",
-  "InsertDate": "2025-01-21T09:27:03Z",
-  "LastUpdateDate": "2025-01-21T09:27:03Z",
+  "InsertDate": "2025-01-25T21:18:32Z",
+  "LastUpdateDate": "2025-01-25T21:18:32Z",
   "Level": "medium",
   "Name": "Azure Network Firewall Policy Modified or Deleted",
-  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (operationname = 'microsoft.network/firewallpolicies/write' or operationname = 'microsoft.network/firewallpolicies/join/action' or operationname = 'microsoft.network/firewallpolicies/certificates/action' or operationname = 'microsoft.network/firewallpolicies/delete')",
+  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (operationname = 'MICROSOFT.NETWORK/FIREWALLPOLICIES/WRITE' or operationname = 'MICROSOFT.NETWORK/FIREWALLPOLICIES/JOIN/ACTION' or operationname = 'MICROSOFT.NETWORK/FIREWALLPOLICIES/CERTIFICATES/ACTION' or operationname = 'MICROSOFT.NETWORK/FIREWALLPOLICIES/DELETE')",
   "Tags": [
     "attack.impact",
     "attack.defense-evasion",

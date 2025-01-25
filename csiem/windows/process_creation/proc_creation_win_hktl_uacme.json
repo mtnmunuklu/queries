@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of UACMe, a tool used for UAC bypasses, via default PE metadata\n\nAuthor: Christian Burkard (Nextron Systems), Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d38d2fa4-98e6-4a24-aff1-410b0c9ad177",
-  "InsertDate": "2025-01-21T09:28:33Z",
-  "LastUpdateDate": "2025-01-21T09:28:33Z",
+  "InsertDate": "2025-01-25T21:21:53Z",
+  "LastUpdateDate": "2025-01-25T21:21:53Z",
   "Level": "high",
   "Name": "HackTool - UACMe Akagi Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((product = 'uacme' and (company = 'revol corp' or company = 'apt 92' or company = 'ug north' or company = 'hazardous environments' or company = 'cd project rekt') and (description = 'uacme main module' or description = 'pentesting utility') and (original_file_name = 'akagi.exe' or original_file_name = 'akagi64.exe')) or (process_path like '%\\akagi64.exe' or process_path like '%\\akagi.exe') or (hashes like '%imphash=767637c23bb42cd5d7397cf58b0be688%' or hashes like '%imphash=14c4e4c72ba075e9069ee67f39188ad8%' or hashes like '%imphash=3c782813d4afce07bbfc5a9772acdbdc%' or hashes like '%imphash=7d010c6bb6a3726f327f7e239166d127%' or hashes like '%imphash=89159ba4dd04e4ce5559f132a9964eb3%' or hashes like '%imphash=6f33f4a5fc42b8cec7314947bd13f30f%' or hashes like '%imphash=5834ed4291bdeb928270428ebbaf7604%' or hashes like '%imphash=5a8a8a43f25485e7ee1b201edcbc7a38%' or hashes like '%imphash=dc7d30b90b2d8abf664fbed2b1b59894%' or hashes like '%imphash=41923ea1f824fe63ea5beb84db7a3e74%' or hashes like '%imphash=3de09703c8e79ed2ca3f01074719906b%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((product = 'UACMe' and (company = 'REvol Corp' or company = 'APT 92' or company = 'UG North' or company = 'Hazardous Environments' or company = 'CD Project Rekt') and (description = 'UACMe main module' or description = 'Pentesting utility') and (original_file_name = 'Akagi.exe' or original_file_name = 'Akagi64.exe')) or (process_path like '%\\Akagi64.exe' or process_path like '%\\Akagi.exe') or (hashes like '%IMPHASH=767637C23BB42CD5D7397CF58B0BE688%' or hashes like '%IMPHASH=14C4E4C72BA075E9069EE67F39188AD8%' or hashes like '%IMPHASH=3C782813D4AFCE07BBFC5A9772ACDBDC%' or hashes like '%IMPHASH=7D010C6BB6A3726F327F7E239166D127%' or hashes like '%IMPHASH=89159BA4DD04E4CE5559F132A9964EB3%' or hashes like '%IMPHASH=6F33F4A5FC42B8CEC7314947BD13F30F%' or hashes like '%IMPHASH=5834ED4291BDEB928270428EBBAF7604%' or hashes like '%IMPHASH=5A8A8A43F25485E7EE1B201EDCBC7A38%' or hashes like '%IMPHASH=DC7D30B90B2D8ABF664FBED2B1B59894%' or hashes like '%IMPHASH=41923EA1F824FE63EA5BEB84DB7A3E74%' or hashes like '%IMPHASH=3DE09703C8E79ED2CA3F01074719906B%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.privilege-escalation",

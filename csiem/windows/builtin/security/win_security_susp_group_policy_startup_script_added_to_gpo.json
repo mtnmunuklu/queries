@@ -1,11 +1,11 @@
 {
   "Description": "Detects the modification of Group Policy Objects (GPO) to add a startup/logon script to users or computer objects.\n\n\nAuthor: Elastic, Josh Nickels, Marius Rothenbücher\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "123e4e6d-b123-48f8-b261-7214938acaf0",
-  "InsertDate": "2025-01-21T09:27:32Z",
-  "LastUpdateDate": "2025-01-21T09:27:32Z",
+  "InsertDate": "2025-01-25T21:20:25Z",
+  "LastUpdateDate": "2025-01-25T21:20:25Z",
   "Level": "medium",
   "Name": "Startup/Logon Script Added to Group Policy Object",
-  "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '5136' or eventid = '5145') and ((((attributeldapdisplayname = 'gpcmachineextensionnames' or attributeldapdisplayname = 'gpcuserextensionnames') and attributevalue like '%42b5faae-6536-11d2-ae5a-0000f87571e3%') and (attributevalue like '%40b6664f-4972-11d1-a7ca-0000f87571e3%' or attributevalue like '%40b66650-4972-11d1-a7ca-0000f87571e3%')) or (sharename like '%\\sysvol' and (relativetargetname like '%\\scripts.ini' or relativetargetname like '%\\psscripts.ini') and accesslist like '%%%4417%')))",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '5136' or eventid = '5145') and ((((attributeldapdisplayname = 'gPCMachineExtensionNames' or attributeldapdisplayname = 'gPCUserExtensionNames') and attributevalue like '%42B5FAAE-6536-11D2-AE5A-0000F87571E3%') and (attributevalue like '%40B6664F-4972-11D1-A7CA-0000F87571E3%' or attributevalue like '%40B66650-4972-11D1-A7CA-0000F87571E3%')) or (sharename like '%\\SYSVOL' and (relativetargetname like '%\\scripts.ini' or relativetargetname like '%\\psscripts.ini') and accesslist like '%%%4417%')))",
   "Tags": [
     "attack.privilege-escalation",
     "attack.t1484.001",

@@ -1,11 +1,11 @@
 {
   "Description": "Detects when a Microsoft Cloud App Security reported when users were active from an IP address that has been identified as an anonymous proxy IP address.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d8b0a4fe-07a8-41be-bd39-b14afa025d95",
-  "InsertDate": "2025-01-21T09:27:09Z",
-  "LastUpdateDate": "2025-01-21T09:27:09Z",
+  "InsertDate": "2025-01-25T21:19:05Z",
+  "LastUpdateDate": "2025-01-25T21:19:05Z",
   "Level": "medium",
   "Name": "Activity from Anonymous IP Addresses",
-  "Query": "sourcetype='m365-threat_management' eql select * from _source_ where eventsource = 'securitycompliancecenter' and eventname = 'activity from anonymous ip addresses' and status = 'success'",
+  "Query": "sourcetype='m365-threat_management' eql select * from _source_ where eventsource = 'SecurityComplianceCenter' and eventname = 'Activity from anonymous IP addresses' and status = 'success'",
   "Tags": [
     "attack.command-and-control",
     "attack.t1573"

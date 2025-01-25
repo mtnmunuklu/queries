@@ -1,11 +1,11 @@
 {
   "Description": "Detects activity as \"net user administrator /domain\" and \"net group domain admins /domain\"\n\nAuthor: Florian Roth (Nextron Systems), Jack Croock (method), Jonhnathan Ribeiro (improvements), oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "968eef52-9cff-4454-8992-1e74b9cbad6c",
-  "InsertDate": "2025-01-21T09:27:33Z",
-  "LastUpdateDate": "2025-01-21T09:27:33Z",
+  "InsertDate": "2025-01-25T21:20:25Z",
+  "LastUpdateDate": "2025-01-25T21:20:25Z",
   "Level": "high",
   "Name": "Reconnaissance Activity",
-  "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4661' and accessmask = '0x2d' and (objecttype = 'sam_user' or objecttype = 'sam_group') and objectname like 's-1-5-21-%' and (objectname like '%-500' or objectname like '%-512')",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4661' and accessmask = '0x2d' and (objecttype = 'SAM_USER' or objecttype = 'SAM_GROUP') and objectname like 'S-1-5-21-%' and (objectname like '%-500' or objectname like '%-512')",
   "Tags": [
     "attack.discovery",
     "attack.t1087.002",

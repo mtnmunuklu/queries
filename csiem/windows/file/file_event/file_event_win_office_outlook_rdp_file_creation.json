@@ -1,11 +1,11 @@
 {
   "Description": "Detects the creation of files with the \".rdp\" extensions in the temporary directory that Outlook uses when opening attachments.\nThis can be used to detect spear-phishing campaigns that use RDP files as attachments.\n\n\nAuthor: Florian Roth\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f748c45a-f8d3-4e6f-b617-fe176f695b8f",
-  "InsertDate": "2025-01-21T09:27:45Z",
-  "LastUpdateDate": "2025-01-21T09:27:45Z",
+  "InsertDate": "2025-01-25T21:20:59Z",
+  "LastUpdateDate": "2025-01-25T21:20:59Z",
   "Level": "high",
   "Name": ".RDP File Created by Outlook Process",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%.rdp' and ((filepath like '%\\appdata\\local\\packages\\microsoft.outlook_%' or filepath like '%\\appdata\\local\\microsoft\\olk\\attachments\\%') and (filepath like '%\\appdata\\local\\microsoft\\windows\\%' and filepath like '%\\content.outlook\\%')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%.rdp' and ((filepath like '%\\AppData\\Local\\Packages\\Microsoft.Outlook_%' or filepath like '%\\AppData\\Local\\Microsoft\\Olk\\Attachments\\%') and (filepath like '%\\AppData\\Local\\Microsoft\\Windows\\%' and filepath like '%\\Content.Outlook\\%')))",
   "Tags": [
     "attack.defense-evasion"
   ],

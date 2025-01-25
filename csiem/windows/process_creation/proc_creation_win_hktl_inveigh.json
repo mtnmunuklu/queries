@@ -1,11 +1,11 @@
 {
   "Description": "Detects the use of Inveigh a cross-platform .NET IPv4/IPv6 machine-in-the-middle tool\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b99a1518-1ad5-4f65-bc95-1ffff97a8fd0",
-  "InsertDate": "2025-01-21T09:28:30Z",
-  "LastUpdateDate": "2025-01-21T09:28:30Z",
+  "InsertDate": "2025-01-25T21:21:48Z",
+  "LastUpdateDate": "2025-01-25T21:21:48Z",
   "Level": "critical",
   "Name": "HackTool - Inveigh Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\inveigh.exe' and (original_file_name = '\\inveigh.exe' or original_file_name = '\\inveigh.dll') and description = 'inveigh' and (command like '% -spooferip%' or command like '% -replytoips %' or command like '% -replytodomains %' or command like '% -replytomacs %' or command like '% -snifferip%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\Inveigh.exe' and (original_file_name = '\\Inveigh.exe' or original_file_name = '\\Inveigh.dll') and description = 'Inveigh' and (command like '% -SpooferIP%' or command like '% -ReplyToIPs %' or command like '% -ReplyToDomains %' or command like '% -ReplyToMACs %' or command like '% -SnifferIP%')",
   "Tags": [
     "attack.credential-access",
     "attack.t1003.001"

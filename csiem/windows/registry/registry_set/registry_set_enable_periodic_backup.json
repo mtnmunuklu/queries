@@ -1,11 +1,11 @@
 {
   "Description": "Detects the enabling of the \"EnablePeriodicBackup\" registry value. Once enabled, The OS will backup System registry hives on restarts to the \"C:\\Windows\\System32\\config\\RegBack\" folder. Windows creates a \"RegIdleBackup\" task to manage subsequent backups.\nRegistry backup was a default behavior on Windows and was disabled as of \"Windows 10, version 1803\".\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "973ef012-8f1a-4c40-93b4-7e659a5cd17f",
-  "InsertDate": "2025-01-21T09:31:38Z",
-  "LastUpdateDate": "2025-01-21T09:31:38Z",
+  "InsertDate": "2025-01-25T21:22:45Z",
+  "LastUpdateDate": "2025-01-25T21:22:45Z",
   "Level": "medium",
   "Name": "Periodic Backup For System Registry Hives Enabled",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where target_object like '%\\control\\session manager\\configuration manager\\enableperiodicbackup' and details = 'dword (0x00000001)'",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where target_object like '%\\Control\\Session Manager\\Configuration Manager\\EnablePeriodicBackup' and details = 'DWORD (0x00000001)'",
   "Tags": [
     "attack.collection",
     "attack.t1113"

@@ -1,11 +1,11 @@
 {
   "Description": "Detects addition of users to the local Remote Desktop Users group via \"Net\" or \"Add-LocalGroupMember\".\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ffa28e60-bdb1-46e0-9f82-05f7a61cc06e",
-  "InsertDate": "2025-01-21T09:30:11Z",
-  "LastUpdateDate": "2025-01-21T09:30:11Z",
+  "InsertDate": "2025-01-25T21:22:25Z",
+  "LastUpdateDate": "2025-01-25T21:22:25Z",
   "Level": "high",
   "Name": "User Added to Remote Desktop Users Group",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((command like '%localgroup %' and command like '% /add%') and (command like '%add-localgroupmember %' and command like '% -group %')) and (command like '%remote desktop users%' or command like '%utilisateurs du bureau à distance%' or command like '%usuarios de escritorio remoto%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((command like '%localgroup %' and command like '% /add%') and (command like '%Add-LocalGroupMember %' and command like '% -Group %')) and (command like '%Remote Desktop Users%' or command like '%Utilisateurs du Bureau à distance%' or command like '%Usuarios de escritorio remoto%'))",
   "Tags": [
     "attack.persistence",
     "attack.lateral-movement",

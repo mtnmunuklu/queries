@@ -1,11 +1,11 @@
 {
   "Description": "Detects the use of parent process ID spoofing tools like Didier Stevens tool SelectMyParent\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "52ff7941-8211-46f9-84f8-9903efb7077d",
-  "InsertDate": "2025-01-21T09:28:32Z",
-  "LastUpdateDate": "2025-01-21T09:28:32Z",
+  "InsertDate": "2025-01-25T21:21:52Z",
+  "LastUpdateDate": "2025-01-25T21:21:52Z",
   "Level": "high",
   "Name": "HackTool - PPID Spoofing SelectMyParent Tool Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\selectmyparent.exe' and (command like '%ppid-spoof%' or command like '%ppid_spoof%' or command like '%spoof-ppid%' or command like '%spoof_ppid%' or command like '%ppidspoof%' or command like '%spoofppid%' or command like '%spoofedppid%' or command like '% -spawnto %') and (original_file_name like '%ppid-spoof%' or original_file_name like '%ppid_spoof%' or original_file_name like '%spoof-ppid%' or original_file_name like '%spoof_ppid%' or original_file_name like '%ppidspoof%' or original_file_name like '%spoofppid%' or original_file_name like '%spoofedppid%') and description = 'selectmyparent' and (hashes like '%imphash=04d974875bd225f00902b4cad9af3fbc%' or hashes like '%imphash=a782af154c9e743ddf3f3eb2b8f3d16e%' or hashes like '%imphash=89059503d7fbf470e68f7e63313da3ad%' or hashes like '%imphash=ca28337632625c8281ab8a130b3d6bad%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\SelectMyParent.exe' and (command like '%PPID-spoof%' or command like '%ppid_spoof%' or command like '%spoof-ppid%' or command like '%spoof_ppid%' or command like '%ppidspoof%' or command like '%spoofppid%' or command like '%spoofedppid%' or command like '% -spawnto %') and (original_file_name like '%PPID-spoof%' or original_file_name like '%ppid_spoof%' or original_file_name like '%spoof-ppid%' or original_file_name like '%spoof_ppid%' or original_file_name like '%ppidspoof%' or original_file_name like '%spoofppid%' or original_file_name like '%spoofedppid%') and description = 'SelectMyParent' and (hashes like '%IMPHASH=04D974875BD225F00902B4CAD9AF3FBC%' or hashes like '%IMPHASH=A782AF154C9E743DDF3F3EB2B8F3D16E%' or hashes like '%IMPHASH=89059503D7FBF470E68F7E63313DA3AD%' or hashes like '%IMPHASH=CA28337632625C8281AB8A130B3D6BAD%')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1134.004"

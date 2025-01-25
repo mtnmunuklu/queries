@@ -1,8 +1,8 @@
 {
   "Description": "Detect file time attribute change to hide new or changes to existing files\n\nAuthor: Igor Fits, Mikhail Larin, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "88c0f9d8-30a8-4120-bb6b-ebb54abcf2a0",
-  "InsertDate": "2025-01-21T09:27:19Z",
-  "LastUpdateDate": "2025-01-21T09:27:19Z",
+  "InsertDate": "2025-01-25T21:19:34Z",
+  "LastUpdateDate": "2025-01-25T21:19:34Z",
   "Level": "medium",
   "Name": "File Time Attribute Change",
   "Query": "sourcetype like 'macos-%' eql select * from _source_ where process_path like '%/touch' and (command like '%-t%' or command like '%-acmr%' or command like '%-d%' or command like '%-r%')",

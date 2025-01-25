@@ -1,11 +1,11 @@
 {
   "Description": "Detects common commands used in Windows webshells\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "7ff9db12-1b94-4a79-ba68-a2402c5d6729",
-  "InsertDate": "2025-01-21T09:27:25Z",
-  "LastUpdateDate": "2025-01-21T09:27:25Z",
+  "InsertDate": "2025-01-25T21:19:59Z",
+  "LastUpdateDate": "2025-01-25T21:19:59Z",
   "Level": "high",
   "Name": "Windows Webshell Strings",
-  "Query": "eql select * from _source_ where (cs-method = 'get' and Query('=whoami OR =net%20user OR =net+user OR =net%2Buser OR =cmd%20/c% OR =cmd+/c+ OR =cmd%2B/c% OR =cmd%20/r% OR =cmd+/r+ OR =cmd%2B/r% OR =cmd%20/k% OR =cmd+/k+ OR =cmd%2B/k% OR =powershell% OR =powershell+ OR =tasklist% OR =tasklist+ OR =wmic% OR =wmic+ OR =ssh% OR =ssh+ OR =python% OR =python+ OR =python3% OR =python3+ OR =ipconfig OR =wget% OR =wget+ OR =curl% OR =curl+ OR =certutil OR =copy%20%5C%5C OR =dsquery% OR =dsquery+ OR =nltest% OR =nltest+'))",
+  "Query": "eql select * from _source_ where (cs-method = 'GET' and Query('=whoami OR =net%20user OR =net+user OR =net%2Buser OR =cmd%20/c% OR =cmd+/c+ OR =cmd%2B/c% OR =cmd%20/r% OR =cmd+/r+ OR =cmd%2B/r% OR =cmd%20/k% OR =cmd+/k+ OR =cmd%2B/k% OR =powershell% OR =powershell+ OR =tasklist% OR =tasklist+ OR =wmic% OR =wmic+ OR =ssh% OR =ssh+ OR =python% OR =python+ OR =python3% OR =python3+ OR =ipconfig OR =wget% OR =wget+ OR =curl% OR =curl+ OR =certutil OR =copy%20%5C%5C OR =dsquery% OR =dsquery+ OR =nltest% OR =nltest+'))",
   "Tags": [
     "attack.persistence",
     "attack.t1505.003"

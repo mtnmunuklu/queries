@@ -1,11 +1,11 @@
 {
   "Description": "Detects logon events that have characteristics of events generated during an attack with RottenPotato and the like\n\nAuthor: @SBousseaden, Florian Roth\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "16f5d8ca-44bd-47c8-acbe-6fc95a16c12f",
-  "InsertDate": "2025-01-21T09:27:28Z",
-  "LastUpdateDate": "2025-01-21T09:27:28Z",
+  "InsertDate": "2025-01-25T21:20:13Z",
+  "LastUpdateDate": "2025-01-25T21:20:13Z",
   "Level": "high",
   "Name": "RottenPotato Like Attack Pattern",
-  "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4624' and logontype = '3' and targetusername = 'anonymous logon' and workstationname = '-' and (ipaddress = '127.0.0.1' or ipaddress = '::1')",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4624' and logontype = '3' and targetusername = 'ANONYMOUS LOGON' and workstationname = '-' and (ipaddress = '127.0.0.1' or ipaddress = '::1')",
   "Tags": [
     "attack.privilege-escalation",
     "attack.credential-access",

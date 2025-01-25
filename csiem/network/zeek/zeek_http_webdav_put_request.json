@@ -1,11 +1,11 @@
 {
   "Description": "A General detection for WebDav user-agent being used to PUT files on a WebDav network share. This could be an indicator of exfiltration.\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "705072a5-bb6f-4ced-95b6-ecfa6602090b",
-  "InsertDate": "2025-01-21T09:27:23Z",
-  "LastUpdateDate": "2025-01-21T09:27:23Z",
+  "InsertDate": "2025-01-25T21:19:47Z",
+  "LastUpdateDate": "2025-01-25T21:19:47Z",
   "Level": "low",
   "Name": "WebDav Put Request",
-  "Query": "sourcetype='zeek-http' eql select * from _source_ where ((user_agent like '%webdav%' and method = 'put') and  not (id.resp_h cidr '10.0.0.0/8' or id.resp_h cidr '127.0.0.0/8' or id.resp_h cidr '172.16.0.0/12' or id.resp_h cidr '192.168.0.0/16' or id.resp_h cidr '169.254.0.0/16'))",
+  "Query": "sourcetype='zeek-http' eql select * from _source_ where ((user_agent like '%WebDAV%' and method = 'PUT') and  not (id.resp_h rlike '^10\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$' or id.resp_h rlike '^127\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$' or id.resp_h rlike '^172\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$' or id.resp_h rlike '^192\\.168\\.\\d{1,3}\\.\\d{1,3}$' or id.resp_h rlike '^169\\.254\\.\\d{1,3}\\.\\d{1,3}$'))",
   "Tags": [
     "attack.exfiltration",
     "attack.t1048.003"

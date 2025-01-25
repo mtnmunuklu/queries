@@ -1,11 +1,11 @@
 {
   "Description": "Detects PsExec default pipe creation where the image executed is located in a suspicious location. Which could indicate that the tool is being used in an attack\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "41504465-5e3a-4a5b-a5b4-2a0baadd4463",
-  "InsertDate": "2025-01-21T09:27:57Z",
-  "LastUpdateDate": "2025-01-21T09:27:57Z",
+  "InsertDate": "2025-01-25T21:21:17Z",
+  "LastUpdateDate": "2025-01-25T21:21:17Z",
   "Level": "medium",
   "Name": "PsExec Tool Execution From Suspicious Locations - PipeName",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where pipe_name = '\\psexesvc' and (process_path like '%:\\users\\public\\%' or process_path like '%:\\windows\\temp\\%' or process_path like '%\\appdata\\local\\temp\\%' or process_path like '%\\desktop\\%' or process_path like '%\\downloads\\%')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where pipe_name = '\\PSEXESVC' and (process_path like '%:\\Users\\Public\\%' or process_path like '%:\\Windows\\Temp\\%' or process_path like '%\\AppData\\Local\\Temp\\%' or process_path like '%\\Desktop\\%' or process_path like '%\\Downloads\\%')",
   "Tags": [
     "attack.execution",
     "attack.t1569.002",

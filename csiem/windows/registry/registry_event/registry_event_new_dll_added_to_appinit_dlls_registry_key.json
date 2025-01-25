@@ -1,11 +1,11 @@
 {
   "Description": "DLLs that are specified in the AppInit_DLLs value in the Registry key HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows are loaded by user32.dll into every process that loads user32.dll\n\nAuthor: Ilyas Ochkov, oscd.community, Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4f84b697-c9ed-4420-8ab5-e09af5b2345d",
-  "InsertDate": "2025-01-21T09:31:15Z",
-  "LastUpdateDate": "2025-01-21T09:31:15Z",
+  "InsertDate": "2025-01-25T21:22:41Z",
+  "LastUpdateDate": "2025-01-25T21:22:41Z",
   "Level": "medium",
   "Name": "New DLL Added to AppInit_DLLs Registry Key",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((target_object like '%\\software\\microsoft\\windows nt\\currentversion\\windows\\appinit_dlls' or target_object like '%\\software\\wow6432node\\microsoft\\windows nt\\currentversion\\windows\\appinit_dlls') and (newname like '%\\software\\microsoft\\windows nt\\currentversion\\windows\\appinit_dlls' or newname like '%\\software\\wow6432node\\microsoft\\windows nt\\currentversion\\windows\\appinit_dlls')) and  not details = '(empty)')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((target_object like '%\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_Dlls' or target_object like '%\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_Dlls') and (newname like '%\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_Dlls' or newname like '%\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_Dlls')) and  not details = '(Empty)')",
   "Tags": [
     "attack.persistence",
     "attack.t1546.010"

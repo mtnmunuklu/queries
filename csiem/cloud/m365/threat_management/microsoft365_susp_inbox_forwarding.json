@@ -1,11 +1,11 @@
 {
   "Description": "Detects when a Microsoft Cloud App Security reported suspicious email forwarding rules, for example, if a user created an inbox rule that forwards a copy of all emails to an external address.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6c220477-0b5b-4b25-bb90-66183b4089e8",
-  "InsertDate": "2025-01-21T09:27:10Z",
-  "LastUpdateDate": "2025-01-21T09:27:10Z",
+  "InsertDate": "2025-01-25T21:19:06Z",
+  "LastUpdateDate": "2025-01-25T21:19:06Z",
   "Level": "low",
   "Name": "Suspicious Inbox Forwarding",
-  "Query": "sourcetype='m365-threat_management' eql select * from _source_ where eventsource = 'securitycompliancecenter' and eventname = 'suspicious inbox forwarding' and status = 'success'",
+  "Query": "sourcetype='m365-threat_management' eql select * from _source_ where eventsource = 'SecurityComplianceCenter' and eventname = 'Suspicious inbox forwarding' and status = 'success'",
   "Tags": [
     "attack.exfiltration",
     "attack.t1020"

@@ -1,8 +1,8 @@
 {
   "Description": "Detects BITS transfer job downloading files from a file sharing domain.\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d635249d-86b5-4dad-a8c7-d7272b788586",
-  "InsertDate": "2025-01-21T09:27:26Z",
-  "LastUpdateDate": "2025-01-21T09:27:26Z",
+  "InsertDate": "2025-01-25T21:20:04Z",
+  "LastUpdateDate": "2025-01-25T21:20:04Z",
   "Level": "high",
   "Name": "BITS Transfer Job Download From File Sharing Domains",
   "Query": "sourcetype='windows-bits-client' eql select * from _source_ where eventid = '16403' and (remotename like '%.githubusercontent.com%' or remotename like '%anonfiles.com%' or remotename like '%cdn.discordapp.com%' or remotename like '%ddns.net%' or remotename like '%dl.dropboxusercontent.com%' or remotename like '%ghostbin.co%' or remotename like '%glitch.me%' or remotename like '%gofile.io%' or remotename like '%hastebin.com%' or remotename like '%mediafire.com%' or remotename like '%mega.nz%' or remotename like '%onrender.com%' or remotename like '%pages.dev%' or remotename like '%paste.ee%' or remotename like '%pastebin.com%' or remotename like '%pastebin.pl%' or remotename like '%pastetext.net%' or remotename like '%pixeldrain.com%' or remotename like '%privatlab.com%' or remotename like '%privatlab.net%' or remotename like '%send.exploit.in%' or remotename like '%sendspace.com%' or remotename like '%storage.googleapis.com%' or remotename like '%storjshare.io%' or remotename like '%supabase.co%' or remotename like '%temp.sh%' or remotename like '%transfer.sh%' or remotename like '%trycloudflare.com%' or remotename like '%ufile.io%' or remotename like '%w3spaces.com%' or remotename like '%workers.dev%')",

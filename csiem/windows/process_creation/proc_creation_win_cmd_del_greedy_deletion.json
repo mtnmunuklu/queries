@@ -1,11 +1,11 @@
 {
   "Description": "Detects execution of the \"del\" builtin command to remove files using greedy/wildcard expression. This is often used by malware to delete content of folders that perhaps contains the initial malware infection or to delete evidence.\n\nAuthor: frack113 , X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "204b17ae-4007-471b-917b-b917b315c5db",
-  "InsertDate": "2025-01-21T09:28:20Z",
-  "LastUpdateDate": "2025-01-21T09:28:20Z",
+  "InsertDate": "2025-01-25T21:21:39Z",
+  "LastUpdateDate": "2025-01-25T21:21:39Z",
   "Level": "medium",
   "Name": "Greedy File Deletion Using Del",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\cmd.exe' and original_file_name = 'cmd.exe') and (command like '%del %' or command like '%erase %') and (command like '%\\\\\\*.au3%' or command like '%\\\\\\*.dll%' or command like '%\\\\\\*.exe%' or command like '%\\\\\\*.js%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\cmd.exe' and original_file_name = 'Cmd.Exe') and (command like '%del %' or command like '%erase %') and (command like '%\\\\\\*.au3%' or command like '%\\\\\\*.dll%' or command like '%\\\\\\*.exe%' or command like '%\\\\\\*.js%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1070.004"

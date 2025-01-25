@@ -1,8 +1,8 @@
 {
   "Description": "Detects suspicious Splwow64.exe process without any command line parameters\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1f1a8509-2cbb-44f5-8751-8e1571518ce2",
-  "InsertDate": "2025-01-21T09:30:09Z",
-  "LastUpdateDate": "2025-01-21T09:30:09Z",
+  "InsertDate": "2025-01-25T21:22:24Z",
+  "LastUpdateDate": "2025-01-25T21:22:24Z",
   "Level": "high",
   "Name": "Suspicious Splwow64 Without Params",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\splwow64.exe' and command like '%splwow64.exe'",

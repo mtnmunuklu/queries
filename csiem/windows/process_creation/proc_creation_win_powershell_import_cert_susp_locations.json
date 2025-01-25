@@ -1,11 +1,11 @@
 {
   "Description": "Adversaries may install a root certificate on a compromised system to avoid warnings when connecting to adversary controlled web servers.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "5f6a601c-2ecb-498b-9c33-660362323afa",
-  "InsertDate": "2025-01-21T09:28:58Z",
-  "LastUpdateDate": "2025-01-21T09:28:58Z",
+  "InsertDate": "2025-01-25T21:22:08Z",
+  "LastUpdateDate": "2025-01-25T21:22:08Z",
   "Level": "high",
   "Name": "Root Certificate Installed From Susp Locations",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%import-certificate%' and command like '% -filepath %' and command like '%cert:\\localmachine\\root%') and (command like '%\\appdata\\local\\temp\\%' or command like '%:\\windows\\temp\\%' or command like '%\\desktop\\%' or command like '%\\downloads\\%' or command like '%\\perflogs\\%' or command like '%:\\users\\public\\%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%Import-Certificate%' and command like '% -FilePath %' and command like '%Cert:\\LocalMachine\\Root%') and (command like '%\\AppData\\Local\\Temp\\%' or command like '%:\\Windows\\TEMP\\%' or command like '%\\Desktop\\%' or command like '%\\Downloads\\%' or command like '%\\Perflogs\\%' or command like '%:\\Users\\Public\\%')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1553.004"

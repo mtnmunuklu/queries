@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious PowerShell download command\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "403c2cc0-7f6b-4925-9423-bfa573bed7eb",
-  "InsertDate": "2025-01-21T09:28:09Z",
-  "LastUpdateDate": "2025-01-21T09:28:09Z",
+  "InsertDate": "2025-01-25T21:21:29Z",
+  "LastUpdateDate": "2025-01-25T21:21:29Z",
   "Level": "medium",
   "Name": "Suspicious PowerShell Download - Powershell Script",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%system.net.webclient%' and (scriptblocktext like '%.downloadfile(%' or scriptblocktext like '%.downloadfileasync(%' or scriptblocktext like '%.downloadstring(%' or scriptblocktext like '%.downloadstringasync(%'))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%System.Net.WebClient%' and (scriptblocktext like '%.DownloadFile(%' or scriptblocktext like '%.DownloadFileAsync(%' or scriptblocktext like '%.DownloadString(%' or scriptblocktext like '%.DownloadStringAsync(%'))",
   "Tags": [
     "attack.execution",
     "attack.t1059.001"

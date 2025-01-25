@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of the MSXSL utility. This can be used to execute Extensible Stylesheet Language (XSL) files. These files are commonly used to describe the processing and rendering of data within XML files.\nAdversaries can abuse this functionality to execute arbitrary files while potentially bypassing application whitelisting defenses.\n\n\nAuthor: Timur Zinniatullin, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9e50a8b3-dd05-4eb8-9153-bdb6b79d50b0",
-  "InsertDate": "2025-01-21T09:28:42Z",
-  "LastUpdateDate": "2025-01-21T09:28:42Z",
+  "InsertDate": "2025-01-25T21:22:01Z",
+  "LastUpdateDate": "2025-01-25T21:22:01Z",
   "Level": "medium",
   "Name": "Msxsl.EXE Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\msxsl.exe'",

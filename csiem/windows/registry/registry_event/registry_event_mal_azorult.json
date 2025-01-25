@@ -1,11 +1,11 @@
 {
   "Description": "Detects the presence of a registry key created during Azorult execution\n\nAuthor: Trent Liffick\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f7f9ab88-7557-4a69-b30e-0a8f91b3a0e7",
-  "InsertDate": "2025-01-21T09:31:14Z",
-  "LastUpdateDate": "2025-01-21T09:31:14Z",
+  "InsertDate": "2025-01-25T21:22:41Z",
+  "LastUpdateDate": "2025-01-25T21:22:41Z",
   "Level": "critical",
   "Name": "Registry Entries For Azorult Malware",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (eventid = '12' or eventid = '13') and target_object like '%system\\%' and target_object like '%\\services\\localnetservice'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (eventid = '12' or eventid = '13') and target_object like '%SYSTEM\\%' and target_object like '%\\services\\localNETService'",
   "Tags": [
     "attack.execution",
     "attack.t1112"

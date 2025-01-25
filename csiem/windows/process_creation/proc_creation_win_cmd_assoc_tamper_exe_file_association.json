@@ -1,11 +1,11 @@
 {
   "Description": "Detects when a program changes the default file association of any extension to an executable.\nWhen a file is opened, the default program used to open the file (also called the file association or handler) is checked. File association selections are stored in the Windows Registry and can be edited by users, administrators, or programs that have Registry access or by administrators using the built-in assoc utility. Applications can modify the file association for a given file extension to call an arbitrary program when a file with the given extension is opened.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ae6f14e6-14de-45b0-9f44-c0986f50dc89",
-  "InsertDate": "2025-01-21T09:28:20Z",
-  "LastUpdateDate": "2025-01-21T09:28:20Z",
+  "InsertDate": "2025-01-25T21:21:38Z",
+  "LastUpdateDate": "2025-01-25T21:21:38Z",
   "Level": "high",
   "Name": "Change Default File Association To Executable Via Assoc",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\cmd.exe' and original_file_name = 'cmd.exe') and (command like '%assoc %' and command like '%exefile%')) and  not command like '%.exe=exefile%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\cmd.exe' and original_file_name = 'Cmd.Exe') and (command like '%assoc %' and command like '%exefile%')) and  not command like '%.exe=exefile%')",
   "Tags": [
     "attack.persistence",
     "attack.t1546.001"

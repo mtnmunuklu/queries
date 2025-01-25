@@ -1,11 +1,11 @@
 {
   "Description": "Detects a suspicious copy operation that tries to copy a known LOLBIN from system (System32, SysWOW64, WinSxS) directories to another on disk in order to bypass detections based on locations.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f5d19838-41b5-476c-98d8-ba8af4929ee2",
-  "InsertDate": "2025-01-21T09:30:14Z",
-  "LastUpdateDate": "2025-01-21T09:30:14Z",
+  "InsertDate": "2025-01-25T21:22:26Z",
+  "LastUpdateDate": "2025-01-25T21:22:26Z",
   "Level": "high",
   "Name": "LOL-Binary Copied From System Directory",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((((process_path like '%\\robocopy.exe' or process_path like '%\\xcopy.exe') and (original_file_name = 'robocopy.exe' or original_file_name = 'xcopy.exe')) or (process_path like '%\\cmd.exe' and command like '%copy %') or ((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (command like '%copy-item%' or command like '% copy %' or command like '%cpi %' or command like '% cp %'))) and ((command like '%\\bitsadmin.exe%' or command like '%\\calc.exe%' or command like '%\\certutil.exe%' or command like '%\\cmdl32.exe%' or command like '%\\cscript.exe%' or command like '%\\mshta.exe%' or command like '%\\rundll32.exe%' or command like '%\\wscript.exe%') and (command like '%\\system32%' or command like '%\\syswow64%' or command like '%\\winsxs%')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\cmd.exe' and command like '%copy %') or ((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (command like '%copy-item%' or command like '% copy %' or command like '%cpi %' or command like '% cp %')) or ((process_path like '%\\robocopy.exe' or process_path like '%\\xcopy.exe') and (original_file_name = 'robocopy.exe' or original_file_name = 'XCOPY.EXE'))) and ((command like '%\\System32%' or command like '%\\SysWOW64%' or command like '%\\WinSxS%') and (command like '%\\bitsadmin.exe%' or command like '%\\calc.exe%' or command like '%\\certutil.exe%' or command like '%\\cmdl32.exe%' or command like '%\\cscript.exe%' or command like '%\\mshta.exe%' or command like '%\\rundll32.exe%' or command like '%\\wscript.exe%')))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1036.003"

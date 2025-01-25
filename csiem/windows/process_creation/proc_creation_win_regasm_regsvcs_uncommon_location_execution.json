@@ -1,11 +1,11 @@
 {
   "Description": "Detects potentially suspicious execution of the Regasm/Regsvcs utilities from a potentially suspicious location\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "cc368ed0-2411-45dc-a222-510ace303cb2",
-  "InsertDate": "2025-01-21T09:29:36Z",
-  "LastUpdateDate": "2025-01-21T09:29:36Z",
+  "InsertDate": "2025-01-25T21:22:15Z",
+  "LastUpdateDate": "2025-01-25T21:22:15Z",
   "Level": "medium",
   "Name": "Potentially Suspicious Execution Of Regasm/Regsvcs From Uncommon Location",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\regsvcs.exe' or process_path like '%\\regasm.exe') and (original_file_name = 'regsvcs.exe' or original_file_name = 'regasm.exe')) and (command like '%\\appdata\\local\\temp\\%' or command like '%\\microsoft\\windows\\start menu\\programs\\startup\\%' or command like '%\\perflogs\\%' or command like '%\\users\\public\\%' or command like '%\\windows\\temp\\%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\Regsvcs.exe' or process_path like '%\\Regasm.exe') and (original_file_name = 'RegSvcs.exe' or original_file_name = 'RegAsm.exe')) and (command like '%\\AppData\\Local\\Temp\\%' or command like '%\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\%' or command like '%\\PerfLogs\\%' or command like '%\\Users\\Public\\%' or command like '%\\Windows\\Temp\\%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1218.009"

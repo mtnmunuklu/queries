@@ -1,11 +1,11 @@
 {
   "Description": "Detects a suspicious curl process start on linux with set useragent options\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b86d356d-6093-443d-971c-9b07db583c68",
-  "InsertDate": "2025-01-21T09:27:18Z",
-  "LastUpdateDate": "2025-01-21T09:27:18Z",
+  "InsertDate": "2025-01-25T21:19:30Z",
+  "LastUpdateDate": "2025-01-25T21:19:30Z",
   "Level": "medium",
   "Name": "Suspicious Curl Change User Agents - Linux",
-  "Query": "sourcetype like 'linux-%' eql select * from _source_ where process_path like '%/curl' and (command like '% -a %' or command like '% --user-agent %')",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where process_path like '%/curl' and (command like '% -A %' or command like '% --user-agent %')",
   "Tags": [
     "attack.command-and-control",
     "attack.t1071.001"

@@ -1,11 +1,11 @@
 {
   "Description": "Detects the use of PSAttack PowerShell hack tool\n\nAuthor: Sean Metcalf (source), Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b7ec41a4-042c-4f31-a5db-d0fcde9fa5c5",
-  "InsertDate": "2025-01-21T09:28:06Z",
-  "LastUpdateDate": "2025-01-21T09:28:06Z",
+  "InsertDate": "2025-01-25T21:21:27Z",
+  "LastUpdateDate": "2025-01-25T21:21:27Z",
   "Level": "high",
   "Name": "PowerShell PSAttack",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where scriptblocktext like '%ps attack!!!%'",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where scriptblocktext like '%PS ATTACK!!!%'",
   "Tags": [
     "attack.execution",
     "attack.t1059.001"

@@ -1,11 +1,11 @@
 {
   "Description": "Detects when an adversary uses the reg.exe utility to add or modify new keys or subkeys\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b7e2a8d4-74bb-4b78-adc9-3f92af2d4829",
-  "InsertDate": "2025-01-21T09:29:33Z",
-  "LastUpdateDate": "2025-01-21T09:29:33Z",
+  "InsertDate": "2025-01-25T21:22:15Z",
+  "LastUpdateDate": "2025-01-25T21:22:15Z",
   "Level": "high",
   "Name": "Reg Add Suspicious Paths",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\reg.exe' and original_file_name = 'reg.exe') and (command like '%\\appdatalow\\software\\microsoft\\%' or command like '%\\policies\\microsoft\\windows\\oobe%' or command like '%\\policies\\microsoft\\windows nt\\currentversion\\winlogon%' or command like '%\\software\\microsoft\\windows nt\\currentversion\\winlogon%' or command like '%\\currentcontrolset\\control\\securityproviders\\wdigest%' or command like '%\\microsoft\\windows defender\\%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\reg.exe' and original_file_name = 'reg.exe') and (command like '%\\AppDataLow\\Software\\Microsoft\\%' or command like '%\\Policies\\Microsoft\\Windows\\OOBE%' or command like '%\\Policies\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon%' or command like '%\\SOFTWARE\\Microsoft\\Windows NT\\Currentversion\\Winlogon%' or command like '%\\CurrentControlSet\\Control\\SecurityProviders\\WDigest%' or command like '%\\Microsoft\\Windows Defender\\%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1112",

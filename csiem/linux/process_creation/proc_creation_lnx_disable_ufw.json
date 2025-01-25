@@ -1,11 +1,11 @@
 {
   "Description": "Detects attempts to force stop the ufw using ufw-init\n\nAuthor: Joseliyo Sanchez, @Joseliyo_Jstnk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "84c9e83c-599a-458a-a0cb-0ecce44e807a",
-  "InsertDate": "2025-01-21T09:27:15Z",
-  "LastUpdateDate": "2025-01-21T09:27:15Z",
+  "InsertDate": "2025-01-25T21:19:22Z",
+  "LastUpdateDate": "2025-01-25T21:19:22Z",
   "Level": "medium",
   "Name": "Ufw Force Stop Using Ufw-Init",
-  "Query": "sourcetype like 'linux-%' eql select * from _source_ where ((command like '%-ufw-init%' and command like '%force-stop%') or (command like '%ufw%' and command like '%disable%'))",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where ((command like '%ufw%' and command like '%disable%') or (command like '%-ufw-init%' and command like '%force-stop%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1562.004"

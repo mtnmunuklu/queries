@@ -1,8 +1,8 @@
 {
   "Description": "Loading unsigned image (DLL, EXE) into LSASS process\n\nAuthor: Teymur Kheirkhabarov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "857c8db3-c89b-42fb-882b-f681c7cf4da2",
-  "InsertDate": "2025-01-21T09:27:50Z",
-  "LastUpdateDate": "2025-01-21T09:27:50Z",
+  "InsertDate": "2025-01-25T21:21:07Z",
+  "LastUpdateDate": "2025-01-25T21:21:07Z",
   "Level": "medium",
   "Name": "Unsigned Image Loaded Into LSASS Process",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\lsass.exe' and signed = 'false'",

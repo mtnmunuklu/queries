@@ -1,11 +1,11 @@
 {
   "Description": "Detects RunDLL32.exe spawning explorer.exe as child, which is very uncommon, often observes Gamarue spawning the explorer.exe process in an unusual way\n\nAuthor: elhoim, CD_ROM_\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "caa06de8-fdef-4c91-826a-7f9e163eef4b",
-  "InsertDate": "2025-01-21T09:29:55Z",
-  "LastUpdateDate": "2025-01-21T09:29:55Z",
+  "InsertDate": "2025-01-25T21:22:21Z",
+  "LastUpdateDate": "2025-01-25T21:22:21Z",
   "Level": "high",
   "Name": "RunDLL32 Spawning Explorer",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_process_path like '%\\rundll32.exe' and process_path like '%\\explorer.exe') and  not parent_command_line like '%\\shell32.dll,control_rundll%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_process_path like '%\\rundll32.exe' and process_path like '%\\explorer.exe') and  not parent_command_line like '%\\shell32.dll,Control_RunDLL%')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1218.011"

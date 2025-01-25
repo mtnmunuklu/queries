@@ -1,11 +1,11 @@
 {
   "Description": "Detects process execution from a fake recycle bin folder, often used to avoid security solution.\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "5ce0f04e-3efc-42af-839d-5b3a543b76c0",
-  "InsertDate": "2025-01-21T09:30:28Z",
-  "LastUpdateDate": "2025-01-21T09:30:28Z",
+  "InsertDate": "2025-01-25T21:22:30Z",
+  "LastUpdateDate": "2025-01-25T21:22:30Z",
   "Level": "high",
   "Name": "Suspicious Process Execution From Fake Recycle.Bin Folder",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%recyclers.bin\\%' or process_path like '%recycler.bin\\%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%RECYCLERS.BIN\\%' or process_path like '%RECYCLER.BIN\\%')",
   "Tags": [
     "attack.persistence",
     "attack.defense-evasion"

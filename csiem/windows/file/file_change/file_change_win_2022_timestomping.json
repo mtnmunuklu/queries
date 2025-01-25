@@ -1,11 +1,11 @@
 {
   "Description": "Attackers may change the file creation time of a backdoor to make it look like it was installed with the operating system.\nNote that many processes legitimately change the creation time of a file; it does not necessarily indicate malicious activity.\n\n\nAuthor: frack113, Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "558eebe5-f2ba-4104-b339-36f7902bcc1a",
-  "InsertDate": "2025-01-21T09:27:41Z",
-  "LastUpdateDate": "2025-01-21T09:27:41Z",
+  "InsertDate": "2025-01-25T21:20:51Z",
+  "LastUpdateDate": "2025-01-25T21:20:51Z",
   "Level": "high",
   "Name": "File Creation Date Changed to Another Year",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (((previous_creation_utctime like '2022%' and  not creation_utctime like '2022%') or (previous_creation_utctime like '202%' and  not creation_utctime like '202%')) and  not (((process_path = 'c:\\windows\\system32\\provtool.exe' or process_path = 'c:\\windows\\system32\\usocoreworker.exe' or process_path = 'c:\\windows\\immersivecontrolpanel\\systemsettings.exe') and filepath like 'c:\\programdata\\usoprivate\\updatestore\\%' and (filepath like '%.tmp' or filepath like '%.temp')) or (process_path like 'c:\\windows\\%' and process_path like '%\\tiworker.exe' and filepath like '%.cab')))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (((previous_creation_utctime like '2022%' and  not creation_utctime like '2022%') or (previous_creation_utctime like '202%' and  not creation_utctime like '202%')) and  not (((process_path = 'C:\\Windows\\system32\\ProvTool.exe' or process_path = 'C:\\Windows\\System32\\usocoreworker.exe' or process_path = 'C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe') and filepath like 'C:\\ProgramData\\USOPrivate\\UpdateStore\\%' and (filepath like '%.tmp' or filepath like '%.temp')) or (process_path like 'C:\\WINDOWS\\%' and process_path like '%\\TiWorker.exe' and filepath like '%.cab')))",
   "Tags": [
     "attack.t1070.006",
     "attack.defense-evasion"

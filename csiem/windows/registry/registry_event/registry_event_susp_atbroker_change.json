@@ -1,11 +1,11 @@
 {
   "Description": "Detects creation/modification of Assistive Technology applications and persistence with usage of 'at'\n\nAuthor: Mateusz Wydra, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9577edbb-851f-4243-8c91-1d5b50c1a39b",
-  "InsertDate": "2025-01-21T09:31:17Z",
-  "LastUpdateDate": "2025-01-21T09:31:17Z",
+  "InsertDate": "2025-01-25T21:22:42Z",
+  "LastUpdateDate": "2025-01-25T21:22:42Z",
   "Level": "medium",
   "Name": "Atbroker Registry Change",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((target_object like '%software\\microsoft\\windows nt\\currentversion\\accessibility\\ats%' or target_object like '%software\\microsoft\\windows nt\\currentversion\\accessibility\\configuration%') and  not ((process_path = 'c:\\windows\\system32\\atbroker.exe' and target_object like '%\\microsoft\\windows nt\\currentversion\\accessibility\\configuration%' and details = '(empty)') or (process_path like 'c:\\windows\\installer\\msi%' and target_object like '%software\\microsoft\\windows nt\\currentversion\\accessibility\\ats%')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((target_object like '%Software\\Microsoft\\Windows NT\\CurrentVersion\\Accessibility\\ATs%' or target_object like '%Software\\Microsoft\\Windows NT\\CurrentVersion\\Accessibility\\Configuration%') and  not ((process_path = 'C:\\Windows\\system32\\atbroker.exe' and target_object like '%\\Microsoft\\Windows NT\\CurrentVersion\\Accessibility\\Configuration%' and details = '(Empty)') or (process_path like 'C:\\Windows\\Installer\\MSI%' and target_object like '%Software\\Microsoft\\Windows NT\\CurrentVersion\\Accessibility\\ATs%')))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1218",

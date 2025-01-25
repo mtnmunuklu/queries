@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of \"whoami.exe\" by privileged accounts that are often abused by threat actors\n\nAuthor: Florian Roth (Nextron Systems), Teymur Kheirkhabarov\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "79ce34ca-af29-4d0e-b832-fc1b377020db",
-  "InsertDate": "2025-01-21T09:30:52Z",
-  "LastUpdateDate": "2025-01-21T09:30:52Z",
+  "InsertDate": "2025-01-25T21:22:36Z",
+  "LastUpdateDate": "2025-01-25T21:22:36Z",
   "Level": "high",
   "Name": "Whoami.EXE Execution From Privileged Process",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((original_file_name = 'whoami.exe' and process_path like '%\\whoami.exe') and (username like '%authori%' or username like '%autori%' or username like '%trustedinstaller%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((original_file_name = 'whoami.exe' and process_path like '%\\whoami.exe') and (username like '%AUTHORI%' or username like '%AUTORI%' or username like '%TrustedInstaller%'))",
   "Tags": [
     "attack.privilege-escalation",
     "attack.discovery",

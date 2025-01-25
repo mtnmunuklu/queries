@@ -1,11 +1,11 @@
 {
   "Description": "Identifies when a VPN connection is modified or deleted.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "61171ffc-d79c-4ae5-8e10-9323dba19cd3",
-  "InsertDate": "2025-01-21T09:27:03Z",
-  "LastUpdateDate": "2025-01-21T09:27:03Z",
+  "InsertDate": "2025-01-25T21:18:34Z",
+  "LastUpdateDate": "2025-01-25T21:18:34Z",
   "Level": "medium",
   "Name": "Azure VPN Connection Modified or Deleted",
-  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (operationname = 'microsoft.network/vpngateways/vpnconnections/write' or operationname = 'microsoft.network/vpngateways/vpnconnections/delete')",
+  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (operationname = 'MICROSOFT.NETWORK/VPNGATEWAYS/VPNCONNECTIONS/WRITE' or operationname = 'MICROSOFT.NETWORK/VPNGATEWAYS/VPNCONNECTIONS/DELETE')",
   "Tags": [
     "attack.impact"
   ],

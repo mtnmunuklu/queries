@@ -1,11 +1,11 @@
 {
   "Description": "Detects execution of Microsoft bash launcher without any flags to execute the content of a bash script directly.\nThis can be used to potentially bypass defenses and execute Linux or Windows-based binaries directly via bash.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "2d22a514-e024-4428-9dba-41505bd63a5b",
-  "InsertDate": "2025-01-21T09:28:16Z",
-  "LastUpdateDate": "2025-01-21T09:28:16Z",
+  "InsertDate": "2025-01-25T21:21:35Z",
+  "LastUpdateDate": "2025-01-25T21:21:35Z",
   "Level": "medium",
   "Name": "Indirect Command Execution From Script File Via Bash.EXE",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%:\\windows\\system32\\bash.exe' or process_path like '%:\\windows\\syswow64\\bash.exe') and original_file_name = 'bash.exe') and  not (command = '' or (command = 'bash.exe' or command = 'bash') or (command like '%bash.exe -%' or command like '%bash -%') or command = 'null'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%:\\Windows\\System32\\bash.exe' or process_path like '%:\\Windows\\SysWOW64\\bash.exe') and original_file_name = 'Bash.exe') and  not ((command like '%bash.exe -%' or command like '%bash -%') or command = 'null' or command = '' or (command = 'bash.exe' or command = 'bash')))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1202"

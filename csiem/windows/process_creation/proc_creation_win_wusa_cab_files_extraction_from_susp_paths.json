@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of the \"wusa.exe\" (Windows Update Standalone Installer) utility to extract \".cab\" files using the \"/extract\" argument from potentially suspicious paths.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c74c0390-3e20-41fd-a69a-128f0275a5ea",
-  "InsertDate": "2025-01-21T09:31:11Z",
-  "LastUpdateDate": "2025-01-21T09:31:11Z",
+  "InsertDate": "2025-01-25T21:22:39Z",
+  "LastUpdateDate": "2025-01-25T21:22:39Z",
   "Level": "high",
   "Name": "Cab File Extraction Via Wusa.EXE From Potentially Suspicious Paths",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\wusa.exe' and command like '%/extract:%') and (command like '%:\\perflogs\\%' or command like '%:\\users\\public\\%' or command like '%:\\windows\\temp\\%' or command like '%\\appdata\\local\\temp\\%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\wusa.exe' and command like '%/extract:%') and (command like '%:\\PerfLogs\\%' or command like '%:\\Users\\Public\\%' or command like '%:\\Windows\\Temp\\%' or command like '%\\Appdata\\Local\\Temp\\%'))",
   "Tags": [
     "attack.execution"
   ],

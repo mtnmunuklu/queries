@@ -1,11 +1,11 @@
 {
   "Description": "Detects processes spawned from web servers (PHP, Tomcat, IIS, etc.) that perform reconnaissance looking for the existence of popular scripting tools (perl, python, wget) on the system via the help commands\n\n\nAuthor: Cian Heasley, Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f64e5c19-879c-4bae-b471-6d84c8339677",
-  "InsertDate": "2025-01-21T09:30:50Z",
-  "LastUpdateDate": "2025-01-21T09:30:50Z",
+  "InsertDate": "2025-01-25T21:22:36Z",
+  "LastUpdateDate": "2025-01-25T21:22:36Z",
   "Level": "high",
   "Name": "Webshell Tool Reconnaissance Activity",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((parent_process_path like '%\\caddy.exe' or parent_process_path like '%\\httpd.exe' or parent_process_path like '%\\nginx.exe' or parent_process_path like '%\\php-cgi.exe' or parent_process_path like '%\\w3wp.exe' or parent_process_path like '%\\ws_tomcatservice.exe') or ((parent_process_path like '%\\java.exe' or parent_process_path like '%\\javaw.exe') and (parent_process_path like '%-tomcat-%' or parent_process_path like '%\\tomcat%')) or ((parent_process_path like '%\\java.exe' or parent_process_path like '%\\javaw.exe') and (command like '%catalina_home%' or command like '%catalina.jar%'))) and (command like '%perl --help%' or command like '%perl -h%' or command like '%python --help%' or command like '%python -h%' or command like '%python3 --help%' or command like '%python3 -h%' or command like '%wget --help%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((((parent_process_path like '%\\java.exe' or parent_process_path like '%\\javaw.exe') and (parent_process_path like '%-tomcat-%' or parent_process_path like '%\\tomcat%')) or ((parent_process_path like '%\\java.exe' or parent_process_path like '%\\javaw.exe') and (command like '%CATALINA_HOME%' or command like '%catalina.jar%')) or (parent_process_path like '%\\caddy.exe' or parent_process_path like '%\\httpd.exe' or parent_process_path like '%\\nginx.exe' or parent_process_path like '%\\php-cgi.exe' or parent_process_path like '%\\w3wp.exe' or parent_process_path like '%\\ws_tomcatservice.exe')) and (command like '%perl --help%' or command like '%perl -h%' or command like '%python --help%' or command like '%python -h%' or command like '%python3 --help%' or command like '%python3 -h%' or command like '%wget --help%'))",
   "Tags": [
     "attack.persistence",
     "attack.t1505.003"

@@ -1,11 +1,11 @@
 {
   "Description": "Monitor and alert on conditional access changes.\n\nAuthor: Corissa Koopmans, '@corissalea'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0922467f-db53-4348-b7bf-dee8d0d348c6",
-  "InsertDate": "2025-01-21T09:27:03Z",
-  "LastUpdateDate": "2025-01-21T09:27:03Z",
+  "InsertDate": "2025-01-25T21:18:35Z",
+  "LastUpdateDate": "2025-01-25T21:18:35Z",
   "Level": "medium",
   "Name": "New CA Policy by Non-approved Actor",
-  "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where properties.message = 'add conditional access policy'",
+  "Query": "sourcetype='azure-auditlogs' eql select * from _source_ where properties.message = 'Add conditional access policy'",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1548"

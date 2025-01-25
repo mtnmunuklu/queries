@@ -1,11 +1,11 @@
 {
   "Description": "Detects PsExec service installation and execution events\n\nAuthor: Thomas Patzke\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "42c575ea-e41e-41f1-b248-8093c3e82a28",
-  "InsertDate": "2025-01-21T09:27:36Z",
-  "LastUpdateDate": "2025-01-21T09:27:36Z",
+  "InsertDate": "2025-01-25T21:20:38Z",
+  "LastUpdateDate": "2025-01-25T21:20:38Z",
   "Level": "medium",
   "Name": "PsExec Service Installation",
-  "Query": "sourcetype='windows-system' eql select * from _source_ where ((provider_name = 'service control manager' and eventid = '7045') and (servicename = 'psexesvc' and imagepath like '%\\psexesvc.exe'))",
+  "Query": "sourcetype='windows-system' eql select * from _source_ where ((provider_name = 'Service Control Manager' and eventid = '7045') and (servicename = 'PSEXESVC' and imagepath like '%\\PSEXESVC.exe'))",
   "Tags": [
     "attack.execution",
     "attack.t1569.002",

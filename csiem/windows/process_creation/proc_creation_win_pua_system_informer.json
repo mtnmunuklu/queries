@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of System Informer, a task manager tool to view and manipulate processes, kernel options and other low level operations\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "5722dff1-4bdd-4949-86ab-fbaf707e767a",
-  "InsertDate": "2025-01-21T09:29:21Z",
-  "LastUpdateDate": "2025-01-21T09:29:21Z",
+  "InsertDate": "2025-01-25T21:22:13Z",
+  "LastUpdateDate": "2025-01-25T21:22:13Z",
   "Level": "medium",
   "Name": "PUA - System Informer Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\systeminformer.exe' and original_file_name = 'systeminformer.exe' and description = 'system informer' and product = 'system informer' and (hashes like '%md5=19426363a37c03c3ed6fedf57b6696ec%' or hashes like '%sha1=8b12c6da8fac0d5e8ab999c31e5ea04af32d53dc%' or hashes like '%sha256=8ee9d84de50803545937a63c686822388a3338497cddb660d5d69cf68b68f287%' or hashes like '%imphash=b68908adaeb5d662f87f2528af318f12%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\SystemInformer.exe' and original_file_name = 'SystemInformer.exe' and description = 'System Informer' and product = 'System Informer' and (hashes like '%MD5=19426363A37C03C3ED6FEDF57B6696EC%' or hashes like '%SHA1=8B12C6DA8FAC0D5E8AB999C31E5EA04AF32D53DC%' or hashes like '%SHA256=8EE9D84DE50803545937A63C686822388A3338497CDDB660D5D69CF68B68F287%' or hashes like '%IMPHASH=B68908ADAEB5D662F87F2528AF318F12%')",
   "Tags": [
     "attack.persistence",
     "attack.privilege-escalation",

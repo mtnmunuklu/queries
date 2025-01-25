@@ -1,11 +1,11 @@
 {
   "Description": "Windows DCE-RPC functions which indicate a persistence techniques on the remote system. All credit for the Zeek mapping of the suspicious endpoint/operation field goes to MITRE.\n\nAuthor: @neu5ron, SOC Prime\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "53389db6-ba46-48e3-a94c-e0f2cefe1583",
-  "InsertDate": "2025-01-21T09:27:22Z",
-  "LastUpdateDate": "2025-01-21T09:27:22Z",
+  "InsertDate": "2025-01-25T21:19:45Z",
+  "LastUpdateDate": "2025-01-25T21:19:45Z",
   "Level": "medium",
   "Name": "MITRE BZAR Indicators for Persistence",
-  "Query": "sourcetype='zeek-dce_rpc' eql select * from _source_ where ((endpoint = 'spoolss' and operation = 'rpcaddmonitor') or (endpoint = 'spoolss' and operation = 'rpcaddprintprocessor') or (endpoint = 'iremotewinspool' and operation = 'rpcasyncaddmonitor') or (endpoint = 'iremotewinspool' and operation = 'rpcasyncaddprintprocessor') or (endpoint = 'iseclogon' and operation = 'seclcreateprocesswithlogonw') or (endpoint = 'iseclogon' and operation = 'seclcreateprocesswithlogonexw'))",
+  "Query": "sourcetype='zeek-dce_rpc' eql select * from _source_ where ((endpoint = 'spoolss' and operation = 'RpcAddPrintProcessor') or (endpoint = 'IRemoteWinspool' and operation = 'RpcAsyncAddMonitor') or (endpoint = 'IRemoteWinspool' and operation = 'RpcAsyncAddPrintProcessor') or (endpoint = 'ISecLogon' and operation = 'SeclCreateProcessWithLogonW') or (endpoint = 'ISecLogon' and operation = 'SeclCreateProcessWithLogonExW') or (endpoint = 'spoolss' and operation = 'RpcAddMonitor'))",
   "Tags": [
     "attack.persistence",
     "attack.t1547.004"

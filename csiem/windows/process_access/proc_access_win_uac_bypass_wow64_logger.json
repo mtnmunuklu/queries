@@ -1,11 +1,11 @@
 {
   "Description": "Detects the pattern of UAC Bypass using a WoW64 logger DLL hijack (UACMe 30)\n\nAuthor: Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4f6c43e2-f989-4ea5-bcd8-843b49a0317c",
-  "InsertDate": "2025-01-21T09:28:15Z",
-  "LastUpdateDate": "2025-01-21T09:28:15Z",
+  "InsertDate": "2025-01-25T21:21:34Z",
+  "LastUpdateDate": "2025-01-25T21:21:34Z",
   "Level": "high",
   "Name": "UAC Bypass Using WOW64 Logger DLL Hijack",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%:\\windows\\syswow64\\%' and granted_access = '0x1fffff' and call_trace like 'unknown(0000000000000000)|unknown(0000000000000000)|%'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%:\\Windows\\SysWOW64\\%' and granted_access = '0x1fffff' and call_trace like 'UNKNOWN(0000000000000000)|UNKNOWN(0000000000000000)|%'",
   "Tags": [
     "attack.defense-evasion",
     "attack.privilege-escalation",

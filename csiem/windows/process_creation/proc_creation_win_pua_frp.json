@@ -1,11 +1,11 @@
 {
   "Description": "Detects the use of Fast Reverse Proxy. frp is a fast reverse proxy to help you expose a local server behind a NAT or firewall to the Internet.\n\nAuthor: frack113, Florian Roth\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "32410e29-5f94-4568-b6a3-d91a8adad863",
-  "InsertDate": "2025-01-21T09:29:11Z",
-  "LastUpdateDate": "2025-01-21T09:29:11Z",
+  "InsertDate": "2025-01-25T21:22:12Z",
+  "LastUpdateDate": "2025-01-25T21:22:12Z",
   "Level": "high",
   "Name": "PUA - Fast Reverse Proxy (FRP) Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\frpc.exe' or process_path like '%\\frps.exe') or command like '%\\frpc.ini%' or (hashes like '%md5=7d9c233b8c9e3f0ea290d2b84593c842%' or hashes like '%sha1=06ddc9280e1f1810677935a2477012960905942f%' or hashes like '%sha256=57b0936b8d336d8e981c169466a15a5fd21a7d5a2c7daf62d5e142ee860e387c%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%\\frpc.ini%' or (hashes like '%MD5=7D9C233B8C9E3F0EA290D2B84593C842%' or hashes like '%SHA1=06DDC9280E1F1810677935A2477012960905942F%' or hashes like '%SHA256=57B0936B8D336D8E981C169466A15A5FD21A7D5A2C7DAF62D5E142EE860E387C%') or (process_path like '%\\frpc.exe' or process_path like '%\\frps.exe'))",
   "Tags": [
     "attack.command-and-control",
     "attack.t1090"

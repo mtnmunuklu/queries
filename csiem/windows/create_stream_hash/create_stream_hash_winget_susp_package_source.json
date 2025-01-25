@@ -1,11 +1,11 @@
 {
   "Description": "Detects potential suspicious winget package installation from a suspicious source.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a3f5c081-e75b-43a0-9f5b-51f26fe5dba2",
-  "InsertDate": "2025-01-21T09:27:39Z",
-  "LastUpdateDate": "2025-01-21T09:27:39Z",
+  "InsertDate": "2025-01-25T21:20:45Z",
+  "LastUpdateDate": "2025-01-25T21:20:45Z",
   "Level": "high",
   "Name": "Potential Suspicious Winget Package Installation",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where contents like '[zonetransfer]  zoneid=3%' and (contents like '%://1%' or contents like '%://2%' or contents like '%://3%' or contents like '%://4%' or contents like '%://5%' or contents like '%://6%' or contents like '%://7%' or contents like '%://8%' or contents like '%://9%') and filepath like '%:zone.identifier' and filepath like '%\\appdata\\local\\temp\\winget\\%'",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where contents like '[ZoneTransfer]  ZoneId=3%' and (contents like '%://1%' or contents like '%://2%' or contents like '%://3%' or contents like '%://4%' or contents like '%://5%' or contents like '%://6%' or contents like '%://7%' or contents like '%://8%' or contents like '%://9%') and filepath like '%:Zone.Identifier' and filepath like '%\\AppData\\Local\\Temp\\WinGet\\%'",
   "Tags": [
     "attack.defense-evasion",
     "attack.persistence"

@@ -1,11 +1,11 @@
 {
   "Description": "Detects the suspicious RUN keys created by software located in Download or temporary Outlook/Internet Explorer directories\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9c5037d1-c568-49b3-88c7-9846a5bdc2be",
-  "InsertDate": "2025-01-21T09:31:17Z",
-  "LastUpdateDate": "2025-01-21T09:31:17Z",
+  "InsertDate": "2025-01-25T21:22:42Z",
+  "LastUpdateDate": "2025-01-25T21:22:42Z",
   "Level": "high",
   "Name": "Suspicious Run Key from Download",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\downloads\\%' or process_path like '%\\temporary internet files\\content.outlook\\%' or process_path like '%\\local settings\\temporary internet files\\%') and target_object like '%\\software\\microsoft\\windows\\currentversion\\run\\%'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\Downloads\\%' or process_path like '%\\Temporary Internet Files\\Content.Outlook\\%' or process_path like '%\\Local Settings\\Temporary Internet Files\\%') and target_object like '%\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\%'",
   "Tags": [
     "attack.persistence",
     "attack.t1547.001"

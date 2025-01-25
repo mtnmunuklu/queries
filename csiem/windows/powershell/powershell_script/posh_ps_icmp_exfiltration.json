@@ -1,11 +1,11 @@
 {
   "Description": "Detects Exfiltration Over Alternative Protocol - ICMP. Adversaries may steal data by exfiltrating it over an un-encrypted network protocol other than that of the existing command and control channel.\n\nAuthor: Bartlomiej Czyz @bczyz1, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4c4af3cd-2115-479c-8193-6b8bfce9001c",
-  "InsertDate": "2025-01-21T09:28:04Z",
-  "LastUpdateDate": "2025-01-21T09:28:04Z",
+  "InsertDate": "2025-01-25T21:21:24Z",
+  "LastUpdateDate": "2025-01-25T21:21:24Z",
   "Level": "medium",
   "Name": "PowerShell ICMP Exfiltration",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%new-object%' and scriptblocktext like '%system.net.networkinformation.ping%' and scriptblocktext like '%.send(%')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%New-Object%' and scriptblocktext like '%System.Net.NetworkInformation.Ping%' and scriptblocktext like '%.Send(%')",
   "Tags": [
     "attack.exfiltration",
     "attack.t1048.003"

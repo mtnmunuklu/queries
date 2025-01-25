@@ -1,11 +1,11 @@
 {
   "Description": "Detects usage of powershell cmdlets to disable or remove ETW trace sessions\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "115fdba9-f017-42e6-84cf-d5573bf2ddf8",
-  "InsertDate": "2025-01-21T09:28:03Z",
-  "LastUpdateDate": "2025-01-21T09:28:03Z",
+  "InsertDate": "2025-01-25T21:21:23Z",
+  "LastUpdateDate": "2025-01-25T21:21:23Z",
   "Level": "high",
   "Name": "Disable of ETW Trace - Powershell",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%remove-etwtraceprovider %' or (scriptblocktext like '%set-etwtraceprovider %' and scriptblocktext like '%0x11%'))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%Remove-EtwTraceProvider %' or (scriptblocktext like '%Set-EtwTraceProvider %' and scriptblocktext like '%0x11%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1070",

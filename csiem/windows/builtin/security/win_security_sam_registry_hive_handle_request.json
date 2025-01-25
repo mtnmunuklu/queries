@@ -1,11 +1,11 @@
 {
   "Description": "Detects handles requested to SAM registry hive\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f8748f2c-89dc-4d95-afb0-5a2dfdbad332",
-  "InsertDate": "2025-01-21T09:27:32Z",
-  "LastUpdateDate": "2025-01-21T09:27:32Z",
+  "InsertDate": "2025-01-25T21:20:23Z",
+  "LastUpdateDate": "2025-01-25T21:20:23Z",
   "Level": "high",
   "Name": "SAM Registry Hive Handle Request",
-  "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4656' and objecttype = 'key' and objectname like '%\\sam'",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4656' and objecttype = 'Key' and objectname like '%\\SAM'",
   "Tags": [
     "attack.discovery",
     "attack.t1012",

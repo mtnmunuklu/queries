@@ -1,11 +1,11 @@
 {
   "Description": "Detects usage of system utilities (only grep for now) to discover security software discovery\n\nAuthor: Daniil Yugoslavskiy, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0ed75b9c-c73b-424d-9e7d-496cd565fbe0",
-  "InsertDate": "2025-01-21T09:27:20Z",
-  "LastUpdateDate": "2025-01-21T09:27:20Z",
+  "InsertDate": "2025-01-25T21:19:39Z",
+  "LastUpdateDate": "2025-01-25T21:19:39Z",
   "Level": "medium",
   "Name": "Security Software Discovery - MacOs",
-  "Query": "sourcetype like 'macos-%' eql select * from _source_ where (process_path = '/usr/bin/grep' and ((command like '%nessusd%' or command like '%santad%' or command like '%cbdefense%' or command like '%falcond%' or command like '%td-agent%' or command like '%packetbeat%' or command like '%filebeat%' or command like '%auditbeat%' or command like '%osqueryd%' or command like '%blockblock%' or command like '%lulu%') or (command like '%little%' and command like '%snitch%')))",
+  "Query": "sourcetype like 'macos-%' eql select * from _source_ where (process_path = '/usr/bin/grep' and ((command like '%nessusd%' or command like '%santad%' or command like '%CbDefense%' or command like '%falcond%' or command like '%td-agent%' or command like '%packetbeat%' or command like '%filebeat%' or command like '%auditbeat%' or command like '%osqueryd%' or command like '%BlockBlock%' or command like '%LuLu%') or (command like '%Little%' and command like '%Snitch%')))",
   "Tags": [
     "attack.discovery",
     "attack.t1518.001"

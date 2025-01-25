@@ -1,11 +1,11 @@
 {
   "Description": "Detects scheduled task creations or modification to be run with high privileges on a suspicious schedule type\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "7a02e22e-b885-4404-b38b-1ddc7e65258a",
-  "InsertDate": "2025-01-21T09:30:03Z",
-  "LastUpdateDate": "2025-01-21T09:30:03Z",
+  "InsertDate": "2025-01-25T21:22:23Z",
+  "LastUpdateDate": "2025-01-25T21:22:23Z",
   "Level": "medium",
   "Name": "Suspicious Schtasks Schedule Type With High Privileges",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '% onlogon %' or command like '% onstart %' or command like '% once %' or command like '% onidle %') and (command like '%nt aut%' or command like '% system%' or command like '%highest%') and (process_path like '%\\schtasks.exe' and original_file_name = 'schtasks.exe'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\schtasks.exe' and original_file_name = 'schtasks.exe') and (command like '% ONLOGON %' or command like '% ONSTART %' or command like '% ONCE %' or command like '% ONIDLE %') and (command like '%NT AUT%' or command like '% SYSTEM%' or command like '%HIGHEST%'))",
   "Tags": [
     "attack.execution",
     "attack.t1053.005"

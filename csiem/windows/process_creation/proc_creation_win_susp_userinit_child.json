@@ -1,11 +1,11 @@
 {
   "Description": "Detects a suspicious child process of userinit\n\nAuthor: Florian Roth (Nextron Systems), Samir Bousseaden (idea)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b655a06a-31c0-477a-95c2-3726b83d649d",
-  "InsertDate": "2025-01-21T09:30:34Z",
-  "LastUpdateDate": "2025-01-21T09:30:34Z",
+  "InsertDate": "2025-01-25T21:22:31Z",
+  "LastUpdateDate": "2025-01-25T21:22:31Z",
   "Level": "medium",
   "Name": "Suspicious Userinit Child Process",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\userinit.exe' and  not ((process_path like '%\\explorer.exe' and original_file_name = 'explorer.exe') or command like '%\\netlogon\\%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\userinit.exe' and  not (command like '%\\netlogon\\%' or (process_path like '%\\explorer.exe' and original_file_name = 'explorer.exe')))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1055"

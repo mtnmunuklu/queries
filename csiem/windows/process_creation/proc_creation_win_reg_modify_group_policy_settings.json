@@ -1,11 +1,11 @@
 {
   "Description": "Detect malicious GPO modifications can be used to implement many other malicious behaviors.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ada4b0c4-758b-46ac-9033-9004613a150d",
-  "InsertDate": "2025-01-21T09:29:31Z",
-  "LastUpdateDate": "2025-01-21T09:29:31Z",
+  "InsertDate": "2025-01-25T21:22:14Z",
+  "LastUpdateDate": "2025-01-25T21:22:14Z",
   "Level": "medium",
   "Name": "Modify Group Policy Settings",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\reg.exe' and original_file_name = 'reg.exe') and command like '%\\software\\policies\\microsoft\\windows\\system%' and (command like '%grouppolicyrefreshtimedc%' or command like '%grouppolicyrefreshtimeoffsetdc%' or command like '%grouppolicyrefreshtime%' or command like '%grouppolicyrefreshtimeoffset%' or command like '%enablesmartscreen%' or command like '%shellsmartscreenlevel%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\reg.exe' and original_file_name = 'reg.exe') and command like '%\\SOFTWARE\\Policies\\Microsoft\\Windows\\System%' and (command like '%GroupPolicyRefreshTimeDC%' or command like '%GroupPolicyRefreshTimeOffsetDC%' or command like '%GroupPolicyRefreshTime%' or command like '%GroupPolicyRefreshTimeOffset%' or command like '%EnableSmartScreen%' or command like '%ShellSmartScreenLevel%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.privilege-escalation",

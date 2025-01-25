@@ -1,11 +1,11 @@
 {
   "Description": "Executes SCT script using scrobj.dll from a command in entered into a specially prepared INF file.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ce7cf472-6fcc-490a-9481-3786840b5d9b",
-  "InsertDate": "2025-01-21T09:28:34Z",
-  "LastUpdateDate": "2025-01-21T09:28:34Z",
+  "InsertDate": "2025-01-25T21:21:54Z",
+  "LastUpdateDate": "2025-01-25T21:21:54Z",
   "Level": "medium",
   "Name": "InfDefaultInstall.exe .inf Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%infdefaultinstall.exe %' and command like '%.inf%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%InfDefaultInstall.exe %' and command like '%.inf%')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1218"

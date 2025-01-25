@@ -1,11 +1,11 @@
 {
   "Description": "Detects the addition of a new rule to the Windows firewall via netsh\n\nAuthor: Markus Neis, Sander Wiebing\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "cd5cfd80-aa5f-44c0-9c20-108c4ae12e3c",
-  "InsertDate": "2025-01-21T09:28:43Z",
-  "LastUpdateDate": "2025-01-21T09:28:43Z",
+  "InsertDate": "2025-01-25T21:22:02Z",
+  "LastUpdateDate": "2025-01-25T21:22:02Z",
   "Level": "medium",
   "Name": "New Firewall Rule Added Via Netsh.EXE",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\netsh.exe' and original_file_name = 'netsh.exe') and (command like '% firewall %' and command like '% add %')) and  not (command like '%advfirewall firewall add rule name=dropbox dir=in action=allow \"program=?:\\program files (x86)\\dropbox\\client\\dropbox.exe\" enable=yes profile=any%' or command like '%advfirewall firewall add rule name=dropbox dir=in action=allow \"program=?:\\program files\\dropbox\\client\\dropbox.exe\" enable=yes profile=any%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\netsh.exe' and original_file_name = 'netsh.exe') and (command like '% firewall %' and command like '% add %')) and  not (command like '%advfirewall firewall add rule name=Dropbox dir=in action=allow \"program=?:\\Program Files (x86)\\Dropbox\\Client\\Dropbox.exe\" enable=yes profile=Any%' or command like '%advfirewall firewall add rule name=Dropbox dir=in action=allow \"program=?:\\Program Files\\Dropbox\\Client\\Dropbox.exe\" enable=yes profile=Any%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1562.004",

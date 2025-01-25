@@ -1,11 +1,11 @@
 {
   "Description": "Detects potentially suspicious child processes of a ClickOnce deployment application\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "67bc0e75-c0a9-4cfc-8754-84a505b63c04",
-  "InsertDate": "2025-01-21T09:28:23Z",
-  "LastUpdateDate": "2025-01-21T09:28:23Z",
+  "InsertDate": "2025-01-25T21:21:42Z",
+  "LastUpdateDate": "2025-01-25T21:21:42Z",
   "Level": "medium",
   "Name": "Potentially Suspicious Child Process Of ClickOnce Application",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where parent_process_path like '%\\appdata\\local\\apps\\2.0\\%' and (process_path like '%\\calc.exe' or process_path like '%\\cmd.exe' or process_path like '%\\cscript.exe' or process_path like '%\\explorer.exe' or process_path like '%\\mshta.exe' or process_path like '%\\net.exe' or process_path like '%\\net1.exe' or process_path like '%\\nltest.exe' or process_path like '%\\notepad.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\reg.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\schtasks.exe' or process_path like '%\\werfault.exe' or process_path like '%\\wscript.exe')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where parent_process_path like '%\\AppData\\Local\\Apps\\2.0\\%' and (process_path like '%\\calc.exe' or process_path like '%\\cmd.exe' or process_path like '%\\cscript.exe' or process_path like '%\\explorer.exe' or process_path like '%\\mshta.exe' or process_path like '%\\net.exe' or process_path like '%\\net1.exe' or process_path like '%\\nltest.exe' or process_path like '%\\notepad.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\reg.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\schtasks.exe' or process_path like '%\\werfault.exe' or process_path like '%\\wscript.exe')",
   "Tags": [
     "attack.execution",
     "attack.defense-evasion"

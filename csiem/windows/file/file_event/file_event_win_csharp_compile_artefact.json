@@ -1,8 +1,8 @@
 {
   "Description": "When C# is compiled dynamically, a .cmdline file will be created as a part of the process.\nCertain processes are not typically observed compiling C# code, but can do so without touching disk.\nThis can be used to unpack a payload for execution\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e4a74e34-ecde-4aab-b2fb-9112dd01aed0",
-  "InsertDate": "2025-01-21T09:27:43Z",
-  "LastUpdateDate": "2025-01-21T09:27:43Z",
+  "InsertDate": "2025-01-25T21:20:54Z",
+  "LastUpdateDate": "2025-01-25T21:20:54Z",
   "Level": "low",
   "Name": "Dynamic CSharp Compile Artefact",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where filepath like '%.cmdline'",

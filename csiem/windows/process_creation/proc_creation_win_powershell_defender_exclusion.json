@@ -1,11 +1,11 @@
 {
   "Description": "Detects requests to exclude files, folders or processes from Antivirus scanning using PowerShell cmdlets\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "17769c90-230e-488b-a463-e05c08e9d48f",
-  "InsertDate": "2025-01-21T09:28:51Z",
-  "LastUpdateDate": "2025-01-21T09:28:51Z",
+  "InsertDate": "2025-01-25T21:22:06Z",
+  "LastUpdateDate": "2025-01-25T21:22:06Z",
   "Level": "medium",
   "Name": "Powershell Defender Exclusion",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%add-mppreference %' or command like '%set-mppreference %') and (command like '% -exclusionpath %' or command like '% -exclusionextension %' or command like '% -exclusionprocess %' or command like '% -exclusionipaddress %'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%Add-MpPreference %' or command like '%Set-MpPreference %') and (command like '% -ExclusionPath %' or command like '% -ExclusionExtension %' or command like '% -ExclusionProcess %' or command like '% -ExclusionIpAddress %'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1562.001"

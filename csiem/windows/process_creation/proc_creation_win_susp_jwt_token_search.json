@@ -1,11 +1,11 @@
 {
   "Description": "Detects possible search for JWT tokens via CLI by looking for the string \"eyJ0eX\" or \"eyJhbG\".\nThis string is used as an anchor to look for the start of the JWT token used by microsoft office and similar apps.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6d3a3952-6530-44a3-8554-cf17c116c615",
-  "InsertDate": "2025-01-21T09:30:20Z",
-  "LastUpdateDate": "2025-01-21T09:30:20Z",
+  "InsertDate": "2025-01-25T21:22:28Z",
+  "LastUpdateDate": "2025-01-25T21:22:28Z",
   "Level": "medium",
   "Name": "Potentially Suspicious JWT Token Search Via CLI",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%eyj0exaioi%' or command like '%eyjhbgcioi%' or command like '% eyj0ex%' or command like '% \"eyj0ex\"%' or command like '% 'eyj0ex'%' or command like '% eyjhbg%' or command like '% \"eyjhbg\"%' or command like '% 'eyjhbg'%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%eyJ0eXAiOi%' or command like '%eyJhbGciOi%' or command like '% eyJ0eX%' or command like '% \"eyJ0eX\"%' or command like '% 'eyJ0eX'%' or command like '% eyJhbG%' or command like '% \"eyJhbG\"%' or command like '% 'eyJhbG'%')",
   "Tags": [
     "attack.credential-access",
     "attack.t1528"

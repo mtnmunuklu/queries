@@ -1,11 +1,11 @@
 {
   "Description": "Adversaries may abuse features of Winlogon to execute DLLs and/or executables when a user logs in.\nWinlogon.exe is a Windows component responsible for actions at logon/logoff as well as the secure attention sequence (SAS) triggered by Ctrl-Alt-Delete.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "bbf59793-6efb-4fa1-95ca-a7d288e52c88",
-  "InsertDate": "2025-01-21T09:32:03Z",
-  "LastUpdateDate": "2025-01-21T09:32:03Z",
+  "InsertDate": "2025-01-25T21:22:51Z",
+  "LastUpdateDate": "2025-01-25T21:22:51Z",
   "Level": "high",
   "Name": "Winlogon Notify Key Logon Persistence",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where target_object like '%\\software\\microsoft\\windows nt\\currentversion\\winlogon\\notify\\logon' and details like '%.dll'",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where target_object like '%\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\Notify\\logon' and details like '%.dll'",
   "Tags": [
     "attack.persistence",
     "attack.t1547.004"

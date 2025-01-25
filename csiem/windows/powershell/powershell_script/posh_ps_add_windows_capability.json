@@ -1,11 +1,11 @@
 {
   "Description": "Detects usage of the \"Add-WindowsCapability\" cmdlet to add Windows capabilities. Notable capabilities could be \"OpenSSH\" and others.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "155c7fd5-47b4-49b2-bbeb-eb4fab335429",
-  "InsertDate": "2025-01-21T09:28:01Z",
-  "LastUpdateDate": "2025-01-21T09:28:01Z",
+  "InsertDate": "2025-01-25T21:21:21Z",
+  "LastUpdateDate": "2025-01-25T21:21:21Z",
   "Level": "medium",
   "Name": "Add Windows Capability Via PowerShell Script",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%add-windowscapability %' and scriptblocktext like '%-name openssh.%')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%Add-WindowsCapability %' and scriptblocktext like '%-Name OpenSSH.%')",
   "Tags": [
     "attack.execution"
   ],

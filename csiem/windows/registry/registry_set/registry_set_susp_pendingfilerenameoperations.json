@@ -1,11 +1,11 @@
 {
   "Description": "Detect changes to the \"PendingFileRenameOperations\" registry key from uncommon or suspicious images locations to stage currently used files for rename or deletion after reboot.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4eec988f-7bf0-49f1-8675-1e6a510b3a2a",
-  "InsertDate": "2025-01-21T09:31:54Z",
-  "LastUpdateDate": "2025-01-21T09:31:54Z",
+  "InsertDate": "2025-01-25T21:22:50Z",
+  "LastUpdateDate": "2025-01-25T21:22:50Z",
   "Level": "medium",
   "Name": "Potential PendingFileRenameOperations Tampering",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((event_type = 'setvalue' and target_object like '%\\currentcontrolset\\control\\session manager\\pendingfilerenameoperations%') and ((process_path like '%\\reg.exe' or process_path like '%\\regedit.exe') or (process_path like '%\\appdata\\local\\temp\\%' or process_path like '%\\users\\public\\%')))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((event_type = 'SetValue' and target_object like '%\\CurrentControlSet\\Control\\Session Manager\\PendingFileRenameOperations%') and ((process_path like '%\\AppData\\Local\\Temp\\%' or process_path like '%\\Users\\Public\\%') or (process_path like '%\\reg.exe' or process_path like '%\\regedit.exe')))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1036.003"

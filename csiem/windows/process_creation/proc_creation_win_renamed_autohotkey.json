@@ -1,11 +1,11 @@
 {
   "Description": "Detects execution of a renamed autohotkey.exe binary based on PE metadata fields\n\nAuthor: Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0f16d9cf-0616-45c8-8fad-becc11b5a41c",
-  "InsertDate": "2025-01-21T09:29:47Z",
-  "LastUpdateDate": "2025-01-21T09:29:47Z",
+  "InsertDate": "2025-01-25T21:22:18Z",
+  "LastUpdateDate": "2025-01-25T21:22:18Z",
   "Level": "medium",
   "Name": "Renamed AutoHotkey.EXE Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((product like '%autohotkey%' and description like '%autohotkey%' and (original_file_name = 'autohotkey.exe' or original_file_name = 'autohotkey.rc')) and  not ((process_path like '%\\autohotkey.exe' or process_path like '%\\autohotkey32.exe' or process_path like '%\\autohotkey32_uia.exe' or process_path like '%\\autohotkey64.exe' or process_path like '%\\autohotkey64_uia.exe' or process_path like '%\\autohotkeya32.exe' or process_path like '%\\autohotkeya32_uia.exe' or process_path like '%\\autohotkeyu32.exe' or process_path like '%\\autohotkeyu32_uia.exe' or process_path like '%\\autohotkeyu64.exe' or process_path like '%\\autohotkeyu64_uia.exe') and process_path like '%\\autohotkey%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((product like '%AutoHotkey%' and description like '%AutoHotkey%' and (original_file_name = 'AutoHotkey.exe' or original_file_name = 'AutoHotkey.rc')) and  not ((process_path like '%\\AutoHotkey.exe' or process_path like '%\\AutoHotkey32.exe' or process_path like '%\\AutoHotkey32_UIA.exe' or process_path like '%\\AutoHotkey64.exe' or process_path like '%\\AutoHotkey64_UIA.exe' or process_path like '%\\AutoHotkeyA32.exe' or process_path like '%\\AutoHotkeyA32_UIA.exe' or process_path like '%\\AutoHotkeyU32.exe' or process_path like '%\\AutoHotkeyU32_UIA.exe' or process_path like '%\\AutoHotkeyU64.exe' or process_path like '%\\AutoHotkeyU64_UIA.exe') and process_path like '%\\AutoHotkey%'))",
   "Tags": [
     "attack.defense-evasion"
   ],

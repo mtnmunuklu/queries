@@ -1,11 +1,11 @@
 {
   "Description": "Detects when an attacker modifies values of the Disk Cleanup Handler in the registry to achieve persistence via autorun.\nThe disk cleanup manager is part of the operating system.\nIt displays the dialog box […] The user has the option of enabling or disabling individual handlers by selecting or clearing their check box in the disk cleanup manager's UI.\nAlthough Windows comes with a number of disk cleanup handlers, they aren't designed to handle files produced by other applications.\nInstead, the disk cleanup manager is designed to be flexible and extensible by enabling any developer to implement and register their own disk cleanup handler.\nAny developer can extend the available disk cleanup services by implementing and registering a disk cleanup handler.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d4e2745c-f0c6-4bde-a3ab-b553b3f693cc",
-  "InsertDate": "2025-01-21T09:31:37Z",
-  "LastUpdateDate": "2025-01-21T09:31:37Z",
+  "InsertDate": "2025-01-25T21:22:45Z",
+  "LastUpdateDate": "2025-01-25T21:22:45Z",
   "Level": "medium",
   "Name": "Persistence Via Disk Cleanup Handler - Autorun",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\software\\microsoft\\windows\\currentversion\\explorer\\volumecaches\\%' and ((target_object like '%\\autorun%' and details = 'dword (0x00000001)') or ((target_object like '%\\cleanupstring%' or target_object like '%\\precleanupstring%') and (details like '%cmd%' or details like '%powershell%' or details like '%rundll32%' or details like '%mshta%' or details like '%cscript%' or details like '%wscript%' or details like '%wsl%' or details like '%\\users\\public\\%' or details like '%\\windows\\temp\\%' or details like '%\\microsoft\\windows\\start menu\\programs\\startup\\%'))))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\%' and ((target_object like '%\\Autorun%' and details = 'DWORD (0x00000001)') or ((target_object like '%\\CleanupString%' or target_object like '%\\PreCleanupString%') and (details like '%cmd%' or details like '%powershell%' or details like '%rundll32%' or details like '%mshta%' or details like '%cscript%' or details like '%wscript%' or details like '%wsl%' or details like '%\\Users\\Public\\%' or details like '%\\Windows\\TEMP\\%' or details like '%\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\%'))))",
   "Tags": [
     "attack.persistence"
   ],

@@ -1,8 +1,8 @@
 {
   "Description": "Detects execution of Netcat. Adversaries may use a non-application layer protocol for communication between host and C2 server or among infected hosts within a network\n\nAuthor: frack113, Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e31033fc-33f0-4020-9a16-faf9b31cbf08",
-  "InsertDate": "2025-01-21T09:29:12Z",
-  "LastUpdateDate": "2025-01-21T09:29:12Z",
+  "InsertDate": "2025-01-25T21:22:12Z",
+  "LastUpdateDate": "2025-01-25T21:22:12Z",
   "Level": "high",
   "Name": "PUA - Netcat Suspicious Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\nc.exe' or process_path like '%\\ncat.exe' or process_path like '%\\netcat.exe') or (command like '% -lvp %' or command like '% -lvnp%' or command like '% -l -v -p %' or command like '% -lv -p %' or command like '% -l --proxy-type http %' or command like '% -vnl --exec %' or command like '% -vnl -e %' or command like '% --lua-exec %' or command like '% --sh-exec %'))",

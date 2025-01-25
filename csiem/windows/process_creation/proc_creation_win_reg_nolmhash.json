@@ -1,11 +1,11 @@
 {
   "Description": "Detects changes to the \"NoLMHash\" registry value in order to allow Windows to store LM Hashes.\nBy setting this registry value to \"0\" (DWORD), Windows will be allowed to store a LAN manager hash of your password in Active Directory and local SAM databases.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "98dedfdd-8333-49d4-9f23-d7018cccae53",
-  "InsertDate": "2025-01-21T09:29:32Z",
-  "LastUpdateDate": "2025-01-21T09:29:32Z",
+  "InsertDate": "2025-01-25T21:22:15Z",
+  "LastUpdateDate": "2025-01-25T21:22:15Z",
   "Level": "high",
   "Name": "Enable LM Hash Storage - ProcCreation",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%\\system\\currentcontrolset\\control\\lsa%' and command like '%nolmhash%' and command like '% 0%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%\\System\\CurrentControlSet\\Control\\Lsa%' and command like '%NoLMHash%' and command like '% 0%')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1112"

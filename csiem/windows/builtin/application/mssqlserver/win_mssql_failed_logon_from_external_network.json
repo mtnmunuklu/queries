@@ -1,11 +1,11 @@
 {
   "Description": "Detects failed logon attempts from clients with external network IP to an MSSQL server. This can be a sign of a bruteforce attack.\n\nAuthor: j4son\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ebfe73c2-5bc9-4ed9-aaa8-8b54b2b4777d",
-  "InsertDate": "2025-01-21T09:27:25Z",
-  "LastUpdateDate": "2025-01-21T09:27:25Z",
+  "InsertDate": "2025-01-25T21:20:01Z",
+  "LastUpdateDate": "2025-01-25T21:20:01Z",
   "Level": "medium",
   "Name": "MSSQL Server Failed Logon From External Network",
-  "Query": "sourcetype='windows-application' eql select * from _source_ where ((provider_name like '%mssql%' and eventid = '18456') and  not (data like '%client: 10.%' or data like '%client: 172.16.%' or data like '%client: 172.17.%' or data like '%client: 172.18.%' or data like '%client: 172.19.%' or data like '%client: 172.20.%' or data like '%client: 172.21.%' or data like '%client: 172.22.%' or data like '%client: 172.23.%' or data like '%client: 172.24.%' or data like '%client: 172.25.%' or data like '%client: 172.26.%' or data like '%client: 172.27.%' or data like '%client: 172.28.%' or data like '%client: 172.29.%' or data like '%client: 172.30.%' or data like '%client: 172.31.%' or data like '%client: 192.168.%' or data like '%client: 127.%' or data like '%client: 169.254.%'))",
+  "Query": "sourcetype='windows-application' eql select * from _source_ where ((provider_name like '%MSSQL%' and eventid = '18456') and  not (data like '%CLIENT: 10.%' or data like '%CLIENT: 172.16.%' or data like '%CLIENT: 172.17.%' or data like '%CLIENT: 172.18.%' or data like '%CLIENT: 172.19.%' or data like '%CLIENT: 172.20.%' or data like '%CLIENT: 172.21.%' or data like '%CLIENT: 172.22.%' or data like '%CLIENT: 172.23.%' or data like '%CLIENT: 172.24.%' or data like '%CLIENT: 172.25.%' or data like '%CLIENT: 172.26.%' or data like '%CLIENT: 172.27.%' or data like '%CLIENT: 172.28.%' or data like '%CLIENT: 172.29.%' or data like '%CLIENT: 172.30.%' or data like '%CLIENT: 172.31.%' or data like '%CLIENT: 192.168.%' or data like '%CLIENT: 127.%' or data like '%CLIENT: 169.254.%'))",
   "Tags": [
     "attack.credential-access",
     "attack.t1110"

@@ -1,11 +1,11 @@
 {
   "Description": "Detects usage of the WMI class \"Win32_NTEventlogFile\" in a potentially suspicious way (delete, backup, change permissions, etc.) from a PowerShell script\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e2812b49-bae0-4b21-b366-7c142eafcde2",
-  "InsertDate": "2025-01-21T09:28:13Z",
-  "LastUpdateDate": "2025-01-21T09:28:13Z",
+  "InsertDate": "2025-01-25T21:21:32Z",
+  "LastUpdateDate": "2025-01-25T21:21:32Z",
   "Level": "medium",
   "Name": "Potentially Suspicious Call To Win32_NTEventlogFile Class - PSScript",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%win32_nteventlogfile%' and (scriptblocktext like '%.backupeventlog(%' or scriptblocktext like '%.changesecuritypermissions(%' or scriptblocktext like '%.changesecuritypermissionsex(%' or scriptblocktext like '%.cleareventlog(%' or scriptblocktext like '%.delete(%' or scriptblocktext like '%.deleteex(%' or scriptblocktext like '%.rename(%' or scriptblocktext like '%.takeownership(%' or scriptblocktext like '%.takeownershipex(%'))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%Win32_NTEventlogFile%' and (scriptblocktext like '%.BackupEventlog(%' or scriptblocktext like '%.ChangeSecurityPermissions(%' or scriptblocktext like '%.ChangeSecurityPermissionsEx(%' or scriptblocktext like '%.ClearEventLog(%' or scriptblocktext like '%.Delete(%' or scriptblocktext like '%.DeleteEx(%' or scriptblocktext like '%.Rename(%' or scriptblocktext like '%.TakeOwnerShip(%' or scriptblocktext like '%.TakeOwnerShipEx(%'))",
   "Tags": [
     "attack.defense-evasion"
   ],

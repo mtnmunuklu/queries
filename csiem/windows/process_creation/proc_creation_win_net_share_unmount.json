@@ -1,8 +1,8 @@
 {
   "Description": "Detects when when a mounted share is removed. Adversaries may remove share connections that are no longer useful in order to clean up traces of their operation\n\nAuthor: oscd.community, @redcanary, Zach Stanford @svch0st\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "cb7c4a03-2871-43c0-9bbb-18bbdb079896",
-  "InsertDate": "2025-01-21T09:28:42Z",
-  "LastUpdateDate": "2025-01-21T09:28:42Z",
+  "InsertDate": "2025-01-25T21:22:01Z",
+  "LastUpdateDate": "2025-01-25T21:22:01Z",
   "Level": "low",
   "Name": "Unmount Share Via Net.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\net.exe' or process_path like '%\\net1.exe') and (original_file_name = 'net.exe' or original_file_name = 'net1.exe')) and (command like '%share%' and command like '%/delete%'))",

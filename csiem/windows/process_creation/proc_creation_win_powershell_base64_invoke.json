@@ -1,11 +1,11 @@
 {
   "Description": "Detects UTF-8 and UTF-16 Base64 encoded powershell 'Invoke-' calls\n\nAuthor: pH-T (Nextron Systems), Harjot Singh, @cyb3rjy0t\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6385697e-9f1b-40bd-8817-f4a91f40508e",
-  "InsertDate": "2025-01-21T09:28:48Z",
-  "LastUpdateDate": "2025-01-21T09:28:48Z",
+  "InsertDate": "2025-01-25T21:22:05Z",
+  "LastUpdateDate": "2025-01-25T21:22:05Z",
   "Level": "high",
   "Name": "PowerShell Base64 Encoded Invoke Keyword",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll')) and command like '% -e%' and (command like '%sqbuahyabwbragualq%' or command like '%kabgb2ag8aawblac0a%' or command like '%jag4adgbvagsazqata%' or command like '%sw52b2tll%' or command like '%ludm9rzs%' or command like '%jbnzva2ut%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'PowerShell.EXE' or original_file_name = 'pwsh.dll')) and command like '% -e%' and (command like '%SQBuAHYAbwBrAGUALQ%' or command like '%kAbgB2AG8AawBlAC0A%' or command like '%JAG4AdgBvAGsAZQAtA%' or command like '%SW52b2tlL%' or command like '%ludm9rZS%' or command like '%JbnZva2Ut%'))",
   "Tags": [
     "attack.execution",
     "attack.t1059.001",

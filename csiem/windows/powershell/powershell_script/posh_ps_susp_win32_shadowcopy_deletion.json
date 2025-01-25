@@ -1,11 +1,11 @@
 {
   "Description": "Detects deletion of Windows Volume Shadow Copies with PowerShell code and Get-WMIObject. This technique is used by numerous ransomware families such as Sodinokibi/REvil\n\nAuthor: Tim Rauch\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c1337eb8-921a-4b59-855b-4ba188ddcc42",
-  "InsertDate": "2025-01-21T09:28:12Z",
-  "LastUpdateDate": "2025-01-21T09:28:12Z",
+  "InsertDate": "2025-01-25T21:21:31Z",
+  "LastUpdateDate": "2025-01-25T21:21:31Z",
   "Level": "high",
   "Name": "Deletion of Volume Shadow Copies via WMI with PowerShell - PS Script",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((scriptblocktext like '%get-wmiobject%' or scriptblocktext like '%gwmi%' or scriptblocktext like '%get-ciminstance%' or scriptblocktext like '%gcim%') and scriptblocktext like '%win32_shadowcopy%' and (scriptblocktext like '%.delete()%' or scriptblocktext like '%remove-wmiobject%' or scriptblocktext like '%rwmi%' or scriptblocktext like '%remove-ciminstance%' or scriptblocktext like '%rcim%'))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((scriptblocktext like '%Get-WmiObject%' or scriptblocktext like '%gwmi%' or scriptblocktext like '%Get-CimInstance%' or scriptblocktext like '%gcim%') and scriptblocktext like '%Win32_ShadowCopy%' and (scriptblocktext like '%.Delete()%' or scriptblocktext like '%Remove-WmiObject%' or scriptblocktext like '%rwmi%' or scriptblocktext like '%Remove-CimInstance%' or scriptblocktext like '%rcim%'))",
   "Tags": [
     "attack.impact",
     "attack.t1490"

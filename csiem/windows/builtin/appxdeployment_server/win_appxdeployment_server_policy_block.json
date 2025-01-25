@@ -1,8 +1,8 @@
 {
   "Description": "Detects an appx package deployment that was blocked by the local computer policy\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e021bbb5-407f-41f5-9dc9-1864c45a7a51",
-  "InsertDate": "2025-01-21T09:27:26Z",
-  "LastUpdateDate": "2025-01-21T09:27:26Z",
+  "InsertDate": "2025-01-25T21:20:03Z",
+  "LastUpdateDate": "2025-01-25T21:20:03Z",
   "Level": "medium",
   "Name": "Deployment Of The AppX Package Was Blocked By The Policy",
   "Query": "sourcetype='windows-appxdeployment-server' eql select * from _source_ where (eventid = '441' or eventid = '442' or eventid = '453' or eventid = '454')",

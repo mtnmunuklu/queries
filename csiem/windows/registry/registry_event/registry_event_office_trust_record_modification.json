@@ -1,11 +1,11 @@
 {
   "Description": "Alerts on trust record modification within the registry, indicating usage of macros\n\nAuthor: Antonlovesdnb, Trent Liffick (@tliffick)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "295a59c1-7b79-4b47-a930-df12c15fc9c2",
-  "InsertDate": "2025-01-21T09:31:15Z",
-  "LastUpdateDate": "2025-01-21T09:31:15Z",
+  "InsertDate": "2025-01-25T21:22:41Z",
+  "LastUpdateDate": "2025-01-25T21:22:41Z",
   "Level": "medium",
   "Name": "Windows Registry Trust Record Modification",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where target_object like '%\\security\\trusted documents\\trustrecords%'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where target_object like '%\\Security\\Trusted Documents\\TrustRecords%'",
   "Tags": [
     "attack.initial-access",
     "attack.t1566.001"

@@ -1,11 +1,11 @@
 {
   "Description": "Detects Mimikatz DC sync security events\n\nAuthor: Benjamin Delpy, Florian Roth (Nextron Systems), Scott Dermott, Sorina Ionescu\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "611eab06-a145-4dfa-a295-3ccc5c20f59a",
-  "InsertDate": "2025-01-21T09:27:29Z",
-  "LastUpdateDate": "2025-01-21T09:27:29Z",
+  "InsertDate": "2025-01-25T21:20:16Z",
+  "LastUpdateDate": "2025-01-25T21:20:16Z",
   "Level": "high",
   "Name": "Mimikatz DC Sync",
-  "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '4662' and (properties like '%replicating directory changes all%' or properties like '%1131f6ad-9c07-11d1-f79f-00c04fc2dcd2%' or properties like '%1131f6aa-9c07-11d1-f79f-00c04fc2dcd2%' or properties like '%9923a32a-3607-11d2-b9be-0000f87a36b2%' or properties like '%89e95b76-444d-4c62-991a-0facbeda640c%') and accessmask = '0x100') and  not (subjectdomainname = 'window manager' or (subjectusername like 'nt aut%' or subjectusername like 'msol_%') or subjectusername like '%$'))",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '4662' and (properties like '%Replicating Directory Changes All%' or properties like '%1131f6ad-9c07-11d1-f79f-00c04fc2dcd2%' or properties like '%1131f6aa-9c07-11d1-f79f-00c04fc2dcd2%' or properties like '%9923a32a-3607-11d2-b9be-0000f87a36b2%' or properties like '%89e95b76-444d-4c62-991a-0facbeda640c%') and accessmask = '0x100') and  not ((subjectusername like 'NT AUT%' or subjectusername like 'MSOL_%') or subjectusername like '%$' or subjectdomainname = 'Window Manager'))",
   "Tags": [
     "attack.credential-access",
     "attack.s0002",

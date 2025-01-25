@@ -1,11 +1,11 @@
 {
   "Description": "Detects uncommon service installation commands by looking at suspicious or uncommon image path values containing references to encoded powershell commands, temporary paths, etc.\n\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "26481afe-db26-4228-b264-25a29fe6efc7",
-  "InsertDate": "2025-01-21T09:27:37Z",
-  "LastUpdateDate": "2025-01-21T09:27:37Z",
+  "InsertDate": "2025-01-25T21:20:38Z",
+  "LastUpdateDate": "2025-01-25T21:20:38Z",
   "Level": "medium",
   "Name": "Uncommon Service Installation Image Path",
-  "Query": "sourcetype='windows-system' eql select * from _source_ where ((provider_name = 'service control manager' and eventid = '7045') and ((imagepath like '%\\\\\\\\.\\\\pipe%' or imagepath like '%\\users\\public\\%' or imagepath like '%\\windows\\temp\\%') or (imagepath like '% -e%' and (imagepath like '% aqblahga%' or imagepath like '% awv4i%' or imagepath like '% iab%' or imagepath like '% jab%' or imagepath like '% paa%' or imagepath like '% sqbfafga%' or imagepath like '% suvyi%'))) and  not imagepath like 'c:\\programdata\\microsoft\\windows defender\\definition updates\\%' and  not imagepath like 'c:\\windows\\temp\\thor10-remote\\thor64.exe%')",
+  "Query": "sourcetype='windows-system' eql select * from _source_ where ((provider_name = 'Service Control Manager' and eventid = '7045') and ((imagepath like '%\\\\\\\\.\\\\pipe%' or imagepath like '%\\Users\\Public\\%' or imagepath like '%\\Windows\\Temp\\%') or (imagepath like '% -e%' and (imagepath like '% aQBlAHgA%' or imagepath like '% aWV4I%' or imagepath like '% IAB%' or imagepath like '% JAB%' or imagepath like '% PAA%' or imagepath like '% SQBFAFgA%' or imagepath like '% SUVYI%'))) and  not imagepath like 'C:\\ProgramData\\Microsoft\\Windows Defender\\Definition Updates\\%' and  not imagepath like 'C:\\WINDOWS\\TEMP\\thor10-remote\\thor64.exe%')",
   "Tags": [
     "attack.persistence",
     "attack.privilege-escalation",

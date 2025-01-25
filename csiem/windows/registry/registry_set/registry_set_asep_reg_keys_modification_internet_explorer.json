@@ -1,11 +1,11 @@
 {
   "Description": "Detects modification of autostart extensibility point (ASEP) in registry.\n\nAuthor: Victor Sergeev, Daniil Yugoslavskiy, Gleb Sukhodolskiy, Timur Zinniatullin, oscd.community, Tim Shelton, frack113 (split)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a80f662f-022f-4429-9b8c-b1a41aaa6688",
-  "InsertDate": "2025-01-21T09:31:22Z",
-  "LastUpdateDate": "2025-01-21T09:31:22Z",
+  "InsertDate": "2025-01-25T21:22:43Z",
+  "LastUpdateDate": "2025-01-25T21:22:43Z",
   "Level": "medium",
   "Name": "Internet Explorer Autorun Keys Modification",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object like '%\\software\\wow6432node\\microsoft\\internet explorer%' or target_object like '%\\software\\microsoft\\internet explorer%') and (target_object like '%\\toolbar%' or target_object like '%\\extensions%' or target_object like '%\\explorer bars%') and  not (details = '(empty)' or (target_object like '%\\extensions\\{2670000a-7350-4f3c-8081-5663ee0c6c49}%' or target_object like '%\\extensions\\{31d09ba0-12f5-4cce-be8a-2923e76605da}%' or target_object like '%\\extensions\\{789fe86f-6fc4-46a1-9849-ede0db0c95ca}%' or target_object like '%\\extensions\\{a95fe080-8f5d-11d2-a20b-00aa003c157a}%') or (target_object like '%\\toolbar\\shellbrowser\\itbar7layout' or target_object like '%\\toolbar\\showdiscussionbutton' or target_object like '%\\toolbar\\locked')))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object like '%\\Software\\Wow6432Node\\Microsoft\\Internet Explorer%' or target_object like '%\\Software\\Microsoft\\Internet Explorer%') and (target_object like '%\\Toolbar%' or target_object like '%\\Extensions%' or target_object like '%\\Explorer Bars%') and  not (details = '(Empty)' or (target_object like '%\\Extensions\\{2670000A-7350-4f3c-8081-5663EE0C6C49}%' or target_object like '%\\Extensions\\{31D09BA0-12F5-4CCE-BE8A-2923E76605DA}%' or target_object like '%\\Extensions\\{789FE86F-6FC4-46A1-9849-EDE0DB0C95CA}%' or target_object like '%\\Extensions\\{A95fe080-8f5d-11d2-a20b-00aa003c157a}%') or (target_object like '%\\Toolbar\\ShellBrowser\\ITBar7Layout' or target_object like '%\\Toolbar\\ShowDiscussionButton' or target_object like '%\\Toolbar\\Locked')))",
   "Tags": [
     "attack.persistence",
     "attack.t1547.001"

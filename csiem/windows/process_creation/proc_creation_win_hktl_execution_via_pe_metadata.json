@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of different Windows based hacktools via PE metadata (company, product, etc.) even if the files have been renamed\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "37c1333a-a0db-48be-b64b-7393b2386e3b",
-  "InsertDate": "2025-01-21T09:28:29Z",
-  "LastUpdateDate": "2025-01-21T09:28:29Z",
+  "InsertDate": "2025-01-25T21:21:48Z",
+  "LastUpdateDate": "2025-01-25T21:21:48Z",
   "Level": "high",
   "Name": "Hacktool Execution - PE Metadata",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where company = 'cube0x0'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where company = 'Cube0x0'",
   "Tags": [
     "attack.credential-access",
     "attack.t1588.002",

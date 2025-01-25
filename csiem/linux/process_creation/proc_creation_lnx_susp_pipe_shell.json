@@ -1,8 +1,8 @@
 {
   "Description": "Detects suspicious process command line that starts with a shell that executes something and finally gets piped into another shell\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "880973f3-9708-491c-a77b-2a35a1921158",
-  "InsertDate": "2025-01-21T09:27:18Z",
-  "LastUpdateDate": "2025-01-21T09:27:18Z",
+  "InsertDate": "2025-01-25T21:19:32Z",
+  "LastUpdateDate": "2025-01-25T21:19:32Z",
   "Level": "medium",
   "Name": "Linux Shell Pipe to Shell",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where ((command like 'sh -c %' or command like 'bash -c %') and ((command like '%| bash %' or command like '%| sh %' or command like '%|bash %' or command like '%|sh %') and (command like '%| bash' or command like '%| sh' or command like '%|bash' or command like '% |sh')))",

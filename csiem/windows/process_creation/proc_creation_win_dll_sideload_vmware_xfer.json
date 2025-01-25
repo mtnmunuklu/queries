@@ -1,11 +1,11 @@
 {
   "Description": "Detects execution of VMware Xfer utility (VMwareXferlogs.exe) from the non-default directory which may be an attempt to sideload arbitrary DLL\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ebea773c-a8f1-42ad-a856-00cb221966e8",
-  "InsertDate": "2025-01-21T09:28:23Z",
-  "LastUpdateDate": "2025-01-21T09:28:23Z",
+  "InsertDate": "2025-01-25T21:21:42Z",
+  "LastUpdateDate": "2025-01-25T21:21:42Z",
   "Level": "high",
   "Name": "DLL Sideloading by VMware Xfer Utility",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\vmwarexferlogs.exe' and  not process_path like 'c:\\program files\\vmware\\%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\VMwareXferlogs.exe' and  not process_path like 'C:\\Program Files\\VMware\\%')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1574.002"

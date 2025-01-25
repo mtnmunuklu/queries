@@ -1,8 +1,8 @@
 {
   "Description": "Detects a suspicious RDP session redirect using tscon.exe\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f72aa3e8-49f9-4c7d-bd74-f8ab84ff9bbb",
-  "InsertDate": "2025-01-21T09:30:40Z",
-  "LastUpdateDate": "2025-01-21T09:30:40Z",
+  "InsertDate": "2025-01-25T21:22:33Z",
+  "LastUpdateDate": "2025-01-25T21:22:33Z",
   "Level": "high",
   "Name": "Suspicious RDP Redirect Using TSCON",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where command like '% /dest:rdp-tcp#%'",

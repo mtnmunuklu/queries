@@ -1,11 +1,11 @@
 {
   "Description": "Detects tampering of RDP Terminal Service/Server sensitive settings.\nSuch as allowing unauthorized users access to a system via the 'fAllowUnsolicited' or enabling RDP via 'fDenyTSConnections'...etc\n\n\nAuthor: Samir Bousseaden, David ANDRE, Roberto Rodriguez @Cyb3rWard0g, Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "3f6b7b62-61aa-45db-96bd-9c31b36b653c",
-  "InsertDate": "2025-01-21T09:31:56Z",
-  "LastUpdateDate": "2025-01-21T09:31:56Z",
+  "InsertDate": "2025-01-25T21:22:50Z",
+  "LastUpdateDate": "2025-01-25T21:22:50Z",
   "Level": "high",
   "Name": "RDP Sensitive Settings Changed",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (((target_object like '%\\control\\terminal server\\%' or target_object like '%\\windows nt\\terminal services\\%') and target_object like '%\\shadow' and (details = 'dword (0x00000001)' or details = 'dword (0x00000002)' or details = 'dword (0x00000003)' or details = 'dword (0x00000004)')) or ((target_object like '%\\control\\terminal server\\%' or target_object like '%\\windows nt\\terminal services\\%') and (target_object like '%\\disableremotedesktopantialias' or target_object like '%\\disablesecuritysettings' or target_object like '%\\fallowunsolicited' or target_object like '%\\fallowunsolicitedfullcontrol') and details = 'dword (0x00000001)') or (target_object like '%\\control\\terminal server\\initialprogram%' or target_object like '%\\control\\terminal server\\winstations\\rdp-tcp\\initialprogram%' or target_object like '%\\services\\termservice\\parameters\\servicedll%' or target_object like '%\\windows nt\\terminal services\\initialprogram%'))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (((target_object like '%\\Control\\Terminal Server\\%' or target_object like '%\\Windows NT\\Terminal Services\\%') and target_object like '%\\Shadow' and (details = 'DWORD (0x00000001)' or details = 'DWORD (0x00000002)' or details = 'DWORD (0x00000003)' or details = 'DWORD (0x00000004)')) or ((target_object like '%\\Control\\Terminal Server\\%' or target_object like '%\\Windows NT\\Terminal Services\\%') and (target_object like '%\\DisableRemoteDesktopAntiAlias' or target_object like '%\\DisableSecuritySettings' or target_object like '%\\fAllowUnsolicited' or target_object like '%\\fAllowUnsolicitedFullControl') and details = 'DWORD (0x00000001)') or (target_object like '%\\Control\\Terminal Server\\InitialProgram%' or target_object like '%\\Control\\Terminal Server\\WinStations\\RDP-Tcp\\InitialProgram%' or target_object like '%\\services\\TermService\\Parameters\\ServiceDll%' or target_object like '%\\Windows NT\\Terminal Services\\InitialProgram%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.persistence",

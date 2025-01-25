@@ -1,11 +1,11 @@
 {
   "Description": "Detects enumeration of local systeam accounts. This information can help adversaries determine which local accounts exist on a system to aid in follow-on behavior.\n\nAuthor: Alejandro Ortuno, oscd.community, CheraghiMilad\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b45e3d6f-42c6-47d8-a478-df6bd6cf534c",
-  "InsertDate": "2025-01-21T09:27:16Z",
-  "LastUpdateDate": "2025-01-21T09:27:16Z",
+  "InsertDate": "2025-01-25T21:19:25Z",
+  "LastUpdateDate": "2025-01-25T21:19:25Z",
   "Level": "low",
   "Name": "Local System Accounts Discovery - Linux",
-  "Query": "sourcetype like 'linux-%' eql select * from _source_ where (process_path like '%/lastlog' or command like '%'x:0:'%' or ((process_path like '%/cat' or process_path like '%/ed' or process_path like '%/head' or process_path like '%/more' or process_path like '%/nano' or process_path like '%/tail' or process_path like '%/vi' or process_path like '%/vim' or process_path like '%/less' or process_path like '%/emacs' or process_path like '%/sqlite3' or process_path like '%/makemap') and (command like '%/etc/passwd%' or command like '%/etc/shadow%' or command like '%/etc/sudoers%' or command like '%/etc/spwd.db%' or command like '%/etc/pwd.db%' or command like '%/etc/master.passwd%')) or process_path like '%/id' or (process_path like '%/lsof' and command like '%-u%'))",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where ((process_path like '%/lsof' and command like '%-u%') or process_path like '%/lastlog' or command like '%'x:0:'%' or ((process_path like '%/cat' or process_path like '%/ed' or process_path like '%/head' or process_path like '%/more' or process_path like '%/nano' or process_path like '%/tail' or process_path like '%/vi' or process_path like '%/vim' or process_path like '%/less' or process_path like '%/emacs' or process_path like '%/sqlite3' or process_path like '%/makemap') and (command like '%/etc/passwd%' or command like '%/etc/shadow%' or command like '%/etc/sudoers%' or command like '%/etc/spwd.db%' or command like '%/etc/pwd.db%' or command like '%/etc/master.passwd%')) or process_path like '%/id')",
   "Tags": [
     "attack.discovery",
     "attack.t1087.001"

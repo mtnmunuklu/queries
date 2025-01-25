@@ -1,11 +1,11 @@
 {
   "Description": "Detects execution of \"rundll32.exe\" with a parent process of Explorer.exe. This has been observed by variants of Raspberry Robin, as first reported by Red Canary.\n\nAuthor: CD_ROM_\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1723e720-616d-4ddc-ab02-f7e3685a4713",
-  "InsertDate": "2025-01-21T09:29:55Z",
-  "LastUpdateDate": "2025-01-21T09:29:55Z",
+  "InsertDate": "2025-01-25T21:22:21Z",
+  "LastUpdateDate": "2025-01-25T21:22:21Z",
   "Level": "medium",
   "Name": "Rundll32 Spawned Via Explorer.EXE",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_process_path like '%\\explorer.exe' and (process_path like '%\\rundll32.exe' and original_file_name = 'rundll32.exe')) and  not (command like '% c:\\windows\\system32\\%' and command like '% -localserver 22d8c27b-47a1-48d1-ad08-7da7abd79617'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\rundll32.exe' and original_file_name = 'RUNDLL32.EXE') and parent_process_path like '%\\explorer.exe') and  not (command like '% C:\\Windows\\System32\\%' and command like '% -localserver 22d8c27b-47a1-48d1-ad08-7da7abd79617'))",
   "Tags": [
     "attack.defense-evasion"
   ],

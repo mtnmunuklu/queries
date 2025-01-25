@@ -1,11 +1,11 @@
 {
   "Description": "Detects uncommon outbound network activity via Kerberos default port indicating possible lateral movement or first stage PrivEsc via delegation.\n\n\nAuthor: Ilyas Ochkov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "eca91c7c-9214-47b9-b4c5-cb1d7e4f2350",
-  "InsertDate": "2025-01-21T09:27:33Z",
-  "LastUpdateDate": "2025-01-21T09:27:33Z",
+  "InsertDate": "2025-01-25T21:20:26Z",
+  "LastUpdateDate": "2025-01-25T21:20:26Z",
   "Level": "medium",
   "Name": "Uncommon Outbound Kerberos Connection - Security",
-  "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '5156' and destport = '88') and  not ((application like '\\device\\harddiskvolume%' or application like 'c:%') and application like '%\\windows\\system32\\lsass.exe') and  not (((application like '\\device\\harddiskvolume%' or application like 'c:%') and (application like '%\\program files (x86)\\google\\chrome\\application\\chrome.exe' or application like '%\\program files\\google\\chrome\\application\\chrome.exe')) or ((application like '\\device\\harddiskvolume%' or application like 'c:%') and (application like '%\\program files (x86)\\mozilla firefox\\firefox.exe' or application like '%\\program files\\mozilla firefox\\firefox.exe')) or application like '%\\tomcat\\bin\\tomcat8.exe'))",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '5156' and destport = '88') and  not ((application like '\\device\\harddiskvolume%' or application like 'C:%') and application like '%\\Windows\\System32\\lsass.exe') and  not (((application like '\\device\\harddiskvolume%' or application like 'C:%') and (application like '%\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe' or application like '%\\Program Files\\Google\\Chrome\\Application\\chrome.exe')) or ((application like '\\device\\harddiskvolume%' or application like 'C:%') and (application like '%\\Program Files (x86)\\Mozilla Firefox\\firefox.exe' or application like '%\\Program Files\\Mozilla Firefox\\firefox.exe')) or application like '%\\tomcat\\bin\\tomcat8.exe'))",
   "Tags": [
     "attack.lateral-movement",
     "attack.t1558.003"

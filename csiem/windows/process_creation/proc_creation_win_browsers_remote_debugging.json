@@ -1,11 +1,11 @@
 {
   "Description": "Detects browsers starting with the remote debugging flags. Which is a technique often used to perform browser injection attacks\n\nAuthor: pH-T (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b3d34dc5-2efd-4ae3-845f-8ec14921f449",
-  "InsertDate": "2025-01-21T09:28:18Z",
-  "LastUpdateDate": "2025-01-21T09:28:18Z",
+  "InsertDate": "2025-01-25T21:21:37Z",
+  "LastUpdateDate": "2025-01-25T21:21:37Z",
   "Level": "medium",
   "Name": "Browser Started with Remote Debugging",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\firefox.exe' and command like '% -start-debugger-server%') or command like '% --remote-debugging-%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '% --remote-debugging-%' or (process_path like '%\\firefox.exe' and command like '% -start-debugger-server%'))",
   "Tags": [
     "attack.credential-access",
     "attack.t1185"

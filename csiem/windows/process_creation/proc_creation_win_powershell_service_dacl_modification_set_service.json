@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious DACL modifications via the \"Set-Service\" cmdlet using the \"SecurityDescriptorSddl\" flag (Only available with PowerShell 7) that can be used to hide services or make them unstopable\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a95b9b42-1308-4735-a1af-abb1c5e6f5ac",
-  "InsertDate": "2025-01-21T09:29:01Z",
-  "LastUpdateDate": "2025-01-21T09:29:01Z",
+  "InsertDate": "2025-01-25T21:22:10Z",
+  "LastUpdateDate": "2025-01-25T21:22:10Z",
   "Level": "high",
   "Name": "Suspicious Service DACL Modification Via Set-Service Cmdlet",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\pwsh.exe' and original_file_name = 'pwsh.dll') and (command like '%-securitydescriptorsddl %' or command like '%-sd %') and ((command like '%set-service %' and command like '%d;;%') and (command like '%;;;iu%' or command like '%;;;su%' or command like '%;;;ba%' or command like '%;;;sy%' or command like '%;;;wd%')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\pwsh.exe' and original_file_name = 'pwsh.dll') and (command like '%-SecurityDescriptorSddl %' or command like '%-sd %') and ((command like '%Set-Service %' and command like '%D;;%') and (command like '%;;;IU%' or command like '%;;;SU%' or command like '%;;;BA%' or command like '%;;;SY%' or command like '%;;;WD%')))",
   "Tags": [
     "attack.persistence",
     "attack.t1543.003"

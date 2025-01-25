@@ -1,8 +1,8 @@
 {
   "Description": "Detects suspicious Ruby on Rails exceptions that could indicate exploitation attempts\n\nAuthor: Thomas Patzke\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0d2c3d4c-4b48-4ac3-8f23-ea845746bb1a",
-  "InsertDate": "2025-01-21T09:27:00Z",
-  "LastUpdateDate": "2025-01-21T09:27:00Z",
+  "InsertDate": "2025-01-25T21:18:24Z",
+  "LastUpdateDate": "2025-01-25T21:18:24Z",
   "Level": "medium",
   "Name": "Ruby on Rails Framework Exceptions",
   "Query": "sourcetype like 'ruby_on_rails-%' eql select * from _source_ where Query('ActionController::InvalidAuthenticityToken OR ActionController::InvalidCrossOriginRequest OR ActionController::MethodNotAllowed OR ActionController::BadRequest OR ActionController::ParameterMissing')",

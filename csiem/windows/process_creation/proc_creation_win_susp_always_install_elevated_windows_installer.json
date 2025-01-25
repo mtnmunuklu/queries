@@ -1,11 +1,11 @@
 {
   "Description": "Detects Windows Installer service (msiexec.exe) trying to install MSI packages with SYSTEM privilege\n\nAuthor: Teymur Kheirkhabarov (idea), Mangatas Tondang (rule), oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "cd951fdc-4b2f-47f5-ba99-a33bf61e3770",
-  "InsertDate": "2025-01-21T09:30:12Z",
-  "LastUpdateDate": "2025-01-21T09:30:12Z",
+  "InsertDate": "2025-01-25T21:22:25Z",
+  "LastUpdateDate": "2025-01-25T21:22:25Z",
   "Level": "medium",
   "Name": "Always Install Elevated Windows Installer",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\msiexec.exe' and (integrity_level = 'system' or integrity_level = 's-1-16-16384')) or ((process_path like '%\\windows\\installer\\%' and process_path like '%msi%') and process_path like '%tmp')) and (username like '%authori%' or username like '%autori%') and  not (parent_process_path = 'c:\\windows\\system32\\services.exe' or parent_process_path like 'c:\\programdata\\sophos\\%' or parent_process_path like 'c:\\programdata\\avira\\%' or (parent_process_path like 'c:\\program files\\avast software\\%' or parent_process_path like 'c:\\program files (x86)\\avast software\\%') or (command like '%\\system32\\msiexec.exe /v' and parent_command_line like '%\\system32\\msiexec.exe /v') or (parent_process_path like 'c:\\program files\\google\\update\\%' or parent_process_path like 'c:\\program files (x86)\\google\\update\\%')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((((process_path like '%\\Windows\\Installer\\%' and process_path like '%msi%') and process_path like '%tmp') or (process_path like '%\\msiexec.exe' and (integrity_level = 'System' or integrity_level = 'S-1-16-16384'))) and (username like '%AUTHORI%' or username like '%AUTORI%') and  not ((parent_process_path like 'C:\\Program Files\\Avast Software\\%' or parent_process_path like 'C:\\Program Files (x86)\\Avast Software\\%') or (parent_process_path like 'C:\\Program Files\\Google\\Update\\%' or parent_process_path like 'C:\\Program Files (x86)\\Google\\Update\\%') or parent_process_path = 'C:\\Windows\\System32\\services.exe' or (command like '%\\system32\\msiexec.exe /V' and parent_command_line like '%\\system32\\msiexec.exe /V') or parent_process_path like 'C:\\ProgramData\\Avira\\%' or parent_process_path like 'C:\\ProgramData\\Sophos\\%'))",
   "Tags": [
     "attack.privilege-escalation",
     "attack.t1548.002"

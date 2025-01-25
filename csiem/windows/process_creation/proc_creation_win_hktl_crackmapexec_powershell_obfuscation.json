@@ -1,11 +1,11 @@
 {
   "Description": "The CrachMapExec pentesting framework implements a PowerShell obfuscation with some static strings detected by this rule.\n\nAuthor: Thomas Patzke\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6f8b3439-a203-45dc-a88b-abf57ea15ccf",
-  "InsertDate": "2025-01-21T09:28:29Z",
-  "LastUpdateDate": "2025-01-21T09:28:29Z",
+  "InsertDate": "2025-01-25T21:21:47Z",
+  "LastUpdateDate": "2025-01-25T21:21:47Z",
   "Level": "high",
   "Name": "HackTool - CrackMapExec PowerShell Obfuscation",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll')) and (command like '%join*split%' or command like '%( $shellid[1]+$shellid[13]+'x')%' or command like '%( $pshome[*]+$pshome[*]+%' or command like '%( $env:public[13]+$env:public[5]+'x')%' or command like '%( $env:comspec[4,*,25]-join'')%' or command like '%[1,3]+'x'-join'')%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'PowerShell.EXE' or original_file_name = 'pwsh.dll')) and (command like '%join*split%' or command like '%( $ShellId[1]+$ShellId[13]+'x')%' or command like '%( $PSHome[*]+$PSHOME[*]+%' or command like '%( $env:Public[13]+$env:Public[5]+'x')%' or command like '%( $env:ComSpec[4,*,25]-Join'')%' or command like '%[1,3]+'x'-Join'')%'))",
   "Tags": [
     "attack.execution",
     "attack.t1059.001",

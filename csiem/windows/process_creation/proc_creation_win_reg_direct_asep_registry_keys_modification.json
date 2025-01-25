@@ -1,11 +1,11 @@
 {
   "Description": "Detects direct modification of autostart extensibility point (ASEP) in registry using reg.exe.\n\nAuthor: Victor Sergeev, Daniil Yugoslavskiy, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "24357373-078f-44ed-9ac4-6d334a668a11",
-  "InsertDate": "2025-01-21T09:29:28Z",
-  "LastUpdateDate": "2025-01-21T09:29:28Z",
+  "InsertDate": "2025-01-25T21:22:14Z",
+  "LastUpdateDate": "2025-01-25T21:22:14Z",
   "Level": "medium",
   "Name": "Direct Autorun Keys Modification",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\reg.exe' and command like '%add%') and (command like '%\\software\\microsoft\\windows\\currentversion\\run%' or command like '%\\software\\microsoft\\windows nt\\currentversion\\winlogon\\userinit%' or command like '%\\software\\microsoft\\windows nt\\currentversion\\winlogon\\shell%' or command like '%\\software\\microsoft\\windows nt\\currentversion\\windows%' or command like '%\\software\\microsoft\\windows\\currentversion\\explorer\\user shell folders%' or command like '%\\system\\currentcontrolset\\control\\safeboot\\alternateshell%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%\\software\\Microsoft\\Windows\\CurrentVersion\\Run%' or command like '%\\software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\Userinit%' or command like '%\\software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\Shell%' or command like '%\\software\\Microsoft\\Windows NT\\CurrentVersion\\Windows%' or command like '%\\software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\User Shell Folders%' or command like '%\\system\\CurrentControlSet\\Control\\SafeBoot\\AlternateShell%') and (process_path like '%\\reg.exe' and command like '%add%'))",
   "Tags": [
     "attack.persistence",
     "attack.t1547.001"

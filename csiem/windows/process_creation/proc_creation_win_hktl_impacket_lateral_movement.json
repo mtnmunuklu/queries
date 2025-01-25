@@ -1,11 +1,11 @@
 {
   "Description": "Detects wmiexec/dcomexec/atexec/smbexec from Impacket framework\n\nAuthor: Ecco, oscd.community, Jonhnathan Ribeiro, Tim Rauch\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "10c14723-61c7-4c75-92ca-9af245723ad2",
-  "InsertDate": "2025-01-21T09:28:29Z",
-  "LastUpdateDate": "2025-01-21T09:28:29Z",
+  "InsertDate": "2025-01-25T21:21:48Z",
+  "LastUpdateDate": "2025-01-25T21:21:48Z",
   "Level": "high",
   "Name": "HackTool - Potential Impacket Lateral Movement Activity",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((parent_process_path like '%\\wmiprvse.exe' or parent_process_path like '%\\mmc.exe' or parent_process_path like '%\\explorer.exe' or parent_process_path like '%\\services.exe') and (command like '%cmd.exe%' and command like '%/q%' and command like '%/c%' and command like '%\\\\\\\\127.0.0.1\\\\%' and command like '%\u00261%')) or ((parent_command_line like '%svchost.exe -k netsvcs%' or parent_command_line like '%taskeng.exe%') and (command like '%cmd.exe%' and command like '%/c%' and command like '%windows\\temp\\%' and command like '%\u00261%')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((parent_process_path like '%\\wmiprvse.exe' or parent_process_path like '%\\mmc.exe' or parent_process_path like '%\\explorer.exe' or parent_process_path like '%\\services.exe') and (command like '%cmd.exe%' and command like '%/Q%' and command like '%/c%' and command like '%\\\\\\\\127.0.0.1\\\\%' and command like '%\u00261%')) or ((parent_command_line like '%svchost.exe -k netsvcs%' or parent_command_line like '%taskeng.exe%') and (command like '%cmd.exe%' and command like '%/C%' and command like '%Windows\\Temp\\%' and command like '%\u00261%')))",
   "Tags": [
     "attack.execution",
     "attack.t1047",

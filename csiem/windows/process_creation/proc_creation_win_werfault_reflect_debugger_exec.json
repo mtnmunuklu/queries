@@ -1,11 +1,11 @@
 {
   "Description": "Detects execution of \"WerFault.exe\" with the \"-pr\" commandline flag that is used to run files stored in the ReflectDebugger key which could be used to store the path to the malware in order to masquerade the execution flow\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "fabfb3a7-3ce1-4445-9c7c-3c27f1051cdd",
-  "InsertDate": "2025-01-21T09:30:51Z",
-  "LastUpdateDate": "2025-01-21T09:30:51Z",
+  "InsertDate": "2025-01-25T21:22:36Z",
+  "LastUpdateDate": "2025-01-25T21:22:36Z",
   "Level": "medium",
   "Name": "Potential ReflectDebugger Content Execution Via WerFault.EXE",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\werfault.exe' and original_file_name = 'werfault.exe') and command like '% -pr %')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\WerFault.exe' and original_file_name = 'WerFault.exe') and command like '% -pr %')",
   "Tags": [
     "attack.execution",
     "attack.defense-evasion",

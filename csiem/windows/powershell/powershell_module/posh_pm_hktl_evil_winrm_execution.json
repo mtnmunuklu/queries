@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of Evil-WinRM via PowerShell Module logs by leveraging the hardcoded strings inside the utility.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9fe55ea2-4cd6-4491-8a54-dd6871651b51",
-  "InsertDate": "2025-01-21T09:27:59Z",
-  "LastUpdateDate": "2025-01-21T09:27:59Z",
+  "InsertDate": "2025-01-25T21:21:19Z",
+  "LastUpdateDate": "2025-01-25T21:21:19Z",
   "Level": "high",
   "Name": "HackTool - Evil-WinRm Execution - PowerShell Module",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((contextinfo like '%:\\windows\\system32\\wsmprovhost.exe%' or contextinfo like '%:\\windows\\syswow64\\wsmprovhost.exe%') and ((payload like '%value=\"(get-location).path%' or payload like '%value=\"(get-item*).length%' or payload like '%invoke-binary %' or payload like '%donut-loader -process_id*-donutfile%' or payload like '%bypass-4msi%' or payload like '%iex ([system.text.encoding]::ascii.getstring([system.convert]::frombase64string($a))).replace('???','')%') or (payload like '%$servicios = get-itemproperty \"registry::hklm\\system\\currentcontrolset\\services\\\"%' and payload like '%where-object {$_.imagepath -notmatch \"system\" -and $_.imagepath -ne $null } | select-object pschildname,imagepath%') or (payload like '%$a +=  \\\"$($_.fullname.replace('\\\\','/'))/\\\"}else{  $a += \\\"$($_.fullname.replace('\\\\', '/'))\\\" }%' and payload like '%$a=@();$%')))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((contextinfo like '%:\\Windows\\System32\\wsmprovhost.exe%' or contextinfo like '%:\\Windows\\SysWOW64\\wsmprovhost.exe%') and ((payload like '%value=\"(get-location).path%' or payload like '%value=\"(get-item*).length%' or payload like '%Invoke-Binary %' or payload like '%Donut-Loader -process_id*-donutfile%' or payload like '%Bypass-4MSI%' or payload like '%IEX ([System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String($a))).replace('???','')%') or (payload like '%$servicios = Get-ItemProperty \"registry::HKLM\\System\\CurrentControlSet\\Services\\\"%' and payload like '%Where-Object {$_.imagepath -notmatch \"system\" -and $_.imagepath -ne $null } | Select-Object pschildname,imagepath%') or (payload like '%$a +=  \\\"$($_.FullName.Replace('\\\\','/'))/\\\"}else{  $a += \\\"$($_.FullName.Replace('\\\\', '/'))\\\" }%' and payload like '%$a=@();$%')))",
   "Tags": [
     "attack.lateral-movement"
   ],

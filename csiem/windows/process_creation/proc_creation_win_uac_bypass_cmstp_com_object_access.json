@@ -1,11 +1,11 @@
 {
   "Description": "Detects UAC Bypass Attempt Using Microsoft Connection Manager Profile Installer Autoelevate-capable COM Objects (e.g. UACMe ID of 41, 43, 58 or 65)\n\nAuthor: Nik Seetharaman, Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4b60e6f2-bf39-47b4-b4ea-398e33cfe253",
-  "InsertDate": "2025-01-21T09:30:41Z",
-  "LastUpdateDate": "2025-01-21T09:30:41Z",
+  "InsertDate": "2025-01-25T21:22:33Z",
+  "LastUpdateDate": "2025-01-25T21:22:33Z",
   "Level": "high",
   "Name": "CMSTP UAC Bypass via COM Object Access",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where parent_process_path like '%\\dllhost.exe' and (parent_command_line like '% /processid:{3e5fc7f9-9a51-4367-9063-a120244fbec7}%' or parent_command_line like '% /processid:{3e000d72-a845-4cd9-bd83-80c07c3b881f}%' or parent_command_line like '% /processid:{bd54c901-076b-434e-b6c7-17c531f4ab41}%' or parent_command_line like '% /processid:{d2e7041b-2927-42fb-8e9f-7ce93b6dc937}%' or parent_command_line like '% /processid:{e9495b87-d950-4ab5-87a5-ff6d70bf3e90}%') and (integrity_level = 'high' or integrity_level = 'system' or integrity_level = 's-1-16-16384' or integrity_level = 's-1-16-12288')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where parent_process_path like '%\\DllHost.exe' and (parent_command_line like '% /Processid:{3E5FC7F9-9A51-4367-9063-A120244FBEC7}%' or parent_command_line like '% /Processid:{3E000D72-A845-4CD9-BD83-80C07C3B881F}%' or parent_command_line like '% /Processid:{BD54C901-076B-434E-B6C7-17C531F4AB41}%' or parent_command_line like '% /Processid:{D2E7041B-2927-42FB-8E9F-7CE93B6DC937}%' or parent_command_line like '% /Processid:{E9495B87-D950-4AB5-87A5-FF6D70BF3E90}%') and (integrity_level = 'High' or integrity_level = 'System' or integrity_level = 'S-1-16-16384' or integrity_level = 'S-1-16-12288')",
   "Tags": [
     "attack.execution",
     "attack.defense-evasion",

@@ -1,11 +1,11 @@
 {
   "Description": "Detects program executions in suspicious non-program folders related to malware or hacking activity\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a39d7fa7-3fbd-4dc2-97e1-d87f546b1bbc",
-  "InsertDate": "2025-01-21T09:27:13Z",
-  "LastUpdateDate": "2025-01-21T09:27:13Z",
+  "InsertDate": "2025-01-25T21:19:13Z",
+  "LastUpdateDate": "2025-01-25T21:19:13Z",
   "Level": "medium",
   "Name": "Program Executions in Suspicious Folders",
-  "Query": "sourcetype='linux-auditd' eql select * from _source_ where type = 'syscall' and (exe like '/tmp/%' or exe like '/var/www/%' or exe like '/home/*/public_html/%' or exe like '/usr/local/apache2/%' or exe like '/usr/local/httpd/%' or exe like '/var/apache/%' or exe like '/srv/www/%' or exe like '/home/httpd/html/%' or exe like '/srv/http/%' or exe like '/usr/share/nginx/html/%' or exe like '/var/lib/pgsql/data/%' or exe like '/usr/local/mysql/data/%' or exe like '/var/lib/mysql/%' or exe like '/var/vsftpd/%' or exe like '/etc/bind/%' or exe like '/var/named/%')",
+  "Query": "sourcetype='linux-auditd' eql select * from _source_ where type = 'SYSCALL' and (exe like '/tmp/%' or exe like '/var/www/%' or exe like '/home/*/public_html/%' or exe like '/usr/local/apache2/%' or exe like '/usr/local/httpd/%' or exe like '/var/apache/%' or exe like '/srv/www/%' or exe like '/home/httpd/html/%' or exe like '/srv/http/%' or exe like '/usr/share/nginx/html/%' or exe like '/var/lib/pgsql/data/%' or exe like '/usr/local/mysql/data/%' or exe like '/var/lib/mysql/%' or exe like '/var/vsftpd/%' or exe like '/etc/bind/%' or exe like '/var/named/%')",
   "Tags": [
     "attack.t1587",
     "attack.t1584",

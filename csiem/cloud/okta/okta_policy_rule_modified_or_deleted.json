@@ -1,8 +1,8 @@
 {
   "Description": "Detects when an Policy Rule is Modified or Deleted.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0c97c1d3-4057-45c9-b148-1de94b631931",
-  "InsertDate": "2025-01-21T09:27:10Z",
-  "LastUpdateDate": "2025-01-21T09:27:10Z",
+  "InsertDate": "2025-01-25T21:19:08Z",
+  "LastUpdateDate": "2025-01-25T21:19:08Z",
   "Level": "medium",
   "Name": "Okta Policy Rule Modified or Deleted",
   "Query": "sourcetype='okta-okta' eql select * from _source_ where (eventtype = 'policy.rule.update' or eventtype = 'policy.rule.delete')",

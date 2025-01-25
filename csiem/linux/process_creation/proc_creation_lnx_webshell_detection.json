@@ -1,8 +1,8 @@
 {
   "Description": "Detects suspicious sub processes of web server processes\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "818f7b24-0fba-4c49-a073-8b755573b9c7",
-  "InsertDate": "2025-01-21T09:27:19Z",
-  "LastUpdateDate": "2025-01-21T09:27:19Z",
+  "InsertDate": "2025-01-25T21:19:33Z",
+  "LastUpdateDate": "2025-01-25T21:19:33Z",
   "Level": "high",
   "Name": "Linux Webshell Indicators",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where (((parent_process_path like '%/httpd' or parent_process_path like '%/lighttpd' or parent_process_path like '%/nginx' or parent_process_path like '%/apache2' or parent_process_path like '%/node' or parent_process_path like '%/caddy') or (parent_command_line like '%/bin/java%' and parent_command_line like '%tomcat%') or (parent_command_line like '%/bin/java%' and parent_command_line like '%websphere%')) and (process_path like '%/whoami' or process_path like '%/ifconfig' or process_path like '%/ip' or process_path like '%/bin/uname' or process_path like '%/bin/cat' or process_path like '%/bin/crontab' or process_path like '%/hostname' or process_path like '%/iptables' or process_path like '%/netstat' or process_path like '%/pwd' or process_path like '%/route'))",

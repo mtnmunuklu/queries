@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of PowerShell with a specific flag sequence that is used by the Wmiexec script\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "022eaba8-f0bf-4dd9-9217-4604b0bb3bb0",
-  "InsertDate": "2025-01-21T09:28:33Z",
-  "LastUpdateDate": "2025-01-21T09:28:33Z",
+  "InsertDate": "2025-01-25T21:21:54Z",
+  "LastUpdateDate": "2025-01-25T21:21:54Z",
   "Level": "high",
   "Name": "HackTool - Wmiexec Default Powershell Command",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where command like '%-nop -nol -sta -noni -w hidden -exec bypass -enc%'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where command like '%-NoP -NoL -sta -NonI -W Hidden -Exec Bypass -Enc%'",
   "Tags": [
     "attack.defense-evasion",
     "attack.lateral-movement"

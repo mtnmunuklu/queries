@@ -1,11 +1,11 @@
 {
   "Description": "Detects file being transferred via ScreenConnect RMM\n\nAuthor: Ali Alwashali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "5d19eb78-5b5b-4ef2-a9f0-4bfa94d58a13",
-  "InsertDate": "2025-01-21T09:27:25Z",
-  "LastUpdateDate": "2025-01-21T09:27:25Z",
+  "InsertDate": "2025-01-25T21:20:02Z",
+  "LastUpdateDate": "2025-01-25T21:20:02Z",
   "Level": "low",
   "Name": "Remote Access Tool - ScreenConnect File Transfer",
-  "Query": "sourcetype='windows-application' eql select * from _source_ where provider_name = 'screenconnect' and eventid = '201' and data like '%transferred files with action%'",
+  "Query": "sourcetype='windows-application' eql select * from _source_ where provider_name = 'ScreenConnect' and eventid = '201' and data like '%Transferred files with action%'",
   "Tags": [
     "attack.execution",
     "attack.t1059.003"

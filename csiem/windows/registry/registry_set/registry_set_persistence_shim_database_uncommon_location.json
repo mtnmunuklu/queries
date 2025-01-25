@@ -1,11 +1,11 @@
 {
   "Description": "Detects the installation of a new shim database where the file is located in a non-default location\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6b6976a3-b0e6-4723-ac24-ae38a737af41",
-  "InsertDate": "2025-01-21T09:31:49Z",
-  "LastUpdateDate": "2025-01-21T09:31:49Z",
+  "InsertDate": "2025-01-25T21:22:49Z",
+  "LastUpdateDate": "2025-01-25T21:22:49Z",
   "Level": "high",
   "Name": "Potential Persistence Via Shim Database In Uncommon Location",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object like '%\\software\\microsoft\\windows nt\\currentversion\\appcompatflags\\installedsdb\\%' and target_object like '%\\databasepath%') and  not details like '%:\\windows\\apppatch\\custom%')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object like '%\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\InstalledSDB\\%' and target_object like '%\\DatabasePath%') and  not details like '%:\\Windows\\AppPatch\\Custom%')",
   "Tags": [
     "attack.persistence",
     "attack.t1546.011"

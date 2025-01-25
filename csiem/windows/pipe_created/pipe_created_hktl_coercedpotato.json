@@ -1,8 +1,8 @@
 {
   "Description": "Detects the pattern of a pipe name as used by the hack tool CoercedPotato\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4d0083b3-580b-40da-9bba-626c19fe4033",
-  "InsertDate": "2025-01-21T09:27:57Z",
-  "LastUpdateDate": "2025-01-21T09:27:57Z",
+  "InsertDate": "2025-01-25T21:21:16Z",
+  "LastUpdateDate": "2025-01-25T21:21:16Z",
   "Level": "high",
   "Name": "HackTool - CoercedPotato Named Pipe Creation",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where pipe_name like '%\\coerced\\%'",

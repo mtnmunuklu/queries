@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of an Office application that points to a document that is located in a trusted location. Attackers often used this to avoid macro security and execute their malicious code.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f99abdf0-6283-4e71-bd2b-b5c048a94743",
-  "InsertDate": "2025-01-21T09:28:45Z",
-  "LastUpdateDate": "2025-01-21T09:28:45Z",
+  "InsertDate": "2025-01-25T21:22:04Z",
+  "LastUpdateDate": "2025-01-25T21:22:04Z",
   "Level": "high",
   "Name": "Potentially Suspicious Office Document Executed From Trusted Location",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((parent_process_path like '%\\explorer.exe' or parent_process_path like '%\\dopus.exe') and ((process_path like '%\\excel.exe' or process_path like '%\\powerpnt.exe' or process_path like '%\\winword.exe') and (original_file_name = 'excel.exe' or original_file_name = 'powerpnt.exe' or original_file_name = 'winword.exe')) and (command like '%\\appdata\\roaming\\microsoft\\templates%' or command like '%\\appdata\\roaming\\microsoft\\word\\startup\\%' or command like '%\\microsoft office\\root\\templates\\%' or command like '%\\microsoft office\\templates\\%')) and  not (command like '%.dotx' or command like '%.xltx' or command like '%.potx'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((parent_process_path like '%\\explorer.exe' or parent_process_path like '%\\dopus.exe') and ((process_path like '%\\EXCEL.EXE' or process_path like '%\\POWERPNT.EXE' or process_path like '%\\WINWORD.exe') and (original_file_name = 'Excel.exe' or original_file_name = 'POWERPNT.EXE' or original_file_name = 'WinWord.exe')) and (command like '%\\AppData\\Roaming\\Microsoft\\Templates%' or command like '%\\AppData\\Roaming\\Microsoft\\Word\\Startup\\%' or command like '%\\Microsoft Office\\root\\Templates\\%' or command like '%\\Microsoft Office\\Templates\\%')) and  not (command like '%.dotx' or command like '%.xltx' or command like '%.potx'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1202"

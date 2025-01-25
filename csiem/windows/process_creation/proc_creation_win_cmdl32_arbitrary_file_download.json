@@ -1,11 +1,11 @@
 {
   "Description": "Detects execution of Cmdl32 with the \"/vpn\" and \"/lan\" flags.\nAttackers can abuse this utility in order to download arbitrary files via a configuration file.\nInspect the location and the content of the file passed as an argument in order to determine if it is suspicious.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f37aba28-a9e6-4045-882c-d5004043b337",
-  "InsertDate": "2025-01-21T09:28:21Z",
-  "LastUpdateDate": "2025-01-21T09:28:21Z",
+  "InsertDate": "2025-01-25T21:21:40Z",
+  "LastUpdateDate": "2025-01-25T21:21:40Z",
   "Level": "medium",
   "Name": "Potential Arbitrary File Download Via Cmdl32.EXE",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\cmdl32.exe' and original_file_name = 'cmdl32.exe') and (command like '%/vpn%' and command like '%/lan%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%/vpn%' and command like '%/lan%') and (process_path like '%\\cmdl32.exe' and original_file_name = 'CMDL32.EXE'))",
   "Tags": [
     "attack.execution",
     "attack.defense-evasion",

@@ -1,11 +1,11 @@
 {
   "Description": "Alert on when legacy authentication has been used on an account\n\nAuthor: Yochana Henderson, '@Yochana-H'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "60f6535a-760f-42a9-be3f-c9a0a025906e",
-  "InsertDate": "2025-01-21T09:27:06Z",
-  "LastUpdateDate": "2025-01-21T09:27:06Z",
+  "InsertDate": "2025-01-25T21:18:56Z",
+  "LastUpdateDate": "2025-01-25T21:18:56Z",
   "Level": "high",
   "Name": "Use of Legacy Authentication Protocols",
-  "Query": "sourcetype='azure-signinlogs' eql select * from _source_ where activitydetails = 'sign-ins' and (clientapp = 'other client' or clientapp = 'imap' or clientapp = 'pop3' or clientapp = 'mapi' or clientapp = 'smtp' or clientapp = 'exchange activesync' or clientapp = 'exchange web services') and username = 'upn'",
+  "Query": "sourcetype='azure-signinlogs' eql select * from _source_ where activitydetails = 'Sign-ins' and (clientapp = 'Other client' or clientapp = 'IMAP' or clientapp = 'POP3' or clientapp = 'MAPI' or clientapp = 'SMTP' or clientapp = 'Exchange ActiveSync' or clientapp = 'Exchange Web Services') and username = 'UPN'",
   "Tags": [
     "attack.initial-access",
     "attack.credential-access",

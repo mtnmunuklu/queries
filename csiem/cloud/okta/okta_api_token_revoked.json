@@ -1,8 +1,8 @@
 {
   "Description": "Detects when a API Token is revoked.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "cf1dbc6b-6205-41b4-9b88-a83980d2255b",
-  "InsertDate": "2025-01-21T09:27:10Z",
-  "LastUpdateDate": "2025-01-21T09:27:10Z",
+  "InsertDate": "2025-01-25T21:19:07Z",
+  "LastUpdateDate": "2025-01-25T21:19:07Z",
   "Level": "medium",
   "Name": "Okta API Token Revoked",
   "Query": "sourcetype='okta-okta' eql select * from _source_ where eventtype = 'system.api_token.revoke'",

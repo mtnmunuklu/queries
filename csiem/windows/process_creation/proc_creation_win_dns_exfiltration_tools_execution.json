@@ -1,8 +1,8 @@
 {
   "Description": "Well-known DNS Exfiltration tools execution\n\nAuthor: Daniil Yugoslavskiy, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "98a96a5a-64a0-4c42-92c5-489da3866cb0",
-  "InsertDate": "2025-01-21T09:28:24Z",
-  "LastUpdateDate": "2025-01-21T09:28:24Z",
+  "InsertDate": "2025-01-25T21:21:42Z",
+  "LastUpdateDate": "2025-01-25T21:21:42Z",
   "Level": "high",
   "Name": "DNS Exfiltration and Tunneling Tools Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\iodine.exe' and process_path like '%\\dnscat2%'",

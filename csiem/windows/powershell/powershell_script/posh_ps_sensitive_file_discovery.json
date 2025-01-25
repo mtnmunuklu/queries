@@ -1,8 +1,8 @@
 {
   "Description": "Detect adversaries enumerate sensitive files\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "7d416556-6502-45b2-9bad-9d2f05f38997",
-  "InsertDate": "2025-01-21T09:28:07Z",
-  "LastUpdateDate": "2025-01-21T09:28:07Z",
+  "InsertDate": "2025-01-25T21:21:28Z",
+  "LastUpdateDate": "2025-01-25T21:21:28Z",
   "Level": "medium",
   "Name": "Powershell Sensitive File Discovery",
   "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((scriptblocktext like '%ls%' or scriptblocktext like '%get-childitem%' or scriptblocktext like '%gci%') and scriptblocktext like '%-recurse%' and (scriptblocktext like '%.pass%' or scriptblocktext like '%.kdbx%' or scriptblocktext like '%.kdb%'))",

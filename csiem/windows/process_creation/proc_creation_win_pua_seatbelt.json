@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of the PUA/Recon tool Seatbelt via PE information of command line parameters\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "38646daa-e78f-4ace-9de0-55547b2d30da",
-  "InsertDate": "2025-01-21T09:29:20Z",
-  "LastUpdateDate": "2025-01-21T09:29:20Z",
+  "InsertDate": "2025-01-25T21:22:13Z",
+  "LastUpdateDate": "2025-01-25T21:22:13Z",
   "Level": "high",
   "Name": "PUA - Seatbelt Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\seatbelt.exe' and original_file_name = 'seatbelt.exe' and description = 'seatbelt' and (command like '% dpapimasterkeys%' or command like '% interestingprocesses%' or command like '% interestingfiles%' or command like '% certificatethumbprints%' or command like '% chromiumbookmarks%' or command like '% chromiumhistory%' or command like '% chromiumpresence%' or command like '% cloudcredentials%' or command like '% credenum%' or command like '% credguard%' or command like '% firefoxhistory%' or command like '% processcreationevents%')) or ((command like '% -group=misc%' or command like '% -group=remote%' or command like '% -group=chromium%' or command like '% -group=slack%' or command like '% -group=system%' or command like '% -group=user%' or command like '% -group=all%') and command like '% -outputfile=%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\Seatbelt.exe' and original_file_name = 'Seatbelt.exe' and description = 'Seatbelt' and (command like '% DpapiMasterKeys%' or command like '% InterestingProcesses%' or command like '% InterestingFiles%' or command like '% CertificateThumbprints%' or command like '% ChromiumBookmarks%' or command like '% ChromiumHistory%' or command like '% ChromiumPresence%' or command like '% CloudCredentials%' or command like '% CredEnum%' or command like '% CredGuard%' or command like '% FirefoxHistory%' or command like '% ProcessCreationEvents%')) or ((command like '% -group=misc%' or command like '% -group=remote%' or command like '% -group=chromium%' or command like '% -group=slack%' or command like '% -group=system%' or command like '% -group=user%' or command like '% -group=all%') and command like '% -outputfile=%'))",
   "Tags": [
     "attack.discovery",
     "attack.t1526",

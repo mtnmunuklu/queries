@@ -1,11 +1,11 @@
 {
   "Description": "This detection excludes known namped pipes accessible remotely and notify on newly observed ones, may help to detect lateral movement and remote exec using named pipes\n\nAuthor: Samir Bousseaden\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "52d8b0c6-53d6-439a-9e41-52ad442ad9ad",
-  "InsertDate": "2025-01-21T09:27:31Z",
-  "LastUpdateDate": "2025-01-21T09:27:31Z",
+  "InsertDate": "2025-01-25T21:20:20Z",
+  "LastUpdateDate": "2025-01-25T21:20:20Z",
   "Level": "high",
   "Name": "First Time Seen Remote Named Pipe",
-  "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '5145' and sharename = '\\\\\\\\\\*\\\\ipc$') and  not (relativetargetname = 'atsvc' or relativetargetname = 'samr' or relativetargetname = 'lsarpc' or relativetargetname = 'lsass' or relativetargetname = 'winreg' or relativetargetname = 'netlogon' or relativetargetname = 'srvsvc' or relativetargetname = 'protected_storage' or relativetargetname = 'wkssvc' or relativetargetname = 'browser' or relativetargetname = 'netdfs' or relativetargetname = 'svcctl' or relativetargetname = 'spoolss' or relativetargetname = 'ntsvcs' or relativetargetname = 'lsm_api_service' or relativetargetname = 'hydralspipe' or relativetargetname = 'termsrv_api_service' or relativetargetname = 'msftewds' or relativetargetname = 'sql\\query' or relativetargetname = 'eventlog'))",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '5145' and sharename = '\\\\\\\\\\*\\\\IPC$') and  not (relativetargetname = 'atsvc' or relativetargetname = 'samr' or relativetargetname = 'lsarpc' or relativetargetname = 'lsass' or relativetargetname = 'winreg' or relativetargetname = 'netlogon' or relativetargetname = 'srvsvc' or relativetargetname = 'protected_storage' or relativetargetname = 'wkssvc' or relativetargetname = 'browser' or relativetargetname = 'netdfs' or relativetargetname = 'svcctl' or relativetargetname = 'spoolss' or relativetargetname = 'ntsvcs' or relativetargetname = 'LSM_API_service' or relativetargetname = 'HydraLsPipe' or relativetargetname = 'TermSrv_API_service' or relativetargetname = 'MsFteWds' or relativetargetname = 'sql\\query' or relativetargetname = 'eventlog'))",
   "Tags": [
     "attack.lateral-movement",
     "attack.t1021.002"

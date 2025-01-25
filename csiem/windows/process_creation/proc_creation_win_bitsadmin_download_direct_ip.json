@@ -1,11 +1,11 @@
 {
   "Description": "Detects usage of bitsadmin downloading a file using an URL that contains an IP\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "99c840f2-2012-46fd-9141-c761987550ef",
-  "InsertDate": "2025-01-21T09:28:17Z",
-  "LastUpdateDate": "2025-01-21T09:28:17Z",
+  "InsertDate": "2025-01-25T21:21:36Z",
+  "LastUpdateDate": "2025-01-25T21:21:36Z",
   "Level": "high",
   "Name": "Suspicious Download From Direct IP Via Bitsadmin",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((command like '%://1%' or command like '%://2%' or command like '%://3%' or command like '%://4%' or command like '%://5%' or command like '%://6%' or command like '%://7%' or command like '%://8%' or command like '%://9%') and (process_path like '%\\bitsadmin.exe' and original_file_name = 'bitsadmin.exe') and (command like '% /transfer %' or command like '% /create %' or command like '% /addfile %')) and  not command like '%://7-%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\bitsadmin.exe' and original_file_name = 'bitsadmin.exe') and (command like '% /transfer %' or command like '% /create %' or command like '% /addfile %') and (command like '%://1%' or command like '%://2%' or command like '%://3%' or command like '%://4%' or command like '%://5%' or command like '%://6%' or command like '%://7%' or command like '%://8%' or command like '%://9%')) and  not command like '%://7-%')",
   "Tags": [
     "attack.defense-evasion",
     "attack.persistence",

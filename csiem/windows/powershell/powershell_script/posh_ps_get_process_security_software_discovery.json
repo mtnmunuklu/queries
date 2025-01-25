@@ -1,11 +1,11 @@
 {
   "Description": "Detects calls to \"get-process\" where the output is piped to a \"where-object\" filter to search for security solution processes.\nAdversaries may attempt to get a listing of security software, configurations, defensive tools, and sensors that are installed on a system or in a cloud environment. This may include things such as firewall rules and anti-virus\n\n\nAuthor: frack113, Anish Bogati, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "904e8e61-8edf-4350-b59c-b905fc8e810c",
-  "InsertDate": "2025-01-21T09:28:04Z",
-  "LastUpdateDate": "2025-01-21T09:28:04Z",
+  "InsertDate": "2025-01-25T21:21:24Z",
+  "LastUpdateDate": "2025-01-25T21:21:24Z",
   "Level": "medium",
   "Name": "Security Software Discovery Via Powershell Script",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((scriptblocktext like '%get-process | \\?%' or scriptblocktext like '%get-process | where%' or scriptblocktext like '%gps | \\?%' or scriptblocktext like '%gps | where%') and (scriptblocktext like '%company -like%' or scriptblocktext like '%description -like%' or scriptblocktext like '%name -like%' or scriptblocktext like '%path -like%' or scriptblocktext like '%product -like%') and (scriptblocktext like '%\\*avira\\*%' or scriptblocktext like '%\\*carbonblack\\*%' or scriptblocktext like '%\\*cylance\\*%' or scriptblocktext like '%\\*defender\\*%' or scriptblocktext like '%\\*kaspersky\\*%' or scriptblocktext like '%\\*malware\\*%' or scriptblocktext like '%\\*sentinel\\*%' or scriptblocktext like '%\\*symantec\\*%' or scriptblocktext like '%\\*virus\\*%'))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((scriptblocktext like '%Company -like%' or scriptblocktext like '%Description -like%' or scriptblocktext like '%Name -like%' or scriptblocktext like '%Path -like%' or scriptblocktext like '%Product -like%') and (scriptblocktext like '%\\*avira\\*%' or scriptblocktext like '%\\*carbonblack\\*%' or scriptblocktext like '%\\*cylance\\*%' or scriptblocktext like '%\\*defender\\*%' or scriptblocktext like '%\\*kaspersky\\*%' or scriptblocktext like '%\\*malware\\*%' or scriptblocktext like '%\\*sentinel\\*%' or scriptblocktext like '%\\*symantec\\*%' or scriptblocktext like '%\\*virus\\*%') and (scriptblocktext like '%get-process | \\?%' or scriptblocktext like '%get-process | where%' or scriptblocktext like '%gps | \\?%' or scriptblocktext like '%gps | where%'))",
   "Tags": [
     "attack.discovery",
     "attack.t1518.001"

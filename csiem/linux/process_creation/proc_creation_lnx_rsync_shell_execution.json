@@ -1,11 +1,11 @@
 {
-  "Description": "Detects the use of the \"gcc\" utility to execute a shell. Such behavior may be associated with privilege escalation, unauthorized command execution, or to break out from restricted environments.\n\n\nAuthor: Li Ling, Andy Parkidomo, Robert Rakowski, Blake Hartstein (Bloomberg L.P.)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "Description": "Detects the use of the \"rsync\" utility to execute a shell. Such behavior may be associated with privilege escalation, unauthorized command execution, or to break out from restricted environments.\n\n\nAuthor: Li Ling, Andy Parkidomo, Robert Rakowski, Blake Hartstein (Bloomberg L.P.), Florian Roth\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e2326866-609f-4015-aea9-7ec634e8aa04",
-  "InsertDate": "2025-01-21T09:27:17Z",
-  "LastUpdateDate": "2025-01-21T09:27:17Z",
+  "InsertDate": "2025-01-25T21:19:28Z",
+  "LastUpdateDate": "2025-01-25T21:19:28Z",
   "Level": "high",
   "Name": "Shell Execution via Rsync - Linux",
-  "Query": "sourcetype like 'linux-%' eql select * from _source_ where ((process_path like '%/rsync' and command like '% -e %') and (command like '%sh 0\u003c\u00262 1\u003e\u00262%' or command like '%sh 1\u003e\u00262 0\u003c\u00262%') and command like '%/dev/null%')",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where (((process_path like '%/rsync' or process_path like '%/rsyncd') and command like '% -e %') and (command like '%/ash %' or command like '%/bash %' or command like '%/dash %' or command like '%/csh %' or command like '%/sh %' or command like '%/zsh %' or command like '%/tcsh %' or command like '%/ksh %' or command like '%'ash %' or command like '%'bash %' or command like '%'dash %' or command like '%'csh %' or command like '%'sh %' or command like '%'zsh %' or command like '%'tcsh %' or command like '%'ksh %'))",
   "Tags": [
     "attack.execution",
     "attack.t1059"

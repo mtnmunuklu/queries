@@ -1,8 +1,8 @@
 {
   "Description": "Detects usage of the windows RPC library Encrypting File System Remote Protocol (MS-EFSRPC). Variations of this RPC are used within the attack refereed to as PetitPotam.\nThe usage of this RPC function should be rare if ever used at all.\nThus usage of this function is uncommon enough that any usage of this RPC function should warrant further investigation to determine if it is legitimate.\n View surrounding logs (within a few minutes before and after) from the Source IP to. Logs from from the Source IP would include dce_rpc, smb_mapping, smb_files, rdp, ntlm, kerberos, etc..'\n\n\nAuthor: @neu5ron, @Antonlovesdnb, Mike Remen\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4096842a-8f9f-4d36-92b4-d0b2a62f9b2a",
-  "InsertDate": "2025-01-21T09:27:22Z",
-  "LastUpdateDate": "2025-01-21T09:27:22Z",
+  "InsertDate": "2025-01-25T21:19:45Z",
+  "LastUpdateDate": "2025-01-25T21:19:45Z",
   "Level": "medium",
   "Name": "Potential PetitPotam Attack Via EFS RPC Calls",
   "Query": "sourcetype='zeek-dce_rpc' eql select * from _source_ where operation like 'efs%'",

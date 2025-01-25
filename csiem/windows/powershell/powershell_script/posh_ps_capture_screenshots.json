@@ -1,11 +1,11 @@
 {
   "Description": "Adversaries may attempt to take screen captures of the desktop to gather information over the course of an operation.\nScreen capturing functionality may be included as a feature of a remote access tool used in post-compromise operations\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d4a11f63-2390-411c-9adf-d791fd152830",
-  "InsertDate": "2025-01-21T09:28:01Z",
-  "LastUpdateDate": "2025-01-21T09:28:01Z",
+  "InsertDate": "2025-01-25T21:21:22Z",
+  "LastUpdateDate": "2025-01-25T21:21:22Z",
   "Level": "medium",
   "Name": "Windows Screen Capture with CopyFromScreen",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where scriptblocktext like '%.copyfromscreen%'",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where scriptblocktext like '%.CopyFromScreen%'",
   "Tags": [
     "attack.collection",
     "attack.t1113"

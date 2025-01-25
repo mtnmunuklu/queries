@@ -1,11 +1,11 @@
 {
   "Description": "Detects attempts of decoding a base64 Gzip archive via PowerShell. This technique is often used as a method to load malicious content into memory afterward.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d75d6b6b-adb9-48f7-824b-ac2e786efe1f",
-  "InsertDate": "2025-01-21T09:28:57Z",
-  "LastUpdateDate": "2025-01-21T09:28:57Z",
+  "InsertDate": "2025-01-25T21:22:08Z",
+  "LastUpdateDate": "2025-01-25T21:22:08Z",
   "Level": "medium",
   "Name": "Suspicious FromBase64String Usage On Gzip Archive - Process Creation",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%frombase64string%' and command like '%memorystream%' and command like '%h4si%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%FromBase64String%' and command like '%MemoryStream%' and command like '%H4sI%')",
   "Tags": [
     "attack.command-and-control",
     "attack.t1132.001"

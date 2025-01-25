@@ -1,11 +1,11 @@
 {
   "Description": "Detects the usage of attrib with the \"+s\" option to set scripts or executables located in suspicious locations as system files to hide them from users and make them unable to be deleted with simple rights. The rule limits the search to specific extensions and directories to avoid FPs\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "efec536f-72e8-4656-8960-5e85d091345b",
-  "InsertDate": "2025-01-21T09:28:16Z",
-  "LastUpdateDate": "2025-01-21T09:28:16Z",
+  "InsertDate": "2025-01-25T21:21:35Z",
+  "LastUpdateDate": "2025-01-25T21:21:35Z",
   "Level": "high",
   "Name": "Set Suspicious Files as System Files Using Attrib.EXE",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '% +s%' and (command like '% %%' or command like '%\\users\\public\\%' or command like '%\\appdata\\local\\%' or command like '%\\programdata\\%' or command like '%\\downloads\\%' or command like '%\\windows\\temp\\%') and (command like '%.bat%' or command like '%.dll%' or command like '%.exe%' or command like '%.hta%' or command like '%.ps1%' or command like '%.vbe%' or command like '%.vbs%') and (process_path like '%\\attrib.exe' and original_file_name = 'attrib.exe')) and  not (command like '%\\windows\\temp\\%' and command like '%.exe%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\attrib.exe' and original_file_name = 'ATTRIB.EXE') and command like '% +s%' and (command like '% %%' or command like '%\\Users\\Public\\%' or command like '%\\AppData\\Local\\%' or command like '%\\ProgramData\\%' or command like '%\\Downloads\\%' or command like '%\\Windows\\Temp\\%') and (command like '%.bat%' or command like '%.dll%' or command like '%.exe%' or command like '%.hta%' or command like '%.ps1%' or command like '%.vbe%' or command like '%.vbs%')) and  not (command like '%\\Windows\\TEMP\\%' and command like '%.exe%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1564.001"

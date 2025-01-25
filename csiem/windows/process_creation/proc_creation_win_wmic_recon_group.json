@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of \"wmic\" with the \"group\" flag.\nAdversaries may attempt to find local system groups and permission settings.\nThe knowledge of local system permission groups can help adversaries determine which groups exist and which users belong to a particular group.\nAdversaries may use this information to determine which users have elevated permissions, such as the users found within the local administrators group.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "164eda96-11b2-430b-85ff-6a265c15bf32",
-  "InsertDate": "2025-01-21T09:31:00Z",
-  "LastUpdateDate": "2025-01-21T09:31:00Z",
+  "InsertDate": "2025-01-25T21:22:38Z",
+  "LastUpdateDate": "2025-01-25T21:22:38Z",
   "Level": "low",
   "Name": "Local Groups Reconnaissance Via Wmic.EXE",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '% group%' and (process_path like '%\\wmic.exe' and original_file_name = 'wmic.exe'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\wmic.exe' and original_file_name = 'wmic.exe') and command like '% group%')",
   "Tags": [
     "attack.discovery",
     "attack.t1069.001"

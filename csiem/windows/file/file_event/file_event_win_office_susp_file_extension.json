@@ -1,11 +1,11 @@
 {
   "Description": "Detects the creation of files with an executable or script extension by an Office application.\n\nAuthor: Vadim Khrykov (ThreatIntel), Cyb3rEng (Rule), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c7a74c80-ba5a-486e-9974-ab9e682bc5e4",
-  "InsertDate": "2025-01-21T09:27:45Z",
-  "LastUpdateDate": "2025-01-21T09:27:45Z",
+  "InsertDate": "2025-01-25T21:20:59Z",
+  "LastUpdateDate": "2025-01-25T21:20:59Z",
   "Level": "high",
   "Name": "File With Uncommon Extension Created By An Office Application",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\excel.exe' or process_path like '%\\msaccess.exe' or process_path like '%\\mspub.exe' or process_path like '%\\powerpnt.exe' or process_path like '%\\visio.exe' or process_path like '%\\winword.exe') and (filepath like '%.bat' or filepath like '%.cmd' or filepath like '%.com' or filepath like '%.dll' or filepath like '%.exe' or filepath like '%.hta' or filepath like '%.ocx' or filepath like '%.proj' or filepath like '%.ps1' or filepath like '%.scf' or filepath like '%.scr' or filepath like '%.sys' or filepath like '%.vbe' or filepath like '%.vbs' or filepath like '%.wsf' or filepath like '%.wsh')) and  not (filepath like '%\\appdata\\local\\assembly\\tmp\\%' and filepath like '%.dll') and  not ((process_path like '%\\winword.exe' and filepath like '%\\appdata\\local\\temp\\webexdelta\\%' and (filepath like '%.dll' or filepath like '%.exe')) or ((filepath like '%c:\\users\\%' and filepath like '%\\appdata\\local\\microsoft\\office\\%' and filepath like '%\\webservicecache\\allusers%') and filepath like '%.com')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\excel.exe' or process_path like '%\\msaccess.exe' or process_path like '%\\mspub.exe' or process_path like '%\\powerpnt.exe' or process_path like '%\\visio.exe' or process_path like '%\\winword.exe') and (filepath like '%.bat' or filepath like '%.cmd' or filepath like '%.com' or filepath like '%.dll' or filepath like '%.exe' or filepath like '%.hta' or filepath like '%.ocx' or filepath like '%.proj' or filepath like '%.ps1' or filepath like '%.scf' or filepath like '%.scr' or filepath like '%.sys' or filepath like '%.vbe' or filepath like '%.vbs' or filepath like '%.wsf' or filepath like '%.wsh')) and  not (filepath like '%\\AppData\\Local\\assembly\\tmp\\%' and filepath like '%.dll') and  not (((filepath like '%C:\\Users\\%' and filepath like '%\\AppData\\Local\\Microsoft\\Office\\%' and filepath like '%\\WebServiceCache\\AllUsers%') and filepath like '%.com') or (process_path like '%\\winword.exe' and filepath like '%\\AppData\\Local\\Temp\\webexdelta\\%' and (filepath like '%.dll' or filepath like '%.exe'))))",
   "Tags": [
     "attack.t1204.002",
     "attack.execution"

@@ -1,8 +1,8 @@
 {
   "Description": "Detects when a Kubernetes Rolebinding is created or modified.\n\n\nAuthor: kelnage\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "10b97915-ec8d-455f-a815-9a78926585f6",
-  "InsertDate": "2025-01-21T09:26:58Z",
-  "LastUpdateDate": "2025-01-21T09:26:58Z",
+  "InsertDate": "2025-01-25T21:18:21Z",
+  "LastUpdateDate": "2025-01-25T21:18:21Z",
   "Level": "medium",
   "Name": "Kubernetes Rolebinding Modification",
   "Query": "sourcetype='kubernetes-audit' eql select * from _source_ where objectref.apigroup = 'rbac.authorization.k8s.io' and (objectref.resource = 'clusterrolebindings' or objectref.resource = 'rolebindings') and (verb = 'create' or verb = 'delete' or verb = 'patch' or verb = 'replace' or verb = 'update')",

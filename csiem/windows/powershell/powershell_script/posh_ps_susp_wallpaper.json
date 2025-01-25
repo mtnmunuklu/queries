@@ -1,11 +1,11 @@
 {
   "Description": "An adversary may deface systems internal to an organization in an attempt to intimidate or mislead users.\nThis may take the form of modifications to internal websites, or directly to user systems with the replacement of the desktop wallpaper\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c5ac6a1e-9407-45f5-a0ce-ca9a0806a287",
-  "InsertDate": "2025-01-21T09:28:12Z",
-  "LastUpdateDate": "2025-01-21T09:28:12Z",
+  "InsertDate": "2025-01-25T21:21:31Z",
+  "LastUpdateDate": "2025-01-25T21:21:31Z",
   "Level": "low",
   "Name": "Replace Desktop Wallpaper by Powershell",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((scriptblocktext like '%get-itemproperty%' and scriptblocktext like '%registry::%' and scriptblocktext like '%hkey_current_user\\control panel\\desktop\\%' and scriptblocktext like '%wallpaper%') or scriptblocktext like '%systemparametersinfo(20,0,*,3)%')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((scriptblocktext like '%Get-ItemProperty%' and scriptblocktext like '%Registry::%' and scriptblocktext like '%HKEY_CURRENT_USER\\Control Panel\\Desktop\\%' and scriptblocktext like '%WallPaper%') or scriptblocktext like '%SystemParametersInfo(20,0,*,3)%')",
   "Tags": [
     "attack.impact",
     "attack.t1491.001"

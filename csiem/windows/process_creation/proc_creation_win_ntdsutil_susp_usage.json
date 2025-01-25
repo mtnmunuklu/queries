@@ -1,8 +1,8 @@
 {
   "Description": "Detects execution of ntdsutil.exe to perform different actions such as restoring snapshots...etc.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a58353df-af43-4753-bad0-cd83ef35eef5",
-  "InsertDate": "2025-01-21T09:28:45Z",
-  "LastUpdateDate": "2025-01-21T09:28:45Z",
+  "InsertDate": "2025-01-25T21:22:03Z",
+  "LastUpdateDate": "2025-01-25T21:22:03Z",
   "Level": "medium",
   "Name": "Suspicious Usage Of Active Directory Diagnostic Tool (ntdsutil.exe)",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\ntdsutil.exe' and original_file_name = 'ntdsutil.exe') and ((command like '%snapshot%' and command like '%mount %') and (command like '%ac%' and command like '% i%' and command like '% ntds%')))",

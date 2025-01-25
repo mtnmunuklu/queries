@@ -1,11 +1,11 @@
 {
   "Description": "Detects when an user account is locked out.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "14701da0-4b0f-4ee6-9c95-2ffb4e73bb9a",
-  "InsertDate": "2025-01-21T09:27:11Z",
-  "LastUpdateDate": "2025-01-21T09:27:11Z",
+  "InsertDate": "2025-01-25T21:19:08Z",
+  "LastUpdateDate": "2025-01-25T21:19:08Z",
   "Level": "medium",
   "Name": "Okta User Account Locked Out",
-  "Query": "sourcetype='okta-okta' eql select * from _source_ where displaymessage = 'max sign in attempts exceeded'",
+  "Query": "sourcetype='okta-okta' eql select * from _source_ where displaymessage = 'Max sign in attempts exceeded'",
   "Tags": [
     "attack.impact",
     "attack.t1531"

@@ -1,11 +1,11 @@
 {
   "Description": "Detects a suspicious script execution in temporary folders or folders accessible by environment variables\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1228c958-e64e-4e71-92ad-7d429f4138ba",
-  "InsertDate": "2025-01-21T09:30:29Z",
-  "LastUpdateDate": "2025-01-21T09:30:29Z",
+  "InsertDate": "2025-01-25T21:22:30Z",
+  "LastUpdateDate": "2025-01-25T21:22:30Z",
   "Level": "high",
   "Name": "Script Interpreter Execution From Suspicious Folder",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\cscript.exe' or process_path like '%\\mshta.exe' or process_path like '%\\wscript.exe') or (command like '% -ep bypass %' or command like '% -executionpolicy bypass %' or command like '% -w hidden %' or command like '%/e:javascript %' or command like '%/e:jscript %' or command like '%/e:vbscript %') or (original_file_name = 'cscript.exe' or original_file_name = 'mshta.exe' or original_file_name = 'wscript.exe')) and ((command like '%:\\perflogs\\%' or command like '%:\\users\\public\\%' or command like '%\\appdata\\local\\temp%' or command like '%\\appdata\\roaming\\temp%' or command like '%\\temporary internet%' or command like '%\\windows\\temp%') or ((command like '%:\\users\\%' and command like '%\\favorites\\%') and (command like '%:\\users\\%' and command like '%\\favourites\\%') and (command like '%:\\users\\%' and command like '%\\contacts\\%'))))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((command like '% -ep bypass %' or command like '% -ExecutionPolicy bypass %' or command like '% -w hidden %' or command like '%/e:javascript %' or command like '%/e:Jscript %' or command like '%/e:vbscript %') or (original_file_name = 'cscript.exe' or original_file_name = 'mshta.exe' or original_file_name = 'wscript.exe') or (process_path like '%\\cscript.exe' or process_path like '%\\mshta.exe' or process_path like '%\\wscript.exe')) and ((command like '%:\\Perflogs\\%' or command like '%:\\Users\\Public\\%' or command like '%\\AppData\\Local\\Temp%' or command like '%\\AppData\\Roaming\\Temp%' or command like '%\\Temporary Internet%' or command like '%\\Windows\\Temp%') or ((command like '%:\\Users\\%' and command like '%\\Favorites\\%') and (command like '%:\\Users\\%' and command like '%\\Favourites\\%') and (command like '%:\\Users\\%' and command like '%\\Contacts\\%'))))",
   "Tags": [
     "attack.execution",
     "attack.t1059"

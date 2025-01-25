@@ -1,8 +1,8 @@
 {
   "Description": "Detects the ld.so preload persistence file. See `man ld.so` for more information.\n\nAuthor: Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "7e3c4651-c347-40c4-b1d4-d48590fdf684",
-  "InsertDate": "2025-01-21T09:27:13Z",
-  "LastUpdateDate": "2025-01-21T09:27:13Z",
+  "InsertDate": "2025-01-25T21:19:15Z",
+  "LastUpdateDate": "2025-01-25T21:19:15Z",
   "Level": "high",
   "Name": "Code Injection by ld.so Preload",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where Query('/etc/ld.so.preload')",

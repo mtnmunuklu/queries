@@ -1,11 +1,11 @@
 {
   "Description": "Detects execution of php using the \"-r\" flag. This is could be used as a way to launch a reverse shell or execute live php code.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d81871ef-5738-47ab-9797-7a9c90cd4bfb",
-  "InsertDate": "2025-01-21T09:28:46Z",
-  "LastUpdateDate": "2025-01-21T09:28:46Z",
+  "InsertDate": "2025-01-25T21:22:04Z",
+  "LastUpdateDate": "2025-01-25T21:22:04Z",
   "Level": "medium",
   "Name": "Php Inline Command Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\php.exe' and original_file_name = 'php.exe') and command like '% -r%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '% -r%' and (process_path like '%\\php.exe' and original_file_name = 'php.exe'))",
   "Tags": [
     "attack.execution",
     "attack.t1059"

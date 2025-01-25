@@ -1,11 +1,11 @@
 {
   "Description": "Detects a suspicious certreq execution taken from the LOLBAS examples, which can be abused to download (small) files\n\nAuthor: Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4480827a-9799-4232-b2c4-ccc6c4e9e12b",
-  "InsertDate": "2025-01-21T09:28:38Z",
-  "LastUpdateDate": "2025-01-21T09:28:38Z",
+  "InsertDate": "2025-01-25T21:21:57Z",
+  "LastUpdateDate": "2025-01-25T21:21:57Z",
   "Level": "high",
   "Name": "Suspicious Certreq Command to Download",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\certreq.exe' and original_file_name = 'certreq.exe') and (command like '% -post %' and command like '% -config %' and command like '% http%' and command like '% c:\\windows\\win.ini %'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\certreq.exe' and original_file_name = 'CertReq.exe') and (command like '% -Post %' and command like '% -config %' and command like '% http%' and command like '% C:\\windows\\win.ini %'))",
   "Tags": [
     "attack.command-and-control",
     "attack.t1105"

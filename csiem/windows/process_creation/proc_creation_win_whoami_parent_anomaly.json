@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of whoami.exe with suspicious parent processes.\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "8de1cbe8-d6f5-496d-8237-5f44a721c7a0",
-  "InsertDate": "2025-01-21T09:30:52Z",
-  "LastUpdateDate": "2025-01-21T09:30:52Z",
+  "InsertDate": "2025-01-25T21:22:37Z",
+  "LastUpdateDate": "2025-01-25T21:22:37Z",
   "Level": "medium",
   "Name": "Whoami.EXE Execution Anomaly",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\whoami.exe' and original_file_name = 'whoami.exe') and  not ((parent_process_path like '%\\cmd.exe' or parent_process_path like '%\\powershell_ise.exe' or parent_process_path like '%\\powershell.exe' or parent_process_path like '%\\pwsh.exe') or parent_process_path = 'null' or parent_process_path = '') and  not parent_process_path like '%:\\program files\\microsoft monitoring agent\\agent\\monitoringhost.exe')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\whoami.exe' and original_file_name = 'whoami.exe') and  not ((parent_process_path like '%\\cmd.exe' or parent_process_path like '%\\powershell_ise.exe' or parent_process_path like '%\\powershell.exe' or parent_process_path like '%\\pwsh.exe') or parent_process_path = 'null' or parent_process_path = '') and  not parent_process_path like '%:\\Program Files\\Microsoft Monitoring Agent\\Agent\\MonitoringHost.exe')",
   "Tags": [
     "attack.discovery",
     "attack.t1033",

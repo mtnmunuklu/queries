@@ -1,11 +1,11 @@
 {
   "Description": "Detects potentially suspicious keywords that could indicate the use of a PowerShell exploitation framework\n\nAuthor: Florian Roth (Nextron Systems), Perez Diego (@darkquassar), Tuan Le (NCSGroup)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1f49f2ab-26bc-48b3-96cc-dcffbc93eadf",
-  "InsertDate": "2025-01-21T09:28:10Z",
-  "LastUpdateDate": "2025-01-21T09:28:10Z",
+  "InsertDate": "2025-01-25T21:21:30Z",
+  "LastUpdateDate": "2025-01-25T21:21:30Z",
   "Level": "medium",
   "Name": "Potential Suspicious PowerShell Keywords",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%system.reflection.assembly.load($%' or scriptblocktext like '%[system.reflection.assembly]::load($%' or scriptblocktext like '%[reflection.assembly]::load($%' or scriptblocktext like '%system.reflection.assemblyname%' or scriptblocktext like '%reflection.emit.assemblybuilderaccess%' or scriptblocktext like '%reflection.emit.customattributebuilder%' or scriptblocktext like '%runtime.interopservices.unmanagedtype%' or scriptblocktext like '%runtime.interopservices.dllimportattribute%' or scriptblocktext like '%suspendthread%' or scriptblocktext like '%rundll32%')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%System.Reflection.Assembly.Load($%' or scriptblocktext like '%[System.Reflection.Assembly]::Load($%' or scriptblocktext like '%[Reflection.Assembly]::Load($%' or scriptblocktext like '%System.Reflection.AssemblyName%' or scriptblocktext like '%Reflection.Emit.AssemblyBuilderAccess%' or scriptblocktext like '%Reflection.Emit.CustomAttributeBuilder%' or scriptblocktext like '%Runtime.InteropServices.UnmanagedType%' or scriptblocktext like '%Runtime.InteropServices.DllImportAttribute%' or scriptblocktext like '%SuspendThread%' or scriptblocktext like '%rundll32%')",
   "Tags": [
     "attack.execution",
     "attack.t1059.001"

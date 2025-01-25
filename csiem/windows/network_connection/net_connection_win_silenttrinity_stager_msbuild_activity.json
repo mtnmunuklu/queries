@@ -1,8 +1,8 @@
 {
   "Description": "Detects a possible remote connections to Silenttrinity c2\n\nAuthor: Kiran kumar s, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "50e54b8d-ad73-43f8-96a1-5191685b17a4",
-  "InsertDate": "2025-01-21T09:27:56Z",
-  "LastUpdateDate": "2025-01-21T09:27:56Z",
+  "InsertDate": "2025-01-25T21:21:14Z",
+  "LastUpdateDate": "2025-01-25T21:21:14Z",
   "Level": "high",
   "Name": "Silenttrinity Stager Msbuild Activity",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\msbuild.exe' and ((dst_port = '80' or dst_port = '443') and initiated = 'true'))",

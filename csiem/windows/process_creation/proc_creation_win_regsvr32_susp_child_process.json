@@ -1,8 +1,8 @@
 {
   "Description": "Detects potentially suspicious child processes of \"regsvr32.exe\".\n\nAuthor: elhoim, Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6f0947a4-1c5e-4e0d-8ac7-53159b8f23ca",
-  "InsertDate": "2025-01-21T09:29:41Z",
-  "LastUpdateDate": "2025-01-21T09:29:41Z",
+  "InsertDate": "2025-01-25T21:22:17Z",
+  "LastUpdateDate": "2025-01-25T21:22:17Z",
   "Level": "high",
   "Name": "Potentially Suspicious Child Process Of Regsvr32",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_process_path like '%\\regsvr32.exe' and (process_path like '%\\calc.exe' or process_path like '%\\cscript.exe' or process_path like '%\\explorer.exe' or process_path like '%\\mshta.exe' or process_path like '%\\net.exe' or process_path like '%\\net1.exe' or process_path like '%\\nltest.exe' or process_path like '%\\notepad.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\reg.exe' or process_path like '%\\schtasks.exe' or process_path like '%\\werfault.exe' or process_path like '%\\wscript.exe')) and  not (process_path like '%\\werfault.exe' and command like '% -u -p %'))",

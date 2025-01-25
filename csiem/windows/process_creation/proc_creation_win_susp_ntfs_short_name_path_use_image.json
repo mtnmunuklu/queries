@@ -1,11 +1,11 @@
 {
   "Description": "Detect use of the Windows 8.3 short name. Which could be used as a method to avoid Image detection\n\nAuthor: frack113, Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a96970af-f126-420d-90e1-d37bf25e50e1",
-  "InsertDate": "2025-01-21T09:30:25Z",
-  "LastUpdateDate": "2025-01-21T09:30:25Z",
+  "InsertDate": "2025-01-25T21:22:29Z",
+  "LastUpdateDate": "2025-01-25T21:22:29Z",
   "Level": "medium",
   "Name": "Use Short Name Path in Image",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%~1\\%' or process_path like '%~2\\%') and  not (((parent_process_path = 'c:\\windows\\system32\\dism.exe' or parent_process_path = 'c:\\windows\\system32\\cleanmgr.exe') and (parent_process_path like '%\\webex\\webexhost.exe' or parent_process_path like '%\\thor\\thor64.exe') and product = 'installshield (r)' and description = 'installshield (r) setup engine' and company = 'installshield software corporation') or ((process_path like '%\\appdata\\%' and process_path like '%\\temp\\%') and (process_path like '%~1\\unzip.exe' or process_path like '%~1\\7zg.exe'))))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%~1\\%' or process_path like '%~2\\%') and  not (((parent_process_path = 'C:\\Windows\\System32\\Dism.exe' or parent_process_path = 'C:\\Windows\\System32\\cleanmgr.exe') and (parent_process_path like '%\\WebEx\\WebexHost.exe' or parent_process_path like '%\\thor\\thor64.exe') and product = 'InstallShield (R)' and description = 'InstallShield (R) Setup Engine' and company = 'InstallShield Software Corporation') or ((process_path like '%\\AppData\\%' and process_path like '%\\Temp\\%') and (process_path like '%~1\\unzip.exe' or process_path like '%~1\\7zG.exe'))))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1564.004"

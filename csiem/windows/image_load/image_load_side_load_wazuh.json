@@ -1,11 +1,11 @@
 {
   "Description": "Detects potential DLL side loading of DLLs that are part of the Wazuh security platform\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "db77ce78-7e28-4188-9337-cf30e2b3ba9f",
-  "InsertDate": "2025-01-21T09:27:53Z",
-  "LastUpdateDate": "2025-01-21T09:27:53Z",
+  "InsertDate": "2025-01-25T21:21:10Z",
+  "LastUpdateDate": "2025-01-25T21:21:10Z",
   "Level": "medium",
   "Name": "Potential Wazuh Security Platform DLL Sideloading",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((image_loaded like '%\\libwazuhshared.dll' or image_loaded like '%\\libwinpthread-1.dll') and  not (image_loaded like 'c:\\program files\\%' or image_loaded like 'c:\\program files (x86)\\%') and  not ((image_loaded like '%\\appdata\\local\\%' or image_loaded like '%\\programdata\\%') and image_loaded like '%\\mingw64\\bin\\libwinpthread-1.dll'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((image_loaded like '%\\libwazuhshared.dll' or image_loaded like '%\\libwinpthread-1.dll') and  not (image_loaded like 'C:\\Program Files\\%' or image_loaded like 'C:\\Program Files (x86)\\%') and  not ((image_loaded like '%\\AppData\\Local\\%' or image_loaded like '%\\ProgramData\\%') and image_loaded like '%\\mingw64\\bin\\libwinpthread-1.dll'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.persistence",

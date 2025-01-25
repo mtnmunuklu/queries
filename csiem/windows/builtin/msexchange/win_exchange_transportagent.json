@@ -1,8 +1,8 @@
 {
   "Description": "Detects the Installation of a Exchange Transport Agent\n\nAuthor: Tobias Michalski (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4fe151c2-ecf9-4fae-95ae-b88ec9c2fca6",
-  "InsertDate": "2025-01-21T09:27:27Z",
-  "LastUpdateDate": "2025-01-21T09:27:27Z",
+  "InsertDate": "2025-01-25T21:20:09Z",
+  "LastUpdateDate": "2025-01-25T21:20:09Z",
   "Level": "medium",
   "Name": "MSExchange Transport Agent Installation - Builtin",
   "Query": "sourcetype='windows-msexchange-management' eql select * from _source_ where Query('Install-TransportAgent')",

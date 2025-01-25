@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of Xwizard tool with the \"RunWizard\" flag and a GUID like argument.\nThis utility can be abused in order to run custom COM object created in the registry.\n\n\nAuthor: Ensar Şamil, @sblmsrsn, @oscd_initiative, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "53d4bb30-3f36-4e8a-b078-69d36c4a79ff",
-  "InsertDate": "2025-01-21T09:31:11Z",
-  "LastUpdateDate": "2025-01-21T09:31:11Z",
+  "InsertDate": "2025-01-25T21:22:40Z",
+  "LastUpdateDate": "2025-01-25T21:22:40Z",
   "Level": "medium",
   "Name": "COM Object Execution via Xwizard.EXE",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where command = 'runwizard' and command re '\\{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\\}'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where command = 'RunWizard' and command rlike '\\{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\\}'",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1218"

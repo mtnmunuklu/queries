@@ -1,8 +1,8 @@
 {
   "Description": "Identifies when an admission controller is executed in GCP Kubernetes.\nA Kubernetes Admission controller intercepts, and possibly modifies, requests to the Kubernetes API server.\nThe behavior of this admission controller is determined by an admission webhook (MutatingAdmissionWebhook or ValidatingAdmissionWebhook) that the user deploys in the cluster.\nAn adversary can use such webhooks as the MutatingAdmissionWebhook for obtaining persistence in the cluster.\nFor example, attackers can intercept and modify the pod creation operations in the cluster and add their malicious container to every created pod. An adversary can use the webhook ValidatingAdmissionWebhook, which could be used to obtain access credentials.\nAn adversary could use the webhook to intercept the requests to the API server, record secrets, and other sensitive information.\n\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6ad91e31-53df-4826-bd27-0166171c8040",
-  "InsertDate": "2025-01-21T09:27:07Z",
-  "LastUpdateDate": "2025-01-21T09:27:07Z",
+  "InsertDate": "2025-01-25T21:19:01Z",
+  "LastUpdateDate": "2025-01-25T21:19:01Z",
   "Level": "medium",
   "Name": "Google Cloud Kubernetes Admission Controller",
   "Query": "sourcetype='gcp-gcp.audit' eql select * from _source_ where gcp.audit.method_name like 'admissionregistration.k8s.io.v%' and (gcp.audit.method_name like '%.mutatingwebhookconfigurations.%' or gcp.audit.method_name like '%.validatingwebhookconfigurations.%') and (gcp.audit.method_name like '%create' or gcp.audit.method_name like '%patch' or gcp.audit.method_name like '%replace')",

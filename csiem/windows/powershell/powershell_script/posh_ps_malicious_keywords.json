@@ -1,11 +1,11 @@
 {
   "Description": "Detects keywords from well-known PowerShell exploitation frameworks\n\nAuthor: Sean Metcalf (source), Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f62176f3-8128-4faa-bf6c-83261322e5eb",
-  "InsertDate": "2025-01-21T09:28:05Z",
-  "LastUpdateDate": "2025-01-21T09:28:05Z",
+  "InsertDate": "2025-01-25T21:21:26Z",
+  "LastUpdateDate": "2025-01-25T21:21:26Z",
   "Level": "medium",
   "Name": "Malicious PowerShell Keywords",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%adjusttokenprivileges%' or scriptblocktext like '%image_nt_optional_hdr64_magic%' or scriptblocktext like '%metasploit%' or scriptblocktext like '%microsoft.win32.unsafenativemethods%' or scriptblocktext like '%mimikatz%' or scriptblocktext like '%minidumpwritedump%' or scriptblocktext like '%page_execute_read%' or scriptblocktext like '%readprocessmemory.invoke%' or scriptblocktext like '%se_privilege_enabled%' or scriptblocktext like '%security_delegation%' or scriptblocktext like '%token_adjust_privileges%' or scriptblocktext like '%token_all_access%' or scriptblocktext like '%token_assign_primary%' or scriptblocktext like '%token_duplicate%' or scriptblocktext like '%token_elevation%' or scriptblocktext like '%token_impersonate%' or scriptblocktext like '%token_information_class%' or scriptblocktext like '%token_privileges%' or scriptblocktext like '%token_query%')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%AdjustTokenPrivileges%' or scriptblocktext like '%IMAGE_NT_OPTIONAL_HDR64_MAGIC%' or scriptblocktext like '%Metasploit%' or scriptblocktext like '%Microsoft.Win32.UnsafeNativeMethods%' or scriptblocktext like '%Mimikatz%' or scriptblocktext like '%MiniDumpWriteDump%' or scriptblocktext like '%PAGE_EXECUTE_READ%' or scriptblocktext like '%ReadProcessMemory.Invoke%' or scriptblocktext like '%SE_PRIVILEGE_ENABLED%' or scriptblocktext like '%SECURITY_DELEGATION%' or scriptblocktext like '%TOKEN_ADJUST_PRIVILEGES%' or scriptblocktext like '%TOKEN_ALL_ACCESS%' or scriptblocktext like '%TOKEN_ASSIGN_PRIMARY%' or scriptblocktext like '%TOKEN_DUPLICATE%' or scriptblocktext like '%TOKEN_ELEVATION%' or scriptblocktext like '%TOKEN_IMPERSONATE%' or scriptblocktext like '%TOKEN_INFORMATION_CLASS%' or scriptblocktext like '%TOKEN_PRIVILEGES%' or scriptblocktext like '%TOKEN_QUERY%')",
   "Tags": [
     "attack.execution",
     "attack.t1059.001"

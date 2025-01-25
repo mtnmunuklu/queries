@@ -1,11 +1,11 @@
 {
   "Description": "Detects usage of the Get-ADComputer cmdlet to collect computer information and output it to a file\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "435e10e4-992a-4281-96f3-38b11106adde",
-  "InsertDate": "2025-01-21T09:28:50Z",
-  "LastUpdateDate": "2025-01-21T09:28:50Z",
+  "InsertDate": "2025-01-25T21:22:06Z",
+  "LastUpdateDate": "2025-01-25T21:22:06Z",
   "Level": "medium",
   "Name": "Computer Discovery And Export Via Get-ADComputer Cmdlet",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll')) and ((command like '%get-adcomputer %' and command like '% -filter \\*%') and (command like '% \u003e %' or command like '% | select %' or command like '%out-file%' or command like '%set-content%' or command like '%add-content%')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'PowerShell.EXE' or original_file_name = 'pwsh.dll')) and ((command like '%Get-ADComputer %' and command like '% -Filter \\*%') and (command like '% \u003e %' or command like '% | Select %' or command like '%Out-File%' or command like '%Set-Content%' or command like '%Add-Content%')))",
   "Tags": [
     "attack.discovery",
     "attack.t1033"

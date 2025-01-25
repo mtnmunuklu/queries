@@ -1,11 +1,11 @@
 {
   "Description": "Detects the use of rcedit to potentially alter executable PE metadata properties, which could conceal efforts to rename system utilities for defense evasion.\n\nAuthor: Micah Babinski\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0c92f2e6-f08f-4b73-9216-ecb0ca634689",
-  "InsertDate": "2025-01-21T09:29:20Z",
-  "LastUpdateDate": "2025-01-21T09:29:20Z",
+  "InsertDate": "2025-01-25T21:22:13Z",
+  "LastUpdateDate": "2025-01-25T21:22:13Z",
   "Level": "medium",
   "Name": "PUA - Potential PE Metadata Tamper Using Rcedit",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\rcedit-x64.exe' or process_path like '%\\rcedit-x86.exe') and description = 'edit resources of exe' and product = 'rcedit') and command like '%--set-%' and (command like '%originalfilename%' or command like '%companyname%' or command like '%filedescription%' or command like '%productname%' or command like '%productversion%' or command like '%legalcopyright%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\rcedit-x64.exe' or process_path like '%\\rcedit-x86.exe') and description = 'Edit resources of exe' and product = 'rcedit') and command like '%--set-%' and (command like '%OriginalFileName%' or command like '%CompanyName%' or command like '%FileDescription%' or command like '%ProductName%' or command like '%ProductVersion%' or command like '%LegalCopyright%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1036.003",

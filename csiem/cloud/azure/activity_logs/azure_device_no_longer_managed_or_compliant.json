@@ -1,11 +1,11 @@
 {
   "Description": "Identifies when a device in azure is no longer managed or compliant\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "542b9912-c01f-4e3f-89a8-014c48cdca7d",
-  "InsertDate": "2025-01-21T09:27:02Z",
-  "LastUpdateDate": "2025-01-21T09:27:02Z",
+  "InsertDate": "2025-01-25T21:18:30Z",
+  "LastUpdateDate": "2025-01-25T21:18:30Z",
   "Level": "medium",
   "Name": "Azure Device No Longer Managed or Compliant",
-  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (properties.message = 'device no longer compliant' or properties.message = 'device no longer managed')",
+  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (properties.message = 'Device no longer compliant' or properties.message = 'Device no longer managed')",
   "Tags": [
     "attack.impact"
   ],

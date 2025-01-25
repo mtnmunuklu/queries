@@ -1,11 +1,11 @@
 {
   "Description": "Detects patterns found in process executions cause by China Chopper like tiny (ASPX) webshells\n\nAuthor: Florian Roth (Nextron Systems), MSTI (query)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "fa3c117a-bc0d-416e-a31b-0c0e80653efb",
-  "InsertDate": "2025-01-21T09:30:49Z",
-  "LastUpdateDate": "2025-01-21T09:30:49Z",
+  "InsertDate": "2025-01-25T21:22:36Z",
+  "LastUpdateDate": "2025-01-25T21:22:36Z",
   "Level": "high",
   "Name": "Chopper Webshell Process Pattern",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%\u0026ipconfig\u0026echo%' or command like '%\u0026quser\u0026echo%' or command like '%\u0026whoami\u0026echo%' or command like '%\u0026c:\u0026echo%' or command like '%\u0026cd\u0026echo%' or command like '%\u0026dir\u0026echo%' or command like '%\u0026echo [e]%' or command like '%\u0026echo [s]%') and (process_path like '%\\w3wp.exe' and parent_process_path like '%\\w3wp.exe'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\w3wp.exe' and parent_process_path like '%\\w3wp.exe') and (command like '%\u0026ipconfig\u0026echo%' or command like '%\u0026quser\u0026echo%' or command like '%\u0026whoami\u0026echo%' or command like '%\u0026c:\u0026echo%' or command like '%\u0026cd\u0026echo%' or command like '%\u0026dir\u0026echo%' or command like '%\u0026echo [E]%' or command like '%\u0026echo [S]%'))",
   "Tags": [
     "attack.persistence",
     "attack.t1505.003",

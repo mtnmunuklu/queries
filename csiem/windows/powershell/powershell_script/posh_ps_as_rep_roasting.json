@@ -1,11 +1,11 @@
 {
   "Description": "Detects AS-REP roasting is an attack that is often-overlooked. It is not very common as you have to explicitly set accounts that do not require pre-authentication.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "96c982fe-3d08-4df4-bed2-eb14e02f21c8",
-  "InsertDate": "2025-01-21T09:28:01Z",
-  "LastUpdateDate": "2025-01-21T09:28:01Z",
+  "InsertDate": "2025-01-25T21:21:21Z",
+  "LastUpdateDate": "2025-01-25T21:21:21Z",
   "Level": "medium",
   "Name": "Get-ADUser Enumeration Using UserAccountControl Flags",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%get-aduser%' and scriptblocktext like '%-filter%' and scriptblocktext like '%useraccountcontrol%' and scriptblocktext like '%-band%' and scriptblocktext like '%4194304%')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%Get-ADUser%' and scriptblocktext like '%-Filter%' and scriptblocktext like '%useraccountcontrol%' and scriptblocktext like '%-band%' and scriptblocktext like '%4194304%')",
   "Tags": [
     "attack.discovery",
     "attack.t1033"

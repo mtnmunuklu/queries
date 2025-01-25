@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of Microsoft Quick Assist tool \"QuickAssist.exe\". This utility can be used by attackers to gain remote access.\n\n\nAuthor: Muhammad Faisal (@faisalusuf)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e20b5b14-ce93-4230-88af-981983ef6e74",
-  "InsertDate": "2025-01-21T09:29:23Z",
-  "LastUpdateDate": "2025-01-21T09:29:23Z",
+  "InsertDate": "2025-01-25T21:22:13Z",
+  "LastUpdateDate": "2025-01-25T21:22:13Z",
   "Level": "low",
   "Name": "QuickAssist Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\quickassist.exe'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\QuickAssist.exe'",
   "Tags": [
     "attack.command-and-control",
     "attack.t1219"

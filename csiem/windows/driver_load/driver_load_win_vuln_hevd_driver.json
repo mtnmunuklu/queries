@@ -1,11 +1,11 @@
 {
   "Description": "Detects the load of HackSys Extreme Vulnerable Driver which is an intentionally vulnerable Windows driver developed for security enthusiasts to learn and polish their exploitation skills at Kernel level and often abused by threat actors\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "295c9289-acee-4503-a571-8eacaef36b28",
-  "InsertDate": "2025-01-21T09:27:41Z",
-  "LastUpdateDate": "2025-01-21T09:27:41Z",
+  "InsertDate": "2025-01-25T21:20:50Z",
+  "LastUpdateDate": "2025-01-25T21:20:50Z",
   "Level": "high",
   "Name": "Vulnerable HackSys Extreme Vulnerable Driver Load",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where image_loaded like '%\\hevd.sys' and (hashes like '%imphash=f26d0b110873a1c7d8c4f08fbeab89c5%' or hashes like '%imphash=c46ea2e651fd5f7f716c8867c6d13594%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where image_loaded like '%\\HEVD.sys' and (hashes like '%IMPHASH=f26d0b110873a1c7d8c4f08fbeab89c5%' or hashes like '%IMPHASH=c46ea2e651fd5f7f716c8867c6d13594%')",
   "Tags": [
     "attack.privilege-escalation",
     "attack.t1543.003"

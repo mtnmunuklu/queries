@@ -1,11 +1,11 @@
 {
   "Description": "Detects installation of suspicious packages using system installation utilities\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "700fb7e8-2981-401c-8430-be58e189e741",
-  "InsertDate": "2025-01-21T09:27:16Z",
-  "LastUpdateDate": "2025-01-21T09:27:16Z",
+  "InsertDate": "2025-01-25T21:19:25Z",
+  "LastUpdateDate": "2025-01-25T21:19:25Z",
   "Level": "medium",
   "Name": "Suspicious Package Installed - Linux",
-  "Query": "sourcetype like 'linux-%' eql select * from _source_ where ((((process_path like '%/apt' or process_path like '%/apt-get') and command like '%install%') or (process_path like '%/yum' and (command like '%localinstall%' or command like '%install%')) or (process_path like '%/rpm' and command like '%-i%') or (process_path like '%/dpkg' and (command like '%--install%' or command like '%-i%'))) and (command like '%nmap%' or command like '% nc%' or command like '%netcat%' or command like '%wireshark%' or command like '%tshark%' or command like '%openconnect%' or command like '%proxychains%'))",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where (((process_path like '%/yum' and (command like '%localinstall%' or command like '%install%')) or (process_path like '%/rpm' and command like '%-i%') or (process_path like '%/dpkg' and (command like '%--install%' or command like '%-i%')) or ((process_path like '%/apt' or process_path like '%/apt-get') and command like '%install%')) and (command like '%nmap%' or command like '% nc%' or command like '%netcat%' or command like '%wireshark%' or command like '%tshark%' or command like '%openconnect%' or command like '%proxychains%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1553.004"

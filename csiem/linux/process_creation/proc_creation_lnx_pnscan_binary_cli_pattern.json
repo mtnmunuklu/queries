@@ -1,11 +1,11 @@
 {
   "Description": "Detects command line patterns associated with the use of Pnscan for sending and receiving binary data across the network.\nThis behavior has been identified in a Linux malware campaign targeting Docker, Apache Hadoop, Redis, and Confluence and was previously used by the threat actor known as TeamTNT\n\n\nAuthor: David Burkett (@signalblur)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "97de11cd-4b67-4abf-9a8b-1020e670aa9e",
-  "InsertDate": "2025-01-21T09:27:17Z",
-  "LastUpdateDate": "2025-01-21T09:27:17Z",
+  "InsertDate": "2025-01-25T21:19:27Z",
+  "LastUpdateDate": "2025-01-25T21:19:27Z",
   "Level": "medium",
   "Name": "Pnscan Binary Data Transmission Activity",
-  "Query": "sourcetype like 'linux-%' eql select * from _source_ where command re '-(W|R)\\s?(\\s|\"|')([0-9a-fA-F]{2}\\s?){2,20}(\\s|\"|')'",
+  "Query": "sourcetype like 'linux-%' eql select * from _source_ where command rlike '-(W|R)\\s?(\\s|\"|')([0-9a-fA-F]{2}\\s?){2,20}(\\s|\"|')'",
   "Tags": [
     "attack.discovery",
     "attack.t1046"

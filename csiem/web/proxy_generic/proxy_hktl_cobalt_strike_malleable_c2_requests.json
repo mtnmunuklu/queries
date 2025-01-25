@@ -1,11 +1,11 @@
 {
   "Description": "Detects cobalt strike malleable profiles patterns (URI, User-Agents, Methods).\n\nAuthor: Markus Neis, Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f3f21ce1-cdef-4bfc-8328-ed2e826f5fac",
-  "InsertDate": "2025-01-21T09:27:23Z",
-  "LastUpdateDate": "2025-01-21T09:27:23Z",
+  "InsertDate": "2025-01-25T21:19:50Z",
+  "LastUpdateDate": "2025-01-25T21:19:50Z",
   "Level": "high",
   "Name": "HackTool - CobaltStrike Malleable Profile Patterns - Proxy",
-  "Query": "eql select * from _source_ where (((cs-method = 'get' and c-uri like '%\\?manifest=wac' and cs-host = 'onedrive.live.com') or (c-useragent = 'mozilla/5.0 (windows nt 6.1; wow64; trident/7.0; rv:11.0) like gecko' and cs-method = 'get' and c-uri = '/s/ref=nb_sb_noss_1/167-3294888-0262949/field-keywords=books' and cs-host = 'www.amazon.com' and cs-cookie like '%=csm-hit=s-24ku11bb82rzsygj3bdk|1419899012996') or (c-useragent = 'mozilla/5.0 (windows nt 6.1; wow64; trident/7.0; rv:11.0) like gecko' and cs-method = 'post' and c-uri = '/n4215/adj/amzn.us.sr.aps' and cs-host = 'www.amazon.com') or (c-useragent = 'mozilla/4.0 (compatible; msie 6.0;windows nt 5.1)' or c-useragent = 'mozilla/4.0 (compatible; msie 7.0; windows nt 6.1; wow64; trident/4.0; slcc2; .net clr 3.0.30729; .net4.0c; .net4.0e )' or c-useragent = 'mozilla/5.0 (windows; u; msie 7.0; windows nt 5.2) java/1.5.0_08') or c-useragent like '%; manm; manm)' or (c-uri like '%/oscp/%' and cs-host = 'ocsp.verisign.com')) and  not (c-uri like 'http%' and c-uri like '%://onedrive.live.com/%'))",
+  "Query": "eql select * from _source_ where ((c-useragent like '%; MANM; MANM)' or (c-uri like '%/oscp/%' and cs-host = 'ocsp.verisign.com') or (cs-method = 'GET' and c-uri like '%\\?manifest=wac' and cs-host = 'onedrive.live.com') or (c-useragent = 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko' and cs-method = 'GET' and c-uri = '/s/ref=nb_sb_noss_1/167-3294888-0262949/field-keywords=books' and cs-host = 'www.amazon.com' and cs-cookie like '%=csm-hit=s-24KU11BB82RZSYGJ3BDK|1419899012996') or (c-useragent = 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko' and cs-method = 'POST' and c-uri = '/N4215/adj/amzn.us.sr.aps' and cs-host = 'www.amazon.com') or (c-useragent = 'Mozilla/4.0 (compatible; MSIE 6.0;Windows NT 5.1)' or c-useragent = 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 3.0.30729; .NET4.0C; .NET4.0E )' or c-useragent = 'Mozilla/5.0 (Windows; U; MSIE 7.0; Windows NT 5.2) Java/1.5.0_08')) and  not (c-uri like 'http%' and c-uri like '%://onedrive.live.com/%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.command-and-control",

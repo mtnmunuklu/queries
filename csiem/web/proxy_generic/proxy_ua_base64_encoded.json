@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious encoded User-Agent strings, as seen used by some malware.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d443095b-a221-4957-a2c4-cd1756c9b747",
-  "InsertDate": "2025-01-21T09:27:24Z",
-  "LastUpdateDate": "2025-01-21T09:27:24Z",
+  "InsertDate": "2025-01-25T21:19:52Z",
+  "LastUpdateDate": "2025-01-25T21:19:52Z",
   "Level": "medium",
   "Name": "Suspicious Base64 Encoded User-Agent",
-  "Query": "eql select * from _source_ where (c-useragent like 'q2hyb21l%' or c-useragent like 'qxbwbgvxzwjlax%' or c-useragent like 'rgfsdmlr%' or c-useragent like 'tw96awxsy%')",
+  "Query": "eql select * from _source_ where (c-useragent like 'Q2hyb21l%' or c-useragent like 'QXBwbGVXZWJLaX%' or c-useragent like 'RGFsdmlr%' or c-useragent like 'TW96aWxsY%')",
   "Tags": [
     "attack.command-and-control",
     "attack.t1071.001"

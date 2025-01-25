@@ -1,11 +1,11 @@
 {
   "Description": "Detects the deletion of the \"Zone.Identifier\" ADS by an uncommon process. Attackers can leverage this in order to bypass security restrictions that make use of the ADS such as Microsoft Office apps.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "3109530e-ab47-4cc6-a953-cac5ebcc93ae",
-  "InsertDate": "2025-01-21T09:27:42Z",
-  "LastUpdateDate": "2025-01-21T09:27:42Z",
+  "InsertDate": "2025-01-25T21:20:52Z",
+  "LastUpdateDate": "2025-01-25T21:20:52Z",
   "Level": "medium",
   "Name": "ADS Zone.Identifier Deleted By Uncommon Application",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (filepath like '%:zone.identifier' and  not (process_path = 'c:\\program files\\powershell\\7-preview\\pwsh.exe' or process_path = 'c:\\program files\\powershell\\7\\pwsh.exe' or process_path = 'c:\\windows\\explorer.exe' or process_path = 'c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe' or process_path = 'c:\\windows\\syswow64\\explorer.exe' or process_path = 'c:\\windows\\syswow64\\windowspowershell\\v1.0\\powershell.exe') and  not ((process_path = 'c:\\program files (x86)\\google\\chrome\\application\\chrome.exe' or process_path = 'c:\\program files\\google\\chrome\\application\\chrome.exe') or (process_path = 'c:\\program files (x86)\\mozilla firefox\\firefox.exe' or process_path = 'c:\\program files\\mozilla firefox\\firefox.exe')))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (filepath like '%:Zone.Identifier' and  not (process_path = 'C:\\Program Files\\PowerShell\\7-preview\\pwsh.exe' or process_path = 'C:\\Program Files\\PowerShell\\7\\pwsh.exe' or process_path = 'C:\\Windows\\explorer.exe' or process_path = 'C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe' or process_path = 'C:\\Windows\\SysWOW64\\explorer.exe' or process_path = 'C:\\Windows\\SysWOW64\\WindowsPowerShell\\v1.0\\powershell.exe') and  not ((process_path = 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe' or process_path = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe') or (process_path = 'C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe' or process_path = 'C:\\Program Files\\Mozilla Firefox\\firefox.exe')))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1070.004"

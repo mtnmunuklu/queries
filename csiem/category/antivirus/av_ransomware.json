@@ -1,11 +1,11 @@
 {
   "Description": "Detects a highly relevant Antivirus alert that reports ransomware.\nThis event must not be ignored just because the AV has blocked the malware but investigate, how it came there in the first place.\n\n\nAuthor: Florian Roth (Nextron Systems), Arnim Rupp\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4c6ca276-d4d0-4a8c-9e4c-d69832f8671f",
-  "InsertDate": "2025-01-21T09:27:00Z",
-  "LastUpdateDate": "2025-01-21T09:27:00Z",
+  "InsertDate": "2025-01-25T21:18:25Z",
+  "LastUpdateDate": "2025-01-25T21:18:25Z",
   "Level": "critical",
   "Name": "Antivirus Ransomware Detection",
-  "Query": "eql select * from _source_ where (signature like '%blackworm%' or signature like '%chaos%' or signature like '%cobra%' or signature like '%conticrypt%' or signature like '%crypter%' or signature like '%cryptes%' or signature like '%cryptor%' or signature like '%cylancrypt%' or signature like '%delshad%' or signature like '%destructor%' or signature like '%filecoder%' or signature like '%gandcrab%' or signature like '%grandcrab%' or signature like '%haperlock%' or signature like '%hiddentear%' or signature like '%hydracrypt%' or signature like '%krypt%' or signature like '%lockbit%' or signature like '%locker%' or signature like '%mallox%' or signature like '%phobos%' or signature like '%ransom%' or signature like '%ryuk%' or signature like '%ryzerlo%' or signature like '%stopcrypt%' or signature like '%tescrypt%' or signature like '%teslacrypt%' or signature like '%wannacry%' or signature like '%xorist%')",
+  "Query": "eql select * from _source_ where (signature like '%BlackWorm%' or signature like '%Chaos%' or signature like '%Cobra%' or signature like '%ContiCrypt%' or signature like '%Crypter%' or signature like '%CRYPTES%' or signature like '%Cryptor%' or signature like '%CylanCrypt%' or signature like '%DelShad%' or signature like '%Destructor%' or signature like '%Filecoder%' or signature like '%GandCrab%' or signature like '%GrandCrab%' or signature like '%Haperlock%' or signature like '%Hiddentear%' or signature like '%HydraCrypt%' or signature like '%Krypt%' or signature like '%Lockbit%' or signature like '%Locker%' or signature like '%Mallox%' or signature like '%Phobos%' or signature like '%Ransom%' or signature like '%Ryuk%' or signature like '%Ryzerlo%' or signature like '%Stopcrypt%' or signature like '%Tescrypt%' or signature like '%TeslaCrypt%' or signature like '%WannaCry%' or signature like '%Xorist%')",
   "Tags": [
     "attack.t1486"
   ],

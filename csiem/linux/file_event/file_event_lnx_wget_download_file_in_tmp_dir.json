@@ -1,8 +1,8 @@
 {
   "Description": "Detects the use of wget to download content in a temporary directory such as \"/tmp\" or \"/var/tmp\"\n\nAuthor: Joseliyo Sanchez, @Joseliyo_Jstnk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "35a05c60-9012-49b6-a11f-6bab741c9f74",
-  "InsertDate": "2025-01-21T09:27:14Z",
-  "LastUpdateDate": "2025-01-21T09:27:14Z",
+  "InsertDate": "2025-01-25T21:19:18Z",
+  "LastUpdateDate": "2025-01-25T21:19:18Z",
   "Level": "medium",
   "Name": "Wget Creating Files in Tmp Directory",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where process_path like '%/wget' and (filepath like '/tmp/%' or filepath like '/var/tmp/%')",

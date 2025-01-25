@@ -1,8 +1,8 @@
 {
   "Description": "Detects usage of nohup which could be leveraged by an attacker to keep a process running or break out from restricted environments\n\nAuthor: Christopher Peacock @SecurePeacock, SCYTHE @scythe_io\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e4ffe466-6ff8-48d4-94bd-e32d1a6061e2",
-  "InsertDate": "2025-01-21T09:27:17Z",
-  "LastUpdateDate": "2025-01-21T09:27:17Z",
+  "InsertDate": "2025-01-25T21:19:26Z",
+  "LastUpdateDate": "2025-01-25T21:19:26Z",
   "Level": "medium",
   "Name": "Nohup Execution",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where process_path like '%/nohup'",

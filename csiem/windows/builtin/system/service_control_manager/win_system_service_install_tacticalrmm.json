@@ -1,11 +1,11 @@
 {
   "Description": "Detects a TacticalRMM service installation. Tactical RMM is a remote monitoring \u0026 management tool.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4bb79b62-ef12-4861-981d-2aab43fab642",
-  "InsertDate": "2025-01-21T09:27:37Z",
-  "LastUpdateDate": "2025-01-21T09:27:37Z",
+  "InsertDate": "2025-01-25T21:20:38Z",
+  "LastUpdateDate": "2025-01-25T21:20:38Z",
   "Level": "medium",
   "Name": "TacticalRMM Service Installation",
-  "Query": "sourcetype='windows-system' eql select * from _source_ where ((imagepath like '%tacticalrmm.exe%' and servicename like '%tacticalrmm agent service%') and (provider_name = 'service control manager' and eventid = '7045'))",
+  "Query": "sourcetype='windows-system' eql select * from _source_ where ((imagepath like '%tacticalrmm.exe%' and servicename like '%TacticalRMM Agent Service%') and (provider_name = 'Service Control Manager' and eventid = '7045'))",
   "Tags": [
     "attack.command-and-control",
     "attack.t1219"

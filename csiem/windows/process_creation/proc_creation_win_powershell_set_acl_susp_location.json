@@ -1,11 +1,11 @@
 {
   "Description": "Detects PowerShell scripts to set the ACL to a file in the Windows folder\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0944e002-e3f6-4eb5-bf69-3a3067b53d73",
-  "InsertDate": "2025-01-21T09:29:02Z",
-  "LastUpdateDate": "2025-01-21T09:29:02Z",
+  "InsertDate": "2025-01-25T21:22:10Z",
+  "LastUpdateDate": "2025-01-25T21:22:10Z",
   "Level": "high",
   "Name": "PowerShell Set-Acl On Windows Folder",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%-path \"c:\\windows%' or command like '%-path 'c:\\windows%' or command like '%-path %windir%%' or command like '%-path $env:windir%') and (command like '%fullcontrol%' or command like '%allow%') and ((original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll') and (process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe')) and (command like '%set-acl %' and command like '%-aclobject %'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((original_file_name = 'PowerShell.EXE' or original_file_name = 'pwsh.dll') and (process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe')) and (command like '%Set-Acl %' and command like '%-AclObject %') and (command like '%-Path \"C:\\Windows%' or command like '%-Path 'C:\\Windows%' or command like '%-Path %windir%%' or command like '%-Path $env:windir%') and (command like '%FullControl%' or command like '%Allow%'))",
   "Tags": [
     "attack.defense-evasion"
   ],

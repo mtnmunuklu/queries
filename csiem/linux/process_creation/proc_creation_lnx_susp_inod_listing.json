@@ -1,8 +1,8 @@
 {
   "Description": "Detects listing of the inodes of the \"/\" directory to determine if the we are running inside of a container.\n\nAuthor: Seth Hanford\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "43e26eb5-cd58-48d1-8ce9-a273f5d298d8",
-  "InsertDate": "2025-01-21T09:27:18Z",
-  "LastUpdateDate": "2025-01-21T09:27:18Z",
+  "InsertDate": "2025-01-25T21:19:31Z",
+  "LastUpdateDate": "2025-01-25T21:19:31Z",
   "Level": "low",
   "Name": "Potential Container Discovery Via Inodes Listing",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where process_path like '%/ls' and (command like '% -*i%' and command like '% -*d%') and command like '% /'",

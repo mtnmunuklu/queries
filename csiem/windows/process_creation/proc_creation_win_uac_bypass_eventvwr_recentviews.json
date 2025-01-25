@@ -1,11 +1,11 @@
 {
   "Description": "Detects the pattern of UAC Bypass using Event Viewer RecentViews\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "30fc8de7-d833-40c4-96b6-28319fbc4f6c",
-  "InsertDate": "2025-01-21T09:30:42Z",
-  "LastUpdateDate": "2025-01-21T09:30:42Z",
+  "InsertDate": "2025-01-25T21:22:33Z",
+  "LastUpdateDate": "2025-01-25T21:22:33Z",
   "Level": "high",
   "Name": "UAC Bypass Using Event Viewer RecentViews",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%\\event viewer\\recentviews%' or command like '%\\eventv~1\\recentviews%') and command like '%\u003e%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%\\Event Viewer\\RecentViews%' or command like '%\\EventV~1\\RecentViews%') and command like '%\u003e%')",
   "Tags": [
     "attack.defense-evasion",
     "attack.privilege-escalation"

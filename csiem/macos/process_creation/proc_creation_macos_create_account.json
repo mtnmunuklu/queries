@@ -1,11 +1,11 @@
 {
   "Description": "Detects the creation of a new user account. Such accounts may be used for persistence that do not require persistent remote access tools to be deployed on the system.\n\nAuthor: Alejandro Ortuno, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "51719bf5-e4fd-4e44-8ba8-b830e7ac0731",
-  "InsertDate": "2025-01-21T09:27:19Z",
-  "LastUpdateDate": "2025-01-21T09:27:19Z",
+  "InsertDate": "2025-01-25T21:19:35Z",
+  "LastUpdateDate": "2025-01-25T21:19:35Z",
   "Level": "low",
   "Name": "Creation Of A Local User Account",
-  "Query": "sourcetype like 'macos-%' eql select * from _source_ where ((process_path like '%/dscl' and command like '%create%') or (process_path like '%/sysadminctl' and command like '%adduser%'))",
+  "Query": "sourcetype like 'macos-%' eql select * from _source_ where ((process_path like '%/dscl' and command like '%create%') or (process_path like '%/sysadminctl' and command like '%addUser%'))",
   "Tags": [
     "attack.t1136.001",
     "attack.persistence"

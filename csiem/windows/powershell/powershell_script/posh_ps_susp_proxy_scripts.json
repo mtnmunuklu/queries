@@ -1,11 +1,11 @@
 {
   "Description": "Detects powershell scripts that creates sockets/listeners which could be indicative of tunneling activity\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "bd33d2aa-497e-4651-9893-5c5364646595",
-  "InsertDate": "2025-01-21T09:28:11Z",
-  "LastUpdateDate": "2025-01-21T09:28:11Z",
+  "InsertDate": "2025-01-25T21:21:31Z",
+  "LastUpdateDate": "2025-01-25T21:21:31Z",
   "Level": "medium",
   "Name": "Suspicious TCP Tunnel Via PowerShell Script",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%[system.net.httpwebrequest]%' and scriptblocktext like '%system.net.sockets.tcplistener%' and scriptblocktext like '%accepttcpclient%')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%[System.Net.HttpWebRequest]%' and scriptblocktext like '%System.Net.Sockets.TcpListener%' and scriptblocktext like '%AcceptTcpClient%')",
   "Tags": [
     "attack.command-and-control",
     "attack.t1090"

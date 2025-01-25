@@ -1,11 +1,11 @@
 {
   "Description": "Detects the creation of a startup item plist file, that automatically get executed at boot initialization to establish persistence.\nAdversaries may use startup items automatically executed at boot initialization to establish persistence.\nStartup items execute during the final phase of the boot process and contain shell scripts or other executable files along with configuration information used by the system to determine the execution order for all startup items.\n\n\nAuthor: Alejandro Ortuno, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "dfe8b941-4e54-4242-b674-6b613d521962",
-  "InsertDate": "2025-01-21T09:27:19Z",
-  "LastUpdateDate": "2025-01-21T09:27:19Z",
+  "InsertDate": "2025-01-25T21:19:34Z",
+  "LastUpdateDate": "2025-01-25T21:19:34Z",
   "Level": "low",
   "Name": "Startup Item File Created - MacOS",
-  "Query": "sourcetype like 'macos-%' eql select * from _source_ where (filepath like '/library/startupitems/%' or filepath like '/system/library/startupitems%') and filepath like '%.plist'",
+  "Query": "sourcetype like 'macos-%' eql select * from _source_ where (filepath like '/Library/StartupItems/%' or filepath like '/System/Library/StartupItems%') and filepath like '%.plist'",
   "Tags": [
     "attack.persistence",
     "attack.privilege-escalation",

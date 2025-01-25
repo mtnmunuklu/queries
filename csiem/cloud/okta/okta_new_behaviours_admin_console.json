@@ -1,11 +1,11 @@
 {
   "Description": "Detects when Okta identifies new activity in the Admin Console.\n\nAuthor: kelnage\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a0b38b70-3cb5-484b-a4eb-c4d8e7bcc0a9",
-  "InsertDate": "2025-01-21T09:27:10Z",
-  "LastUpdateDate": "2025-01-21T09:27:10Z",
+  "InsertDate": "2025-01-25T21:19:07Z",
+  "LastUpdateDate": "2025-01-25T21:19:07Z",
   "Level": "high",
   "Name": "Okta New Admin Console Behaviours",
-  "Query": "sourcetype='okta-okta' eql select * from _source_ where ((eventtype = 'policy.evaluate_sign_on' and target.displayname = 'okta admin console') and (debugcontext.debugdata.behaviors like '%positive%' and debugcontext.debugdata.logonlysecuritydata like '%positive%'))",
+  "Query": "sourcetype='okta-okta' eql select * from _source_ where ((eventtype = 'policy.evaluate_sign_on' and target.displayname = 'Okta Admin Console') and (debugcontext.debugdata.behaviors like '%POSITIVE%' and debugcontext.debugdata.logonlysecuritydata like '%POSITIVE%'))",
   "Tags": [
     "attack.initial-access",
     "attack.t1078.004"

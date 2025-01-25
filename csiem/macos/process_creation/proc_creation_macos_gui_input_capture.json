@@ -1,11 +1,11 @@
 {
   "Description": "Detects attempts to use system dialog prompts to capture user credentials\n\nAuthor: remotephone, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "60f1ce20-484e-41bd-85f4-ac4afec2c541",
-  "InsertDate": "2025-01-21T09:27:19Z",
-  "LastUpdateDate": "2025-01-21T09:27:19Z",
+  "InsertDate": "2025-01-25T21:19:36Z",
+  "LastUpdateDate": "2025-01-25T21:19:36Z",
   "Level": "low",
   "Name": "GUI Input Capture - macOS",
-  "Query": "sourcetype like 'macos-%' eql select * from _source_ where ((command like '%-e%' and command like '%display%' and command like '%dialog%' and command like '%answer%') and (command like '%admin%' or command like '%administrator%' or command like '%authenticate%' or command like '%authentication%' or command like '%credentials%' or command like '%pass%' or command like '%password%' or command like '%unlock%') and process_path = '/usr/sbin/osascript')",
+  "Query": "sourcetype like 'macos-%' eql select * from _source_ where ((command like '%admin%' or command like '%administrator%' or command like '%authenticate%' or command like '%authentication%' or command like '%credentials%' or command like '%pass%' or command like '%password%' or command like '%unlock%') and process_path = '/usr/sbin/osascript' and (command like '%-e%' and command like '%display%' and command like '%dialog%' and command like '%answer%'))",
   "Tags": [
     "attack.credential-access",
     "attack.t1056.002"

@@ -1,11 +1,11 @@
 {
   "Description": "Detects potential WerFault \"ReflectDebugger\" registry value abuse for persistence.\n\nAuthor: X__Junior\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0cf2e1c6-8d10-4273-8059-738778f981ad",
-  "InsertDate": "2025-01-21T09:31:49Z",
-  "LastUpdateDate": "2025-01-21T09:31:49Z",
+  "InsertDate": "2025-01-25T21:22:48Z",
+  "LastUpdateDate": "2025-01-25T21:22:48Z",
   "Level": "high",
   "Name": "Potential WerFault ReflectDebugger Registry Value Abuse",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where event_type = 'setvalue' and target_object like '%\\microsoft\\windows\\windows error reporting\\hangs\\reflectdebugger'",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where event_type = 'SetValue' and target_object like '%\\Microsoft\\Windows\\Windows Error Reporting\\Hangs\\ReflectDebugger'",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1036.003"

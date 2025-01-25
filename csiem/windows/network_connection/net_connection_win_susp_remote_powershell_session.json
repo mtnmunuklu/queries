@@ -1,11 +1,11 @@
 {
   "Description": "Detects a process that initiated a network connection over ports 5985 or 5986 from a non-network service account.\nThis could potentially indicates a remote PowerShell connection.\n\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c539afac-c12a-46ed-b1bd-5a5567c9f045",
-  "InsertDate": "2025-01-21T09:27:56Z",
-  "LastUpdateDate": "2025-01-21T09:27:56Z",
+  "InsertDate": "2025-01-25T21:21:15Z",
+  "LastUpdateDate": "2025-01-25T21:21:15Z",
   "Level": "high",
   "Name": "Potential Remote PowerShell Session Initiated",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((dst_port = '5985' or dst_port = '5986') and initiated = 'true' and source_is_ipv6 = 'false') and  not (((username like '%network service%' or username like '%netzwerkdienst%' or username like '%servicio de red%' or username like '%servizio di rete%') and (username like '%service r%' and username like '%seau%')) or ((src_ip = '::1' or src_ip = '127.0.0.1') and (dst_ip = '::1' or dst_ip = '127.0.0.1'))) and  not (process_path = 'c:\\program files\\avast software\\avast\\avastsvc.exe' or process_path = 'c:\\program files (x86)\\avast software\\avast\\avastsvc.exe'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((dst_port = '5985' or dst_port = '5986') and initiated = 'true' and source_is_ipv6 = 'false') and  not (((src_ip = '::1' or src_ip = '127.0.0.1') and (dst_ip = '::1' or dst_ip = '127.0.0.1')) or ((username like '%NETWORK SERVICE%' or username like '%NETZWERKDIENST%' or username like '%SERVICIO DE RED%' or username like '%SERVIZIO DI RETE%') and (username like '%SERVICE R%' and username like '%SEAU%'))) and  not (process_path = 'C:\\Program Files\\Avast Software\\Avast\\AvastSvc.exe' or process_path = 'C:\\Program Files (x86)\\Avast Software\\Avast\\AvastSvc.exe'))",
   "Tags": [
     "attack.execution",
     "attack.t1059.001",

@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of PowerShell via the creation of a named pipe starting with PSHost\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ac7102b4-9e1e-4802-9b4f-17c5524c015c",
-  "InsertDate": "2025-01-21T09:27:57Z",
-  "LastUpdateDate": "2025-01-21T09:27:57Z",
+  "InsertDate": "2025-01-25T21:21:16Z",
+  "LastUpdateDate": "2025-01-25T21:21:16Z",
   "Level": "informational",
   "Name": "New PowerShell Instance Created",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where pipe_name like '\\pshost%'",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where pipe_name like '\\PSHost%'",
   "Tags": [
     "attack.execution",
     "attack.t1059.001"

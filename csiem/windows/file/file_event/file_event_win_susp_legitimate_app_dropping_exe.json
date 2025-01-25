@@ -1,11 +1,11 @@
 {
   "Description": "Detects programs on a Windows system that should not write executables to disk\n\nAuthor: frack113, Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f0540f7e-2db3-4432-b9e0-3965486744bc",
-  "InsertDate": "2025-01-21T09:27:47Z",
-  "LastUpdateDate": "2025-01-21T09:27:47Z",
+  "InsertDate": "2025-01-25T21:21:02Z",
+  "LastUpdateDate": "2025-01-25T21:21:02Z",
   "Level": "high",
   "Name": "Legitimate Application Dropped Executable",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\eqnedt32.exe' or process_path like '%\\wordpad.exe' or process_path like '%\\wordview.exe' or process_path like '%\\certutil.exe' or process_path like '%\\certoc.exe' or process_path like '%\\certreq.exe' or process_path like '%\\desktopimgdownldr.exe' or process_path like '%\\esentutl.exe' or process_path like '%\\mshta.exe' or process_path like '%\\acrord32.exe' or process_path like '%\\rdrcef.exe' or process_path like '%\\hh.exe' or process_path like '%\\finger.exe') and (filepath like '%.exe' or filepath like '%.dll' or filepath like '%.ocx')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\eqnedt32.exe' or process_path like '%\\wordpad.exe' or process_path like '%\\wordview.exe' or process_path like '%\\certutil.exe' or process_path like '%\\certoc.exe' or process_path like '%\\CertReq.exe' or process_path like '%\\Desktopimgdownldr.exe' or process_path like '%\\esentutl.exe' or process_path like '%\\mshta.exe' or process_path like '%\\AcroRd32.exe' or process_path like '%\\RdrCEF.exe' or process_path like '%\\hh.exe' or process_path like '%\\finger.exe') and (filepath like '%.exe' or filepath like '%.dll' or filepath like '%.ocx')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1218"

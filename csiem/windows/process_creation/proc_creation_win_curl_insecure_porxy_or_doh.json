@@ -1,8 +1,8 @@
 {
   "Description": "Detects execution of \"curl.exe\" with the \"insecure\" flag over proxy or DOH.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "2c1486f5-02e8-4f86-9099-b97f2da4ed77",
-  "InsertDate": "2025-01-21T09:28:22Z",
-  "LastUpdateDate": "2025-01-21T09:28:22Z",
+  "InsertDate": "2025-01-25T21:21:41Z",
+  "LastUpdateDate": "2025-01-25T21:21:41Z",
   "Level": "medium",
   "Name": "Insecure Proxy/DOH Transfer Via Curl.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\curl.exe' and original_file_name = 'curl.exe') and (command like '%--doh-insecure%' or command like '%--proxy-insecure%'))",

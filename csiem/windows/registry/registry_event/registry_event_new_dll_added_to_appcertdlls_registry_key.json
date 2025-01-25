@@ -1,11 +1,11 @@
 {
   "Description": "Dynamic-link libraries (DLLs) that are specified in the AppCertDLLs value in the Registry key can be abused to obtain persistence and privilege escalation\nby causing a malicious DLL to be loaded and run in the context of separate processes on the computer.\n\n\nAuthor: Ilyas Ochkov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6aa1d992-5925-4e9f-a49b-845e51d1de01",
-  "InsertDate": "2025-01-21T09:31:15Z",
-  "LastUpdateDate": "2025-01-21T09:31:15Z",
+  "InsertDate": "2025-01-25T21:22:41Z",
+  "LastUpdateDate": "2025-01-25T21:22:41Z",
   "Level": "medium",
   "Name": "New DLL Added to AppCertDlls Registry Key",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where target_object = 'hklm\\system\\currentcontrolset\\control\\session manager\\appcertdlls' and newname = 'hklm\\system\\curentcontrolset\\control\\session manager\\appcertdlls'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where target_object = 'HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\AppCertDlls' and newname = 'HKLM\\SYSTEM\\CurentControlSet\\Control\\Session Manager\\AppCertDlls'",
   "Tags": [
     "attack.persistence",
     "attack.t1546.009"

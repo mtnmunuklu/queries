@@ -1,11 +1,11 @@
 {
   "Description": "Detects applications or users re-enabling old TLS versions by setting the \"Enabled\" value to \"1\" for the \"Protocols\" registry key.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "439957a7-ad86-4a8f-9705-a28131c6821b",
-  "InsertDate": "2025-01-21T09:31:57Z",
-  "LastUpdateDate": "2025-01-21T09:31:57Z",
+  "InsertDate": "2025-01-25T21:22:50Z",
+  "LastUpdateDate": "2025-01-25T21:22:50Z",
   "Level": "medium",
   "Name": "Old TLS1.0/TLS1.1 Protocol Version Enabled",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\control\\securityproviders\\schannel\\protocols\\tls 1.0\\%' or target_object like '%\\control\\securityproviders\\schannel\\protocols\\tls 1.1\\%') and target_object like '%\\enabled' and details = 'dword (0x00000001)'",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\Control\\SecurityProviders\\SCHANNEL\\Protocols\\TLS 1.0\\%' or target_object like '%\\Control\\SecurityProviders\\SCHANNEL\\Protocols\\TLS 1.1\\%') and target_object like '%\\Enabled' and details = 'DWORD (0x00000001)'",
   "Tags": [
     "attack.defense-evasion"
   ],

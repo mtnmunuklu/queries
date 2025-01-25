@@ -1,11 +1,11 @@
 {
   "Description": "Detects usage of the built-in PowerShell cmdlet \"Enable-WindowsOptionalFeature\" used as a Deployment Image Servicing and Management tool.\nSimilar to DISM.exe, this cmdlet is used to enumerate, install, uninstall, configure, and update features and packages in Windows images\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c740d4cf-a1e9-41de-bb16-8a46a4f57918",
-  "InsertDate": "2025-01-21T09:28:56Z",
-  "LastUpdateDate": "2025-01-21T09:28:56Z",
+  "InsertDate": "2025-01-25T21:22:08Z",
+  "LastUpdateDate": "2025-01-25T21:22:08Z",
   "Level": "medium",
   "Name": "Potential Suspicious Windows Feature Enabled - ProcCreation",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%enable-windowsoptionalfeature%' and command like '%-online%' and command like '%-featurename%') and (command like '%telnetserver%' or command like '%internet-explorer-optional-amd64%' or command like '%tftp%' or command like '%smb1protocol%' or command like '%client-projfs%' or command like '%microsoft-windows-subsystem-linux%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%TelnetServer%' or command like '%Internet-Explorer-Optional-amd64%' or command like '%TFTP%' or command like '%SMB1Protocol%' or command like '%Client-ProjFS%' or command like '%Microsoft-Windows-Subsystem-Linux%') and (command like '%Enable-WindowsOptionalFeature%' and command like '%-Online%' and command like '%-FeatureName%'))",
   "Tags": [
     "attack.defense-evasion"
   ],

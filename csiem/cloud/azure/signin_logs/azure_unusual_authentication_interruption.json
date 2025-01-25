@@ -1,11 +1,11 @@
 {
   "Description": "Detects when there is a interruption in the authentication process.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "8366030e-7216-476b-9927-271d79f13cf3",
-  "InsertDate": "2025-01-21T09:27:06Z",
-  "LastUpdateDate": "2025-01-21T09:27:06Z",
+  "InsertDate": "2025-01-25T21:18:57Z",
+  "LastUpdateDate": "2025-01-25T21:18:57Z",
   "Level": "medium",
   "Name": "Azure Unusual Authentication Interruption",
-  "Query": "sourcetype='azure-signinlogs' eql select * from _source_ where ((resulttype = '50155' and resultdescription = 'deviceauthenticationfailed') or (resulttype = '50158' and resultdescription = 'externalsecuritychallenge - external security challenge was not satisfied') or (resulttype = '50097' and resultdescription = 'device authentication is required'))",
+  "Query": "sourcetype='azure-signinlogs' eql select * from _source_ where ((resulttype = '50097' and resultdescription = 'Device authentication is required') or (resulttype = '50155' and resultdescription = 'DeviceAuthenticationFailed') or (resulttype = '50158' and resultdescription = 'ExternalSecurityChallenge - External security challenge was not satisfied'))",
   "Tags": [
     "attack.initial-access",
     "attack.t1078"

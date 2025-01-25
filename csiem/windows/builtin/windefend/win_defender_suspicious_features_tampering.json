@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious changes to the Windows Defender configuration\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "801bd44f-ceed-4eb6-887c-11544633c0aa",
-  "InsertDate": "2025-01-21T09:27:38Z",
-  "LastUpdateDate": "2025-01-21T09:27:38Z",
+  "InsertDate": "2025-01-25T21:20:42Z",
+  "LastUpdateDate": "2025-01-25T21:20:42Z",
   "Level": "high",
   "Name": "Windows Defender Configuration Changes",
-  "Query": "sourcetype='windows-windefend' eql select * from _source_ where eventid = '5007' and (newvalue like '%\\windows defender\\disableantispyware %' or newvalue like '%\\windows defender\\scan\\disableremovabledrivescanning %' or newvalue like '%\\windows defender\\scan\\disablescanningmappednetworkdrivesforfullscan %' or newvalue like '%\\windows defender\\spynet\\disableblockatfirstseen %' or newvalue like '%\\real-time protection\\spynetreporting %')",
+  "Query": "sourcetype='windows-windefend' eql select * from _source_ where eventid = '5007' and (newvalue like '%\\Windows Defender\\DisableAntiSpyware %' or newvalue like '%\\Windows Defender\\Scan\\DisableRemovableDriveScanning %' or newvalue like '%\\Windows Defender\\Scan\\DisableScanningMappedNetworkDrivesForFullScan %' or newvalue like '%\\Windows Defender\\SpyNet\\DisableBlockAtFirstSeen %' or newvalue like '%\\Real-Time Protection\\SpyNetReporting %')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1562.001"

@@ -1,11 +1,11 @@
 {
   "Description": "Detects loading of a DLL by the VMware Xfer utility from the non-default directory which may be an attempt to sideload arbitrary DLL\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9313dc13-d04c-46d8-af4a-a930cc55d93b",
-  "InsertDate": "2025-01-21T09:27:53Z",
-  "LastUpdateDate": "2025-01-21T09:27:53Z",
+  "InsertDate": "2025-01-25T21:21:10Z",
+  "LastUpdateDate": "2025-01-25T21:21:10Z",
   "Level": "high",
   "Name": "Potential DLL Sideloading Via VMware Xfer",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\vmwarexferlogs.exe' and image_loaded like '%\\glib-2.0.dll') and  not image_loaded like 'c:\\program files\\vmware\\%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\VMwareXferlogs.exe' and image_loaded like '%\\glib-2.0.dll') and  not image_loaded like 'C:\\Program Files\\VMware\\%')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1574.002"

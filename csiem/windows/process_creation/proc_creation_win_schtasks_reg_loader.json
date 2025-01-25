@@ -1,11 +1,11 @@
 {
   "Description": "Detects the creation of a schtasks that potentially executes a payload stored in the Windows Registry using PowerShell.\n\nAuthor: X__Junior (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "86588b36-c6d3-465f-9cee-8f9093e07798",
-  "InsertDate": "2025-01-21T09:30:02Z",
-  "LastUpdateDate": "2025-01-21T09:30:02Z",
+  "InsertDate": "2025-01-25T21:22:23Z",
+  "LastUpdateDate": "2025-01-25T21:22:23Z",
   "Level": "medium",
   "Name": "Scheduled Task Executing Payload from Registry",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\schtasks.exe' and original_file_name = 'schtasks.exe') and command like '%/create%' and (command like '%get-itemproperty%' or command like '% gp %') and (command like '%hkcu:%' or command like '%hklm:%' or command like '%registry::%' or command like '%hkey_%')) and  not (command like '%frombase64string%' or command like '%encodedcommand%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%/Create%' and (command like '%Get-ItemProperty%' or command like '% gp %') and (command like '%HKCU:%' or command like '%HKLM:%' or command like '%registry::%' or command like '%HKEY_%') and (process_path like '%\\schtasks.exe' and original_file_name = 'schtasks.exe')) and  not (command like '%FromBase64String%' or command like '%encodedcommand%'))",
   "Tags": [
     "attack.execution",
     "attack.persistence",

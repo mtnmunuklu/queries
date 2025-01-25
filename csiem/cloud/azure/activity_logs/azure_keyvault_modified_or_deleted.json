@@ -1,11 +1,11 @@
 {
   "Description": "Identifies when a key vault is modified or deleted.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "459a2970-bb84-4e6a-a32e-ff0fbd99448d",
-  "InsertDate": "2025-01-21T09:27:02Z",
-  "LastUpdateDate": "2025-01-21T09:27:02Z",
+  "InsertDate": "2025-01-25T21:18:31Z",
+  "LastUpdateDate": "2025-01-25T21:18:31Z",
   "Level": "medium",
   "Name": "Azure Key Vault Modified or Deleted",
-  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (operationname = 'microsoft.keyvault/vaults/write' or operationname = 'microsoft.keyvault/vaults/delete' or operationname = 'microsoft.keyvault/vaults/deploy/action' or operationname = 'microsoft.keyvault/vaults/accesspolicies/write')",
+  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (operationname = 'MICROSOFT.KEYVAULT/VAULTS/WRITE' or operationname = 'MICROSOFT.KEYVAULT/VAULTS/DELETE' or operationname = 'MICROSOFT.KEYVAULT/VAULTS/DEPLOY/ACTION' or operationname = 'MICROSOFT.KEYVAULT/VAULTS/ACCESSPOLICIES/WRITE')",
   "Tags": [
     "attack.impact",
     "attack.credential-access",

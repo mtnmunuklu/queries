@@ -1,11 +1,11 @@
 {
   "Description": "Detects changes to the bitbucket audit log configuration.\n\nAuthor: Muhammad Faisal (@faisalusuf)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6aa12161-235a-4dfb-9c74-fe08df8d8da1",
-  "InsertDate": "2025-01-21T09:27:06Z",
-  "LastUpdateDate": "2025-01-21T09:27:06Z",
+  "InsertDate": "2025-01-25T21:18:58Z",
+  "LastUpdateDate": "2025-01-25T21:18:58Z",
   "Level": "medium",
   "Name": "Bitbucket Audit Log Configuration Updated",
-  "Query": "sourcetype='bitbucket-audit' eql select * from _source_ where audittype.category = 'auditing' and audittype.action = 'audit log configuration updated'",
+  "Query": "sourcetype='bitbucket-audit' eql select * from _source_ where audittype.category = 'Auditing' and audittype.action = 'Audit log configuration updated'",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1562.001"

@@ -1,11 +1,11 @@
 {
   "Description": "Detects MSI package installation from suspicious locations\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c7c8aa1c-5aff-408e-828b-998e3620b341",
-  "InsertDate": "2025-01-21T09:27:25Z",
-  "LastUpdateDate": "2025-01-21T09:27:25Z",
+  "InsertDate": "2025-01-25T21:20:00Z",
+  "LastUpdateDate": "2025-01-25T21:20:00Z",
   "Level": "medium",
   "Name": "MSI Installation From Suspicious Locations",
-  "Query": "sourcetype='windows-application' eql select * from _source_ where ((provider_name = 'msiinstaller' and (eventid = '1040' or eventid = '1042') and (data like '%:\\windows\\temp\\%' or data like '%\\\\\\\\%' or data like '%\\desktop\\%' or data like '%\\perflogs\\%' or data like '%\\users\\public\\%')) and  not (data like '%\\appdata\\local\\temp\\winget\\%' or data like '%c:\\windows\\temp\\updhealthtools.msi%'))",
+  "Query": "sourcetype='windows-application' eql select * from _source_ where ((provider_name = 'MsiInstaller' and (eventid = '1040' or eventid = '1042') and (data like '%:\\Windows\\TEMP\\%' or data like '%\\\\\\\\%' or data like '%\\Desktop\\%' or data like '%\\PerfLogs\\%' or data like '%\\Users\\Public\\%')) and  not (data like '%\\AppData\\Local\\Temp\\WinGet\\%' or data like '%C:\\Windows\\TEMP\\UpdHealthTools.msi%'))",
   "Tags": [
     "attack.execution"
   ],

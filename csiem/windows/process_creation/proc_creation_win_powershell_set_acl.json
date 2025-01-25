@@ -1,11 +1,11 @@
 {
   "Description": "Detects PowerShell execution to set the ACL of a file or a folder\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "bdeb2cff-af74-4094-8426-724dc937f20a",
-  "InsertDate": "2025-01-21T09:29:01Z",
-  "LastUpdateDate": "2025-01-21T09:29:01Z",
+  "InsertDate": "2025-01-25T21:22:10Z",
+  "LastUpdateDate": "2025-01-25T21:22:10Z",
   "Level": "high",
   "Name": "PowerShell Script Change Permission Via Set-Acl",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll') and (process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe')) and (command like '%set-acl %' and command like '%-aclobject %' and command like '%-path %'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%Set-Acl %' and command like '%-AclObject %' and command like '%-Path %') and ((original_file_name = 'PowerShell.EXE' or original_file_name = 'pwsh.dll') and (process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe')))",
   "Tags": [
     "attack.defense-evasion"
   ],

@@ -1,11 +1,11 @@
 {
   "Description": "Detects attackers using tooling with bad opsec defaults.\nE.g. spawning a sacrificial process to inject a capability into the process without taking into account how the process is normally run.\nOne trivial example of this is using rundll32.exe without arguments as a sacrificial process (default in CS, now highlighted by c2lint), running WerFault without arguments (Kraken - credit am0nsec), and other examples.\n\n\nAuthor: Oleg Kolesnikov @securonix invrep_de, oscd.community, Florian Roth (Nextron Systems), Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a7c3d773-caef-227e-a7e7-c2f13c622329",
-  "InsertDate": "2025-01-21T09:30:12Z",
-  "LastUpdateDate": "2025-01-21T09:30:12Z",
+  "InsertDate": "2025-01-25T21:22:26Z",
+  "LastUpdateDate": "2025-01-25T21:22:26Z",
   "Level": "high",
   "Name": "Bad Opsec Defaults Sacrificial Processes With Improper Arguments",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\regsvcs.exe' and command like '%regsvcs.exe') or (process_path like '%\\regasm.exe' and command like '%regasm.exe') or (process_path like '%\\regsvr32.exe' and command like '%regsvr32.exe') or (process_path like '%\\werfault.exe' and command like '%werfault.exe') or (process_path like '%\\rundll32.exe' and command like '%rundll32.exe')) and  not ((parent_process_path like '%\\appdata\\local\\microsoft\\edgeupdate\\install\\{%' and process_path like '%\\rundll32.exe' and command like '%rundll32.exe') or ((parent_process_path like '%\\appdata\\local\\bravesoftware\\brave-browser\\application\\%' or parent_process_path like '%\\appdata\\local\\google\\chrome\\application\\%') and parent_process_path like '%\\installer\\setup.exe' and parent_command_line like '%--uninstall %' and process_path like '%\\rundll32.exe' and command like '%rundll32.exe')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\regasm.exe' and command like '%regasm.exe') or (process_path like '%\\regsvr32.exe' and command like '%regsvr32.exe') or (process_path like '%\\WerFault.exe' and command like '%WerFault.exe') or (process_path like '%\\rundll32.exe' and command like '%rundll32.exe') or (process_path like '%\\regsvcs.exe' and command like '%regsvcs.exe')) and  not ((parent_process_path like '%\\AppData\\Local\\Microsoft\\EdgeUpdate\\Install\\{%' and process_path like '%\\rundll32.exe' and command like '%rundll32.exe') or ((parent_process_path like '%\\AppData\\Local\\BraveSoftware\\Brave-Browser\\Application\\%' or parent_process_path like '%\\AppData\\Local\\Google\\Chrome\\Application\\%') and parent_process_path like '%\\Installer\\setup.exe' and parent_command_line like '%--uninstall %' and process_path like '%\\rundll32.exe' and command like '%rundll32.exe')))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1218.011"

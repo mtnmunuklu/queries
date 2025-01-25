@@ -1,11 +1,11 @@
 {
   "Description": "Open a handle on the drive volume via the \\\\.\\ DOS device path specifier and perform direct access read of the first few bytes of the volume.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "70ad982f-67c8-40e0-a955-b920c2fa05cb",
-  "InsertDate": "2025-01-21T09:28:10Z",
-  "LastUpdateDate": "2025-01-21T09:28:10Z",
+  "InsertDate": "2025-01-25T21:21:30Z",
+  "LastUpdateDate": "2025-01-25T21:21:30Z",
   "Level": "medium",
   "Name": "Suspicious IO.FileStream",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%new-object%' and scriptblocktext like '%io.filestream%' and scriptblocktext like '%\\\\\\\\.\\\\%')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%New-Object%' and scriptblocktext like '%IO.FileStream%' and scriptblocktext like '%\\\\\\\\.\\\\%')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1070.003"

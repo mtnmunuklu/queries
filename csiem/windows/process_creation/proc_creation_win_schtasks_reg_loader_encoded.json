@@ -1,11 +1,11 @@
 {
   "Description": "Detects the creation of a schtask that potentially executes a base64 encoded payload stored in the Windows Registry using PowerShell.\n\nAuthor: pH-T (Nextron Systems), @Kostastsale, @TheDFIRReport, X__Junior (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c4eeeeae-89f4-43a7-8b48-8d1bdfa66c78",
-  "InsertDate": "2025-01-21T09:30:03Z",
-  "LastUpdateDate": "2025-01-21T09:30:03Z",
+  "InsertDate": "2025-01-25T21:22:23Z",
+  "LastUpdateDate": "2025-01-25T21:22:23Z",
   "Level": "high",
   "Name": "Scheduled Task Executing Encoded Payload from Registry",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\schtasks.exe' and original_file_name = 'schtasks.exe') and command like '%/create%' and (command like '%frombase64string%' or command like '%encodedcommand%') and (command like '%get-itemproperty%' or command like '% gp %') and (command like '%hkcu:%' or command like '%hklm:%' or command like '%registry::%' or command like '%hkey_%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\schtasks.exe' and original_file_name = 'schtasks.exe') and command like '%/Create%' and (command like '%FromBase64String%' or command like '%encodedcommand%') and (command like '%Get-ItemProperty%' or command like '% gp %') and (command like '%HKCU:%' or command like '%HKLM:%' or command like '%registry::%' or command like '%HKEY_%'))",
   "Tags": [
     "attack.execution",
     "attack.persistence",

@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of \"gpg.exe\" from uncommon location. Often used by ransomware and loaders to decrypt/encrypt data.\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "77df53a5-1d78-4f32-bc5a-0e7465bd8f41",
-  "InsertDate": "2025-01-21T09:28:27Z",
-  "LastUpdateDate": "2025-01-21T09:28:27Z",
+  "InsertDate": "2025-01-25T21:21:45Z",
+  "LastUpdateDate": "2025-01-25T21:21:45Z",
   "Level": "medium",
   "Name": "Portable Gpg.EXE Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\gpg.exe' or process_path like '%\\gpg2.exe') and original_file_name = 'gpg.exe' and description = 'gnupg’s openpgp tool') and  not (process_path like '%:\\program files (x86)\\gnu\\gnupg\\bin\\%' or process_path like '%:\\program files (x86)\\gnupg vs-desktop\\%' or process_path like '%:\\program files (x86)\\gnupg\\bin\\%' or process_path like '%:\\program files (x86)\\gpg4win\\bin\\%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\gpg.exe' or process_path like '%\\gpg2.exe') and original_file_name = 'gpg.exe' and description = 'GnuPG’s OpenPGP tool') and  not (process_path like '%:\\Program Files (x86)\\GNU\\GnuPG\\bin\\%' or process_path like '%:\\Program Files (x86)\\GnuPG VS-Desktop\\%' or process_path like '%:\\Program Files (x86)\\GnuPG\\bin\\%' or process_path like '%:\\Program Files (x86)\\Gpg4win\\bin\\%'))",
   "Tags": [
     "attack.impact",
     "attack.t1486"

@@ -1,11 +1,11 @@
 {
   "Description": "Execution of plink to perform data exfiltration and tunneling\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f38ce0b9-5e97-4b47-a211-7dc8d8b871da",
-  "InsertDate": "2025-01-21T09:28:47Z",
-  "LastUpdateDate": "2025-01-21T09:28:47Z",
+  "InsertDate": "2025-01-25T21:22:04Z",
+  "LastUpdateDate": "2025-01-25T21:22:04Z",
   "Level": "high",
   "Name": "Potential RDP Tunneling Via Plink",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\plink.exe' and command like '%:127.0.0.1:3389%') or ((process_path like '%\\plink.exe' and command like '%:3389%') and (command like '% -p 443%' or command like '% -p 22%')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\plink.exe' and command like '%:127.0.0.1:3389%') or ((process_path like '%\\plink.exe' and command like '%:3389%') and (command like '% -P 443%' or command like '% -P 22%')))",
   "Tags": [
     "attack.command-and-control",
     "attack.t1572"

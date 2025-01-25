@@ -1,11 +1,11 @@
 {
   "Description": "Detects Request to \"amsiInitFailed\" that can be used to disable AMSI Scanning\n\nAuthor: Markus Neis, @Kostastsale\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "30edb182-aa75-42c0-b0a9-e998bb29067c",
-  "InsertDate": "2025-01-21T09:28:47Z",
-  "LastUpdateDate": "2025-01-21T09:28:47Z",
+  "InsertDate": "2025-01-25T21:22:05Z",
+  "LastUpdateDate": "2025-01-25T21:22:05Z",
   "Level": "high",
   "Name": "Potential AMSI Bypass Via .NET Reflection",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%system.management.automation.amsiutils%' and command like '%amsiinitfailed%') and (command like '%[ref].assembly.gettype%' and command like '%setvalue($null,$true)%' and command like '%nonpublic,static%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%System.Management.Automation.AmsiUtils%' and command like '%amsiInitFailed%') and (command like '%[Ref].Assembly.GetType%' and command like '%SetValue($null,$true)%' and command like '%NonPublic,Static%')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1562.001"

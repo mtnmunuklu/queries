@@ -1,11 +1,11 @@
 {
   "Description": "Detects the creation of a file that has the same name as the default LiveKD kernel memory dump.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "814ddeca-3d31-4265-8e07-8cc54fb44903",
-  "InsertDate": "2025-01-21T09:27:48Z",
-  "LastUpdateDate": "2025-01-21T09:27:48Z",
+  "InsertDate": "2025-01-25T21:21:03Z",
+  "LastUpdateDate": "2025-01-25T21:21:03Z",
   "Level": "high",
   "Name": "LiveKD Kernel Memory Dump File Created",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where filepath = 'c:\\windows\\livekd.dmp'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where filepath = 'C:\\Windows\\livekd.dmp'",
   "Tags": [
     "attack.defense-evasion",
     "attack.privilege-escalation"

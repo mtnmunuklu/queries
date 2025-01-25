@@ -1,11 +1,11 @@
 {
   "Description": "Detects possible execution via LNK file accessed on a WebDAV server.\n\nAuthor: Micah Babinski\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1412aa78-a24c-4abd-83df-767dfb2c5bbe",
-  "InsertDate": "2025-01-21T09:30:49Z",
-  "LastUpdateDate": "2025-01-21T09:30:49Z",
+  "InsertDate": "2025-01-25T21:22:36Z",
+  "LastUpdateDate": "2025-01-25T21:22:36Z",
   "Level": "medium",
   "Name": "Potentially Suspicious WebDAV LNK Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where parent_process_path like '%\\explorer.exe' and (process_path like '%\\cmd.exe' or process_path like '%\\cscript.exe' or process_path like '%\\mshta.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\wscript.exe') and command like '%\\davwwwroot\\%'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where parent_process_path like '%\\explorer.exe' and (process_path like '%\\cmd.exe' or process_path like '%\\cscript.exe' or process_path like '%\\mshta.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\wscript.exe') and command like '%\\DavWWWRoot\\%'",
   "Tags": [
     "attack.execution",
     "attack.t1059.001",

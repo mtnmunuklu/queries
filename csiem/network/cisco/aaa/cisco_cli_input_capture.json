@@ -1,8 +1,8 @@
 {
   "Description": "See what commands are being input into the device by other people, full credentials can be in the history\n\nAuthor: Austin Clark\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b094d9fb-b1ad-4650-9f1a-fb7be9f1d34b",
-  "InsertDate": "2025-01-21T09:27:22Z",
-  "LastUpdateDate": "2025-01-21T09:27:22Z",
+  "InsertDate": "2025-01-25T21:19:43Z",
+  "LastUpdateDate": "2025-01-25T21:19:43Z",
   "Level": "medium",
   "Name": "Cisco Show Commands Input",
   "Query": "sourcetype='cisco-aaa' eql select * from _source_ where Query('show history OR show history all OR show logging')",

@@ -1,11 +1,11 @@
 {
   "Description": "Detects an UAC bypass that uses changepk.exe and slui.exe (UACMe 61)\n\nAuthor: Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "503d581c-7df0-4bbe-b9be-5840c0ecc1fc",
-  "InsertDate": "2025-01-21T09:30:41Z",
-  "LastUpdateDate": "2025-01-21T09:30:41Z",
+  "InsertDate": "2025-01-25T21:22:33Z",
+  "LastUpdateDate": "2025-01-25T21:22:33Z",
   "Level": "high",
   "Name": "UAC Bypass Using ChangePK and SLUI",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\changepk.exe' and parent_process_path like '%\\slui.exe' and (integrity_level = 'high' or integrity_level = 'system' or integrity_level = 's-1-16-16384' or integrity_level = 's-1-16-12288')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\changepk.exe' and parent_process_path like '%\\slui.exe' and (integrity_level = 'High' or integrity_level = 'System' or integrity_level = 'S-1-16-16384' or integrity_level = 'S-1-16-12288')",
   "Tags": [
     "attack.defense-evasion",
     "attack.privilege-escalation",

@@ -1,11 +1,11 @@
 {
   "Description": "Detects modification of the registry settings used for Internet Explorer and other Windows components that use these settings. An attacker can abuse this registry key to add a domain to the trusted sites Zone or insert javascript for persistence\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d88d0ab2-e696-4d40-a2ed-9790064e66b3",
-  "InsertDate": "2025-01-21T09:31:47Z",
-  "LastUpdateDate": "2025-01-21T09:31:47Z",
+  "InsertDate": "2025-01-25T21:22:48Z",
+  "LastUpdateDate": "2025-01-25T21:22:48Z",
   "Level": "low",
   "Name": "Modification of IE Registry Settings",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\software\\microsoft\\windows\\currentversion\\internet settings%' and  not (target_object like '%\\accepted documents\\%' or details like 'dword%' or (details = 'cookie:' or details = 'visited:' or details = '(empty)') or (target_object like '%\\cache%' or target_object like '%\\zonemap%' or target_object like '%\\wpaddecision%') or details = 'binary data'))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings%' and  not ((details = 'Cookie:' or details = 'Visited:' or details = '(Empty)') or (target_object like '%\\Cache%' or target_object like '%\\ZoneMap%' or target_object like '%\\WpadDecision%') or details = 'Binary Data' or target_object like '%\\Accepted Documents\\%' or details like 'DWORD%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1112"

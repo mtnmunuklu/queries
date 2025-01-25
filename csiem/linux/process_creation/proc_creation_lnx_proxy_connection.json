@@ -1,8 +1,8 @@
 {
   "Description": "Detects setting proxy configuration\n\nAuthor: Ömer Günal\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "72f4ab3f-787d-495d-a55d-68c2ff46cf4c",
-  "InsertDate": "2025-01-21T09:27:17Z",
-  "LastUpdateDate": "2025-01-21T09:27:17Z",
+  "InsertDate": "2025-01-25T21:19:28Z",
+  "LastUpdateDate": "2025-01-25T21:19:28Z",
   "Level": "low",
   "Name": "Connection Proxy",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where (command like '%http_proxy=%' or command like '%https_proxy=%')",

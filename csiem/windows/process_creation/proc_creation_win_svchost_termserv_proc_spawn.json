@@ -1,11 +1,11 @@
 {
   "Description": "Detects a process spawned by the terminal service server process (this could be an indicator for an exploitation of CVE-2019-0708)\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1012f107-b8f1-4271-af30-5aed2de89b39",
-  "InsertDate": "2025-01-21T09:30:37Z",
-  "LastUpdateDate": "2025-01-21T09:30:37Z",
+  "InsertDate": "2025-01-25T21:22:31Z",
+  "LastUpdateDate": "2025-01-25T21:22:31Z",
   "Level": "high",
   "Name": "Terminal Service Process Spawn",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_command_line like '%\\svchost.exe%' and parent_command_line like '%termsvcs%') and  not ((process_path like '%\\rdpclip.exe' or process_path like '%:\\windows\\system32\\csrss.exe' or process_path like '%:\\windows\\system32\\wininit.exe' or process_path like '%:\\windows\\system32\\winlogon.exe') or process_path = 'null'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_command_line like '%\\svchost.exe%' and parent_command_line like '%termsvcs%') and  not ((process_path like '%\\rdpclip.exe' or process_path like '%:\\Windows\\System32\\csrss.exe' or process_path like '%:\\Windows\\System32\\wininit.exe' or process_path like '%:\\Windows\\System32\\winlogon.exe') or process_path = 'null'))",
   "Tags": [
     "attack.initial-access",
     "attack.t1190",

@@ -1,11 +1,11 @@
 {
   "Description": "Detects file access requests to potentially sensitive files hosted on the Windows Sysvol share.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d51694fe-484a-46ac-92d6-969e76d60d10",
-  "InsertDate": "2025-01-21T09:27:41Z",
-  "LastUpdateDate": "2025-01-21T09:27:41Z",
+  "InsertDate": "2025-01-25T21:20:50Z",
+  "LastUpdateDate": "2025-01-25T21:20:50Z",
   "Level": "medium",
   "Name": "Access To Potentially Sensitive Sysvol Files By Uncommon Applications",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((filename like '\\\\%' and (filename like '%\\sysvol\\%' and filename like '%\\policies\\%') and (filename like '%audit.csv' or filename like '%files.xml' or filename like '%gpttmpl.inf' or filename like '%groups.xml' or filename like '%registry.pol' or filename like '%registry.xml' or filename like '%scheduledtasks.xml' or filename like '%scripts.ini' or filename like '%services.xml')) and  not ((process_path like 'c:\\program files (x86)\\%' or process_path like 'c:\\program files\\%' or process_path like 'c:\\windows\\system32\\%' or process_path like 'c:\\windows\\syswow64\\%') or process_path = 'c:\\windows\\explorer.exe'))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((filename like '\\\\%' and (filename like '%\\sysvol\\%' and filename like '%\\Policies\\%') and (filename like '%audit.csv' or filename like '%Files.xml' or filename like '%GptTmpl.inf' or filename like '%groups.xml' or filename like '%Registry.pol' or filename like '%Registry.xml' or filename like '%scheduledtasks.xml' or filename like '%scripts.ini' or filename like '%services.xml')) and  not ((process_path like 'C:\\Program Files (x86)\\%' or process_path like 'C:\\Program Files\\%' or process_path like 'C:\\Windows\\system32\\%' or process_path like 'C:\\Windows\\SysWOW64\\%') or process_path = 'C:\\Windows\\explorer.exe'))",
   "Tags": [
     "attack.credential-access",
     "attack.t1552.006"

@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious PowerShell invocation command parameters\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "bbb80e91-5746-4fbe-8898-122e2cafdbf4",
-  "InsertDate": "2025-01-21T09:28:00Z",
-  "LastUpdateDate": "2025-01-21T09:28:00Z",
+  "InsertDate": "2025-01-25T21:21:20Z",
+  "LastUpdateDate": "2025-01-25T21:21:20Z",
   "Level": "high",
   "Name": "Suspicious PowerShell Invocations - Generic - PowerShell Module",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((contextinfo like '% -enc %' or contextinfo like '% -encodedcommand %' or contextinfo like '% -ec %') and (contextinfo like '% -w hidden %' or contextinfo like '% -window hidden %' or contextinfo like '% -windowstyle hidden %' or contextinfo like '% -w 1 %') and (contextinfo like '% -noni %' or contextinfo like '% -noninteractive %'))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((contextinfo like '% -noni %' or contextinfo like '% -noninteractive %') and (contextinfo like '% -enc %' or contextinfo like '% -EncodedCommand %' or contextinfo like '% -ec %') and (contextinfo like '% -w hidden %' or contextinfo like '% -window hidden %' or contextinfo like '% -windowstyle hidden %' or contextinfo like '% -w 1 %'))",
   "Tags": [
     "attack.execution",
     "attack.t1059.001"

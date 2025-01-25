@@ -1,11 +1,11 @@
 {
   "Description": "Detect the creation of a service with a service binary located in a suspicious directory\n\nAuthor: Florian Roth (Nextron Systems), frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a07f0359-4c90-4dc4-a681-8ffea40b4f47",
-  "InsertDate": "2025-01-21T09:31:28Z",
-  "LastUpdateDate": "2025-01-21T09:31:28Z",
+  "InsertDate": "2025-01-25T21:22:44Z",
+  "LastUpdateDate": "2025-01-25T21:22:44Z",
   "Level": "high",
   "Name": "Service Binary in Suspicious Folder",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (((target_object like 'hklm\\system\\currentcontrolset\\services\\%' and target_object like '%\\start' and (process_path like '%\\users\\public\\%' or process_path like '%\\perflogs\\%' or process_path like '%\\admin$\\%' or process_path like '%\\temp\\%') and (details = 'dword (0x00000000)' or details = 'dword (0x00000001)' or details = 'dword (0x00000002)')) or (target_object like 'hklm\\system\\currentcontrolset\\services\\%' and target_object like '%\\imagepath' and (details like '%\\users\\public\\%' or details like '%\\perflogs\\%' or details like '%\\admin$\\%' or details like '%\\temp\\%'))) and  not (process_path like '%\\common files\\%' and process_path like '%\\temp\\%'))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (((target_object like 'HKLM\\System\\CurrentControlSet\\Services\\%' and target_object like '%\\Start' and (process_path like '%\\Users\\Public\\%' or process_path like '%\\Perflogs\\%' or process_path like '%\\ADMIN$\\%' or process_path like '%\\Temp\\%') and (details = 'DWORD (0x00000000)' or details = 'DWORD (0x00000001)' or details = 'DWORD (0x00000002)')) or (target_object like 'HKLM\\System\\CurrentControlSet\\Services\\%' and target_object like '%\\ImagePath' and (details like '%\\Users\\Public\\%' or details like '%\\Perflogs\\%' or details like '%\\ADMIN$\\%' or details like '%\\Temp\\%'))) and  not (process_path like '%\\Common Files\\%' and process_path like '%\\Temp\\%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1112"

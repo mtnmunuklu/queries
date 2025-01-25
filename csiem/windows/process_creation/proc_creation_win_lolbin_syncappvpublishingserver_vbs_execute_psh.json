@@ -1,11 +1,11 @@
 {
   "Description": "Executes arbitrary PowerShell code using SyncAppvPublishingServer.vbs\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "36475a7d-0f6d-4dce-9b01-6aeb473bbaf1",
-  "InsertDate": "2025-01-21T09:28:38Z",
-  "LastUpdateDate": "2025-01-21T09:28:38Z",
+  "InsertDate": "2025-01-25T21:21:58Z",
+  "LastUpdateDate": "2025-01-25T21:21:58Z",
   "Level": "medium",
   "Name": "SyncAppvPublishingServer VBS Execute Arbitrary PowerShell Code",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%\\syncappvpublishingserver.vbs%' and command like '%;%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%\\SyncAppvPublishingServer.vbs%' and command like '%;%')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1218",

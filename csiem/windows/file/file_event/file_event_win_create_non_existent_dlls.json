@@ -1,11 +1,11 @@
 {
   "Description": "Detects the creation of system DLLs that are usually not present on the system (or at least not in system directories).\nUsually this technique is used to achieve DLL hijacking.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), fornotes\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "df6ecb8b-7822-4f4b-b412-08f524b4576c",
-  "InsertDate": "2025-01-21T09:27:42Z",
-  "LastUpdateDate": "2025-01-21T09:27:42Z",
+  "InsertDate": "2025-01-25T21:20:53Z",
+  "LastUpdateDate": "2025-01-25T21:20:53Z",
   "Level": "medium",
   "Name": "Creation Of Non-Existent System DLL",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%:\\windows\\system32\\tsmsisrv.dll' or filepath like '%:\\windows\\system32\\tsvipsrv.dll' or filepath like '%:\\windows\\system32\\wbem\\wbemcomn.dll' or filepath like '%:\\windows\\system32\\wlbsctrl.dll' or filepath like '%:\\windows\\system32\\wow64log.dll' or filepath like '%:\\windows\\system32\\wptsextensions.dll' or filepath like '%\\sprintcsp.dll')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%:\\Windows\\System32\\TSMSISrv.dll' or filepath like '%:\\Windows\\System32\\TSVIPSrv.dll' or filepath like '%:\\Windows\\System32\\wbem\\wbemcomn.dll' or filepath like '%:\\Windows\\System32\\WLBSCTRL.dll' or filepath like '%:\\Windows\\System32\\wow64log.dll' or filepath like '%:\\Windows\\System32\\WptsExtensions.dll' or filepath like '%\\SprintCSP.dll')",
   "Tags": [
     "attack.defense-evasion",
     "attack.persistence",

@@ -1,11 +1,11 @@
 {
   "Description": "Adversaries may attempt to find local system groups and permission settings.\nThe knowledge of local system permission groups can help adversaries determine which groups exist and which users belong to a particular group.\nAdversaries may use this information to determine which users have elevated permissions, such as the users found within the local administrators group.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "cef24b90-dddc-4ae1-a09a-8764872f69fc",
-  "InsertDate": "2025-01-21T09:28:00Z",
-  "LastUpdateDate": "2025-01-21T09:28:00Z",
+  "InsertDate": "2025-01-25T21:21:20Z",
+  "LastUpdateDate": "2025-01-25T21:21:20Z",
   "Level": "low",
   "Name": "Suspicious Get Local Groups Information",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (((payload like '%get-localgroup%' or payload like '%get-localgroupmember%') and (contextinfo like '%get-localgroup%' or contextinfo like '%get-localgroupmember%')) or ((payload like '%get-wmiobject%' and payload like '%win32_group%') and (contextinfo like '%get-wmiobject%' and contextinfo like '%win32_group%')))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (((payload like '%get-localgroup%' or payload like '%Get-LocalGroupMember%') and (contextinfo like '%get-localgroup%' or contextinfo like '%Get-LocalGroupMember%')) or ((payload like '%Get-WMIObject%' and payload like '%Win32_Group%') and (contextinfo like '%Get-WMIObject%' and contextinfo like '%Win32_Group%')))",
   "Tags": [
     "attack.discovery",
     "attack.t1069.001"

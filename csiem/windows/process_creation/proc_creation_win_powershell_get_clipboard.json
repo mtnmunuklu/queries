@@ -1,11 +1,11 @@
 {
   "Description": "Detects usage of the 'Get-Clipboard' cmdlet via CLI\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b9aeac14-2ffd-4ad3-b967-1354a4e628c3",
-  "InsertDate": "2025-01-21T09:28:57Z",
-  "LastUpdateDate": "2025-01-21T09:28:57Z",
+  "InsertDate": "2025-01-25T21:22:08Z",
+  "LastUpdateDate": "2025-01-25T21:22:08Z",
   "Level": "medium",
   "Name": "PowerShell Get-Clipboard Cmdlet Via CLI",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where command like '%get-clipboard%'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where command like '%Get-Clipboard%'",
   "Tags": [
     "attack.collection",
     "attack.t1115"

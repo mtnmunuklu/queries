@@ -1,11 +1,11 @@
 {
   "Description": "Detects the creation of files that look like exports of the local SAM (Security Account Manager)\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4e87b8e2-2ee9-4b2a-a715-4727d297ece0",
-  "InsertDate": "2025-01-21T09:27:46Z",
-  "LastUpdateDate": "2025-01-21T09:27:46Z",
+  "InsertDate": "2025-01-25T21:21:01Z",
+  "LastUpdateDate": "2025-01-25T21:21:01Z",
   "Level": "high",
   "Name": "Potential SAM Database Dump",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%\\temp\\sam' or filepath like '%\\sam.sav' or filepath like '%\\intel\\sam' or filepath like '%\\sam.hive' or filepath like '%\\perflogs\\sam' or filepath like '%\\programdata\\sam' or filepath like '%\\users\\public\\sam' or filepath like '%\\appdata\\local\\sam' or filepath like '%\\appdata\\roaming\\sam' or filepath like '%_shadowsteal.zip' or filepath like '%\\documents\\sam.export' or filepath like '%:\\sam') and (filepath like '%\\hive_sam_%' or filepath like '%\\sam.save%' or filepath like '%\\sam.export%' or filepath like '%\\~reg_sam.save%' or filepath like '%\\sam_backup%' or filepath like '%\\sam.bck%' or filepath like '%\\sam.backup%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (filepath like '%\\Temp\\sam' or filepath like '%\\sam.sav' or filepath like '%\\Intel\\sam' or filepath like '%\\sam.hive' or filepath like '%\\Perflogs\\sam' or filepath like '%\\ProgramData\\sam' or filepath like '%\\Users\\Public\\sam' or filepath like '%\\AppData\\Local\\sam' or filepath like '%\\AppData\\Roaming\\sam' or filepath like '%_ShadowSteal.zip' or filepath like '%\\Documents\\SAM.export' or filepath like '%:\\sam') and (filepath like '%\\hive_sam_%' or filepath like '%\\sam.save%' or filepath like '%\\sam.export%' or filepath like '%\\~reg_sam.save%' or filepath like '%\\sam_backup%' or filepath like '%\\sam.bck%' or filepath like '%\\sam.backup%')",
   "Tags": [
     "attack.credential-access",
     "attack.t1003.002"

@@ -1,11 +1,11 @@
 {
   "Description": "Detects the use of Tor or Tor-Browser to connect to onion routing networks\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "62f7c9bf-9135-49b2-8aeb-1e54a6ecc13c",
-  "InsertDate": "2025-01-21T09:28:18Z",
-  "LastUpdateDate": "2025-01-21T09:28:18Z",
+  "InsertDate": "2025-01-25T21:21:37Z",
+  "LastUpdateDate": "2025-01-25T21:21:37Z",
   "Level": "high",
   "Name": "Tor Client/Browser Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\tor.exe' or process_path like '%\\tor browser\\browser\\firefox.exe')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\tor.exe' or process_path like '%\\Tor Browser\\Browser\\firefox.exe')",
   "Tags": [
     "attack.command-and-control",
     "attack.t1090.003"

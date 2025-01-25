@@ -1,11 +1,11 @@
 {
   "Description": "Detects DLL sideloading of \"dbgcore.dll\"\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Wietze Beukema (project and research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9ca2bf31-0570-44d8-a543-534c47c33ed7",
-  "InsertDate": "2025-01-21T09:27:51Z",
-  "LastUpdateDate": "2025-01-21T09:27:51Z",
+  "InsertDate": "2025-01-25T21:21:08Z",
+  "LastUpdateDate": "2025-01-25T21:21:08Z",
   "Level": "medium",
   "Name": "Potential DLL Sideloading Of DBGCORE.DLL",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (image_loaded like '%\\dbgcore.dll' and  not (image_loaded like 'c:\\program files (x86)\\%' or image_loaded like 'c:\\program files\\%' or image_loaded like 'c:\\windows\\softwaredistribution\\%' or image_loaded like 'c:\\windows\\system32\\%' or image_loaded like 'c:\\windows\\systemtemp\\%' or image_loaded like 'c:\\windows\\syswow64\\%' or image_loaded like 'c:\\windows\\winsxs\\%') and  not image_loaded like '%\\steam\\bin\\cef\\cef.win7x64\\dbgcore.dll')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (image_loaded like '%\\dbgcore.dll' and  not (image_loaded like 'C:\\Program Files (x86)\\%' or image_loaded like 'C:\\Program Files\\%' or image_loaded like 'C:\\Windows\\SoftwareDistribution\\%' or image_loaded like 'C:\\Windows\\System32\\%' or image_loaded like 'C:\\Windows\\SystemTemp\\%' or image_loaded like 'C:\\Windows\\SysWOW64\\%' or image_loaded like 'C:\\Windows\\WinSxS\\%') and  not image_loaded like '%\\Steam\\bin\\cef\\cef.win7x64\\dbgcore.dll')",
   "Tags": [
     "attack.defense-evasion",
     "attack.persistence",

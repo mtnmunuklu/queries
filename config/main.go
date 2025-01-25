@@ -19,7 +19,7 @@ type Rule struct {
 
 // RunCommand executes the given command and returns the JSON output.
 func RunCommand(alterixPath, inputFilePath, configPath string) ([]byte, error) {
-	cmd := exec.Command(alterixPath, "-sigma", "-filepath", inputFilePath, "-config", configPath, "-json")
+	cmd := exec.Command(alterixPath, "-sigma", "-filepath", inputFilePath, "-config", configPath, "-json", "-cs")
 	var out bytes.Buffer
 	var errOut bytes.Buffer
 	cmd.Stdout = &out

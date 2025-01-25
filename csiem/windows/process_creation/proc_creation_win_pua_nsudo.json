@@ -1,11 +1,11 @@
 {
   "Description": "Detects the use of NSudo tool for command execution\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "771d1eb5-9587-4568-95fb-9ec44153a012",
-  "InsertDate": "2025-01-21T09:29:18Z",
-  "LastUpdateDate": "2025-01-21T09:29:18Z",
+  "InsertDate": "2025-01-25T21:22:12Z",
+  "LastUpdateDate": "2025-01-25T21:22:12Z",
   "Level": "high",
   "Name": "PUA - NSudo Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%-u:s %' or command like '%-u:t %' or command like '%-u:e %' or command like '%-p:e %' or command like '%-m:s %' or command like '%-m:h %' or command like '%-u=s %' or command like '%-u=t %' or command like '%-u=e %' or command like '%-p=e %' or command like '%-m=s %' or command like '%-m=h %' or command like '%-showwindowmode:hide%') and ((process_path like '%\\nsudo.exe' or process_path like '%\\nsudolc.exe' or process_path like '%\\nsudolg.exe') and (original_file_name = 'nsudo.exe' or original_file_name = 'nsudolc.exe' or original_file_name = 'nsudolg.exe')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\NSudo.exe' or process_path like '%\\NSudoLC.exe' or process_path like '%\\NSudoLG.exe') and (original_file_name = 'NSudo.exe' or original_file_name = 'NSudoLC.exe' or original_file_name = 'NSudoLG.exe')) and (command like '%-U:S %' or command like '%-U:T %' or command like '%-U:E %' or command like '%-P:E %' or command like '%-M:S %' or command like '%-M:H %' or command like '%-U=S %' or command like '%-U=T %' or command like '%-U=E %' or command like '%-P=E %' or command like '%-M=S %' or command like '%-M=H %' or command like '%-ShowWindowMode:Hide%'))",
   "Tags": [
     "attack.execution",
     "attack.t1569.002",

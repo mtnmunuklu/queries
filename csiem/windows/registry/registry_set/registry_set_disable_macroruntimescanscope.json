@@ -1,11 +1,11 @@
 {
   "Description": "Detects tampering with the MacroRuntimeScanScope registry key to disable runtime scanning of enabled macros\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ab871450-37dc-4a3a-997f-6662aa8ae0f1",
-  "InsertDate": "2025-01-21T09:31:32Z",
-  "LastUpdateDate": "2025-01-21T09:31:32Z",
+  "InsertDate": "2025-01-25T21:22:45Z",
+  "LastUpdateDate": "2025-01-25T21:22:45Z",
   "Level": "high",
   "Name": "Disable Macro Runtime Scan Scope",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\software\\%' and target_object like '%\\microsoft\\office\\%' and target_object like '%\\common\\security%') and target_object like '%\\macroruntimescanscope' and details = 'dword (0x00000000)'",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\SOFTWARE\\%' and target_object like '%\\Microsoft\\Office\\%' and target_object like '%\\Common\\Security%') and target_object like '%\\MacroRuntimeScanScope' and details = 'DWORD (0x00000000)'",
   "Tags": [
     "attack.defense-evasion"
   ],

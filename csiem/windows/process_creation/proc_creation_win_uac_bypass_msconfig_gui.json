@@ -1,11 +1,11 @@
 {
   "Description": "Detects the pattern of UAC Bypass using a msconfig GUI hack (UACMe 55)\n\nAuthor: Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ad92e3f9-7eb6-460e-96b1-582b0ccbb980",
-  "InsertDate": "2025-01-21T09:30:44Z",
-  "LastUpdateDate": "2025-01-21T09:30:44Z",
+  "InsertDate": "2025-01-25T21:22:34Z",
+  "LastUpdateDate": "2025-01-25T21:22:34Z",
   "Level": "high",
   "Name": "UAC Bypass Using MSConfig Token Modification - Process",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (integrity_level = 'high' or integrity_level = 'system' or integrity_level = 's-1-16-16384' or integrity_level = 's-1-16-12288') and parent_process_path like '%\\appdata\\local\\temp\\pkgmgr.exe' and command = '\"c:\\windows\\system32\\msconfig.exe\" -5'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (integrity_level = 'High' or integrity_level = 'System' or integrity_level = 'S-1-16-16384' or integrity_level = 'S-1-16-12288') and parent_process_path like '%\\AppData\\Local\\Temp\\pkgmgr.exe' and command = '\"C:\\Windows\\system32\\msconfig.exe\" -5'",
   "Tags": [
     "attack.defense-evasion",
     "attack.privilege-escalation",

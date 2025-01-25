@@ -1,11 +1,11 @@
 {
   "Description": "Detects usage of Sysinternals PsService which can be abused for service reconnaissance and tampering\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "3371f518-5fe3-4cf6-a14b-2a0ae3fd8a4f",
-  "InsertDate": "2025-01-21T09:30:38Z",
-  "LastUpdateDate": "2025-01-21T09:30:38Z",
+  "InsertDate": "2025-01-25T21:22:32Z",
+  "LastUpdateDate": "2025-01-25T21:22:32Z",
   "Level": "medium",
   "Name": "Sysinternals PsService Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where original_file_name = 'psservice.exe' and (process_path like '%\\psservice.exe' or process_path like '%\\psservice64.exe')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where original_file_name = 'psservice.exe' and (process_path like '%\\PsService.exe' or process_path like '%\\PsService64.exe')",
   "Tags": [
     "attack.discovery",
     "attack.persistence",

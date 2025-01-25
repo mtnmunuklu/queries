@@ -1,11 +1,11 @@
 {
   "Description": "Detects the first occurrence of a modification to Group Policy Object Attributes to add privileges to user accounts or use them to add users as local admins.\n\n\nAuthor: Elastic, Josh Nickels, Marius Rothenbücher\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1c480e10-7ee1-46d4-8ed2-85f9789e3ce4",
-  "InsertDate": "2025-01-21T09:27:32Z",
-  "LastUpdateDate": "2025-01-21T09:27:32Z",
+  "InsertDate": "2025-01-25T21:20:25Z",
+  "LastUpdateDate": "2025-01-25T21:20:25Z",
   "Level": "medium",
   "Name": "Group Policy Abuse for Privilege Addition",
-  "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '5136' and attributeldapdisplayname = 'gpcmachineextensionnames' and (attributevalue like '%827d319e-6eac-11d2-a4ea-00c04f79f83a%' or attributevalue like '%803e14a0-b4fb-11d0-a0d0-00a0c90f574b%')",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '5136' and attributeldapdisplayname = 'gPCMachineExtensionNames' and (attributevalue like '%827D319E-6EAC-11D2-A4EA-00C04F79F83A%' or attributevalue like '%803E14A0-B4FB-11D0-A0D0-00A0C90F574B%')",
   "Tags": [
     "attack.privilege-escalation",
     "attack.t1484.001"

@@ -1,8 +1,8 @@
 {
   "Description": "Detects direct access to raw pastes in different paste services often used by malware in their second stages to download malicious code in encrypted or encoded form\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "5468045b-4fcc-4d1a-973c-c9c9578edacb",
-  "InsertDate": "2025-01-21T09:27:23Z",
-  "LastUpdateDate": "2025-01-21T09:27:23Z",
+  "InsertDate": "2025-01-25T21:19:51Z",
+  "LastUpdateDate": "2025-01-25T21:19:51Z",
   "Level": "high",
   "Name": "Raw Paste Service Access",
   "Query": "eql select * from _source_ where (c-uri like '%.paste.ee/r/%' or c-uri like '%.pastebin.com/raw/%' or c-uri like '%.hastebin.com/raw/%' or c-uri like '%.ghostbin.co/paste/*/raw/%' or c-uri like '%pastetext.net/%' or c-uri like '%pastebin.pl/%' or c-uri like '%paste.ee/%')",

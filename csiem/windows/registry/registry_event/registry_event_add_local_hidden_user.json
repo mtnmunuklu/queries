@@ -1,11 +1,11 @@
 {
   "Description": "Sysmon registry detection of a local hidden user account.\n\nAuthor: Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "460479f3-80b7-42da-9c43-2cc1d54dbccd",
-  "InsertDate": "2025-01-21T09:31:13Z",
-  "LastUpdateDate": "2025-01-21T09:31:13Z",
+  "InsertDate": "2025-01-25T21:22:40Z",
+  "LastUpdateDate": "2025-01-25T21:22:40Z",
   "Level": "high",
   "Name": "Creation of a Local Hidden User Account by Registry",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where target_object like '%\\sam\\sam\\domains\\account\\users\\names\\%' and target_object like '%$' and process_path like '%\\lsass.exe'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where target_object like '%\\SAM\\SAM\\Domains\\Account\\Users\\Names\\%' and target_object like '%$' and process_path like '%\\lsass.exe'",
   "Tags": [
     "attack.persistence",
     "attack.t1136.001"

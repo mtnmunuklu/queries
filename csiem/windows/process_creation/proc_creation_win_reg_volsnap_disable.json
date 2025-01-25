@@ -1,11 +1,11 @@
 {
   "Description": "Detects commands that temporarily turn off Volume Snapshots\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "dee4af55-1f22-4e1d-a9d2-4bdc7ecb472a",
-  "InsertDate": "2025-01-21T09:29:34Z",
-  "LastUpdateDate": "2025-01-21T09:29:34Z",
+  "InsertDate": "2025-01-25T21:22:15Z",
+  "LastUpdateDate": "2025-01-25T21:22:15Z",
   "Level": "high",
   "Name": "Disabled Volume Snapshots",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%\\services\\vss\\diag%' and command like '%/d disabled%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%\\Services\\VSS\\Diag%' and command like '%/d Disabled%')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1562.001"

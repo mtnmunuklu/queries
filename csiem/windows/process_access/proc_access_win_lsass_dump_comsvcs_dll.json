@@ -1,8 +1,8 @@
 {
   "Description": "Detects adversaries leveraging the MiniDump export function from comsvcs.dll via rundll32 to perform a memory dump from lsass.\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a49fa4d5-11db-418c-8473-1e014a8dd462",
-  "InsertDate": "2025-01-21T09:28:14Z",
-  "LastUpdateDate": "2025-01-21T09:28:14Z",
+  "InsertDate": "2025-01-25T21:21:33Z",
+  "LastUpdateDate": "2025-01-25T21:21:33Z",
   "Level": "high",
   "Name": "Lsass Memory Dump via Comsvcs DLL",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where dst_process_path like '%\\lsass.exe' and process_path like '%\\rundll32.exe' and call_trace like '%comsvcs.dll%'",

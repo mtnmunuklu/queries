@@ -1,11 +1,11 @@
 {
   "Description": "Detects when adversaries stop services or processes by deleting their respective scheduled tasks in order to conduct data destructive activities\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "dbc1f800-0fe0-4bc0-9c66-292c2abe3f78",
-  "InsertDate": "2025-01-21T09:30:00Z",
-  "LastUpdateDate": "2025-01-21T09:30:00Z",
+  "InsertDate": "2025-01-25T21:22:23Z",
+  "LastUpdateDate": "2025-01-25T21:22:23Z",
   "Level": "high",
   "Name": "Delete Important Scheduled Task",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\schtasks.exe' and (command like '%/delete%' and command like '%/tn%') and (command like '%\\windows\\bitlocker%' or command like '%\\windows\\exploitguard%' or command like '%\\windows\\systemrestore\\sr%' or command like '%\\windows\\updateorchestrator\\%' or command like '%\\windows\\windows defender\\%' or command like '%\\windows\\windowsbackup\\%' or command like '%\\windows\\windowsupdate\\%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\schtasks.exe' and (command like '%/delete%' and command like '%/tn%') and (command like '%\\Windows\\BitLocker%' or command like '%\\Windows\\ExploitGuard%' or command like '%\\Windows\\SystemRestore\\SR%' or command like '%\\Windows\\UpdateOrchestrator\\%' or command like '%\\Windows\\Windows Defender\\%' or command like '%\\Windows\\WindowsBackup\\%' or command like '%\\Windows\\WindowsUpdate\\%')",
   "Tags": [
     "attack.impact",
     "attack.t1489"

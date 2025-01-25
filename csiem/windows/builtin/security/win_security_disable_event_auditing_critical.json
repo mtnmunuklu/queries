@@ -1,11 +1,11 @@
 {
   "Description": "Detects scenarios where system auditing for important events such as \"Process Creation\" or \"Logon\" events is disabled.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ab4561b1-6c7e-48a7-ad08-087cfb9ce8f1",
-  "InsertDate": "2025-01-21T09:27:29Z",
-  "LastUpdateDate": "2025-01-21T09:27:29Z",
+  "InsertDate": "2025-01-25T21:20:17Z",
+  "LastUpdateDate": "2025-01-25T21:20:17Z",
   "Level": "high",
   "Name": "Important Windows Event Auditing Disabled",
-  "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '4719' and (subcategoryguid = '{0cce9210-69ae-11d9-bed3-505054503030}' or subcategoryguid = '{0cce9211-69ae-11d9-bed3-505054503030}' or subcategoryguid = '{0cce9212-69ae-11d9-bed3-505054503030}' or subcategoryguid = '{0cce9215-69ae-11d9-bed3-505054503030}' or subcategoryguid = '{0cce921b-69ae-11d9-bed3-505054503030}' or subcategoryguid = '{0cce922b-69ae-11d9-bed3-505054503030}' or subcategoryguid = '{0cce922f-69ae-11d9-bed3-505054503030}' or subcategoryguid = '{0cce9230-69ae-11d9-bed3-505054503030}' or subcategoryguid = '{0cce9235-69ae-11d9-bed3-505054503030}' or subcategoryguid = '{0cce9236-69ae-11d9-bed3-505054503030}' or subcategoryguid = '{0cce9237-69ae-11d9-bed3-505054503030}' or subcategoryguid = '{0cce923f-69ae-11d9-bed3-505054503030}' or subcategoryguid = '{0cce9240-69ae-11d9-bed3-505054503030}' or subcategoryguid = '{0cce9242-69ae-11d9-bed3-505054503030}') and (auditpolicychanges like '%%%8448%' or auditpolicychanges like '%%%8450%')) or (eventid = '4719' and subcategoryguid = '{0cce9217-69ae-11d9-bed3-505054503030}' and auditpolicychanges like '%%%8448%'))",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '4719' and (subcategoryguid = '{0CCE9210-69AE-11D9-BED3-505054503030}' or subcategoryguid = '{0CCE9211-69AE-11D9-BED3-505054503030}' or subcategoryguid = '{0CCE9212-69AE-11D9-BED3-505054503030}' or subcategoryguid = '{0CCE9215-69AE-11D9-BED3-505054503030}' or subcategoryguid = '{0CCE921B-69AE-11D9-BED3-505054503030}' or subcategoryguid = '{0CCE922B-69AE-11D9-BED3-505054503030}' or subcategoryguid = '{0CCE922F-69AE-11D9-BED3-505054503030}' or subcategoryguid = '{0CCE9230-69AE-11D9-BED3-505054503030}' or subcategoryguid = '{0CCE9235-69AE-11D9-BED3-505054503030}' or subcategoryguid = '{0CCE9236-69AE-11D9-BED3-505054503030}' or subcategoryguid = '{0CCE9237-69AE-11D9-BED3-505054503030}' or subcategoryguid = '{0CCE923F-69AE-11D9-BED3-505054503030}' or subcategoryguid = '{0CCE9240-69AE-11D9-BED3-505054503030}' or subcategoryguid = '{0CCE9242-69AE-11D9-BED3-505054503030}') and (auditpolicychanges like '%%%8448%' or auditpolicychanges like '%%%8450%')) or (eventid = '4719' and subcategoryguid = '{0CCE9217-69AE-11D9-BED3-505054503030}' and auditpolicychanges like '%%%8448%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1562.002"

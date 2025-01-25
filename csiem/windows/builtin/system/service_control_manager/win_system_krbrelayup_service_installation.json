@@ -1,11 +1,11 @@
 {
   "Description": "Detects service creation from KrbRelayUp tool used for privilege escalation in Windows domain environments where LDAP signing is not enforced (the default settings)\n\nAuthor: Sittikorn S, Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e97d9903-53b2-41fc-8cb9-889ed4093e80",
-  "InsertDate": "2025-01-21T09:27:36Z",
-  "LastUpdateDate": "2025-01-21T09:27:36Z",
+  "InsertDate": "2025-01-25T21:20:36Z",
+  "LastUpdateDate": "2025-01-25T21:20:36Z",
   "Level": "high",
   "Name": "KrbRelayUp Service Installation",
-  "Query": "sourcetype='windows-system' eql select * from _source_ where eventid = '7045' and servicename = 'krbscm'",
+  "Query": "sourcetype='windows-system' eql select * from _source_ where eventid = '7045' and servicename = 'KrbSCM'",
   "Tags": [
     "attack.privilege-escalation",
     "attack.t1543"

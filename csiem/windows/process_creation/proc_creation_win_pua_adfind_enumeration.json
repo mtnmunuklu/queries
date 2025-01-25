@@ -1,8 +1,8 @@
 {
   "Description": "Detects active directory enumeration activity using known AdFind CLI flags\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "455b9d50-15a1-4b99-853f-8d37655a4c1b",
-  "InsertDate": "2025-01-21T09:29:07Z",
-  "LastUpdateDate": "2025-01-21T09:29:07Z",
+  "InsertDate": "2025-01-25T21:22:11Z",
+  "LastUpdateDate": "2025-01-25T21:22:11Z",
   "Level": "high",
   "Name": "PUA - Suspicious ActiveDirectory Enumeration Via AdFind.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '%lockoutduration%' or command like '%lockoutthreshold%' or command like '%lockoutobservationwindow%' or command like '%maxpwdage%' or command like '%minpwdage%' or command like '%minpwdlength%' or command like '%pwdhistorylength%' or command like '%pwdproperties%') or command like '%-sc admincountdmp%' or command like '%-sc exchaddresses%')",

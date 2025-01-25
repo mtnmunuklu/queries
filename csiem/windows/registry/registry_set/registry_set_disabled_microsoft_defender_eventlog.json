@@ -1,11 +1,11 @@
 {
   "Description": "Detects the disabling of the Windows Defender eventlog as seen in relation to Lockbit 3.0 infections\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "fcddca7c-b9c0-4ddf-98da-e1e2d18b0157",
-  "InsertDate": "2025-01-21T09:31:36Z",
-  "LastUpdateDate": "2025-01-21T09:31:36Z",
+  "InsertDate": "2025-01-25T21:22:45Z",
+  "LastUpdateDate": "2025-01-25T21:22:45Z",
   "Level": "high",
   "Name": "Disabled Windows Defender Eventlog",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where target_object like '%\\microsoft\\windows\\currentversion\\winevt\\channels\\microsoft-windows-windows defender/operational\\enabled%' and details = 'dword (0x00000000)'",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where target_object like '%\\Microsoft\\Windows\\CurrentVersion\\WINEVT\\Channels\\Microsoft-Windows-Windows Defender/Operational\\Enabled%' and details = 'DWORD (0x00000000)'",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1562.001"

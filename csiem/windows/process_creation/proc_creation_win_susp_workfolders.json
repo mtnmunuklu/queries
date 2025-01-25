@@ -1,11 +1,11 @@
 {
   "Description": "Detects using WorkFolders.exe to execute an arbitrary control.exe\n\nAuthor: Maxime Thiebaut (@0xThiebaut)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0bbc6369-43e3-453d-9944-cae58821c173",
-  "InsertDate": "2025-01-21T09:30:36Z",
-  "LastUpdateDate": "2025-01-21T09:30:36Z",
+  "InsertDate": "2025-01-25T21:22:31Z",
+  "LastUpdateDate": "2025-01-25T21:22:31Z",
   "Level": "high",
   "Name": "Execution via WorkFolders.exe",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\control.exe' and parent_process_path like '%\\workfolders.exe') and  not process_path = 'c:\\windows\\system32\\control.exe')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\control.exe' and parent_process_path like '%\\WorkFolders.exe') and  not process_path = 'C:\\Windows\\System32\\control.exe')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1218"

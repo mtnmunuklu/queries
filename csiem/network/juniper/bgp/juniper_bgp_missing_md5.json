@@ -1,11 +1,11 @@
 {
   "Description": "Detects juniper BGP missing MD5 digest. Which may be indicative of brute force attacks to manipulate routing.\n\nAuthor: Tim Brown\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a7c0ae48-8df8-42bf-91bd-2ea57e2f9d43",
-  "InsertDate": "2025-01-21T09:27:22Z",
-  "LastUpdateDate": "2025-01-21T09:27:22Z",
+  "InsertDate": "2025-01-25T21:19:45Z",
+  "LastUpdateDate": "2025-01-25T21:19:45Z",
   "Level": "low",
   "Name": "Juniper BGP Missing MD5",
-  "Query": "sourcetype='juniper-bgp' eql select * from _source_ where ( = ':179' and  = 'missing md5 digest')",
+  "Query": "sourcetype='juniper-bgp' eql select * from _source_ where ( = ':179' and  = 'missing MD5 digest')",
   "Tags": [
     "attack.initial-access",
     "attack.persistence",

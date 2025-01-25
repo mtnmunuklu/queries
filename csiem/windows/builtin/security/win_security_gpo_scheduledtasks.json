@@ -1,11 +1,11 @@
 {
   "Description": "Detect lateral movement using GPO scheduled task, usually used to deploy ransomware at scale\n\nAuthor: Samir Bousseaden\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a8f29a7b-b137-4446-80a0-b804272f3da2",
-  "InsertDate": "2025-01-21T09:27:30Z",
-  "LastUpdateDate": "2025-01-21T09:27:30Z",
+  "InsertDate": "2025-01-25T21:20:17Z",
+  "LastUpdateDate": "2025-01-25T21:20:17Z",
   "Level": "high",
   "Name": "Persistence and Execution at Scale via GPO Scheduled Task",
-  "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '5136' and (attributeldapdisplayname = 'gpcmachineextensionnames' or attributeldapdisplayname = 'gpcuserextensionnames') and (attributevalue like '%cab54552-deea-4691-817e-ed4a4d1afc72%' or attributevalue like '%aadced64-746c-4633-a97c-d61349046527%')) or (eventid = '5145' and sharename like '%\\sysvol' and relativetargetname like '%scheduledtasks.xml' and (accesslist like '%writedata%' or accesslist like '%%%4417%')))",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '5136' and (attributeldapdisplayname = 'gPCMachineExtensionNames' or attributeldapdisplayname = 'gPCUserExtensionNames') and (attributevalue like '%CAB54552-DEEA-4691-817E-ED4A4D1AFC72%' or attributevalue like '%AADCED64-746C-4633-A97C-D61349046527%')) or (eventid = '5145' and sharename like '%\\SYSVOL' and relativetargetname like '%ScheduledTasks.xml' and (accesslist like '%WriteData%' or accesslist like '%%%4417%')))",
   "Tags": [
     "attack.persistence",
     "attack.lateral-movement",

@@ -1,11 +1,11 @@
 {
   "Description": "Detects Bitsadmin connections to IP addresses instead of FQDN names\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "8ccd35a2-1c7c-468b-b568-ac6cdf80eec3",
-  "InsertDate": "2025-01-21T09:27:24Z",
-  "LastUpdateDate": "2025-01-21T09:27:24Z",
+  "InsertDate": "2025-01-25T21:19:52Z",
+  "LastUpdateDate": "2025-01-25T21:19:52Z",
   "Level": "high",
   "Name": "Bitsadmin to Uncommon IP Server Address",
-  "Query": "eql select * from _source_ where c-useragent like 'microsoft bits/%' and (cs-host like '%1' or cs-host like '%2' or cs-host like '%3' or cs-host like '%4' or cs-host like '%5' or cs-host like '%6' or cs-host like '%7' or cs-host like '%8' or cs-host like '%9')",
+  "Query": "eql select * from _source_ where c-useragent like 'Microsoft BITS/%' and (cs-host like '%1' or cs-host like '%2' or cs-host like '%3' or cs-host like '%4' or cs-host like '%5' or cs-host like '%6' or cs-host like '%7' or cs-host like '%8' or cs-host like '%9')",
   "Tags": [
     "attack.command-and-control",
     "attack.t1071.001",

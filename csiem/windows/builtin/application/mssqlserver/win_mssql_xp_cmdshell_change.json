@@ -1,11 +1,11 @@
 {
   "Description": "Detects when the MSSQL \"xp_cmdshell\" stored procedure setting is changed.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d08dd86f-681e-4a00-a92c-1db218754417",
-  "InsertDate": "2025-01-21T09:27:25Z",
-  "LastUpdateDate": "2025-01-21T09:27:25Z",
+  "InsertDate": "2025-01-25T21:20:02Z",
+  "LastUpdateDate": "2025-01-25T21:20:02Z",
   "Level": "high",
   "Name": "MSSQL XPCmdshell Option Change",
-  "Query": "sourcetype='windows-application' eql select * from _source_ where provider_name like '%mssql%' and eventid = '15457' and data like '%xp_cmdshell%'",
+  "Query": "sourcetype='windows-application' eql select * from _source_ where provider_name like '%MSSQL%' and eventid = '15457' and data like '%xp_cmdshell%'",
   "Tags": [
     "attack.execution"
   ],

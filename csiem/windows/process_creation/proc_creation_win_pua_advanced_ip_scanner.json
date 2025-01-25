@@ -1,11 +1,11 @@
 {
   "Description": "Detects the use of Advanced IP Scanner. Seems to be a popular tool for ransomware groups.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), @ROxPinTeddy\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "bef37fa2-f205-4a7b-b484-0759bfd5f86f",
-  "InsertDate": "2025-01-21T09:29:07Z",
-  "LastUpdateDate": "2025-01-21T09:29:07Z",
+  "InsertDate": "2025-01-25T21:22:12Z",
+  "LastUpdateDate": "2025-01-25T21:22:12Z",
   "Level": "medium",
   "Name": "PUA - Advanced IP Scanner Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\advanced_ip_scanner%' and original_file_name like '%advanced_ip_scanner%' and description like '%advanced ip scanner%') or (command like '%/portable%' and command like '%/lng%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\advanced_ip_scanner%' and original_file_name like '%advanced_ip_scanner%' and description like '%Advanced IP Scanner%') or (command like '%/portable%' and command like '%/lng%'))",
   "Tags": [
     "attack.discovery",
     "attack.t1046",

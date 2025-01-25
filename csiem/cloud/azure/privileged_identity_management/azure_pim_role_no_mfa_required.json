@@ -1,11 +1,11 @@
 {
   "Description": "Identifies when a privilege role can be activated without performing mfa.\n\nAuthor: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "94a66f46-5b64-46ce-80b2-75dcbe627cc0",
-  "InsertDate": "2025-01-21T09:27:05Z",
-  "LastUpdateDate": "2025-01-21T09:27:05Z",
+  "InsertDate": "2025-01-25T21:18:52Z",
+  "LastUpdateDate": "2025-01-25T21:18:52Z",
   "Level": "high",
   "Name": "Roles Activation Doesn't Require MFA",
-  "Query": "sourcetype='azure-pim' eql select * from _source_ where riskeventtype = 'nomfaonroleactivationalertincident'",
+  "Query": "sourcetype='azure-pim' eql select * from _source_ where riskeventtype = 'noMfaOnRoleActivationAlertIncident'",
   "Tags": [
     "attack.t1078",
     "attack.persistence",

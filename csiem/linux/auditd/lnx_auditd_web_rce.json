@@ -1,11 +1,11 @@
 {
   "Description": "Detects possible command execution by web application/web shell\n\nAuthor: Ilyas Ochkov, Beyu Denis, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c0d3734d-330f-4a03-aae2-65dacc6a8222",
-  "InsertDate": "2025-01-21T09:27:13Z",
-  "LastUpdateDate": "2025-01-21T09:27:13Z",
+  "InsertDate": "2025-01-25T21:19:14Z",
+  "LastUpdateDate": "2025-01-25T21:19:14Z",
   "Level": "critical",
   "Name": "Webshell Remote Command Execution",
-  "Query": "sourcetype='linux-auditd' eql select * from _source_ where type = 'syscall' and syscall = 'execve' and key = 'detect_execve_www'",
+  "Query": "sourcetype='linux-auditd' eql select * from _source_ where type = 'SYSCALL' and syscall = 'execve' and key = 'detect_execve_www'",
   "Tags": [
     "attack.persistence",
     "attack.t1505.003"

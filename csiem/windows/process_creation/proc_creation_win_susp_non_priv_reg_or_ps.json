@@ -1,11 +1,11 @@
 {
   "Description": "Search for usage of reg or Powershell by non-privileged users to modify service configuration in registry\n\nAuthor: Teymur Kheirkhabarov (idea), Ryan Plas (rule), oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "8f02c935-effe-45b3-8fc9-ef8696a9e41d",
-  "InsertDate": "2025-01-21T09:30:24Z",
-  "LastUpdateDate": "2025-01-21T09:30:24Z",
+  "InsertDate": "2025-01-25T21:22:28Z",
+  "LastUpdateDate": "2025-01-25T21:22:28Z",
   "Level": "high",
   "Name": "Non-privileged Usage of Reg or Powershell",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((command like '%reg %' and command like '%add%') and (command like '%powershell%' or command like '%set-itemproperty%' or command like '% sp %' or command like '%new-itemproperty%')) and ((integrity_level = 'medium' or integrity_level = 's-1-16-8192') and (command like '%controlset%' and command like '%services%') and (command like '%imagepath%' or command like '%failurecommand%' or command like '%servicedll%')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((command like '%reg %' and command like '%add%') and (command like '%powershell%' or command like '%set-itemproperty%' or command like '% sp %' or command like '%new-itemproperty%')) and ((integrity_level = 'Medium' or integrity_level = 'S-1-16-8192') and (command like '%ControlSet%' and command like '%Services%') and (command like '%ImagePath%' or command like '%FailureCommand%' or command like '%ServiceDLL%')))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1112"

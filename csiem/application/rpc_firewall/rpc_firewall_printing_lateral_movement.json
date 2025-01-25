@@ -1,11 +1,11 @@
 {
   "Description": "Detects remote RPC calls to possibly abuse remote printing service via MS-RPRN / MS-PAR\n\nAuthor: Sagie Dulce, Dekel Paz\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "bc3a4b0c-e167-48e1-aa88-b3020950e560",
-  "InsertDate": "2025-01-21T09:26:59Z",
-  "LastUpdateDate": "2025-01-21T09:26:59Z",
+  "InsertDate": "2025-01-25T21:18:24Z",
+  "LastUpdateDate": "2025-01-25T21:18:24Z",
   "Level": "high",
   "Name": "Remote Printing Abuse for Lateral Movement",
-  "Query": "sourcetype like 'rpc_firewall-%' eql select * from _source_ where eventlog = 'rpcfw' and eventid = '3' and (interfaceuuid = '12345678-1234-abcd-ef00-0123456789ab' or interfaceuuid = '76f03f96-cdfd-44fc-a22c-64950a001209' or interfaceuuid = '0b6edbfa-4a24-4fc6-8a23-942b1eca65d1' or interfaceuuid = 'ae33069b-a2a8-46ee-a235-ddfd339be281')",
+  "Query": "sourcetype like 'rpc_firewall-%' eql select * from _source_ where eventlog = 'RPCFW' and eventid = '3' and (interfaceuuid = '12345678-1234-abcd-ef00-0123456789ab' or interfaceuuid = '76f03f96-cdfd-44fc-a22c-64950a001209' or interfaceuuid = '0b6edbfa-4a24-4fc6-8a23-942b1eca65d1' or interfaceuuid = 'ae33069b-a2a8-46ee-a235-ddfd339be281')",
   "Tags": [
     "attack.lateral-movement"
   ],

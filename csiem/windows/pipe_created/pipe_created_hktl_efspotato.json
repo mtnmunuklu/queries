@@ -1,11 +1,11 @@
 {
   "Description": "Detects the pattern of a pipe name as used by the hack tool EfsPotato\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "637f689e-b4a5-4a86-be0e-0100a0a33ba2",
-  "InsertDate": "2025-01-21T09:27:57Z",
-  "LastUpdateDate": "2025-01-21T09:27:57Z",
+  "InsertDate": "2025-01-25T21:21:16Z",
+  "LastUpdateDate": "2025-01-25T21:21:16Z",
   "Level": "high",
   "Name": "HackTool - EfsPotato Named Pipe Creation",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((pipe_name like '%\\pipe\\%' or pipe_name like '%\\pipe\\srvsvc%') and  not (pipe_name like '%\\ctxshare%' or pipe_name like '\\pipe\\%'))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((pipe_name like '%\\pipe\\%' or pipe_name like '%\\pipe\\srvsvc%') and  not (pipe_name like '%\\CtxShare%' or pipe_name like '\\pipe\\%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.privilege-escalation",

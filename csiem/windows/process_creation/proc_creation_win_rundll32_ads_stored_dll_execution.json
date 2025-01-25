@@ -1,11 +1,11 @@
 {
   "Description": "Detects execution of rundll32 where the DLL being called is stored in an Alternate Data Stream (ADS).\n\nAuthor: Harjot Singh, '@cyb3rjy0t'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9248c7e1-2bf3-4661-a22c-600a8040b446",
-  "InsertDate": "2025-01-21T09:29:54Z",
-  "LastUpdateDate": "2025-01-21T09:29:54Z",
+  "InsertDate": "2025-01-25T21:22:20Z",
+  "LastUpdateDate": "2025-01-25T21:22:20Z",
   "Level": "high",
   "Name": "Potential Rundll32 Execution With DLL Stored In ADS",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\rundll32.exe' and original_file_name = 'rundll32.exe') and command re '[Rr][Uu][Nn][Dd][Ll][Ll]32(\\.[Ee][Xx][Ee])? \\S+?\\w:\\S+?:')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\rundll32.exe' and original_file_name = 'RUNDLL32.EXE') and command rlike '[Rr][Uu][Nn][Dd][Ll][Ll]32(\\.[Ee][Xx][Ee])? \\S+?\\w:\\S+?:')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1564.004"

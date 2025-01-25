@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious child process creations of VMware Tools process which may indicate persistence setup\n\nAuthor: bohops, Bhabesh Raj\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "5687f942-867b-4578-ade7-1e341c46e99a",
-  "InsertDate": "2025-01-21T09:30:48Z",
-  "LastUpdateDate": "2025-01-21T09:30:48Z",
+  "InsertDate": "2025-01-25T21:22:35Z",
+  "LastUpdateDate": "2025-01-25T21:22:35Z",
   "Level": "high",
   "Name": "VMToolsd Suspicious Child Process",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_process_path like '%\\vmtoolsd.exe' and ((process_path like '%\\cmd.exe' or process_path like '%\\cscript.exe' or process_path like '%\\mshta.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\wscript.exe') and (original_file_name = 'cmd.exe' or original_file_name = 'cscript.exe' or original_file_name = 'mshta.exe' or original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll' or original_file_name = 'regsvr32.exe' or original_file_name = 'rundll32.exe' or original_file_name = 'wscript.exe'))) and  not ((process_path like '%\\cmd.exe' and (command like '%\\vmware\\vmware tools\\poweron-vm-default.bat%' or command like '%\\vmware\\vmware tools\\poweroff-vm-default.bat%' or command like '%\\vmware\\vmware tools\\resume-vm-default.bat%' or command like '%\\vmware\\vmware tools\\suspend-vm-default.bat%')) or (process_path like '%\\cmd.exe' and command = '') or (process_path like '%\\cmd.exe' and command = 'null')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((parent_process_path like '%\\vmtoolsd.exe' and ((process_path like '%\\cmd.exe' or process_path like '%\\cscript.exe' or process_path like '%\\mshta.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\wscript.exe') and (original_file_name = 'Cmd.Exe' or original_file_name = 'cscript.exe' or original_file_name = 'MSHTA.EXE' or original_file_name = 'PowerShell.EXE' or original_file_name = 'pwsh.dll' or original_file_name = 'REGSVR32.EXE' or original_file_name = 'RUNDLL32.EXE' or original_file_name = 'wscript.exe'))) and  not ((process_path like '%\\cmd.exe' and command = 'null') or (process_path like '%\\cmd.exe' and (command like '%\\VMware\\VMware Tools\\poweron-vm-default.bat%' or command like '%\\VMware\\VMware Tools\\poweroff-vm-default.bat%' or command like '%\\VMware\\VMware Tools\\resume-vm-default.bat%' or command like '%\\VMware\\VMware Tools\\suspend-vm-default.bat%')) or (process_path like '%\\cmd.exe' and command = '')))",
   "Tags": [
     "attack.execution",
     "attack.persistence",

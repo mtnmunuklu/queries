@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of a specific OneLiner to download and execute powershell modules in memory.\n\nAuthor: @Kostastsale, @TheDFIRReport\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "44e24481-6202-4c62-9127-5a0ae8e3fe3d",
-  "InsertDate": "2025-01-21T09:28:54Z",
-  "LastUpdateDate": "2025-01-21T09:28:54Z",
+  "InsertDate": "2025-01-25T21:22:07Z",
+  "LastUpdateDate": "2025-01-25T21:22:07Z",
   "Level": "high",
   "Name": "Obfuscated PowerShell OneLiner Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\powershell.exe' and (command like '%http://127.0.0.1%' and command like '%%{(irm $_)}%' and command like '%.substring.tostring()[67,72,64]-join%' and command like '%import-module%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\powershell.exe' and (command like '%http://127.0.0.1%' and command like '%%{(IRM $_)}%' and command like '%.SubString.ToString()[67,72,64]-Join%' and command like '%Import-Module%')",
   "Tags": [
     "attack.defense-evasion",
     "attack.execution",

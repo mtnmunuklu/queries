@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of \"sysctl\" with specific arguments that have been used by threat actors and malware. It provides system hardware information.\nThis process is primarily used to detect and avoid virtualization and analysis environments.\n\n\nAuthor: Pratinav Chandra\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6ff08e55-ea53-4f27-94a1-eff92e6d9d5c",
-  "InsertDate": "2025-01-21T09:27:21Z",
-  "LastUpdateDate": "2025-01-21T09:27:21Z",
+  "InsertDate": "2025-01-25T21:19:40Z",
+  "LastUpdateDate": "2025-01-25T21:19:40Z",
   "Level": "medium",
   "Name": "System Information Discovery Via Sysctl - MacOS",
   "Query": "sourcetype like 'macos-%' eql select * from _source_ where ((process_path like '%/sysctl' and command like '%sysctl%') and (command like '%hw.%' or command like '%kern.%' or command like '%machdep.%'))",

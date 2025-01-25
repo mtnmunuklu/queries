@@ -1,8 +1,8 @@
 {
   "Description": "Various protocols maybe used to put data on the device for exfil or infil\n\nAuthor: Austin Clark\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "5e51acb2-bcbe-435b-99c6-0e3cd5e2aa59",
-  "InsertDate": "2025-01-21T09:27:22Z",
-  "LastUpdateDate": "2025-01-21T09:27:22Z",
+  "InsertDate": "2025-01-25T21:19:43Z",
+  "LastUpdateDate": "2025-01-25T21:19:43Z",
   "Level": "low",
   "Name": "Cisco Stage Data",
   "Query": "sourcetype='cisco-aaa' eql select * from _source_ where Query('tftp OR rcp OR puts OR copy OR configure replace OR archive tar')",

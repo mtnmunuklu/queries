@@ -1,11 +1,11 @@
 {
   "Description": "Detects connections to interplanetary file system (IPFS) containing a user's email address which mirrors behaviours observed in recent phishing campaigns leveraging IPFS to host credential harvesting webpages.\n\nAuthor: Gavin Knapp\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "eb6c2004-1cef-427f-8885-9042974e5eb6",
-  "InsertDate": "2025-01-21T09:27:24Z",
-  "LastUpdateDate": "2025-01-21T09:27:24Z",
+  "InsertDate": "2025-01-25T21:19:51Z",
+  "LastUpdateDate": "2025-01-25T21:19:51Z",
   "Level": "low",
   "Name": "Suspicious Network Communication With IPFS",
-  "Query": "eql select * from _source_ where cs-uri re '(?i)(ipfs\\.io/|ipfs\\.io\\s).+\\..+@.+\\.[a-z]+'",
+  "Query": "eql select * from _source_ where cs-uri rlike '(?i)(ipfs\\.io/|ipfs\\.io\\s).+\\..+@.+\\.[a-z]+'",
   "Tags": [
     "attack.credential-access",
     "attack.t1056"

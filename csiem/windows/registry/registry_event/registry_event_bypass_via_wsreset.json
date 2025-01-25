@@ -1,11 +1,11 @@
 {
   "Description": "Unfixed method for UAC bypass from Windows 10. WSReset.exe file associated with the Windows Store. It will run a binary file contained in a low-privilege registry.\n\nAuthor: oscd.community, Dmitry Uchakin\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6ea3bf32-9680-422d-9f50-e90716b12a66",
-  "InsertDate": "2025-01-21T09:31:13Z",
-  "LastUpdateDate": "2025-01-21T09:31:13Z",
+  "InsertDate": "2025-01-25T21:22:40Z",
+  "LastUpdateDate": "2025-01-25T21:22:40Z",
   "Level": "high",
   "Name": "UAC Bypass Via Wsreset",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where target_object like '%\\appx82a6gwre4fdg3bt635tn5ctqjf8msdd2\\shell\\open\\command'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where target_object like '%\\AppX82a6gwre4fdg3bt635tn5ctqjf8msdd2\\Shell\\open\\command'",
   "Tags": [
     "attack.defense-evasion",
     "attack.privilege-escalation",

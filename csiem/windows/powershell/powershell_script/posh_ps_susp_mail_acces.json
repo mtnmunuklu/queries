@@ -1,11 +1,11 @@
 {
   "Description": "Adversaries may target user email on local systems to collect sensitive information.\nFiles containing email data can be acquired from a users local system, such as Outlook storage or cache files.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "2837e152-93c8-43d2-85ba-c3cd3c2ae614",
-  "InsertDate": "2025-01-21T09:28:10Z",
-  "LastUpdateDate": "2025-01-21T09:28:10Z",
+  "InsertDate": "2025-01-25T21:21:30Z",
+  "LastUpdateDate": "2025-01-25T21:21:30Z",
   "Level": "medium",
   "Name": "Powershell Local Email Collection",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%get-inbox.ps1%' or scriptblocktext like '%microsoft.office.interop.outlook%' or scriptblocktext like '%microsoft.office.interop.outlook.oldefaultfolders%' or scriptblocktext like '%-comobject outlook.application%')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%Get-Inbox.ps1%' or scriptblocktext like '%Microsoft.Office.Interop.Outlook%' or scriptblocktext like '%Microsoft.Office.Interop.Outlook.olDefaultFolders%' or scriptblocktext like '%-comobject outlook.application%')",
   "Tags": [
     "attack.collection",
     "attack.t1114.001"

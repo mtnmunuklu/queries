@@ -1,11 +1,11 @@
 {
   "Description": "Detects remote thread creation in the \"mstsc.exe\" process by a process located in a potentially suspicious location.\nThis technique is often used by attackers in order to hook some APIs used by DLLs loaded by \"mstsc.exe\" during RDP authentications in order to steal credentials.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c0aac16a-b1e7-4330-bab0-3c27bb4987c7",
-  "InsertDate": "2025-01-21T09:27:38Z",
-  "LastUpdateDate": "2025-01-21T09:27:38Z",
+  "InsertDate": "2025-01-25T21:20:43Z",
+  "LastUpdateDate": "2025-01-25T21:20:43Z",
   "Level": "high",
   "Name": "Remote Thread Creation In Mstsc.Exe From Suspicious Location",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where dst_process_path like '%\\mstsc.exe' and (process_path like '%:\\temp\\%' or process_path like '%:\\users\\public\\%' or process_path like '%:\\windows\\perflogs\\%' or process_path like '%:\\windows\\tasks\\%' or process_path like '%:\\windows\\temp\\%' or process_path like '%\\appdata\\local\\temp\\%')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where dst_process_path like '%\\mstsc.exe' and (process_path like '%:\\Temp\\%' or process_path like '%:\\Users\\Public\\%' or process_path like '%:\\Windows\\PerfLogs\\%' or process_path like '%:\\Windows\\Tasks\\%' or process_path like '%:\\Windows\\Temp\\%' or process_path like '%\\AppData\\Local\\Temp\\%')",
   "Tags": [
     "attack.credential-access"
   ],

@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious launch of the PSEXESVC service on this system and a sub process run as LOCAL_SYSTEM (-s), which means that someone remotely started a command on this system running it with highest privileges and not only the privileges of the login user account (e.g. the administrator account)\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "7c0dcd3d-acf8-4f71-9570-f448b0034f94",
-  "InsertDate": "2025-01-21T09:30:38Z",
-  "LastUpdateDate": "2025-01-21T09:30:38Z",
+  "InsertDate": "2025-01-25T21:22:32Z",
+  "LastUpdateDate": "2025-01-25T21:22:32Z",
   "Level": "high",
   "Name": "PsExec Service Child Process Execution as LOCAL SYSTEM",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where parent_process_path = 'c:\\windows\\psexesvc.exe' and (username like '%authori%' or username like '%autori%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where parent_process_path = 'C:\\Windows\\PSEXESVC.exe' and (username like '%AUTHORI%' or username like '%AUTORI%')",
   "Tags": [
     "attack.execution"
   ],

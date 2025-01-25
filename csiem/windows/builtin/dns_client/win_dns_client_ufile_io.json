@@ -1,8 +1,8 @@
 {
   "Description": "Detects DNS queries to \"ufile.io\", which was seen abused by malware and threat actors as a method for data exfiltration\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "090ffaad-c01a-4879-850c-6d57da98452d",
-  "InsertDate": "2025-01-21T09:27:27Z",
-  "LastUpdateDate": "2025-01-21T09:27:27Z",
+  "InsertDate": "2025-01-25T21:20:06Z",
+  "LastUpdateDate": "2025-01-25T21:20:06Z",
   "Level": "low",
   "Name": "DNS Query To Ufile.io - DNS Client",
   "Query": "sourcetype='windows-dns-client' eql select * from _source_ where eventid = '3008' and query_name like '%ufile.io%'",

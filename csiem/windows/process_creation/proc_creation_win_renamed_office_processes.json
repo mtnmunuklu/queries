@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of a renamed office binary\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0b0cd537-fc77-4e6e-a973-e53495c1083d",
-  "InsertDate": "2025-01-21T09:29:50Z",
-  "LastUpdateDate": "2025-01-21T09:29:50Z",
+  "InsertDate": "2025-01-25T21:22:19Z",
+  "LastUpdateDate": "2025-01-25T21:22:19Z",
   "Level": "high",
   "Name": "Renamed Office Binary Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((original_file_name = 'excel.exe' or original_file_name = 'msaccess.exe' or original_file_name = 'mspub.exe' or original_file_name = 'onenote.exe' or original_file_name = 'onenotem.exe' or original_file_name = 'outlook.exe' or original_file_name = 'powerpnt.exe' or original_file_name = 'winword.exe') and (description = 'microsoft access' or description = 'microsoft excel' or description = 'microsoft onenote' or description = 'microsoft outlook' or description = 'microsoft powerpoint' or description = 'microsoft publisher' or description = 'microsoft word' or description = 'sent to onenote tool')) and  not (process_path like '%\\excel.exe' or process_path like '%\\excelcnv.exe' or process_path like '%\\msaccess.exe' or process_path like '%\\mspub.exe' or process_path like '%\\onenote.exe' or process_path like '%\\onenotem.exe' or process_path like '%\\outlook.exe' or process_path like '%\\powerpnt.exe' or process_path like '%\\winword.exe'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((original_file_name = 'Excel.exe' or original_file_name = 'MSACCESS.EXE' or original_file_name = 'MSPUB.EXE' or original_file_name = 'OneNote.exe' or original_file_name = 'OneNoteM.exe' or original_file_name = 'OUTLOOK.EXE' or original_file_name = 'POWERPNT.EXE' or original_file_name = 'WinWord.exe') and (description = 'Microsoft Access' or description = 'Microsoft Excel' or description = 'Microsoft OneNote' or description = 'Microsoft Outlook' or description = 'Microsoft PowerPoint' or description = 'Microsoft Publisher' or description = 'Microsoft Word' or description = 'Sent to OneNote Tool')) and  not (process_path like '%\\EXCEL.exe' or process_path like '%\\excelcnv.exe' or process_path like '%\\MSACCESS.exe' or process_path like '%\\MSPUB.EXE' or process_path like '%\\ONENOTE.EXE' or process_path like '%\\ONENOTEM.EXE' or process_path like '%\\OUTLOOK.EXE' or process_path like '%\\POWERPNT.EXE' or process_path like '%\\WINWORD.exe'))",
   "Tags": [
     "attack.defense-evasion"
   ],

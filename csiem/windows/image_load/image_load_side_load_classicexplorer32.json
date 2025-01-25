@@ -1,11 +1,11 @@
 {
   "Description": "Detects potential DLL sideloading using ClassicExplorer32.dll from the Classic Shell software\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "caa02837-f659-466f-bca6-48bde2826ab4",
-  "InsertDate": "2025-01-21T09:27:51Z",
-  "LastUpdateDate": "2025-01-21T09:27:51Z",
+  "InsertDate": "2025-01-25T21:21:08Z",
+  "LastUpdateDate": "2025-01-25T21:21:08Z",
   "Level": "medium",
   "Name": "Potential DLL Sideloading Via ClassicExplorer32.dll",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (image_loaded like '%\\classicexplorer32.dll' and  not image_loaded like 'c:\\program files\\classic shell\\%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (image_loaded like '%\\ClassicExplorer32.dll' and  not image_loaded like 'C:\\Program Files\\Classic Shell\\%')",
   "Tags": [
     "attack.defense-evasion",
     "attack.persistence",

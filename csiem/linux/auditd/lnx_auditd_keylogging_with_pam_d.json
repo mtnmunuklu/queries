@@ -1,11 +1,11 @@
 {
   "Description": "Detect attempt to enable auditing of TTY input\n\nAuthor: Pawel Mazur\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "49aae26c-450e-448b-911d-b3c13d178dfc",
-  "InsertDate": "2025-01-21T09:27:12Z",
-  "LastUpdateDate": "2025-01-21T09:27:12Z",
+  "InsertDate": "2025-01-25T21:19:11Z",
+  "LastUpdateDate": "2025-01-25T21:19:11Z",
   "Level": "high",
   "Name": "Linux Keylogging with Pam.d",
-  "Query": "sourcetype='linux-auditd' eql select * from _source_ where ((type = 'path' and (process_path = '/etc/pam.d/system-auth' or process_path = '/etc/pam.d/password-auth')) or (type = 'tty' or type = 'user_tty'))",
+  "Query": "sourcetype='linux-auditd' eql select * from _source_ where ((type = 'PATH' and (process_path = '/etc/pam.d/system-auth' or process_path = '/etc/pam.d/password-auth')) or (type = 'TTY' or type = 'USER_TTY'))",
   "Tags": [
     "attack.credential-access",
     "attack.t1003",

@@ -1,11 +1,11 @@
 {
   "Description": "Detects creation of a new service via \"sc\" command or the powershell \"new-service\" cmdlet with suspicious binary paths\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "17a1be64-8d88-40bf-b5ff-a4f7a50ebcc8",
-  "InsertDate": "2025-01-21T09:30:30Z",
-  "LastUpdateDate": "2025-01-21T09:30:30Z",
+  "InsertDate": "2025-01-25T21:22:30Z",
+  "LastUpdateDate": "2025-01-25T21:22:30Z",
   "Level": "high",
   "Name": "Suspicious New Service Creation",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\sc.exe' and (command like '%create%' and command like '%binpath=%')) or (command like '%new-service%' and command like '%-binarypathname%')) and (command like '%powershell%' or command like '%mshta%' or command like '%wscript%' or command like '%cscript%' or command like '%svchost%' or command like '%dllhost%' or command like '%cmd %' or command like '%cmd.exe /c%' or command like '%cmd.exe /k%' or command like '%cmd.exe /r%' or command like '%rundll32%' or command like '%c:\\users\\public%' or command like '%\\downloads\\%' or command like '%\\desktop\\%' or command like '%\\microsoft\\windows\\start menu\\programs\\startup\\%' or command like '%c:\\windows\\temp\\%' or command like '%\\appdata\\local\\temp%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\sc.exe' and (command like '%create%' and command like '%binPath=%')) or (command like '%New-Service%' and command like '%-BinaryPathName%')) and (command like '%powershell%' or command like '%mshta%' or command like '%wscript%' or command like '%cscript%' or command like '%svchost%' or command like '%dllhost%' or command like '%cmd %' or command like '%cmd.exe /c%' or command like '%cmd.exe /k%' or command like '%cmd.exe /r%' or command like '%rundll32%' or command like '%C:\\Users\\Public%' or command like '%\\Downloads\\%' or command like '%\\Desktop\\%' or command like '%\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\%' or command like '%C:\\Windows\\TEMP\\%' or command like '%\\AppData\\Local\\Temp%'))",
   "Tags": [
     "attack.persistence",
     "attack.privilege-escalation",

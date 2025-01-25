@@ -1,11 +1,11 @@
 {
   "Description": "Detects DNS server discovery via LDAP query requests from uncommon applications\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a21bcd7e-38ec-49ad-b69a-9ea17e69509e",
-  "InsertDate": "2025-01-21T09:27:39Z",
-  "LastUpdateDate": "2025-01-21T09:27:39Z",
+  "InsertDate": "2025-01-25T21:20:46Z",
+  "LastUpdateDate": "2025-01-25T21:20:46Z",
   "Level": "low",
   "Name": "DNS Server Discovery Via LDAP Query",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (query_name like '_ldap.%' and  not (process_path = 'null' or (process_path like '%:\\program files\\%' or process_path like '%:\\program files (x86)\\%' or process_path like '%:\\windows\\%') or (process_path like '%:\\programdata\\microsoft\\windows defender\\platform\\%' and process_path like '%\\msmpeng.exe') or process_path = '\u003cunknown process\u003e') and  not (process_path like 'c:\\windowsazure\\guestagent%' or (process_path like '%\\chrome.exe' or process_path like '%\\firefox.exe' or process_path like '%\\opera.exe')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (query_name like '_ldap.%' and  not ((process_path like '%:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\%' and process_path like '%\\MsMpEng.exe') or process_path = '\u003cunknown process\u003e' or process_path = 'null' or (process_path like '%:\\Program Files\\%' or process_path like '%:\\Program Files (x86)\\%' or process_path like '%:\\Windows\\%')) and  not (process_path like 'C:\\WindowsAzure\\GuestAgent%' or (process_path like '%\\chrome.exe' or process_path like '%\\firefox.exe' or process_path like '%\\opera.exe')))",
   "Tags": [
     "attack.discovery",
     "attack.t1482"

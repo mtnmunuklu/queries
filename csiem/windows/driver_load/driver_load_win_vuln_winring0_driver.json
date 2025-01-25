@@ -1,11 +1,11 @@
 {
   "Description": "Detects the load of a signed WinRing0 driver often used by threat actors, crypto miners (XMRIG) or malware for privilege escalation\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1a42dfa6-6cb2-4df9-9b48-295be477e835",
-  "InsertDate": "2025-01-21T09:27:41Z",
-  "LastUpdateDate": "2025-01-21T09:27:41Z",
+  "InsertDate": "2025-01-25T21:20:50Z",
+  "LastUpdateDate": "2025-01-25T21:20:50Z",
   "Level": "high",
   "Name": "Vulnerable WinRing0 Driver Load",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where hashes like '%imphash=d41fa95d4642dc981f10de36f4dc8cd7%' and (image_loaded like '%\\winring0x64.sys' or image_loaded like '%\\winring0.sys' or image_loaded like '%\\winring0.dll' or image_loaded like '%\\winring0x64.dll' or image_loaded like '%\\winring00x64.sys')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where hashes like '%IMPHASH=D41FA95D4642DC981F10DE36F4DC8CD7%' and (image_loaded like '%\\WinRing0x64.sys' or image_loaded like '%\\WinRing0.sys' or image_loaded like '%\\WinRing0.dll' or image_loaded like '%\\WinRing0x64.dll' or image_loaded like '%\\winring00x64.sys')",
   "Tags": [
     "attack.privilege-escalation",
     "attack.t1543.003"

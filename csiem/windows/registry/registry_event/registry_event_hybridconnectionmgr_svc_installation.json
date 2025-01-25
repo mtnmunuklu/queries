@@ -1,11 +1,11 @@
 {
   "Description": "Detects the installation of the Azure Hybrid Connection Manager service to allow remote code execution from Azure function.\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ac8866c7-ce44-46fd-8c17-b24acff96ca8",
-  "InsertDate": "2025-01-21T09:31:14Z",
-  "LastUpdateDate": "2025-01-21T09:31:14Z",
+  "InsertDate": "2025-01-25T21:22:41Z",
+  "LastUpdateDate": "2025-01-25T21:22:41Z",
   "Level": "high",
   "Name": "HybridConnectionManager Service Installation - Registry",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (target_object like '%\\services\\hybridconnectionmanager%' or (event_type = 'setvalue' and details like '%microsoft.hybridconnectionmanager.listener.exe%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (target_object like '%\\Services\\HybridConnectionManager%' or (event_type = 'SetValue' and details like '%Microsoft.HybridConnectionManager.Listener.exe%'))",
   "Tags": [
     "attack.resource-development",
     "attack.t1608"

@@ -1,11 +1,11 @@
 {
   "Description": "Windows DCE-RPC functions which indicate an execution techniques on the remote system. All credit for the Zeek mapping of the suspicious endpoint/operation field goes to MITRE\n\nAuthor: @neu5ron, SOC Prime\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "b640c0b8-87f8-4daa-aef8-95a24261dd1d",
-  "InsertDate": "2025-01-21T09:27:22Z",
-  "LastUpdateDate": "2025-01-21T09:27:22Z",
+  "InsertDate": "2025-01-25T21:19:45Z",
+  "LastUpdateDate": "2025-01-25T21:19:45Z",
   "Level": "medium",
   "Name": "MITRE BZAR Indicators for Execution",
-  "Query": "sourcetype='zeek-dce_rpc' eql select * from _source_ where ((endpoint = 'itaskschedulerservice' and operation = 'schrpcenabletask') or (endpoint = 'iwbemservices' and operation = 'execmethodasync') or (endpoint = 'svcctl' and operation = 'createservicea') or (endpoint = 'svcctl' and operation = 'startservicea') or (endpoint = 'jobadd' and operation = 'atsvc') or (endpoint = 'itaskschedulerservice' and operation = 'schrpcregistertask') or (endpoint = 'itaskschedulerservice' and operation = 'schrpcrun') or (endpoint = 'iwbemservices' and operation = 'execmethod') or (endpoint = 'svcctl' and operation = 'createservicew') or (endpoint = 'svcctl' and operation = 'startservicew'))",
+  "Query": "sourcetype='zeek-dce_rpc' eql select * from _source_ where ((endpoint = 'JobAdd' and operation = 'atsvc') or (endpoint = 'IWbemServices' and operation = 'ExecMethod') or (endpoint = 'IWbemServices' and operation = 'ExecMethodAsync') or (endpoint = 'svcctl' and operation = 'CreateServiceW') or (endpoint = 'svcctl' and operation = 'StartServiceA') or (endpoint = 'ITaskSchedulerService' and operation = 'SchRpcEnableTask') or (endpoint = 'ITaskSchedulerService' and operation = 'SchRpcRegisterTask') or (endpoint = 'ITaskSchedulerService' and operation = 'SchRpcRun') or (endpoint = 'svcctl' and operation = 'CreateServiceA') or (endpoint = 'svcctl' and operation = 'StartServiceW'))",
   "Tags": [
     "attack.execution",
     "attack.t1047",

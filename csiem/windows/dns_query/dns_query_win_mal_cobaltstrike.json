@@ -1,8 +1,8 @@
 {
   "Description": "Detects a program that invoked suspicious DNS queries known from Cobalt Strike beacons\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f356a9c4-effd-4608-bbf8-408afd5cd006",
-  "InsertDate": "2025-01-21T09:27:40Z",
-  "LastUpdateDate": "2025-01-21T09:27:40Z",
+  "InsertDate": "2025-01-25T21:20:47Z",
+  "LastUpdateDate": "2025-01-25T21:20:47Z",
   "Level": "critical",
   "Name": "Suspicious Cobalt Strike DNS Beaconing - Sysmon",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((query_name like 'aaa.stage.%' or query_name like 'post.1%') or query_name like '%.stage.123456.%')",

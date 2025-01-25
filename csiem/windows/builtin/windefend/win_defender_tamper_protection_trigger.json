@@ -1,11 +1,11 @@
 {
   "Description": "Detects blocked attempts to change any of Defender's settings such as \"Real Time Monitoring\" and \"Behavior Monitoring\"\n\nAuthor: Bhabesh Raj, Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "49e5bc24-8b86-49f1-b743-535f332c2856",
-  "InsertDate": "2025-01-21T09:27:38Z",
-  "LastUpdateDate": "2025-01-21T09:27:38Z",
+  "InsertDate": "2025-01-25T21:20:42Z",
+  "LastUpdateDate": "2025-01-25T21:20:42Z",
   "Level": "high",
   "Name": "Microsoft Defender Tamper Protection Trigger",
-  "Query": "sourcetype='windows-windefend' eql select * from _source_ where eventid = '5013' and (value like '%\\windows defender\\disableantispyware' or value like '%\\windows defender\\disableantivirus' or value like '%\\windows defender\\scan\\disablearchivescanning' or value like '%\\windows defender\\scan\\disablescanningnetworkfiles' or value like '%\\real-time protection\\disablerealtimemonitoring' or value like '%\\real-time protection\\disablebehaviormonitoring' or value like '%\\real-time protection\\disableioavprotection' or value like '%\\real-time protection\\disablescriptscanning')",
+  "Query": "sourcetype='windows-windefend' eql select * from _source_ where eventid = '5013' and (value like '%\\Windows Defender\\DisableAntiSpyware' or value like '%\\Windows Defender\\DisableAntiVirus' or value like '%\\Windows Defender\\Scan\\DisableArchiveScanning' or value like '%\\Windows Defender\\Scan\\DisableScanningNetworkFiles' or value like '%\\Real-Time Protection\\DisableRealtimeMonitoring' or value like '%\\Real-Time Protection\\DisableBehaviorMonitoring' or value like '%\\Real-Time Protection\\DisableIOAVProtection' or value like '%\\Real-Time Protection\\DisableScriptScanning')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1562.001"

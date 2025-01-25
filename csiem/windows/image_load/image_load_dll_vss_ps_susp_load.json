@@ -1,11 +1,11 @@
 {
   "Description": "Detects the image load of vss_ps.dll by uncommon executables\n\nAuthor: Markus Neis, @markus_neis\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "333cdbe8-27bb-4246-bf82-b41a0dca4b70",
-  "InsertDate": "2025-01-21T09:27:50Z",
-  "LastUpdateDate": "2025-01-21T09:27:50Z",
+  "InsertDate": "2025-01-25T21:21:06Z",
+  "LastUpdateDate": "2025-01-25T21:21:06Z",
   "Level": "high",
   "Name": "Suspicious Volume Shadow Copy VSS_PS.dll Load",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (image_loaded like '%\\vss_ps.dll' and  not ((process_path like 'c:\\program files\\%' or process_path like 'c:\\program files (x86)\\%') or (command like 'c:\\$winreagent\\scratch\\%' and command like '%\\dismhost.exe {%') or process_path = 'null' or (process_path like 'c:\\windows\\%' and (process_path like '%\\clussvc.exe' or process_path like '%\\dismhost.exe' or process_path like '%\\dllhost.exe' or process_path like '%\\inetsrv\\appcmd.exe' or process_path like '%\\inetsrv\\iissetup.exe' or process_path like '%\\msiexec.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\searchindexer.exe' or process_path like '%\\srtasks.exe' or process_path like '%\\svchost.exe' or process_path like '%\\system32\\systempropertiesadvanced.exe' or process_path like '%\\taskhostw.exe' or process_path like '%\\thor.exe' or process_path like '%\\thor64.exe' or process_path like '%\\tiworker.exe' or process_path like '%\\vssvc.exe' or process_path like '%\\wmiprvse.exe' or process_path like '%\\wsmprovhost.exe'))))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (image_loaded like '%\\vss_ps.dll' and  not ((process_path like 'C:\\Windows\\%' and (process_path like '%\\clussvc.exe' or process_path like '%\\dismhost.exe' or process_path like '%\\dllhost.exe' or process_path like '%\\inetsrv\\appcmd.exe' or process_path like '%\\inetsrv\\iissetup.exe' or process_path like '%\\msiexec.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\searchindexer.exe' or process_path like '%\\srtasks.exe' or process_path like '%\\svchost.exe' or process_path like '%\\System32\\SystemPropertiesAdvanced.exe' or process_path like '%\\taskhostw.exe' or process_path like '%\\thor.exe' or process_path like '%\\thor64.exe' or process_path like '%\\tiworker.exe' or process_path like '%\\vssvc.exe' or process_path like '%\\WmiPrvSE.exe' or process_path like '%\\wsmprovhost.exe')) or (process_path like 'C:\\Program Files\\%' or process_path like 'C:\\Program Files (x86)\\%') or (command like 'C:\\$WinREAgent\\Scratch\\%' and command like '%\\dismhost.exe {%') or process_path = 'null'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.impact",

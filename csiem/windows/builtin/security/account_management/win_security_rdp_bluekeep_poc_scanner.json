@@ -1,11 +1,11 @@
 {
   "Description": "Detects the use of a scanner by zerosum0x0 that discovers targets vulnerable to  CVE-2019-0708 RDP RCE aka BlueKeep\n\nAuthor: Florian Roth (Nextron Systems), Adam Bradbury (idea)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "8400629e-79a9-4737-b387-5db940ab2367",
-  "InsertDate": "2025-01-21T09:27:28Z",
-  "LastUpdateDate": "2025-01-21T09:27:28Z",
+  "InsertDate": "2025-01-25T21:20:11Z",
+  "LastUpdateDate": "2025-01-25T21:20:11Z",
   "Level": "high",
   "Name": "Scanner PoC for CVE-2019-0708 RDP RCE Vuln",
-  "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4625' and targetusername = 'aaaaaaa'",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where eventid = '4625' and targetusername = 'AAAAAAA'",
   "Tags": [
     "attack.lateral-movement",
     "attack.t1210",

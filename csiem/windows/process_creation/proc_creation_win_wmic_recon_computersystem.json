@@ -1,8 +1,8 @@
 {
   "Description": "Detects execution of wmic utility with the \"computersystem\" flag in order to obtain information about the machine such as the domain, username, model, etc.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9d7ca793-f6bd-471c-8d0f-11e68b2f0d2f",
-  "InsertDate": "2025-01-21T09:31:00Z",
-  "LastUpdateDate": "2025-01-21T09:31:00Z",
+  "InsertDate": "2025-01-25T21:22:38Z",
+  "LastUpdateDate": "2025-01-25T21:22:38Z",
   "Level": "medium",
   "Name": "Computer System Reconnaissance Via Wmic.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\wmic.exe' and original_file_name = 'wmic.exe') and command like '%computersystem%')",

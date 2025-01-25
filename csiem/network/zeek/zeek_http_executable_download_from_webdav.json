@@ -1,11 +1,11 @@
 {
   "Description": "Detects executable access via webdav6. Can be seen in APT 29 such as from the emulated APT 29 hackathon https://github.com/OTRF/detection-hackathon-apt29/\n\nAuthor: SOC Prime, Adam Swan\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "aac2fd97-bcba-491b-ad66-a6edf89c71bf",
-  "InsertDate": "2025-01-21T09:27:23Z",
-  "LastUpdateDate": "2025-01-21T09:27:23Z",
+  "InsertDate": "2025-01-25T21:19:46Z",
+  "LastUpdateDate": "2025-01-25T21:19:46Z",
   "Level": "medium",
   "Name": "Executable from Webdav",
-  "Query": "sourcetype='zeek-http' eql select * from _source_ where ((c-useragent like '%webdav%' and c-uri like '%webdav%') and (resp_mime_types like '%dosexec%' and c-uri like '%.exe'))",
+  "Query": "sourcetype='zeek-http' eql select * from _source_ where ((c-useragent like '%WebDAV%' and c-uri like '%webdav%') and (resp_mime_types like '%dosexec%' and c-uri like '%.exe'))",
   "Tags": [
     "attack.command-and-control",
     "attack.t1105"

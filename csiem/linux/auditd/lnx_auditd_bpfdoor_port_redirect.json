@@ -1,11 +1,11 @@
 {
   "Description": "All TCP traffic on particular port from attacker is routed to different port. ex. '/sbin/iptables -t nat -D PREROUTING -p tcp -s 192.168.1.1 --dport 22 -j REDIRECT --to-ports 42392'\nThe traffic looks like encrypted SSH communications going to TCP port 22, but in reality is being directed to the shell port once it hits the iptables rule for the attacker host only.\n\n\nAuthor: Rafal Piasecki\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "70b4156e-50fc-4523-aa50-c9dddf1993fc",
-  "InsertDate": "2025-01-21T09:27:11Z",
-  "LastUpdateDate": "2025-01-21T09:27:11Z",
+  "InsertDate": "2025-01-25T21:19:09Z",
+  "LastUpdateDate": "2025-01-25T21:19:09Z",
   "Level": "medium",
   "Name": "Bpfdoor TCP Ports Redirect",
-  "Query": "sourcetype='linux-auditd' eql select * from _source_ where ((type = 'execve' and a0 like '%iptables' and a1 = '-t' and a2 = 'nat') and Query('--to-ports 42 OR --to-ports 43'))",
+  "Query": "sourcetype='linux-auditd' eql select * from _source_ where ((type = 'EXECVE' and a0 like '%iptables' and a1 = '-t' and a2 = 'nat') and Query('--to-ports 42 OR --to-ports 43'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1562.004"

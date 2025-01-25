@@ -1,8 +1,8 @@
 {
   "Description": "Detects enumeration of local system groups\n\nAuthor: Ömer Günal, Alejandro Ortuno, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "89bb1f97-c7b9-40e8-b52b-7d6afbd67276",
-  "InsertDate": "2025-01-21T09:27:20Z",
-  "LastUpdateDate": "2025-01-21T09:27:20Z",
+  "InsertDate": "2025-01-25T21:19:37Z",
+  "LastUpdateDate": "2025-01-25T21:19:37Z",
   "Level": "informational",
   "Name": "Local Groups Discovery - MacOs",
   "Query": "sourcetype like 'macos-%' eql select * from _source_ where ((process_path like '%/dscacheutil' and (command like '%-q%' and command like '%group%')) or (process_path like '%/cat' and command like '%/etc/group%') or (process_path like '%/dscl' and (command like '%-list%' and command like '%/groups%')))",

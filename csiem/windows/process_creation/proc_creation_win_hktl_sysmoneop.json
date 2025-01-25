@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of the PoC that can be used to exploit Sysmon CVE-2022-41120\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "8a7e90c5-fe6e-45dc-889e-057fe4378bd9",
-  "InsertDate": "2025-01-21T09:28:33Z",
-  "LastUpdateDate": "2025-01-21T09:28:33Z",
+  "InsertDate": "2025-01-25T21:21:53Z",
+  "LastUpdateDate": "2025-01-25T21:21:53Z",
   "Level": "critical",
   "Name": "HackTool - SysmonEOP Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\sysmoneop.exe' or (hashes like '%imphash=22f4089eb8aba31e1bb162c6d9bf72e5%' or hashes like '%imphash=5123fa4c4384d431cd0d893eeb49bbec%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\SysmonEOP.exe' or (hashes like '%IMPHASH=22F4089EB8ABA31E1BB162C6D9BF72E5%' or hashes like '%IMPHASH=5123FA4C4384D431CD0D893EEB49BBEC%'))",
   "Tags": [
     "cve.2022-41120",
     "attack.t1068",

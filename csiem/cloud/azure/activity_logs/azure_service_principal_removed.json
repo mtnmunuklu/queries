@@ -1,11 +1,11 @@
 {
   "Description": "Identifies when a service principal was removed in Azure.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "448fd1ea-2116-4c62-9cde-a92d120e0f08",
-  "InsertDate": "2025-01-21T09:27:03Z",
-  "LastUpdateDate": "2025-01-21T09:27:03Z",
+  "InsertDate": "2025-01-25T21:18:33Z",
+  "LastUpdateDate": "2025-01-25T21:18:33Z",
   "Level": "medium",
   "Name": "Azure Service Principal Removed",
-  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where properties.message = 'remove service principal'",
+  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where properties.message = 'Remove service principal'",
   "Tags": [
     "attack.defense-evasion"
   ],

@@ -1,11 +1,11 @@
 {
   "Description": "Detects registry value settings that would replace the user's desktop background.\nThis is a common technique used by malware to change the desktop background to a ransom note or other image.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Stephen Lincoln @slincoln-aiq (AttackIQ)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "85b88e05-dadc-430b-8a9e-53ff1cd30aae",
-  "InsertDate": "2025-01-21T09:31:29Z",
-  "LastUpdateDate": "2025-01-21T09:31:29Z",
+  "InsertDate": "2025-01-25T21:22:44Z",
+  "LastUpdateDate": "2025-01-25T21:22:44Z",
   "Level": "medium",
   "Name": "Potentially Suspicious Desktop Background Change Via Registry",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object like '%control panel\\desktop%' or target_object like '%currentversion\\policies\\activedesktop%' or target_object like '%currentversion\\policies\\system%') and ((target_object like '%nochangingwallpaper' and details = 'dword (0x00000001)') or target_object like '%\\wallpaper' or (target_object like '%\\wallpaperstyle' and details = '2')) and  not process_path like '%\\svchost.exe')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((target_object like '%Control Panel\\Desktop%' or target_object like '%CurrentVersion\\Policies\\ActiveDesktop%' or target_object like '%CurrentVersion\\Policies\\System%') and ((target_object like '%NoChangingWallpaper' and details = 'DWORD (0x00000001)') or target_object like '%\\Wallpaper' or (target_object like '%\\WallpaperStyle' and details = '2')) and  not process_path like '%\\svchost.exe')",
   "Tags": [
     "attack.defense-evasion",
     "attack.impact",

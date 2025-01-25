@@ -1,11 +1,11 @@
 {
   "Description": "Adversaries may establish persistence by executing malicious content triggered by user inactivity.\nScreensavers are programs that execute after a configurable time of user inactivity and consist of Portable Executable (PE) files with a .scr file extension\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0fc35fc3-efe6-4898-8a37-0b233339524f",
-  "InsertDate": "2025-01-21T09:29:33Z",
-  "LastUpdateDate": "2025-01-21T09:29:33Z",
+  "InsertDate": "2025-01-25T21:22:15Z",
+  "LastUpdateDate": "2025-01-25T21:22:15Z",
   "Level": "medium",
   "Name": "Suspicious ScreenSave Change by Reg.exe",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\reg.exe' and (command like '%hkey_current_user\\control panel\\desktop%' or command like '%hkcu\\control panel\\desktop%')) and ((command like '%/v screensaveactive%' and command like '%/t reg_sz%' and command like '%/d 1%' and command like '%/f%') or (command like '%/v screensavetimeout%' and command like '%/t reg_sz%' and command like '%/d %' and command like '%/f%') or (command like '%/v screensaverissecure%' and command like '%/t reg_sz%' and command like '%/d 0%' and command like '%/f%') or (command like '%/v scrnsave.exe%' and command like '%/t reg_sz%' and command like '%/d %' and command like '%.scr%' and command like '%/f%')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\reg.exe' and (command like '%HKEY_CURRENT_USER\\Control Panel\\Desktop%' or command like '%HKCU\\Control Panel\\Desktop%')) and ((command like '%/v ScreenSaveActive%' and command like '%/t REG_SZ%' and command like '%/d 1%' and command like '%/f%') or (command like '%/v ScreenSaveTimeout%' and command like '%/t REG_SZ%' and command like '%/d %' and command like '%/f%') or (command like '%/v ScreenSaverIsSecure%' and command like '%/t REG_SZ%' and command like '%/d 0%' and command like '%/f%') or (command like '%/v SCRNSAVE.EXE%' and command like '%/t REG_SZ%' and command like '%/d %' and command like '%.scr%' and command like '%/f%')))",
   "Tags": [
     "attack.privilege-escalation",
     "attack.t1546.002"

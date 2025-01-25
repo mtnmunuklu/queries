@@ -1,11 +1,11 @@
 {
   "Description": "This rule detects that the path to the DLL written in the registry is different from the default one. Launched WAB.exe tries to load the DLL from Registry.\n\nAuthor: oscd.community, Natalia Shornikova\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "fc014922-5def-4da9-a0fc-28c973f41bfb",
-  "InsertDate": "2025-01-21T09:32:00Z",
-  "LastUpdateDate": "2025-01-21T09:32:00Z",
+  "InsertDate": "2025-01-25T21:22:51Z",
+  "LastUpdateDate": "2025-01-25T21:22:51Z",
   "Level": "high",
   "Name": "Execution DLL of Choice Using WAB.EXE",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\software\\microsoft\\wab\\dllpath' and  not details = '%commonprogramfiles%\\system\\wab32.dll')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\Software\\Microsoft\\WAB\\DLLPath' and  not details = '%CommonProgramFiles%\\System\\wab32.dll')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1218"

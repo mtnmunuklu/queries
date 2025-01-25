@@ -1,11 +1,11 @@
 {
   "Description": "Detects command line parameters used by Koadic hack tool\n\nAuthor: wagga, Jonhnathan Ribeiro, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "5cddf373-ef00-4112-ad72-960ac29bac34",
-  "InsertDate": "2025-01-21T09:28:31Z",
-  "LastUpdateDate": "2025-01-21T09:28:31Z",
+  "InsertDate": "2025-01-25T21:21:50Z",
+  "LastUpdateDate": "2025-01-25T21:21:50Z",
   "Level": "high",
   "Name": "HackTool - Koadic Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\cmd.exe' and original_file_name = 'cmd.exe') and (command like '%/q%' and command like '%/c%' and command like '%chcp%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\cmd.exe' and original_file_name = 'Cmd.Exe') and (command like '%/q%' and command like '%/c%' and command like '%chcp%'))",
   "Tags": [
     "attack.execution",
     "attack.t1059.003",

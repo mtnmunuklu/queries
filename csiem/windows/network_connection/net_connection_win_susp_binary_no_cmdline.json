@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious network connections made by a well-known Windows binary run with no command line parameters\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "20384606-a124-4fec-acbb-8bd373728613",
-  "InsertDate": "2025-01-21T09:27:56Z",
-  "LastUpdateDate": "2025-01-21T09:27:56Z",
+  "InsertDate": "2025-01-25T21:21:14Z",
+  "LastUpdateDate": "2025-01-25T21:21:14Z",
   "Level": "high",
   "Name": "Suspicious Network Connection Binary No CommandLine",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((initiated = 'true' and (process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\dllhost.exe') and (command like '%\\regsvr32.exe' or command like '%\\rundll32.exe' or command like '%\\dllhost.exe')) and  not (command = 'null' or command = ''))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((initiated = 'true' and (process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\dllhost.exe') and (command like '%\\regsvr32.exe' or command like '%\\rundll32.exe' or command like '%\\dllhost.exe')) and  not (command = '' or command = 'null'))",
   "Tags": [
     "attack.defense-evasion"
   ],

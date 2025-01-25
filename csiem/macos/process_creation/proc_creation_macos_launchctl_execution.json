@@ -1,8 +1,8 @@
 {
   "Description": "Detects the execution of programs as Launch Agents or Launch Daemons using launchctl on macOS.\n\nAuthor: Pratinav Chandra\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ae9d710f-dcd1-4f75-a0a5-93a73b5dda0e",
-  "InsertDate": "2025-01-21T09:27:20Z",
-  "LastUpdateDate": "2025-01-21T09:27:20Z",
+  "InsertDate": "2025-01-25T21:19:37Z",
+  "LastUpdateDate": "2025-01-25T21:19:37Z",
   "Level": "medium",
   "Name": "Launch Agent/Daemon Execution Via Launchctl",
   "Query": "sourcetype like 'macos-%' eql select * from _source_ where process_path like '%/launchctl' and (command like '%submit%' or command like '%load%' or command like '%start%')",

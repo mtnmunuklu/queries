@@ -1,11 +1,11 @@
 {
   "Description": "Detects child processes of Microsoft.NodejsTools.PressAnyKey.exe that can be used to execute any other binary\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a20391f8-76fb-437b-abc0-dba2df1952c6",
-  "InsertDate": "2025-01-21T09:29:06Z",
-  "LastUpdateDate": "2025-01-21T09:29:06Z",
+  "InsertDate": "2025-01-25T21:22:11Z",
+  "LastUpdateDate": "2025-01-25T21:22:11Z",
   "Level": "medium",
   "Name": "Visual Studio NodejsTools PressAnyKey Arbitrary Binary Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where parent_process_path like '%\\microsoft.nodejstools.pressanykey.exe'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where parent_process_path like '%\\Microsoft.NodejsTools.PressAnyKey.exe'",
   "Tags": [
     "attack.execution",
     "attack.defense-evasion",

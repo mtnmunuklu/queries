@@ -1,8 +1,8 @@
 {
   "Description": "Detects issues with Windows Defender Real-Time Protection features\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Christopher Peacock '@securepeacock' (Update)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "dd80db93-6ec2-4f4c-a017-ad40da6ffe81",
-  "InsertDate": "2025-01-21T09:27:38Z",
-  "LastUpdateDate": "2025-01-21T09:27:38Z",
+  "InsertDate": "2025-01-25T21:20:41Z",
+  "LastUpdateDate": "2025-01-25T21:20:41Z",
   "Level": "medium",
   "Name": "Windows Defender Real-Time Protection Failure/Restart",
   "Query": "sourcetype='windows-windefend' eql select * from _source_ where ((eventid = '3002' or eventid = '3007') and  not (feature_name = '%%886' and (reason = '%%892' or reason = '%%858')))",

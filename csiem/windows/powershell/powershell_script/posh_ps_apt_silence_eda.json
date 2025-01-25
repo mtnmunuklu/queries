@@ -1,11 +1,11 @@
 {
   "Description": "Detects Silence EmpireDNSAgent as described in the Group-IP report\n\nAuthor: Alina Stepchenkova, Group-IB, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "3ceb2083-a27f-449a-be33-14ec1b7cc973",
-  "InsertDate": "2025-01-21T09:28:01Z",
-  "LastUpdateDate": "2025-01-21T09:28:01Z",
+  "InsertDate": "2025-01-25T21:21:21Z",
+  "LastUpdateDate": "2025-01-25T21:21:21Z",
   "Level": "critical",
   "Name": "Silence.EDA Detection",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((scriptblocktext like '%system.diagnostics.process%' and scriptblocktext like '%stop-computer%' and scriptblocktext like '%restart-computer%' and scriptblocktext like '%exception in execution%' and scriptblocktext like '%$cmdargs%' and scriptblocktext like '%close-dnscat2tunnel%') and (scriptblocktext like '%set type=$lookuptype`nserver%' and scriptblocktext like '%$command | nslookup 2\u003e\u00261 | out-string%' and scriptblocktext like '%new-randomdnsfield%' and scriptblocktext like '%[convert]::tostring($synoptions, 16)%' and scriptblocktext like '%$session.dead = $true%' and scriptblocktext like '%$session[\"driver\"] -eq%'))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where ((scriptblocktext like '%System.Diagnostics.Process%' and scriptblocktext like '%Stop-Computer%' and scriptblocktext like '%Restart-Computer%' and scriptblocktext like '%Exception in execution%' and scriptblocktext like '%$cmdargs%' and scriptblocktext like '%Close-Dnscat2Tunnel%') and (scriptblocktext like '%set type=$LookupType`nserver%' and scriptblocktext like '%$Command | nslookup 2\u003e\u00261 | Out-String%' and scriptblocktext like '%New-RandomDNSField%' and scriptblocktext like '%[Convert]::ToString($SYNOptions, 16)%' and scriptblocktext like '%$Session.Dead = $True%' and scriptblocktext like '%$Session[\"Driver\"] -eq%'))",
   "Tags": [
     "attack.execution",
     "attack.t1059.001",

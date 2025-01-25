@@ -1,11 +1,11 @@
 {
   "Description": "Detects Code Integrity (CI) engine blocking Microsoft Defender's processes (MpCmdRun and NisSrv) from loading unsigned DLLs which may be an attempt to sideload arbitrary DLL\n\nAuthor: Bhabesh Raj\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0b0ea3cc-99c8-4730-9c53-45deee2a4c86",
-  "InsertDate": "2025-01-21T09:27:34Z",
-  "LastUpdateDate": "2025-01-21T09:27:34Z",
+  "InsertDate": "2025-01-25T21:20:30Z",
+  "LastUpdateDate": "2025-01-25T21:20:30Z",
   "Level": "high",
   "Name": "Microsoft Defender Blocked from Loading Unsigned DLL",
-  "Query": "sourcetype='windows-security-mitigations' eql select * from _source_ where (eventid = '11' or eventid = '12') and (processpath like '%\\mpcmdrun.exe' or processpath like '%\\nissrv.exe')",
+  "Query": "sourcetype='windows-security-mitigations' eql select * from _source_ where (eventid = '11' or eventid = '12') and (processpath like '%\\MpCmdRun.exe' or processpath like '%\\NisSrv.exe')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1574.002"

@@ -1,11 +1,11 @@
 {
   "Description": "Detects usage of the \"Get-AdGroup\" cmdlet to enumerate Groups within Active Directory\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "8c3a6607-b7dc-4f0d-a646-ef38c00b76ee",
-  "InsertDate": "2025-01-21T09:28:03Z",
-  "LastUpdateDate": "2025-01-21T09:28:03Z",
+  "InsertDate": "2025-01-25T21:21:24Z",
+  "LastUpdateDate": "2025-01-25T21:21:24Z",
   "Level": "low",
   "Name": "Active Directory Group Enumeration With Get-AdGroup",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%get-adgroup %' and scriptblocktext like '%-filter%')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%Get-AdGroup %' and scriptblocktext like '%-Filter%')",
   "Tags": [
     "attack.discovery",
     "attack.t1069.002"

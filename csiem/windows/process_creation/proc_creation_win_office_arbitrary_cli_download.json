@@ -1,11 +1,11 @@
 {
   "Description": "Detects potential arbitrary file download using a Microsoft Office application\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Beyu Denis, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4ae3e30b-b03f-43aa-87e3-b622f4048eed",
-  "InsertDate": "2025-01-21T09:28:45Z",
-  "LastUpdateDate": "2025-01-21T09:28:45Z",
+  "InsertDate": "2025-01-25T21:22:03Z",
+  "LastUpdateDate": "2025-01-25T21:22:03Z",
   "Level": "high",
   "Name": "Potential Arbitrary File Download Using Office Application",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\excel.exe' or process_path like '%\\powerpnt.exe' or process_path like '%\\winword.exe') and (original_file_name = 'excel.exe' or original_file_name = 'powerpnt.exe' or original_file_name = 'winword.exe')) and (command like '%http://%' or command like '%https://%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\EXCEL.EXE' or process_path like '%\\POWERPNT.EXE' or process_path like '%\\WINWORD.exe') and (original_file_name = 'Excel.exe' or original_file_name = 'POWERPNT.EXE' or original_file_name = 'WinWord.exe')) and (command like '%http://%' or command like '%https://%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1202"

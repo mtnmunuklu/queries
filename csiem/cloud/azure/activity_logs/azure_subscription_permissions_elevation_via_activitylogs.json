@@ -1,11 +1,11 @@
 {
   "Description": "Detects when a user has been elevated to manage all Azure Subscriptions.\nThis change should be investigated immediately if it isn't planned.\nThis setting could allow an attacker access to Azure subscriptions in your environment.\n\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "09438caa-07b1-4870-8405-1dbafe3dad95",
-  "InsertDate": "2025-01-21T09:27:03Z",
-  "LastUpdateDate": "2025-01-21T09:27:03Z",
+  "InsertDate": "2025-01-25T21:18:33Z",
+  "LastUpdateDate": "2025-01-25T21:18:33Z",
   "Level": "high",
   "Name": "Azure Subscription Permission Elevation Via ActivityLogs",
-  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where operationname = 'microsoft.authorization/elevateaccess/action'",
+  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where operationname = 'MICROSOFT.AUTHORIZATION/ELEVATEACCESS/ACTION'",
   "Tags": [
     "attack.initial-access",
     "attack.t1078.004"

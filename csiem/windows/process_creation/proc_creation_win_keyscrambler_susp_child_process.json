@@ -1,11 +1,11 @@
 {
   "Description": "Detects potentially suspicious child processes of KeyScrambler.exe\n\nAuthor: Swachchhanda Shrawan Poudel\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "ca5583e9-8f80-46ac-ab91-7f314d13b984",
-  "InsertDate": "2025-01-21T09:28:35Z",
-  "LastUpdateDate": "2025-01-21T09:28:35Z",
+  "InsertDate": "2025-01-25T21:21:55Z",
+  "LastUpdateDate": "2025-01-25T21:21:55Z",
   "Level": "medium",
   "Name": "Potentially Suspicious Child Process of KeyScrambler.exe",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\keyscrambler.exe' and ((process_path like '%\\cmd.exe' or process_path like '%\\cscript.exe' or process_path like '%\\mshta.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\wscript.exe') and (original_file_name = 'cmd.exe' or original_file_name = 'cscript.exe' or original_file_name = 'mshta.exe' or original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll' or original_file_name = 'regsvr32.exe' or original_file_name = 'rundll32.exe' or original_file_name = 'wscript.exe')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\KeyScrambler.exe' and ((process_path like '%\\cmd.exe' or process_path like '%\\cscript.exe' or process_path like '%\\mshta.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\wscript.exe') and (original_file_name = 'Cmd.Exe' or original_file_name = 'cscript.exe' or original_file_name = 'mshta.exe' or original_file_name = 'PowerShell.EXE' or original_file_name = 'pwsh.dll' or original_file_name = 'regsvr32.exe' or original_file_name = 'RUNDLL32.EXE' or original_file_name = 'wscript.exe')))",
   "Tags": [
     "attack.execution",
     "attack.defense-evasion",

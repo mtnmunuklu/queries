@@ -1,11 +1,11 @@
 {
   "Description": "Detects the use of CoercedPotato, a tool for privilege escalation\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e8d34729-86a4-4140-adfd-0a29c2106307",
-  "InsertDate": "2025-01-21T09:28:28Z",
-  "LastUpdateDate": "2025-01-21T09:28:28Z",
+  "InsertDate": "2025-01-25T21:21:46Z",
+  "LastUpdateDate": "2025-01-25T21:21:46Z",
   "Level": "high",
   "Name": "HackTool - CoercedPotato Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\coercedpotato.exe' or command like '% --exploitid %' or (hashes like '%imphash=a75d7669db6b2e107a44c4057ff7f7d6%' or hashes like '%imphash=f91624350e2c678c5dcbe5e1f24e22c9%' or hashes like '%imphash=14c81850a079a87e83d50ca41c709a15%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\CoercedPotato.exe' or command like '% --exploitId %' or (hashes like '%IMPHASH=A75D7669DB6B2E107A44C4057FF7F7D6%' or hashes like '%IMPHASH=F91624350E2C678C5DCBE5E1F24E22C9%' or hashes like '%IMPHASH=14C81850A079A87E83D50CA41C709A15%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.privilege-escalation",

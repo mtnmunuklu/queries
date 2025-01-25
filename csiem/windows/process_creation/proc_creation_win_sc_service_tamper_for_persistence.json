@@ -1,11 +1,11 @@
 {
   "Description": "Detects the modification of an existing service in order to execute an arbitrary payload when the service is started or killed as a potential method for persistence.\n\nAuthor: Sreeman\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "38879043-7e1e-47a9-8d46-6bec88e201df",
-  "InsertDate": "2025-01-21T09:30:00Z",
-  "LastUpdateDate": "2025-01-21T09:30:00Z",
+  "InsertDate": "2025-01-25T21:22:22Z",
+  "LastUpdateDate": "2025-01-25T21:22:22Z",
   "Level": "medium",
   "Name": "Potential Persistence Attempt Via Existing Service Tampering",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((command like '%sc %' and command like '%config %' and command like '%binpath=%') and (command like '%sc %' and command like '%failure%' and command like '%command=%')) or ((command like '%.sh%' or command like '%.exe%' or command like '%.dll%' or command like '%.bin$%' or command like '%.bat%' or command like '%.cmd%' or command like '%.js%' or command like '%.msh$%' or command like '%.reg$%' or command like '%.scr%' or command like '%.ps%' or command like '%.vb%' or command like '%.jar%' or command like '%.pl%') and ((command like '%reg %' and command like '%add %' and command like '%failurecommand%') and (command like '%reg %' and command like '%add %' and command like '%imagepath%'))))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((command like '%sc %' and command like '%config %' and command like '%binpath=%') and (command like '%sc %' and command like '%failure%' and command like '%command=%')) or (((command like '%reg %' and command like '%add %' and command like '%FailureCommand%') and (command like '%reg %' and command like '%add %' and command like '%ImagePath%')) and (command like '%.sh%' or command like '%.exe%' or command like '%.dll%' or command like '%.bin$%' or command like '%.bat%' or command like '%.cmd%' or command like '%.js%' or command like '%.msh$%' or command like '%.reg$%' or command like '%.scr%' or command like '%.ps%' or command like '%.vb%' or command like '%.jar%' or command like '%.pl%')))",
   "Tags": [
     "attack.persistence",
     "attack.t1543.003",

@@ -1,11 +1,11 @@
 {
   "Description": "Detects remote RPC calls to modify the registry and possible execute code\n\nAuthor: Sagie Dulce, Dekel Paz\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "35c55673-84ca-4e99-8d09-e334f3c29539",
-  "InsertDate": "2025-01-21T09:26:59Z",
-  "LastUpdateDate": "2025-01-21T09:26:59Z",
+  "InsertDate": "2025-01-25T21:18:24Z",
+  "LastUpdateDate": "2025-01-25T21:18:24Z",
   "Level": "high",
   "Name": "Remote Registry Lateral Movement",
-  "Query": "sourcetype like 'rpc_firewall-%' eql select * from _source_ where eventlog = 'rpcfw' and eventid = '3' and interfaceuuid = '338cd001-2244-31f1-aaaa-900038001003' and (opnum = '6' or opnum = '7' or opnum = '8' or opnum = '13' or opnum = '18' or opnum = '19' or opnum = '21' or opnum = '22' or opnum = '23' or opnum = '35')",
+  "Query": "sourcetype like 'rpc_firewall-%' eql select * from _source_ where eventlog = 'RPCFW' and eventid = '3' and interfaceuuid = '338cd001-2244-31f1-aaaa-900038001003' and (opnum = '6' or opnum = '7' or opnum = '8' or opnum = '13' or opnum = '18' or opnum = '19' or opnum = '21' or opnum = '22' or opnum = '23' or opnum = '35')",
   "Tags": [
     "attack.lateral-movement",
     "attack.t1112"

@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious encoded character syntax often used for defense evasion\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "e312efd0-35a1-407f-8439-b8d434b438a6",
-  "InsertDate": "2025-01-21T09:29:00Z",
-  "LastUpdateDate": "2025-01-21T09:29:00Z",
+  "InsertDate": "2025-01-25T21:22:09Z",
+  "LastUpdateDate": "2025-01-25T21:22:09Z",
   "Level": "high",
   "Name": "Potential PowerShell Obfuscation Via WCHAR",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where command like '%(wchar)0x%'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where command like '%(WCHAR)0x%'",
   "Tags": [
     "attack.execution",
     "attack.t1059.001",

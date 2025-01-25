@@ -1,8 +1,8 @@
 {
   "Description": "Detects exploitation attempt using public exploit code for CVE-2018-15473\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4c9d903d-4939-4094-ade0-3cb748f4d7da",
-  "InsertDate": "2025-01-21T09:27:14Z",
-  "LastUpdateDate": "2025-01-21T09:27:14Z",
+  "InsertDate": "2025-01-25T21:19:16Z",
+  "LastUpdateDate": "2025-01-25T21:19:16Z",
   "Level": "medium",
   "Name": "SSHD Error Message CVE-2018-15473",
   "Query": "sourcetype='linux-sshd' eql select * from _source_ where Query('error: buffer_get_ret: trying to get more bytes 1907 than in buffer 308 [preauth]')",

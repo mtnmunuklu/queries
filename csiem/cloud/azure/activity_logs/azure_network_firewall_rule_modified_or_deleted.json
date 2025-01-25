@@ -1,11 +1,11 @@
 {
   "Description": "Identifies when a Firewall Rule Configuration is Modified or Deleted.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "2a7d64cf-81fa-4daf-ab1b-ab80b789c067",
-  "InsertDate": "2025-01-21T09:27:03Z",
-  "LastUpdateDate": "2025-01-21T09:27:03Z",
+  "InsertDate": "2025-01-25T21:18:32Z",
+  "LastUpdateDate": "2025-01-25T21:18:32Z",
   "Level": "medium",
   "Name": "Azure Firewall Rule Configuration Modified or Deleted",
-  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (operationname = 'microsoft.network/firewallpolicies/rulecollectiongroups/write' or operationname = 'microsoft.network/firewallpolicies/rulecollectiongroups/delete' or operationname = 'microsoft.network/firewallpolicies/rulegroups/write' or operationname = 'microsoft.network/firewallpolicies/rulegroups/delete')",
+  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where (operationname = 'MICROSOFT.NETWORK/FIREWALLPOLICIES/RULECOLLECTIONGROUPS/WRITE' or operationname = 'MICROSOFT.NETWORK/FIREWALLPOLICIES/RULECOLLECTIONGROUPS/DELETE' or operationname = 'MICROSOFT.NETWORK/FIREWALLPOLICIES/RULEGROUPS/WRITE' or operationname = 'MICROSOFT.NETWORK/FIREWALLPOLICIES/RULEGROUPS/DELETE')",
   "Tags": [
     "attack.impact"
   ],

@@ -1,11 +1,11 @@
 {
   "Description": "A General detection for sdclt being spawned as an elevated process. This could be an indicator of sdclt being used for bypass UAC techniques.\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "40f9af16-589d-4984-b78d-8c2aec023197",
-  "InsertDate": "2025-01-21T09:30:45Z",
-  "LastUpdateDate": "2025-01-21T09:30:45Z",
+  "InsertDate": "2025-01-25T21:22:34Z",
+  "LastUpdateDate": "2025-01-25T21:22:34Z",
   "Level": "medium",
   "Name": "Potential UAC Bypass Via Sdclt.EXE",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%sdclt.exe' and (integrity_level = 'high' or integrity_level = 's-1-16-12288')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%sdclt.exe' and (integrity_level = 'High' or integrity_level = 'S-1-16-12288')",
   "Tags": [
     "attack.privilege-escalation",
     "attack.defense-evasion",

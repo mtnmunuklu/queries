@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious child processes of the \"Manage Engine ServiceDesk Plus\" Java web service\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "cea2b7ea-792b-405f-95a1-b903ea06458f",
-  "InsertDate": "2025-01-21T09:28:35Z",
-  "LastUpdateDate": "2025-01-21T09:28:35Z",
+  "InsertDate": "2025-01-25T21:21:55Z",
+  "LastUpdateDate": "2025-01-25T21:21:55Z",
   "Level": "high",
   "Name": "Suspicious Child Process Of Manage Engine ServiceDesk",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((parent_process_path like '%\\manageengine\\servicedesk\\%' and parent_process_path like '%\\java.exe%') and (process_path like '%\\appvlp.exe' or process_path like '%\\bash.exe' or process_path like '%\\bitsadmin.exe' or process_path like '%\\calc.exe' or process_path like '%\\certutil.exe' or process_path like '%\\cscript.exe' or process_path like '%\\curl.exe' or process_path like '%\\forfiles.exe' or process_path like '%\\mftrace.exe' or process_path like '%\\mshta.exe' or process_path like '%\\net.exe' or process_path like '%\\net1.exe' or process_path like '%\\notepad.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\query.exe' or process_path like '%\\reg.exe' or process_path like '%\\schtasks.exe' or process_path like '%\\scrcons.exe' or process_path like '%\\sh.exe' or process_path like '%\\systeminfo.exe' or process_path like '%\\whoami.exe' or process_path like '%\\wmic.exe' or process_path like '%\\wscript.exe')) and  not ((process_path like '%\\net.exe' or process_path like '%\\net1.exe') and command like '% stop%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((parent_process_path like '%\\ManageEngine\\ServiceDesk\\%' and parent_process_path like '%\\java.exe%') and (process_path like '%\\AppVLP.exe' or process_path like '%\\bash.exe' or process_path like '%\\bitsadmin.exe' or process_path like '%\\calc.exe' or process_path like '%\\certutil.exe' or process_path like '%\\cscript.exe' or process_path like '%\\curl.exe' or process_path like '%\\forfiles.exe' or process_path like '%\\mftrace.exe' or process_path like '%\\mshta.exe' or process_path like '%\\net.exe' or process_path like '%\\net1.exe' or process_path like '%\\notepad.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\query.exe' or process_path like '%\\reg.exe' or process_path like '%\\schtasks.exe' or process_path like '%\\scrcons.exe' or process_path like '%\\sh.exe' or process_path like '%\\systeminfo.exe' or process_path like '%\\whoami.exe' or process_path like '%\\wmic.exe' or process_path like '%\\wscript.exe')) and  not ((process_path like '%\\net.exe' or process_path like '%\\net1.exe') and command like '% stop%'))",
   "Tags": [
     "attack.command-and-control",
     "attack.t1102"

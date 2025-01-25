@@ -1,11 +1,11 @@
 {
   "Description": "Detects different hacktools used for relay attacks on Windows for privilege escalation\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "5589ab4f-a767-433c-961d-c91f3f704db1",
-  "InsertDate": "2025-01-21T09:28:32Z",
-  "LastUpdateDate": "2025-01-21T09:28:32Z",
+  "InsertDate": "2025-01-25T21:21:52Z",
+  "LastUpdateDate": "2025-01-25T21:21:52Z",
   "Level": "critical",
   "Name": "Potential SMB Relay Attack Tool Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%petitpotam%' or process_path like '%rottenpotato%' or process_path like '%hotpotato%' or process_path like '%juicypotato%' or process_path like '%\\just_dce_%' or process_path like '%juicy potato%' or process_path like '%\\temp\\rot.exe%' or process_path like '%\\potato.exe%' or process_path like '%\\spoolsample.exe%' or process_path like '%\\responder.exe%' or process_path like '%\\smbrelayx%' or process_path like '%\\ntlmrelayx%' or process_path like '%\\localpotato%') or (command like '%invoke-tater%' or command like '% smbrelay%' or command like '% ntlmrelay%' or command like '%cme smb %' or command like '% /ntlm:ntlmhash %' or command like '%invoke-petitpotam%' or command like '%.exe -t * -p %') or (command like '%.exe -c \"{%' and command like '%}\" -z')) and  not (process_path like '%hotpotatoes6%' or process_path like '%hotpotatoes7%' or process_path like '%hotpotatoes %'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%PetitPotam%' or process_path like '%RottenPotato%' or process_path like '%HotPotato%' or process_path like '%JuicyPotato%' or process_path like '%\\just_dce_%' or process_path like '%Juicy Potato%' or process_path like '%\\temp\\rot.exe%' or process_path like '%\\Potato.exe%' or process_path like '%\\SpoolSample.exe%' or process_path like '%\\Responder.exe%' or process_path like '%\\smbrelayx%' or process_path like '%\\ntlmrelayx%' or process_path like '%\\LocalPotato%') or (command like '%Invoke-Tater%' or command like '% smbrelay%' or command like '% ntlmrelay%' or command like '%cme smb %' or command like '% /ntlm:NTLMhash %' or command like '%Invoke-PetitPotam%' or command like '%.exe -t * -p %') or (command like '%.exe -c \"{%' and command like '%}\" -z')) and  not (process_path like '%HotPotatoes6%' or process_path like '%HotPotatoes7%' or process_path like '%HotPotatoes %'))",
   "Tags": [
     "attack.execution",
     "attack.t1557.001"

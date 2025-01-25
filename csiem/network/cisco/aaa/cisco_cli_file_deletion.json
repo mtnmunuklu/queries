@@ -1,8 +1,8 @@
 {
   "Description": "See what files are being deleted from flash file systems\n\nAuthor: Austin Clark\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "71d65515-c436-43c0-841b-236b1f32c21e",
-  "InsertDate": "2025-01-21T09:27:22Z",
-  "LastUpdateDate": "2025-01-21T09:27:22Z",
+  "InsertDate": "2025-01-25T21:19:43Z",
+  "LastUpdateDate": "2025-01-25T21:19:43Z",
   "Level": "medium",
   "Name": "Cisco File Deletion",
   "Query": "sourcetype='cisco-aaa' eql select * from _source_ where Query('erase OR delete OR format')",

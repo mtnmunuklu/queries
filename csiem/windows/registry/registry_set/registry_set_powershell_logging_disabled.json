@@ -1,11 +1,11 @@
 {
   "Description": "Detects changes to the registry for the currently logged-in user. In order to disable PowerShell module logging, script block logging or transcription and script execution logging\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "fecfd1a1-cc78-4313-a1ea-2ee2e8ec27a7",
-  "InsertDate": "2025-01-21T09:31:50Z",
-  "LastUpdateDate": "2025-01-21T09:31:50Z",
+  "InsertDate": "2025-01-25T21:22:49Z",
+  "LastUpdateDate": "2025-01-25T21:22:49Z",
   "Level": "high",
   "Name": "PowerShell Logging Disabled Via Registry Key Tampering",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\microsoft\\windows\\powershell\\%' or target_object like '%\\microsoft\\powershellcore\\%') and (target_object like '%\\modulelogging\\enablemodulelogging' or target_object like '%\\scriptblocklogging\\enablescriptblocklogging' or target_object like '%\\scriptblocklogging\\enablescriptblockinvocationlogging' or target_object like '%\\transcription\\enabletranscripting' or target_object like '%\\transcription\\enableinvocationheader' or target_object like '%\\enablescripts') and details = 'dword (0x00000000)'",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\Microsoft\\Windows\\PowerShell\\%' or target_object like '%\\Microsoft\\PowerShellCore\\%') and (target_object like '%\\ModuleLogging\\EnableModuleLogging' or target_object like '%\\ScriptBlockLogging\\EnableScriptBlockLogging' or target_object like '%\\ScriptBlockLogging\\EnableScriptBlockInvocationLogging' or target_object like '%\\Transcription\\EnableTranscripting' or target_object like '%\\Transcription\\EnableInvocationHeader' or target_object like '%\\EnableScripts') and details = 'DWORD (0x00000000)'",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1564.001"

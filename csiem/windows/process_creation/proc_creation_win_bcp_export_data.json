@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of the BCP utility in order to export data from the database.\nAttackers were seen saving their malware to a database column or table and then later extracting it via \"bcp.exe\" into a file.\n\n\nAuthor: Omar Khaled (@beacon_exe), MahirAli Khan (in/mahiralikhan), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c615d676-f655-46b9-b913-78729021e5d7",
-  "InsertDate": "2025-01-21T09:28:17Z",
-  "LastUpdateDate": "2025-01-21T09:28:17Z",
+  "InsertDate": "2025-01-25T21:21:36Z",
+  "LastUpdateDate": "2025-01-25T21:21:36Z",
   "Level": "medium",
   "Name": "Data Export From MSSQL Table Via BCP.EXE",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '% out %' or command like '% queryout %') and (process_path like '%\\bcp.exe' and original_file_name = 'bcp.exe'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '% out %' or command like '% queryout %') and (process_path like '%\\bcp.exe' and original_file_name = 'BCP.exe'))",
   "Tags": [
     "attack.execution",
     "attack.t1048"

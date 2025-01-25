@@ -1,11 +1,11 @@
 {
   "Description": "Detects potential DLL hijack of \"iertutil.dll\" found in the DCOM InternetExplorer.Application Class\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g, Open Threat Research (OTR), wagga\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f354eba5-623b-450f-b073-0b5b2773b6aa",
-  "InsertDate": "2025-01-21T09:27:50Z",
-  "LastUpdateDate": "2025-01-21T09:27:50Z",
+  "InsertDate": "2025-01-25T21:21:07Z",
+  "LastUpdateDate": "2025-01-25T21:21:07Z",
   "Level": "critical",
   "Name": "Potential DCOM InternetExplorer.Application DLL Hijack - Image Load",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\internet explorer\\iexplore.exe' and image_loaded like '%\\internet explorer\\iertutil.dll'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\Internet Explorer\\iexplore.exe' and image_loaded like '%\\Internet Explorer\\iertutil.dll'",
   "Tags": [
     "attack.lateral-movement",
     "attack.t1021.002",

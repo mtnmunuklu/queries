@@ -1,8 +1,8 @@
 {
   "Description": "Detects the use of the find command to execute a shell. Such behavior may be associated with privilege escalation, unauthorized command execution, or exploitation attempt.\n\n\nAuthor: Li Ling, Andy Parkidomo, Robert Rakowski, Blake Hartstein (Bloomberg L.P.)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "6adfbf8f-52be-4444-9bac-81b539624146",
-  "InsertDate": "2025-01-21T09:27:16Z",
-  "LastUpdateDate": "2025-01-21T09:27:16Z",
+  "InsertDate": "2025-01-25T21:19:24Z",
+  "LastUpdateDate": "2025-01-25T21:19:24Z",
   "Level": "high",
   "Name": "Shell Execution via Find - Linux",
   "Query": "sourcetype like 'linux-%' eql select * from _source_ where ((process_path like '%/find' and (command like '% . %' and command like '%-exec%')) and (command like '%/bin/bash%' or command like '%/bin/dash%' or command like '%/bin/fish%' or command like '%/bin/sh%' or command like '%/bin/zsh%'))",

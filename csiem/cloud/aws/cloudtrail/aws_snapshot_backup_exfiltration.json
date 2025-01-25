@@ -1,11 +1,11 @@
 {
   "Description": "Detects the modification of an EC2 snapshot's permissions to enable access from another account\n\nAuthor: Darin Smith\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "abae8fec-57bd-4f87-aff6-6e3db989843d",
-  "InsertDate": "2025-01-21T09:27:01Z",
-  "LastUpdateDate": "2025-01-21T09:27:01Z",
+  "InsertDate": "2025-01-25T21:18:28Z",
+  "LastUpdateDate": "2025-01-25T21:18:28Z",
   "Level": "medium",
   "Name": "AWS Snapshot Backup Exfiltration",
-  "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where eventsource = 'ec2.amazonaws.com' and eventname = 'modifysnapshotattribute'",
+  "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where eventsource = 'ec2.amazonaws.com' and eventname = 'ModifySnapshotAttribute'",
   "Tags": [
     "attack.exfiltration",
     "attack.t1537"

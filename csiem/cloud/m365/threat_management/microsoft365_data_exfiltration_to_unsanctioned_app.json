@@ -1,11 +1,11 @@
 {
   "Description": "Detects when a Microsoft Cloud App Security reported when a user or IP address uses an app that is not sanctioned to perform an activity that resembles an attempt to exfiltrate information from your organization.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "2b669496-d215-47d8-bd9a-f4a45bf07cda",
-  "InsertDate": "2025-01-21T09:27:09Z",
-  "LastUpdateDate": "2025-01-21T09:27:09Z",
+  "InsertDate": "2025-01-25T21:19:05Z",
+  "LastUpdateDate": "2025-01-25T21:19:05Z",
   "Level": "medium",
   "Name": "Data Exfiltration to Unsanctioned Apps",
-  "Query": "sourcetype='m365-threat_management' eql select * from _source_ where eventsource = 'securitycompliancecenter' and eventname = 'data exfiltration to unsanctioned apps' and status = 'success'",
+  "Query": "sourcetype='m365-threat_management' eql select * from _source_ where eventsource = 'SecurityComplianceCenter' and eventname = 'Data exfiltration to unsanctioned apps' and status = 'success'",
   "Tags": [
     "attack.exfiltration",
     "attack.t1537"

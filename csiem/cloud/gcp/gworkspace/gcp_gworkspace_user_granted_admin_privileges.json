@@ -1,11 +1,11 @@
 {
   "Description": "Detects when an Google Workspace user is granted admin privileges.\n\nAuthor: Austin Songer\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "2d1b83e4-17c6-4896-a37b-29140b40a788",
-  "InsertDate": "2025-01-21T09:27:08Z",
-  "LastUpdateDate": "2025-01-21T09:27:08Z",
+  "InsertDate": "2025-01-25T21:19:03Z",
+  "LastUpdateDate": "2025-01-25T21:19:03Z",
   "Level": "medium",
   "Name": "Google Workspace User Granted Admin Privileges",
-  "Query": "sourcetype='gcp-google_workspace.admin' eql select * from _source_ where eventservice = 'admin.googleapis.com' and (eventname = 'grant_delegated_admin_privileges' or eventname = 'grant_admin_privilege')",
+  "Query": "sourcetype='gcp-google_workspace.admin' eql select * from _source_ where eventservice = 'admin.googleapis.com' and (eventname = 'GRANT_DELEGATED_ADMIN_PRIVILEGES' or eventname = 'GRANT_ADMIN_PRIVILEGE')",
   "Tags": [
     "attack.persistence",
     "attack.t1098"

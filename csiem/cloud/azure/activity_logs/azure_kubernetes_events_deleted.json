@@ -1,11 +1,11 @@
 {
   "Description": "Detects when Events are deleted in Azure Kubernetes. An adversary may delete events in Azure Kubernetes in an attempt to evade detection.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "225d8b09-e714-479c-a0e4-55e6f29adf35",
-  "InsertDate": "2025-01-21T09:27:02Z",
-  "LastUpdateDate": "2025-01-21T09:27:02Z",
+  "InsertDate": "2025-01-25T21:18:32Z",
+  "LastUpdateDate": "2025-01-25T21:18:32Z",
   "Level": "medium",
   "Name": "Azure Kubernetes Events Deleted",
-  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where operationname = 'microsoft.kubernetes/connectedclusters/events.k8s.io/events/delete'",
+  "Query": "sourcetype='azure-activitylogs' eql select * from _source_ where operationname = 'MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/EVENTS.K8S.IO/EVENTS/DELETE'",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1562",

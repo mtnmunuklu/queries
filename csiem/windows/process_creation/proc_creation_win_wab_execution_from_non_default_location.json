@@ -1,11 +1,11 @@
 {
   "Description": "Detects execution of wab.exe (Windows Contacts) and Wabmig.exe (Microsoft Address Book Import Tool) from non default locations as seen with bumblebee activity\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "395907ee-96e5-4666-af2e-2ca91688e151",
-  "InsertDate": "2025-01-21T09:30:49Z",
-  "LastUpdateDate": "2025-01-21T09:30:49Z",
+  "InsertDate": "2025-01-25T21:22:35Z",
+  "LastUpdateDate": "2025-01-25T21:22:35Z",
   "Level": "high",
   "Name": "Wab Execution From Non Default Location",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\wab.exe' or process_path like '%\\wabmig.exe') and  not (process_path like 'c:\\windows\\winsxs\\%' or process_path like 'c:\\program files\\windows mail\\%' or process_path like 'c:\\program files (x86)\\windows mail\\%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\wab.exe' or process_path like '%\\wabmig.exe') and  not (process_path like 'C:\\Windows\\WinSxS\\%' or process_path like 'C:\\Program Files\\Windows Mail\\%' or process_path like 'C:\\Program Files (x86)\\Windows Mail\\%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.execution"

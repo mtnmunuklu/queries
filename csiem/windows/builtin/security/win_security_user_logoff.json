@@ -1,8 +1,8 @@
 {
   "Description": "Detects a user log-off activity. Could be used for example to correlate information during forensic investigations\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "0badd08f-c6a3-4630-90d3-6875cca440be",
-  "InsertDate": "2025-01-21T09:27:34Z",
-  "LastUpdateDate": "2025-01-21T09:27:34Z",
+  "InsertDate": "2025-01-25T21:20:29Z",
+  "LastUpdateDate": "2025-01-25T21:20:29Z",
   "Level": "informational",
   "Name": "User Logoff Event",
   "Query": "sourcetype='windows-security' eql select * from _source_ where (eventid = '4634' or eventid = '4647')",

@@ -1,11 +1,11 @@
 {
   "Description": "Detects commandline operations on shell history files\n\nAuthor: Mikhail Larin, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "eae8ce9f-bde9-47a6-8e79-f20d18419910",
-  "InsertDate": "2025-01-21T09:27:13Z",
-  "LastUpdateDate": "2025-01-21T09:27:13Z",
+  "InsertDate": "2025-01-25T21:19:13Z",
+  "LastUpdateDate": "2025-01-25T21:19:13Z",
   "Level": "medium",
   "Name": "Suspicious History File Operations - Linux",
-  "Query": "sourcetype='linux-auditd' eql select * from _source_ where (type = 'execve' and Query('.bash_history OR .zsh_history OR .zhistory OR .history OR .sh_history OR fish_history'))",
+  "Query": "sourcetype='linux-auditd' eql select * from _source_ where (type = 'EXECVE' and Query('.bash_history OR .zsh_history OR .zhistory OR .history OR .sh_history OR fish_history'))",
   "Tags": [
     "attack.credential-access",
     "attack.t1552.003"

@@ -1,11 +1,11 @@
 {
   "Description": "Detects ADDInternals Cmdlet execution. A tool for administering Azure AD and Office 365. Which can be abused by threat actors to attack Azure AD or Office 365.\n\nAuthor: Austin Songer (@austinsonger), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c86500e9-a645-4680-98d7-f882c70c1ea3",
-  "InsertDate": "2025-01-21T09:28:47Z",
-  "LastUpdateDate": "2025-01-21T09:28:47Z",
+  "InsertDate": "2025-01-25T21:22:05Z",
+  "LastUpdateDate": "2025-01-25T21:22:05Z",
   "Level": "high",
   "Name": "AADInternals PowerShell Cmdlets Execution - ProccessCreation",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'powershell.exe' or original_file_name = 'pwsh.dll')) and (command like '%add-aadint%' or command like '%convertto-aadint%' or command like '%disable-aadint%' or command like '%enable-aadint%' or command like '%export-aadint%' or command like '%get-aadint%' or command like '%grant-aadint%' or command like '%install-aadint%' or command like '%invoke-aadint%' or command like '%join-aadint%' or command like '%new-aadint%' or command like '%open-aadint%' or command like '%read-aadint%' or command like '%register-aadint%' or command like '%remove-aadint%' or command like '%restore-aadint%' or command like '%search-aadint%' or command like '%send-aadint%' or command like '%set-aadint%' or command like '%start-aadint%' or command like '%update-aadint%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe') and (original_file_name = 'PowerShell.Exe' or original_file_name = 'pwsh.dll')) and (command like '%Add-AADInt%' or command like '%ConvertTo-AADInt%' or command like '%Disable-AADInt%' or command like '%Enable-AADInt%' or command like '%Export-AADInt%' or command like '%Get-AADInt%' or command like '%Grant-AADInt%' or command like '%Install-AADInt%' or command like '%Invoke-AADInt%' or command like '%Join-AADInt%' or command like '%New-AADInt%' or command like '%Open-AADInt%' or command like '%Read-AADInt%' or command like '%Register-AADInt%' or command like '%Remove-AADInt%' or command like '%Restore-AADInt%' or command like '%Search-AADInt%' or command like '%Send-AADInt%' or command like '%Set-AADInt%' or command like '%Start-AADInt%' or command like '%Update-AADInt%'))",
   "Tags": [
     "attack.execution",
     "attack.reconnaissance",

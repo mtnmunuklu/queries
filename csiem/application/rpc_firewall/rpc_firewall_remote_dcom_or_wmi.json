@@ -1,11 +1,11 @@
 {
   "Description": "Detects remote RPC calls that performs remote DCOM operations. These could be abused for lateral movement via DCOM or WMI.\n\nAuthor: Sagie Dulce, Dekel Paz\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "68050b10-e477-4377-a99b-3721b422d6ef",
-  "InsertDate": "2025-01-21T09:26:59Z",
-  "LastUpdateDate": "2025-01-21T09:26:59Z",
+  "InsertDate": "2025-01-25T21:18:24Z",
+  "LastUpdateDate": "2025-01-25T21:18:24Z",
   "Level": "high",
   "Name": "Remote DCOM/WMI Lateral Movement",
-  "Query": "sourcetype like 'rpc_firewall-%' eql select * from _source_ where eventlog = 'rpcfw' and eventid = '3' and (interfaceuuid = '4d9f4ab8-7d1c-11cf-861e-0020af6e7c57' or interfaceuuid = '99fcfec4-5260-101b-bbcb-00aa0021347a' or interfaceuuid = '000001a0-0000-0000-c000-000000000046' or interfaceuuid = '00000131-0000-0000-c000-000000000046' or interfaceuuid = '00000143-0000-0000-c000-000000000046' or interfaceuuid = '00000000-0000-0000-c000-000000000046')",
+  "Query": "sourcetype like 'rpc_firewall-%' eql select * from _source_ where eventlog = 'RPCFW' and eventid = '3' and (interfaceuuid = '4d9f4ab8-7d1c-11cf-861e-0020af6e7c57' or interfaceuuid = '99fcfec4-5260-101b-bbcb-00aa0021347a' or interfaceuuid = '000001a0-0000-0000-c000-000000000046' or interfaceuuid = '00000131-0000-0000-c000-000000000046' or interfaceuuid = '00000143-0000-0000-c000-000000000046' or interfaceuuid = '00000000-0000-0000-c000-000000000046')",
   "Tags": [
     "attack.lateral-movement",
     "attack.t1021.003",

@@ -1,8 +1,8 @@
 {
   "Description": "Detects potential process injection via Microsoft Remote Asssistance (Msra.exe) by looking at suspicious child processes spawned from the aforementioned process. It has been a target used by many threat actors and used for discovery and persistence tactics\n\nAuthor: Alexander McDonald\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "744a188b-0415-4792-896f-11ddb0588dbc",
-  "InsertDate": "2025-01-21T09:28:42Z",
-  "LastUpdateDate": "2025-01-21T09:28:42Z",
+  "InsertDate": "2025-01-25T21:22:00Z",
+  "LastUpdateDate": "2025-01-25T21:22:00Z",
   "Level": "high",
   "Name": "Potential Process Injection Via Msra.EXE",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where parent_process_path like '%\\msra.exe' and parent_command_line like '%msra.exe' and (process_path like '%\\arp.exe' or process_path like '%\\cmd.exe' or process_path like '%\\net.exe' or process_path like '%\\netstat.exe' or process_path like '%\\nslookup.exe' or process_path like '%\\route.exe' or process_path like '%\\schtasks.exe' or process_path like '%\\whoami.exe')",

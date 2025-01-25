@@ -1,11 +1,11 @@
 {
   "Description": "Detects the image load of \"Python Core\" by a non-Python process. This might be indicative of a Python script bundled with Py2Exe.\n\nAuthor: Patrick St. John, OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "cbb56d62-4060-40f7-9466-d8aaf3123f83",
-  "InsertDate": "2025-01-21T09:27:53Z",
-  "LastUpdateDate": "2025-01-21T09:27:53Z",
+  "InsertDate": "2025-01-25T21:21:11Z",
+  "LastUpdateDate": "2025-01-25T21:21:11Z",
   "Level": "medium",
   "Name": "Python Image Load By Non-Python Process",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (description = 'python core' and  not (process_path like '%python%' and (process_path like 'c:\\program files\\%' or process_path like 'c:\\program files (x86)\\%' or process_path like 'c:\\programdata\\anaconda3\\%')) and  not process_path = 'null')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (description = 'Python Core' and  not (process_path like '%Python%' and (process_path like 'C:\\Program Files\\%' or process_path like 'C:\\Program Files (x86)\\%' or process_path like 'C:\\ProgramData\\Anaconda3\\%')) and  not process_path = 'null')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1027.002"

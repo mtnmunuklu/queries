@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious PowerShell download command\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "de41232e-12e8-49fa-86bc-c05c7e722df9",
-  "InsertDate": "2025-01-21T09:28:00Z",
-  "LastUpdateDate": "2025-01-21T09:28:00Z",
+  "InsertDate": "2025-01-25T21:21:20Z",
+  "LastUpdateDate": "2025-01-25T21:21:20Z",
   "Level": "medium",
   "Name": "Suspicious PowerShell Download - PoshModule",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (contextinfo like '%system.net.webclient%' and (contextinfo like '%.downloadfile(%' or contextinfo like '%.downloadstring(%'))",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (contextinfo like '%System.Net.WebClient%' and (contextinfo like '%.DownloadFile(%' or contextinfo like '%.DownloadString(%'))",
   "Tags": [
     "attack.execution",
     "attack.t1059.001"

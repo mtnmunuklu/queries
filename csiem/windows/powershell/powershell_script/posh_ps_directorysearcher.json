@@ -1,11 +1,11 @@
 {
   "Description": "Enumerates Active Directory to determine computers that are joined to the domain\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "1f6399cf-2c80-4924-ace1-6fcff3393480",
-  "InsertDate": "2025-01-21T09:28:02Z",
-  "LastUpdateDate": "2025-01-21T09:28:02Z",
+  "InsertDate": "2025-01-25T21:21:22Z",
+  "LastUpdateDate": "2025-01-25T21:21:22Z",
   "Level": "medium",
   "Name": "DirectorySearcher Powershell Exploitation",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%new-object %' and scriptblocktext like '%system.directoryservices.directorysearcher%' and scriptblocktext like '%.propertiestoload.add%' and scriptblocktext like '%.findall()%' and scriptblocktext like '%properties.name%')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%New-Object %' and scriptblocktext like '%System.DirectoryServices.DirectorySearcher%' and scriptblocktext like '%.PropertiesToLoad.Add%' and scriptblocktext like '%.findall()%' and scriptblocktext like '%Properties.name%')",
   "Tags": [
     "attack.discovery",
     "attack.t1018"

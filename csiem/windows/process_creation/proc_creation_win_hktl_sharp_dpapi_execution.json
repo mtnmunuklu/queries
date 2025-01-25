@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of the SharpDPAPI tool based on CommandLine flags and PE metadata.\nSharpDPAPI is a C# port of some DPAPI functionality from the Mimikatz project.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c7d33b50-f690-4b51-8cfb-0fb912a31e57",
-  "InsertDate": "2025-01-21T09:28:32Z",
-  "LastUpdateDate": "2025-01-21T09:28:32Z",
+  "InsertDate": "2025-01-25T21:21:52Z",
+  "LastUpdateDate": "2025-01-25T21:21:52Z",
   "Level": "high",
   "Name": "HackTool - SharpDPAPI Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\sharpdpapi.exe' and original_file_name = 'sharpdpapi.exe') or ((command like '% backupkey %' or command like '% blob %' or command like '% certificates %' or command like '% credentials %' or command like '% keepass %' or command like '% masterkeys %' or command like '% rdg %' or command like '% vaults %') and ((command like '% {%' and command like '%}:%') or (command like '% /file:%' or command like '% /machine%' or command like '% /mkfile:%' or command like '% /password:%' or command like '% /pvk:%' or command like '% /server:%' or command like '% /target:%' or command like '% /unprotect%'))))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\SharpDPAPI.exe' and original_file_name = 'SharpDPAPI.exe') or ((command like '% backupkey %' or command like '% blob %' or command like '% certificates %' or command like '% credentials %' or command like '% keepass %' or command like '% masterkeys %' or command like '% rdg %' or command like '% vaults %') and ((command like '% {%' and command like '%}:%') or (command like '% /file:%' or command like '% /machine%' or command like '% /mkfile:%' or command like '% /password:%' or command like '% /pvk:%' or command like '% /server:%' or command like '% /target:%' or command like '% /unprotect%'))))",
   "Tags": [
     "attack.privilege-escalation",
     "attack.defense-evasion",

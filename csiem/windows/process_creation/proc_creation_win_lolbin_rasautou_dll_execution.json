@@ -1,8 +1,8 @@
 {
   "Description": "Detects using Rasautou.exe for loading arbitrary .DLL specified in -d option and executes the export specified in -p.\n\nAuthor: Julia Fomina, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "cd3d1298-eb3b-476c-ac67-12847de55813",
-  "InsertDate": "2025-01-21T09:28:37Z",
-  "LastUpdateDate": "2025-01-21T09:28:37Z",
+  "InsertDate": "2025-01-25T21:21:57Z",
+  "LastUpdateDate": "2025-01-25T21:21:57Z",
   "Level": "medium",
   "Name": "DLL Execution via Rasautou.exe",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\rasautou.exe' and original_file_name = 'rasdlui.exe') and (command like '% -d %' and command like '% -p %'))",

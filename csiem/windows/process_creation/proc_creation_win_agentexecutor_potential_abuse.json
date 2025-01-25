@@ -1,11 +1,11 @@
 {
   "Description": "Detects execution of the AgentExecutor.exe binary. Which can be abused as a LOLBIN to execute powershell scripts with the ExecutionPolicy \"Bypass\" or any binary named \"powershell.exe\" located in the path provided by 6th positional argument\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), memory-shards\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "7efd2c8d-8b18-45b7-947d-adfe9ed04f61",
-  "InsertDate": "2025-01-21T09:28:16Z",
-  "LastUpdateDate": "2025-01-21T09:28:16Z",
+  "InsertDate": "2025-01-25T21:21:35Z",
+  "LastUpdateDate": "2025-01-25T21:21:35Z",
   "Level": "medium",
   "Name": "AgentExecutor PowerShell Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((command like '% -powershell%' or command like '% -remediationscript%') and (process_path = '\\agentexecutor.exe' and original_file_name = 'agentexecutor.exe')) and  not parent_process_path like '%\\microsoft.management.services.intunewindowsagent.exe')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (((process_path = '\\AgentExecutor.exe' and original_file_name = 'AgentExecutor.exe') and (command like '% -powershell%' or command like '% -remediationScript%')) and  not parent_process_path like '%\\Microsoft.Management.Services.IntuneWindowsAgent.exe')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1218"

@@ -1,8 +1,8 @@
 {
   "Description": "Detects relevant ClamAV messages\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "36aa86ca-fd9d-4456-814e-d3b1b8e1e0bb",
-  "InsertDate": "2025-01-21T09:27:13Z",
-  "LastUpdateDate": "2025-01-21T09:27:13Z",
+  "InsertDate": "2025-01-25T21:19:14Z",
+  "LastUpdateDate": "2025-01-25T21:19:14Z",
   "Level": "high",
   "Name": "Relevant ClamAV Message",
   "Query": "sourcetype='linux-clamav' eql select * from _source_ where Query('Trojan*FOUND OR VirTool*FOUND OR Webshell*FOUND OR Rootkit*FOUND OR Htran*FOUND')",

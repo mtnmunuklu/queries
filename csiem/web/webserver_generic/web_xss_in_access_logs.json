@@ -1,11 +1,11 @@
 {
   "Description": "Detects XSS attempts injected via GET requests in access logs\n\nAuthor: Saw Win Naung, Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "65354b83-a2ea-4ea6-8414-3ab38be0d409",
-  "InsertDate": "2025-01-21T09:27:25Z",
-  "LastUpdateDate": "2025-01-21T09:27:25Z",
+  "InsertDate": "2025-01-25T21:19:59Z",
+  "LastUpdateDate": "2025-01-25T21:19:59Z",
   "Level": "high",
   "Name": "Cross Site Scripting Strings",
-  "Query": "eql select * from _source_ where (cs-method = 'get' and Query('=\u003cscript\u003e OR =%3Cscript%3E OR =%253Cscript%253E OR \u003ciframe  OR %3Ciframe  OR \u003csvg  OR %3Csvg  OR document.cookie OR document.domain OR  onerror= OR  onresize= OR  onload=\" OR onmouseover= OR ${alert OR javascript:alert OR javascript%3Aalert') and  not sc-status = '404')",
+  "Query": "eql select * from _source_ where (cs-method = 'GET' and Query('=\u003cscript\u003e OR =%3Cscript%3E OR =%253Cscript%253E OR \u003ciframe  OR %3Ciframe  OR \u003csvg  OR %3Csvg  OR document.cookie OR document.domain OR  onerror= OR  onresize= OR  onload=\" OR onmouseover= OR ${alert OR javascript:alert OR javascript%3Aalert') and  not sc-status = '404')",
   "Tags": [
     "attack.initial-access",
     "attack.t1189"

@@ -1,11 +1,11 @@
 {
   "Description": "Detects the deletion of the event log files which may indicate an attempt to destroy forensic evidence\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "63c779ba-f638-40a0-a593-ddd45e8b1ddc",
-  "InsertDate": "2025-01-21T09:27:41Z",
-  "LastUpdateDate": "2025-01-21T09:27:41Z",
+  "InsertDate": "2025-01-25T21:20:51Z",
+  "LastUpdateDate": "2025-01-25T21:20:51Z",
   "Level": "medium",
   "Name": "EventLog EVTX File Deleted",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where filepath like 'c:\\windows\\system32\\winevt\\logs\\%' and filepath like '%.evtx'",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where filepath like 'C:\\Windows\\System32\\winevt\\Logs\\%' and filepath like '%.evtx'",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1070"

@@ -1,11 +1,11 @@
 {
   "Description": "Detects the execution of EDRSilencer, a tool that leverages Windows Filtering Platform (WFP) to block Endpoint Detection and Response (EDR) agents from reporting security events to the server based on PE metadata information.\n\n\nAuthor: @gott_cyber\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "eb2d07d4-49cb-4523-801a-da002df36602",
-  "InsertDate": "2025-01-21T09:28:29Z",
-  "LastUpdateDate": "2025-01-21T09:28:29Z",
+  "InsertDate": "2025-01-25T21:21:47Z",
+  "LastUpdateDate": "2025-01-25T21:21:47Z",
   "Level": "high",
   "Name": "HackTool - EDRSilencer Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\edrsilencer.exe' and original_file_name = 'edrsilencer.exe' and description like '%edrsilencer%'",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\EDRSilencer.exe' and original_file_name = 'EDRSilencer.exe' and description like '%EDRSilencer%'",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1562"

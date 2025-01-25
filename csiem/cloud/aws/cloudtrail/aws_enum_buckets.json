@@ -1,11 +1,11 @@
 {
   "Description": "Looks for potential enumeration of AWS buckets via ListBuckets.\n\nAuthor: Christopher Peacock @securepeacock, SCYTHE @scythe_io\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f305fd62-beca-47da-ad95-7690a0620084",
-  "InsertDate": "2025-01-21T09:27:01Z",
-  "LastUpdateDate": "2025-01-21T09:27:01Z",
+  "InsertDate": "2025-01-25T21:18:27Z",
+  "LastUpdateDate": "2025-01-25T21:18:27Z",
   "Level": "low",
   "Name": "Potential Bucket Enumeration on AWS",
-  "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where ((eventsource = 's3.amazonaws.com' and eventname = 'listbuckets') and  not useridentity.type = 'assumedrole')",
+  "Query": "sourcetype='aws-cloudtrail' eql select * from _source_ where ((eventsource = 's3.amazonaws.com' and eventname = 'ListBuckets') and  not useridentity.type = 'AssumedRole')",
   "Tags": [
     "attack.discovery",
     "attack.t1580"

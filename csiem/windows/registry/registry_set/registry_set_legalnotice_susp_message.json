@@ -1,11 +1,11 @@
 {
   "Description": "Detect changes to the \"LegalNoticeCaption\" or \"LegalNoticeText\" registry values where the message set contains keywords often used in ransomware ransom messages\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "8b9606c9-28be-4a38-b146-0e313cc232c1",
-  "InsertDate": "2025-01-21T09:31:40Z",
-  "LastUpdateDate": "2025-01-21T09:31:40Z",
+  "InsertDate": "2025-01-25T21:22:46Z",
+  "LastUpdateDate": "2025-01-25T21:22:46Z",
   "Level": "high",
   "Name": "Potential Ransomware Activity Using LegalNotice Message",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\software\\microsoft\\windows\\currentversion\\policies\\system\\legalnoticecaption%' or target_object like '%\\software\\microsoft\\windows\\currentversion\\policies\\system\\legalnoticetext%') and (details like '%encrypted%' or details like '%unlock-password%' or details like '%paying%')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\LegalNoticeCaption%' or target_object like '%\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\LegalNoticeText%') and (details like '%encrypted%' or details like '%Unlock-Password%' or details like '%paying%')",
   "Tags": [
     "attack.impact",
     "attack.t1491.001"

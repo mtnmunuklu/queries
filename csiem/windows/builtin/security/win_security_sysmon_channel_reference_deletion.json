@@ -1,11 +1,11 @@
 {
   "Description": "Potential threat actor tampering with Sysmon manifest and eventually disabling it\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "18beca67-ab3e-4ee3-ba7a-a46ca8d7d0cc",
-  "InsertDate": "2025-01-21T09:27:33Z",
-  "LastUpdateDate": "2025-01-21T09:27:33Z",
+  "InsertDate": "2025-01-25T21:20:28Z",
+  "LastUpdateDate": "2025-01-25T21:20:28Z",
   "Level": "high",
   "Name": "Sysmon Channel Reference Deletion",
-  "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '4657' and (objectname like '%winevt\\publishers\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9}%' or objectname like '%winevt\\channels\\microsoft-windows-sysmon/operational%') and objectvaluename = 'enabled' and newvalue = '0') or (eventid = '4663' and (objectname like '%winevt\\publishers\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9}%' or objectname like '%winevt\\channels\\microsoft-windows-sysmon/operational%') and accessmask = '65536'))",
+  "Query": "sourcetype='windows-security' eql select * from _source_ where ((eventid = '4657' and (objectname like '%WINEVT\\Publishers\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9}%' or objectname like '%WINEVT\\Channels\\Microsoft-Windows-Sysmon/Operational%') and objectvaluename = 'Enabled' and newvalue = '0') or (eventid = '4663' and (objectname like '%WINEVT\\Publishers\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9}%' or objectname like '%WINEVT\\Channels\\Microsoft-Windows-Sysmon/Operational%') and accessmask = '65536'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1112"

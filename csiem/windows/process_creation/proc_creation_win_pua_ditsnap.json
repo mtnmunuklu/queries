@@ -1,8 +1,8 @@
 {
   "Description": "Detects the use of Ditsnap tool, an inspection tool for Active Directory database, ntds.dit.\n\nAuthor: Furkan Caliskan (@caliskanfurkan_)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d3b70aad-097e-409c-9df2-450f80dc476b",
-  "InsertDate": "2025-01-21T09:29:11Z",
-  "LastUpdateDate": "2025-01-21T09:29:11Z",
+  "InsertDate": "2025-01-25T21:22:12Z",
+  "LastUpdateDate": "2025-01-25T21:22:12Z",
   "Level": "high",
   "Name": "PUA - DIT Snapshot Viewer",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\ditsnap.exe' and command like '%ditsnap.exe%'",

@@ -1,11 +1,11 @@
 {
   "Description": "Detects usage of a PowerShell command to dump the live memory of a Windows machine\n\nAuthor: Max Altgelt (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "cd185561-4760-45d6-a63e-a51325112cae",
-  "InsertDate": "2025-01-21T09:28:06Z",
-  "LastUpdateDate": "2025-01-21T09:28:06Z",
+  "InsertDate": "2025-01-25T21:21:26Z",
+  "LastUpdateDate": "2025-01-25T21:21:26Z",
   "Level": "high",
   "Name": "Live Memory Dump Using Powershell",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%get-storagediagnosticinfo%' and scriptblocktext like '%-includelivedump%')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (scriptblocktext like '%Get-StorageDiagnosticInfo%' and scriptblocktext like '%-IncludeLiveDump%')",
   "Tags": [
     "attack.t1003"
   ],

@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious base64 encoded and obfuscated \"LOAD\" keyword used in .NET \"reflection.assembly\"\n\nAuthor: pH-T (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "9c0295ce-d60d-40bd-bd74-84673b7592b1",
-  "InsertDate": "2025-01-21T09:28:48Z",
-  "LastUpdateDate": "2025-01-21T09:28:48Z",
+  "InsertDate": "2025-01-25T21:22:06Z",
+  "LastUpdateDate": "2025-01-25T21:22:06Z",
   "Level": "high",
   "Name": "Suspicious Encoded And Obfuscated Reflection Assembly Load Function Call",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%oga6acgaigbmaciakwaiag8ayqbkaciakq%' or command like '%oaogaoaciataaiacsaigbvageazaaiacka%' or command like '%6adoakaaiaewaigaraciabwbhagqaigapa%' or command like '%oga6acgaigbmag8aigaraciayqbkaciakq%' or command like '%oaogaoaciatabvaciakwaiageazaaiacka%' or command like '%6adoakaaiaewabwaiacsaigbhagqaigapa%' or command like '%oga6acgaigbmag8ayqaiacsaigbkaciakq%' or command like '%oaogaoaciatabvageaigaraciazaaiacka%' or command like '%6adoakaaiaewabwbhaciakwaiagqaigapa%' or command like '%oga6acgajwbmaccakwanag8ayqbkaccakq%' or command like '%oaogaoaccataanacsajwbvageazaanacka%' or command like '%6adoakaanaewajwaraccabwbhagqajwapa%' or command like '%oga6acgajwbmag8ajwaraccayqbkaccakq%' or command like '%oaogaoaccatabvaccakwanageazaanacka%' or command like '%6adoakaanaewabwanacsajwbhagqajwapa%' or command like '%oga6acgajwbmag8ayqanacsajwbkaccakq%' or command like '%oaogaoaccatabvageajwaraccazaanacka%' or command like '%6adoakaanaewabwbhaccakwanagqajwapa%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '%OgA6ACgAIgBMACIAKwAiAG8AYQBkACIAKQ%' or command like '%oAOgAoACIATAAiACsAIgBvAGEAZAAiACkA%' or command like '%6ADoAKAAiAEwAIgArACIAbwBhAGQAIgApA%' or command like '%OgA6ACgAIgBMAG8AIgArACIAYQBkACIAKQ%' or command like '%oAOgAoACIATABvACIAKwAiAGEAZAAiACkA%' or command like '%6ADoAKAAiAEwAbwAiACsAIgBhAGQAIgApA%' or command like '%OgA6ACgAIgBMAG8AYQAiACsAIgBkACIAKQ%' or command like '%oAOgAoACIATABvAGEAIgArACIAZAAiACkA%' or command like '%6ADoAKAAiAEwAbwBhACIAKwAiAGQAIgApA%' or command like '%OgA6ACgAJwBMACcAKwAnAG8AYQBkACcAKQ%' or command like '%oAOgAoACcATAAnACsAJwBvAGEAZAAnACkA%' or command like '%6ADoAKAAnAEwAJwArACcAbwBhAGQAJwApA%' or command like '%OgA6ACgAJwBMAG8AJwArACcAYQBkACcAKQ%' or command like '%oAOgAoACcATABvACcAKwAnAGEAZAAnACkA%' or command like '%6ADoAKAAnAEwAbwAnACsAJwBhAGQAJwApA%' or command like '%OgA6ACgAJwBMAG8AYQAnACsAJwBkACcAKQ%' or command like '%oAOgAoACcATABvAGEAJwArACcAZAAnACkA%' or command like '%6ADoAKAAnAEwAbwBhACcAKwAnAGQAJwApA%')",
   "Tags": [
     "attack.execution",
     "attack.defense-evasion",

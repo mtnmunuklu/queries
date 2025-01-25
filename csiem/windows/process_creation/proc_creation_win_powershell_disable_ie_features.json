@@ -1,11 +1,11 @@
 {
   "Description": "Detects command lines that indicate unwanted modifications to registry keys that disable important Internet Explorer security features\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "fb50eb7a-5ab1-43ae-bcc9-091818cb8424",
-  "InsertDate": "2025-01-21T09:28:52Z",
-  "LastUpdateDate": "2025-01-21T09:28:52Z",
+  "InsertDate": "2025-01-25T21:22:07Z",
+  "LastUpdateDate": "2025-01-25T21:22:07Z",
   "Level": "high",
   "Name": "Disabled IE Security Features",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '% -name disablefirstruncustomize %' and command like '% -value 2 %') or (command like '% -name ieharden %' and command like '% -value 0 %') or (command like '% -name depoff %' and command like '% -value 1 %'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((command like '% -name IEHarden %' and command like '% -value 0 %') or (command like '% -name DEPOff %' and command like '% -value 1 %') or (command like '% -name DisableFirstRunCustomize %' and command like '% -value 2 %'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1562.001"

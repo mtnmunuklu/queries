@@ -1,8 +1,8 @@
 {
   "Description": "Triggers on any Sysmon \"FileBlockShredding\" event, which indicates a violation of the configured shredding policy.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "c3e5c1b1-45e9-4632-b242-27939c170239",
-  "InsertDate": "2025-01-21T09:32:04Z",
-  "LastUpdateDate": "2025-01-21T09:32:04Z",
+  "InsertDate": "2025-01-25T21:22:51Z",
+  "LastUpdateDate": "2025-01-25T21:22:51Z",
   "Level": "high",
   "Name": "Sysmon Blocked File Shredding",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where eventid = '28'",

@@ -1,11 +1,11 @@
 {
   "Description": "Detects suspicious child processes of \"provlaunch.exe\" which might indicate potential abuse to proxy execution.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "f9999590-1f94-4a34-a91e-951e47bedefd",
-  "InsertDate": "2025-01-21T09:29:06Z",
-  "LastUpdateDate": "2025-01-21T09:29:06Z",
+  "InsertDate": "2025-01-25T21:22:11Z",
+  "LastUpdateDate": "2025-01-25T21:22:11Z",
   "Level": "high",
   "Name": "Suspicious Provlaunch.EXE Child Process",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\provlaunch.exe' and ((process_path like '%\\calc.exe' or process_path like '%\\cmd.exe' or process_path like '%\\cscript.exe' or process_path like '%\\mshta.exe' or process_path like '%\\notepad.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\wscript.exe') and (process_path like '%:\\perflogs\\%' or process_path like '%:\\temp\\%' or process_path like '%:\\users\\public\\%' or process_path like '%\\appdata\\temp\\%' or process_path like '%\\windows\\system32\\tasks\\%' or process_path like '%\\windows\\tasks\\%' or process_path like '%\\windows\\temp\\%')))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (parent_process_path like '%\\provlaunch.exe' and ((process_path like '%\\calc.exe' or process_path like '%\\cmd.exe' or process_path like '%\\cscript.exe' or process_path like '%\\mshta.exe' or process_path like '%\\notepad.exe' or process_path like '%\\powershell.exe' or process_path like '%\\pwsh.exe' or process_path like '%\\regsvr32.exe' or process_path like '%\\rundll32.exe' or process_path like '%\\wscript.exe') and (process_path like '%:\\PerfLogs\\%' or process_path like '%:\\Temp\\%' or process_path like '%:\\Users\\Public\\%' or process_path like '%\\AppData\\Temp\\%' or process_path like '%\\Windows\\System32\\Tasks\\%' or process_path like '%\\Windows\\Tasks\\%' or process_path like '%\\Windows\\Temp\\%')))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1218"

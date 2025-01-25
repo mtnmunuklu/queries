@@ -1,11 +1,11 @@
 {
   "Description": "Detects use of .NET InstallUtil.exe in order to download arbitrary files. The files will be written to \"%LOCALAPPDATA%\\Microsoft\\Windows\\INetCache\\IE\\\"\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "75edd216-1939-4c73-8d61-7f3a0d85b5cc",
-  "InsertDate": "2025-01-21T09:28:34Z",
-  "LastUpdateDate": "2025-01-21T09:28:34Z",
+  "InsertDate": "2025-01-25T21:21:55Z",
+  "LastUpdateDate": "2025-01-25T21:21:55Z",
   "Level": "medium",
   "Name": "File Download Via InstallUtil.EXE",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\installutil.exe' and original_file_name = 'installutil.exe') and (command like '%ftp://%' or command like '%http://%' or command like '%https://%'))",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((process_path like '%\\InstallUtil.exe' and original_file_name = 'InstallUtil.exe') and (command like '%ftp://%' or command like '%http://%' or command like '%https://%'))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1218"

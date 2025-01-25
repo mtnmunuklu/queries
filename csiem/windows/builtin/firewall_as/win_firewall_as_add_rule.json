@@ -1,11 +1,11 @@
 {
   "Description": "Detects when a rule has been added to the Windows Firewall exception list\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "cde0a575-7d3d-4a49-9817-b8004a7bf105",
-  "InsertDate": "2025-01-21T09:27:27Z",
-  "LastUpdateDate": "2025-01-21T09:27:27Z",
+  "InsertDate": "2025-01-25T21:20:07Z",
+  "LastUpdateDate": "2025-01-25T21:20:07Z",
   "Level": "medium",
   "Name": "Uncommon New Firewall Rule Added In Windows Firewall Exception List",
-  "Query": "sourcetype='windows-firewall-as' eql select * from _source_ where ((eventid = '2004' or eventid = '2071' or eventid = '2097') and  not ((applicationpath like '%c:\\perflogs\\%' or applicationpath like '%c:\\temp\\%' or applicationpath like '%c:\\tmp\\%' or applicationpath like '%c:\\users\\public\\%' or applicationpath like '%c:\\windows\\tasks\\%' or applicationpath like '%c:\\windows\\temp\\%' or applicationpath like '%\\appdata\\local\\temp\\%') or applicationpath = 'null' or action = '2' or (applicationpath like 'c:\\program files (x86)\\%' or applicationpath like 'c:\\program files\\%' or applicationpath like 'c:\\windows\\system32\\%' or applicationpath like 'c:\\windows\\syswow64\\%' or applicationpath like 'c:\\windows\\winsxs\\%')) and  not ((modifyingapplication like 'c:\\programdata\\microsoft\\windows defender\\platform\\%' and modifyingapplication like '%\\msmpeng.exe') or ((modifyingapplication = 'c:\\windows\\system32\\svchost.exe' or modifyingapplication = 'c:\\windows\\system32\\dllhost.exe') and applicationpath = '')))",
+  "Query": "sourcetype='windows-firewall-as' eql select * from _source_ where ((eventid = '2004' or eventid = '2071' or eventid = '2097') and  not (action = '2' or (applicationpath like 'C:\\Program Files (x86)\\%' or applicationpath like 'C:\\Program Files\\%' or applicationpath like 'C:\\Windows\\System32\\%' or applicationpath like 'C:\\Windows\\SysWOW64\\%' or applicationpath like 'C:\\Windows\\WinSxS\\%') or (applicationpath like '%C:\\PerfLogs\\%' or applicationpath like '%C:\\Temp\\%' or applicationpath like '%C:\\Tmp\\%' or applicationpath like '%C:\\Users\\Public\\%' or applicationpath like '%C:\\Windows\\Tasks\\%' or applicationpath like '%C:\\Windows\\Temp\\%' or applicationpath like '%\\AppData\\Local\\Temp\\%') or applicationpath = 'null') and  not ((modifyingapplication like 'C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\%' and modifyingapplication like '%\\MsMpEng.exe') or ((modifyingapplication = 'C:\\Windows\\System32\\svchost.exe' or modifyingapplication = 'C:\\Windows\\System32\\dllhost.exe') and applicationpath = '')))",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1562.004"

@@ -1,8 +1,8 @@
 {
   "Description": "Detects nltest commands that can be used for information discovery\n\nAuthor: Arun Chauhan\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "903076ff-f442-475a-b667-4f246bcc203b",
-  "InsertDate": "2025-01-21T09:28:44Z",
-  "LastUpdateDate": "2025-01-21T09:28:44Z",
+  "InsertDate": "2025-01-25T21:22:03Z",
+  "LastUpdateDate": "2025-01-25T21:22:03Z",
   "Level": "low",
   "Name": "Nltest.EXE Execution",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where process_path like '%\\nltest.exe' and original_file_name = 'nltestrk.exe'",

@@ -1,11 +1,11 @@
 {
   "Description": "Detects setting of a new registry value related to BgInfo configuration, which can be abused to execute custom WMI query via \"BgInfo.exe\"\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "cd277474-5c52-4423-a52b-ac2d7969902f",
-  "InsertDate": "2025-01-21T09:31:25Z",
-  "LastUpdateDate": "2025-01-21T09:31:25Z",
+  "InsertDate": "2025-01-25T21:22:43Z",
+  "LastUpdateDate": "2025-01-25T21:22:43Z",
   "Level": "medium",
   "Name": "New BgInfo.EXE Custom WMI Query Registry Configuration",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where event_type = 'setvalue' and target_object like '%\\software\\winternals\\bginfo\\userfields\\%' and details like '6%'",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where event_type = 'SetValue' and target_object like '%\\Software\\Winternals\\BGInfo\\UserFields\\%' and details like '6%'",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1112"

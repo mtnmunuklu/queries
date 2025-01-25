@@ -1,8 +1,8 @@
 {
   "Description": "Ntvdm.exe allows the execution of 16-bit Windows applications on 32-bit Windows operating systems, as well as the execution of both 16-bit and 32-bit DOS applications\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "16905e21-66ee-42fe-b256-1318ada2d770",
-  "InsertDate": "2025-01-21T09:30:11Z",
-  "LastUpdateDate": "2025-01-21T09:30:11Z",
+  "InsertDate": "2025-01-25T21:22:25Z",
+  "LastUpdateDate": "2025-01-25T21:22:25Z",
   "Level": "medium",
   "Name": "Start of NT Virtual DOS Machine",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (process_path like '%\\ntvdm.exe' or process_path like '%\\csrstub.exe')",

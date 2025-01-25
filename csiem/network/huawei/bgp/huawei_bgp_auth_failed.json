@@ -1,11 +1,11 @@
 {
   "Description": "Detects BGP failures which may be indicative of brute force attacks to manipulate routing.\n\nAuthor: Tim Brown\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a557ffe6-ac54-43d2-ae69-158027082350",
-  "InsertDate": "2025-01-21T09:27:22Z",
-  "LastUpdateDate": "2025-01-21T09:27:22Z",
+  "InsertDate": "2025-01-25T21:19:44Z",
+  "LastUpdateDate": "2025-01-25T21:19:44Z",
   "Level": "low",
   "Name": "Huawei BGP Authentication Failures",
-  "Query": "sourcetype='huawei-bgp' eql select * from _source_ where ( = ':179' and  = 'bgp_auth_failed')",
+  "Query": "sourcetype='huawei-bgp' eql select * from _source_ where ( = ':179' and  = 'BGP_AUTH_FAILED')",
   "Tags": [
     "attack.initial-access",
     "attack.persistence",

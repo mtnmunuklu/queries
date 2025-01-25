@@ -1,11 +1,11 @@
 {
   "Description": "Indicates user activity that is unusual for the user or consistent with known attack patterns.\n\nAuthor: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "a2cb56ff-4f46-437a-a0fa-ffa4d1303cba",
-  "InsertDate": "2025-01-21T09:27:05Z",
-  "LastUpdateDate": "2025-01-21T09:27:05Z",
+  "InsertDate": "2025-01-25T21:18:50Z",
+  "LastUpdateDate": "2025-01-25T21:18:50Z",
   "Level": "high",
   "Name": "Azure AD Threat Intelligence",
-  "Query": "sourcetype='azure-riskdetection' eql select * from _source_ where riskeventtype = 'investigationsthreatintelligence'",
+  "Query": "sourcetype='azure-riskdetection' eql select * from _source_ where riskeventtype = 'investigationsThreatIntelligence'",
   "Tags": [
     "attack.t1078",
     "attack.persistence",

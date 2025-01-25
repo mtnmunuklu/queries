@@ -1,11 +1,11 @@
 {
   "Description": "detects BPFDoor .lock and .pid files access in temporary file storage facility\n\nAuthor: Rafal Piasecki\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "808146b2-9332-4d78-9416-d7e47012d83d",
-  "InsertDate": "2025-01-21T09:27:11Z",
-  "LastUpdateDate": "2025-01-21T09:27:11Z",
+  "InsertDate": "2025-01-25T21:19:09Z",
+  "LastUpdateDate": "2025-01-25T21:19:09Z",
   "Level": "high",
   "Name": "BPFDoor Abnormal Process ID or Lock File Accessed",
-  "Query": "sourcetype='linux-auditd' eql select * from _source_ where type = 'path' and (process_path = '/var/run/haldrund.pid' or process_path = '/var/run/xinetd.lock' or process_path = '/var/run/kdevrund.pid')",
+  "Query": "sourcetype='linux-auditd' eql select * from _source_ where type = 'PATH' and (process_path = '/var/run/haldrund.pid' or process_path = '/var/run/xinetd.lock' or process_path = '/var/run/kdevrund.pid')",
   "Tags": [
     "attack.execution",
     "attack.t1106",

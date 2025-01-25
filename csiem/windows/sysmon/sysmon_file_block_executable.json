@@ -1,8 +1,8 @@
 {
   "Description": "Triggers on any Sysmon \"FileBlockExecutable\" event, which indicates a violation of the configured block policy\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "23b71bc5-953e-4971-be4c-c896cda73fc2",
-  "InsertDate": "2025-01-21T09:32:04Z",
-  "LastUpdateDate": "2025-01-21T09:32:04Z",
+  "InsertDate": "2025-01-25T21:22:51Z",
+  "LastUpdateDate": "2025-01-25T21:22:51Z",
   "Level": "high",
   "Name": "Sysmon Blocked Executable",
   "Query": "sourcetype='windows-sysmon' eql select * from _source_ where eventid = '27'",

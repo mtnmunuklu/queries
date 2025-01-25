@@ -1,11 +1,11 @@
 {
   "Description": "Detects the use of SysmonEnte, a tool to attack the integrity of Sysmon\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "d29ada0f-af45-4f27-8f32-f7b77c3dbc4e",
-  "InsertDate": "2025-01-21T09:28:14Z",
-  "LastUpdateDate": "2025-01-21T09:28:14Z",
+  "InsertDate": "2025-01-25T21:21:33Z",
+  "LastUpdateDate": "2025-01-25T21:21:33Z",
   "Level": "high",
   "Name": "HackTool - SysmonEnte Execution",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((((dst_process_path like '%:\\windows\\sysmon.exe%' or dst_process_path like '%:\\windows\\sysmon64.exe%') and granted_access = '0x1400') and  not ((process_path like '%:\\program files (x86)\\%' or process_path like '%:\\program files\\%' or process_path like '%:\\windows\\system32\\%' or process_path like '%:\\windows\\syswow64\\%') or (process_path like '%:\\programdata\\microsoft\\windows defender\\platform\\%' and process_path like '%\\msmpeng.exe'))) or call_trace = 'ente')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((((dst_process_path like '%:\\Windows\\Sysmon.exe%' or dst_process_path like '%:\\Windows\\Sysmon64.exe%') and granted_access = '0x1400') and  not ((process_path like '%:\\Program Files (x86)\\%' or process_path like '%:\\Program Files\\%' or process_path like '%:\\Windows\\System32\\%' or process_path like '%:\\Windows\\SysWOW64\\%') or (process_path like '%:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\%' and process_path like '%\\MsMpEng.exe'))) or call_trace = 'Ente')",
   "Tags": [
     "attack.defense-evasion",
     "attack.t1562.002"

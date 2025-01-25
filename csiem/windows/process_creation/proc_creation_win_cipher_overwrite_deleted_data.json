@@ -1,11 +1,11 @@
 {
   "Description": "Detects usage of the \"cipher\" built-in utility in order to overwrite deleted data from disk.\nAdversaries may destroy data and files on specific systems or in large numbers on a network to interrupt availability to systems, services, and network resources.\nData destruction is likely to render stored data irrecoverable by forensic techniques through overwriting files or data on local and remote drives\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "4b046706-5789-4673-b111-66f25fe99534",
-  "InsertDate": "2025-01-21T09:28:19Z",
-  "LastUpdateDate": "2025-01-21T09:28:19Z",
+  "InsertDate": "2025-01-25T21:21:38Z",
+  "LastUpdateDate": "2025-01-25T21:21:38Z",
   "Level": "medium",
   "Name": "Deleted Data Overwritten Via Cipher.EXE",
-  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where ((original_file_name = 'cipher.exe' and process_path like '%\\cipher.exe') and command like '% /w:%')",
+  "Query": "sourcetype='windows-sysmon' eql select * from _source_ where (command like '% /w:%' and (original_file_name = 'CIPHER.EXE' and process_path like '%\\cipher.exe'))",
   "Tags": [
     "attack.impact",
     "attack.t1485"

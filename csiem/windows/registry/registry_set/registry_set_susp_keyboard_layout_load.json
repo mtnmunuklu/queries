@@ -1,11 +1,11 @@
 {
   "Description": "Detects the keyboard preload installation with a suspicious keyboard layout, e.g. Chinese, Iranian or Vietnamese layout load in user session on systems maintained by US staff only\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
   "ID": "34aa0252-6039-40ff-951f-939fd6ce47d8",
-  "InsertDate": "2025-01-21T09:31:54Z",
-  "LastUpdateDate": "2025-01-21T09:31:54Z",
+  "InsertDate": "2025-01-25T21:22:50Z",
+  "LastUpdateDate": "2025-01-25T21:22:50Z",
   "Level": "medium",
   "Name": "Suspicious Keyboard Layout Load",
-  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\keyboard layout\\preload\\%' or target_object like '%\\keyboard layout\\substitutes\\%') and (details like '%429%' or details like '%50429%' or details like '%0000042a%')",
+  "Query": "sourcetype like 'windows-%' eql select * from _source_ where (target_object like '%\\Keyboard Layout\\Preload\\%' or target_object like '%\\Keyboard Layout\\Substitutes\\%') and (details like '%429%' or details like '%50429%' or details like '%0000042a%')",
   "Tags": [
     "attack.resource-development",
     "attack.t1588.002"
