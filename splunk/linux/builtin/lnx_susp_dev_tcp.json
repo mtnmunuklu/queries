@@ -1,0 +1,13 @@
+{
+  "Description": "Detects suspicious command with /dev/tcp\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6cc5fceb-9a71-4c23-aeeb-963abe0b279c",
+  "InsertDate": "2025-02-03T20:31:57Z",
+  "LastUpdateDate": "2025-02-03T20:31:57Z",
+  "Level": "medium",
+  "Name": "Suspicious Use of /dev/tcp",
+  "Query": "sourcetype=\"linux-*\" (\"cat \u003c/dev/tcp/\" OR \"exec 3\u003c\u003e/dev/tcp/\" OR \"echo \u003e/dev/tcp/\" OR \"bash -i \u003e\u0026 /dev/tcp/\" OR \"sh -i \u003e\u0026 /dev/udp/\" OR \"0\u003c\u0026196;exec 196\u003c\u003e/dev/tcp/\" OR \"exec 5\u003c\u003e/dev/tcp/\" OR \"(sh)0\u003e/dev/tcp/\" OR \"bash -c 'bash -i \u003e\u0026 /dev/tcp/\" OR \"echo -e '#!/bin/bash\\nbash -i \u003e\u0026 /dev/tcp/\")",
+  "Tags": [
+    "attack.reconnaissance"
+  ],
+  "Version": "0.1"
+}

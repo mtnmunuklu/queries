@@ -1,0 +1,17 @@
+{
+  "Description": "Detects execution of renamed Remote Utilities (RURAT) via Product PE header field\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9ef27c24-4903-4192-881a-3adde7ff92a5",
+  "InsertDate": "2025-02-03T20:33:07Z",
+  "LastUpdateDate": "2025-02-03T20:33:07Z",
+  "Level": "medium",
+  "Name": "Renamed Remote Utilities RAT (RURAT) Execution",
+  "Query": "sourcetype=\"windows-sysmon\" product=\"Remote Utilities\" NOT (process_path=\"*\\\\rutserv.exe\" OR process_path=\"*\\\\rfusclient.exe\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.collection",
+    "attack.command-and-control",
+    "attack.discovery",
+    "attack.s0592"
+  ],
+  "Version": "0.1"
+}

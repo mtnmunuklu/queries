@@ -1,0 +1,14 @@
+{
+  "Description": "Detects changes to the ClickOnce trust prompt registry key in order to enable an installation from different locations such as the Internet.\n\nAuthor: @SerkinValery, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ac9159cc-c364-4304-8f0a-d63fc1a0aabb",
+  "InsertDate": "2025-02-03T20:33:32Z",
+  "LastUpdateDate": "2025-02-03T20:33:32Z",
+  "Level": "medium",
+  "Name": "ClickOnce Trust Prompt Tampering",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\SOFTWARE\\\\MICROSOFT\\\\.NETFramework\\\\Security\\\\TrustManager\\\\PromptingLevel\\\\*\" (target_object=\"*\\\\Internet\" OR target_object=\"*\\\\LocalIntranet\" OR target_object=\"*\\\\MyComputer\" OR target_object=\"*\\\\TrustedSites\" OR target_object=\"*\\\\UntrustedSites\") details=\"Enabled\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1112"
+  ],
+  "Version": "0.1"
+}

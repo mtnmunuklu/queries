@@ -1,0 +1,15 @@
+{
+  "Description": "Detects delete action in the Github audit logs for codespaces, environment, project and repo.\n\nAuthor: Muhammad Faisal (@faisalusuf)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "16a71777-0b2e-4db7-9888-9d59cb75200b",
+  "InsertDate": "2025-02-03T20:31:54Z",
+  "LastUpdateDate": "2025-02-03T20:31:54Z",
+  "Level": "medium",
+  "Name": "Github Delete Action Invoked",
+  "Query": "sourcetype=\"github-audit\" (action=\"codespaces.delete\" OR action=\"environment.delete\" OR action=\"project.delete\" OR action=\"repo.destroy\")",
+  "Tags": [
+    "attack.impact",
+    "attack.collection",
+    "attack.t1213.003"
+  ],
+  "Version": "0.1"
+}

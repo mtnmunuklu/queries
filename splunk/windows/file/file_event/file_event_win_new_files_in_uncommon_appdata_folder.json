@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the creation of suspicious files and folders inside the user's AppData folder but not inside any of the common and well known directories (Local, Romaing, LocalLow). This method could be used as a method to bypass detection who exclude the AppData folder in fear of FPs\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d7b50671-d1ad-4871-aa60-5aa5b331fe04",
+  "InsertDate": "2025-02-03T20:32:18Z",
+  "LastUpdateDate": "2025-02-03T20:32:18Z",
+  "Level": "high",
+  "Name": "Suspicious File Creation In Uncommon AppData Folder",
+  "Query": "sourcetype=\"windows-sysmon\" (filepath=\"C:\\\\Users\\\\*\" filepath=\"*\\\\AppData\\\\*\" (filepath=\"*.bat\" OR filepath=\"*.cmd\" OR filepath=\"*.cpl\" OR filepath=\"*.dll\" OR filepath=\"*.exe\" OR filepath=\"*.hta\" OR filepath=\"*.iso\" OR filepath=\"*.lnk\" OR filepath=\"*.msi\" OR filepath=\"*.ps1\" OR filepath=\"*.psm1\" OR filepath=\"*.scr\" OR filepath=\"*.vbe\" OR filepath=\"*.vbs\")) NOT (filepath=\"C:\\\\Users\\\\*\" (filepath=\"*\\\\AppData\\\\Local\\\\*\" OR filepath=\"*\\\\AppData\\\\LocalLow\\\\*\" OR filepath=\"*\\\\AppData\\\\Roaming\\\\*\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

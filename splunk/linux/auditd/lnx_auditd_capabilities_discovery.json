@@ -1,0 +1,16 @@
+{
+  "Description": "Detects attempts to discover the files with setuid/setgid capability on them. That would allow adversary to escalate their privileges.\n\nAuthor: Pawel Mazur\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fe10751f-1995-40a5-aaa2-c97ccb4123fe",
+  "InsertDate": "2025-02-03T20:31:56Z",
+  "LastUpdateDate": "2025-02-03T20:31:56Z",
+  "Level": "low",
+  "Name": "Linux Capabilities Discovery",
+  "Query": "sourcetype=\"linux-auditd\" type=\"EXECVE\" a0=\"getcap\" a1=\"-r\" a2=\"/\"",
+  "Tags": [
+    "attack.collection",
+    "attack.privilege-escalation",
+    "attack.t1123",
+    "attack.t1548"
+  ],
+  "Version": "0.1"
+}

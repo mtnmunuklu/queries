@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of Sysinternals tools via an AppX package. Attackers could install the Sysinternals Suite to get access to tools such as psexec and procdump to avoid detection based on System paths\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d29a20b2-be4b-4827-81f2-3d8a59eab5fc",
+  "InsertDate": "2025-02-03T20:32:06Z",
+  "LastUpdateDate": "2025-02-03T20:32:06Z",
+  "Level": "low",
+  "Name": "Sysinternals Tools AppX Versions Execution",
+  "Query": "sourcetype=\"windows-appmodel-runtime\" eventid=\"201\" (imagename=\"procdump.exe\" OR imagename=\"psloglist.exe\" OR imagename=\"psexec.exe\" OR imagename=\"livekd.exe\" OR imagename=\"ADExplorer.exe\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

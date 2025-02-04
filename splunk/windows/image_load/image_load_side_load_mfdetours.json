@@ -1,0 +1,16 @@
+{
+  "Description": "Detects potential DLL sideloading of \"mfdetours.dll\". While using \"mftrace.exe\" it can be abused to attach to an arbitrary process and force load any DLL named \"mfdetours.dll\" from the current directory of execution.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d2605a99-2218-4894-8fd3-2afb7946514d",
+  "InsertDate": "2025-02-03T20:32:23Z",
+  "LastUpdateDate": "2025-02-03T20:32:23Z",
+  "Level": "medium",
+  "Name": "Potential Mfdetours.DLL Sideloading",
+  "Query": "sourcetype=\"windows-sysmon\" image_loaded=\"*\\\\mfdetours.dll\" NOT image_loaded=\"*:\\\\Program Files (x86)\\\\Windows Kits\\\\10\\\\bin\\\\*\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

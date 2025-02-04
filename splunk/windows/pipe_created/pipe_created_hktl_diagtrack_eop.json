@@ -1,0 +1,13 @@
+{
+  "Description": "Detects creation of default named pipe used by the DiagTrackEoP POC, a tool that abuses \"SeImpersonate\" privilege.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1f7025a6-e747-4130-aac4-961eb47015f1",
+  "InsertDate": "2025-02-03T20:32:26Z",
+  "LastUpdateDate": "2025-02-03T20:32:26Z",
+  "Level": "critical",
+  "Name": "HackTool - DiagTrackEoP Default Named Pipe",
+  "Query": "sourcetype=\"windows-*\" pipe_name=\"*thisispipe*\"",
+  "Tags": [
+    "attack.privilege-escalation"
+  ],
+  "Version": "0.1"
+}

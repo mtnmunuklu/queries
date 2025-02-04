@@ -1,0 +1,14 @@
+{
+  "Description": "Detect set DisallowRun to 1 to prevent user running specific computer program\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "275641a5-a492-45e2-a817-7c81e9d9d3e9",
+  "InsertDate": "2025-02-03T20:33:36Z",
+  "LastUpdateDate": "2025-02-03T20:33:36Z",
+  "Level": "medium",
+  "Name": "Add DisallowRun Execution to Registry",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Policies\\\\Explorer\\\\DisallowRun\" details=\"DWORD (0x00000001)\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1112"
+  ],
+  "Version": "0.1"
+}

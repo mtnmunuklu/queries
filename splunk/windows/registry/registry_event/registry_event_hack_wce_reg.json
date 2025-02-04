@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the use of Windows Credential Editor (WCE)\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a6b33c02-8305-488f-8585-03cb2a7763f2",
+  "InsertDate": "2025-02-03T20:33:29Z",
+  "LastUpdateDate": "2025-02-03T20:33:29Z",
+  "Level": "critical",
+  "Name": "Windows Credential Editor Registry",
+  "Query": "sourcetype=\"windows-sysmon\" target_object=\"*Services\\\\WCESERVICE\\\\Start*\"",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.001",
+    "attack.s0005"
+  ],
+  "Version": "0.1"
+}

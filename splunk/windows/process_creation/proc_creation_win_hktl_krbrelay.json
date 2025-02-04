@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of KrbRelay, a Kerberos relaying tool\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e96253b8-6b3b-4f90-9e59-3b24b99cf9b4",
+  "InsertDate": "2025-02-03T20:32:45Z",
+  "LastUpdateDate": "2025-02-03T20:32:45Z",
+  "Level": "high",
+  "Name": "HackTool - KrbRelay Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"* -spn *\" command=\"* -clsid *\" command=\"* -rbcd *\") OR (command=\"*shadowcred*\" command=\"*clsid*\" command=\"*spn*\") OR (command=\"*spn *\" command=\"*session *\" command=\"*clsid *\") OR (process_path=\"*\\\\KrbRelay.exe\" original_file_name=\"KrbRelay.exe\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1558.003"
+  ],
+  "Version": "0.1"
+}

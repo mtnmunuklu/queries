@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the execution of whoami that has been renamed to a different name to avoid detection\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f1086bf7-a0c4-4a37-9102-01e573caf4a0",
+  "InsertDate": "2025-02-03T20:33:07Z",
+  "LastUpdateDate": "2025-02-03T20:33:07Z",
+  "Level": "critical",
+  "Name": "Renamed Whoami Execution",
+  "Query": "sourcetype=\"windows-sysmon\" original_file_name=\"whoami.exe\" NOT process_path=\"*\\\\whoami.exe\"",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1033",
+    "car.2016-03-001"
+  ],
+  "Version": "0.1"
+}

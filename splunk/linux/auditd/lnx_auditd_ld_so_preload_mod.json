@@ -1,0 +1,14 @@
+{
+  "Description": "Identifies modification of ld.so.preload for shared object injection. This technique is used by attackers to load arbitrary code into processes.\n\nAuthor: E.M. Anhaus (originally from Atomic Blue Detections, Tony Lambert), oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4b3cb710-5e83-4715-8c45-8b2b5b3e5751",
+  "InsertDate": "2025-02-03T20:31:56Z",
+  "LastUpdateDate": "2025-02-03T20:31:56Z",
+  "Level": "high",
+  "Name": "Modification of ld.so.preload",
+  "Query": "sourcetype=\"linux-auditd\" type=\"PATH\" process_path=\"/etc/ld.so.preload\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1574.006"
+  ],
+  "Version": "0.1"
+}

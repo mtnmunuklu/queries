@@ -1,0 +1,14 @@
+{
+  "Description": "Detects read access to a domain user from a non-machine account\n\nAuthor: Maxime Thiebaut (@0xThiebaut)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ab6bffca-beff-4baa-af11-6733f296d57a",
+  "InsertDate": "2025-02-03T20:32:08Z",
+  "LastUpdateDate": "2025-02-03T20:32:08Z",
+  "Level": "medium",
+  "Name": "Potential AD User Enumeration From Non-Machine Account",
+  "Query": "sourcetype=\"windows-security\" (eventid=\"4662\" objecttype=\"*bf967aba-0de6-11d0-a285-00aa003049e2*\" (accessmask=\"*1?\" OR accessmask=\"*3?\" OR accessmask=\"*4?\" OR accessmask=\"*7?\" OR accessmask=\"*9?\" OR accessmask=\"*B?\" OR accessmask=\"*D?\" OR accessmask=\"*F?\")) NOT (subjectusername=\"*$\" OR subjectusername=\"MSOL_*\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1087.002"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects remote RPC calls to MS-DRSR from non DC hosts, which could indicate DCSync / DCShadow attacks.\n\nAuthor: Sagie Dulce, Dekel Paz\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "56fda488-113e-4ce9-8076-afc2457922c3",
+  "InsertDate": "2025-02-03T20:31:49Z",
+  "LastUpdateDate": "2025-02-03T20:31:49Z",
+  "Level": "high",
+  "Name": "Possible DCSync Attack",
+  "Query": "sourcetype=\"rpc_firewall-*\" (eventlog=\"RPCFW\" eventid=\"3\" interfaceuuid=\"e3514235-4b06-11d1-ab04-00c04fc2dcd2\") NOT (opnum=\"0\" OR opnum=\"1\" OR opnum=\"12\")",
+  "Tags": [
+    "attack.t1033",
+    "attack.discovery"
+  ],
+  "Version": "0.1"
+}

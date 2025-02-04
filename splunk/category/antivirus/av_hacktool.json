@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a highly relevant Antivirus alert that reports a hack tool or other attack tool.\nThis event must not be ignored just because the AV has blocked the malware but investigate, how it came there in the first place.\n\n\nAuthor: Florian Roth (Nextron Systems), Arnim Rupp\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fa0c05b6-8ad3-468d-8231-c1cbccb64fba",
+  "InsertDate": "2025-02-03T20:31:50Z",
+  "LastUpdateDate": "2025-02-03T20:31:50Z",
+  "Level": "high",
+  "Name": "Antivirus Hacktool Detection",
+  "Query": "(signature=\"ATK/*\" OR signature=\"Exploit.Script.CVE*\" OR signature=\"HKTL*\" OR signature=\"HTOOL*\" OR signature=\"PWS.*\" OR signature=\"PWSX*\" OR signature=\"SecurityTool*\") (signature=\"*Adfind*\" OR signature=\"*Brutel*\" OR signature=\"*BruteR*\" OR signature=\"*Cobalt*\" OR signature=\"*COBEACON*\" OR signature=\"*Cometer*\" OR signature=\"*DumpCreds*\" OR signature=\"*FastReverseProxy*\" OR signature=\"*Hacktool*\" OR signature=\"*Havoc*\" OR signature=\"*Impacket*\" OR signature=\"*Keylogger*\" OR signature=\"*Koadic*\" OR signature=\"*Mimikatz*\" OR signature=\"*Nighthawk*\" OR signature=\"*PentestPowerShell*\" OR signature=\"*Potato*\" OR signature=\"*PowerSploit*\" OR signature=\"*PowerSSH*\" OR signature=\"*PshlSpy*\" OR signature=\"*PSWTool*\" OR signature=\"*PWCrack*\" OR signature=\"*PWDump*\" OR signature=\"*Rozena*\" OR signature=\"*Rusthound*\" OR signature=\"*Sbelt*\" OR signature=\"*Seatbelt*\" OR signature=\"*SecurityTool*\" OR signature=\"*SharpDump*\" OR signature=\"*SharpHound*\" OR signature=\"*Shellcode*\" OR signature=\"*Sliver*\" OR signature=\"*Snaffler*\" OR signature=\"*SOAPHound*\" OR signature=\"*Splinter*\" OR signature=\"*Swrort*\" OR signature=\"*TurtleLoader*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1204"
+  ],
+  "Version": "0.1"
+}

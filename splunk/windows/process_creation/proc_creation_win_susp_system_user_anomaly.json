@@ -1,0 +1,18 @@
+{
+  "Description": "Detects a suspicious process creation as SYSTEM user (suspicious program or command line parameter)\n\nAuthor: Florian Roth (Nextron Systems), David ANDRE (additional keywords)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2617e7ed-adb7-40ba-b0f3-8f9945fe6c09",
+  "InsertDate": "2025-02-03T20:33:18Z",
+  "LastUpdateDate": "2025-02-03T20:33:18Z",
+  "Level": "high",
+  "Name": "Suspicious SYSTEM User Process Creation",
+  "Query": "sourcetype=\"windows-sysmon\" (((integrity_level=\"System\" OR integrity_level=\"S-1-16-16384\") (username=\"*AUTHORI*\" OR username=\"*AUTORI*\")) ((process_path=\"*\\\\calc.exe\" OR process_path=\"*\\\\cscript.exe\" OR process_path=\"*\\\\forfiles.exe\" OR process_path=\"*\\\\hh.exe\" OR process_path=\"*\\\\mshta.exe\" OR process_path=\"*\\\\ping.exe\" OR process_path=\"*\\\\wscript.exe\") (command=\"* -NoP *\" OR command=\"* -W Hidden *\" OR command=\"* -decode *\" OR command=\"* /decode *\" OR command=\"* /urlcache *\" OR command=\"* -urlcache *\" OR command=\"* -e* JAB*\" OR command=\"* -e* SUVYI*\" OR command=\"* -e* SQBFAFgA*\" OR command=\"* -e* aWV4I*\" OR command=\"* -e* IAB*\" OR command=\"* -e* PAA*\" OR command=\"* -e* aQBlAHgA*\" OR command=\"*vssadmin delete shadows*\" OR command=\"*reg SAVE HKLM*\" OR command=\"* -ma *\" OR command=\"*Microsoft\\\\Windows\\\\CurrentVersion\\\\Run*\" OR command=\"*.downloadstring(*\" OR command=\"*.downloadfile(*\" OR command=\"* /ticket:*\" OR command=\"*dpapi::*\" OR command=\"*event::clear*\" OR command=\"*event::drop*\" OR command=\"*id::modify*\" OR command=\"*kerberos::*\" OR command=\"*lsadump::*\" OR command=\"*misc::*\" OR command=\"*privilege::*\" OR command=\"*rpc::*\" OR command=\"*sekurlsa::*\" OR command=\"*sid::*\" OR command=\"*token::*\" OR command=\"*vault::cred*\" OR command=\"*vault::list*\" OR command=\"* p::d *\" OR command=\"*;iex(*\" OR command=\"*MiniDump*\" OR command=\"*net user *\"))) NOT ((command=\"*ping*\" command=\"*127.0.0.1*\" command=\"* -n *\") OR (process_path=\"*\\\\PING.EXE\" parent_command_line=\"*\\\\DismFoDInstall.cmd*\") OR parent_process_path=\"*:\\\\Packages\\\\Plugins\\\\Microsoft.GuestConfiguration.ConfigurationforWindows\\\\*\" OR ((parent_process_path=\"*:\\\\Program Files (x86)\\\\Java\\\\*\" OR parent_process_path=\"*:\\\\Program Files\\\\Java\\\\*\") parent_process_path=\"*\\\\bin\\\\javaws.exe\" (process_path=\"*:\\\\Program Files (x86)\\\\Java\\\\*\" OR process_path=\"*:\\\\Program Files\\\\Java\\\\*\") process_path=\"*\\\\bin\\\\jp2launcher.exe\" command=\"* -ma *\"))",
+  "Tags": [
+    "attack.credential-access",
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1134",
+    "attack.t1003",
+    "attack.t1027"
+  ],
+  "Version": "0.1"
+}

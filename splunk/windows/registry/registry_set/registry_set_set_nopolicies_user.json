@@ -1,0 +1,14 @@
+{
+  "Description": "Detects registry modifications that disable internal tools or functions in explorer (malware like Agent Tesla uses this technique)\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1c3121ed-041b-4d97-a075-07f54f20fb4a",
+  "InsertDate": "2025-02-03T20:33:43Z",
+  "LastUpdateDate": "2025-02-03T20:33:43Z",
+  "Level": "medium",
+  "Name": "Registry Explorer Policy Modification",
+  "Query": "sourcetype=\"windows-*\" (target_object=\"*SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Policies\\\\Explorer\\\\NoLogOff\" OR target_object=\"*SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Policies\\\\Explorer\\\\NoDesktop\" OR target_object=\"*SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Policies\\\\Explorer\\\\NoRun\" OR target_object=\"*SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Policies\\\\Explorer\\\\NoFind\" OR target_object=\"*SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Policies\\\\Explorer\\\\NoControlPanel\" OR target_object=\"*SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Policies\\\\Explorer\\\\NoFileMenu\" OR target_object=\"*SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Policies\\\\Explorer\\\\NoClose\" OR target_object=\"*SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Policies\\\\Explorer\\\\NoSetTaskbar\" OR target_object=\"*SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Policies\\\\Explorer\\\\NoPropertiesMyDocuments\" OR target_object=\"*SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Policies\\\\Explorer\\\\NoTrayContextMenu\") details=\"DWORD (0x00000001)\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1112"
+  ],
+  "Version": "0.1"
+}

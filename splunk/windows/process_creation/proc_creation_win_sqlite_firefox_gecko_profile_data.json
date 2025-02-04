@@ -1,0 +1,16 @@
+{
+  "Description": "Detect usage of the \"sqlite\" binary to query databases in Firefox and other Gecko-based browsers for potential data stealing.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4833155a-4053-4c9c-a997-777fcea0baa7",
+  "InsertDate": "2025-02-03T20:33:12Z",
+  "LastUpdateDate": "2025-02-03T20:33:12Z",
+  "Level": "high",
+  "Name": "SQLite Firefox Profile Data DB Access",
+  "Query": "sourcetype=\"windows-sysmon\" (product=\"SQLite\" (process_path=\"*\\\\sqlite.exe\" OR process_path=\"*\\\\sqlite3.exe\")) (command=\"*cookies.sqlite*\" OR command=\"*places.sqlite*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1539",
+    "attack.collection",
+    "attack.t1005"
+  ],
+  "Version": "0.1"
+}

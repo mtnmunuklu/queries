@@ -1,0 +1,15 @@
+{
+  "Description": "Detects suspicious ways to use the \"DumpMinitool.exe\" binary\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "eb1c4225-1c23-4241-8dd4-051389fde4ce",
+  "InsertDate": "2025-02-03T20:32:41Z",
+  "LastUpdateDate": "2025-02-03T20:32:41Z",
+  "Level": "high",
+  "Name": "Suspicious DumpMinitool Execution",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\DumpMinitool.exe\" OR process_path=\"*\\\\DumpMinitool.x86.exe\" OR process_path=\"*\\\\DumpMinitool.arm64.exe\") (original_file_name=\"DumpMinitool.exe\" OR original_file_name=\"DumpMinitool.x86.exe\" OR original_file_name=\"DumpMinitool.arm64.exe\")) (NOT (process_path=\"*\\\\Microsoft Visual Studio\\\\*\" OR process_path=\"*\\\\Extensions\\\\*\") OR command=\"*.txt*\" OR ((command=\"* Full*\" OR command=\"* Mini*\" OR command=\"* WithHeap*\") NOT command=\"*--dumpType*\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1036",
+    "attack.t1003.001"
+  ],
+  "Version": "0.1"
+}

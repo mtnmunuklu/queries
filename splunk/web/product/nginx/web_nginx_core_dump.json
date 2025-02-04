@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a core dump of a crashing Nginx worker process, which could be a signal of a serious problem or exploitation attempts.\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "59ec40bb-322e-40ab-808d-84fa690d7e56",
+  "InsertDate": "2025-02-03T20:32:04Z",
+  "LastUpdateDate": "2025-02-03T20:32:04Z",
+  "Level": "high",
+  "Name": "Nginx Core Dump",
+  "Query": "(\"exited on signal 6 (core dumped)\")",
+  "Tags": [
+    "attack.impact",
+    "attack.t1499.004"
+  ],
+  "Version": "0.1"
+}

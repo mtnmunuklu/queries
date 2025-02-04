@@ -1,0 +1,16 @@
+{
+  "Description": "Detects specific techniques often seen used inside of PowerShell scripts to obfscuate Alias creation\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e8314f79-564d-4f79-bc13-fbc0bf2660d8",
+  "InsertDate": "2025-02-03T20:32:32Z",
+  "LastUpdateDate": "2025-02-03T20:32:32Z",
+  "Level": "low",
+  "Name": "Potential PowerShell Obfuscation Using Character Join",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*-Alias*\" scriptblocktext=\"* -Value (-join(*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.t1027",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

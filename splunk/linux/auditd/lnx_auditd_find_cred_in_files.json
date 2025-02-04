@@ -1,0 +1,14 @@
+{
+  "Description": "Detecting attempts to extract passwords with grep\n\nAuthor: Igor Fits, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "df3fcaea-2715-4214-99c5-0056ea59eb35",
+  "InsertDate": "2025-02-03T20:31:56Z",
+  "LastUpdateDate": "2025-02-03T20:31:56Z",
+  "Level": "high",
+  "Name": "Credentials In Files - Linux",
+  "Query": "sourcetype=\"linux-auditd\" type=\"EXECVE\" (=\"grep\" =\"password\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1552.001"
+  ],
+  "Version": "0.1"
+}

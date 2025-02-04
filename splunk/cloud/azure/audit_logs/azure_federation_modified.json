@@ -1,0 +1,14 @@
+{
+  "Description": "Identifies when an user or application modified the federation settings on the domain.\n\nAuthor: Austin Songer\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "352a54e1-74ba-4929-9d47-8193d67aba1e",
+  "InsertDate": "2025-02-03T20:31:52Z",
+  "LastUpdateDate": "2025-02-03T20:31:52Z",
+  "Level": "medium",
+  "Name": "Azure Domain Federation Settings Modified",
+  "Query": "sourcetype=\"azure-auditlogs\" activitydisplayname=\"Set federation settings on domain\"",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1078"
+  ],
+  "Version": "0.1"
+}

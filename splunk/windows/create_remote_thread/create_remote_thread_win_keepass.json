@@ -1,0 +1,14 @@
+{
+  "Description": "Detects remote thread creation in \"KeePass.exe\" which could indicates potential password dumping activity\n\nAuthor: Timon Hackenjos\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "77564cc2-7382-438b-a7f6-395c2ae53b9a",
+  "InsertDate": "2025-02-03T20:32:15Z",
+  "LastUpdateDate": "2025-02-03T20:32:15Z",
+  "Level": "high",
+  "Name": "Remote Thread Created In KeePass.EXE",
+  "Query": "sourcetype=\"windows-*\" dst_process_path=\"*\\\\KeePass.exe\"",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1555.005"
+  ],
+  "Version": "0.1"
+}

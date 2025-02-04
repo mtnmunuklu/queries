@@ -1,0 +1,13 @@
+{
+  "Description": "Detects loading of \"Amsi.dll\" by a living of the land process. This could be an indication of a \"PowerShell without PowerShell\" attack\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6ec86d9e-912e-4726-91a2-209359b999b9",
+  "InsertDate": "2025-02-03T20:32:21Z",
+  "LastUpdateDate": "2025-02-03T20:32:21Z",
+  "Level": "medium",
+  "Name": "Amsi.DLL Loaded Via LOLBIN Process",
+  "Query": "sourcetype=\"windows-sysmon\" image_loaded=\"*\\\\amsi.dll\" (process_path=\"*\\\\ExtExport.exe\" OR process_path=\"*\\\\odbcconf.exe\" OR process_path=\"*\\\\regsvr32.exe\" OR process_path=\"*\\\\rundll32.exe\")",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential local file read vulnerability in JVM based apps.\nIf the exceptions are caused due to user input and contain path traversal payloads then it's a red flag.\n\n\nAuthor: Moti Harmats\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e032f5bc-4563-4096-ae3b-064bab588685",
+  "InsertDate": "2025-02-03T20:31:49Z",
+  "LastUpdateDate": "2025-02-03T20:31:49Z",
+  "Level": "high",
+  "Name": "Potential Local File Read Vulnerability In JVM Based Application",
+  "Query": "sourcetype=\"jvm-*\" (=\"FileNotFoundException\" =\"/../../..\")",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1190"
+  ],
+  "Version": "0.1"
+}

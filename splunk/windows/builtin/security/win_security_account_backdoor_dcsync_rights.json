@@ -1,0 +1,14 @@
+{
+  "Description": "Backdooring domain object to grant the rights associated with DCSync to a regular user or machine account using Powerview\\Add-DomainObjectAcl DCSync Extended Right cmdlet, will allow to re-obtain the pwd hashes of any user/computer\n\nAuthor: Samir Bousseaden, Roberto Rodriguez @Cyb3rWard0g, oscd.community, Tim Shelton, Maxence Fossat\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2c99737c-585d-4431-b61a-c911d86ff32f",
+  "InsertDate": "2025-02-03T20:32:08Z",
+  "LastUpdateDate": "2025-02-03T20:32:08Z",
+  "Level": "high",
+  "Name": "Powerview Add-DomainObjectAcl DCSync AD Extend Right",
+  "Query": "sourcetype=\"windows-security\" (eventid=\"5136\" attributeldapdisplayname=\"ntSecurityDescriptor\" (attributevalue=\"*1131f6ad-9c07-11d1-f79f-00c04fc2dcd2*\" OR attributevalue=\"*1131f6aa-9c07-11d1-f79f-00c04fc2dcd2*\" OR attributevalue=\"*89e95b76-444d-4c62-991a-0facbeda640c*\")) NOT (objectclass=\"dnsNode\" OR objectclass=\"dnsZoneScope\" OR objectclass=\"dnsZone\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1098"
+  ],
+  "Version": "0.1"
+}

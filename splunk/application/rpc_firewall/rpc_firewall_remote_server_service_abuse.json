@@ -1,0 +1,13 @@
+{
+  "Description": "Detects remote RPC calls to possibly abuse remote encryption service via MS-SRVS\n\nAuthor: Sagie Dulce, Dekel Paz\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b6ea3cc7-542f-43ef-bbe4-980fbed444c7",
+  "InsertDate": "2025-02-03T20:31:50Z",
+  "LastUpdateDate": "2025-02-03T20:31:50Z",
+  "Level": "high",
+  "Name": "Remote Server Service Abuse",
+  "Query": "sourcetype=\"rpc_firewall-*\" eventlog=\"RPCFW\" eventid=\"3\" interfaceuuid=\"4b324fc8-1670-01d3-1278-5a47bf6ee188\"",
+  "Tags": [
+    "attack.lateral-movement"
+  ],
+  "Version": "0.1"
+}

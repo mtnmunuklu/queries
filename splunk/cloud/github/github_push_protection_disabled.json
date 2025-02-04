@@ -1,0 +1,14 @@
+{
+  "Description": "Detects if the push protection feature is disabled for an organization, enterprise, repositories or custom pattern rules.\n\nAuthor: Muhammad Faisal (@faisalusuf)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ccd55945-badd-4bae-936b-823a735d37dd",
+  "InsertDate": "2025-02-03T20:31:54Z",
+  "LastUpdateDate": "2025-02-03T20:31:54Z",
+  "Level": "high",
+  "Name": "Github Push Protection Disabled",
+  "Query": "sourcetype=\"github-audit\" (action=\"business_secret_scanning_custom_pattern_push_protection.disabled\" OR action=\"business_secret_scanning_push_protection.disable\" OR action=\"business_secret_scanning_push_protection.disabled_for_new_repos\" OR action=\"org.secret_scanning_custom_pattern_push_protection_disabled\" OR action=\"org.secret_scanning_push_protection_disable\" OR action=\"org.secret_scanning_push_protection_new_repos_disable\" OR action=\"repository_secret_scanning_custom_pattern_push_protection.disabled\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects successful logon attempts performed with WMI\n\nAuthor: Thomas Patzke\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5af54681-df95-4c26-854f-2565e13cfab0",
+  "InsertDate": "2025-02-03T20:32:08Z",
+  "LastUpdateDate": "2025-02-03T20:32:08Z",
+  "Level": "low",
+  "Name": "Successful Account Login Via WMI",
+  "Query": "sourcetype=\"windows-security\" eventid=\"4624\" processname=\"*\\\\WmiPrvSE.exe\"",
+  "Tags": [
+    "attack.execution",
+    "attack.t1047"
+  ],
+  "Version": "0.1"
+}

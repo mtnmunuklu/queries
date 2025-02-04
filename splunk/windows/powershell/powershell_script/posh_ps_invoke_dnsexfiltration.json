@@ -1,0 +1,14 @@
+{
+  "Description": "DNSExfiltrator allows for transferring (exfiltrate) a file over a DNS request covert channel\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d59d7842-9a21-4bc6-ba98-64bfe0091355",
+  "InsertDate": "2025-02-03T20:32:30Z",
+  "LastUpdateDate": "2025-02-03T20:32:30Z",
+  "Level": "high",
+  "Name": "Powershell DNSExfiltration",
+  "Query": "sourcetype=\"windows-*\" scriptblocktext=\"*Invoke-DNSExfiltrator*\" (scriptblocktext=\"* -i *\" scriptblocktext=\"* -d *\" scriptblocktext=\"* -p *\" scriptblocktext=\"* -doh *\" scriptblocktext=\"* -t *\")",
+  "Tags": [
+    "attack.exfiltration",
+    "attack.t1048"
+  ],
+  "Version": "0.1"
+}

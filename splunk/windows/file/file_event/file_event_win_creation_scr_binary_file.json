@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may establish persistence by executing malicious content triggered by user inactivity.\nScreensavers are programs that execute after a configurable time of user inactivity and consist of Portable Executable (PE) files with a .scr file extension\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "97aa2e88-555c-450d-85a6-229bcd87efb8",
+  "InsertDate": "2025-02-03T20:32:17Z",
+  "LastUpdateDate": "2025-02-03T20:32:17Z",
+  "Level": "medium",
+  "Name": "Suspicious Screensaver Binary File Creation",
+  "Query": "sourcetype=\"windows-sysmon\" filepath=\"*.scr\" NOT ((process_path=\"*\\\\TiWorker.exe\" filepath=\"*\\\\uwfservicingscr.scr\") OR (process_path=\"*\\\\Kindle.exe\" OR process_path=\"*\\\\Bin\\\\ccSvcHst.exe\"))",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1546.002"
+  ],
+  "Version": "0.1"
+}

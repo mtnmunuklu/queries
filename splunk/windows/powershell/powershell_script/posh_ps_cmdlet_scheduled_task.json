@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may abuse the Windows Task Scheduler to perform task scheduling for initial or recurring execution of malicious code\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "363eccc0-279a-4ccf-a3ab-24c2e63b11fb",
+  "InsertDate": "2025-02-03T20:32:29Z",
+  "LastUpdateDate": "2025-02-03T20:32:29Z",
+  "Level": "medium",
+  "Name": "Powershell Create Scheduled Task",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*New-ScheduledTaskAction*\" OR scriptblocktext=\"*New-ScheduledTaskTrigger*\" OR scriptblocktext=\"*New-ScheduledTaskPrincipal*\" OR scriptblocktext=\"*New-ScheduledTaskSettingsSet*\" OR scriptblocktext=\"*New-ScheduledTask*\" OR scriptblocktext=\"*Register-ScheduledTask*\") OR (scriptblocktext=\"*Invoke-CimMethod*\" scriptblocktext=\"*-ClassName*\" scriptblocktext=\"*PS_ScheduledTask*\" scriptblocktext=\"*-NameSpace*\" scriptblocktext=\"*Root\\\\Microsoft\\\\Windows\\\\TaskScheduler*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1053.005"
+  ],
+  "Version": "0.1"
+}

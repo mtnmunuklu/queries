@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential persistence activity via outlook today page.\nAn attacker can set a custom page to execute arbitrary code and link to it via the registry values \"URL\" and \"UserDefinedUrl\".\n\n\nAuthor: Tobias Michalski (Nextron Systems), David Bertho (@dbertho) \u0026 Eirik Sveen (@0xSV1), Storebrand\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "487bb375-12ef-41f6-baae-c6a1572b4dd1",
+  "InsertDate": "2025-02-03T20:33:41Z",
+  "LastUpdateDate": "2025-02-03T20:33:41Z",
+  "Level": "high",
+  "Name": "Potential Persistence Via Outlook Today Page",
+  "Query": "sourcetype=\"windows-*\" (target_object=\"*Software\\\\Microsoft\\\\Office\\\\*\" target_object=\"*\\\\Outlook\\\\Today\\\\*\") ((target_object=\"*\\\\Stamp\" details=\"DWORD (0x00000001)\") OR (target_object=\"*\\\\URL\" OR target_object=\"*\\\\UserDefinedUrl\")) NOT ((process_path=\"C:\\\\Program Files\\\\Common Files\\\\Microsoft Shared\\\\ClickToRun\\\\*\" OR process_path=\"C:\\\\Program Files\\\\Common Files\\\\Microsoft Shared\\\\ClickToRun\\\\Updates\\\\*\") process_path=\"*\\\\OfficeClickToRun.exe\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1112"
+  ],
+  "Version": "0.1"
+}

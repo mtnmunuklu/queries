@@ -1,0 +1,14 @@
+{
+  "Description": "Detects failed logon attempts from clients with external network IP to an MSSQL server. This can be a sign of a bruteforce attack.\n\nAuthor: j4son\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ebfe73c2-5bc9-4ed9-aaa8-8b54b2b4777d",
+  "InsertDate": "2025-02-03T20:32:06Z",
+  "LastUpdateDate": "2025-02-03T20:32:06Z",
+  "Level": "medium",
+  "Name": "MSSQL Server Failed Logon From External Network",
+  "Query": "sourcetype=\"windows-application\" (provider_name=\"*MSSQL*\" eventid=\"18456\") NOT (data=\"*CLIENT: 10.*\" OR data=\"*CLIENT: 172.16.*\" OR data=\"*CLIENT: 172.17.*\" OR data=\"*CLIENT: 172.18.*\" OR data=\"*CLIENT: 172.19.*\" OR data=\"*CLIENT: 172.20.*\" OR data=\"*CLIENT: 172.21.*\" OR data=\"*CLIENT: 172.22.*\" OR data=\"*CLIENT: 172.23.*\" OR data=\"*CLIENT: 172.24.*\" OR data=\"*CLIENT: 172.25.*\" OR data=\"*CLIENT: 172.26.*\" OR data=\"*CLIENT: 172.27.*\" OR data=\"*CLIENT: 172.28.*\" OR data=\"*CLIENT: 172.29.*\" OR data=\"*CLIENT: 172.30.*\" OR data=\"*CLIENT: 172.31.*\" OR data=\"*CLIENT: 192.168.*\" OR data=\"*CLIENT: 127.*\" OR data=\"*CLIENT: 169.254.*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1110"
+  ],
+  "Version": "0.1"
+}

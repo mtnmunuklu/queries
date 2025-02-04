@@ -1,0 +1,14 @@
+{
+  "Description": "Detects scenarios where system auditing for important events such as \"Process Creation\" or \"Logon\" events is disabled.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ab4561b1-6c7e-48a7-ad08-087cfb9ce8f1",
+  "InsertDate": "2025-02-03T20:32:09Z",
+  "LastUpdateDate": "2025-02-03T20:32:09Z",
+  "Level": "high",
+  "Name": "Important Windows Event Auditing Disabled",
+  "Query": "sourcetype=\"windows-security\" (eventid=\"4719\" (subcategoryguid=\"{0CCE9210-69AE-11D9-BED3-505054503030}\" OR subcategoryguid=\"{0CCE9211-69AE-11D9-BED3-505054503030}\" OR subcategoryguid=\"{0CCE9212-69AE-11D9-BED3-505054503030}\" OR subcategoryguid=\"{0CCE9215-69AE-11D9-BED3-505054503030}\" OR subcategoryguid=\"{0CCE921B-69AE-11D9-BED3-505054503030}\" OR subcategoryguid=\"{0CCE922B-69AE-11D9-BED3-505054503030}\" OR subcategoryguid=\"{0CCE922F-69AE-11D9-BED3-505054503030}\" OR subcategoryguid=\"{0CCE9230-69AE-11D9-BED3-505054503030}\" OR subcategoryguid=\"{0CCE9235-69AE-11D9-BED3-505054503030}\" OR subcategoryguid=\"{0CCE9236-69AE-11D9-BED3-505054503030}\" OR subcategoryguid=\"{0CCE9237-69AE-11D9-BED3-505054503030}\" OR subcategoryguid=\"{0CCE923F-69AE-11D9-BED3-505054503030}\" OR subcategoryguid=\"{0CCE9240-69AE-11D9-BED3-505054503030}\" OR subcategoryguid=\"{0CCE9242-69AE-11D9-BED3-505054503030}\") (auditpolicychanges=\"*%%8448*\" OR auditpolicychanges=\"*%%8450*\")) OR (eventid=\"4719\" subcategoryguid=\"{0CCE9217-69AE-11D9-BED3-505054503030}\" auditpolicychanges=\"*%%8448*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.002"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,13 @@
+{
+  "Description": "Identifies when a application gateway is modified or deleted.\n\nAuthor: Austin Songer\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ad87d14e-7599-4633-ba81-aeb60cfe8cd6",
+  "InsertDate": "2025-02-03T20:31:51Z",
+  "LastUpdateDate": "2025-02-03T20:31:51Z",
+  "Level": "medium",
+  "Name": "Azure Application Gateway Modified or Deleted",
+  "Query": "sourcetype=\"azure-activitylogs\" (operationname=\"MICROSOFT.NETWORK/APPLICATIONGATEWAYS/WRITE\" OR operationname=\"MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DELETE\")",
+  "Tags": [
+    "attack.impact"
+  ],
+  "Version": "0.1"
+}

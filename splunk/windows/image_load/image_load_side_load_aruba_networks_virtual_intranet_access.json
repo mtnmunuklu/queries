@@ -1,0 +1,16 @@
+{
+  "Description": "Detects potential DLL sideloading activity via the Aruba Networks Virtual Intranet Access \"arubanetsvc.exe\" process using DLL Search Order Hijacking\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "90ae0469-0cee-4509-b67f-e5efcef040f7",
+  "InsertDate": "2025-02-03T20:32:22Z",
+  "LastUpdateDate": "2025-02-03T20:32:22Z",
+  "Level": "high",
+  "Name": "Aruba Network Service Potential DLL Sideloading",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\arubanetsvc.exe\" (image_loaded=\"*\\\\wtsapi32.dll\" OR image_loaded=\"*\\\\msvcr100.dll\" OR image_loaded=\"*\\\\msvcp100.dll\" OR image_loaded=\"*\\\\dbghelp.dll\" OR image_loaded=\"*\\\\dbgcore.dll\" OR image_loaded=\"*\\\\wininet.dll\" OR image_loaded=\"*\\\\iphlpapi.dll\" OR image_loaded=\"*\\\\version.dll\" OR image_loaded=\"*\\\\cryptsp.dll\" OR image_loaded=\"*\\\\cryptbase.dll\" OR image_loaded=\"*\\\\wldp.dll\" OR image_loaded=\"*\\\\profapi.dll\" OR image_loaded=\"*\\\\sspicli.dll\" OR image_loaded=\"*\\\\winsta.dll\" OR image_loaded=\"*\\\\dpapi.dll\")) NOT (image_loaded=\"C:\\\\Windows\\\\System32\\\\*\" OR image_loaded=\"C:\\\\Windows\\\\SysWOW64\\\\*\" OR image_loaded=\"C:\\\\Windows\\\\WinSxS\\\\*\")",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.persistence",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

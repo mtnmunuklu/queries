@@ -1,0 +1,14 @@
+{
+  "Description": "Detects changes to the registry value \"PythonFunctionWarnings\" that would prevent any warnings or alerts from showing when Python functions are about to be executed.\nThreat actors could run malicious code through the new Microsoft Excel feature that allows Python to run within the spreadsheet.\n\n\nAuthor: @Kostastsale\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "023c654f-8f16-44d9-bb2b-00ff36a62af9",
+  "InsertDate": "2025-02-03T20:33:04Z",
+  "LastUpdateDate": "2025-02-03T20:33:04Z",
+  "Level": "high",
+  "Name": "Python Function Execution Security Warning Disabled In Excel",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*\\\\Microsoft\\\\Office\\\\*\" command=\"*\\\\Excel\\\\Security*\" command=\"*PythonFunctionWarnings*\") command=\"* 0*\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

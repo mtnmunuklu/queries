@@ -1,0 +1,13 @@
+{
+  "Description": "Detects when an security threat is detected in Okta.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5c82f0b9-3c6d-477f-a318-0e14a1df73e0",
+  "InsertDate": "2025-02-03T20:31:55Z",
+  "LastUpdateDate": "2025-02-03T20:31:55Z",
+  "Level": "medium",
+  "Name": "Okta Security Threat Detected",
+  "Query": "sourcetype=\"okta-okta\" eventtype=\"security.threat.detected\"",
+  "Tags": [
+    "attack.command-and-control"
+  ],
+  "Version": "0.1"
+}

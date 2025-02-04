@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious patterns in program names or folders that are often found in malicious samples or hacktools\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "efdd8dd5-cee8-4e59-9390-7d4d5e4dd6f6",
+  "InsertDate": "2025-02-03T20:33:16Z",
+  "LastUpdateDate": "2025-02-03T20:33:16Z",
+  "Level": "high",
+  "Name": "Suspicious Program Names",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\CVE-202*\" OR process_path=\"*\\\\CVE202*\") (process_path=\"*\\\\poc.exe\" OR process_path=\"*\\\\artifact.exe\" OR process_path=\"*\\\\artifact64.exe\" OR process_path=\"*\\\\artifact_protected.exe\" OR process_path=\"*\\\\artifact32.exe\" OR process_path=\"*\\\\artifact32big.exe\" OR process_path=\"*obfuscated.exe\" OR process_path=\"*obfusc.exe\" OR process_path=\"*\\\\meterpreter\")) OR (command=\"*inject.ps1*\" OR command=\"*Invoke-CVE*\" OR command=\"*pupy.ps1*\" OR command=\"*payload.ps1*\" OR command=\"*beacon.ps1*\" OR command=\"*PowerView.ps1*\" OR command=\"*bypass.ps1*\" OR command=\"*obfuscated.ps1*\" OR command=\"*obfusc.ps1*\" OR command=\"*obfus.ps1*\" OR command=\"*obfs.ps1*\" OR command=\"*evil.ps1*\" OR command=\"*MiniDogz.ps1*\" OR command=\"*_enc.ps1*\" OR command=\"*\\\\shell.ps1*\" OR command=\"*\\\\rshell.ps1*\" OR command=\"*revshell.ps1*\" OR command=\"*\\\\av.ps1*\" OR command=\"*\\\\av_test.ps1*\" OR command=\"*adrecon.ps1*\" OR command=\"*mimikatz.ps1*\" OR command=\"*\\\\PowerUp_*\" OR command=\"*powerup.ps1*\" OR command=\"*\\\\Temp\\\\a.ps1*\" OR command=\"*\\\\Temp\\\\p.ps1*\" OR command=\"*\\\\Temp\\\\1.ps1*\" OR command=\"*Hound.ps1*\" OR command=\"*encode.ps1*\" OR command=\"*powercat.ps1*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

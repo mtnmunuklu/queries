@@ -1,0 +1,14 @@
+{
+  "Description": "Detects AWS Config Service disabling\n\nAuthor: vitaliy0x1\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "07330162-dba1-4746-8121-a9647d49d297",
+  "InsertDate": "2025-02-03T20:31:50Z",
+  "LastUpdateDate": "2025-02-03T20:31:50Z",
+  "Level": "high",
+  "Name": "AWS Config Disabling Channel/Recorder",
+  "Query": "sourcetype=\"aws-cloudtrail\" eventsource=\"config.amazonaws.com\" (eventname=\"DeleteDeliveryChannel\" OR eventname=\"StopConfigurationRecorder\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

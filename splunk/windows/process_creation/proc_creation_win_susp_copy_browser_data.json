@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may acquire credentials from web browsers by reading files specific to the target browser.\nWeb browsers commonly save credentials such as website usernames and passwords so that they do not need to be entered manually in the future.\nWeb browsers typically store the credentials in an encrypted format within a credential store.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "47147b5b-9e17-4d76-b8d2-7bac24c5ce1b",
+  "InsertDate": "2025-02-03T20:33:13Z",
+  "LastUpdateDate": "2025-02-03T20:33:13Z",
+  "Level": "medium",
+  "Name": "Potential Browser Data Stealing",
+  "Query": "sourcetype=\"windows-sysmon\" ((command=\"*copy-item*\" OR command=\"*copy *\" OR command=\"*cpi *\" OR command=\"* cp *\" OR command=\"*move *\" OR command=\"*move-item*\" OR command=\"* mi *\" OR command=\"* mv *\") (process_path=\"*\\\\xcopy.exe\" OR process_path=\"*\\\\robocopy.exe\") (original_file_name=\"XCOPY.EXE\" OR original_file_name=\"robocopy.exe\")) (command=\"*\\\\Amigo\\\\User Data*\" OR command=\"*\\\\BraveSoftware\\\\Brave-Browser\\\\User Data*\" OR command=\"*\\\\CentBrowser\\\\User Data*\" OR command=\"*\\\\Chromium\\\\User Data*\" OR command=\"*\\\\CocCoc\\\\Browser\\\\User Data*\" OR command=\"*\\\\Comodo\\\\Dragon\\\\User Data*\" OR command=\"*\\\\Elements Browser\\\\User Data*\" OR command=\"*\\\\Epic Privacy Browser\\\\User Data*\" OR command=\"*\\\\Google\\\\Chrome Beta\\\\User Data*\" OR command=\"*\\\\Google\\\\Chrome SxS\\\\User Data*\" OR command=\"*\\\\Google\\\\Chrome\\\\User Data\\\\*\" OR command=\"*\\\\Kometa\\\\User Data*\" OR command=\"*\\\\Maxthon5\\\\Users*\" OR command=\"*\\\\Microsoft\\\\Edge\\\\User Data*\" OR command=\"*\\\\Mozilla\\\\Firefox\\\\Profiles*\" OR command=\"*\\\\Nichrome\\\\User Data*\" OR command=\"*\\\\Opera Software\\\\Opera GX Stable\\\\*\" OR command=\"*\\\\Opera Software\\\\Opera Neon\\\\User Data*\" OR command=\"*\\\\Opera Software\\\\Opera Stable\\\\*\" OR command=\"*\\\\Orbitum\\\\User Data*\" OR command=\"*\\\\QIP Surf\\\\User Data*\" OR command=\"*\\\\Sputnik\\\\User Data*\" OR command=\"*\\\\Torch\\\\User Data*\" OR command=\"*\\\\uCozMedia\\\\Uran\\\\User Data*\" OR command=\"*\\\\Vivaldi\\\\User Data*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1555.003"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects setting of a new registry database value related to BgInfo configuration. Attackers can for example set this value to save the results of the commands executed by BgInfo in order to exfiltrate information.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "53330955-dc52-487f-a3a2-da24dcff99b5",
+  "InsertDate": "2025-02-03T20:33:31Z",
+  "LastUpdateDate": "2025-02-03T20:33:31Z",
+  "Level": "medium",
+  "Name": "New BgInfo.EXE Custom DB Path Registry Configuration",
+  "Query": "sourcetype=\"windows-*\" event_type=\"SetValue\" target_object=\"*\\\\Software\\\\Winternals\\\\BGInfo\\\\Database\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1112"
+  ],
+  "Version": "0.1"
+}

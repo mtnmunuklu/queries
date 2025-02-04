@@ -1,0 +1,14 @@
+{
+  "Description": "Detect standard users login that are part of high privileged groups such as the Administrator group\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7ac407cc-0f48-4328-aede-de1d2e6fef41",
+  "InsertDate": "2025-02-03T20:32:07Z",
+  "LastUpdateDate": "2025-02-03T20:32:07Z",
+  "Level": "medium",
+  "Name": "Standard User In High Privileged Group",
+  "Query": "sourcetype=\"windows-lsa-server\" (eventid=\"300\" targetusersid=\"S-1-5-21-*\" (sidlist=\"*S-1-5-32-544*\" OR sidlist=\"*-500}*\" OR sidlist=\"*-518}*\" OR sidlist=\"*-519}*\")) NOT (targetusersid=\"*-500\" OR targetusersid=\"*-518\" OR targetusersid=\"*-519\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.privilege-escalation"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,16 @@
+{
+  "Description": "Detects potential DLL sideloading of \"wwlib.dll\"\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e2e01011-5910-4267-9c3b-4149ed5479cf",
+  "InsertDate": "2025-02-03T20:32:23Z",
+  "LastUpdateDate": "2025-02-03T20:32:23Z",
+  "Level": "medium",
+  "Name": "Potential WWlib.DLL Sideloading",
+  "Query": "sourcetype=\"windows-sysmon\" image_loaded=\"*\\\\wwlib.dll\" NOT ((process_path=\"C:\\\\Program Files (x86)\\\\Microsoft Office\\\\*\" OR process_path=\"C:\\\\Program Files\\\\Microsoft Office\\\\*\") process_path=\"*\\\\winword.exe\" (image_loaded=\"C:\\\\Program Files (x86)\\\\Microsoft Office\\\\*\" OR image_loaded=\"C:\\\\Program Files\\\\Microsoft Office\\\\*\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

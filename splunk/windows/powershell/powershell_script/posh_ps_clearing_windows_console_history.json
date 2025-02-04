@@ -1,0 +1,15 @@
+{
+  "Description": "Identifies when a user attempts to clear console history. An adversary may clear the command history of a compromised account to conceal the actions undertaken during an intrusion.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "bde47d4b-9987-405c-94c7-b080410e8ea7",
+  "InsertDate": "2025-02-03T20:32:29Z",
+  "LastUpdateDate": "2025-02-03T20:32:29Z",
+  "Level": "high",
+  "Name": "Clearing Windows Console History",
+  "Query": "sourcetype=\"windows-*\" scriptblocktext=\"*Clear-History*\" OR ((scriptblocktext=\"*Remove-Item*\" OR scriptblocktext=\"*rm*\") (scriptblocktext=\"*ConsoleHost_history.txt*\" OR scriptblocktext=\"*(Get-PSReadlineOption).HistorySavePath*\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1070",
+    "attack.t1070.003"
+  ],
+  "Version": "0.1"
+}

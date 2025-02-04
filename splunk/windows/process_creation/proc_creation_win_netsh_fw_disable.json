@@ -1,0 +1,15 @@
+{
+  "Description": "Detects netsh commands that turns off the Windows firewall\n\nAuthor: Fatih Sirin\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "57c4bf16-227f-4394-8ec7-1b745ee061c3",
+  "InsertDate": "2025-02-03T20:32:52Z",
+  "LastUpdateDate": "2025-02-03T20:32:52Z",
+  "Level": "medium",
+  "Name": "Firewall Disabled via Netsh.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\netsh.exe\" original_file_name=\"netsh.exe\") ((command=\"*firewall*\" command=\"*set*\" command=\"*opmode*\" command=\"*disable*\") OR (command=\"*advfirewall*\" command=\"*set*\" command=\"*state*\" command=\"*off*\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.004",
+    "attack.s0108"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects java process spawning suspicious children\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d292e0af-9a18-420c-9525-ec0ac3936892",
+  "InsertDate": "2025-02-03T20:32:01Z",
+  "LastUpdateDate": "2025-02-03T20:32:01Z",
+  "Level": "high",
+  "Name": "Suspicious Java Children Processes",
+  "Query": "sourcetype=\"linux-*\" parent_process_path=\"*/java\" (command=\"*/bin/sh*\" OR command=\"*bash*\" OR command=\"*dash*\" OR command=\"*ksh*\" OR command=\"*zsh*\" OR command=\"*csh*\" OR command=\"*fish*\" OR command=\"*curl*\" OR command=\"*wget*\" OR command=\"*python*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

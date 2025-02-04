@@ -1,0 +1,14 @@
+{
+  "Description": "Detects PowerShell scripts that make use of the \"Compress-Archive\" Cmdlet in order to compress folders and files where the output is stored in a potentially suspicious location that is used often by malware for exfiltration.\nAn adversary might compress data (e.g., sensitive documents) that is collected prior to exfiltration in order to make it portable and minimize the amount of data sent over the network.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b7a3c9a3-09ea-4934-8864-6a32cacd98d9",
+  "InsertDate": "2025-02-03T20:32:34Z",
+  "LastUpdateDate": "2025-02-03T20:32:34Z",
+  "Level": "medium",
+  "Name": "Zip A Folder With PowerShell For Staging In Temp - PowerShell Script",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*Compress-Archive -Path*-DestinationPath $env:TEMP*\" OR scriptblocktext=\"*Compress-Archive -Path*-DestinationPath*\\\\AppData\\\\Local\\\\Temp\\\\*\" OR scriptblocktext=\"*Compress-Archive -Path*-DestinationPath*:\\\\Windows\\\\Temp\\\\*\")",
+  "Tags": [
+    "attack.collection",
+    "attack.t1074.001"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the deletion of IIS WebServer access logs which may indicate an attempt to destroy forensic evidence\n\nAuthor: Tim Rauch (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3eb8c339-a765-48cc-a150-4364c04652bf",
+  "InsertDate": "2025-02-03T20:32:16Z",
+  "LastUpdateDate": "2025-02-03T20:32:16Z",
+  "Level": "medium",
+  "Name": "IIS WebServer Access Logs Deleted",
+  "Query": "sourcetype=\"windows-*\" filepath=\"*\\\\inetpub\\\\logs\\\\LogFiles\\\\*\" filepath=\"*.log\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1070"
+  ],
+  "Version": "0.1"
+}

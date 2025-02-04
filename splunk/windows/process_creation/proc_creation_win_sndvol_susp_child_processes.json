@@ -1,0 +1,13 @@
+{
+  "Description": "Detects potentially uncommon child processes of SndVol.exe (the Windows volume mixer)\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ba42babc-0666-4393-a4f7-ceaf5a69191e",
+  "InsertDate": "2025-02-03T20:33:12Z",
+  "LastUpdateDate": "2025-02-03T20:33:12Z",
+  "Level": "medium",
+  "Name": "Uncommon Child Processes Of SndVol.exe",
+  "Query": "sourcetype=\"windows-sysmon\" parent_process_path=\"*\\\\SndVol.exe\" NOT (process_path=\"*\\\\rundll32.exe\" command=\"* shell32.dll,Control_RunDLL *\")",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

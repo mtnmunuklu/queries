@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a network connection initiated by programs or processes running from suspicious or uncommon files system locations.\n\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7b434893-c57d-4f41-908d-6a17bf1ae98f",
+  "InsertDate": "2025-02-03T20:32:25Z",
+  "LastUpdateDate": "2025-02-03T20:32:25Z",
+  "Level": "high",
+  "Name": "Network Connection Initiated From Process Located In Potentially Suspicious Or Uncommon Location",
+  "Query": "sourcetype=\"windows-sysmon\" (initiated=\"true\" (process_path=\"*:\\\\$Recycle.bin*\" OR process_path=\"*:\\\\Perflogs\\\\*\" OR process_path=\"*:\\\\Temp\\\\*\" OR process_path=\"*:\\\\Users\\\\Default\\\\*\" OR process_path=\"*:\\\\Windows\\\\Fonts\\\\*\" OR process_path=\"*:\\\\Windows\\\\IME\\\\*\" OR process_path=\"*:\\\\Windows\\\\System32\\\\Tasks\\\\*\" OR process_path=\"*:\\\\Windows\\\\Tasks\\\\*\" OR process_path=\"*\\\\config\\\\systemprofile\\\\*\" OR process_path=\"*\\\\Windows\\\\addins\\\\*\")) NOT (dst_host=\"*.githubusercontent.com\" OR dst_host=\"*anonfiles.com\" OR dst_host=\"*cdn.discordapp.com\" OR dst_host=\"*ddns.net\" OR dst_host=\"*dl.dropboxusercontent.com\" OR dst_host=\"*ghostbin.co\" OR dst_host=\"*glitch.me\" OR dst_host=\"*gofile.io\" OR dst_host=\"*hastebin.com\" OR dst_host=\"*mediafire.com\" OR dst_host=\"*mega.co.nz\" OR dst_host=\"*mega.nz\" OR dst_host=\"*onrender.com\" OR dst_host=\"*pages.dev\" OR dst_host=\"*paste.ee\" OR dst_host=\"*pastebin.com\" OR dst_host=\"*pastebin.pl\" OR dst_host=\"*pastetext.net\" OR dst_host=\"*portmap.io\" OR dst_host=\"*privatlab.com\" OR dst_host=\"*privatlab.net\" OR dst_host=\"*send.exploit.in\" OR dst_host=\"*sendspace.com\" OR dst_host=\"*storage.googleapis.com\" OR dst_host=\"*storjshare.io\" OR dst_host=\"*supabase.co\" OR dst_host=\"*temp.sh\" OR dst_host=\"*transfer.sh\" OR dst_host=\"*trycloudflare.com\" OR dst_host=\"*ufile.io\" OR dst_host=\"*w3spaces.com\" OR dst_host=\"*workers.dev\")",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1105"
+  ],
+  "Version": "0.1"
+}

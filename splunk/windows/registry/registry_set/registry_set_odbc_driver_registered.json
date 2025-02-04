@@ -1,0 +1,13 @@
+{
+  "Description": "Detects the registration of a new ODBC driver.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3390fbef-c98d-4bdd-a863-d65ed7c610dd",
+  "InsertDate": "2025-02-03T20:33:38Z",
+  "LastUpdateDate": "2025-02-03T20:33:38Z",
+  "Level": "low",
+  "Name": "New ODBC Driver Registered",
+  "Query": "sourcetype=\"windows-*\" (target_object=\"*\\\\SOFTWARE\\\\ODBC\\\\ODBCINST.INI\\\\*\" target_object=\"*\\\\Driver\") NOT (target_object=\"*\\\\SQL Server\\\\*\" details=\"%WINDIR%\\\\System32\\\\SQLSRV32.dll\") NOT ((target_object=\"*\\\\Microsoft Access *\" details=\"C:\\\\Progra*\" details=\"*\\\\ACEODBC.DLL\") OR (target_object=\"*\\\\Microsoft Excel Driver*\" details=\"C:\\\\Progra*\" details=\"*\\\\ACEODBC.DLL\"))",
+  "Tags": [
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

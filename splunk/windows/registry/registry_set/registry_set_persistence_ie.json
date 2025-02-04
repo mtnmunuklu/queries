@@ -1,0 +1,14 @@
+{
+  "Description": "Detects modification of the registry settings used for Internet Explorer and other Windows components that use these settings. An attacker can abuse this registry key to add a domain to the trusted sites Zone or insert javascript for persistence\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d88d0ab2-e696-4d40-a2ed-9790064e66b3",
+  "InsertDate": "2025-02-03T20:33:41Z",
+  "LastUpdateDate": "2025-02-03T20:33:41Z",
+  "Level": "low",
+  "Name": "Modification of IE Registry Settings",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Internet Settings*\" NOT (target_object=\"*\\\\Accepted Documents\\\\*\" OR details=\"DWORD*\" OR (details=\"Cookie:\" OR details=\"Visited:\" OR details=\"(Empty)\") OR (target_object=\"*\\\\Cache*\" OR target_object=\"*\\\\ZoneMap*\" OR target_object=\"*\\\\WpadDecision*\") OR details=\"Binary Data\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1112"
+  ],
+  "Version": "0.1"
+}

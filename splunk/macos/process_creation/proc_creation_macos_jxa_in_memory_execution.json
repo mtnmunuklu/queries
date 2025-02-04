@@ -1,0 +1,15 @@
+{
+  "Description": "Detects possible malicious execution of JXA in-memory via OSAScript\n\nAuthor: Sohan G (D4rkCiph3r)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f1408a58-0e94-4165-b80a-da9f96cf6fc3",
+  "InsertDate": "2025-02-03T20:32:02Z",
+  "LastUpdateDate": "2025-02-03T20:32:02Z",
+  "Level": "high",
+  "Name": "JXA In-memory Execution Via OSAScript",
+  "Query": "sourcetype=\"macos-*\" (command=\"*osascript*\" command=\"* -e *\" command=\"*eval*\" command=\"*NSData.dataWithContentsOfURL*\") ((command=\"* -l *\" command=\"*JavaScript*\") command=\"*.js*\")",
+  "Tags": [
+    "attack.t1059.002",
+    "attack.t1059.007",
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

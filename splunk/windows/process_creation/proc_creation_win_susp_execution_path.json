@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a potentially suspicious execution from an uncommon folder.\n\nAuthor: Florian Roth (Nextron Systems), Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3dfd06d2-eaf4-4532-9555-68aca59f57c4",
+  "InsertDate": "2025-02-03T20:33:14Z",
+  "LastUpdateDate": "2025-02-03T20:33:14Z",
+  "Level": "high",
+  "Name": "Process Execution From A Potentially Suspicious Folder",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*:\\\\Perflogs\\\\*\" OR process_path=\"*:\\\\Users\\\\All Users\\\\*\" OR process_path=\"*:\\\\Users\\\\Default\\\\*\" OR process_path=\"*:\\\\Users\\\\NetworkService\\\\*\" OR process_path=\"*:\\\\Windows\\\\addins\\\\*\" OR process_path=\"*:\\\\Windows\\\\debug\\\\*\" OR process_path=\"*:\\\\Windows\\\\Fonts\\\\*\" OR process_path=\"*:\\\\Windows\\\\Help\\\\*\" OR process_path=\"*:\\\\Windows\\\\IME\\\\*\" OR process_path=\"*:\\\\Windows\\\\Media\\\\*\" OR process_path=\"*:\\\\Windows\\\\repair\\\\*\" OR process_path=\"*:\\\\Windows\\\\security\\\\*\" OR process_path=\"*:\\\\Windows\\\\System32\\\\Tasks\\\\*\" OR process_path=\"*:\\\\Windows\\\\Tasks\\\\*\" OR process_path=\"*$Recycle.bin*\" OR process_path=\"*\\\\config\\\\systemprofile\\\\*\" OR process_path=\"*\\\\Intel\\\\Logs\\\\*\" OR process_path=\"*\\\\RSA\\\\MachineKeys\\\\*\") NOT (process_path=\"C:\\\\Users\\\\Public\\\\IBM\\\\ClientSolutions\\\\Start_Programs\\\\*\" OR (process_path=\"C:\\\\Windows\\\\SysWOW64\\\\config\\\\systemprofile\\\\Citrix\\\\UpdaterBinaries\\\\*\" process_path=\"*\\\\CitrixReceiverUpdater.exe\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1036"
+  ],
+  "Version": "0.1"
+}

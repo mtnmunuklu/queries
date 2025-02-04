@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of the Notepad++ updater in a suspicious directory, which is often used in DLL side-loading attacks\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0a4f6091-223b-41f6-8743-f322ec84930b",
+  "InsertDate": "2025-02-03T20:32:43Z",
+  "LastUpdateDate": "2025-02-03T20:32:43Z",
+  "Level": "high",
+  "Name": "Suspicious GUP Usage",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\GUP.exe\" NOT ((process_path=\"*\\\\Users\\\\*\" (process_path=\"*\\\\AppData\\\\Local\\\\Notepad++\\\\updater\\\\GUP.exe\" OR process_path=\"*\\\\AppData\\\\Roaming\\\\Notepad++\\\\updater\\\\GUP.exe\")) OR (process_path=\"*\\\\Program Files\\\\Notepad++\\\\updater\\\\GUP.exe\" OR process_path=\"*\\\\Program Files (x86)\\\\Notepad++\\\\updater\\\\GUP.exe\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

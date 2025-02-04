@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of REGSVR32.exe with DLL files masquerading as other files\n\nAuthor: Florian Roth (Nextron Systems), frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "089fc3d2-71e8-4763-a8a5-c97fbb0a403e",
+  "InsertDate": "2025-02-03T20:33:05Z",
+  "LastUpdateDate": "2025-02-03T20:33:05Z",
+  "Level": "high",
+  "Name": "Regsvr32 DLL Execution With Suspicious File Extension",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\regsvr32.exe\" original_file_name=\"REGSVR32.EXE\") (command=\"*.bin\" OR command=\"*.bmp\" OR command=\"*.cr2\" OR command=\"*.dat\" OR command=\"*.eps\" OR command=\"*.gif\" OR command=\"*.ico\" OR command=\"*.jpeg\" OR command=\"*.jpg\" OR command=\"*.nef\" OR command=\"*.orf\" OR command=\"*.png\" OR command=\"*.raw\" OR command=\"*.sr2\" OR command=\"*.temp\" OR command=\"*.tif\" OR command=\"*.tiff\" OR command=\"*.tmp\" OR command=\"*.rtf\" OR command=\"*.txt\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.010"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,13 @@
+{
+  "Description": "Detects when the MSSQL \"xp_cmdshell\" stored procedure is used to execute commands\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7f103213-a04e-4d59-8261-213dddf22314",
+  "InsertDate": "2025-02-03T20:32:06Z",
+  "LastUpdateDate": "2025-02-03T20:32:06Z",
+  "Level": "high",
+  "Name": "MSSQL XPCmdshell Suspicious Execution",
+  "Query": "sourcetype=\"windows-application\" provider_name=\"*MSSQL*\" eventid=\"33205\" (data=\"*object_name:xp_cmdshell*\" data=\"*statement:EXEC*\")",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

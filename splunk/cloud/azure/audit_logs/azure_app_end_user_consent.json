@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when an end user consents to an application\n\nAuthor: Bailey Bercik '@baileybercik', Mark Morowczynski '@markmorow'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9b2cc4c4-2ad4-416d-8e8e-ee6aa6f5035a",
+  "InsertDate": "2025-02-03T20:31:52Z",
+  "LastUpdateDate": "2025-02-03T20:31:52Z",
+  "Level": "low",
+  "Name": "End User Consent",
+  "Query": "sourcetype=\"azure-auditlogs\" consentcontext.isadminconsent=\"false\"",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1528"
+  ],
+  "Version": "0.1"
+}

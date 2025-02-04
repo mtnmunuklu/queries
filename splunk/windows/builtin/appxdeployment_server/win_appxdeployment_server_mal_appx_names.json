@@ -1,0 +1,13 @@
+{
+  "Description": "Detects potential installation or installation attempts of known malicious appx packages\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "09d3b48b-be17-47f5-bf4e-94e7e75d09ce",
+  "InsertDate": "2025-02-03T20:32:06Z",
+  "LastUpdateDate": "2025-02-03T20:32:06Z",
+  "Level": "medium",
+  "Name": "Potential Malicious AppX Package Installation Attempts",
+  "Query": "sourcetype=\"windows-appxdeployment-server\" (eventid=\"400\" OR eventid=\"401\") packagefullname=\"*3669e262-ec02-4e9d-bcb4-3d008b4afac9*\"",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

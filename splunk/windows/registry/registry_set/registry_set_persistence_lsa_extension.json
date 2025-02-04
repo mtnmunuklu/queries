@@ -1,0 +1,13 @@
+{
+  "Description": "Detects when an attacker modifies the \"REG_MULTI_SZ\" value named \"Extensions\" to include a custom DLL to achieve persistence via lsass.\nThe \"Extensions\" list contains filenames of DLLs being automatically loaded by lsass.exe. Each DLL has its InitializeLsaExtension() method called after loading.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "41f6531d-af6e-4c6e-918f-b946f2b85a36",
+  "InsertDate": "2025-02-03T20:33:41Z",
+  "LastUpdateDate": "2025-02-03T20:33:41Z",
+  "Level": "high",
+  "Name": "Potential Persistence Via LSA Extensions",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\SYSTEM\\\\CurrentControlSet\\\\Control\\\\LsaExtensionConfig\\\\LsaSrv\\\\Extensions*\"",
+  "Tags": [
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

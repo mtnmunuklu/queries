@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the creation of a file with an uncommon extension in an Office application startup folder\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a10a2c40-2c4d-49f8-b557-1a946bc55d9d",
+  "InsertDate": "2025-02-03T20:32:19Z",
+  "LastUpdateDate": "2025-02-03T20:32:19Z",
+  "Level": "high",
+  "Name": "Uncommon File Created In Office Startup Folder",
+  "Query": "sourcetype=\"windows-sysmon\" (((filepath=\"*\\\\Microsoft\\\\Word\\\\STARTUP*\" (filepath=\"*\\\\Office*\" filepath=\"*\\\\Program Files*\" filepath=\"*\\\\STARTUP*\")) NOT (filepath=\"*.docb\" OR filepath=\"*.docm\" OR filepath=\"*.docx\" OR filepath=\"*.dotm\" OR filepath=\"*.mdb\" OR filepath=\"*.mdw\" OR filepath=\"*.pdf\" OR filepath=\"*.wll\" OR filepath=\"*.wwl\")) OR ((filepath=\"*\\\\Microsoft\\\\Excel\\\\XLSTART*\" (filepath=\"*\\\\Office*\" filepath=\"*\\\\Program Files*\" filepath=\"*\\\\XLSTART*\")) NOT (filepath=\"*.xll\" OR filepath=\"*.xls\" OR filepath=\"*.xlsm\" OR filepath=\"*.xlsx\" OR filepath=\"*.xlt\" OR filepath=\"*.xltm\" OR filepath=\"*.xlw\"))) NOT ((process_path=\"*:\\\\Program Files\\\\Common Files\\\\Microsoft Shared\\\\ClickToRun\\\\*\" process_path=\"*\\\\OfficeClickToRun.exe\") OR ((process_path=\"*:\\\\Program Files\\\\Microsoft Office\\\\*\" OR process_path=\"*:\\\\Program Files (x86)\\\\Microsoft Office\\\\*\") (process_path=\"*\\\\winword.exe\" OR process_path=\"*\\\\excel.exe\")))",
+  "Tags": [
+    "attack.resource-development",
+    "attack.t1587.001"
+  ],
+  "Version": "0.1"
+}

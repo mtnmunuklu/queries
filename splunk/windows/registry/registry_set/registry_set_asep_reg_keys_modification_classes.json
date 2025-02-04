@@ -1,0 +1,14 @@
+{
+  "Description": "Detects modification of autostart extensibility point (ASEP) in registry.\n\nAuthor: Victor Sergeev, Daniil Yugoslavskiy, Gleb Sukhodolskiy, Timur Zinniatullin, oscd.community, Tim Shelton, frack113 (split)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9df5f547-c86a-433e-b533-f2794357e242",
+  "InsertDate": "2025-02-03T20:33:31Z",
+  "LastUpdateDate": "2025-02-03T20:33:31Z",
+  "Level": "medium",
+  "Name": "Classes Autorun Keys Modification",
+  "Query": "sourcetype=\"windows-*\" (target_object=\"*\\\\Software\\\\Classes*\" (target_object=\"*\\\\Folder\\\\ShellEx\\\\ExtShellFolderViews*\" OR target_object=\"*\\\\Folder\\\\ShellEx\\\\DragDropHandlers*\" OR target_object=\"*\\\\Folder\\\\Shellex\\\\ColumnHandlers*\" OR target_object=\"*\\\\Filter*\" OR target_object=\"*\\\\Exefile\\\\Shell\\\\Open\\\\Command\\\\(Default)*\" OR target_object=\"*\\\\Directory\\\\Shellex\\\\DragDropHandlers*\" OR target_object=\"*\\\\Directory\\\\Shellex\\\\CopyHookHandlers*\" OR target_object=\"*\\\\CLSID\\\\{AC757296-3522-4E11-9862-C17BE5A1767E}\\\\Instance*\" OR target_object=\"*\\\\CLSID\\\\{ABE3B9A4-257D-4B97-BD1A-294AF496222E}\\\\Instance*\" OR target_object=\"*\\\\CLSID\\\\{7ED96837-96F0-4812-B211-F13C24117ED3}\\\\Instance*\" OR target_object=\"*\\\\CLSID\\\\{083863F1-70DE-11d0-BD40-00A0C911CE86}\\\\Instance*\" OR target_object=\"*\\\\Classes\\\\AllFileSystemObjects\\\\ShellEx\\\\DragDropHandlers*\" OR target_object=\"*\\\\.exe*\" OR target_object=\"*\\\\.cmd*\" OR target_object=\"*\\\\ShellEx\\\\PropertySheetHandlers*\" OR target_object=\"*\\\\ShellEx\\\\ContextMenuHandlers*\")) NOT (details=\"(Empty)\" OR details=\"{807583E5-5146-11D5-A672-00B0D022E945}\" OR process_path=\"C:\\\\Windows\\\\System32\\\\drvinst.exe\" OR (process_path=\"C:\\\\Windows\\\\System32\\\\svchost.exe\" target_object=\"*\\\\lnkfile\\\\shellex\\\\ContextMenuHandlers\\\\*\"))",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1547.001"
+  ],
+  "Version": "0.1"
+}

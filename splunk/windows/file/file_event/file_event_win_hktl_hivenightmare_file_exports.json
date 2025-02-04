@@ -1,0 +1,15 @@
+{
+  "Description": "Detects files written by the different tools that exploit HiveNightmare\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6ea858a8-ba71-4a12-b2cc-5d83312404c7",
+  "InsertDate": "2025-02-03T20:32:17Z",
+  "LastUpdateDate": "2025-02-03T20:32:17Z",
+  "Level": "high",
+  "Name": "HackTool - Typical HiveNightmare SAM File Export",
+  "Query": "sourcetype=\"windows-sysmon\" (filepath=\"*\\\\hive_sam_*\" OR filepath=\"*\\\\SAM-2021-*\" OR filepath=\"*\\\\SAM-2022-*\" OR filepath=\"*\\\\SAM-2023-*\" OR filepath=\"*\\\\SAM-haxx*\" OR filepath=\"*\\\\Sam.save*\") filepath=\"C:\\\\windows\\\\temp\\\\sam\"",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1552.001",
+    "cve.2021-36934"
+  ],
+  "Version": "0.1"
+}

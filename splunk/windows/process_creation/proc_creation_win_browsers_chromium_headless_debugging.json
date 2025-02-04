@@ -1,0 +1,14 @@
+{
+  "Description": "Detects chromium based browsers starting in headless and debugging mode and pointing to a user profile. This could be a sign of data stealing or remote control\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3e8207c5-fcd2-4ea6-9418-15d45b4890e4",
+  "InsertDate": "2025-02-03T20:32:37Z",
+  "LastUpdateDate": "2025-02-03T20:32:37Z",
+  "Level": "high",
+  "Name": "Potential Data Stealing Via Chromium Headless Debugging",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*--remote-debugging-*\" command=\"*--user-data-dir*\" command=\"*--headless*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1185"
+  ],
+  "Version": "0.1"
+}

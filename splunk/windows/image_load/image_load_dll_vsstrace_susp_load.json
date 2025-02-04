@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the image load of VSS DLL by uncommon executables\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "48bfd177-7cf2-412b-ad77-baf923489e82",
+  "InsertDate": "2025-02-03T20:32:22Z",
+  "LastUpdateDate": "2025-02-03T20:32:22Z",
+  "Level": "medium",
+  "Name": "Potentially Suspicious Volume Shadow Copy Vsstrace.dll Load",
+  "Query": "sourcetype=\"windows-sysmon\" image_loaded=\"*\\\\vsstrace.dll\" NOT (((process_path=\"C:\\\\Windows\\\\explorer.exe\" OR process_path=\"C:\\\\Windows\\\\ImmersiveControlPanel\\\\SystemSettings.exe\") (process_path=\"C:\\\\Windows\\\\System32\\\\*\" OR process_path=\"C:\\\\Windows\\\\SysWOW64\\\\*\" OR process_path=\"C:\\\\Windows\\\\Temp\\\\{*\" OR process_path=\"C:\\\\Windows\\\\WinSxS\\\\*\" OR process_path=\"C:\\\\ProgramData\\\\Package Cache\\\\{*\")) OR (process_path=\"C:\\\\Program Files\\\\*\" OR process_path=\"C:\\\\Program Files (x86)\\\\*\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.impact",
+    "attack.t1490"
+  ],
+  "Version": "0.1"
+}

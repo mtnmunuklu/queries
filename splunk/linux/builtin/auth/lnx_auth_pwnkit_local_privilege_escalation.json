@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential PwnKit exploitation CVE-2021-4034 in auth logs\n\nAuthor: Sreeman\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0506a799-698b-43b4-85a1-ac4c84c720e9",
+  "InsertDate": "2025-02-03T20:31:57Z",
+  "LastUpdateDate": "2025-02-03T20:31:57Z",
+  "Level": "high",
+  "Name": "PwnKit Local Privilege Escalation",
+  "Query": "sourcetype=\"linux-auth\" (=\"pkexec\" =\"The value for environment variable XAUTHORITY contains suspicious content\" =\"[USER=root] [TTY=/dev/pts/0]\")",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.t1548.001"
+  ],
+  "Version": "0.1"
+}

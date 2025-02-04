@@ -1,0 +1,14 @@
+{
+  "Description": "Detects creation of a file named \"ntds.dit\" (Active Directory Database) by an uncommon parent process or directory\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4e7050dd-e548-483f-b7d6-527ab4fa784d",
+  "InsertDate": "2025-02-03T20:32:18Z",
+  "LastUpdateDate": "2025-02-03T20:32:18Z",
+  "Level": "high",
+  "Name": "NTDS.DIT Creation By Uncommon Parent Process",
+  "Query": "sourcetype=\"windows-sysmon\" filepath=\"*\\\\ntds.dit\" ((parent_process_path=\"*\\\\cscript.exe\" OR parent_process_path=\"*\\\\httpd.exe\" OR parent_process_path=\"*\\\\nginx.exe\" OR parent_process_path=\"*\\\\php-cgi.exe\" OR parent_process_path=\"*\\\\powershell.exe\" OR parent_process_path=\"*\\\\pwsh.exe\" OR parent_process_path=\"*\\\\w3wp.exe\" OR parent_process_path=\"*\\\\wscript.exe\") OR (parent_process_path=\"*\\\\apache*\" OR parent_process_path=\"*\\\\tomcat*\" OR parent_process_path=\"*\\\\AppData\\\\*\" OR parent_process_path=\"*\\\\Temp\\\\*\" OR parent_process_path=\"*\\\\Public\\\\*\" OR parent_process_path=\"*\\\\PerfLogs\\\\*\"))",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.003"
+  ],
+  "Version": "0.1"
+}

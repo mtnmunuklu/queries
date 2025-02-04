@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the presence of the keywords \"Wscript\", \"Shell\" and \"Run\" in the command, which could indicate a suspicious activity\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2c28c248-7f50-417a-9186-a85b223010ee",
+  "InsertDate": "2025-02-03T20:32:50Z",
+  "LastUpdateDate": "2025-02-03T20:32:50Z",
+  "Level": "medium",
+  "Name": "Wscript Shell Run In CommandLine",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*Wscript.*\" command=\"*.Shell*\" command=\"*.Run*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

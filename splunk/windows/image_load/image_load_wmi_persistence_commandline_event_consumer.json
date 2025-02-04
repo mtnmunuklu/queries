@@ -1,0 +1,14 @@
+{
+  "Description": "Detects WMI command line event consumers\n\nAuthor: Thomas Patzke\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "05936ce2-ee05-4dae-9d03-9a391cf2d2c6",
+  "InsertDate": "2025-02-03T20:32:24Z",
+  "LastUpdateDate": "2025-02-03T20:32:24Z",
+  "Level": "high",
+  "Name": "WMI Persistence - Command Line Event Consumer",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"C:\\\\Windows\\\\System32\\\\wbem\\\\WmiPrvSE.exe\" image_loaded=\"*\\\\wbemcons.dll\"",
+  "Tags": [
+    "attack.t1546.003",
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

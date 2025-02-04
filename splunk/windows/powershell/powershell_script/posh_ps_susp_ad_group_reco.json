@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may attempt to find domain-level groups and permission settings.\nThe knowledge of domain-level permission groups can help adversaries determine which groups exist and which users belong to a particular group.\nAdversaries may use this information to determine which users have elevated permissions, such as domain administrators.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "88f0884b-331d-403d-a3a1-b668cf035603",
+  "InsertDate": "2025-02-03T20:32:32Z",
+  "LastUpdateDate": "2025-02-03T20:32:32Z",
+  "Level": "low",
+  "Name": "AD Groups Or Users Enumeration Using PowerShell - ScriptBlock",
+  "Query": "sourcetype=\"windows-*\" scriptblocktext=\"*get-ADPrincipalGroupMembership*\" OR (scriptblocktext=\"*get-aduser*\" scriptblocktext=\"*-f *\" scriptblocktext=\"*-pr *\" scriptblocktext=\"*DoesNotRequirePreAuth*\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1069.001"
+  ],
+  "Version": "0.1"
+}

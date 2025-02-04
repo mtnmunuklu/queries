@@ -1,0 +1,13 @@
+{
+  "Description": "Detects creation of new \".dll\" files inside the plugins directory of a notepad++ installation by a process other than \"gup.exe\". Which could indicates possible persistence\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "54127bd4-f541-4ac3-afdb-ea073f63f692",
+  "InsertDate": "2025-02-03T20:32:18Z",
+  "LastUpdateDate": "2025-02-03T20:32:18Z",
+  "Level": "medium",
+  "Name": "Potential Persistence Via Notepad++ Plugins",
+  "Query": "sourcetype=\"windows-sysmon\" (filepath=\"*\\\\Notepad++\\\\plugins\\\\*\" filepath=\"*.dll\") NOT (process_path=\"*\\\\Notepad++\\\\updater\\\\gup.exe\" OR (process_path=\"C:\\\\Users\\\\*\" process_path=\"*\\\\AppData\\\\Local\\\\Temp\\\\*\" (process_path=\"*\\\\target.exe\" OR process_path=\"*Installer.x64.exe\")))",
+  "Tags": [
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

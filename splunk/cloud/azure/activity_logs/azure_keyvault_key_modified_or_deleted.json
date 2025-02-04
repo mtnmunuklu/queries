@@ -1,0 +1,16 @@
+{
+  "Description": "Identifies when a Keyvault Key is modified or deleted in Azure.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "80eeab92-0979-4152-942d-96749e11df40",
+  "InsertDate": "2025-02-03T20:31:51Z",
+  "LastUpdateDate": "2025-02-03T20:31:51Z",
+  "Level": "medium",
+  "Name": "Azure Keyvault Key Modified or Deleted",
+  "Query": "sourcetype=\"azure-activitylogs\" (operationname=\"MICROSOFT.KEYVAULT/VAULTS/KEYS/UPDATE/ACTION\" OR operationname=\"MICROSOFT.KEYVAULT/VAULTS/KEYS/CREATE\" OR operationname=\"MICROSOFT.KEYVAULT/VAULTS/KEYS/CREATE/ACTION\" OR operationname=\"MICROSOFT.KEYVAULT/VAULTS/KEYS/IMPORT/ACTION\" OR operationname=\"MICROSOFT.KEYVAULT/VAULTS/KEYS/RECOVER/ACTION\" OR operationname=\"MICROSOFT.KEYVAULT/VAULTS/KEYS/RESTORE/ACTION\" OR operationname=\"MICROSOFT.KEYVAULT/VAULTS/KEYS/DELETE\" OR operationname=\"MICROSOFT.KEYVAULT/VAULTS/KEYS/BACKUP/ACTION\" OR operationname=\"MICROSOFT.KEYVAULT/VAULTS/KEYS/PURGE/ACTION\")",
+  "Tags": [
+    "attack.impact",
+    "attack.credential-access",
+    "attack.t1552",
+    "attack.t1552.001"
+  ],
+  "Version": "0.1"
+}

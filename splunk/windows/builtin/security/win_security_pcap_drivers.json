@@ -1,0 +1,15 @@
+{
+  "Description": "Detects Windows Pcap driver installation based on a list of associated .sys files.\n\nAuthor: Cian Heasley\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7b687634-ab20-11ea-bb37-0242ac130002",
+  "InsertDate": "2025-02-03T20:32:10Z",
+  "LastUpdateDate": "2025-02-03T20:32:10Z",
+  "Level": "medium",
+  "Name": "Windows Pcap Drivers",
+  "Query": "sourcetype=\"windows-security\" eventid=\"4697\" (servicefilename=\"*pcap*\" OR servicefilename=\"*npcap*\" OR servicefilename=\"*npf*\" OR servicefilename=\"*nm3*\" OR servicefilename=\"*ndiscap*\" OR servicefilename=\"*nmnt*\" OR servicefilename=\"*windivert*\" OR servicefilename=\"*USBPcap*\" OR servicefilename=\"*pktmon*\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.credential-access",
+    "attack.t1040"
+  ],
+  "Version": "0.1"
+}

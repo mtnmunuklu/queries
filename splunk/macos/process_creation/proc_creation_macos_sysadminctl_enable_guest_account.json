@@ -1,0 +1,15 @@
+{
+  "Description": "Detects attempts to enable the guest account using the sysadminctl utility\n\nAuthor: Sohan G (D4rkCiph3r)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d7329412-13bd-44ba-a072-3387f804a106",
+  "InsertDate": "2025-02-03T20:32:03Z",
+  "LastUpdateDate": "2025-02-03T20:32:03Z",
+  "Level": "low",
+  "Name": "Guest Account Enabled Via Sysadminctl",
+  "Query": "sourcetype=\"macos-*\" process_path=\"*/sysadminctl\" (command=\"* -guestAccount*\" command=\"* on*\")",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1078",
+    "attack.t1078.001"
+  ],
+  "Version": "0.1"
+}

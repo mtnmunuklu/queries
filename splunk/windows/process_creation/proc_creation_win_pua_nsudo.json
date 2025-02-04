@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the use of NSudo tool for command execution\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "771d1eb5-9587-4568-95fb-9ec44153a012",
+  "InsertDate": "2025-02-03T20:33:01Z",
+  "LastUpdateDate": "2025-02-03T20:33:01Z",
+  "Level": "high",
+  "Name": "PUA - NSudo Execution",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\NSudo.exe\" OR process_path=\"*\\\\NSudoLC.exe\" OR process_path=\"*\\\\NSudoLG.exe\") (original_file_name=\"NSudo.exe\" OR original_file_name=\"NSudoLC.exe\" OR original_file_name=\"NSudoLG.exe\")) (command=\"*-U:S *\" OR command=\"*-U:T *\" OR command=\"*-U:E *\" OR command=\"*-P:E *\" OR command=\"*-M:S *\" OR command=\"*-M:H *\" OR command=\"*-U=S *\" OR command=\"*-U=T *\" OR command=\"*-U=E *\" OR command=\"*-P=E *\" OR command=\"*-M=S *\" OR command=\"*-M=H *\" OR command=\"*-ShowWindowMode:Hide*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1569.002",
+    "attack.s0029"
+  ],
+  "Version": "0.1"
+}

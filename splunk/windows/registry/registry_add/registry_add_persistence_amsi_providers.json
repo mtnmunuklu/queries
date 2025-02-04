@@ -1,0 +1,13 @@
+{
+  "Description": "Detects when an attacker registers a new AMSI provider in order to achieve persistence\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "33efc23c-6ea2-4503-8cfe-bdf82ce8f705",
+  "InsertDate": "2025-02-03T20:33:28Z",
+  "LastUpdateDate": "2025-02-03T20:33:28Z",
+  "Level": "high",
+  "Name": "Potential Persistence Via New AMSI Providers - Registry",
+  "Query": "sourcetype=\"windows-*\" (event_type=\"CreateKey\" (target_object=\"*\\\\SOFTWARE\\\\Microsoft\\\\AMSI\\\\Providers\\\\*\" OR target_object=\"*\\\\SOFTWARE\\\\WOW6432Node\\\\Microsoft\\\\AMSI\\\\Providers\\\\*\")) NOT (process_path=\"C:\\\\Windows\\\\System32\\\\*\" OR process_path=\"C:\\\\Program Files\\\\*\" OR process_path=\"C:\\\\Program Files (x86)\\\\*\")",
+  "Tags": [
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

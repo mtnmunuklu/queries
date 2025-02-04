@@ -1,0 +1,15 @@
+{
+  "Description": "Detect malicious GPO modifications can be used to implement many other malicious behaviors.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ada4b0c4-758b-46ac-9033-9004613a150d",
+  "InsertDate": "2025-02-03T20:33:03Z",
+  "LastUpdateDate": "2025-02-03T20:33:03Z",
+  "Level": "medium",
+  "Name": "Modify Group Policy Settings",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\reg.exe\" original_file_name=\"reg.exe\") command=\"*\\\\SOFTWARE\\\\Policies\\\\Microsoft\\\\Windows\\\\System*\" (command=\"*GroupPolicyRefreshTimeDC*\" OR command=\"*GroupPolicyRefreshTimeOffsetDC*\" OR command=\"*GroupPolicyRefreshTime*\" OR command=\"*GroupPolicyRefreshTimeOffset*\" OR command=\"*EnableSmartScreen*\" OR command=\"*ShellSmartScreenLevel*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1484.001"
+  ],
+  "Version": "0.1"
+}

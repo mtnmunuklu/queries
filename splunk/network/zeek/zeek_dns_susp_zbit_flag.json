@@ -1,0 +1,15 @@
+{
+  "Description": "The DNS Z flag is bit within the DNS protocol header that is, per the IETF design, meant to be used reserved (unused).\nAlthough recently it has been used in DNSSec, the value being set to anything other than 0 should be rare.\nOtherwise if it is set to non 0 and DNSSec is being used, then excluding the legitimate domains is low effort and high reward.\nDetermine if multiple of these files were accessed in a short period of time to further enhance the possibility of seeing if this was a one off or the possibility of larger sensitive file gathering.\nThis Sigma query is designed to accompany the Corelight Threat Hunting Guide, which can be found here: https://www3.corelight.com/corelights-introductory-guide-to-threat-hunting-with-zeek-bro-logs'\n\n\nAuthor: @neu5ron, SOC Prime Team, Corelight\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ede05abc-2c9e-4624-9944-9ff17fdc0bf5",
+  "InsertDate": "2025-02-03T20:32:04Z",
+  "LastUpdateDate": "2025-02-03T20:32:04Z",
+  "Level": "medium",
+  "Name": "Suspicious DNS Z Flag Bit Set",
+  "Query": "sourcetype=\"zeek-dns\" NOT z=\"0\" query=\"*.*\" NOT ((query=\"*.arpa\" OR query=\"*.local\" OR query=\"*.ultradns.net\" OR query=\"*.twtrdns.net\" OR query=\"*.azuredns-prd.info\" OR query=\"*.azure-dns.com\" OR query=\"*.azuredns-ff.info\" OR query=\"*.azuredns-ff.org\" OR query=\"*.azuregov-dns.org\") OR (qtype_name=\"ns\" OR qtype_name=\"mx\") OR answers=\"*\\\\\\\\x00\" OR (id.resp_p=\"137\" OR id.resp_p=\"138\" OR id.resp_p=\"139\"))",
+  "Tags": [
+    "attack.t1095",
+    "attack.t1571",
+    "attack.command-and-control"
+  ],
+  "Version": "0.1"
+}

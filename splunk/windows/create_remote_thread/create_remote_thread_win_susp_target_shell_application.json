@@ -1,0 +1,14 @@
+{
+  "Description": "Detects remote thread creation in command shell applications, such as \"Cmd.EXE\" and \"PowerShell.EXE\".\nIt is a common technique used by malware, such as IcedID, to inject malicious code and execute it within legitimate processes.\n\n\nAuthor: Splunk Research Team\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a9d4d3fa-8fc0-41bc-80b1-30b9fda79d6f",
+  "InsertDate": "2025-02-03T20:32:15Z",
+  "LastUpdateDate": "2025-02-03T20:32:15Z",
+  "Level": "medium",
+  "Name": "Remote Thread Created In Shell Application",
+  "Query": "sourcetype=\"windows-*\" (dst_process_path=\"*\\\\cmd.exe\" OR dst_process_path=\"*\\\\powershell.exe\" OR dst_process_path=\"*\\\\pwsh.exe\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1055"
+  ],
+  "Version": "0.1"
+}

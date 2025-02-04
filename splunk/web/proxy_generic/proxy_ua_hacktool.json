@@ -1,0 +1,16 @@
+{
+  "Description": "Detects suspicious user agent strings user by hack tools in proxy logs\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c42a3073-30fb-48ae-8c99-c23ada84b103",
+  "InsertDate": "2025-02-03T20:32:05Z",
+  "LastUpdateDate": "2025-02-03T20:32:05Z",
+  "Level": "high",
+  "Name": "Hack Tool User Agent",
+  "Query": "(c-useragent=\"*(hydra)*\" OR c-useragent=\"* arachni/*\" OR c-useragent=\"* BFAC *\" OR c-useragent=\"* brutus *\" OR c-useragent=\"* cgichk *\" OR c-useragent=\"*core-project/1.0*\" OR c-useragent=\"* crimscanner/*\" OR c-useragent=\"*datacha0s*\" OR c-useragent=\"*dirbuster*\" OR c-useragent=\"*domino hunter*\" OR c-useragent=\"*dotdotpwn*\" OR c-useragent=\"*FHScan Core*\" OR c-useragent=\"*floodgate*\" OR c-useragent=\"*get-minimal*\" OR c-useragent=\"*gootkit auto-rooter scanner*\" OR c-useragent=\"*grendel-scan*\" OR c-useragent=\"* inspath *\" OR c-useragent=\"*internet ninja*\" OR c-useragent=\"*jaascois*\" OR c-useragent=\"* zmeu *\" OR c-useragent=\"*masscan*\" OR c-useragent=\"* metis *\" OR c-useragent=\"*morfeus fucking scanner*\" OR c-useragent=\"*n-stealth*\" OR c-useragent=\"*nsauditor*\" OR c-useragent=\"*pmafind*\" OR c-useragent=\"*security scan*\" OR c-useragent=\"*springenwerk*\" OR c-useragent=\"*teh forest lobster*\" OR c-useragent=\"*toata dragostea*\" OR c-useragent=\"* vega/*\" OR c-useragent=\"*voideye*\" OR c-useragent=\"*webshag*\" OR c-useragent=\"*webvulnscan*\" OR c-useragent=\"* whcc/*\" OR c-useragent=\"* Havij*\" OR c-useragent=\"*absinthe*\" OR c-useragent=\"*bsqlbf*\" OR c-useragent=\"*mysqloit*\" OR c-useragent=\"*pangolin*\" OR c-useragent=\"*sql power injector*\" OR c-useragent=\"*sqlmap*\" OR c-useragent=\"*sqlninja*\" OR c-useragent=\"*uil2pn*\" OR c-useragent=\"*ruler*\" OR c-useragent=\"*Mozilla/5.0 (Windows; U; Windows NT 5.1; pt-PT; rv:1.9.1.2) Gecko/20090729 Firefox/3.5.2 (.NET CLR 3.5.30729)*\")",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1190",
+    "attack.credential-access",
+    "attack.t1110"
+  ],
+  "Version": "0.1"
+}

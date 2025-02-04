@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious DNS error messages that indicate a fatal or suspicious error that could be caused by exploiting attempts\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c8e35e96-19ce-4f16-aeb6-fd5588dc5365",
+  "InsertDate": "2025-02-03T20:31:57Z",
+  "LastUpdateDate": "2025-02-03T20:31:57Z",
+  "Level": "high",
+  "Name": "Suspicious Named Error",
+  "Query": "sourcetype=\"linux-syslog\" (\" dropping source port zero packet from \" OR \" denied AXFR from \" OR \" exiting (due to fatal error)\")",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1190"
+  ],
+  "Version": "0.1"
+}

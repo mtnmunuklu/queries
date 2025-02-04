@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of the hacktool SharPersist - used to deploy various different kinds of persistence mechanisms\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "26488ad0-f9fd-4536-876f-52fea846a2e4",
+  "InsertDate": "2025-02-03T20:32:46Z",
+  "LastUpdateDate": "2025-02-03T20:32:46Z",
+  "Level": "high",
+  "Name": "HackTool - SharPersist Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\SharPersist.exe\" product=\"SharPersist\") OR (command=\"* -t schtask -c *\" OR command=\"* -t startupfolder -c *\") OR (command=\"* -t reg -c *\" command=\"* -m add*\") OR (command=\"* -t service -c *\" command=\"* -m add*\") OR (command=\"* -t schtask -c *\" command=\"* -m add*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1053"
+  ],
+  "Version": "0.1"
+}

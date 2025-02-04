@@ -1,0 +1,15 @@
+{
+  "Description": "Detects uses of a renamed legitimate createdump.exe LOLOBIN utility to dump process memory\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1a1ed54a-2ba4-4221-94d5-01dee560d71e",
+  "InsertDate": "2025-02-03T20:33:06Z",
+  "LastUpdateDate": "2025-02-03T20:33:06Z",
+  "Level": "high",
+  "Name": "Renamed CreateDump Utility Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (original_file_name=\"FX_VER_INTERNALNAME_STR\" OR ((command=\"* -u *\" command=\"* -f *\" command=\"*.dmp*\") (command=\"* --full *\" command=\"* --name *\" command=\"*.dmp*\"))) NOT process_path=\"*\\\\createdump.exe\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1036",
+    "attack.t1003.001"
+  ],
+  "Version": "0.1"
+}

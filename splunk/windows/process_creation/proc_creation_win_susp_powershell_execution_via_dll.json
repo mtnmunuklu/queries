@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential PowerShell execution from a DLL instead of the usual PowerShell process as seen used in PowerShdll.\nThis detection assumes that PowerShell commands are passed via the CommandLine.\n\n\nAuthor: Markus Neis, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6812a10b-60ea-420c-832f-dfcc33b646ba",
+  "InsertDate": "2025-02-03T20:33:16Z",
+  "LastUpdateDate": "2025-02-03T20:33:16Z",
+  "Level": "high",
+  "Name": "Potential PowerShell Execution Via DLL",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\InstallUtil.exe\" OR process_path=\"*\\\\RegAsm.exe\" OR process_path=\"*\\\\RegSvcs.exe\" OR process_path=\"*\\\\regsvr32.exe\" OR process_path=\"*\\\\rundll32.exe\") (original_file_name=\"InstallUtil.exe\" OR original_file_name=\"RegAsm.exe\" OR original_file_name=\"RegSvcs.exe\" OR original_file_name=\"REGSVR32.EXE\" OR original_file_name=\"RUNDLL32.EXE\")) (command=\"*Default.GetString*\" OR command=\"*DownloadString*\" OR command=\"*FromBase64String*\" OR command=\"*ICM *\" OR command=\"*IEX *\" OR command=\"*Invoke-Command*\" OR command=\"*Invoke-Expression*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.011"
+  ],
+  "Version": "0.1"
+}

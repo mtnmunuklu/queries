@@ -1,0 +1,15 @@
+{
+  "Description": "Detects potentially suspicious processes being spawned by a web server process which could be the result of a successfully placed web shell or exploitation\n\n\nAuthor: Thomas Patzke, Florian Roth (Nextron Systems), Zach Stanford @svch0st, Tim Shelton, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8202070f-edeb-4d31-a010-a26c72ac5600",
+  "InsertDate": "2025-02-03T20:33:24Z",
+  "LastUpdateDate": "2025-02-03T20:33:24Z",
+  "Level": "high",
+  "Name": "Suspicious Process By Web Server Process",
+  "Query": "sourcetype=\"windows-sysmon\" (((parent_process_path=\"*\\\\java.exe\" OR parent_process_path=\"*\\\\javaw.exe\") (parent_command_line=\"*CATALINA_HOME*\" OR parent_command_line=\"*catalina.home*\" OR parent_command_line=\"*catalina.jar*\")) OR (parent_process_path=\"*\\\\caddy.exe\" OR parent_process_path=\"*\\\\httpd.exe\" OR parent_process_path=\"*\\\\nginx.exe\" OR parent_process_path=\"*\\\\php-cgi.exe\" OR parent_process_path=\"*\\\\php.exe\" OR parent_process_path=\"*\\\\tomcat.exe\" OR parent_process_path=\"*\\\\UMWorkerProcess.exe\" OR parent_process_path=\"*\\\\w3wp.exe\" OR parent_process_path=\"*\\\\ws_TomcatService.exe\") OR ((parent_process_path=\"*\\\\java.exe\" OR parent_process_path=\"*\\\\javaw.exe\") (parent_process_path=\"*-tomcat-*\" OR parent_process_path=\"*\\\\tomcat*\"))) (process_path=\"*\\\\arp.exe\" OR process_path=\"*\\\\at.exe\" OR process_path=\"*\\\\bash.exe\" OR process_path=\"*\\\\bitsadmin.exe\" OR process_path=\"*\\\\certutil.exe\" OR process_path=\"*\\\\cmd.exe\" OR process_path=\"*\\\\cscript.exe\" OR process_path=\"*\\\\dsget.exe\" OR process_path=\"*\\\\hostname.exe\" OR process_path=\"*\\\\nbtstat.exe\" OR process_path=\"*\\\\net.exe\" OR process_path=\"*\\\\net1.exe\" OR process_path=\"*\\\\netdom.exe\" OR process_path=\"*\\\\netsh.exe\" OR process_path=\"*\\\\nltest.exe\" OR process_path=\"*\\\\ntdsutil.exe\" OR process_path=\"*\\\\powershell_ise.exe\" OR process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\" OR process_path=\"*\\\\qprocess.exe\" OR process_path=\"*\\\\query.exe\" OR process_path=\"*\\\\qwinsta.exe\" OR process_path=\"*\\\\reg.exe\" OR process_path=\"*\\\\rundll32.exe\" OR process_path=\"*\\\\sc.exe\" OR process_path=\"*\\\\sh.exe\" OR process_path=\"*\\\\wmic.exe\" OR process_path=\"*\\\\wscript.exe\" OR process_path=\"*\\\\wusa.exe\") NOT ((parent_process_path=\"*\\\\java.exe\" command=\"*Windows\\\\system32\\\\cmd.exe /c C:\\\\ManageEngine\\\\ADManager \"Plus\\\\ES\\\\bin\\\\elasticsearch.bat -Enode.name=RMP-NODE1 -pelasticsearch-pid.txt\") OR (parent_process_path=\"*\\\\java.exe\" (command=\"*sc query*\" command=\"*ADManager Plus*\")))",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1505.003",
+    "attack.t1190"
+  ],
+  "Version": "0.1"
+}

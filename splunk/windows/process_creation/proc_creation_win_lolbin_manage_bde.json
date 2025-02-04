@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential abuse of the \"manage-bde.wsf\" script as a LOLBIN to proxy execution\n\nAuthor: oscd.community, Natalia Shornikova, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c363385c-f75d-4753-a108-c1a8e28bdbda",
+  "InsertDate": "2025-02-03T20:32:48Z",
+  "LastUpdateDate": "2025-02-03T20:32:48Z",
+  "Level": "high",
+  "Name": "Potential Manage-bde.wsf Abuse To Proxy Execution",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\wscript.exe\" original_file_name=\"wscript.exe\") command=\"*manage-bde.wsf*\") OR (((parent_process_path=\"*\\\\cscript.exe\" OR parent_process_path=\"*\\\\wscript.exe\") parent_command_line=\"*manage-bde.wsf*\") NOT process_path=\"*\\\\cmd.exe\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1216"
+  ],
+  "Version": "0.1"
+}

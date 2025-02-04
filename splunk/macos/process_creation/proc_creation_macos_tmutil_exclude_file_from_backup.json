@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the addition of a new file or path exclusion to MacOS Time Machine via the \"tmutil\" utility.\nAn adversary could exclude a path from Time Machine backups to prevent certain files from being backed up.\n\n\nAuthor: Pratinav Chandra\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9acf45ed-3a26-4062-bf08-56857613eb52",
+  "InsertDate": "2025-02-03T20:32:03Z",
+  "LastUpdateDate": "2025-02-03T20:32:03Z",
+  "Level": "medium",
+  "Name": "New File Exclusion Added To Time Machine Via Tmutil - MacOS",
+  "Query": "sourcetype=\"macos-*\" command=\"*addexclusion*\" (process_path=\"*/tmutil\" command=\"*tmutil*\")",
+  "Tags": [
+    "attack.impact",
+    "attack.t1490"
+  ],
+  "Version": "0.1"
+}

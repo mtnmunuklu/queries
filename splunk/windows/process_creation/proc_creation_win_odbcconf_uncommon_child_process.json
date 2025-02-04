@@ -1,0 +1,14 @@
+{
+  "Description": "Detects an uncommon child process of \"odbcconf.exe\" binary which normally shouldn't have any child processes.\n\nAuthor: Harjot Singh @cyb3rjy0t\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8e3c7994-131e-4ba5-b6ea-804d49113a26",
+  "InsertDate": "2025-02-03T20:32:53Z",
+  "LastUpdateDate": "2025-02-03T20:32:53Z",
+  "Level": "medium",
+  "Name": "Uncommon Child Process Spawned By Odbcconf.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" parent_process_path=\"*\\\\odbcconf.exe\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.008"
+  ],
+  "Version": "0.1"
+}

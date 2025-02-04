@@ -1,0 +1,13 @@
+{
+  "Description": "Detects when multi-factor authentication (MFA) is disabled.\n\nAuthor: Austin Songer\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "780601d1-6376-4f2a-884e-b8d45599f78c",
+  "InsertDate": "2025-02-03T20:31:54Z",
+  "LastUpdateDate": "2025-02-03T20:31:54Z",
+  "Level": "medium",
+  "Name": "Google Workspace MFA Disabled",
+  "Query": "sourcetype=\"gcp-google_workspace.admin\" (eventservice=\"admin.googleapis.com\" (eventname=\"ENFORCE_STRONG_AUTHENTICATION\" OR eventname=\"ALLOW_STRONG_AUTHENTICATION\")) new_value=\"false\"",
+  "Tags": [
+    "attack.impact"
+  ],
+  "Version": "0.1"
+}

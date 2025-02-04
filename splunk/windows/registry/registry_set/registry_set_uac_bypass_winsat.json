@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the pattern of UAC Bypass using a path parsing issue in winsat.exe (UACMe 52)\n\nAuthor: Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6597be7b-ac61-4ac8-bef4-d3ec88174853",
+  "InsertDate": "2025-02-03T20:33:44Z",
+  "LastUpdateDate": "2025-02-03T20:33:44Z",
+  "Level": "high",
+  "Name": "UAC Bypass Abusing Winsat Path Parsing - Registry",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\Root\\\\InventoryApplicationFile\\\\winsat.exe|*\" target_object=\"*\\\\LowerCaseLongPath\" details=\"c:\\\\users\\\\*\" details=\"*\\\\appdata\\\\local\\\\temp\\\\system32\\\\winsat.exe\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1548.002"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when an Okta end-user reports activity by their account as being potentially suspicious.\n\nAuthor: kelnage\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "07e97cc6-aed1-43ae-9081-b3470d2367f1",
+  "InsertDate": "2025-02-03T20:31:55Z",
+  "LastUpdateDate": "2025-02-03T20:31:55Z",
+  "Level": "high",
+  "Name": "Okta Suspicious Activity Reported by End-user",
+  "Query": "sourcetype=\"okta-okta\" eventtype=\"user.account.report_suspicious_activity_by_enduser\"",
+  "Tags": [
+    "attack.resource-development",
+    "attack.t1586.003"
+  ],
+  "Version": "0.1"
+}

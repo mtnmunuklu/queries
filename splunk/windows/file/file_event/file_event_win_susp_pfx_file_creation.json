@@ -1,0 +1,14 @@
+{
+  "Description": "A general detection for processes creating PFX files. This could be an indicator of an adversary exporting a local certificate to a PFX file.\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "dca1b3e8-e043-4ec8-85d7-867f334b5724",
+  "InsertDate": "2025-02-03T20:32:20Z",
+  "LastUpdateDate": "2025-02-03T20:32:20Z",
+  "Level": "medium",
+  "Name": "Suspicious PFX File Creation",
+  "Query": "sourcetype=\"windows-sysmon\" filepath=\"*.pfx\" NOT (filepath=\"*\\\\Templates\\\\Windows\\\\Windows_TemporaryKey.pfx*\" filepath=\"*\\\\CMake\\\\*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1552.004"
+  ],
+  "Version": "0.1"
+}

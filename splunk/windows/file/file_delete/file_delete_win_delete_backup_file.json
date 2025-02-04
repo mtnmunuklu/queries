@@ -1,0 +1,14 @@
+{
+  "Description": "Detects deletion of files with extensions often used for backup files. Adversaries may delete or remove built-in operating system data and turn off services designed to aid in the recovery of a corrupted system to prevent recovery.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "06125661-3814-4e03-bfa2-1e4411c60ac3",
+  "InsertDate": "2025-02-03T20:32:16Z",
+  "LastUpdateDate": "2025-02-03T20:32:16Z",
+  "Level": "medium",
+  "Name": "Backup Files Deleted",
+  "Query": "sourcetype=\"windows-*\" (process_path=\"*\\\\cmd.exe\" OR process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\" OR process_path=\"*\\\\wt.exe\" OR process_path=\"*\\\\rundll32.exe\" OR process_path=\"*\\\\regsvr32.exe\") (filepath=\"*.VHD\" OR filepath=\"*.bac\" OR filepath=\"*.bak\" OR filepath=\"*.wbcat\" OR filepath=\"*.bkf\" OR filepath=\"*.set\" OR filepath=\"*.win\" OR filepath=\"*.dsk\")",
+  "Tags": [
+    "attack.impact",
+    "attack.t1490"
+  ],
+  "Version": "0.1"
+}

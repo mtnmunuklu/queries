@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of network scanning and reconnaisance tools. These tools can be used for the enumeration of local or remote network services for example.\n\nAuthor: Alejandro Ortuno, oscd.community, Georg Lauenstein (sure[secure])\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3e102cd9-a70d-4a7a-9508-403963092f31",
+  "InsertDate": "2025-02-03T20:32:01Z",
+  "LastUpdateDate": "2025-02-03T20:32:01Z",
+  "Level": "low",
+  "Name": "Linux Network Service Scanning Tools Execution",
+  "Query": "sourcetype=\"linux-*\" ((process_path=\"*/nc\" OR process_path=\"*/ncat\" OR process_path=\"*/netcat\" OR process_path=\"*/socat\") NOT (command=\"* --listen *\" OR command=\"* -l *\")) OR (process_path=\"*/autorecon\" OR process_path=\"*/hping\" OR process_path=\"*/hping2\" OR process_path=\"*/hping3\" OR process_path=\"*/naabu\" OR process_path=\"*/nmap\" OR process_path=\"*/nping\" OR process_path=\"*/telnet\" OR process_path=\"*/zenmap\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1046"
+  ],
+  "Version": "0.1"
+}

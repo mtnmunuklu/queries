@@ -1,0 +1,14 @@
+{
+  "Description": "Detect when authentications to important application(s) only required single-factor authentication\n\nAuthor: MikeDuddington, '@dudders1'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f272fb46-25f2-422c-b667-45837994980f",
+  "InsertDate": "2025-02-03T20:31:53Z",
+  "LastUpdateDate": "2025-02-03T20:31:53Z",
+  "Level": "medium",
+  "Name": "Authentications To Important Apps Using Single Factor Authentication",
+  "Query": "sourcetype=\"azure-signinlogs\" status=\"Success\" appid=\"Insert Application ID use OR for multiple\" authenticationrequirement=\"singleFactorAuthentication\"",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1078"
+  ],
+  "Version": "0.1"
+}

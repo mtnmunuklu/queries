@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the creation of new files with the \".evtx\" extension in non-common or non-standard location.\nThis could indicate tampering with default EVTX locations in order to evade security controls or simply exfiltration of event log to search for sensitive information within.\nNote that backup software and legitimate administrator might perform similar actions during troubleshooting.\n\n\nAuthor: D3F7A5105\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "65236ec7-ace0-4f0c-82fd-737b04fd4dcb",
+  "InsertDate": "2025-02-03T20:32:17Z",
+  "LastUpdateDate": "2025-02-03T20:32:17Z",
+  "Level": "medium",
+  "Name": "EVTX Created In Uncommon Location",
+  "Query": "sourcetype=\"windows-sysmon\" filepath=\"*.evtx\" NOT (filepath=\"C:\\\\Windows\\\\System32\\\\winevt\\\\Logs\\\\*\" OR (filepath=\"C:\\\\ProgramData\\\\Microsoft\\\\Windows\\\\Containers\\\\BaseImages\\\\*\" filepath=\"*\\\\Windows\\\\System32\\\\winevt\\\\Logs\\\\\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.002"
+  ],
+  "Version": "0.1"
+}

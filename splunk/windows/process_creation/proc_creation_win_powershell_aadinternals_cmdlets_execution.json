@@ -1,0 +1,17 @@
+{
+  "Description": "Detects ADDInternals Cmdlet execution. A tool for administering Azure AD and Office 365. Which can be abused by threat actors to attack Azure AD or Office 365.\n\nAuthor: Austin Songer (@austinsonger), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c86500e9-a645-4680-98d7-f882c70c1ea3",
+  "InsertDate": "2025-02-03T20:32:54Z",
+  "LastUpdateDate": "2025-02-03T20:32:54Z",
+  "Level": "high",
+  "Name": "AADInternals PowerShell Cmdlets Execution - ProccessCreation",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\") (original_file_name=\"PowerShell.Exe\" OR original_file_name=\"pwsh.dll\")) (command=\"*Add-AADInt*\" OR command=\"*ConvertTo-AADInt*\" OR command=\"*Disable-AADInt*\" OR command=\"*Enable-AADInt*\" OR command=\"*Export-AADInt*\" OR command=\"*Get-AADInt*\" OR command=\"*Grant-AADInt*\" OR command=\"*Install-AADInt*\" OR command=\"*Invoke-AADInt*\" OR command=\"*Join-AADInt*\" OR command=\"*New-AADInt*\" OR command=\"*Open-AADInt*\" OR command=\"*Read-AADInt*\" OR command=\"*Register-AADInt*\" OR command=\"*Remove-AADInt*\" OR command=\"*Restore-AADInt*\" OR command=\"*Search-AADInt*\" OR command=\"*Send-AADInt*\" OR command=\"*Set-AADInt*\" OR command=\"*Start-AADInt*\" OR command=\"*Update-AADInt*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.reconnaissance",
+    "attack.discovery",
+    "attack.credential-access",
+    "attack.impact"
+  ],
+  "Version": "0.1"
+}

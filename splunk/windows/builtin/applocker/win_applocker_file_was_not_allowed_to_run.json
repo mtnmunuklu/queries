@@ -1,0 +1,19 @@
+{
+  "Description": "Detect run not allowed files. Applocker is a very useful tool, especially on servers where unprivileged users have access. For example terminal servers. You need configure applocker and log collect to receive these events.\n\nAuthor: Pushkarev Dmitry\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "401e5d00-b944-11ea-8f9a-00163ecd60ae",
+  "InsertDate": "2025-02-03T20:32:06Z",
+  "LastUpdateDate": "2025-02-03T20:32:06Z",
+  "Level": "medium",
+  "Name": "File Was Not Allowed To Run",
+  "Query": "sourcetype=\"windows-applocker\" (eventid=\"8004\" OR eventid=\"8007\" OR eventid=\"8022\" OR eventid=\"8025\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1204.002",
+    "attack.t1059.001",
+    "attack.t1059.003",
+    "attack.t1059.005",
+    "attack.t1059.006",
+    "attack.t1059.007"
+  ],
+  "Version": "0.1"
+}

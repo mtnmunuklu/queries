@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when when a mounted share is removed. Adversaries may remove share connections that are no longer useful in order to clean up traces of their operation\n\nAuthor: oscd.community, @redcanary, Zach Stanford @svch0st\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "66a4d409-451b-4151-94f4-a55d559c49b0",
+  "InsertDate": "2025-02-03T20:32:34Z",
+  "LastUpdateDate": "2025-02-03T20:32:34Z",
+  "Level": "medium",
+  "Name": "PowerShell Deleted Mounted Share",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*Remove-SmbShare*\" OR scriptblocktext=\"*Remove-FileShare*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1070.005"
+  ],
+  "Version": "0.1"
+}

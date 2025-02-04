@@ -1,0 +1,16 @@
+{
+  "Description": "Detects remote PowerShell sessions\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g, Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "96b9f619-aa91-478f-bacb-c3e50f8df575",
+  "InsertDate": "2025-02-03T20:32:28Z",
+  "LastUpdateDate": "2025-02-03T20:32:28Z",
+  "Level": "high",
+  "Name": "Remote PowerShell Session (PS Module)",
+  "Query": "sourcetype=\"windows-*\" (contextinfo=\"* = ServerRemoteHost *\" contextinfo=\"*wsmprovhost.exe*\") NOT contextinfo=\"*\\\\Windows\\\\system32\\\\WindowsPowerShell\\\\v1.0\\\\Modules\\\\Microsoft.PowerShell.Archive\\\\Microsoft.PowerShell.Archive.psm1*\"",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001",
+    "attack.lateral-movement",
+    "attack.t1021.006"
+  ],
+  "Version": "0.1"
+}

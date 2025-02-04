@@ -1,0 +1,14 @@
+{
+  "Description": "Detects blocked load attempts of revoked drivers\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9b72b82d-f1c5-4632-b589-187159bc6ec1",
+  "InsertDate": "2025-02-03T20:32:06Z",
+  "LastUpdateDate": "2025-02-03T20:32:06Z",
+  "Level": "high",
+  "Name": "CodeIntegrity - Blocked Driver Load With Revoked Certificate",
+  "Query": "sourcetype=\"windows-codeintegrity-operational\" eventid=\"3023\"",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.t1543"
+  ],
+  "Version": "0.1"
+}

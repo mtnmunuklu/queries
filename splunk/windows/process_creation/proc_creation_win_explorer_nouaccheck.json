@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious starts of explorer.exe that use the /NOUACCHECK flag that allows to run all sub processes of that newly started explorer.exe without any UAC checks\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "534f2ef7-e8a2-4433-816d-c91bccde289b",
+  "InsertDate": "2025-02-03T20:32:42Z",
+  "LastUpdateDate": "2025-02-03T20:32:42Z",
+  "Level": "high",
+  "Name": "Explorer NOUACCHECK Flag",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\explorer.exe\" command=\"*/NOUACCHECK*\") NOT (parent_command_line=\"C:\\\\Windows\\\\system32\\\\svchost.exe -k netsvcs -p -s Schedule\" parent_process_path=\"C:\\\\Windows\\\\System32\\\\svchost.exe\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1548.002"
+  ],
+  "Version": "0.1"
+}

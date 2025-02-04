@@ -1,0 +1,14 @@
+{
+  "Description": "Detects outlvba (Microsoft VBA for Outlook Addin) DLL being loaded by the outlook process\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9a0b8719-cd3c-4f0a-90de-765a4cb3f5ed",
+  "InsertDate": "2025-02-03T20:32:22Z",
+  "LastUpdateDate": "2025-02-03T20:32:22Z",
+  "Level": "medium",
+  "Name": "Microsoft VBA For Outlook Addin Loaded Via Outlook",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\outlook.exe\" image_loaded=\"*\\\\outlvba.dll\"",
+  "Tags": [
+    "attack.execution",
+    "attack.t1204.002"
+  ],
+  "Version": "0.1"
+}

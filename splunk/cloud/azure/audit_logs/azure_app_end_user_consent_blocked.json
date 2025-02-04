@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when end user consent is blocked due to risk-based consent.\n\nAuthor: Bailey Bercik '@baileybercik', Mark Morowczynski '@markmorow'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7091372f-623c-4293-bc37-20c32b3492be",
+  "InsertDate": "2025-02-03T20:31:52Z",
+  "LastUpdateDate": "2025-02-03T20:31:52Z",
+  "Level": "medium",
+  "Name": "End User Consent Blocked",
+  "Query": "sourcetype=\"azure-auditlogs\" failure_status_reason=\"Microsoft.online.Security.userConsentBlockedForRiskyAppsExceptions\"",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1528"
+  ],
+  "Version": "0.1"
+}

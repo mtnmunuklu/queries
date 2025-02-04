@@ -1,0 +1,13 @@
+{
+  "Description": "Detects PowerShell creating a PowerShell file (.ps1). While often times this behavior is benign, sometimes it can be a sign of a dropper script trying to achieve persistence.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "576426ad-0131-4001-ae01-be175da0c108",
+  "InsertDate": "2025-02-03T20:32:19Z",
+  "LastUpdateDate": "2025-02-03T20:32:19Z",
+  "Level": "low",
+  "Name": "PowerShell Script Dropped Via PowerShell.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\") filepath=\"*.ps1\") NOT (filepath=\"C:\\\\Windows\\\\Temp\\\\*\" OR filepath=\"*__PSScriptPolicyTest_*\" OR (filepath=\"C:\\\\Users\\\\*\" filepath=\"*\\\\AppData\\\\Local\\\\Temp\\\\*\"))",
+  "Tags": [
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

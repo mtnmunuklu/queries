@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the execution of the SharpDPAPI tool based on CommandLine flags and PE metadata.\nSharpDPAPI is a C# port of some DPAPI functionality from the Mimikatz project.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c7d33b50-f690-4b51-8cfb-0fb912a31e57",
+  "InsertDate": "2025-02-03T20:32:45Z",
+  "LastUpdateDate": "2025-02-03T20:32:45Z",
+  "Level": "high",
+  "Name": "HackTool - SharpDPAPI Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\SharpDPAPI.exe\" original_file_name=\"SharpDPAPI.exe\") OR ((command=\"* backupkey *\" OR command=\"* blob *\" OR command=\"* certificates *\" OR command=\"* credentials *\" OR command=\"* keepass *\" OR command=\"* masterkeys *\" OR command=\"* rdg *\" OR command=\"* vaults *\") ((command=\"* {*\" command=\"*}:*\") OR (command=\"* /file:*\" OR command=\"* /machine*\" OR command=\"* /mkfile:*\" OR command=\"* /password:*\" OR command=\"* /pvk:*\" OR command=\"* /server:*\" OR command=\"* /target:*\" OR command=\"* /unprotect*\")))",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.defense-evasion",
+    "attack.t1134.001",
+    "attack.t1134.003"
+  ],
+  "Version": "0.1"
+}

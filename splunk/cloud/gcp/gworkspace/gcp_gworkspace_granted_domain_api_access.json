@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when an API access service account is granted domain authority.\n\nAuthor: Austin Songer\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "04e2a23a-9b29-4a5c-be3a-3542e3f982ba",
+  "InsertDate": "2025-02-03T20:31:54Z",
+  "LastUpdateDate": "2025-02-03T20:31:54Z",
+  "Level": "medium",
+  "Name": "Google Workspace Granted Domain API Access",
+  "Query": "sourcetype=\"gcp-google_workspace.admin\" eventservice=\"admin.googleapis.com\" eventname=\"AUTHORIZE_API_CLIENT_ACCESS\"",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1098"
+  ],
+  "Version": "0.1"
+}

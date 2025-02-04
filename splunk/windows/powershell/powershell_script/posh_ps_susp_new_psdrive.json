@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may use to interact with a remote network share using Server Message Block (SMB). The adversary may then perform actions as the logged-on user.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1c563233-030e-4a07-af8c-ee0490a66d3a",
+  "InsertDate": "2025-02-03T20:32:34Z",
+  "LastUpdateDate": "2025-02-03T20:32:34Z",
+  "Level": "medium",
+  "Name": "Suspicious New-PSDrive to Admin Share",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*New-PSDrive*\" scriptblocktext=\"*-psprovider *\" scriptblocktext=\"*filesystem*\" scriptblocktext=\"*-root *\" scriptblocktext=\"*\\\\\\\\\\\\\\\\*\" scriptblocktext=\"*$*\")",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.t1021.002"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious modification of crontab file.\n\nAuthor: Pawel Mazur\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "af202fd3-7bff-4212-a25a-fb34606cfcbe",
+  "InsertDate": "2025-02-03T20:31:57Z",
+  "LastUpdateDate": "2025-02-03T20:31:57Z",
+  "Level": "medium",
+  "Name": "Modifying Crontab",
+  "Query": "sourcetype=\"linux-cron\" (\"REPLACE\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1053.003"
+  ],
+  "Version": "0.1"
+}

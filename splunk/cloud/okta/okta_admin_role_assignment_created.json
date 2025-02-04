@@ -1,0 +1,13 @@
+{
+  "Description": "Detects when a new admin role assignment is created. Which could be a sign of privilege escalation or persistence\n\nAuthor: Nikita Khalimonenkov\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "139bdd4b-9cd7-49ba-a2f4-744d0a8f5d8c",
+  "InsertDate": "2025-02-03T20:31:55Z",
+  "LastUpdateDate": "2025-02-03T20:31:55Z",
+  "Level": "medium",
+  "Name": "Okta Admin Role Assignment Created",
+  "Query": "sourcetype=\"okta-okta\" eventtype=\"iam.resourceset.bindings.add\"",
+  "Tags": [
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

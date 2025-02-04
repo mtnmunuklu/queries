@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the creation of an \"Active Directory Schema Cache File\" (.sch) file by an uncommon tool.\n\nAuthor: xknow @xknow_infosec, Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "75bf09fa-1dd7-4d18-9af9-dd9e492562eb",
+  "InsertDate": "2025-02-03T20:32:17Z",
+  "LastUpdateDate": "2025-02-03T20:32:17Z",
+  "Level": "medium",
+  "Name": "ADSI-Cache File Creation By Uncommon Tool",
+  "Query": "sourcetype=\"windows-sysmon\" (filepath=\"*\\\\Local\\\\Microsoft\\\\Windows\\\\SchCache\\\\*\" filepath=\"*.sch\") NOT (((process_path=\"*:\\\\Program Files\\\\Cylance\\\\Desktop\\\\CylanceSvc.exe\" OR process_path=\"*:\\\\Windows\\\\CCM\\\\CcmExec.exe\" OR process_path=\"*:\\\\windows\\\\system32\\\\dllhost.exe\" OR process_path=\"*:\\\\Windows\\\\system32\\\\dsac.exe\" OR process_path=\"*:\\\\Windows\\\\system32\\\\efsui.exe\" OR process_path=\"*:\\\\windows\\\\system32\\\\mmc.exe\" OR process_path=\"*:\\\\windows\\\\system32\\\\svchost.exe\" OR process_path=\"*:\\\\Windows\\\\System32\\\\wbem\\\\WmiPrvSE.exe\" OR process_path=\"*:\\\\windows\\\\system32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\") (process_path=\"*:\\\\Windows\\\\ccmsetup\\\\autoupgrade\\\\ccmsetup*\" OR process_path=\"*:\\\\Program Files\\\\SentinelOne\\\\Sentinel Agent*\")) OR ((process_path=\"*:\\\\Program Files\\\\*\" process_path=\"*\\\\Microsoft Office*\") process_path=\"*\\\\OUTLOOK.EXE\")) NOT (process_path=\"*\\\\LANDesk\\\\LDCLient\\\\ldapwhoami.exe\" OR process_path=\"*:\\\\Program Files\\\\Citrix\\\\Receiver StoreFront\\\\Services\\\\DefaultDomainServices\\\\Citrix.DeliveryServices.DomainServices.ServiceHost.exe\")",
+  "Tags": [
+    "attack.t1001.003",
+    "attack.command-and-control"
+  ],
+  "Version": "0.1"
+}

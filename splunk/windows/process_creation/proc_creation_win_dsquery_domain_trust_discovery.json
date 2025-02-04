@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of \"dsquery.exe\" for domain trust discovery\n\nAuthor: E.M. Anhaus, Tony Lambert, oscd.community, omkar72\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3bad990e-4848-4a78-9530-b427d854aac0",
+  "InsertDate": "2025-02-03T20:32:41Z",
+  "LastUpdateDate": "2025-02-03T20:32:41Z",
+  "Level": "medium",
+  "Name": "Domain Trust Discovery Via Dsquery",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\dsquery.exe\" original_file_name=\"dsquery.exe\") command=\"*trustedDomain*\"",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1482"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential web shell execution from the ScreenConnect server process.\n\nAuthor: Jason Rathbun (Blackpoint Cyber)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b19146a3-25d4-41b4-928b-1e2a92641b1b",
+  "InsertDate": "2025-02-03T20:33:06Z",
+  "LastUpdateDate": "2025-02-03T20:33:06Z",
+  "Level": "high",
+  "Name": "Remote Access Tool - ScreenConnect Server Web Shell Execution",
+  "Query": "sourcetype=\"windows-sysmon\" parent_process_path=\"*\\\\ScreenConnect.Service.exe\" (process_path=\"*\\\\cmd.exe\" OR process_path=\"*\\\\csc.exe\")",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1190"
+  ],
+  "Version": "0.1"
+}

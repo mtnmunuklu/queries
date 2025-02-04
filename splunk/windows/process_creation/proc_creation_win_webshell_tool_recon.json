@@ -1,0 +1,14 @@
+{
+  "Description": "Detects processes spawned from web servers (PHP, Tomcat, IIS, etc.) that perform reconnaissance looking for the existence of popular scripting tools (perl, python, wget) on the system via the help commands\n\n\nAuthor: Cian Heasley, Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f64e5c19-879c-4bae-b471-6d84c8339677",
+  "InsertDate": "2025-02-03T20:33:24Z",
+  "LastUpdateDate": "2025-02-03T20:33:24Z",
+  "Level": "high",
+  "Name": "Webshell Tool Reconnaissance Activity",
+  "Query": "sourcetype=\"windows-sysmon\" (((parent_process_path=\"*\\\\java.exe\" OR parent_process_path=\"*\\\\javaw.exe\") (parent_process_path=\"*-tomcat-*\" OR parent_process_path=\"*\\\\tomcat*\")) OR ((parent_process_path=\"*\\\\java.exe\" OR parent_process_path=\"*\\\\javaw.exe\") (command=\"*CATALINA_HOME*\" OR command=\"*catalina.jar*\")) OR (parent_process_path=\"*\\\\caddy.exe\" OR parent_process_path=\"*\\\\httpd.exe\" OR parent_process_path=\"*\\\\nginx.exe\" OR parent_process_path=\"*\\\\php-cgi.exe\" OR parent_process_path=\"*\\\\w3wp.exe\" OR parent_process_path=\"*\\\\ws_tomcatservice.exe\")) (command=\"*perl --help*\" OR command=\"*perl -h*\" OR command=\"*python --help*\" OR command=\"*python -h*\" OR command=\"*python3 --help*\" OR command=\"*python3 -h*\" OR command=\"*wget --help*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1505.003"
+  ],
+  "Version": "0.1"
+}

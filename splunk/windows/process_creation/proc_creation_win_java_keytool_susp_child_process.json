@@ -1,0 +1,15 @@
+{
+  "Description": "Detects suspicious shell spawn from Java utility keytool process (e.g. adselfservice plus exploitation)\n\nAuthor: Andreas Hunkeler (@Karneades)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "90fb5e62-ca1f-4e22-b42e-cc521874c938",
+  "InsertDate": "2025-02-03T20:32:47Z",
+  "LastUpdateDate": "2025-02-03T20:32:47Z",
+  "Level": "high",
+  "Name": "Suspicious Shells Spawn by Java Utility Keytool",
+  "Query": "sourcetype=\"windows-sysmon\" parent_process_path=\"*\\\\keytool.exe\" (process_path=\"*\\\\cmd.exe\" OR process_path=\"*\\\\sh.exe\" OR process_path=\"*\\\\bash.exe\" OR process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\" OR process_path=\"*\\\\schtasks.exe\" OR process_path=\"*\\\\certutil.exe\" OR process_path=\"*\\\\whoami.exe\" OR process_path=\"*\\\\bitsadmin.exe\" OR process_path=\"*\\\\wscript.exe\" OR process_path=\"*\\\\cscript.exe\" OR process_path=\"*\\\\scrcons.exe\" OR process_path=\"*\\\\regsvr32.exe\" OR process_path=\"*\\\\hh.exe\" OR process_path=\"*\\\\wmic.exe\" OR process_path=\"*\\\\mshta.exe\" OR process_path=\"*\\\\rundll32.exe\" OR process_path=\"*\\\\forfiles.exe\" OR process_path=\"*\\\\scriptrunner.exe\" OR process_path=\"*\\\\mftrace.exe\" OR process_path=\"*\\\\AppVLP.exe\" OR process_path=\"*\\\\systeminfo.exe\" OR process_path=\"*\\\\reg.exe\" OR process_path=\"*\\\\query.exe\")",
+  "Tags": [
+    "attack.initial-access",
+    "attack.persistence",
+    "attack.privilege-escalation"
+  ],
+  "Version": "0.1"
+}

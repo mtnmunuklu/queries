@@ -1,0 +1,14 @@
+{
+  "Description": "Detects changes to the Netsh registry key to add a new DLL value that is located on a suspicious location. This change might be an indication of a potential persistence attempt by adding a malicious Netsh helper\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e7b18879-676e-4a0e-ae18-27039185a8e7",
+  "InsertDate": "2025-02-03T20:33:38Z",
+  "LastUpdateDate": "2025-02-03T20:33:38Z",
+  "Level": "high",
+  "Name": "New Netsh Helper DLL Registered From A Suspicious Location",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\SOFTWARE\\\\Microsoft\\\\NetSh*\" ((details=\"*:\\\\Perflogs\\\\*\" OR details=\"*:\\\\Users\\\\Public\\\\*\" OR details=\"*:\\\\Windows\\\\Temp\\\\*\" OR details=\"*\\\\AppData\\\\Local\\\\Temp\\\\*\" OR details=\"*\\\\Temporary Internet*\") OR ((details=\"*:\\\\Users\\\\*\" details=\"*\\\\Favorites\\\\*\") (details=\"*:\\\\Users\\\\*\" details=\"*\\\\Favourites\\\\*\") (details=\"*:\\\\Users\\\\*\" details=\"*\\\\Contacts\\\\*\") (details=\"*:\\\\Users\\\\*\" details=\"*\\\\Pictures\\\\*\")))",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1546.007"
+  ],
+  "Version": "0.1"
+}

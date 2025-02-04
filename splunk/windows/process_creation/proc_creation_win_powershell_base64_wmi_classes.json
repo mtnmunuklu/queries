@@ -1,0 +1,16 @@
+{
+  "Description": "Detects calls to base64 encoded WMI class such as \"Win32_ShadowCopy\", \"Win32_ScheduledJob\", etc.\n\nAuthor: Christian Burkard (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1816994b-42e1-4fb1-afd2-134d88184f71",
+  "InsertDate": "2025-02-03T20:32:55Z",
+  "LastUpdateDate": "2025-02-03T20:32:55Z",
+  "Level": "high",
+  "Name": "PowerShell Base64 Encoded WMI Classes",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\") (original_file_name=\"PowerShell.EXE\" OR original_file_name=\"pwsh.dll\")) ((command=\"*VwBpAG4AMwAyAF8AUAByAG8AYwBlAHMAcw*\" OR command=\"*cAaQBuADMAMgBfAFAAcgBvAGMAZQBzAHMA*\" OR command=\"*XAGkAbgAzADIAXwBQAHIAbwBjAGUAcwBzA*\" OR command=\"*V2luMzJfUHJvY2Vzc*\" OR command=\"*dpbjMyX1Byb2Nlc3*\" OR command=\"*XaW4zMl9Qcm9jZXNz*\") OR (command=\"*VwBpAG4AMwAyAF8AVQBzAGUAcgBBAGMAYwBvAHUAbgB0A*\" OR command=\"*cAaQBuADMAMgBfAFUAcwBlAHIAQQBjAGMAbwB1AG4AdA*\" OR command=\"*XAGkAbgAzADIAXwBVAHMAZQByAEEAYwBjAG8AdQBuAHQA*\" OR command=\"*V2luMzJfVXNlckFjY291bn*\" OR command=\"*dpbjMyX1VzZXJBY2NvdW50*\" OR command=\"*XaW4zMl9Vc2VyQWNjb3Vud*\") OR (command=\"*VwBpAG4AMwAyAF8ATABvAGcAZwBlAGQATwBuAFUAcwBlAHIA*\" OR command=\"*cAaQBuADMAMgBfAEwAbwBnAGcAZQBkAE8AbgBVAHMAZQByA*\" OR command=\"*XAGkAbgAzADIAXwBMAG8AZwBnAGUAZABPAG4AVQBzAGUAcg*\" OR command=\"*V2luMzJfTG9nZ2VkT25Vc2Vy*\" OR command=\"*dpbjMyX0xvZ2dlZE9uVXNlc*\" OR command=\"*XaW4zMl9Mb2dnZWRPblVzZX*\") OR (command=\"*VwBpAG4AMwAyAF8AUwBoAGEAZABvAHcAYwBvAHAAeQ*\" OR command=\"*cAaQBuADMAMgBfAFMAaABhAGQAbwB3AGMAbwBwAHkA*\" OR command=\"*XAGkAbgAzADIAXwBTAGgAYQBkAG8AdwBjAG8AcAB5A*\" OR command=\"*V2luMzJfU2hhZG93Y29we*\" OR command=\"*dpbjMyX1NoYWRvd2NvcH*\" OR command=\"*XaW4zMl9TaGFkb3djb3B5*\") OR (command=\"*VwBpAG4AMwAyAF8AUwBjAGgAZQBkAHUAbABlAGQASgBvAGIA*\" OR command=\"*cAaQBuADMAMgBfAFMAYwBoAGUAZAB1AGwAZQBkAEoAbwBiA*\" OR command=\"*XAGkAbgAzADIAXwBTAGMAaABlAGQAdQBsAGUAZABKAG8AYg*\" OR command=\"*V2luMzJfU2NoZWR1bGVkSm9i*\" OR command=\"*dpbjMyX1NjaGVkdWxlZEpvY*\" OR command=\"*XaW4zMl9TY2hlZHVsZWRKb2*\"))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001",
+    "attack.defense-evasion",
+    "attack.t1027"
+  ],
+  "Version": "0.1"
+}

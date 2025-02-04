@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the modification of Group Policy Objects (GPO) to add a startup/logon script to users or computer objects.\n\n\nAuthor: Elastic, Josh Nickels, Marius Rothenbücher\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "123e4e6d-b123-48f8-b261-7214938acaf0",
+  "InsertDate": "2025-02-03T20:32:11Z",
+  "LastUpdateDate": "2025-02-03T20:32:11Z",
+  "Level": "medium",
+  "Name": "Startup/Logon Script Added to Group Policy Object",
+  "Query": "sourcetype=\"windows-security\" (eventid=\"5136\" OR eventid=\"5145\") ((((attributeldapdisplayname=\"gPCMachineExtensionNames\" OR attributeldapdisplayname=\"gPCUserExtensionNames\") attributevalue=\"*42B5FAAE-6536-11D2-AE5A-0000F87571E3*\") (attributevalue=\"*40B6664F-4972-11D1-A7CA-0000F87571E3*\" OR attributevalue=\"*40B66650-4972-11D1-A7CA-0000F87571E3*\")) OR (sharename=\"*\\\\SYSVOL\" (relativetargetname=\"*\\\\scripts.ini\" OR relativetargetname=\"*\\\\psscripts.ini\") accesslist=\"*%%4417*\"))",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.t1484.001",
+    "attack.t1547"
+  ],
+  "Version": "0.1"
+}

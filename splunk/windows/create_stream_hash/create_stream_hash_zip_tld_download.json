@@ -1,0 +1,13 @@
+{
+  "Description": "Detects the download of a file with a potentially suspicious extension from a .zip top level domain.\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0bb4bbeb-fe52-4044-b40c-430a04577ebe",
+  "InsertDate": "2025-02-03T20:32:15Z",
+  "LastUpdateDate": "2025-02-03T20:32:15Z",
+  "Level": "high",
+  "Name": "Potentially Suspicious File Download From ZIP TLD",
+  "Query": "sourcetype=\"windows-*\" contents=\"*.zip/*\" (filepath=\"*.bat:Zone*\" OR filepath=\"*.dat:Zone*\" OR filepath=\"*.dll:Zone*\" OR filepath=\"*.doc:Zone*\" OR filepath=\"*.docm:Zone*\" OR filepath=\"*.exe:Zone*\" OR filepath=\"*.hta:Zone*\" OR filepath=\"*.pptm:Zone*\" OR filepath=\"*.ps1:Zone*\" OR filepath=\"*.rar:Zone*\" OR filepath=\"*.rtf:Zone*\" OR filepath=\"*.sct:Zone*\" OR filepath=\"*.vbe:Zone*\" OR filepath=\"*.vbs:Zone*\" OR filepath=\"*.ws:Zone*\" OR filepath=\"*.wsf:Zone*\" OR filepath=\"*.xll:Zone*\" OR filepath=\"*.xls:Zone*\" OR filepath=\"*.xlsm:Zone*\" OR filepath=\"*.zip:Zone*\")",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

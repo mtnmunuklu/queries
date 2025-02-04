@@ -1,0 +1,14 @@
+{
+  "Description": "Enable Dynamic Data Exchange protocol (DDE) in all supported editions of Microsoft Word or Excel.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "63647769-326d-4dde-a419-b925cc0caf42",
+  "InsertDate": "2025-02-03T20:33:39Z",
+  "LastUpdateDate": "2025-02-03T20:33:39Z",
+  "Level": "medium",
+  "Name": "Enable Microsoft Dynamic Data Exchange",
+  "Query": "sourcetype=\"windows-*\" (target_object=\"*\\\\Word\\\\Security\\\\AllowDDE\" (details=\"DWORD (0x00000001)\" OR details=\"DWORD (0x00000002)\")) OR ((target_object=\"*\\\\Excel\\\\Security\\\\DisableDDEServerLaunch\" OR target_object=\"*\\\\Excel\\\\Security\\\\DisableDDEServerLookup\") details=\"DWORD (0x00000000)\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1559.002"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the image load of vss_ps.dll by uncommon executables\n\nAuthor: Markus Neis, @markus_neis\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "333cdbe8-27bb-4246-bf82-b41a0dca4b70",
+  "InsertDate": "2025-02-03T20:32:21Z",
+  "LastUpdateDate": "2025-02-03T20:32:21Z",
+  "Level": "high",
+  "Name": "Suspicious Volume Shadow Copy VSS_PS.dll Load",
+  "Query": "sourcetype=\"windows-sysmon\" image_loaded=\"*\\\\vss_ps.dll\" NOT ((command=\"C:\\\\$WinREAgent\\\\Scratch\\\\*\" command=\"*\\\\dismhost.exe {*\") OR process_path=\"null\" OR (process_path=\"C:\\\\Windows\\\\*\" (process_path=\"*\\\\clussvc.exe\" OR process_path=\"*\\\\dismhost.exe\" OR process_path=\"*\\\\dllhost.exe\" OR process_path=\"*\\\\inetsrv\\\\appcmd.exe\" OR process_path=\"*\\\\inetsrv\\\\iissetup.exe\" OR process_path=\"*\\\\msiexec.exe\" OR process_path=\"*\\\\rundll32.exe\" OR process_path=\"*\\\\searchindexer.exe\" OR process_path=\"*\\\\srtasks.exe\" OR process_path=\"*\\\\svchost.exe\" OR process_path=\"*\\\\System32\\\\SystemPropertiesAdvanced.exe\" OR process_path=\"*\\\\taskhostw.exe\" OR process_path=\"*\\\\thor.exe\" OR process_path=\"*\\\\thor64.exe\" OR process_path=\"*\\\\tiworker.exe\" OR process_path=\"*\\\\vssvc.exe\" OR process_path=\"*\\\\WmiPrvSE.exe\" OR process_path=\"*\\\\wsmprovhost.exe\")) OR (process_path=\"C:\\\\Program Files\\\\*\" OR process_path=\"C:\\\\Program Files (x86)\\\\*\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.impact",
+    "attack.t1490"
+  ],
+  "Version": "0.1"
+}

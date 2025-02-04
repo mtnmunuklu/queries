@@ -1,0 +1,17 @@
+{
+  "Description": "Detects the usage and installation of a backdoor that uses an option to register a malicious debugger for built-in tools that are accessible in the login screen\n\nAuthor: Florian Roth (Nextron Systems), @twjackomo, Jonhnathan Ribeiro, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2fdefcb3-dbda-401e-ae23-f0db027628bc",
+  "InsertDate": "2025-02-03T20:32:39Z",
+  "LastUpdateDate": "2025-02-03T20:32:39Z",
+  "Level": "critical",
+  "Name": "Sticky Key Like Backdoor Execution",
+  "Query": "sourcetype=\"windows-sysmon\" parent_process_path=\"*\\\\winlogon.exe\" (process_path=\"*\\\\cmd.exe\" OR process_path=\"*\\\\cscript.exe\" OR process_path=\"*\\\\mshta.exe\" OR process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\" OR process_path=\"*\\\\regsvr32.exe\" OR process_path=\"*\\\\rundll32.exe\" OR process_path=\"*\\\\wscript.exe\" OR process_path=\"*\\\\wt.exe\") (command=\"*sethc.exe*\" OR command=\"*utilman.exe*\" OR command=\"*osk.exe*\" OR command=\"*Magnify.exe*\" OR command=\"*Narrator.exe*\" OR command=\"*DisplaySwitch.exe*\")",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.persistence",
+    "attack.t1546.008",
+    "car.2014-11-003",
+    "car.2014-11-008"
+  ],
+  "Version": "0.1"
+}

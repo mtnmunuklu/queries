@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the creation of log files during a TeamViewer remote session\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "162ab1e4-6874-4564-853c-53ec3ab8be01",
+  "InsertDate": "2025-02-03T20:32:20Z",
+  "LastUpdateDate": "2025-02-03T20:32:20Z",
+  "Level": "medium",
+  "Name": "TeamViewer Remote Session",
+  "Query": "sourcetype=\"windows-sysmon\" (filepath=\"*\\\\TeamViewer\\\\RemotePrinting\\\\tvprint.db\" OR filepath=\"*\\\\TeamViewer\\\\TVNetwork.log\") OR (filepath=\"*\\\\TeamViewer*\" filepath=\"*_Logfile.log*\")",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1219"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,17 @@
+{
+  "Description": "Detects the execution of the hacktool Rubeus via PE information of command line parameters\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7ec2c172-dceb-4c10-92c9-87c1881b7e18",
+  "InsertDate": "2025-02-03T20:32:45Z",
+  "LastUpdateDate": "2025-02-03T20:32:45Z",
+  "Level": "critical",
+  "Name": "HackTool - Rubeus Execution",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\Rubeus.exe\" original_file_name=\"Rubeus.exe\" description=\"Rubeus\" (command=\"*asreproast *\" OR command=\"*dump /service:krbtgt *\" OR command=\"*dump /luid:0x*\" OR command=\"*kerberoast *\" OR command=\"*createnetonly /program:*\" OR command=\"*ptt /ticket:*\" OR command=\"*/impersonateuser:*\" OR command=\"*renew /ticket:*\" OR command=\"*asktgt /user:*\" OR command=\"*harvest /interval:*\" OR command=\"*s4u /user:*\" OR command=\"*s4u /ticket:*\" OR command=\"*hash /password:*\" OR command=\"*golden /aes256:*\" OR command=\"*silver /user:*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003",
+    "attack.t1558.003",
+    "attack.lateral-movement",
+    "attack.t1550.003"
+  ],
+  "Version": "0.1"
+}

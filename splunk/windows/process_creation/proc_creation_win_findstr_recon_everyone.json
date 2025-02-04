@@ -1,0 +1,14 @@
+{
+  "Description": "Detects usage of findstr with the \"EVERYONE\" or \"BUILTIN\" keywords.\nThis was seen being used in combination with \"icacls\" and other utilities to spot misconfigured files or folders permissions.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "47e4bab7-c626-47dc-967b-255608c9a920",
+  "InsertDate": "2025-02-03T20:32:42Z",
+  "LastUpdateDate": "2025-02-03T20:32:42Z",
+  "Level": "medium",
+  "Name": "Permission Misconfiguration Reconnaissance Via Findstr.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (((process_path=\"*\\\\find.exe\" OR process_path=\"*\\\\findstr.exe\") (original_file_name=\"FIND.EXE\" OR original_file_name=\"FINDSTR.EXE\")) (command=\"*\"Everyone\"*\" OR command=\"*'Everyone'*\" OR command=\"*\"BUILTIN\\\\\\\\\"*\" OR command=\"*'BUILTIN\\\\'*\")) OR (command=\"*icacls *\" command=\"*findstr *\" command=\"*Everyone*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1552.006"
+  ],
+  "Version": "0.1"
+}

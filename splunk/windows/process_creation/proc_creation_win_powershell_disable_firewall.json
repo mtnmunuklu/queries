@@ -1,0 +1,14 @@
+{
+  "Description": "Detects attempts to disable the Windows Firewall using PowerShell\n\nAuthor: Tim Rauch, Elastic (idea)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "12f6b752-042d-483e-bf9c-915a6d06ad75",
+  "InsertDate": "2025-02-03T20:32:56Z",
+  "LastUpdateDate": "2025-02-03T20:32:56Z",
+  "Level": "medium",
+  "Name": "Windows Firewall Disabled via PowerShell",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\" OR process_path=\"*\\\\powershell_ise.exe\") (original_file_name=\"PowerShell.EXE\" OR original_file_name=\"pwsh.dll\")) (command=\"*Set-NetFirewallProfile *\" command=\"* -Enabled *\" command=\"* False*\") (command=\"* -All *\" OR command=\"*Public*\" OR command=\"*Domain*\" OR command=\"*Private*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects loading of kernel modules with insmod command.\nLoadable Kernel Modules (LKMs) are pieces of code that can be loaded and unloaded into the kernel upon demand.\nAdversaries may use LKMs to obtain persistence within the system or elevate the privileges.\n\n\nAuthor: Pawel Mazur\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "106d7cbd-80ff-4985-b682-a7043e5acb72",
+  "InsertDate": "2025-02-03T20:31:56Z",
+  "LastUpdateDate": "2025-02-03T20:31:56Z",
+  "Level": "high",
+  "Name": "Loading of Kernel Module via Insmod",
+  "Query": "sourcetype=\"linux-auditd\" type=\"SYSCALL\" comm=\"insmod\" exe=\"/usr/bin/kmod\"",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1547.006"
+  ],
+  "Version": "0.1"
+}

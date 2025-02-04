@@ -1,0 +1,16 @@
+{
+  "Description": "Detects static QMS 810 and mimikatz driver name used by Mimikatz as exploited in CVE-2021-1675 and CVE-2021-34527\n\nAuthor: Markus Neis, @markus_neis, Florian Roth\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ba6b9e43-1d45-4d3c-a504-1043a64c8469",
+  "InsertDate": "2025-02-03T20:33:29Z",
+  "LastUpdateDate": "2025-02-03T20:33:29Z",
+  "Level": "critical",
+  "Name": "PrinterNightmare Mimikatz Driver Name",
+  "Query": "sourcetype=\"windows-sysmon\" (target_object=\"*\\\\Control\\\\Print\\\\Environments\\\\Windows x64\\\\Drivers\\\\Version-3\\\\QMS 810\\\\*\" OR target_object=\"*\\\\Control\\\\Print\\\\Environments\\\\Windows x64\\\\Drivers\\\\Version-3\\\\mimikatz*\") OR (target_object=\"*legitprinter*\" target_object=\"*\\\\Control\\\\Print\\\\Environments\\\\Windows*\") OR ((target_object=\"*\\\\Control\\\\Print\\\\Environments*\" OR target_object=\"*\\\\CurrentVersion\\\\Print\\\\Printers*\") (target_object=\"*Gentil Kiwi*\" OR target_object=\"*mimikatz printer*\" OR target_object=\"*Kiwi Legit Printer*\"))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1204",
+    "cve.2021-1675",
+    "cve.2021-34527"
+  ],
+  "Version": "0.1"
+}

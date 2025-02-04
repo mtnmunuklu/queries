@@ -1,0 +1,13 @@
+{
+  "Description": "Detects usage of the built-in PowerShell cmdlet \"Enable-WindowsOptionalFeature\" used as a Deployment Image Servicing and Management tool.\nSimilar to DISM.exe, this cmdlet is used to enumerate, install, uninstall, configure, and update features and packages in Windows images\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "55c925c1-7195-426b-a136-a9396800e29b",
+  "InsertDate": "2025-02-03T20:32:29Z",
+  "LastUpdateDate": "2025-02-03T20:32:29Z",
+  "Level": "medium",
+  "Name": "Potential Suspicious Windows Feature Enabled",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*Enable-WindowsOptionalFeature*\" scriptblocktext=\"*-Online*\" scriptblocktext=\"*-FeatureName*\") (scriptblocktext=\"*TelnetServer*\" OR scriptblocktext=\"*Internet-Explorer-Optional-amd64*\" OR scriptblocktext=\"*TFTP*\" OR scriptblocktext=\"*SMB1Protocol*\" OR scriptblocktext=\"*Client-ProjFS*\" OR scriptblocktext=\"*Microsoft-Windows-Subsystem-Linux*\")",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

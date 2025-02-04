@@ -1,0 +1,13 @@
+{
+  "Description": "Detects suspicious launch of a renamed version of the PSEXESVC service with, which is not often used by legitimate administrators\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "51ae86a2-e2e1-4097-ad85-c46cb6851de4",
+  "InsertDate": "2025-02-03T20:33:07Z",
+  "LastUpdateDate": "2025-02-03T20:33:07Z",
+  "Level": "high",
+  "Name": "Renamed PsExec Service Execution",
+  "Query": "sourcetype=\"windows-sysmon\" original_file_name=\"psexesvc.exe\" NOT process_path=\"C:\\\\Windows\\\\PSEXESVC.exe\"",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

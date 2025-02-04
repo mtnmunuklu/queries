@@ -1,0 +1,21 @@
+{
+  "Description": "Detects the creation of a schtask via PowerSploit or Empire Default Configuration.\n\nAuthor: Markus Neis, @Karneades\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "56c217c3-2de2-479b-990f-5c109ba8458f",
+  "InsertDate": "2025-02-03T20:32:45Z",
+  "LastUpdateDate": "2025-02-03T20:32:45Z",
+  "Level": "high",
+  "Name": "HackTool - Default PowerSploit/Empire Scheduled Task Creation",
+  "Query": "sourcetype=\"windows-sysmon\" (parent_process_path=\"*\\\\powershell.exe\" OR parent_process_path=\"*\\\\pwsh.exe\") process_path=\"*\\\\schtasks.exe\" (command=\"*/Create*\" command=\"*powershell.exe -NonI*\" command=\"*/TN Updater /TR*\") (command=\"*/SC ONLOGON*\" OR command=\"*/SC DAILY /ST*\" OR command=\"*/SC ONIDLE*\" OR command=\"*/SC HOURLY*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.s0111",
+    "attack.g0022",
+    "attack.g0060",
+    "car.2013-08-001",
+    "attack.t1053.005",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

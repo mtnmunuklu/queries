@@ -1,0 +1,13 @@
+{
+  "Description": "Detects remote RPC calls to possibly abuse remote encryption service via MS-EFSR\n\nAuthor: Sagie Dulce, Dekel Paz\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5f92fff9-82e2-48eb-8fc1-8b133556a551",
+  "InsertDate": "2025-02-03T20:31:49Z",
+  "LastUpdateDate": "2025-02-03T20:31:49Z",
+  "Level": "high",
+  "Name": "Remote Encrypting File System Abuse",
+  "Query": "sourcetype=\"rpc_firewall-*\" eventlog=\"RPCFW\" eventid=\"3\" (interfaceuuid=\"df1941c5-fe89-4e79-bf10-463657acf44d\" OR interfaceuuid=\"c681d488-d850-11d0-8c52-00c04fd90f7e\")",
+  "Tags": [
+    "attack.lateral-movement"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,17 @@
+{
+  "Description": "Detects well-known credential dumping tools execution via specific named pipe creation\n\nAuthor: Teymur Kheirkhabarov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "961d0ba2-3eea-4303-a930-2cf78bbfcc5e",
+  "InsertDate": "2025-02-03T20:32:26Z",
+  "LastUpdateDate": "2025-02-03T20:32:26Z",
+  "Level": "critical",
+  "Name": "HackTool - Credential Dumping Tools Named Pipe Created",
+  "Query": "sourcetype=\"windows-*\" (pipe_name=\"*\\\\cachedump*\" OR pipe_name=\"*\\\\lsadump*\" OR pipe_name=\"*\\\\wceservicepipe*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.001",
+    "attack.t1003.002",
+    "attack.t1003.004",
+    "attack.t1003.005"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may abuse PowerShell commands and scripts for execution.\nPowerShell is a powerful interactive command-line interface and scripting environment included in the Windows operating system. (Citation: TechNet PowerShell)\nAdversaries can use PowerShell to perform a number of actions, including discovery of information and execution of code\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6c6c6282-7671-4fe9-a0ce-a2dcebdc342b",
+  "InsertDate": "2025-02-03T20:32:35Z",
+  "LastUpdateDate": "2025-02-03T20:32:35Z",
+  "Level": "medium",
+  "Name": "Powershell XML Execute Command",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*New-Object*\" scriptblocktext=\"*System.Xml.XmlDocument*\" scriptblocktext=\"*.Load*\") (scriptblocktext=\"*IEX *\" OR scriptblocktext=\"*Invoke-Expression *\" OR scriptblocktext=\"*Invoke-Command *\" OR scriptblocktext=\"*ICM -*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

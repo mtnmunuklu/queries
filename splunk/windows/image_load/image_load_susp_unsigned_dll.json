@@ -1,0 +1,15 @@
+{
+  "Description": "Detects windows utilities loading an unsigned or untrusted DLL.\nAdversaries often abuse those programs to proxy execution of malicious code.\n\n\nAuthor: Swachchhanda Shrawan Poudel\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b5de0c9a-6f19-43e0-af4e-55ad01f550af",
+  "InsertDate": "2025-02-03T20:32:24Z",
+  "LastUpdateDate": "2025-02-03T20:32:24Z",
+  "Level": "medium",
+  "Name": "Unsigned DLL Loaded by Windows Utility",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\InstallUtil.exe\" OR process_path=\"*\\\\RegAsm.exe\" OR process_path=\"*\\\\RegSvcs.exe\" OR process_path=\"*\\\\regsvr32.exe\" OR process_path=\"*\\\\rundll32.exe\") NOT (signed=\"true\" OR (signature_status=\"errorChaining\" OR signature_status=\"errorCode_endpoint\" OR signature_status=\"errorExpired\" OR signature_status=\"trusted\") OR signed=\"null\" OR (signed=\"\" OR signed=\"-\") OR signature_status=\"null\" OR (signature_status=\"\" OR signature_status=\"-\"))",
+  "Tags": [
+    "attack.t1218.011",
+    "attack.t1218.010",
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

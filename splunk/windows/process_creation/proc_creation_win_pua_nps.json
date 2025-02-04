@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of NPS, a port forwarding and intranet penetration proxy server\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "68d37776-61db-42f5-bf54-27e87072d17e",
+  "InsertDate": "2025-02-03T20:33:01Z",
+  "LastUpdateDate": "2025-02-03T20:33:01Z",
+  "Level": "high",
+  "Name": "PUA - NPS Tunneling Tool Execution",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\npc.exe\" OR (command=\"* -server=*\" command=\"* -vkey=*\" command=\"* -password=*\") OR command=\"* -config=npc*\" OR (hashes=\"*MD5=AE8ACF66BFE3A44148964048B826D005*\" OR hashes=\"*SHA1=CEA49E9B9B67F3A13AD0BE1C2655293EA3C18181*\" OR hashes=\"*SHA256=5A456283392FFCEEEACA3D3426C306EB470304637520D72FED1CC1FEBBBD6856*\")",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1090"
+  ],
+  "Version": "0.1"
+}

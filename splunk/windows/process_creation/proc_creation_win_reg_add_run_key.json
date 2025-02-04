@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious command line reg.exe tool adding key to RUN key in Registry\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "de587dce-915e-4218-aac4-835ca6af6f70",
+  "InsertDate": "2025-02-03T20:33:02Z",
+  "LastUpdateDate": "2025-02-03T20:33:02Z",
+  "Level": "medium",
+  "Name": "Potential Persistence Attempt Via Run Keys Using Reg.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*reg*\" command=\"* ADD *\" command=\"*Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Run*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1547.001"
+  ],
+  "Version": "0.1"
+}

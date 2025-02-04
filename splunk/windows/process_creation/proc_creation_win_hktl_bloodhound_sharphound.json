@@ -1,0 +1,20 @@
+{
+  "Description": "Detects command line parameters used by Bloodhound and Sharphound hack tools\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f376c8a7-a2d0-4ddc-aa0c-16c17236d962",
+  "InsertDate": "2025-02-03T20:32:43Z",
+  "LastUpdateDate": "2025-02-03T20:32:43Z",
+  "Level": "high",
+  "Name": "HackTool - Bloodhound/Sharphound Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (product=\"*SharpHound*\" description=\"*SharpHound*\" (company=\"*SpecterOps*\" OR company=\"*evil corp*\") (process_path=\"*\\\\Bloodhound.exe*\" OR process_path=\"*\\\\SharpHound.exe*\")) OR (command=\"* -CollectionMethod All *\" OR command=\"* --CollectionMethods Session *\" OR command=\"* --Loop --Loopduration *\" OR command=\"* --PortScanTimeout *\" OR command=\"*.exe -c All -d *\" OR command=\"*Invoke-Bloodhound*\" OR command=\"*Get-BloodHoundData*\") OR (command=\"* -JsonFolder *\" command=\"* -ZipFileName *\") OR (command=\"* DCOnly *\" command=\"* --NoSaveCache *\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1087.001",
+    "attack.t1087.002",
+    "attack.t1482",
+    "attack.t1069.001",
+    "attack.t1069.002",
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

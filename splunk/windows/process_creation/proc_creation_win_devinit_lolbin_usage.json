@@ -1,0 +1,15 @@
+{
+  "Description": "Detects a certain command line flag combination used by \"devinit.exe\", which can be abused as a LOLBIN to download arbitrary MSI packages on a Windows system\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "90d50722-0483-4065-8e35-57efaadd354d",
+  "InsertDate": "2025-02-03T20:32:40Z",
+  "LastUpdateDate": "2025-02-03T20:32:40Z",
+  "Level": "medium",
+  "Name": "Arbitrary MSI Download Via Devinit.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"* -t msi-install *\" command=\"* -i http*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.defense-evasion",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

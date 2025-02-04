@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may use Valid Accounts to interact with remote systems using Windows Remote Management (WinRM). The adversary may then perform actions as the logged-on user.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7b836d7f-179c-4ba4-90a7-a7e60afb48e6",
+  "InsertDate": "2025-02-03T20:32:30Z",
+  "LastUpdateDate": "2025-02-03T20:32:30Z",
+  "Level": "medium",
+  "Name": "Execute Invoke-command on Remote Host",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*invoke-command *\" scriptblocktext=\"* -ComputerName *\")",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.t1021.006"
+  ],
+  "Version": "0.1"
+}

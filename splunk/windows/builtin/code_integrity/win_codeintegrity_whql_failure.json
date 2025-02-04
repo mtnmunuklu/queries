@@ -1,0 +1,13 @@
+{
+  "Description": "Detects loaded kernel modules that did not meet the WHQL signing requirements.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2f8cd7a0-9d5a-4f62-9f8b-2c951aa0dd1f",
+  "InsertDate": "2025-02-03T20:32:07Z",
+  "LastUpdateDate": "2025-02-03T20:32:07Z",
+  "Level": "high",
+  "Name": "CodeIntegrity - Unmet WHQL Requirements For Loaded Kernel Module",
+  "Query": "sourcetype=\"windows-codeintegrity-operational\" (eventid=\"3082\" OR eventid=\"3083\") NOT (filenamebuffer=\"system32\\\\drivers\\\\vsock.sys\" OR filenamebuffer=\"System32\\\\drivers\\\\vmci.sys\")",
+  "Tags": [
+    "attack.privilege-escalation"
+  ],
+  "Version": "0.1"
+}

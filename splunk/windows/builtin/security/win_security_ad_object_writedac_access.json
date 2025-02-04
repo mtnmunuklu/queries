@@ -1,0 +1,14 @@
+{
+  "Description": "Detects WRITE_DAC access to a domain object\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "028c7842-4243-41cd-be6f-12f3cf1a26c7",
+  "InsertDate": "2025-02-03T20:32:08Z",
+  "LastUpdateDate": "2025-02-03T20:32:08Z",
+  "Level": "critical",
+  "Name": "AD Object WriteDAC Access",
+  "Query": "sourcetype=\"windows-security\" eventid=\"4662\" objectserver=\"DS\" accessmask=\"0x40000\" (objecttype=\"19195a5b-6da0-11d0-afd3-00c04fd930c9\" OR objecttype=\"domainDNS\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1222.001"
+  ],
+  "Version": "0.1"
+}

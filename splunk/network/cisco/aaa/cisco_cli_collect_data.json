@@ -1,0 +1,18 @@
+{
+  "Description": "Collect pertinent data from the configuration files\n\nAuthor: Austin Clark\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "cd072b25-a418-4f98-8ebc-5093fb38fe1a",
+  "InsertDate": "2025-02-03T20:32:03Z",
+  "LastUpdateDate": "2025-02-03T20:32:03Z",
+  "Level": "low",
+  "Name": "Cisco Collect Data",
+  "Query": "sourcetype=\"cisco-aaa\" (\"show running-config\" OR \"show startup-config\" OR \"show archive config\" OR \"more\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.credential-access",
+    "attack.collection",
+    "attack.t1087.001",
+    "attack.t1552.001",
+    "attack.t1005"
+  ],
+  "Version": "0.1"
+}

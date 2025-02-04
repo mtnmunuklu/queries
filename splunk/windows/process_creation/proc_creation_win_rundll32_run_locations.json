@@ -1,0 +1,15 @@
+{
+  "Description": "Detects suspicious process run from unusual locations\n\nAuthor: juju4, Jonhnathan Ribeiro, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "15b75071-74cc-47e0-b4c6-b43744a62a2b",
+  "InsertDate": "2025-02-03T20:33:08Z",
+  "LastUpdateDate": "2025-02-03T20:33:08Z",
+  "Level": "medium",
+  "Name": "Suspicious Process Start Locations",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*:\\\\RECYCLER\\\\*\" OR process_path=\"*:\\\\SystemVolumeInformation\\\\*\") (process_path=\"C:\\\\Windows\\\\Tasks\\\\*\" OR process_path=\"C:\\\\Windows\\\\debug\\\\*\" OR process_path=\"C:\\\\Windows\\\\fonts\\\\*\" OR process_path=\"C:\\\\Windows\\\\help\\\\*\" OR process_path=\"C:\\\\Windows\\\\drivers\\\\*\" OR process_path=\"C:\\\\Windows\\\\addins\\\\*\" OR process_path=\"C:\\\\Windows\\\\cursors\\\\*\" OR process_path=\"C:\\\\Windows\\\\system32\\\\tasks\\\\*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1036",
+    "car.2013-05-002"
+  ],
+  "Version": "0.1"
+}

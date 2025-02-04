@@ -1,0 +1,16 @@
+{
+  "Description": "Detects potential DLL sideloading of \"EACore.dll\"\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "edd3ddc3-386f-4ba5-9ada-4376b2cfa7b5",
+  "InsertDate": "2025-02-03T20:32:22Z",
+  "LastUpdateDate": "2025-02-03T20:32:22Z",
+  "Level": "high",
+  "Name": "Potential EACore.DLL Sideloading",
+  "Query": "sourcetype=\"windows-sysmon\" image_loaded=\"*\\\\EACore.dll\" NOT ((process_path=\"*C:\\\\Program Files\\\\Electronic Arts\\\\EA Desktop\\\\*\" process_path=\"*\\\\EACoreServer.exe*\") image_loaded=\"C:\\\\Program Files\\\\Electronic Arts\\\\EA Desktop\\\\*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

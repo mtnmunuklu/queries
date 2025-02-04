@@ -1,0 +1,18 @@
+{
+  "Description": "Detects attempts to create a DLL file to a known desktop application dependencies folder such as Slack, Teams or OneDrive and by an unusual process. This may indicate an attempt to load a malicious module via DLL search order hijacking.\n\nAuthor: Tim Rauch (rule), Elastic (idea)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "dbbd9f66-2ed3-4ca2-98a4-6ea985dd1a1c",
+  "InsertDate": "2025-02-03T20:32:18Z",
+  "LastUpdateDate": "2025-02-03T20:32:18Z",
+  "Level": "medium",
+  "Name": "Potential Initial Access via DLL Search Order Hijacking",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\winword.exe\" OR process_path=\"*\\\\excel.exe\" OR process_path=\"*\\\\powerpnt.exe\" OR process_path=\"*\\\\MSACCESS.EXE\" OR process_path=\"*\\\\MSPUB.EXE\" OR process_path=\"*\\\\fltldr.exe\" OR process_path=\"*\\\\cmd.exe\" OR process_path=\"*\\\\certutil.exe\" OR process_path=\"*\\\\mshta.exe\" OR process_path=\"*\\\\cscript.exe\" OR process_path=\"*\\\\wscript.exe\" OR process_path=\"*\\\\curl.exe\" OR process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\") filepath=\"*.dll\" (filepath=\"*\\\\Users\\\\*\" filepath=\"*\\\\AppData\\\\*\") (filepath=\"*\\\\Microsoft\\\\OneDrive\\\\*\" OR filepath=\"*\\\\Microsoft OneDrive\\\\*\" OR filepath=\"*\\\\Microsoft\\\\Teams\\\\*\" OR filepath=\"*\\\\Local\\\\slack\\\\app-*\" OR filepath=\"*\\\\Local\\\\Programs\\\\Microsoft VS Code\\\\*\")) NOT (process_path=\"*\\\\cmd.exe\" (filepath=\"*\\\\Users\\\\*\" filepath=\"*\\\\AppData\\\\*\" filepath=\"*\\\\Microsoft\\\\OneDrive\\\\*\" filepath=\"*\\\\api-ms-win-core-*\"))",
+  "Tags": [
+    "attack.t1566",
+    "attack.t1566.001",
+    "attack.initial-access",
+    "attack.t1574",
+    "attack.t1574.001",
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

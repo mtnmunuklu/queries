@@ -1,0 +1,15 @@
+{
+  "Description": "Detects newly added root certificate authority to an AzureAD tenant to support certificate based authentication.\n\nAuthor: Harjot Shah Singh, '@cyb3rjy0t'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4bb80281-3756-4ec8-a88e-523c5a6fda9e",
+  "InsertDate": "2025-02-03T20:31:52Z",
+  "LastUpdateDate": "2025-02-03T20:31:52Z",
+  "Level": "medium",
+  "Name": "New Root Certificate Authority Added",
+  "Query": "sourcetype=\"azure-auditlogs\" operationname=\"Set Company Information\" targetresources.modifiedproperties.newvalue=\"*TrustedCAsForPasswordlessAuth*\"",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1556"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the invocation of the Stored User Names and Passwords dialogue (Key Manager)\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a4694263-59a8-4608-a3a0-6f8d3a51664c",
+  "InsertDate": "2025-02-03T20:33:08Z",
+  "LastUpdateDate": "2025-02-03T20:33:08Z",
+  "Level": "high",
+  "Name": "Suspicious Key Manager Access",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\rundll32.exe\" original_file_name=\"RUNDLL32.EXE\") (command=\"*keymgr*\" command=\"*KRShowKeyMgr*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1555.004"
+  ],
+  "Version": "0.1"
+}

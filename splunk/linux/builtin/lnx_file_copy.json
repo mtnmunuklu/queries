@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the use of tools that copy files from or to remote systems\n\nAuthor: Ömer Günal\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7a14080d-a048-4de8-ae58-604ce58a795b",
+  "InsertDate": "2025-02-03T20:31:57Z",
+  "LastUpdateDate": "2025-02-03T20:31:57Z",
+  "Level": "low",
+  "Name": "Remote File Copy",
+  "Query": "sourcetype=\"linux-*\" (\"scp \" OR \"rsync \" OR \"sftp \") (\"@\" OR \":\")",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.lateral-movement",
+    "attack.t1105"
+  ],
+  "Version": "0.1"
+}

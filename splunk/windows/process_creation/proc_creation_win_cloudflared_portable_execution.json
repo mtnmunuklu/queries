@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of the \"cloudflared\" binary from a non standard location.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fadb84f0-4e84-4f6d-a1ce-9ef2bffb6ccd",
+  "InsertDate": "2025-02-03T20:32:38Z",
+  "LastUpdateDate": "2025-02-03T20:32:38Z",
+  "Level": "medium",
+  "Name": "Cloudflared Portable Execution",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\cloudflared.exe\" NOT (process_path=\"*:\\\\Program Files (x86)\\\\cloudflared\\\\*\" OR process_path=\"*:\\\\Program Files\\\\cloudflared\\\\*\")",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1090.001"
+  ],
+  "Version": "0.1"
+}

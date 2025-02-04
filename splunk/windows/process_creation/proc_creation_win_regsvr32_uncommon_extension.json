@@ -1,0 +1,15 @@
+{
+  "Description": "Detects a \"regsvr32\" execution where the DLL doesn't contain a common file extension.\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "50919691-7302-437f-8e10-1fe088afa145",
+  "InsertDate": "2025-02-03T20:33:05Z",
+  "LastUpdateDate": "2025-02-03T20:33:05Z",
+  "Level": "medium",
+  "Name": "Regsvr32 DLL Execution With Uncommon Extension",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\regsvr32.exe\" original_file_name=\"REGSVR32.EXE\") NOT (command=\"null\" OR command=\"\" OR (command=\"*.ax*\" OR command=\"*.cpl*\" OR command=\"*.dll*\" OR command=\"*.ocx*\")) NOT (command=\"*.bav*\" OR command=\"*.ppl*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1574",
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

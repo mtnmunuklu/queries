@@ -1,0 +1,14 @@
+{
+  "Description": "Well-known TAP software installation. Possible preparation for data exfiltration using tunnelling techniques\n\nAuthor: Daniil Yugoslavskiy, Ian Davis, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8e4cf0e5-aa5d-4dc3-beff-dc26917744a9",
+  "InsertDate": "2025-02-03T20:32:14Z",
+  "LastUpdateDate": "2025-02-03T20:32:14Z",
+  "Level": "medium",
+  "Name": "Tap Driver Installation",
+  "Query": "sourcetype=\"windows-system\" provider_name=\"Service Control Manager\" eventid=\"7045\" imagepath=\"*tap0901*\"",
+  "Tags": [
+    "attack.exfiltration",
+    "attack.t1048"
+  ],
+  "Version": "0.1"
+}

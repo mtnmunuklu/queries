@@ -1,0 +1,14 @@
+{
+  "Description": "Detects possible search for JWT tokens via CLI by looking for the string \"eyJ0eX\" or \"eyJhbG\".\nThis string is used as an anchor to look for the start of the JWT token used by microsoft office and similar apps.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6d3a3952-6530-44a3-8554-cf17c116c615",
+  "InsertDate": "2025-02-03T20:33:15Z",
+  "LastUpdateDate": "2025-02-03T20:33:15Z",
+  "Level": "medium",
+  "Name": "Potentially Suspicious JWT Token Search Via CLI",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*eyJ0eXAiOi*\" OR command=\"*eyJhbGciOi*\" OR command=\"* eyJ0eX*\" OR command=\"* \"eyJ0eX\"*\" OR command=\"* 'eyJ0eX'*\" OR command=\"* eyJhbG*\" OR command=\"* \"eyJhbG\"*\" OR command=\"* 'eyJhbG'*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1528"
+  ],
+  "Version": "0.1"
+}

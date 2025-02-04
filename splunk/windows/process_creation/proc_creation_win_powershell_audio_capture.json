@@ -1,0 +1,14 @@
+{
+  "Description": "Detects audio capture via PowerShell Cmdlet.\n\nAuthor: E.M. Anhaus (originally from Atomic Blue Detections, Endgame), oscd.community, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "932fb0d8-692b-4b0f-a26e-5643a50fe7d6",
+  "InsertDate": "2025-02-03T20:32:54Z",
+  "LastUpdateDate": "2025-02-03T20:32:54Z",
+  "Level": "medium",
+  "Name": "Audio Capture via PowerShell",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*WindowsAudioDevice-Powershell-Cmdlet*\" OR command=\"*Toggle-AudioDevice*\" OR command=\"*Get-AudioDevice *\" OR command=\"*Set-AudioDevice *\" OR command=\"*Write-AudioDevice *\")",
+  "Tags": [
+    "attack.collection",
+    "attack.t1123"
+  ],
+  "Version": "0.1"
+}

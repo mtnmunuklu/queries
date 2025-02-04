@@ -1,0 +1,16 @@
+{
+  "Description": "Detects suspicious DNS queries using base64 encoding\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4153a907-2451-4e4f-a578-c52bb6881432",
+  "InsertDate": "2025-02-03T20:32:03Z",
+  "LastUpdateDate": "2025-02-03T20:32:03Z",
+  "Level": "medium",
+  "Name": "Suspicious DNS Query with B64 Encoded String",
+  "Query": "query=\"*==.*\"",
+  "Tags": [
+    "attack.exfiltration",
+    "attack.t1048.003",
+    "attack.command-and-control",
+    "attack.t1071.004"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,21 @@
+{
+  "Description": "Detects well-known credential dumping tools execution via service execution events\n\nAuthor: Florian Roth (Nextron Systems), Teymur Kheirkhabarov, Daniil Yugoslavskiy, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4976aa50-8f41-45c6-8b15-ab3fc10e79ed",
+  "InsertDate": "2025-02-03T20:32:13Z",
+  "LastUpdateDate": "2025-02-03T20:32:13Z",
+  "Level": "high",
+  "Name": "Credential Dumping Tools Service Execution - System",
+  "Query": "sourcetype=\"windows-system\" provider_name=\"Service Control Manager\" eventid=\"7045\" (imagepath=\"*cachedump*\" OR imagepath=\"*dumpsvc*\" OR imagepath=\"*fgexec*\" OR imagepath=\"*gsecdump*\" OR imagepath=\"*mimidrv*\" OR imagepath=\"*pwdump*\" OR imagepath=\"*servpw*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.execution",
+    "attack.t1003.001",
+    "attack.t1003.002",
+    "attack.t1003.004",
+    "attack.t1003.005",
+    "attack.t1003.006",
+    "attack.t1569.002",
+    "attack.s0005"
+  ],
+  "Version": "0.1"
+}

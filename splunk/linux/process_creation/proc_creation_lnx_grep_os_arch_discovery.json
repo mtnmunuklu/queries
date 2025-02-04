@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of grep to identify information about the operating system architecture. Often combined beforehand with the execution of \"uname\" or \"cat /proc/cpuinfo\"\n\n\nAuthor: Joseliyo Sanchez, @Joseliyo_Jstnk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d27ab432-2199-483f-a297-03633c05bae6",
+  "InsertDate": "2025-02-03T20:31:59Z",
+  "LastUpdateDate": "2025-02-03T20:31:59Z",
+  "Level": "low",
+  "Name": "OS Architecture Discovery Via Grep",
+  "Query": "sourcetype=\"linux-*\" process_path=\"*/grep\" (command=\"*aarch64\" OR command=\"*arm\" OR command=\"*i386\" OR command=\"*i686\" OR command=\"*mips\" OR command=\"*x86_64\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1082"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,16 @@
+{
+  "Description": "Detects usage of Time Travel Debugging Utility. Adversaries can execute malicious processes and dump processes, such as lsass.exe, via tttracer.exe.\n\nAuthor: Ensar Şamil, @sblmsrsn, @oscd_initiative\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e76c8240-d68f-4773-8880-5c6f63595aaf",
+  "InsertDate": "2025-02-03T20:32:21Z",
+  "LastUpdateDate": "2025-02-03T20:32:21Z",
+  "Level": "high",
+  "Name": "Time Travel Debugging Utility Usage - Image",
+  "Query": "sourcetype=\"windows-sysmon\" (image_loaded=\"*\\\\ttdrecord.dll\" OR image_loaded=\"*\\\\ttdwriter.dll\" OR image_loaded=\"*\\\\ttdloader.dll\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.credential-access",
+    "attack.t1218",
+    "attack.t1003.001"
+  ],
+  "Version": "0.1"
+}

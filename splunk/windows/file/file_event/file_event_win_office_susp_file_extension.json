@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the creation of files with an executable or script extension by an Office application.\n\nAuthor: Vadim Khrykov (ThreatIntel), Cyb3rEng (Rule), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c7a74c80-ba5a-486e-9974-ab9e682bc5e4",
+  "InsertDate": "2025-02-03T20:32:19Z",
+  "LastUpdateDate": "2025-02-03T20:32:19Z",
+  "Level": "high",
+  "Name": "File With Uncommon Extension Created By An Office Application",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\excel.exe\" OR process_path=\"*\\\\msaccess.exe\" OR process_path=\"*\\\\mspub.exe\" OR process_path=\"*\\\\powerpnt.exe\" OR process_path=\"*\\\\visio.exe\" OR process_path=\"*\\\\winword.exe\") (filepath=\"*.bat\" OR filepath=\"*.cmd\" OR filepath=\"*.com\" OR filepath=\"*.dll\" OR filepath=\"*.exe\" OR filepath=\"*.hta\" OR filepath=\"*.ocx\" OR filepath=\"*.proj\" OR filepath=\"*.ps1\" OR filepath=\"*.scf\" OR filepath=\"*.scr\" OR filepath=\"*.sys\" OR filepath=\"*.vbe\" OR filepath=\"*.vbs\" OR filepath=\"*.wsf\" OR filepath=\"*.wsh\")) NOT (filepath=\"*\\\\AppData\\\\Local\\\\assembly\\\\tmp\\\\*\" filepath=\"*.dll\") NOT (((filepath=\"*C:\\\\Users\\\\*\" filepath=\"*\\\\AppData\\\\Local\\\\Microsoft\\\\Office\\\\*\" filepath=\"*\\\\WebServiceCache\\\\AllUsers*\") filepath=\"*.com\") OR (process_path=\"*\\\\winword.exe\" filepath=\"*\\\\AppData\\\\Local\\\\Temp\\\\webexdelta\\\\*\" (filepath=\"*.dll\" OR filepath=\"*.exe\")))",
+  "Tags": [
+    "attack.t1204.002",
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,13 @@
+{
+  "Description": "Detects the enabling of the PowerShell script execution policy. Once enabled, this policy allows scripts to be executed.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Thurein Oo\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8218c875-90b9-42e2-b60d-0b0069816d10",
+  "InsertDate": "2025-02-03T20:33:42Z",
+  "LastUpdateDate": "2025-02-03T20:33:42Z",
+  "Level": "low",
+  "Name": "PowerShell Script Execution Policy Enabled",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\Policies\\\\Microsoft\\\\Windows\\\\PowerShell\\\\EnableScripts\" details=\"DWORD (0x00000001)\"",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

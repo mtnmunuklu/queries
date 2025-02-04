@@ -1,0 +1,14 @@
+{
+  "Description": "Detect use of ie4uinit.exe to execute commands from a specially prepared ie4uinit.inf file from a directory other than the usual directories\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d3bf399f-b0cf-4250-8bb4-dfc192ab81dc",
+  "InsertDate": "2025-02-03T20:32:48Z",
+  "LastUpdateDate": "2025-02-03T20:32:48Z",
+  "Level": "medium",
+  "Name": "Ie4uinit Lolbin Use From Invalid Path",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\ie4uinit.exe\" original_file_name=\"IE4UINIT.EXE\") NOT ((current_directory=\"c:\\\\windows\\\\system32\\\\\" OR current_directory=\"c:\\\\windows\\\\sysWOW64\\\\\") OR current_directory=\"null\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

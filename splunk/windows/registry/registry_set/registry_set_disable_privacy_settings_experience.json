@@ -1,0 +1,14 @@
+{
+  "Description": "Detects registry modifications that disable Privacy Settings Experience\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0372e1f9-0fd2-40f7-be1b-a7b2b848fa7b",
+  "InsertDate": "2025-02-03T20:33:34Z",
+  "LastUpdateDate": "2025-02-03T20:33:34Z",
+  "Level": "medium",
+  "Name": "Disable Privacy Settings Experience in Registry",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\SOFTWARE\\\\Policies\\\\Microsoft\\\\Windows\\\\OOBE\\\\DisablePrivacyExperience\" details=\"DWORD (0x00000000)\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

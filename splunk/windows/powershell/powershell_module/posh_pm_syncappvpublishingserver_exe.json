@@ -1,0 +1,14 @@
+{
+  "Description": "Detects SyncAppvPublishingServer process execution which usually utilized by adversaries to bypass PowerShell execution restrictions.\n\nAuthor: Ensar Şamil, @sblmsrsn, OSCD Community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fe5ce7eb-dad8-467c-84a9-31ec23bd644a",
+  "InsertDate": "2025-02-03T20:32:28Z",
+  "LastUpdateDate": "2025-02-03T20:32:28Z",
+  "Level": "medium",
+  "Name": "SyncAppvPublishingServer Bypass Powershell Restriction - PS Module",
+  "Query": "sourcetype=\"windows-*\" contextinfo=\"*SyncAppvPublishingServer.exe*\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

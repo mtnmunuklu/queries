@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the recovery of files from backups via \"wbadmin.exe\".\nAttackers can restore sensitive files such as NTDS.DIT or Registry Hives from backups in order to potentially extract credentials.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6fe4aa1e-0531-4510-8be2-782154b73b48",
+  "InsertDate": "2025-02-03T20:33:24Z",
+  "LastUpdateDate": "2025-02-03T20:33:24Z",
+  "Level": "medium",
+  "Name": "File Recovery From Backup Via Wbadmin.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\wbadmin.exe\" original_file_name=\"WBADMIN.EXE\") (command=\"* recovery*\" command=\"*recoveryTarget*\" command=\"*itemtype:File*\")",
+  "Tags": [
+    "attack.impact",
+    "attack.t1490"
+  ],
+  "Version": "0.1"
+}

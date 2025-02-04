@@ -1,0 +1,15 @@
+{
+  "Description": "Detects suspicious ways to download files from Microsoft domains that are used to store attachments in Emails or OneNote documents\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "00d49ed5-4491-4271-a8db-650a4ef6f8c1",
+  "InsertDate": "2025-02-03T20:33:13Z",
+  "LastUpdateDate": "2025-02-03T20:33:13Z",
+  "Level": "high",
+  "Name": "Suspicious Download from Office Domain",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\curl.exe\" OR process_path=\"*\\\\wget.exe\") (command=\"*Invoke-WebRequest*\" OR command=\"*iwr *\" OR command=\"*curl *\" OR command=\"*wget *\" OR command=\"*Start-BitsTransfer*\" OR command=\"*.DownloadFile(*\" OR command=\"*.DownloadString(*\")) (command=\"*https://attachment.outlook.live.net/owa/*\" OR command=\"*https://onenoteonlinesync.onenote.com/onenoteonlinesync/*\")",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1105",
+    "attack.t1608"
+  ],
+  "Version": "0.1"
+}

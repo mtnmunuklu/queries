@@ -1,0 +1,16 @@
+{
+  "Description": "Detects uncommon outbound network activity via Kerberos default port indicating possible lateral movement or first stage PrivEsc via delegation.\n\n\nAuthor: Ilyas Ochkov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e54979bd-c5f9-4d6c-967b-a04b19ac4c74",
+  "InsertDate": "2025-02-03T20:32:25Z",
+  "LastUpdateDate": "2025-02-03T20:32:25Z",
+  "Level": "medium",
+  "Name": "Uncommon Outbound Kerberos Connection",
+  "Query": "sourcetype=\"windows-sysmon\" (dst_port=\"88\" initiated=\"true\") NOT process_path=\"C:\\\\Windows\\\\System32\\\\lsass.exe\" NOT ((process_path=\"C:\\\\Program Files (x86)\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" OR process_path=\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\") OR (process_path=\"C:\\\\Program Files (x86)\\\\Mozilla Firefox\\\\firefox.exe\" OR process_path=\"C:\\\\Program Files\\\\Mozilla Firefox\\\\firefox.exe\") OR process_path=\"*\\\\tomcat\\\\bin\\\\tomcat8.exe\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1558",
+    "attack.lateral-movement",
+    "attack.t1550.003"
+  ],
+  "Version": "0.1"
+}

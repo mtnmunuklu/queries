@@ -1,0 +1,14 @@
+{
+  "Description": "Detects alternate PowerShell hosts potentially bypassing detections looking for powershell.exe\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g, Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "58cb02d5-78ce-4692-b3e1-dce850aae41a",
+  "InsertDate": "2025-02-03T20:32:26Z",
+  "LastUpdateDate": "2025-02-03T20:32:26Z",
+  "Level": "medium",
+  "Name": "Alternate PowerShell Hosts Pipe",
+  "Query": "sourcetype=\"windows-*\" pipe_name=\"\\\\PSHost*\" NOT (process_path=\"null\" OR (process_path=\"*:\\\\Program Files\\\\PowerShell\\\\7-preview\\\\pwsh.exe*\" OR process_path=\"*:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe*\" OR process_path=\"*:\\\\Windows\\\\system32\\\\dsac.exe*\" OR process_path=\"*:\\\\Windows\\\\system32\\\\inetsrv\\\\w3wp.exe*\" OR process_path=\"*:\\\\Windows\\\\System32\\\\sdiagnhost.exe*\" OR process_path=\"*:\\\\Windows\\\\system32\\\\ServerManager.exe*\" OR process_path=\"*:\\\\Windows\\\\system32\\\\wbem\\\\wmiprvse.exe*\" OR process_path=\"*:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell_ise.exe*\" OR process_path=\"*:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe*\" OR process_path=\"*:\\\\Windows\\\\System32\\\\wsmprovhost.exe*\" OR process_path=\"*:\\\\Windows\\\\SysWOW64\\\\WindowsPowerShell\\\\v1.0\\\\powershell_ise.exe*\" OR process_path=\"*:\\\\Windows\\\\SysWOW64\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe*\")) NOT ((process_path=\"C:\\\\Program Files\\\\AzureConnectedMachineAgent\\\\GCArcService*\" process_path=\"*\\\\GC\\\\gc_worker.exe\") OR process_path=\"C:\\\\Program Files\\\\Citrix\\\\*\" OR process_path=\"C:\\\\Program Files\\\\Microsoft\\\\Exchange Server\\\\*\" OR ((process_path=\"C:\\\\Program Files (x86)\\\\*\" OR process_path=\"C:\\\\Program Files\\\\*\") process_path=\"*\\\\Microsoft SQL Server\\\\*\" process_path=\"*\\\\Tools\\\\Binn\\\\SQLPS.exe\"))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

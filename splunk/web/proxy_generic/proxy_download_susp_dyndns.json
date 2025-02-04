@@ -1,0 +1,16 @@
+{
+  "Description": "Detects download of certain file types from hosts with dynamic DNS names (selected list)\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "195c1119-ef07-4909-bb12-e66f5e07bf3c",
+  "InsertDate": "2025-02-03T20:32:04Z",
+  "LastUpdateDate": "2025-02-03T20:32:04Z",
+  "Level": "medium",
+  "Name": "Download from Suspicious Dyndns Hosts",
+  "Query": "(c-uri-extension=\"exe\" OR c-uri-extension=\"vbs\" OR c-uri-extension=\"bat\" OR c-uri-extension=\"rar\" OR c-uri-extension=\"ps1\" OR c-uri-extension=\"doc\" OR c-uri-extension=\"docm\" OR c-uri-extension=\"xls\" OR c-uri-extension=\"xlsm\" OR c-uri-extension=\"pptm\" OR c-uri-extension=\"rtf\" OR c-uri-extension=\"hta\" OR c-uri-extension=\"dll\" OR c-uri-extension=\"ws\" OR c-uri-extension=\"wsf\" OR c-uri-extension=\"sct\" OR c-uri-extension=\"zip\") (cs-host=\"*.hopto.org\" OR cs-host=\"*.no-ip.org\" OR cs-host=\"*.no-ip.info\" OR cs-host=\"*.no-ip.biz\" OR cs-host=\"*.no-ip.com\" OR cs-host=\"*.noip.com\" OR cs-host=\"*.ddns.name\" OR cs-host=\"*.myftp.org\" OR cs-host=\"*.myftp.biz\" OR cs-host=\"*.serveblog.net\" OR cs-host=\"*.servebeer.com\" OR cs-host=\"*.servemp3.com\" OR cs-host=\"*.serveftp.com\" OR cs-host=\"*.servequake.com\" OR cs-host=\"*.servehalflife.com\" OR cs-host=\"*.servehttp.com\" OR cs-host=\"*.servegame.com\" OR cs-host=\"*.servepics.com\" OR cs-host=\"*.myvnc.com\" OR cs-host=\"*.ignorelist.com\" OR cs-host=\"*.jkub.com\" OR cs-host=\"*.dlinkddns.com\" OR cs-host=\"*.jumpingcrab.com\" OR cs-host=\"*.ddns.info\" OR cs-host=\"*.mooo.com\" OR cs-host=\"*.dns-dns.com\" OR cs-host=\"*.strangled.net\" OR cs-host=\"*.adultdns.net\" OR cs-host=\"*.craftx.biz\" OR cs-host=\"*.ddns01.com\" OR cs-host=\"*.dns53.biz\" OR cs-host=\"*.dnsapi.info\" OR cs-host=\"*.dnsd.info\" OR cs-host=\"*.dnsdynamic.com\" OR cs-host=\"*.dnsdynamic.net\" OR cs-host=\"*.dnsget.org\" OR cs-host=\"*.fe100.net\" OR cs-host=\"*.flashserv.net\" OR cs-host=\"*.ftp21.net\" OR cs-host=\"*.http01.com\" OR cs-host=\"*.http80.info\" OR cs-host=\"*.https443.com\" OR cs-host=\"*.imap01.com\" OR cs-host=\"*.kadm5.com\" OR cs-host=\"*.mysq1.net\" OR cs-host=\"*.ns360.info\" OR cs-host=\"*.ntdll.net\" OR cs-host=\"*.ole32.com\" OR cs-host=\"*.proxy8080.com\" OR cs-host=\"*.sql01.com\" OR cs-host=\"*.ssh01.com\" OR cs-host=\"*.ssh22.net\" OR cs-host=\"*.tempors.com\" OR cs-host=\"*.tftpd.net\" OR cs-host=\"*.ttl60.com\" OR cs-host=\"*.ttl60.org\" OR cs-host=\"*.user32.com\" OR cs-host=\"*.voip01.com\" OR cs-host=\"*.wow64.net\" OR cs-host=\"*.x64.me\" OR cs-host=\"*.xns01.com\" OR cs-host=\"*.dyndns.org\" OR cs-host=\"*.dyndns.info\" OR cs-host=\"*.dyndns.tv\" OR cs-host=\"*.dyndns-at-home.com\" OR cs-host=\"*.dnsomatic.com\" OR cs-host=\"*.zapto.org\" OR cs-host=\"*.webhop.net\" OR cs-host=\"*.25u.com\" OR cs-host=\"*.slyip.net\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.command-and-control",
+    "attack.t1105",
+    "attack.t1568"
+  ],
+  "Version": "0.1"
+}

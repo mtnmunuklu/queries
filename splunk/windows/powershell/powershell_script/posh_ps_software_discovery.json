@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may attempt to enumerate software for a variety of reasons, such as figuring out what security measures are present or if the compromised system has a version of software that is vulnerable.\n\nAuthor: Nikita Nazarov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2650dd1a-eb2a-412d-ac36-83f06c4f2282",
+  "InsertDate": "2025-02-03T20:32:32Z",
+  "LastUpdateDate": "2025-02-03T20:32:32Z",
+  "Level": "medium",
+  "Name": "Detected Windows Software Discovery - PowerShell",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*get-itemProperty*\" scriptblocktext=\"*\\\\software\\\\*\" scriptblocktext=\"*select-object*\" scriptblocktext=\"*format-table*\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1518"
+  ],
+  "Version": "0.1"
+}

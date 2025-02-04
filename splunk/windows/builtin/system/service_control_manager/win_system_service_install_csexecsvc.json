@@ -1,0 +1,14 @@
+{
+  "Description": "Detects CSExec service installation and execution events\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a27e5fa9-c35e-4e3d-b7e0-1ce2af66ad12",
+  "InsertDate": "2025-02-03T20:32:13Z",
+  "LastUpdateDate": "2025-02-03T20:32:13Z",
+  "Level": "medium",
+  "Name": "CSExec Service Installation",
+  "Query": "sourcetype=\"windows-system\" (servicename=\"csexecsvc\" imagepath=\"*\\\\csexecsvc.exe\") (provider_name=\"Service Control Manager\" eventid=\"7045\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1569.002"
+  ],
+  "Version": "0.1"
+}

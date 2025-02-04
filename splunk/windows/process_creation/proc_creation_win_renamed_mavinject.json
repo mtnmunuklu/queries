@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the execution of a renamed version of the \"Mavinject\" process. Which can be abused to perform process injection using the \"/INJECTRUNNING\" flag\n\nAuthor: frack113, Florian Roth\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e6474a1b-5390-49cd-ab41-8d88655f7394",
+  "InsertDate": "2025-02-03T20:33:07Z",
+  "LastUpdateDate": "2025-02-03T20:33:07Z",
+  "Level": "high",
+  "Name": "Renamed Mavinject.EXE Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (original_file_name=\"mavinject32.exe\" OR original_file_name=\"mavinject64.exe\") NOT (process_path=\"*\\\\mavinject32.exe\" OR process_path=\"*\\\\mavinject64.exe\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1055.001",
+    "attack.t1218.013"
+  ],
+  "Version": "0.1"
+}

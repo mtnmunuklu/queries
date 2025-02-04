@@ -1,0 +1,15 @@
+{
+  "Description": "Detects value modification of registry key containing path to binary used as screensaver.\n\nAuthor: Bartlomiej Czyz @bczyz1, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "67a6c006-3fbe-46a7-9074-2ba3b82c3000",
+  "InsertDate": "2025-02-03T20:33:29Z",
+  "LastUpdateDate": "2025-02-03T20:33:29Z",
+  "Level": "medium",
+  "Name": "Path To Screensaver Binary Modified",
+  "Query": "sourcetype=\"windows-sysmon\" target_object=\"*\\\\Control Panel\\\\Desktop\\\\SCRNSAVE.EXE\" NOT (process_path=\"*\\\\rundll32.exe\" OR process_path=\"*\\\\explorer.exe\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1546.002"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects activity when a member is removed from a security-enabled global group\n\nAuthor: Alexandr Yampolskyi, SOC Prime\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "02c39d30-02b5-45d2-b435-8aebfe5a8629",
+  "InsertDate": "2025-02-03T20:32:08Z",
+  "LastUpdateDate": "2025-02-03T20:32:08Z",
+  "Level": "low",
+  "Name": "A Member Was Removed From a Security-Enabled Global Group",
+  "Query": "sourcetype=\"windows-security\" (eventid=\"633\" OR eventid=\"4729\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1098"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,13 @@
+{
+  "Description": "Detects the presence of a loaded unsigned kernel module on the system.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "951f8d29-f2f6-48a7-859f-0673ff105e6f",
+  "InsertDate": "2025-02-03T20:32:07Z",
+  "LastUpdateDate": "2025-02-03T20:32:07Z",
+  "Level": "high",
+  "Name": "CodeIntegrity - Unsigned Kernel Module Loaded",
+  "Query": "sourcetype=\"windows-codeintegrity-operational\" eventid=\"3001\"",
+  "Tags": [
+    "attack.privilege-escalation"
+  ],
+  "Version": "0.1"
+}

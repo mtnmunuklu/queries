@@ -1,0 +1,14 @@
+{
+  "Description": "Detects an interactive AT job, which may be used as a form of privilege escalation.\n\nAuthor: E.M. Anhaus (originally from Atomic Blue Detections, Endgame), oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "60fc936d-2eb0-4543-8a13-911c750a1dfc",
+  "InsertDate": "2025-02-03T20:32:37Z",
+  "LastUpdateDate": "2025-02-03T20:32:37Z",
+  "Level": "high",
+  "Name": "Interactive AT Job",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\at.exe\" command=\"*interactive*\"",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.t1053.002"
+  ],
+  "Version": "0.1"
+}

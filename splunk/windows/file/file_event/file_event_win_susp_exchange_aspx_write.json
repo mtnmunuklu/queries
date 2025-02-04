@@ -1,0 +1,16 @@
+{
+  "Description": "Detects suspicious activity in which the MSExchangeMailboxReplication process writes .asp and .apsx files to disk, which could be a sign of ProxyShell exploitation\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7280c9f3-a5af-45d0-916a-bc01cb4151c9",
+  "InsertDate": "2025-02-03T20:32:20Z",
+  "LastUpdateDate": "2025-02-03T20:32:20Z",
+  "Level": "high",
+  "Name": "Suspicious MSExchangeMailboxReplication ASPX Write",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\MSExchangeMailboxReplication.exe\" (filepath=\"*.aspx\" OR filepath=\"*.asp\")",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1190",
+    "attack.persistence",
+    "attack.t1505.003"
+  ],
+  "Version": "0.1"
+}

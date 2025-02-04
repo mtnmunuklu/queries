@@ -1,0 +1,14 @@
+{
+  "Description": "Detects modification of autostart extensibility point (ASEP) in registry.\n\nAuthor: Victor Sergeev, Daniil Yugoslavskiy, Gleb Sukhodolskiy, Timur Zinniatullin, oscd.community, Tim Shelton, frack113 (split)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e7a2fd40-3ae1-4a85-bf80-15cf624fb1b1",
+  "InsertDate": "2025-02-03T20:33:31Z",
+  "LastUpdateDate": "2025-02-03T20:33:31Z",
+  "Level": "medium",
+  "Name": "System Scripts Autorun Keys Modification",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\Software\\\\Policies\\\\Microsoft\\\\Windows\\\\System\\\\Scripts*\" (target_object=\"*\\\\Startup*\" OR target_object=\"*\\\\Shutdown*\" OR target_object=\"*\\\\Logon*\" OR target_object=\"*\\\\Logoff*\") NOT details=\"(Empty)\"",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1547.001"
+  ],
+  "Version": "0.1"
+}

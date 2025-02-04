@@ -1,0 +1,15 @@
+{
+  "Description": "Identifies when an account hasn't signed in during the past n number of days.\n\nAuthor: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e402c26a-267a-45bd-9615-bd9ceda6da85",
+  "InsertDate": "2025-02-03T20:31:53Z",
+  "LastUpdateDate": "2025-02-03T20:31:53Z",
+  "Level": "high",
+  "Name": "Stale Accounts In A Privileged Role",
+  "Query": "sourcetype=\"azure-pim\" riskeventtype=\"staleSignInAlertIncident\"",
+  "Tags": [
+    "attack.t1078",
+    "attack.persistence",
+    "attack.privilege-escalation"
+  ],
+  "Version": "0.1"
+}

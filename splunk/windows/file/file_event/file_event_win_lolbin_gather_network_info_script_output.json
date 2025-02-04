@@ -1,0 +1,13 @@
+{
+  "Description": "Detects creation of files which are the results of executing the built-in reconnaissance script \"C:\\Windows\\System32\\gatherNetworkInfo.vbs\".\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f92a6f1e-a512-4a15-9735-da09e78d7273",
+  "InsertDate": "2025-02-03T20:32:18Z",
+  "LastUpdateDate": "2025-02-03T20:32:18Z",
+  "Level": "medium",
+  "Name": "GatherNetworkInfo.VBS Reconnaissance Script Output",
+  "Query": "sourcetype=\"windows-sysmon\" filepath=\"C:\\\\Windows\\\\System32\\\\config*\" (filepath=\"*\\\\Hotfixinfo.txt\" OR filepath=\"*\\\\netiostate.txt\" OR filepath=\"*\\\\sysportslog.txt\" OR filepath=\"*\\\\VmSwitchLog.evtx\")",
+  "Tags": [
+    "attack.discovery"
+  ],
+  "Version": "0.1"
+}

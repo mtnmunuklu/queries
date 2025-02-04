@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of an AnyDesk binary with a version prior to 8.0.8.\nPrior to version 8.0.8, the Anydesk application used a signing certificate that got compromised by threat actors.\nUse this rule to detect instances of older versions of Anydesk using the compromised certificate\nThis is recommended in order to avoid attackers leveraging the certificate and signing their binaries to bypass detections.\n\n\nAuthor: Sai Prashanth Pulisetti, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "41f407b5-3096-44ea-a74f-96d04fbc41be",
+  "InsertDate": "2025-02-03T20:33:05Z",
+  "LastUpdateDate": "2025-02-03T20:33:05Z",
+  "Level": "medium",
+  "Name": "Remote Access Tool - AnyDesk Execution With Known Revoked Signing Certificate",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\AnyDesk.exe\" description=\"AnyDesk\" product=\"AnyDesk\" company=\"AnyDesk Software GmbH\") (file_version=\"7.0.*\" OR file_version=\"7.1.*\" OR file_version=\"8.0.1*\" OR file_version=\"8.0.2*\" OR file_version=\"8.0.3*\" OR file_version=\"8.0.4*\" OR file_version=\"8.0.5*\" OR file_version=\"8.0.6*\" OR file_version=\"8.0.7*\")) NOT (command=\"* --remove*\" OR command=\"* --uninstall*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.initial-access"
+  ],
+  "Version": "0.1"
+}

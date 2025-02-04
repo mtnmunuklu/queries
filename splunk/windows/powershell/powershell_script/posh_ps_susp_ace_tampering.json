@@ -1,0 +1,15 @@
+{
+  "Description": "Detects usage of certain functions and keywords that are used to manipulate security descriptors in order to potentially set a backdoor. As seen used in the DAMP project.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2f77047c-e6e9-4c11-b088-a3de399524cd",
+  "InsertDate": "2025-02-03T20:32:32Z",
+  "LastUpdateDate": "2025-02-03T20:32:32Z",
+  "Level": "high",
+  "Name": "Potential Persistence Via Security Descriptors - ScriptBlock",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*win32_Trustee*\" scriptblocktext=\"*win32_Ace*\" scriptblocktext=\"*.AccessMask*\" scriptblocktext=\"*.AceType*\" scriptblocktext=\"*.SetSecurityDescriptor*\") (scriptblocktext=\"*\\\\Lsa\\\\JD*\" OR scriptblocktext=\"*\\\\Lsa\\\\Skew1*\" OR scriptblocktext=\"*\\\\Lsa\\\\Data*\" OR scriptblocktext=\"*\\\\Lsa\\\\GBG*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.defense-evasion",
+    "attack.privilege-escalation"
+  ],
+  "Version": "0.1"
+}

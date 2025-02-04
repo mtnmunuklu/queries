@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of whoami.exe with the /group command line flag to show group membership for the current user, account type, security identifiers (SID), and attributes.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "bd8b828d-0dca-48e1-8a63-8a58ecf2644f",
+  "InsertDate": "2025-02-03T20:33:25Z",
+  "LastUpdateDate": "2025-02-03T20:33:25Z",
+  "Level": "medium",
+  "Name": "Group Membership Reconnaissance Via Whoami.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"* /groups*\" OR command=\"* -groups*\") (process_path=\"*\\\\whoami.exe\" original_file_name=\"whoami.exe\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1033"
+  ],
+  "Version": "0.1"
+}

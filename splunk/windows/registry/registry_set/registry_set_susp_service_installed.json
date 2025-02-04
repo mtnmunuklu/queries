@@ -1,0 +1,14 @@
+{
+  "Description": "Detects installation of NalDrv or PROCEXP152 services via registry-keys to non-system32 folders.\nBoth services are used in the tool Ghost-In-The-Logs (https://github.com/bats3c/Ghost-In-The-Logs), which uses KDU (https://github.com/hfiref0x/KDU)\n\n\nAuthor: xknow (@xknow_infosec), xorxes (@xor_xes)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f2485272-a156-4773-82d7-1d178bc4905b",
+  "InsertDate": "2025-02-03T20:33:43Z",
+  "LastUpdateDate": "2025-02-03T20:33:43Z",
+  "Level": "medium",
+  "Name": "Suspicious Service Installed",
+  "Query": "sourcetype=\"windows-*\" (target_object=\"HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\NalDrv\\\\ImagePath\" OR target_object=\"HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\PROCEXP152\\\\ImagePath\") NOT ((process_path=\"*\\\\procexp64.exe\" OR process_path=\"*\\\\procexp.exe\" OR process_path=\"*\\\\procmon64.exe\" OR process_path=\"*\\\\procmon.exe\" OR process_path=\"*\\\\handle.exe\" OR process_path=\"*\\\\handle64.exe\") details=\"*\\\\WINDOWS\\\\system32\\\\Drivers\\\\PROCEXP152.SYS*\")",
+  "Tags": [
+    "attack.t1562.001",
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

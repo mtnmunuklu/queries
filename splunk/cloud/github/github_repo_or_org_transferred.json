@@ -1,0 +1,15 @@
+{
+  "Description": "Detects when a repository or an organization is being transferred to another location.\n\nAuthor: Romain Gaillard (@romain-gaillard)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "04ad83ef-1a37-4c10-b57a-81092164bf33",
+  "InsertDate": "2025-02-03T20:31:54Z",
+  "LastUpdateDate": "2025-02-03T20:31:54Z",
+  "Level": "medium",
+  "Name": "Github Repository/Organization Transferred",
+  "Query": "sourcetype=\"github-audit\" (action=\"migration.create\" OR action=\"org.transfer_outgoing\" OR action=\"org.transfer\" OR action=\"repo.transfer_outgoing\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1020",
+    "attack.t1537"
+  ],
+  "Version": "0.1"
+}

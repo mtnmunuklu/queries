@@ -1,0 +1,17 @@
+{
+  "Description": "Detects potential DLL sideloading of \"chrome_frame_helper.dll\"\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Wietze Beukema (project and research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "72ca7c75-bf85-45cd-aca7-255d360e423c",
+  "InsertDate": "2025-02-03T20:32:22Z",
+  "LastUpdateDate": "2025-02-03T20:32:22Z",
+  "Level": "medium",
+  "Name": "Potential Chrome Frame Helper DLL Sideloading",
+  "Query": "sourcetype=\"windows-sysmon\" image_loaded=\"*\\\\chrome_frame_helper.dll\" NOT (image_loaded=\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\*\" OR image_loaded=\"C:\\\\Program Files (x86)\\\\Google\\\\Chrome\\\\Application\\\\*\") NOT image_loaded=\"*\\\\AppData\\\\local\\\\Google\\\\Chrome\\\\Application\\\\*\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

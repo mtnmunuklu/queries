@@ -1,0 +1,17 @@
+{
+  "Description": "Detects suspicious child processes spawning from microsoft office suite applications such as word or excel. This could indicates malicious macro execution\n\nAuthor: Sohan G (D4rkCiph3r)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "69483748-1525-4a6c-95ca-90dc8d431b68",
+  "InsertDate": "2025-02-03T20:32:02Z",
+  "LastUpdateDate": "2025-02-03T20:32:02Z",
+  "Level": "high",
+  "Name": "Suspicious Microsoft Office Child Process - MacOS",
+  "Query": "sourcetype=\"macos-*\" (parent_process_path=\"*Microsoft Word*\" OR parent_process_path=\"*Microsoft Excel*\" OR parent_process_path=\"*Microsoft PowerPoint*\" OR parent_process_path=\"*Microsoft OneNote*\") (process_path=\"*/bash\" OR process_path=\"*/curl\" OR process_path=\"*/dash\" OR process_path=\"*/fish\" OR process_path=\"*/osacompile\" OR process_path=\"*/osascript\" OR process_path=\"*/sh\" OR process_path=\"*/zsh\" OR process_path=\"*/python\" OR process_path=\"*/python3\" OR process_path=\"*/wget\")",
+  "Tags": [
+    "attack.execution",
+    "attack.persistence",
+    "attack.t1059.002",
+    "attack.t1137.002",
+    "attack.t1204.002"
+  ],
+  "Version": "0.1"
+}

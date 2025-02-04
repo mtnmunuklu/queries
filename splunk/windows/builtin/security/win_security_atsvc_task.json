@@ -1,0 +1,17 @@
+{
+  "Description": "Detects remote task creation via at.exe or API interacting with ATSVC namedpipe\n\nAuthor: Samir Bousseaden\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f6de6525-4509-495a-8a82-1f8b0ed73a00",
+  "InsertDate": "2025-02-03T20:32:09Z",
+  "LastUpdateDate": "2025-02-03T20:32:09Z",
+  "Level": "medium",
+  "Name": "Remote Task Creation via ATSVC Named Pipe",
+  "Query": "sourcetype=\"windows-security\" eventid=\"5145\" sharename=\"\\\\\\\\\\\\\\\\\\\\*\\\\\\\\IPC$\" relativetargetname=\"atsvc\" accesslist=\"*WriteData*\"",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.persistence",
+    "car.2013-05-004",
+    "car.2015-04-001",
+    "attack.t1053.002"
+  ],
+  "Version": "0.1"
+}

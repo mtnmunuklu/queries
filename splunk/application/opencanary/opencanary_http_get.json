@@ -1,0 +1,14 @@
+{
+  "Description": "Detects instances where an HTTP service on an OpenCanary node has received a GET request.\n\nAuthor: Security Onion Solutions\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "af6c3078-84cd-4c68-8842-08b76bd81b13",
+  "InsertDate": "2025-02-03T20:31:49Z",
+  "LastUpdateDate": "2025-02-03T20:31:49Z",
+  "Level": "high",
+  "Name": "OpenCanary - HTTP GET Request",
+  "Query": "sourcetype=\"opencanary-*\" logtype=\"3000\"",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1190"
+  ],
+  "Version": "0.1"
+}

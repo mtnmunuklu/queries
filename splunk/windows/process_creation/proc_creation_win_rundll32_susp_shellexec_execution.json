@@ -1,0 +1,13 @@
+{
+  "Description": "Detects suspicious usage of the ShellExec_RunDLL function to launch other commands as seen in the the raspberry-robin attack\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d87bd452-6da1-456e-8155-7dc988157b7d",
+  "InsertDate": "2025-02-03T20:33:09Z",
+  "LastUpdateDate": "2025-02-03T20:33:09Z",
+  "Level": "high",
+  "Name": "Suspicious Usage Of ShellExec_RunDLL",
+  "Query": "sourcetype=\"windows-sysmon\" command=\"*ShellExec_RunDLL*\" (command=\"*\\\\Desktop\\\\*\" OR command=\"*\\\\Temp\\\\*\" OR command=\"*\\\\Users\\\\Public\\\\*\" OR command=\"*comspec*\" OR command=\"*iex*\" OR command=\"*Invoke-*\" OR command=\"*msiexec*\" OR command=\"*odbcconf*\" OR command=\"*regsvr32*\")",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

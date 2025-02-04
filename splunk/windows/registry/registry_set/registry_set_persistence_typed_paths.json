@@ -1,0 +1,13 @@
+{
+  "Description": "Detects modification addition to the 'TypedPaths' key in the user or admin registry from a non standard application. Which might indicate persistence attempt\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "086ae989-9ca6-4fe7-895a-759c5544f247",
+  "InsertDate": "2025-02-03T20:33:41Z",
+  "LastUpdateDate": "2025-02-03T20:33:41Z",
+  "Level": "high",
+  "Name": "Potential Persistence Via TypedPaths",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Explorer\\\\TypedPaths\\\\*\" NOT (process_path=\"C:\\\\Windows\\\\explorer.exe\" OR process_path=\"C:\\\\Windows\\\\SysWOW64\\\\explorer.exe\")",
+  "Tags": [
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

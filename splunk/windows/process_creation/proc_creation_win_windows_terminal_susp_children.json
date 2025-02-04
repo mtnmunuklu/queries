@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious children spawned via the Windows Terminal application which could be a sign of persistence via WindowsTerminal (see references section)\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8de89e52-f6e1-4b5b-afd1-41ecfa300d48",
+  "InsertDate": "2025-02-03T20:33:25Z",
+  "LastUpdateDate": "2025-02-03T20:33:25Z",
+  "Level": "medium",
+  "Name": "Suspicious WindowsTerminal Child Processes",
+  "Query": "sourcetype=\"windows-sysmon\" ((parent_process_path=\"*\\\\WindowsTerminal.exe\" OR parent_process_path=\"*\\\\wt.exe\") ((process_path=\"*\\\\rundll32.exe\" OR process_path=\"*\\\\regsvr32.exe\" OR process_path=\"*\\\\certutil.exe\" OR process_path=\"*\\\\cscript.exe\" OR process_path=\"*\\\\wscript.exe\" OR process_path=\"*\\\\csc.exe\") (process_path=\"*C:\\\\Users\\\\Public\\\\*\" OR process_path=\"*\\\\Downloads\\\\*\" OR process_path=\"*\\\\Desktop\\\\*\" OR process_path=\"*\\\\AppData\\\\Local\\\\Temp\\\\*\" OR process_path=\"*\\\\Windows\\\\TEMP\\\\*\") (command=\"* iex *\" OR command=\"* icm*\" OR command=\"*Invoke-*\" OR command=\"*Import-Module *\" OR command=\"*ipmo *\" OR command=\"*DownloadString(*\" OR command=\"* /c *\" OR command=\"* /k *\" OR command=\"* /r *\"))) NOT ((command=\"*Import-Module*\" command=\"*Microsoft.VisualStudio.DevShell.dll*\" command=\"*Enter-VsDevShell*\") OR (command=\"*\\\\AppData\\\\Local\\\\Packages\\\\Microsoft.WindowsTerminal_*\" command=\"*\\\\LocalState\\\\settings.json*\") OR (command=\"*C:\\\\Program Files\\\\Microsoft Visual Studio\\\\*\" command=\"*\\\\Common7\\\\Tools\\\\VsDevCmd.bat*\"))",
+  "Tags": [
+    "attack.execution",
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

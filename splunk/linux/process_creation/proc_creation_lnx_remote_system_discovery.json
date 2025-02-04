@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the enumeration of other remote systems.\n\nAuthor: Alejandro Ortuno, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "11063ec2-de63-4153-935e-b1a8b9e616f1",
+  "InsertDate": "2025-02-03T20:32:00Z",
+  "LastUpdateDate": "2025-02-03T20:32:00Z",
+  "Level": "low",
+  "Name": "Linux Remote System Discovery",
+  "Query": "sourcetype=\"linux-*\" (process_path=\"*/arp\" command=\"*-a*\") OR (process_path=\"*/ping\" (command=\"* 10.*\" OR command=\"* 192.168.*\" OR command=\"* 172.16.*\" OR command=\"* 172.17.*\" OR command=\"* 172.18.*\" OR command=\"* 172.19.*\" OR command=\"* 172.20.*\" OR command=\"* 172.21.*\" OR command=\"* 172.22.*\" OR command=\"* 172.23.*\" OR command=\"* 172.24.*\" OR command=\"* 172.25.*\" OR command=\"* 172.26.*\" OR command=\"* 172.27.*\" OR command=\"* 172.28.*\" OR command=\"* 172.29.*\" OR command=\"* 172.30.*\" OR command=\"* 172.31.*\" OR command=\"* 127.*\" OR command=\"* 169.254.*\"))",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1018"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "This detection uses azureactivity logs (Administrative category) to identify the creation or update of a server instance in an Azure AD Hybrid health AD FS service.\nA threat actor can create a new AD Health ADFS service and create a fake server instance to spoof AD FS signing logs. There is no need to compromise an on-prem AD FS server.\nThis can be done programmatically via HTTP requests to Azure.\n\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research), MSTIC\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "288a39fc-4914-4831-9ada-270e9dc12cb4",
+  "InsertDate": "2025-02-03T20:31:51Z",
+  "LastUpdateDate": "2025-02-03T20:31:51Z",
+  "Level": "medium",
+  "Name": "Azure Active Directory Hybrid Health AD FS New Server",
+  "Query": "sourcetype=\"azure-activitylogs\" categoryvalue=\"Administrative\" resourceprovidervalue=\"Microsoft.ADHybridHealthService\" resourceid=\"*AdFederationService*\" operationnamevalue=\"Microsoft.ADHybridHealthService/services/servicemembers/action\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1578"
+  ],
+  "Version": "0.1"
+}

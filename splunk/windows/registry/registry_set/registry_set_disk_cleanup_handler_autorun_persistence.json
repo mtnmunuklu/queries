@@ -1,0 +1,13 @@
+{
+  "Description": "Detects when an attacker modifies values of the Disk Cleanup Handler in the registry to achieve persistence via autorun.\nThe disk cleanup manager is part of the operating system.\nIt displays the dialog box […] The user has the option of enabling or disabling individual handlers by selecting or clearing their check box in the disk cleanup manager's UI.\nAlthough Windows comes with a number of disk cleanup handlers, they aren't designed to handle files produced by other applications.\nInstead, the disk cleanup manager is designed to be flexible and extensible by enabling any developer to implement and register their own disk cleanup handler.\nAny developer can extend the available disk cleanup services by implementing and registering a disk cleanup handler.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d4e2745c-f0c6-4bde-a3ab-b553b3f693cc",
+  "InsertDate": "2025-02-03T20:33:36Z",
+  "LastUpdateDate": "2025-02-03T20:33:36Z",
+  "Level": "medium",
+  "Name": "Persistence Via Disk Cleanup Handler - Autorun",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Explorer\\\\VolumeCaches\\\\*\" ((target_object=\"*\\\\Autorun*\" details=\"DWORD (0x00000001)\") OR ((target_object=\"*\\\\CleanupString*\" OR target_object=\"*\\\\PreCleanupString*\") (details=\"*cmd*\" OR details=\"*powershell*\" OR details=\"*rundll32*\" OR details=\"*mshta*\" OR details=\"*cscript*\" OR details=\"*wscript*\" OR details=\"*wsl*\" OR details=\"*\\\\Users\\\\Public\\\\*\" OR details=\"*\\\\Windows\\\\TEMP\\\\*\" OR details=\"*\\\\Microsoft\\\\Windows\\\\Start Menu\\\\Programs\\\\Startup\\\\*\")))",
+  "Tags": [
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

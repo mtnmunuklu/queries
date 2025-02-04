@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a tscon.exe start as LOCAL SYSTEM\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9847f263-4a81-424f-970c-875dab15b79b",
+  "InsertDate": "2025-02-03T20:33:21Z",
+  "LastUpdateDate": "2025-02-03T20:33:21Z",
+  "Level": "high",
+  "Name": "Suspicious TSCON Start as SYSTEM",
+  "Query": "sourcetype=\"windows-sysmon\" (username=\"*AUTHORI*\" OR username=\"*AUTORI*\") process_path=\"*\\\\tscon.exe\"",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1219"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the addition of new root, CA or AuthRoot certificates to the Windows registry\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d223b46b-5621-4037-88fe-fda32eead684",
+  "InsertDate": "2025-02-03T20:33:37Z",
+  "LastUpdateDate": "2025-02-03T20:33:37Z",
+  "Level": "medium",
+  "Name": "New Root or CA or AuthRoot Certificate to Store",
+  "Query": "sourcetype=\"windows-*\" (target_object=\"*\\\\SOFTWARE\\\\Microsoft\\\\SystemCertificates\\\\Root\\\\Certificates\\\\*\" OR target_object=\"*\\\\SOFTWARE\\\\Policies\\\\Microsoft\\\\SystemCertificates\\\\Root\\\\Certificates\\\\*\" OR target_object=\"*\\\\SOFTWARE\\\\Microsoft\\\\EnterpriseCertificates\\\\Root\\\\Certificates\\\\*\" OR target_object=\"*\\\\SOFTWARE\\\\Microsoft\\\\SystemCertificates\\\\CA\\\\Certificates\\\\*\" OR target_object=\"*\\\\SOFTWARE\\\\Policies\\\\Microsoft\\\\SystemCertificates\\\\CA\\\\Certificates\\\\*\" OR target_object=\"*\\\\SOFTWARE\\\\Microsoft\\\\EnterpriseCertificates\\\\CA\\\\Certificates\\\\*\" OR target_object=\"*\\\\SOFTWARE\\\\Microsoft\\\\SystemCertificates\\\\AuthRoot\\\\Certificates\\\\*\" OR target_object=\"*\\\\SOFTWARE\\\\Policies\\\\Microsoft\\\\SystemCertificates\\\\AuthRoot\\\\Certificates\\\\*\" OR target_object=\"*\\\\SOFTWARE\\\\Microsoft\\\\EnterpriseCertificates\\\\AuthRoot\\\\Certificates\\\\*\") target_object=\"*\\\\Blob\" details=\"Binary Data\"",
+  "Tags": [
+    "attack.impact",
+    "attack.t1490"
+  ],
+  "Version": "0.1"
+}

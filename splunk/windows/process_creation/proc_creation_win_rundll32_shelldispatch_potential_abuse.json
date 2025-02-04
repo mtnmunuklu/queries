@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential \"ShellDispatch.dll\" functionality abuse to execute arbitrary binaries via \"ShellExecute\"\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "82343930-652f-43f5-ab70-2ee9fdd6d5e9",
+  "InsertDate": "2025-02-03T20:33:08Z",
+  "LastUpdateDate": "2025-02-03T20:33:08Z",
+  "Level": "medium",
+  "Name": "Potential ShellDispatch.DLL Functionality Abuse",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\rundll32.exe\" original_file_name=\"RUNDLL32.EXE\") command=\"*RunDll_ShellExecuteW*\"",
+  "Tags": [
+    "attack.execution",
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

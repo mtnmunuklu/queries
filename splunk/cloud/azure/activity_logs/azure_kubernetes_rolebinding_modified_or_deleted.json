@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the creation or patching of potential malicious RoleBinding/ClusterRoleBinding.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "25cb259b-bbdc-4b87-98b7-90d7c72f8743",
+  "InsertDate": "2025-02-03T20:31:51Z",
+  "LastUpdateDate": "2025-02-03T20:31:51Z",
+  "Level": "medium",
+  "Name": "Azure Kubernetes RoleBinding/ClusterRoleBinding Modified and Deleted",
+  "Query": "sourcetype=\"azure-activitylogs\" (operationname=\"MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/RBAC.AUTHORIZATION.K8S.IO/CLUSTERROLEBINDINGS/WRITE\" OR operationname=\"MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/RBAC.AUTHORIZATION.K8S.IO/CLUSTERROLEBINDINGS/DELETE\" OR operationname=\"MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/RBAC.AUTHORIZATION.K8S.IO/ROLEBINDINGS/WRITE\" OR operationname=\"MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/RBAC.AUTHORIZATION.K8S.IO/ROLEBINDINGS/DELETE\")",
+  "Tags": [
+    "attack.impact",
+    "attack.credential-access"
+  ],
+  "Version": "0.1"
+}

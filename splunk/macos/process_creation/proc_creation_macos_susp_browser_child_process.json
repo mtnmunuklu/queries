@@ -1,0 +1,17 @@
+{
+  "Description": "Detects suspicious child processes spawned from browsers. This could be a result of a potential web browser exploitation.\n\nAuthor: Sohan G (D4rkCiph3r)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0250638a-2b28-4541-86fc-ea4c558fa0c6",
+  "InsertDate": "2025-02-03T20:32:02Z",
+  "LastUpdateDate": "2025-02-03T20:32:02Z",
+  "Level": "medium",
+  "Name": "Suspicious Browser Child Process - MacOS",
+  "Query": "sourcetype=\"macos-*\" ((parent_process_path=\"*com.apple.WebKit.WebContent*\" OR parent_process_path=\"*firefox*\" OR parent_process_path=\"*Google Chrome Helper*\" OR parent_process_path=\"*Google Chrome*\" OR parent_process_path=\"*Microsoft Edge*\" OR parent_process_path=\"*Opera*\" OR parent_process_path=\"*Safari*\" OR parent_process_path=\"*Tor Browser*\") (process_path=\"*/bash\" OR process_path=\"*/curl\" OR process_path=\"*/dash\" OR process_path=\"*/ksh\" OR process_path=\"*/osascript\" OR process_path=\"*/perl\" OR process_path=\"*/php\" OR process_path=\"*/pwsh\" OR process_path=\"*/python\" OR process_path=\"*/sh\" OR process_path=\"*/tcsh\" OR process_path=\"*/wget\" OR process_path=\"*/zsh\")) NOT (command=\"*--defaults-torrc*\" OR command=\"*/Library/Application Support/Microsoft/MAU*/Microsoft AutoUpdate.app/Contents/MacOS/msupdate*\" OR ((parent_process_path=\"*Google Chrome Helper*\" OR parent_process_path=\"*Google Chrome*\") (command=\"*/Volumes/Google Chrome/Google Chrome.app/Contents/Frameworks/*/Resources/install.sh*\" OR command=\"*/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/*/Resources/keystone_promote_preflight.sh*\" OR command=\"*/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/*/Resources/keystone_promote_postflight.sh*\")) OR (parent_process_path=\"*Microsoft Edge*\" (command=\"*IOPlatformExpertDevice*\" OR command=\"*hw.model*\")) OR ((parent_process_path=\"*Google Chrome Helper*\" OR parent_process_path=\"*Google Chrome*\") (command=\"*/Users/*\" command=\"*/Library/Application Support/Google/Chrome/recovery/*\" command=\"*/ChromeRecovery*\"))) NOT (command=\"null\" OR command=\"\")",
+  "Tags": [
+    "attack.initial-access",
+    "attack.execution",
+    "attack.t1189",
+    "attack.t1203",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

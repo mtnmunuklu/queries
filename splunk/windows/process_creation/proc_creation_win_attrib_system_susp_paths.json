@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the usage of attrib with the \"+s\" option to set scripts or executables located in suspicious locations as system files to hide them from users and make them unable to be deleted with simple rights. The rule limits the search to specific extensions and directories to avoid FPs\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "efec536f-72e8-4656-8960-5e85d091345b",
+  "InsertDate": "2025-02-03T20:32:37Z",
+  "LastUpdateDate": "2025-02-03T20:32:37Z",
+  "Level": "high",
+  "Name": "Set Suspicious Files as System Files Using Attrib.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\attrib.exe\" original_file_name=\"ATTRIB.EXE\") command=\"* +s*\" (command=\"* %*\" OR command=\"*\\\\Users\\\\Public\\\\*\" OR command=\"*\\\\AppData\\\\Local\\\\*\" OR command=\"*\\\\ProgramData\\\\*\" OR command=\"*\\\\Downloads\\\\*\" OR command=\"*\\\\Windows\\\\Temp\\\\*\") (command=\"*.bat*\" OR command=\"*.dll*\" OR command=\"*.exe*\" OR command=\"*.hta*\" OR command=\"*.ps1*\" OR command=\"*.vbe*\" OR command=\"*.vbs*\")) NOT (command=\"*\\\\Windows\\\\TEMP\\\\*\" command=\"*.exe*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1564.001"
+  ],
+  "Version": "0.1"
+}

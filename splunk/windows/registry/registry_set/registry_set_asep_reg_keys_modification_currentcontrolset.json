@@ -1,0 +1,14 @@
+{
+  "Description": "Detects modification of autostart extensibility point (ASEP) in registry.\n\nAuthor: Victor Sergeev, Daniil Yugoslavskiy, Gleb Sukhodolskiy, Timur Zinniatullin, oscd.community, Tim Shelton, frack113 (split)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f674e36a-4b91-431e-8aef-f8a96c2aca35",
+  "InsertDate": "2025-02-03T20:33:31Z",
+  "LastUpdateDate": "2025-02-03T20:33:31Z",
+  "Level": "medium",
+  "Name": "CurrentControlSet Autorun Keys Modification",
+  "Query": "sourcetype=\"windows-*\" (target_object=\"*\\\\SYSTEM\\\\CurrentControlSet\\\\Control*\" (target_object=\"*\\\\Terminal Server\\\\WinStations\\\\RDP-Tcp\\\\InitialProgram*\" OR target_object=\"*\\\\Terminal Server\\\\Wds\\\\rdpwd\\\\StartupPrograms*\" OR target_object=\"*\\\\SecurityProviders\\\\SecurityProviders*\" OR target_object=\"*\\\\SafeBoot\\\\AlternateShell*\" OR target_object=\"*\\\\Print\\\\Providers*\" OR target_object=\"*\\\\Print\\\\Monitors*\" OR target_object=\"*\\\\NetworkProvider\\\\Order*\" OR target_object=\"*\\\\Lsa\\\\Notification Packages*\" OR target_object=\"*\\\\Lsa\\\\Authentication Packages*\" OR target_object=\"*\\\\BootVerificationProgram\\\\ImagePath*\")) NOT ((process_path=\"C:\\\\Windows\\\\System32\\\\spoolsv.exe\" target_object=\"*\\\\Print\\\\Monitors\\\\CutePDF Writer Monitor*\" (details=\"cpwmon64_v40.dll\" OR details=\"CutePDF Writer\")) OR (process_path=\"C:\\\\Windows\\\\System32\\\\spoolsv.exe\" target_object=\"*Print\\\\Monitors\\\\Appmon\\\\Ports\\\\Microsoft.Office.OneNote_*\" (username=\"*AUTHORI*\" OR username=\"*AUTORI*\")) OR (process_path=\"C:\\\\Windows\\\\System32\\\\poqexec.exe\" target_object=\"*\\\\NetworkProvider\\\\Order\\\\ProviderOrder\") OR (process_path=\"C:\\\\Windows\\\\System32\\\\spoolsv.exe\" target_object=\"*\\\\Print\\\\Monitors\\\\MONVNC\\\\Driver\" details=\"VNCpm.dll\") OR details=\"(Empty)\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1547.001"
+  ],
+  "Version": "0.1"
+}

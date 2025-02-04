@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a Mesh Agent service installation. Mesh Agent is used to remotely manage computers\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e0d1ad53-c7eb-48ec-a87a-72393cc6cedc",
+  "InsertDate": "2025-02-03T20:32:13Z",
+  "LastUpdateDate": "2025-02-03T20:32:13Z",
+  "Level": "medium",
+  "Name": "Mesh Agent Service Installation",
+  "Query": "sourcetype=\"windows-system\" (provider_name=\"Service Control Manager\" eventid=\"7045\") (imagepath=\"*MeshAgent.exe*\" servicename=\"*Mesh Agent*\")",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1219"
+  ],
+  "Version": "0.1"
+}

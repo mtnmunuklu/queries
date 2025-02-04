@@ -1,0 +1,15 @@
+{
+  "Description": "Detects DNS queries initiated by \"QuickAssist.exe\" to Microsoft Quick Assist primary endpoint that is used to establish a session.\n\n\nAuthor: Muhammad Faisal (@faisalusuf)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "882e858a-3233-4ba8-855e-2f3d3575803d",
+  "InsertDate": "2025-02-03T20:32:15Z",
+  "LastUpdateDate": "2025-02-03T20:32:15Z",
+  "Level": "low",
+  "Name": "DNS Query Request By QuickAssist.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\QuickAssist.exe\" query_name=\"*remoteassistance.support.services.microsoft.com\"",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1071.001",
+    "attack.t1210"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,13 @@
+{
+  "Description": "Detects potentially suspicious changes to the SentinelOne context menu scan command by a process other than SentinelOne.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6c304b02-06e6-402d-8be4-d5833cdf8198",
+  "InsertDate": "2025-02-03T20:33:43Z",
+  "LastUpdateDate": "2025-02-03T20:33:43Z",
+  "Level": "medium",
+  "Name": "Potential SentinelOne Shell Context Menu Scan Command Tampering",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\shell\\\\SentinelOneScan\\\\command\\\\*\" NOT (((details=\"C:\\\\Program Files\\\\SentinelOne\\\\Sentinel Agent*\" OR details=\"C:\\\\Program Files (x86)\\\\SentinelOne\\\\Sentinel Agent*\") details=\"*\\\\SentinelScanFromContextMenu.exe*\") OR (process_path=\"*C:\\\\Program Files\\\\SentinelOne\\\\\" OR process_path=\"*C:\\\\Program Files (x86)\\\\SentinelOne\\\\\"))",
+  "Tags": [
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

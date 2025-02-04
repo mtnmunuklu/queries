@@ -1,0 +1,14 @@
+{
+  "Description": "Detecting attempts to extract passwords with grep and laZagne\n\nAuthor: Igor Fits, Mikhail Larin, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "53b1b378-9b06-4992-b972-dde6e423d2b4",
+  "InsertDate": "2025-02-03T20:32:01Z",
+  "LastUpdateDate": "2025-02-03T20:32:01Z",
+  "Level": "high",
+  "Name": "Credentials In Files",
+  "Query": "sourcetype=\"macos-*\" (process_path=\"*/grep\" command=\"*password*\") OR command=\"*laZagne*\"",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1552.001"
+  ],
+  "Version": "0.1"
+}

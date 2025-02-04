@@ -1,0 +1,15 @@
+{
+  "Description": "Detects a suspicious LSASS process process clone that could be a sign of credential dumping activity\n\nAuthor: Florian Roth (Nextron Systems), Samir Bousseaden\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c8da0dfd-4ed0-4b68-962d-13c9c884384e",
+  "InsertDate": "2025-02-03T20:32:50Z",
+  "LastUpdateDate": "2025-02-03T20:32:50Z",
+  "Level": "critical",
+  "Name": "Potential Credential Dumping Via LSASS Process Clone",
+  "Query": "sourcetype=\"windows-sysmon\" parent_process_path=\"*\\\\Windows\\\\System32\\\\lsass.exe\" process_path=\"*\\\\Windows\\\\System32\\\\lsass.exe\"",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003",
+    "attack.t1003.001"
+  ],
+  "Version": "0.1"
+}

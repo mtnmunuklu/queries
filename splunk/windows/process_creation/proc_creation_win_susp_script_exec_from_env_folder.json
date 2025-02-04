@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a suspicious script execution in temporary folders or folders accessible by environment variables\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1228c958-e64e-4e71-92ad-7d429f4138ba",
+  "InsertDate": "2025-02-03T20:33:16Z",
+  "LastUpdateDate": "2025-02-03T20:33:16Z",
+  "Level": "high",
+  "Name": "Script Interpreter Execution From Suspicious Folder",
+  "Query": "sourcetype=\"windows-sysmon\" ((command=\"* -ep bypass *\" OR command=\"* -ExecutionPolicy bypass *\" OR command=\"* -w hidden *\" OR command=\"*/e:javascript *\" OR command=\"*/e:Jscript *\" OR command=\"*/e:vbscript *\") OR (original_file_name=\"cscript.exe\" OR original_file_name=\"mshta.exe\" OR original_file_name=\"wscript.exe\") OR (process_path=\"*\\\\cscript.exe\" OR process_path=\"*\\\\mshta.exe\" OR process_path=\"*\\\\wscript.exe\")) ((command=\"*:\\\\Perflogs\\\\*\" OR command=\"*:\\\\Users\\\\Public\\\\*\" OR command=\"*\\\\AppData\\\\Local\\\\Temp*\" OR command=\"*\\\\AppData\\\\Roaming\\\\Temp*\" OR command=\"*\\\\Temporary Internet*\" OR command=\"*\\\\Windows\\\\Temp*\") OR ((command=\"*:\\\\Users\\\\*\" command=\"*\\\\Favorites\\\\*\") (command=\"*:\\\\Users\\\\*\" command=\"*\\\\Favourites\\\\*\") (command=\"*:\\\\Users\\\\*\" command=\"*\\\\Contacts\\\\*\")))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

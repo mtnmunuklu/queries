@@ -1,0 +1,15 @@
+{
+  "Description": "Detects creation of the Process Monitor driver by processes other than Process Monitor (procmon) itself.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a05baa88-e922-4001-bc4d-8738135f27de",
+  "InsertDate": "2025-02-03T20:32:20Z",
+  "LastUpdateDate": "2025-02-03T20:32:20Z",
+  "Level": "medium",
+  "Name": "Process Monitor Driver Creation By Non-Sysinternals Binary",
+  "Query": "sourcetype=\"windows-sysmon\" (filepath=\"*\\\\procmon*\" filepath=\"*.sys\") NOT (process_path=\"*\\\\procmon.exe\" OR process_path=\"*\\\\procmon64.exe\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1068"
+  ],
+  "Version": "0.1"
+}

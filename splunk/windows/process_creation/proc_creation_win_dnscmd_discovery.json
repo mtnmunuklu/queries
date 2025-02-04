@@ -1,0 +1,15 @@
+{
+  "Description": "Detects an attempt to leverage dnscmd.exe to enumerate the DNS zones of a domain. DNS zones used to host the DNS records for a particular domain.\n\nAuthor: @gott_cyber\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b6457d63-d2a2-4e29-859d-4e7affc153d1",
+  "InsertDate": "2025-02-03T20:32:41Z",
+  "LastUpdateDate": "2025-02-03T20:32:41Z",
+  "Level": "medium",
+  "Name": "Potential Discovery Activity Via Dnscmd.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\dnscmd.exe\" (command=\"*/enumrecords*\" OR command=\"*/enumzones*\" OR command=\"*/ZonePrint*\" OR command=\"*/info*\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.execution",
+    "attack.t1543.003"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of rundll32 with a command line that doesn't contain a common extension\n\nAuthor: Tim Shelton, Florian Roth (Nextron Systems), Yassine Oukessou\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c3a99af4-35a9-4668-879e-c09aeb4f2bdf",
+  "InsertDate": "2025-02-03T20:33:09Z",
+  "LastUpdateDate": "2025-02-03T20:33:09Z",
+  "Level": "medium",
+  "Name": "Rundll32 Execution With Uncommon DLL Extension",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\rundll32.exe\" original_file_name=\"RUNDLL32.EXE\") NOT ((parent_process_path=\"*\\\\msiexec.exe\" (command=\"*:\\\\Windows\\\\Installer\\\\*\" command=\"*.tmp*\" command=\"*zzzzInvokeManagedCustomActionOutOfProc*\")) OR command=\"null\" OR command=\"\" OR ((command=\"*.cpl *\" OR command=\"*.cpl,*\" OR command=\"*.cpl\"*\" OR command=\"*.cpl'*\" OR command=\"*.dll *\" OR command=\"*.dll,*\" OR command=\"*.dll\"*\" OR command=\"*.dll'*\" OR command=\"*.inf *\" OR command=\"*.inf,*\" OR command=\"*.inf\"*\" OR command=\"*.inf'*\") (command=\"*.cpl\" OR command=\"*.dll\" OR command=\"*.inf\")) OR command=\"* -localserver *\") NOT (parent_command_line=\"*:\\\\Users\\\\*\" parent_command_line=\"*\\\\AppData\\\\Local\\\\Microsoft\\\\EdgeUpdate\\\\Install\\\\{*\" parent_command_line=\"*\\\\EDGEMITMP_*\" parent_command_line=\"*.tmp\\\\setup.exe*\" parent_command_line=\"*--install-archive=*\" parent_command_line=\"*--previous-version=*\" parent_command_line=\"*--msedgewebview --verbose-logging --do-not-launch-msedge --user-level*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.011"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,13 @@
+{
+  "Description": "Detects potentially suspicious file downloads from file sharing domains using PowerShell.exe\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b6e04788-29e1-4557-bb14-77f761848ab8",
+  "InsertDate": "2025-02-03T20:32:56Z",
+  "LastUpdateDate": "2025-02-03T20:32:56Z",
+  "Level": "high",
+  "Name": "Potentially Suspicious File Download From File Sharing Domain Via PowerShell.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\") (original_file_name=\"PowerShell.EXE\" OR original_file_name=\"pwsh.dll\")) (command=\"*anonfiles.com*\" OR command=\"*cdn.discordapp.com*\" OR command=\"*ddns.net*\" OR command=\"*dl.dropboxusercontent.com*\" OR command=\"*ghostbin.co*\" OR command=\"*glitch.me*\" OR command=\"*gofile.io*\" OR command=\"*hastebin.com*\" OR command=\"*mediafire.com*\" OR command=\"*mega.nz*\" OR command=\"*onrender.com*\" OR command=\"*pages.dev*\" OR command=\"*paste.ee*\" OR command=\"*pastebin.com*\" OR command=\"*pastebin.pl*\" OR command=\"*pastetext.net*\" OR command=\"*pixeldrain.com*\" OR command=\"*privatlab.com*\" OR command=\"*privatlab.net*\" OR command=\"*send.exploit.in*\" OR command=\"*sendspace.com*\" OR command=\"*storage.googleapis.com*\" OR command=\"*storjshare.io*\" OR command=\"*supabase.co*\" OR command=\"*temp.sh*\" OR command=\"*transfer.sh*\" OR command=\"*trycloudflare.com*\" OR command=\"*ufile.io*\" OR command=\"*w3spaces.com*\" OR command=\"*workers.dev*\") (command=\"*.DownloadString(*\" OR command=\"*.DownloadFile(*\" OR command=\"*Invoke-WebRequest *\" OR command=\"*iwr *\" OR command=\"*wget *\")",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects usage of the Quarks PwDump tool via commandline arguments\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0685b176-c816-4837-8e7b-1216f346636b",
+  "InsertDate": "2025-02-03T20:32:45Z",
+  "LastUpdateDate": "2025-02-03T20:32:45Z",
+  "Level": "high",
+  "Name": "HackTool - Quarks PwDump Execution",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\QuarksPwDump.exe\" OR (command=\" -dhl\" OR command=\" --dump-hash-local\" OR command=\" -dhdc\" OR command=\" --dump-hash-domain-cached\" OR command=\" --dump-bitlocker\" OR command=\" -dhd \" OR command=\" --dump-hash-domain \" OR command=\"--ntds-file\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.002"
+  ],
+  "Version": "0.1"
+}

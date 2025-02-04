@@ -1,0 +1,15 @@
+{
+  "Description": "Detects potential persistence activity using LaunchAgents or LaunchDaemons via the PlistBuddy utility\n\nAuthor: Sohan G (D4rkCiph3r)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "65d506d3-fcfe-4071-b4b2-bcefe721bbbb",
+  "InsertDate": "2025-02-03T20:32:02Z",
+  "LastUpdateDate": "2025-02-03T20:32:02Z",
+  "Level": "high",
+  "Name": "Potential Persistence Via PlistBuddy",
+  "Query": "sourcetype=\"macos-*\" process_path=\"*/PlistBuddy\" (command=\"*RunAtLoad*\" command=\"*true*\") (command=\"*LaunchAgents*\" OR command=\"*LaunchDaemons*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1543.001",
+    "attack.t1543.004"
+  ],
+  "Version": "0.1"
+}

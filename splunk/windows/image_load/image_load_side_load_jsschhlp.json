@@ -1,0 +1,17 @@
+{
+  "Description": "Detects potential DLL sideloading using JUSTSYSTEMS Japanese word processor\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "68654bf0-4412-43d5-bfe8-5eaa393cd939",
+  "InsertDate": "2025-02-03T20:32:23Z",
+  "LastUpdateDate": "2025-02-03T20:32:23Z",
+  "Level": "medium",
+  "Name": "Potential DLL Sideloading Via JsSchHlp",
+  "Query": "sourcetype=\"windows-sysmon\" image_loaded=\"*\\\\JSESPR.dll\" NOT image_loaded=\"C:\\\\Program Files\\\\Common Files\\\\Justsystem\\\\JsSchHlp\\\\*\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

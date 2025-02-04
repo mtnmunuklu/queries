@@ -1,0 +1,15 @@
+{
+  "Description": "The \"ScriptRunner.exe\" binary can be abused to proxy execution through it and bypass possible whitelisting\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "64760eef-87f7-4ed3-93fd-655668ea9420",
+  "InsertDate": "2025-02-03T20:32:49Z",
+  "LastUpdateDate": "2025-02-03T20:32:49Z",
+  "Level": "medium",
+  "Name": "Use of Scriptrunner.exe",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\ScriptRunner.exe\" original_file_name=\"ScriptRunner.exe\") command=\"* -appvscript *\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

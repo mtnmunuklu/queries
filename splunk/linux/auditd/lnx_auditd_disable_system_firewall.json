@@ -1,0 +1,14 @@
+{
+  "Description": "Detects disabling of system firewalls which could be used by adversaries to bypass controls that limit usage of the network.\n\nAuthor: Pawel Mazur\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "53059bc0-1472-438b-956a-7508a94a91f0",
+  "InsertDate": "2025-02-03T20:31:56Z",
+  "LastUpdateDate": "2025-02-03T20:31:56Z",
+  "Level": "high",
+  "Name": "Disable System Firewall",
+  "Query": "sourcetype=\"linux-auditd\" type=\"SERVICE_STOP\" (unit=\"firewalld\" OR unit=\"iptables\" OR unit=\"ufw\")",
+  "Tags": [
+    "attack.t1562.004",
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

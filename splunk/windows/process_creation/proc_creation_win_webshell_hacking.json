@@ -1,0 +1,17 @@
+{
+  "Description": "Detects certain parent child patterns found in cases in which a web shell is used to perform certain credential dumping or exfiltration activities on a compromised system\n\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4ebc877f-4612-45cb-b3a5-8e3834db36c9",
+  "InsertDate": "2025-02-03T20:33:24Z",
+  "LastUpdateDate": "2025-02-03T20:33:24Z",
+  "Level": "high",
+  "Name": "Webshell Hacking Activity Patterns",
+  "Query": "sourcetype=\"windows-sysmon\" ((parent_process_path=\"*\\\\caddy.exe\" OR parent_process_path=\"*\\\\httpd.exe\" OR parent_process_path=\"*\\\\nginx.exe\" OR parent_process_path=\"*\\\\php-cgi.exe\" OR parent_process_path=\"*\\\\w3wp.exe\" OR parent_process_path=\"*\\\\ws_tomcatservice.exe\") OR ((parent_process_path=\"*\\\\java.exe\" OR parent_process_path=\"*\\\\javaw.exe\") (parent_process_path=\"*-tomcat-*\" OR parent_process_path=\"*\\\\tomcat*\")) OR ((parent_process_path=\"*\\\\java.exe\" OR parent_process_path=\"*\\\\javaw.exe\") (command=\"*catalina.jar*\" OR command=\"*CATALINA_HOME*\"))) ((command=\"*rundll32*\" command=\"*comsvcs*\") OR (command=\"* -hp*\" command=\"* a *\" command=\"* -m*\") OR (command=\"* -decode *\" OR command=\"* -NoP *\" OR command=\"* -W Hidden *\" OR command=\"* /decode *\" OR command=\"* /ticket:*\" OR command=\"* sekurlsa*\" OR command=\"*.dmp full*\" OR command=\"*.downloadfile(*\" OR command=\"*.downloadstring(*\" OR command=\"*FromBase64String*\" OR command=\"*process call create*\" OR command=\"*reg save *\" OR command=\"*whoami /priv*\") OR (command=\"*net*\" command=\"* user *\" command=\"* /add*\") OR (command=\"*net*\" command=\"* localgroup *\" command=\"* administrators *\" command=\"*/add*\") OR (process_path=\"*\\\\ntdsutil.exe\" OR process_path=\"*\\\\ldifde.exe\" OR process_path=\"*\\\\adfind.exe\" OR process_path=\"*\\\\procdump.exe\" OR process_path=\"*\\\\Nanodump.exe\" OR process_path=\"*\\\\vssadmin.exe\" OR process_path=\"*\\\\fsutil.exe\"))",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1505.003",
+    "attack.t1018",
+    "attack.t1033",
+    "attack.t1087"
+  ],
+  "Version": "0.1"
+}

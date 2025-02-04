@@ -1,0 +1,13 @@
+{
+  "Description": "Detects blocked image load events with revoked certificates by code integrity.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6f156c48-3894-4952-baf0-16193e9067d2",
+  "InsertDate": "2025-02-03T20:32:06Z",
+  "LastUpdateDate": "2025-02-03T20:32:06Z",
+  "Level": "high",
+  "Name": "CodeIntegrity - Blocked Image Load With Revoked Certificate",
+  "Query": "sourcetype=\"windows-codeintegrity-operational\" eventid=\"3036\"",
+  "Tags": [
+    "attack.privilege-escalation"
+  ],
+  "Version": "0.1"
+}

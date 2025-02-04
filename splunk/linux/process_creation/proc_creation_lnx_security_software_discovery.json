@@ -1,0 +1,14 @@
+{
+  "Description": "Detects usage of system utilities (only grep and egrep for now) to discover security software discovery\n\nAuthor: Daniil Yugoslavskiy, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c9d8b7fd-78e4-44fe-88f6-599135d46d60",
+  "InsertDate": "2025-02-03T20:32:00Z",
+  "LastUpdateDate": "2025-02-03T20:32:00Z",
+  "Level": "low",
+  "Name": "Security Software Discovery - Linux",
+  "Query": "sourcetype=\"linux-*\" (process_path=\"*/grep\" OR process_path=\"*/egrep\") (command=\"*nessusd*\" OR command=\"*td-agent*\" OR command=\"*packetbeat*\" OR command=\"*filebeat*\" OR command=\"*auditbeat*\" OR command=\"*osqueryd*\" OR command=\"*cbagentd*\" OR command=\"*falcond*\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1518.001"
+  ],
+  "Version": "0.1"
+}

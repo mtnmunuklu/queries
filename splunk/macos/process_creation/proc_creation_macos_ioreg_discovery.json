@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of \"ioreg\" which will show I/O Kit registry information.\nThis process is used for system information discovery.\nIt has been observed in-the-wild by calling this process directly or using bash and grep to look for specific strings.\n\n\nAuthor: Joseliyo Sanchez, @Joseliyo_Jstnk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2d5e7a8b-f484-4a24-945d-7f0efd52eab0",
+  "InsertDate": "2025-02-03T20:32:02Z",
+  "LastUpdateDate": "2025-02-03T20:32:02Z",
+  "Level": "medium",
+  "Name": "System Information Discovery Using Ioreg",
+  "Query": "sourcetype=\"macos-*\" (process_path=\"*/ioreg\" command=\"*ioreg*\") (command=\"*-l*\" OR command=\"*-c*\") (command=\"*AppleAHCIDiskDriver*\" OR command=\"*IOPlatformExpertDevice*\" OR command=\"*Oracle*\" OR command=\"*Parallels*\" OR command=\"*USB Vendor Name*\" OR command=\"*VirtualBox*\" OR command=\"*VMware*\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1082"
+  ],
+  "Version": "0.1"
+}

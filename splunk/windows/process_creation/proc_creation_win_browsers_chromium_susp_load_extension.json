@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a suspicious process spawning a Chromium based browser process with the 'load-extension' flag to start an instance with a custom extension\n\nAuthor: Aedan Russell, frack113, X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "27ba3207-dd30-4812-abbf-5d20c57d474e",
+  "InsertDate": "2025-02-03T20:32:37Z",
+  "LastUpdateDate": "2025-02-03T20:32:37Z",
+  "Level": "high",
+  "Name": "Suspicious Chromium Browser Instance Executed With Custom Extension",
+  "Query": "sourcetype=\"windows-sysmon\" (parent_process_path=\"*\\\\cmd.exe\" OR parent_process_path=\"*\\\\cscript.exe\" OR parent_process_path=\"*\\\\mshta.exe\" OR parent_process_path=\"*\\\\powershell.exe\" OR parent_process_path=\"*\\\\pwsh.exe\" OR parent_process_path=\"*\\\\regsvr32.exe\" OR parent_process_path=\"*\\\\rundll32.exe\" OR parent_process_path=\"*\\\\wscript.exe\") (process_path=\"*\\\\brave.exe\" OR process_path=\"*\\\\chrome.exe\" OR process_path=\"*\\\\msedge.exe\" OR process_path=\"*\\\\opera.exe\" OR process_path=\"*\\\\vivaldi.exe\") command=\"*--load-extension=*\"",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1176"
+  ],
+  "Version": "0.1"
+}

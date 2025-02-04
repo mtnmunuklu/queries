@@ -1,0 +1,17 @@
+{
+  "Description": "Detects DLL sideloading of DLLs that are part of Microsoft Office from non standard location\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Wietze Beukema (project and research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "829a3bdf-34da-4051-9cf4-8ed221a8ae4f",
+  "InsertDate": "2025-02-03T20:32:23Z",
+  "LastUpdateDate": "2025-02-03T20:32:23Z",
+  "Level": "high",
+  "Name": "Microsoft Office DLL Sideload",
+  "Query": "sourcetype=\"windows-sysmon\" image_loaded=\"*\\\\outllib.dll\" NOT (image_loaded=\"C:\\\\Program Files\\\\Microsoft Office\\\\OFFICE*\" OR image_loaded=\"C:\\\\Program Files (x86)\\\\Microsoft Office\\\\OFFICE*\" OR image_loaded=\"C:\\\\Program Files\\\\Microsoft Office\\\\Root\\\\OFFICE*\" OR image_loaded=\"C:\\\\Program Files (x86)\\\\Microsoft Office\\\\Root\\\\OFFICE*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

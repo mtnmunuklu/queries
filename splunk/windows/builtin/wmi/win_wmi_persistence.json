@@ -1,0 +1,15 @@
+{
+  "Description": "Detects suspicious WMI event filter and command line event consumer based on WMI and Security Logs.\n\nAuthor: Florian Roth (Nextron Systems), Gleb Sukhodolskiy, Timur Zinniatullin oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0b7889b4-5577-4521-a60a-3376ee7f9f7b",
+  "InsertDate": "2025-02-03T20:32:14Z",
+  "LastUpdateDate": "2025-02-03T20:32:14Z",
+  "Level": "medium",
+  "Name": "WMI Persistence",
+  "Query": "sourcetype=\"windows-wmi\" ((eventid=\"5861\" (\"ActiveScriptEventConsumer\" OR \"CommandLineEventConsumer\" OR \"CommandLineTemplate\")) OR eventid=\"5859\") NOT (provider=\"SCM Event Provider\" query=\"select * from MSFT_SCMEventLogEvent\" username=\"S-1-5-32-544\" possiblecause=\"Permanent\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1546.003"
+  ],
+  "Version": "0.1"
+}

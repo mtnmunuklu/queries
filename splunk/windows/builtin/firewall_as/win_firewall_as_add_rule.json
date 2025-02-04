@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when a rule has been added to the Windows Firewall exception list\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "cde0a575-7d3d-4a49-9817-b8004a7bf105",
+  "InsertDate": "2025-02-03T20:32:07Z",
+  "LastUpdateDate": "2025-02-03T20:32:07Z",
+  "Level": "medium",
+  "Name": "Uncommon New Firewall Rule Added In Windows Firewall Exception List",
+  "Query": "sourcetype=\"windows-firewall-as\" (eventid=\"2004\" OR eventid=\"2071\" OR eventid=\"2097\") NOT ((applicationpath=\"*C:\\\\PerfLogs\\\\*\" OR applicationpath=\"*C:\\\\Temp\\\\*\" OR applicationpath=\"*C:\\\\Tmp\\\\*\" OR applicationpath=\"*C:\\\\Users\\\\Public\\\\*\" OR applicationpath=\"*C:\\\\Windows\\\\Tasks\\\\*\" OR applicationpath=\"*C:\\\\Windows\\\\Temp\\\\*\" OR applicationpath=\"*\\\\AppData\\\\Local\\\\Temp\\\\*\") OR applicationpath=\"null\" OR action=\"2\" OR (applicationpath=\"C:\\\\Program Files (x86)\\\\*\" OR applicationpath=\"C:\\\\Program Files\\\\*\" OR applicationpath=\"C:\\\\Windows\\\\System32\\\\*\" OR applicationpath=\"C:\\\\Windows\\\\SysWOW64\\\\*\" OR applicationpath=\"C:\\\\Windows\\\\WinSxS\\\\*\")) NOT ((modifyingapplication=\"C:\\\\ProgramData\\\\Microsoft\\\\Windows Defender\\\\Platform\\\\*\" modifyingapplication=\"*\\\\MsMpEng.exe\") OR ((modifyingapplication=\"C:\\\\Windows\\\\System32\\\\svchost.exe\" OR modifyingapplication=\"C:\\\\Windows\\\\System32\\\\dllhost.exe\") applicationpath=\"\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.004"
+  ],
+  "Version": "0.1"
+}

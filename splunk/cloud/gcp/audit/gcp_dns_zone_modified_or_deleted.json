@@ -1,0 +1,13 @@
+{
+  "Description": "Identifies when a DNS Zone is modified or deleted in Google Cloud.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "28268a8f-191f-4c17-85b2-f5aa4fa829c3",
+  "InsertDate": "2025-02-03T20:31:54Z",
+  "LastUpdateDate": "2025-02-03T20:31:54Z",
+  "Level": "medium",
+  "Name": "Google Cloud DNS Zone Modified or Deleted",
+  "Query": "sourcetype=\"gcp-gcp.audit\" (gcp.audit.method_name=\"Dns.ManagedZones.Delete\" OR gcp.audit.method_name=\"Dns.ManagedZones.Update\" OR gcp.audit.method_name=\"Dns.ManagedZones.Patch\")",
+  "Tags": [
+    "attack.impact"
+  ],
+  "Version": "0.1"
+}

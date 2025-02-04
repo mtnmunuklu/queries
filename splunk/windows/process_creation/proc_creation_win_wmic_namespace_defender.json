@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential tampering with Windows Defender settings such as adding exclusion using wmic\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "51cbac1e-eee3-4a90-b1b7-358efb81fa0a",
+  "InsertDate": "2025-02-03T20:33:26Z",
+  "LastUpdateDate": "2025-02-03T20:33:26Z",
+  "Level": "high",
+  "Name": "Potential Windows Defender Tampering Via Wmic.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (original_file_name=\"wmic.exe\" process_path=\"*\\\\WMIC.exe\") command=\"*/Namespace:\\\\\\\\\\\\\\\\root\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\Defender*\"",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1546.008"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,17 @@
+{
+  "Description": "Detects potential DLL side loading of DLLs that are part of the Wazuh security platform\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "db77ce78-7e28-4188-9337-cf30e2b3ba9f",
+  "InsertDate": "2025-02-03T20:32:23Z",
+  "LastUpdateDate": "2025-02-03T20:32:23Z",
+  "Level": "medium",
+  "Name": "Potential Wazuh Security Platform DLL Sideloading",
+  "Query": "sourcetype=\"windows-sysmon\" (image_loaded=\"*\\\\libwazuhshared.dll\" OR image_loaded=\"*\\\\libwinpthread-1.dll\") NOT (image_loaded=\"C:\\\\Program Files\\\\*\" OR image_loaded=\"C:\\\\Program Files (x86)\\\\*\") NOT ((image_loaded=\"*\\\\AppData\\\\Local\\\\*\" OR image_loaded=\"*\\\\ProgramData\\\\*\") image_loaded=\"*\\\\mingw64\\\\bin\\\\libwinpthread-1.dll\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

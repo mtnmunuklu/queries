@@ -1,0 +1,15 @@
+{
+  "Description": "Detects tools such as UACMe used to bypass UAC with computerdefaults.exe (UACMe 59)\n\nAuthor: Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3c05e90d-7eba-4324-9972-5d7f711a60a8",
+  "InsertDate": "2025-02-03T20:33:22Z",
+  "LastUpdateDate": "2025-02-03T20:33:22Z",
+  "Level": "high",
+  "Name": "UAC Bypass Tools Using ComputerDefaults",
+  "Query": "sourcetype=\"windows-sysmon\" ((integrity_level=\"High\" OR integrity_level=\"System\" OR integrity_level=\"S-1-16-16384\" OR integrity_level=\"S-1-16-12288\") process_path=\"C:\\\\Windows\\\\System32\\\\ComputerDefaults.exe\") NOT (parent_process_path=\"*:\\\\Windows\\\\System32*\" OR parent_process_path=\"*:\\\\Program Files*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1548.002"
+  ],
+  "Version": "0.1"
+}

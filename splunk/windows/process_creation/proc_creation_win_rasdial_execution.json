@@ -1,0 +1,15 @@
+{
+  "Description": "Detects suspicious process related to rasdial.exe\n\nAuthor: juju4\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6bba49bf-7f8c-47d6-a1bb-6b4dece4640e",
+  "InsertDate": "2025-02-03T20:33:02Z",
+  "LastUpdateDate": "2025-02-03T20:33:02Z",
+  "Level": "medium",
+  "Name": "Suspicious RASdial Activity",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*rasdial.exe\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

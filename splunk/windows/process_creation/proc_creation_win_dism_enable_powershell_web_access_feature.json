@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of DISM to enable the PowerShell Web Access feature, which could be used for remote access and potential abuse\n\nAuthor: Michael Haag\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7e8f2d3b-9c1a-4f67-b9e8-8d9006e0e51f",
+  "InsertDate": "2025-02-03T20:32:41Z",
+  "LastUpdateDate": "2025-02-03T20:32:41Z",
+  "Level": "high",
+  "Name": "PowerShell Web Access Feature Enabled Via DISM",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*WindowsPowerShellWebAccess*\" command=\"*/online*\" command=\"*/enable-feature*\") (process_path=\"*\\\\dism.exe\" original_file_name=\"DISM.EXE\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1548.002"
+  ],
+  "Version": "0.1"
+}

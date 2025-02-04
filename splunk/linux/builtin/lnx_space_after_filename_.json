@@ -1,0 +1,13 @@
+{
+  "Description": "Detects space after filename\n\nAuthor: Ömer Günal\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "879c3015-c88b-4782-93d7-07adf92dbcb7",
+  "InsertDate": "2025-02-03T20:31:57Z",
+  "LastUpdateDate": "2025-02-03T20:31:57Z",
+  "Level": "low",
+  "Name": "Space After Filename",
+  "Query": "sourcetype=\"linux-*\" (\"echo \"*\" \u003e * \u0026\u0026 chmod +x *\") (\"mv * \"* \"\")",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

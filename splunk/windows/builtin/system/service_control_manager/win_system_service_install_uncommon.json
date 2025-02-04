@@ -1,0 +1,16 @@
+{
+  "Description": "Detects uncommon service installation commands by looking at suspicious or uncommon image path values containing references to encoded powershell commands, temporary paths, etc.\n\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "26481afe-db26-4228-b264-25a29fe6efc7",
+  "InsertDate": "2025-02-03T20:32:14Z",
+  "LastUpdateDate": "2025-02-03T20:32:14Z",
+  "Level": "medium",
+  "Name": "Uncommon Service Installation Image Path",
+  "Query": "sourcetype=\"windows-system\" (provider_name=\"Service Control Manager\" eventid=\"7045\") ((imagepath=\"*\\\\\\\\\\\\\\\\.\\\\\\\\pipe*\" OR imagepath=\"*\\\\Users\\\\Public\\\\*\" OR imagepath=\"*\\\\Windows\\\\Temp\\\\*\") OR (imagepath=\"* -e*\" (imagepath=\"* aQBlAHgA*\" OR imagepath=\"* aWV4I*\" OR imagepath=\"* IAB*\" OR imagepath=\"* JAB*\" OR imagepath=\"* PAA*\" OR imagepath=\"* SQBFAFgA*\" OR imagepath=\"* SUVYI*\"))) NOT imagepath=\"C:\\\\ProgramData\\\\Microsoft\\\\Windows Defender\\\\Definition Updates\\\\*\" NOT imagepath=\"C:\\\\WINDOWS\\\\TEMP\\\\thor10-remote\\\\thor64.exe*\"",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "car.2013-09-005",
+    "attack.t1543.003"
+  ],
+  "Version": "0.1"
+}

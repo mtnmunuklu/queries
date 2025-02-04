@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may look for details about the network configuration and settings of systems they access or through information discovery of remote systems\n\nAuthor: frack113, Christopher Peacock '@securepeacock', SCYTHE '@scythe_io'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a29c1813-ab1f-4dde-b489-330b952e91ae",
+  "InsertDate": "2025-02-03T20:33:15Z",
+  "LastUpdateDate": "2025-02-03T20:33:15Z",
+  "Level": "low",
+  "Name": "Suspicious Network Command",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*ipconfig /all*\" OR command=\"*netsh interface show interface*\" OR command=\"*arp -a*\" OR command=\"*nbtstat -n*\" OR command=\"*net config*\" OR command=\"*route print*\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1016"
+  ],
+  "Version": "0.1"
+}

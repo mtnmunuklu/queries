@@ -1,0 +1,14 @@
+{
+  "Description": "Detects known sensitive file extensions accessed on a network share\n\nAuthor: Samir Bousseaden\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "91c945bc-2ad1-4799-a591-4d00198a1215",
+  "InsertDate": "2025-02-03T20:32:11Z",
+  "LastUpdateDate": "2025-02-03T20:32:11Z",
+  "Level": "medium",
+  "Name": "Suspicious Access to Sensitive File Extensions",
+  "Query": "sourcetype=\"windows-security\" eventid=\"5145\" (relativetargetname=\"*.bak\" OR relativetargetname=\"*.dmp\" OR relativetargetname=\"*.edb\" OR relativetargetname=\"*.kirbi\" OR relativetargetname=\"*.msg\" OR relativetargetname=\"*.nsf\" OR relativetargetname=\"*.nst\" OR relativetargetname=\"*.oab\" OR relativetargetname=\"*.ost\" OR relativetargetname=\"*.pst\" OR relativetargetname=\"*.rdp\" OR relativetargetname=\"*\\\\groups.xml\")",
+  "Tags": [
+    "attack.collection",
+    "attack.t1039"
+  ],
+  "Version": "0.1"
+}

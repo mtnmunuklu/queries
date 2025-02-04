@@ -1,0 +1,16 @@
+{
+  "Description": "Detects service installation in suspicious folder appdata\n\nAuthor: pH-T (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5e993621-67d4-488a-b9ae-b420d08b96cb",
+  "InsertDate": "2025-02-03T20:32:14Z",
+  "LastUpdateDate": "2025-02-03T20:32:14Z",
+  "Level": "medium",
+  "Name": "Service Installation in Suspicious Folder",
+  "Query": "sourcetype=\"windows-system\" (provider_name=\"Service Control Manager\" eventid=\"7045\" (imagepath=\"*\\\\AppData\\\\*\" OR imagepath=\"*\\\\\\\\\\\\\\\\127.0.0.1*\" OR imagepath=\"*\\\\\\\\\\\\\\\\localhost*\")) NOT (servicename=\"Zoom Sharing Service\" imagepath=\"*:\\\\Program Files\\\\Common Files\\\\Zoom\\\\Support\\\\CptService.exe*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "car.2013-09-005",
+    "attack.t1543.003"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects known suspicious (default) user-agents related to scanning/recon tools\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "19aa4f58-94ca-45ff-bc34-92e533c0994a",
+  "InsertDate": "2025-02-03T20:32:05Z",
+  "LastUpdateDate": "2025-02-03T20:32:05Z",
+  "Level": "medium",
+  "Name": "Suspicious User-Agents Related To Recon Tools",
+  "Query": "(cs-user-agent=\"*Wfuzz/*\" OR cs-user-agent=\"*WPScan v*\" OR cs-user-agent=\"*Recon-ng/v*\" OR cs-user-agent=\"*GIS - AppSec Team - Project Vision*\")",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1190"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects suspicious child process creations of VMware Tools process which may indicate persistence setup\n\nAuthor: bohops, Bhabesh Raj\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5687f942-867b-4578-ade7-1e341c46e99a",
+  "InsertDate": "2025-02-03T20:33:23Z",
+  "LastUpdateDate": "2025-02-03T20:33:23Z",
+  "Level": "high",
+  "Name": "VMToolsd Suspicious Child Process",
+  "Query": "sourcetype=\"windows-sysmon\" (parent_process_path=\"*\\\\vmtoolsd.exe\" ((process_path=\"*\\\\cmd.exe\" OR process_path=\"*\\\\cscript.exe\" OR process_path=\"*\\\\mshta.exe\" OR process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\" OR process_path=\"*\\\\regsvr32.exe\" OR process_path=\"*\\\\rundll32.exe\" OR process_path=\"*\\\\wscript.exe\") (original_file_name=\"Cmd.Exe\" OR original_file_name=\"cscript.exe\" OR original_file_name=\"MSHTA.EXE\" OR original_file_name=\"PowerShell.EXE\" OR original_file_name=\"pwsh.dll\" OR original_file_name=\"REGSVR32.EXE\" OR original_file_name=\"RUNDLL32.EXE\" OR original_file_name=\"wscript.exe\"))) NOT ((process_path=\"*\\\\cmd.exe\" (command=\"*\\\\VMware\\\\VMware Tools\\\\poweron-vm-default.bat*\" OR command=\"*\\\\VMware\\\\VMware Tools\\\\poweroff-vm-default.bat*\" OR command=\"*\\\\VMware\\\\VMware Tools\\\\resume-vm-default.bat*\" OR command=\"*\\\\VMware\\\\VMware Tools\\\\suspend-vm-default.bat*\")) OR (process_path=\"*\\\\cmd.exe\" command=\"\") OR (process_path=\"*\\\\cmd.exe\" command=\"null\"))",
+  "Tags": [
+    "attack.execution",
+    "attack.persistence",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

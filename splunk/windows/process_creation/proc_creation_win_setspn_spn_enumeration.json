@@ -1,0 +1,14 @@
+{
+  "Description": "Detects service principal name (SPN) enumeration used for Kerberoasting\n\nAuthor: Markus Neis, keepwatch\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1eeed653-dbc8-4187-ad0c-eeebb20e6599",
+  "InsertDate": "2025-02-03T20:33:11Z",
+  "LastUpdateDate": "2025-02-03T20:33:11Z",
+  "Level": "medium",
+  "Name": "Potential SPN Enumeration Via Setspn.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\setspn.exe\" original_file_name=\"setspn.exe\" (description=\"*Query or reset the computer*\" description=\"*SPN attribute*\")) (command=\"* -q *\" OR command=\"* /q *\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1558.003"
+  ],
+  "Version": "0.1"
+}

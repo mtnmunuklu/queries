@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the usage of \"pypykatz\" to obtain stored credentials. Adversaries may attempt to extract credential material from the Security Account Manager (SAM) database through Windows registry where the SAM database is stored\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a29808fd-ef50-49ff-9c7a-59a9b040b404",
+  "InsertDate": "2025-02-03T20:32:45Z",
+  "LastUpdateDate": "2025-02-03T20:32:45Z",
+  "Level": "high",
+  "Name": "HackTool - Pypykatz Credentials Dumping Activity",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\pypykatz.exe\" OR process_path=\"*\\\\python.exe\") (command=\"*live*\" command=\"*registry*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.002"
+  ],
+  "Version": "0.1"
+}

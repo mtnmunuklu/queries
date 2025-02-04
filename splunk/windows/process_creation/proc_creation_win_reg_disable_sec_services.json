@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of \"reg.exe\" to disable security services such as Windows Defender.\n\nAuthor: Florian Roth (Nextron Systems), John Lambert (idea), elhoim\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5e95028c-5229-4214-afae-d653d573d0ec",
+  "InsertDate": "2025-02-03T20:33:02Z",
+  "LastUpdateDate": "2025-02-03T20:33:02Z",
+  "Level": "high",
+  "Name": "Security Service Disabled Via Reg.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*reg*\" command=\"*add*\") ((command=\"*d 4*\" command=\"*v Start*\") (command=\"*\\\\AppIDSvc*\" OR command=\"*\\\\MsMpSvc*\" OR command=\"*\\\\NisSrv*\" OR command=\"*\\\\SecurityHealthService*\" OR command=\"*\\\\Sense*\" OR command=\"*\\\\UsoSvc*\" OR command=\"*\\\\WdBoot*\" OR command=\"*\\\\WdFilter*\" OR command=\"*\\\\WdNisDrv*\" OR command=\"*\\\\WdNisSvc*\" OR command=\"*\\\\WinDefend*\" OR command=\"*\\\\wscsvc*\" OR command=\"*\\\\wuauserv*\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

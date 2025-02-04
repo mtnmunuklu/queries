@@ -1,0 +1,14 @@
+{
+  "Description": "Detects remote thread creation by PowerShell processes into \"lsass.exe\"\n\nAuthor: oscd.community, Natalia Shornikova\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fb656378-f909-47c1-8747-278bf09f4f4f",
+  "InsertDate": "2025-02-03T20:32:15Z",
+  "LastUpdateDate": "2025-02-03T20:32:15Z",
+  "Level": "high",
+  "Name": "Potential Credential Dumping Attempt Via PowerShell Remote Thread",
+  "Query": "sourcetype=\"windows-*\" (process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\") dst_process_path=\"*\\\\lsass.exe\"",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.001"
+  ],
+  "Version": "0.1"
+}

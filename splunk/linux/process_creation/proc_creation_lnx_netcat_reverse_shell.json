@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of netcat with the \"-e\" flag followed by common shells. This could be a sign of a potential reverse shell setup.\n\nAuthor: @d4ns4n_, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7f734ed0-4f47-46c0-837f-6ee62505abd9",
+  "InsertDate": "2025-02-03T20:31:59Z",
+  "LastUpdateDate": "2025-02-03T20:31:59Z",
+  "Level": "high",
+  "Name": "Potential Netcat Reverse Shell Execution",
+  "Query": "sourcetype=\"linux-*\" (process_path=\"*/nc\" OR process_path=\"*/ncat\") (command=\"* -c *\" OR command=\"* -e *\") (command=\"* ash*\" OR command=\"* bash*\" OR command=\"* bsh*\" OR command=\"* csh*\" OR command=\"* ksh*\" OR command=\"* pdksh*\" OR command=\"* sh*\" OR command=\"* tcsh*\" OR command=\"*/bin/ash*\" OR command=\"*/bin/bash*\" OR command=\"*/bin/bsh*\" OR command=\"*/bin/csh*\" OR command=\"*/bin/ksh*\" OR command=\"*/bin/pdksh*\" OR command=\"*/bin/sh*\" OR command=\"*/bin/tcsh*\" OR command=\"*/bin/zsh*\" OR command=\"*$IFSash*\" OR command=\"*$IFSbash*\" OR command=\"*$IFSbsh*\" OR command=\"*$IFScsh*\" OR command=\"*$IFSksh*\" OR command=\"*$IFSpdksh*\" OR command=\"*$IFSsh*\" OR command=\"*$IFStcsh*\" OR command=\"*$IFSzsh*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

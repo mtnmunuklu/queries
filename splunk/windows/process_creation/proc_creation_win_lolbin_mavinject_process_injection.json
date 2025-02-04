@@ -1,0 +1,16 @@
+{
+  "Description": "Detects process injection using the signed Windows tool \"Mavinject\" via the \"INJECTRUNNING\" flag\n\nAuthor: frack113, Florian Roth\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4f73421b-5a0b-4bbf-a892-5a7fb99bea66",
+  "InsertDate": "2025-02-03T20:32:48Z",
+  "LastUpdateDate": "2025-02-03T20:32:48Z",
+  "Level": "high",
+  "Name": "Mavinject Inject DLL Into Running Process",
+  "Query": "sourcetype=\"windows-sysmon\" command=\"* /INJECTRUNNING *\" NOT parent_process_path=\"C:\\\\Windows\\\\System32\\\\AppVClient.exe\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1055.001",
+    "attack.t1218.013"
+  ],
+  "Version": "0.1"
+}

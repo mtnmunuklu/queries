@@ -1,0 +1,15 @@
+{
+  "Description": "Detects new BITS transfer job saving local files with potential suspicious extensions\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b85e5894-9b19-4d86-8c87-a2f3b81f0521",
+  "InsertDate": "2025-02-03T20:32:06Z",
+  "LastUpdateDate": "2025-02-03T20:32:06Z",
+  "Level": "medium",
+  "Name": "BITS Transfer Job Downloading File Potential Suspicious Extension",
+  "Query": "sourcetype=\"windows-bits-client\" (eventid=\"16403\" (localname=\"*.bat\" OR localname=\"*.dll\" OR localname=\"*.exe\" OR localname=\"*.hta\" OR localname=\"*.ps1\" OR localname=\"*.psd1\" OR localname=\"*.sh\" OR localname=\"*.vbe\" OR localname=\"*.vbs\")) NOT (localname=\"*\\\\AppData\\\\*\" remotename=\"*.com*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.t1197"
+  ],
+  "Version": "0.1"
+}

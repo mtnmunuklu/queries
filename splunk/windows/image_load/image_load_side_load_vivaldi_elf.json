@@ -1,0 +1,16 @@
+{
+  "Description": "Detects potential DLL sideloading of \"vivaldi_elf.dll\"\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2092cacb-d77b-4f98-ab0d-32b32f99a054",
+  "InsertDate": "2025-02-03T20:32:23Z",
+  "LastUpdateDate": "2025-02-03T20:32:23Z",
+  "Level": "medium",
+  "Name": "Potential Vivaldi_elf.DLL Sideloading",
+  "Query": "sourcetype=\"windows-sysmon\" image_loaded=\"*\\\\vivaldi_elf.dll\" NOT (process_path=\"*\\\\Vivaldi\\\\Application\\\\vivaldi.exe\" image_loaded=\"*\\\\Vivaldi\\\\Application\\\\*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

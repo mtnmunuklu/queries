@@ -1,0 +1,14 @@
+{
+  "Description": "Detect enable rdp feature to allow specific user to rdp connect on the targeted machine\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "37b437cf-3fc5-4c8e-9c94-1d7c9aff842b",
+  "InsertDate": "2025-02-03T20:33:30Z",
+  "LastUpdateDate": "2025-02-03T20:33:30Z",
+  "Level": "medium",
+  "Name": "Allow RDP Remote Assistance Feature",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*System\\\\CurrentControlSet\\\\Control\\\\Terminal Server\\\\fAllowToGetHelp\" details=\"DWORD (0x00000001)\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1112"
+  ],
+  "Version": "0.1"
+}

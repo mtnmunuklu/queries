@@ -1,0 +1,15 @@
+{
+  "Description": "Detects installation of a potentially suspicious new shim with an uncommon extension using sdbinst.exe.\nAdversaries may establish persistence and/or elevate privileges by executing malicious content triggered by application shims\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "18ee686c-38a3-4f65-9f44-48a077141f42",
+  "InsertDate": "2025-02-03T20:33:11Z",
+  "LastUpdateDate": "2025-02-03T20:33:11Z",
+  "Level": "medium",
+  "Name": "Uncommon Extension Shim Database Installation Via Sdbinst.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\sdbinst.exe\" original_file_name=\"sdbinst.exe\") NOT (((command=\"* -c\" OR command=\"* -f\" OR command=\"* -mm\" OR command=\"* -t\") command=\"* -m -bg*\") OR command=\"null\" OR command=\"\" OR command=\"*.sdb*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1546.011"
+  ],
+  "Version": "0.1"
+}

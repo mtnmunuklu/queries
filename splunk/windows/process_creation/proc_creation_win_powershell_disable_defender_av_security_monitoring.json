@@ -1,0 +1,14 @@
+{
+  "Description": "Detects attackers attempting to disable Windows Defender using Powershell\n\nAuthor: ok @securonix invrep-de, oscd.community, frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a7ee1722-c3c5-aeff-3212-c777e4733217",
+  "InsertDate": "2025-02-03T20:32:56Z",
+  "LastUpdateDate": "2025-02-03T20:32:56Z",
+  "Level": "high",
+  "Name": "Disable Windows Defender AV Security Monitoring",
+  "Query": "sourcetype=\"windows-sysmon\" ((command=\"*-DisableBehaviorMonitoring $true*\" OR command=\"*-DisableRuntimeMonitoring $true*\") ((process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\") (original_file_name=\"PowerShell.EXE\" OR original_file_name=\"pwsh.dll\"))) OR ((process_path=\"*\\\\sc.exe\" original_file_name=\"sc.exe\") ((command=\"*stop*\" command=\"*WinDefend*\") OR (command=\"*delete*\" command=\"*WinDefend*\") OR (command=\"*config*\" command=\"*WinDefend*\" command=\"*start=disabled*\")))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects loading of \"credui.dll\" and related DLLs by an uncommon process. Attackers might leverage this DLL for potential use of \"CredUIPromptForCredentials\" or \"CredUnPackAuthenticationBufferW\".\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9ae01559-cf7e-4f8e-8e14-4c290a1b4784",
+  "InsertDate": "2025-02-03T20:32:21Z",
+  "LastUpdateDate": "2025-02-03T20:32:21Z",
+  "Level": "medium",
+  "Name": "CredUI.DLL Loaded By Uncommon Process",
+  "Query": "sourcetype=\"windows-sysmon\" ((image_loaded=\"*\\\\credui.dll\" OR image_loaded=\"*\\\\wincredui.dll\") (original_file_name=\"credui.dll\" OR original_file_name=\"wincredui.dll\")) NOT ((process_path=\"C:\\\\Program Files (x86)\\\\*\" OR process_path=\"C:\\\\Program Files\\\\*\" OR process_path=\"C:\\\\Windows\\\\System32\\\\*\" OR process_path=\"C:\\\\Windows\\\\SysWOW64\\\\*\") OR (process_path=\"C:\\\\Windows\\\\explorer.exe\" OR process_path=\"C:\\\\Windows\\\\ImmersiveControlPanel\\\\SystemSettings.exe\" OR process_path=\"C:\\\\Windows\\\\regedit.exe\")) NOT (process_path=\"*\\\\opera_autoupdate.exe\" OR (process_path=\"*\\\\procexp64.exe\" OR process_path=\"*\\\\procexp.exe\") OR (process_path=\"C:\\\\Users\\\\*\" process_path=\"*\\\\AppData\\\\Local\\\\Microsoft\\\\Teams\\\\*\" process_path=\"*\\\\Teams.exe\") OR (process_path=\"C:\\\\Users\\\\*\" process_path=\"*\\\\AppData\\\\Local\\\\Microsoft\\\\OneDrive\\\\*\"))",
+  "Tags": [
+    "attack.credential-access",
+    "attack.collection",
+    "attack.t1056.002"
+  ],
+  "Version": "0.1"
+}

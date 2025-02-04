@@ -1,0 +1,14 @@
+{
+  "Description": "Detects powershell scripts that import modules from suspicious directories\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "21f9162c-5f5d-4b01-89a8-b705bd7d10ab",
+  "InsertDate": "2025-02-03T20:32:30Z",
+  "LastUpdateDate": "2025-02-03T20:32:30Z",
+  "Level": "medium",
+  "Name": "Import PowerShell Modules From Suspicious Directories",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*Import-Module \"$Env:Temp\\\\*\" OR scriptblocktext=\"*Import-Module '$Env:Temp\\\\*\" OR scriptblocktext=\"*Import-Module $Env:Temp\\\\*\" OR scriptblocktext=\"*Import-Module \"$Env:Appdata\\\\*\" OR scriptblocktext=\"*Import-Module '$Env:Appdata\\\\*\" OR scriptblocktext=\"*Import-Module $Env:Appdata\\\\*\" OR scriptblocktext=\"*Import-Module C:\\\\Users\\\\Public\\\\*\" OR scriptblocktext=\"*ipmo \"$Env:Temp\\\\*\" OR scriptblocktext=\"*ipmo '$Env:Temp\\\\*\" OR scriptblocktext=\"*ipmo $Env:Temp\\\\*\" OR scriptblocktext=\"*ipmo \"$Env:Appdata\\\\*\" OR scriptblocktext=\"*ipmo '$Env:Appdata\\\\*\" OR scriptblocktext=\"*ipmo $Env:Appdata\\\\*\" OR scriptblocktext=\"*ipmo C:\\\\Users\\\\Public\\\\*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

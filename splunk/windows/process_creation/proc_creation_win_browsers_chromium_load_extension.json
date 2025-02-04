@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a Chromium based browser process with the 'load-extension' flag to start a instance with a custom extension\n\nAuthor: Aedan Russell, frack113, X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "88d6e60c-759d-4ac1-a447-c0f1466c2d21",
+  "InsertDate": "2025-02-03T20:32:37Z",
+  "LastUpdateDate": "2025-02-03T20:32:37Z",
+  "Level": "medium",
+  "Name": "Chromium Browser Instance Executed With Custom Extension",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\brave.exe\" OR process_path=\"*\\\\chrome.exe\" OR process_path=\"*\\\\msedge.exe\" OR process_path=\"*\\\\opera.exe\" OR process_path=\"*\\\\vivaldi.exe\") command=\"*--load-extension=*\"",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1176"
+  ],
+  "Version": "0.1"
+}

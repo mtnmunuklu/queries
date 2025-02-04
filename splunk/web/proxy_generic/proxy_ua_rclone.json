@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of rclone, a command-line program to manage files on cloud storage, via its default user-agent string\n\nAuthor: Janantha Marasinghe\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2c03648b-e081-41a5-b9fb-7d854a915091",
+  "InsertDate": "2025-02-03T20:32:05Z",
+  "LastUpdateDate": "2025-02-03T20:32:05Z",
+  "Level": "medium",
+  "Name": "Rclone Activity via Proxy",
+  "Query": "c-useragent=\"rclone/v*\"",
+  "Tags": [
+    "attack.exfiltration",
+    "attack.t1567.002"
+  ],
+  "Version": "0.1"
+}

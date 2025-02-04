@@ -1,0 +1,13 @@
+{
+  "Description": "Detects when an user assumed another user account.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "62fff148-278d-497e-8ecd-ad6083231a35",
+  "InsertDate": "2025-02-03T20:31:56Z",
+  "LastUpdateDate": "2025-02-03T20:31:56Z",
+  "Level": "low",
+  "Name": "OneLogin User Assumed Another User",
+  "Query": "sourcetype=\"onelogin-onelogin.events\" event_type_id=\"3\"",
+  "Tags": [
+    "attack.impact"
+  ],
+  "Version": "0.1"
+}

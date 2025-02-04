@@ -1,0 +1,14 @@
+{
+  "Description": "Detect use of the Windows 8.3 short name. Which could be used as a method to avoid command-line detection\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "dd6b39d9-d9be-4a3b-8fe0-fe3c6a5c1795",
+  "InsertDate": "2025-02-03T20:33:16Z",
+  "LastUpdateDate": "2025-02-03T20:33:16Z",
+  "Level": "medium",
+  "Name": "Use NTFS Short Name in Command Line",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*~1.exe*\" OR command=\"*~1.bat*\" OR command=\"*~1.msi*\" OR command=\"*~1.vbe*\" OR command=\"*~1.vbs*\" OR command=\"*~1.dll*\" OR command=\"*~1.ps1*\" OR command=\"*~1.js*\" OR command=\"*~1.hta*\" OR command=\"*~2.exe*\" OR command=\"*~2.bat*\" OR command=\"*~2.msi*\" OR command=\"*~2.vbe*\" OR command=\"*~2.vbs*\" OR command=\"*~2.dll*\" OR command=\"*~2.ps1*\" OR command=\"*~2.js*\" OR command=\"*~2.hta*\") NOT ((parent_process_path=\"*\\\\WebEx\\\\WebexHost.exe\" OR parent_process_path=\"*\\\\thor\\\\thor64.exe\") command=\"*C:\\\\xampp\\\\vcredist\\\\VCREDI~1.EXE*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1564.004"
+  ],
+  "Version": "0.1"
+}

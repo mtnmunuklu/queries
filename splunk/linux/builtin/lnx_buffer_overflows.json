@@ -1,0 +1,14 @@
+{
+  "Description": "Detects buffer overflow attempts in Unix system log files\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "18b042f0-2ecd-4b6e-9f8d-aa7a7e7de781",
+  "InsertDate": "2025-02-03T20:31:57Z",
+  "LastUpdateDate": "2025-02-03T20:31:57Z",
+  "Level": "high",
+  "Name": "Buffer Overflow Attempts",
+  "Query": "sourcetype=\"linux-*\" (\"attempt to execute code on stack by\" OR \"FTP LOGIN FROM .* 0bin0sh\" OR \"rpc.statd[\\d+]: gethostbyname error for\" OR \"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\")",
+  "Tags": [
+    "attack.t1068",
+    "attack.privilege-escalation"
+  ],
+  "Version": "0.1"
+}

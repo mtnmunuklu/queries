@@ -1,0 +1,14 @@
+{
+  "Description": "Detect priv users or groups recon based on 4661 eventid and known privileged users or groups SIDs\n\nAuthor: Samir Bousseaden\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "35ba1d85-724d-42a3-889f-2e2362bcaf23",
+  "InsertDate": "2025-02-03T20:32:08Z",
+  "LastUpdateDate": "2025-02-03T20:32:08Z",
+  "Level": "high",
+  "Name": "AD Privileged Users or Groups Reconnaissance",
+  "Query": "sourcetype=\"windows-security\" (eventid=\"4661\" (objecttype=\"SAM_USER\" OR objecttype=\"SAM_GROUP\")) ((objectname=\"*-512\" OR objectname=\"*-502\" OR objectname=\"*-500\" OR objectname=\"*-505\" OR objectname=\"*-519\" OR objectname=\"*-520\" OR objectname=\"*-544\" OR objectname=\"*-551\" OR objectname=\"*-555\") objectname=\"*admin*\") NOT subjectusername=\"*$\"",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1087.002"
+  ],
+  "Version": "0.1"
+}

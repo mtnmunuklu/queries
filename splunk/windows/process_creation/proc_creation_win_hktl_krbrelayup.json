@@ -1,0 +1,16 @@
+{
+  "Description": "Detects KrbRelayUp used to perform a universal no-fix local privilege escalation in Windows domain environments where LDAP signing is not enforced\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "12827a56-61a4-476a-a9cb-f3068f191073",
+  "InsertDate": "2025-02-03T20:32:45Z",
+  "LastUpdateDate": "2025-02-03T20:32:45Z",
+  "Level": "high",
+  "Name": "HackTool - KrbRelayUp Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\KrbRelayUp.exe\" original_file_name=\"KrbRelayUp.exe\") OR (command=\"* relay *\" command=\"* -Domain *\" command=\"* -ComputerName *\") OR (command=\"* krbscm *\" command=\"* -sc *\") OR (command=\"* spawn *\" command=\"* -d *\" command=\"* -cn *\" command=\"* -cp *\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1558.003",
+    "attack.lateral-movement",
+    "attack.t1550.003"
+  ],
+  "Version": "0.1"
+}

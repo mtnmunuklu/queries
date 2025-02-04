@@ -1,0 +1,14 @@
+{
+  "Description": "Detect use of X509Enrollment\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "114de787-4eb2-48cc-abdb-c0b449f93ea4",
+  "InsertDate": "2025-02-03T20:32:59Z",
+  "LastUpdateDate": "2025-02-03T20:32:59Z",
+  "Level": "medium",
+  "Name": "Suspicious X509Enrollment - Process Creation",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*X509Enrollment.CBinaryConverter*\" OR command=\"*884e2002-217d-11da-b2a4-000e7bbb2b09*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1553.004"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects suspicious shell commands used in various Equation Group scripts and tools\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "41e5c73d-9983-4b69-bd03-e13b67e9623c",
+  "InsertDate": "2025-02-03T20:31:57Z",
+  "LastUpdateDate": "2025-02-03T20:31:57Z",
+  "Level": "high",
+  "Name": "Equation Group Indicators",
+  "Query": "sourcetype=\"linux-*\" (\"chown root*chmod 4777 \" OR \"cp /bin/sh .;chown\" OR \"chmod 4777 /tmp/.scsi/dev/bin/gsh\" OR \"chown root:root /tmp/.scsi/dev/bin/\" OR \"chown root:root x;\" OR \"/bin/telnet locip locport \u003c /dev/console | /bin/sh\" OR \"/tmp/ratload\" OR \"ewok -t \" OR \"xspy -display \" OR \"cat \u003e /dev/tcp/127.0.0.1/80 \u003c\u003cEND\" OR \"rm -f /current/tmp/ftshell.latest\" OR \"ghost_* -v \" OR \" --wipe \u003e /dev/null\" OR \"ping -c 2 *; grep * /proc/net/arp \u003e/tmp/gx\" OR \"iptables * OUTPUT -p tcp -d 127.0.0.1 --tcp-flags RST RST -j DROP;\" OR \"\u003e /var/log/audit/audit.log; rm -f .\" OR \"cp /var/log/audit/audit.log .tmp\" OR \"sh \u003e/dev/tcp/* \u003c\u00261 2\u003e\u00261\" OR \"ncat -vv -l -p * \u003c\" OR \"nc -vv -l -p * \u003c\" OR \"\u003c /dev/console | uudecode \u0026\u0026 uncompress\" OR \"sendmail -osendmail;chmod +x sendmail\" OR \"/usr/bin/wget -O /tmp/a http* \u0026\u0026 chmod 755 /tmp/cron\" OR \"chmod 666 /var/run/utmp~\" OR \"chmod 700 nscd crond\" OR \"cp /etc/shadow /tmp/.\" OR \"\u003c/dev/console |uudecode \u003e /dev/null 2\u003e\u00261 \u0026\u0026 uncompress\" OR \"chmod 700 jp\u0026\u0026netstat -an|grep\" OR \"uudecode \u003e /dev/null 2\u003e\u00261 \u0026\u0026 uncompress -f * \u0026\u0026 chmod 755\" OR \"chmod 700 crond\" OR \"wget http*; chmod +x /tmp/sendmail\" OR \"chmod 700 fp sendmail pt\" OR \"chmod 755 /usr/vmsys/bin/pipe\" OR \"chmod -R 755 /usr/vmsys\" OR \"chmod 755 $opbin/*tunnel\" OR \"chmod 700 sendmail\" OR \"chmod 0700 sendmail\" OR \"/usr/bin/wget http*sendmail;chmod +x sendmail;\" OR \"\u0026\u0026 telnet * 2\u003e\u00261 \u003c/dev/console\")",
+  "Tags": [
+    "attack.execution",
+    "attack.g0020",
+    "attack.t1059.004"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,13 @@
+{
+  "Description": "Windows Defender logs when the history of detected infections is deleted.\n\nAuthor: Cian Heasley\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2afe6582-e149-11ea-87d0-0242ac130003",
+  "InsertDate": "2025-02-03T20:32:14Z",
+  "LastUpdateDate": "2025-02-03T20:32:14Z",
+  "Level": "informational",
+  "Name": "Windows Defender Malware Detection History Deletion",
+  "Query": "sourcetype=\"windows-windefend\" eventid=\"1013\"",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

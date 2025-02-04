@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when the file \"passwd\" or \"shadow\" is copied from tmp path\n\nAuthor: Joseliyo Sanchez, @Joseliyo_Jstnk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fa4aaed5-4fe0-498d-bbc0-08e3346387ba",
+  "InsertDate": "2025-02-03T20:31:58Z",
+  "LastUpdateDate": "2025-02-03T20:31:58Z",
+  "Level": "high",
+  "Name": "Copy Passwd Or Shadow From TMP Path",
+  "Query": "sourcetype=\"linux-*\" process_path=\"*/cp\" command=\"*/tmp/*\" (command=\"*passwd*\" OR command=\"*shadow*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1552.001"
+  ],
+  "Version": "0.1"
+}

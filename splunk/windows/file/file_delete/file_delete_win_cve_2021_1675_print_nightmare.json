@@ -1,0 +1,17 @@
+{
+  "Description": "Detect DLL deletions from Spooler Service driver folder. This might be a potential exploitation attempt of CVE-2021-1675\n\nAuthor: Bhabesh Raj\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5b2bbc47-dead-4ef7-8908-0cf73fcbecbf",
+  "InsertDate": "2025-02-03T20:32:16Z",
+  "LastUpdateDate": "2025-02-03T20:32:16Z",
+  "Level": "high",
+  "Name": "Potential PrintNightmare Exploitation Attempt",
+  "Query": "sourcetype=\"windows-*\" process_path=\"*\\\\spoolsv.exe\" filepath=\"*C:\\\\Windows\\\\System32\\\\spool\\\\drivers\\\\x64\\\\3\\\\*\"",
+  "Tags": [
+    "attack.persistence",
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1574",
+    "cve.2021-1675"
+  ],
+  "Version": "0.1"
+}

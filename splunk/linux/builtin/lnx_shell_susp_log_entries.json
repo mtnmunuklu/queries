@@ -1,0 +1,13 @@
+{
+  "Description": "Detects suspicious log entries in Linux log files\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f64b6e9a-5d9d-48a5-8289-e1dd2b3876e1",
+  "InsertDate": "2025-02-03T20:31:57Z",
+  "LastUpdateDate": "2025-02-03T20:31:57Z",
+  "Level": "medium",
+  "Name": "Suspicious Log Entries",
+  "Query": "sourcetype=\"linux-*\" (\"entered promiscuous mode\" OR \"Deactivating service\" OR \"Oversized packet received from\" OR \"imuxsock begins to drop messages\")",
+  "Tags": [
+    "attack.impact"
+  ],
+  "Version": "0.1"
+}

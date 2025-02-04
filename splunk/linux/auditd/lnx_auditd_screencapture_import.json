@@ -1,0 +1,14 @@
+{
+  "Description": "Detects adversary creating screen capture of a desktop with Import Tool.\nHighly recommended using rule on servers, due to high usage of screenshot utilities on user workstations.\nImageMagick must be installed.\n\n\nAuthor: Pawel Mazur\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "dbe4b9c5-c254-4258-9688-d6af0b7967fd",
+  "InsertDate": "2025-02-03T20:31:56Z",
+  "LastUpdateDate": "2025-02-03T20:31:56Z",
+  "Level": "low",
+  "Name": "Screen Capture with Import Tool",
+  "Query": "sourcetype=\"linux-auditd\" (type=\"EXECVE\" a0=\"import\") ((a1=\"-window\" a2=\"root\" (a3=\"*.png\" OR a3=\"*.jpg\" OR a3=\"*.jpeg\")) OR (a1=\"*.png\" OR a1=\"*.jpg\" OR a1=\"*.jpeg\"))",
+  "Tags": [
+    "attack.collection",
+    "attack.t1113"
+  ],
+  "Version": "0.1"
+}

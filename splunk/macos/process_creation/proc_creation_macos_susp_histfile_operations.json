@@ -1,0 +1,14 @@
+{
+  "Description": "Detects commandline operations on shell history files\n\nAuthor: Mikhail Larin, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "508a9374-ad52-4789-b568-fc358def2c65",
+  "InsertDate": "2025-02-03T20:32:02Z",
+  "LastUpdateDate": "2025-02-03T20:32:02Z",
+  "Level": "medium",
+  "Name": "Suspicious History File Operations",
+  "Query": "sourcetype=\"macos-*\" (command=\"*.bash_history*\" OR command=\"*.zsh_history*\" OR command=\"*.zhistory*\" OR command=\"*.history*\" OR command=\"*.sh_history*\" OR command=\"*fish_history*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1552.003"
+  ],
+  "Version": "0.1"
+}

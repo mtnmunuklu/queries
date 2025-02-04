@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when an attacker tries to add a new network provider in order to dump clear text credentials, similar to how the NPPSpy tool does it\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0442defa-b4a2-41c9-ae2c-ea7042fc4701",
+  "InsertDate": "2025-02-03T20:33:38Z",
+  "LastUpdateDate": "2025-02-03T20:33:38Z",
+  "Level": "medium",
+  "Name": "Potential Credential Dumping Attempt Using New NetworkProvider - REG",
+  "Query": "sourcetype=\"windows-*\" (target_object=\"*\\\\System\\\\CurrentControlSet\\\\Services\\\\*\" target_object=\"*\\\\NetworkProvider*\") NOT ((target_object=\"*\\\\System\\\\CurrentControlSet\\\\Services\\\\WebClient\\\\NetworkProvider*\" OR target_object=\"*\\\\System\\\\CurrentControlSet\\\\Services\\\\LanmanWorkstation\\\\NetworkProvider*\" OR target_object=\"*\\\\System\\\\CurrentControlSet\\\\Services\\\\RDPNP\\\\NetworkProvider*\") OR process_path=\"C:\\\\Windows\\\\System32\\\\poqexec.exe\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003"
+  ],
+  "Version": "0.1"
+}

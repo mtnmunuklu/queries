@@ -1,0 +1,23 @@
+{
+  "Description": "Detects when the macOS Script Editor utility spawns an unusual child process.\n\nAuthor: Tim Rauch (rule), Elastic (idea)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6e4dcdd1-e48b-42f7-b2d8-3b413fc58cb4",
+  "InsertDate": "2025-02-03T20:32:02Z",
+  "LastUpdateDate": "2025-02-03T20:32:02Z",
+  "Level": "medium",
+  "Name": "Suspicious Execution via macOS Script Editor",
+  "Query": "sourcetype=\"macos-*\" parent_process_path=\"*/Script Editor\" ((process_path=\"*/curl\" OR process_path=\"*/bash\" OR process_path=\"*/sh\" OR process_path=\"*/zsh\" OR process_path=\"*/dash\" OR process_path=\"*/fish\" OR process_path=\"*/osascript\" OR process_path=\"*/mktemp\" OR process_path=\"*/chmod\" OR process_path=\"*/php\" OR process_path=\"*/nohup\" OR process_path=\"*/openssl\" OR process_path=\"*/plutil\" OR process_path=\"*/PlistBuddy\" OR process_path=\"*/xattr\" OR process_path=\"*/sqlite\" OR process_path=\"*/funzip\" OR process_path=\"*/popen\") (process_path=\"*python*\" OR process_path=\"*perl*\"))",
+  "Tags": [
+    "attack.t1566",
+    "attack.t1566.002",
+    "attack.initial-access",
+    "attack.t1059",
+    "attack.t1059.002",
+    "attack.t1204",
+    "attack.t1204.001",
+    "attack.execution",
+    "attack.persistence",
+    "attack.t1553",
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

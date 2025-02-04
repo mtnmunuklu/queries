@@ -1,0 +1,16 @@
+{
+  "Description": "User Added to an Administrator's Azure AD Role\n\nAuthor: Raphaël CALVET, @MetallicHack\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ebbeb024-5b1d-4e16-9c0c-917f86c708a7",
+  "InsertDate": "2025-02-03T20:31:51Z",
+  "LastUpdateDate": "2025-02-03T20:31:51Z",
+  "Level": "medium",
+  "Name": "User Added to an Administrator's Azure AD Role",
+  "Query": "sourcetype=\"azure-activitylogs\" operation=\"Add member to role.\" workload=\"AzureActiveDirectory\" (modifiedproperties{}.newvalue=\"*Admins\" OR modifiedproperties{}.newvalue=\"*Administrator\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1098.003",
+    "attack.t1078"
+  ],
+  "Version": "0.1"
+}

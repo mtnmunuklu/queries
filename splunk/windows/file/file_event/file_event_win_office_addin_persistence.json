@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential persistence activity via startup add-ins that load when Microsoft Office starts (.wll/.xll are simply .dll fit for Word or Excel).\n\nAuthor: NVISO\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8e1cb247-6cf6-42fa-b440-3f27d57e9936",
+  "InsertDate": "2025-02-03T20:32:18Z",
+  "LastUpdateDate": "2025-02-03T20:32:18Z",
+  "Level": "high",
+  "Name": "Potential Persistence Via Microsoft Office Add-In",
+  "Query": "sourcetype=\"windows-sysmon\" (filepath=\"*\\\\Microsoft\\\\Word\\\\Startup\\\\*\" filepath=\"*.wll\") OR (filepath=\"*\\\\Microsoft\\\\Excel\\\\Startup\\\\*\" filepath=\"*.xll\") OR (filepath=\"*Microsoft\\\\Excel\\\\XLSTART\\\\*\" filepath=\"*.xlam\") OR (filepath=\"*\\\\Microsoft\\\\Addins\\\\*\" (filepath=\"*.xlam\" OR filepath=\"*.xla\" OR filepath=\"*.ppam\"))",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1137.006"
+  ],
+  "Version": "0.1"
+}

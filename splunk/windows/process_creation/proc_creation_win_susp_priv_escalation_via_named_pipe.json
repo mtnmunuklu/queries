@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a remote file copy attempt to a hidden network share. This may indicate lateral movement or data staging activity.\n\nAuthor: Tim Rauch, Elastic (idea)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9bd04a79-dabe-4f1f-a5ff-92430265c96b",
+  "InsertDate": "2025-02-03T20:33:16Z",
+  "LastUpdateDate": "2025-02-03T20:33:16Z",
+  "Level": "high",
+  "Name": "Privilege Escalation via Named Pipe Impersonation",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\cmd.exe\" OR process_path=\"*\\\\powershell.exe\") (original_file_name=\"Cmd.Exe\" OR original_file_name=\"PowerShell.EXE\")) (command=\"*echo*\" command=\"*\u003e*\" command=\"*\\\\\\\\\\\\\\\\.\\\\\\\\pipe\\\\\\\\*\")",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.t1021"
+  ],
+  "Version": "0.1"
+}

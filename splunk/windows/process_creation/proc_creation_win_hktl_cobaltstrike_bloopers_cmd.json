@@ -1,0 +1,15 @@
+{
+  "Description": "Detects use of Cobalt Strike commands accidentally entered in the CMD shell\n\nAuthor: _pete_0, TheDFIRReport\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "647c7b9e-d784-4fda-b9a0-45c565a7b729",
+  "InsertDate": "2025-02-03T20:32:43Z",
+  "LastUpdateDate": "2025-02-03T20:32:43Z",
+  "Level": "high",
+  "Name": "Operator Bloopers Cobalt Strike Commands",
+  "Query": "sourcetype=\"windows-sysmon\" (original_file_name=\"Cmd.Exe\" process_path=\"*\\\\cmd.exe\") ((command=\"cmd *\" OR command=\"cmd.exe*\" OR command=\"c:\\\\windows\\\\system32\\\\cmd.exe*\") (command=\"*psinject*\" OR command=\"*spawnas*\" OR command=\"*make_token*\" OR command=\"*remote-exec*\" OR command=\"*rev2self*\" OR command=\"*dcsync*\" OR command=\"*logonpasswords*\" OR command=\"*execute-assembly*\" OR command=\"*getsystem*\"))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.003",
+    "stp.1u"
+  ],
+  "Version": "0.1"
+}

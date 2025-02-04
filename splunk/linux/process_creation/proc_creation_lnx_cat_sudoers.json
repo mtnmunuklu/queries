@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of a cat /etc/sudoers to list all users that have sudo rights\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0f79c4d2-4e1f-4683-9c36-b5469a665e06",
+  "InsertDate": "2025-02-03T20:31:58Z",
+  "LastUpdateDate": "2025-02-03T20:31:58Z",
+  "Level": "medium",
+  "Name": "Cat Sudoers",
+  "Query": "sourcetype=\"linux-*\" (process_path=\"*/cat\" OR process_path=\"*grep\" OR process_path=\"*/head\" OR process_path=\"*/tail\" OR process_path=\"*/more\") command=\"* /etc/sudoers*\"",
+  "Tags": [
+    "attack.reconnaissance",
+    "attack.t1592.004"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious malformed user agent strings in proxy logs\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7195a772-4b3f-43a4-a210-6a003d65caa1",
+  "InsertDate": "2025-02-03T20:32:05Z",
+  "LastUpdateDate": "2025-02-03T20:32:05Z",
+  "Level": "high",
+  "Name": "Suspicious User Agent",
+  "Query": "((c-useragent=\"user-agent*\" OR c-useragent=\"Mozilla/3.0 *\" OR c-useragent=\"Mozilla/2.0 *\" OR c-useragent=\"Mozilla/1.0 *\" OR c-useragent=\"Mozilla *\" OR c-useragent=\" Mozilla/*\" OR c-useragent=\"Mozila/*\" OR c-useragent=\"Mozilla/4.0 (compatible; MSIE 6.0; MS Web Services Client Protocol*\") OR (c-useragent=\"* (compatible;MSIE *\" OR c-useragent=\"*.0;Windows NT *\" OR c-useragent=\"*loader*\") OR (c-useragent=\"_\" OR c-useragent=\"CertUtil URL Agent\" OR c-useragent=\"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0)\" OR c-useragent=\"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:28.0) Gecko/20100101 Firefox/28.0\" OR c-useragent=\"HTTPS\" OR c-useragent=\"Erbium-UA-4ce7c27cb4be9d32e333bf032c88235a\" OR c-useragent=\"x\" OR c-useragent=\"xxx\")) NOT (c-useragent=\"Mozilla/3.0 * Acrobat *\" (cs-host=\"*.acrobat.com\" OR cs-host=\"*.adobe.com\" OR cs-host=\"*.adobe.io\"))",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1071.001"
+  ],
+  "Version": "0.1"
+}

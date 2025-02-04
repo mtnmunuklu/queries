@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the restoration of files from the defender quarantine\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "bc92ca75-cd42-4d61-9a37-9d5aa259c88b",
+  "InsertDate": "2025-02-03T20:32:14Z",
+  "LastUpdateDate": "2025-02-03T20:32:14Z",
+  "Level": "high",
+  "Name": "Win Defender Restored Quarantine File",
+  "Query": "sourcetype=\"windows-windefend\" eventid=\"1009\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

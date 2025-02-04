@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of MeshAgent to execute commands on the target host, particularly when threat actors might abuse it to execute commands directly.\nMeshAgent can execute commands on the target host by leveraging win-console to obscure their activities and win-dispatcher to run malicious code through IPC with child processes.\n\n\nAuthor: @Kostastsale\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "74a2b202-73e0-4693-9a3a-9d36146d0775",
+  "InsertDate": "2025-02-03T20:33:05Z",
+  "LastUpdateDate": "2025-02-03T20:33:05Z",
+  "Level": "medium",
+  "Name": "Remote Access Tool - MeshAgent Command Execution via MeshCentral",
+  "Query": "sourcetype=\"windows-sysmon\" parent_process_path=\"*\\\\meshagent.exe\" (process_path=\"*\\\\cmd.exe\" OR process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\")",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1219"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects execution of the \"mshta\" utility with an argument containing the \"http\" keyword, which could indicate that an attacker is executing a remotely hosted malicious hta file\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b98d0db6-511d-45de-ad02-e82a98729620",
+  "InsertDate": "2025-02-03T20:32:50Z",
+  "LastUpdateDate": "2025-02-03T20:32:50Z",
+  "Level": "high",
+  "Name": "Remotely Hosted HTA File Executed Via Mshta.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\mshta.exe\" original_file_name=\"MSHTA.EXE\") (command=\"*http://*\" OR command=\"*https://*\" OR command=\"*ftp://*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.t1218.005"
+  ],
+  "Version": "0.1"
+}

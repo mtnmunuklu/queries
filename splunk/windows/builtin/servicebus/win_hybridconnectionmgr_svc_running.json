@@ -1,0 +1,14 @@
+{
+  "Description": "Rule to detect the Hybrid Connection Manager service running on an endpoint.\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b55d23e5-6821-44ff-8a6e-67218891e49f",
+  "InsertDate": "2025-02-03T20:32:12Z",
+  "LastUpdateDate": "2025-02-03T20:32:12Z",
+  "Level": "high",
+  "Name": "HybridConnectionManager Service Running",
+  "Query": "sourcetype=\"windows-microsoft-servicebus-client\" (eventid=\"40300\" OR eventid=\"40301\" OR eventid=\"40302\") (\"HybridConnection\" OR \"sb://\" OR \"servicebus.windows.net\" OR \"HybridConnectionManage\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1554"
+  ],
+  "Version": "0.1"
+}

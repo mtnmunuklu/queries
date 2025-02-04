@@ -1,0 +1,14 @@
+{
+  "Description": "Detects usage of Windows Input Method Editor (IME) keyboard layout feature, which allows an attacker to load a DLL into the process after sending the WM_INPUTLANGCHANGEREQUEST message.\nBefore doing this, the client needs to register the DLL in a special registry key that is assumed to implement this keyboard layout. This registry key should store a value named \"Ime File\" with a DLL path.\nIMEs are essential for languages that have more characters than can be represented on a standard keyboard, such as Chinese, Japanese, and Korean.\n\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9d8f9bb8-01af-4e15-a3a2-349071530530",
+  "InsertDate": "2025-02-03T20:33:37Z",
+  "LastUpdateDate": "2025-02-03T20:33:37Z",
+  "Level": "high",
+  "Name": "Suspicious Path In Keyboard Layout IME File Registry Value",
+  "Query": "sourcetype=\"windows-*\" (target_object=\"*\\\\Control\\\\Keyboard Layouts\\\\*\" target_object=\"*Ime File*\") ((details=\"*:\\\\Perflogs\\\\*\" OR details=\"*:\\\\Users\\\\Public\\\\*\" OR details=\"*:\\\\Windows\\\\Temp\\\\*\" OR details=\"*\\\\AppData\\\\Local\\\\Temp\\\\*\" OR details=\"*\\\\AppData\\\\Roaming\\\\*\" OR details=\"*\\\\Temporary Internet*\") OR ((details=\"*:\\\\Users\\\\*\" details=\"*\\\\Favorites\\\\*\") (details=\"*:\\\\Users\\\\*\" details=\"*\\\\Favourites\\\\*\") (details=\"*:\\\\Users\\\\*\" details=\"*\\\\Contacts\\\\*\")))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

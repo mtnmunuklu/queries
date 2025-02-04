@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when highly privileged delegated permissions are granted on behalf of all users\n\nAuthor: Bailey Bercik '@baileybercik', Mark Morowczynski '@markmorow'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a6355fbe-f36f-45d8-8efc-ab42465cbc52",
+  "InsertDate": "2025-02-03T20:31:52Z",
+  "LastUpdateDate": "2025-02-03T20:31:52Z",
+  "Level": "high",
+  "Name": "Delegated Permissions Granted For All Users",
+  "Query": "sourcetype=\"azure-auditlogs\" properties.message=\"Add delegated permission grant\"",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1528"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects code fragments found in small and obfuscated AMSI bypass PowerShell scripts\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e0d6c087-2d1c-47fd-8799-3904103c5a98",
+  "InsertDate": "2025-02-03T20:32:28Z",
+  "LastUpdateDate": "2025-02-03T20:32:28Z",
+  "Level": "high",
+  "Name": "AMSI Bypass Pattern Assembly GetType",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*[Ref].Assembly.GetType*\" scriptblocktext=\"*SetValue($null,$true)*\" scriptblocktext=\"*NonPublic,Static*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001",
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

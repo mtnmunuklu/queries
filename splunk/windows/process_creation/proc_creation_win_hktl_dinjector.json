@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of the Dinject PowerShell cradle based on the specific flags\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d78b5d61-187d-44b6-bf02-93486a80de5a",
+  "InsertDate": "2025-02-03T20:32:43Z",
+  "LastUpdateDate": "2025-02-03T20:32:43Z",
+  "Level": "critical",
+  "Name": "HackTool - DInjector PowerShell Cradle Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"* /am51*\" command=\"* /password*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1055"
+  ],
+  "Version": "0.1"
+}

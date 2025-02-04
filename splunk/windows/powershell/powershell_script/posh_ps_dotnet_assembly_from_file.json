@@ -1,0 +1,14 @@
+{
+  "Description": "Detects usage of \"Reflection.Assembly\" load functions to dynamically load assemblies in memory\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ddcd88cb-7f62-4ce5-86f9-1704190feb0a",
+  "InsertDate": "2025-02-03T20:32:29Z",
+  "LastUpdateDate": "2025-02-03T20:32:29Z",
+  "Level": "medium",
+  "Name": "Potential In-Memory Execution Using Reflection.Assembly",
+  "Query": "sourcetype=\"windows-*\" scriptblocktext=\"*[Reflection.Assembly]::load*\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1620"
+  ],
+  "Version": "0.1"
+}

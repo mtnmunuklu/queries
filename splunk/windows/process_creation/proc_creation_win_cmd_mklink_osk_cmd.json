@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the creation of a symbolic link between \"cmd.exe\" and the accessibility on-screen keyboard binary (osk.exe) using \"mklink\". This technique provides an elevated command prompt to the user from the login screen without the need to log in.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e9b61244-893f-427c-b287-3e708f321c6b",
+  "InsertDate": "2025-02-03T20:32:39Z",
+  "LastUpdateDate": "2025-02-03T20:32:39Z",
+  "Level": "high",
+  "Name": "Potential Privilege Escalation Using Symlink Between Osk and Cmd",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\cmd.exe\" original_file_name=\"Cmd.Exe\") (command=\"*mklink*\" command=\"*\\\\osk.exe*\" command=\"*\\\\cmd.exe*\")",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.persistence",
+    "attack.t1546.008"
+  ],
+  "Version": "0.1"
+}

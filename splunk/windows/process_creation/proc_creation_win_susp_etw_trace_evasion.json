@@ -1,0 +1,16 @@
+{
+  "Description": "Detects command line activity that tries to clear or disable any ETW trace log which could be a sign of logging evasion.\n\n\nAuthor: @neu5ron, Florian Roth (Nextron Systems), Jonhnathan Ribeiro, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a238b5d0-ce2d-4414-a676-7a531b3d13d6",
+  "InsertDate": "2025-02-03T20:33:14Z",
+  "LastUpdateDate": "2025-02-03T20:33:14Z",
+  "Level": "high",
+  "Name": "ETW Trace Evasion Activity",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*Set-EtwTraceProvider*\" command=\"*0x11*\") OR (command=\"*cl*\" command=\"*/Trace*\") OR (command=\"*clear-log*\" command=\"*/Trace*\") OR (command=\"*sl*\" command=\"*/e:false*\") OR (command=\"*set-log*\" command=\"*/e:false*\") OR (command=\"*logman*\" command=\"*update*\" command=\"*trace*\" command=\"*--p*\" command=\"*-ets*\") OR command=\"*Remove-EtwTraceProvider*\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1070",
+    "attack.t1562.006",
+    "car.2016-04-002"
+  ],
+  "Version": "0.1"
+}

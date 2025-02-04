@@ -1,0 +1,13 @@
+{
+  "Description": "Detects usage of Gpg4win to encrypt/decrypt files located in potentially suspicious locations.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e1e0b7d7-e10b-4ee4-ac49-a4bda05d320d",
+  "InsertDate": "2025-02-03T20:32:43Z",
+  "LastUpdateDate": "2025-02-03T20:32:43Z",
+  "Level": "high",
+  "Name": "File Encryption/Decryption Via Gpg4win From Suspicious Locations",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*:\\\\PerfLogs\\\\*\" OR command=\"*:\\\\Temp\\\\*\" OR command=\"*:\\\\Users\\\\Public\\\\*\" OR command=\"*:\\\\Windows\\\\Temp\\\\*\" OR command=\"*\\\\AppData\\\\Local\\\\Temp\\\\*\" OR command=\"*\\\\AppData\\\\Roaming\\\\*\") ((process_path=\"*\\\\gpg.exe\" OR process_path=\"*\\\\gpg2.exe\") product=\"GNU Privacy Guard (GnuPG)\" description=\"GnuPG’s OpenPGP tool\") command=\"*-passphrase*\"",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

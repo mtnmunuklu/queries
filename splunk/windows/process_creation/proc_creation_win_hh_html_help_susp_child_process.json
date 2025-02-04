@@ -1,0 +1,26 @@
+{
+  "Description": "Detects a suspicious child process of a Microsoft HTML Help (HH.exe)\n\nAuthor: Maxim Pavlunin, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "52cad028-0ff0-4854-8f67-d25dfcbc78b4",
+  "InsertDate": "2025-02-03T20:32:43Z",
+  "LastUpdateDate": "2025-02-03T20:32:43Z",
+  "Level": "high",
+  "Name": "HTML Help HH.EXE Suspicious Child Process",
+  "Query": "sourcetype=\"windows-sysmon\" parent_process_path=\"*\\\\hh.exe\" (process_path=\"*\\\\CertReq.exe\" OR process_path=\"*\\\\CertUtil.exe\" OR process_path=\"*\\\\cmd.exe\" OR process_path=\"*\\\\cscript.exe\" OR process_path=\"*\\\\installutil.exe\" OR process_path=\"*\\\\MSbuild.exe\" OR process_path=\"*\\\\MSHTA.EXE\" OR process_path=\"*\\\\msiexec.exe\" OR process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\" OR process_path=\"*\\\\regsvr32.exe\" OR process_path=\"*\\\\rundll32.exe\" OR process_path=\"*\\\\schtasks.exe\" OR process_path=\"*\\\\wmic.exe\" OR process_path=\"*\\\\wscript.exe\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.initial-access",
+    "attack.t1047",
+    "attack.t1059.001",
+    "attack.t1059.003",
+    "attack.t1059.005",
+    "attack.t1059.007",
+    "attack.t1218",
+    "attack.t1218.001",
+    "attack.t1218.010",
+    "attack.t1218.011",
+    "attack.t1566",
+    "attack.t1566.001"
+  ],
+  "Version": "0.1"
+}

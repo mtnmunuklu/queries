@@ -1,0 +1,15 @@
+{
+  "Description": "Detects a suspicious process pattern which could be a sign of an exploited Serv-U service\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "58f4ea09-0fc2-4520-ba18-b85c540b0eaf",
+  "InsertDate": "2025-02-03T20:33:11Z",
+  "LastUpdateDate": "2025-02-03T20:33:11Z",
+  "Level": "high",
+  "Name": "Suspicious Serv-U Process Pattern",
+  "Query": "sourcetype=\"windows-sysmon\" parent_process_path=\"*\\\\Serv-U.exe\" (process_path=\"*\\\\cmd.exe\" OR process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\" OR process_path=\"*\\\\wscript.exe\" OR process_path=\"*\\\\cscript.exe\" OR process_path=\"*\\\\sh.exe\" OR process_path=\"*\\\\bash.exe\" OR process_path=\"*\\\\schtasks.exe\" OR process_path=\"*\\\\regsvr32.exe\" OR process_path=\"*\\\\wmic.exe\" OR process_path=\"*\\\\mshta.exe\" OR process_path=\"*\\\\rundll32.exe\" OR process_path=\"*\\\\msiexec.exe\" OR process_path=\"*\\\\forfiles.exe\" OR process_path=\"*\\\\scriptrunner.exe\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1555",
+    "cve.2021-35211"
+  ],
+  "Version": "0.1"
+}

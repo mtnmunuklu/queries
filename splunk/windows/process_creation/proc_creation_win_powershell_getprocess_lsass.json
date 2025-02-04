@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a \"Get-Process\" cmdlet and it's aliases on lsass process, which is in almost all cases a sign of malicious activity\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b2815d0d-7481-4bf0-9b6c-a4c48a94b349",
+  "InsertDate": "2025-02-03T20:32:57Z",
+  "LastUpdateDate": "2025-02-03T20:32:57Z",
+  "Level": "high",
+  "Name": "PowerShell Get-Process LSASS",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*Get-Process lsas*\" OR command=\"*ps lsas*\" OR command=\"*gps lsas*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1552.004"
+  ],
+  "Version": "0.1"
+}

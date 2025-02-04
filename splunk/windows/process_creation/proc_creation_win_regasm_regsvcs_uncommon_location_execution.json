@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potentially suspicious execution of the Regasm/Regsvcs utilities from a potentially suspicious location\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "cc368ed0-2411-45dc-a222-510ace303cb2",
+  "InsertDate": "2025-02-03T20:33:03Z",
+  "LastUpdateDate": "2025-02-03T20:33:03Z",
+  "Level": "medium",
+  "Name": "Potentially Suspicious Execution Of Regasm/Regsvcs From Uncommon Location",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\Regsvcs.exe\" OR process_path=\"*\\\\Regasm.exe\") (original_file_name=\"RegSvcs.exe\" OR original_file_name=\"RegAsm.exe\")) (command=\"*\\\\AppData\\\\Local\\\\Temp\\\\*\" OR command=\"*\\\\Microsoft\\\\Windows\\\\Start Menu\\\\Programs\\\\Startup\\\\*\" OR command=\"*\\\\PerfLogs\\\\*\" OR command=\"*\\\\Users\\\\Public\\\\*\" OR command=\"*\\\\Windows\\\\Temp\\\\*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.009"
+  ],
+  "Version": "0.1"
+}

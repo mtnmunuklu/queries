@@ -1,0 +1,17 @@
+{
+  "Description": "Detects potential DLL sideloading of \"CCleanerDU.dll\"\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1fbc0671-5596-4e17-8682-f020a0b995dc",
+  "InsertDate": "2025-02-03T20:32:22Z",
+  "LastUpdateDate": "2025-02-03T20:32:22Z",
+  "Level": "medium",
+  "Name": "Potential CCleanerDU.DLL Sideloading",
+  "Query": "sourcetype=\"windows-sysmon\" image_loaded=\"*\\\\CCleanerDU.dll\" NOT ((process_path=\"C:\\\\Program Files\\\\CCleaner\\\\*\" OR process_path=\"C:\\\\Program Files (x86)\\\\CCleaner\\\\*\") (process_path=\"*\\\\CCleaner.exe\" OR process_path=\"*\\\\CCleaner64.exe\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

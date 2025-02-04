@@ -1,0 +1,15 @@
+{
+  "Description": "Detects BITS transfer job downloading files from a file sharing domain.\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d635249d-86b5-4dad-a8c7-d7272b788586",
+  "InsertDate": "2025-02-03T20:32:06Z",
+  "LastUpdateDate": "2025-02-03T20:32:06Z",
+  "Level": "high",
+  "Name": "BITS Transfer Job Download From File Sharing Domains",
+  "Query": "sourcetype=\"windows-bits-client\" eventid=\"16403\" (remotename=\"*.githubusercontent.com*\" OR remotename=\"*anonfiles.com*\" OR remotename=\"*cdn.discordapp.com*\" OR remotename=\"*ddns.net*\" OR remotename=\"*dl.dropboxusercontent.com*\" OR remotename=\"*ghostbin.co*\" OR remotename=\"*glitch.me*\" OR remotename=\"*gofile.io*\" OR remotename=\"*hastebin.com*\" OR remotename=\"*mediafire.com*\" OR remotename=\"*mega.nz*\" OR remotename=\"*onrender.com*\" OR remotename=\"*pages.dev*\" OR remotename=\"*paste.ee*\" OR remotename=\"*pastebin.com*\" OR remotename=\"*pastebin.pl*\" OR remotename=\"*pastetext.net*\" OR remotename=\"*pixeldrain.com*\" OR remotename=\"*privatlab.com*\" OR remotename=\"*privatlab.net*\" OR remotename=\"*send.exploit.in*\" OR remotename=\"*sendspace.com*\" OR remotename=\"*storage.googleapis.com*\" OR remotename=\"*storjshare.io*\" OR remotename=\"*supabase.co*\" OR remotename=\"*temp.sh*\" OR remotename=\"*transfer.sh*\" OR remotename=\"*trycloudflare.com*\" OR remotename=\"*ufile.io*\" OR remotename=\"*w3spaces.com*\" OR remotename=\"*workers.dev*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.t1197"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the addition of a SSP to the registry. Upon a reboot or API call, SSP DLLs gain access to encrypted and plaintext passwords stored in Windows.\n\n\nAuthor: iwillkeepwatch\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "eeb30123-9fbd-4ee8-aaa0-2e545bbed6dc",
+  "InsertDate": "2025-02-03T20:33:30Z",
+  "LastUpdateDate": "2025-02-03T20:33:30Z",
+  "Level": "high",
+  "Name": "Security Support Provider (SSP) Added to LSA Configuration",
+  "Query": "sourcetype=\"windows-sysmon\" (target_object=\"*\\\\Control\\\\Lsa\\\\Security Packages\" OR target_object=\"*\\\\Control\\\\Lsa\\\\OSConfig\\\\Security Packages\") NOT (process_path=\"C:\\\\Windows\\\\system32\\\\msiexec.exe\" OR process_path=\"C:\\\\Windows\\\\syswow64\\\\MsiExec.exe\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1547.005"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of the env command to invoke a shell. This may indicate an attempt to bypass restricted environments, escalate privileges, or execute arbitrary commands.\n\n\nAuthor: Li Ling, Andy Parkidomo, Robert Rakowski, Blake Hartstein (Bloomberg L.P.)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "bed978f8-7f3a-432b-82c5-9286a9b3031a",
+  "InsertDate": "2025-02-03T20:31:59Z",
+  "LastUpdateDate": "2025-02-03T20:31:59Z",
+  "Level": "high",
+  "Name": "Shell Invocation via Env Command - Linux",
+  "Query": "sourcetype=\"linux-*\" process_path=\"*/env\" (command=\"*/bin/bash\" OR command=\"*/bin/dash\" OR command=\"*/bin/fish\" OR command=\"*/bin/sh\" OR command=\"*/bin/zsh\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

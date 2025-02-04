@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious ways to run Invoke-Execution using IEX alias\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "09576804-7a05-458e-a817-eb718ca91f54",
+  "InsertDate": "2025-02-03T20:32:57Z",
+  "LastUpdateDate": "2025-02-03T20:32:57Z",
+  "Level": "high",
+  "Name": "Suspicious PowerShell IEX Execution Patterns",
+  "Query": "sourcetype=\"windows-sysmon\" (((process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\") (command=\"* | iex;*\" OR command=\"* | iex *\" OR command=\"* | iex}*\" OR command=\"* | IEX ;*\" OR command=\"* | IEX -Error*\" OR command=\"* | IEX (new*\" OR command=\"*);IEX *\")) (command=\"*::FromBase64String*\" OR command=\"*.GetString([System.Convert]::*\")) OR (command=\"*)|iex;$*\" OR command=\"*);iex($*\" OR command=\"*);iex $*\" OR command=\"* | IEX | *\" OR command=\"* | iex\\\\\"*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

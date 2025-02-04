@@ -1,0 +1,15 @@
+{
+  "Description": "Detects when an attacker register a new SIP provider for persistence and defense evasion\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5a2b21ee-6aaa-4234-ac9d-59a59edf90a1",
+  "InsertDate": "2025-02-03T20:33:43Z",
+  "LastUpdateDate": "2025-02-03T20:33:43Z",
+  "Level": "medium",
+  "Name": "Persistence Via New SIP Provider",
+  "Query": "sourcetype=\"windows-*\" ((target_object=\"*\\\\SOFTWARE\\\\Microsoft\\\\Cryptography\\\\Providers\\\\*\" OR target_object=\"*\\\\SOFTWARE\\\\Microsoft\\\\Cryptography\\\\OID\\\\EncodingType*\" OR target_object=\"*\\\\SOFTWARE\\\\WOW6432Node\\\\Microsoft\\\\Cryptography\\\\Providers\\\\*\" OR target_object=\"*\\\\SOFTWARE\\\\WOW6432Node\\\\Microsoft\\\\Cryptography\\\\OID\\\\EncodingType*\") (target_object=\"*\\\\Dll*\" OR target_object=\"*\\\\$DLL*\")) NOT ((details=\"WINTRUST.DLL\" OR details=\"mso.dll\") OR (process_path=\"C:\\\\Windows\\\\System32\\\\poqexec.exe\" target_object=\"*\\\\CryptSIPDll*\" details=\"C:\\\\Windows\\\\System32\\\\PsfSip.dll\"))",
+  "Tags": [
+    "attack.persistence",
+    "attack.defense-evasion",
+    "attack.t1553.003"
+  ],
+  "Version": "0.1"
+}

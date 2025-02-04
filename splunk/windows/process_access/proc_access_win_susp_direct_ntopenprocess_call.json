@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential calls to NtOpenProcess directly from NTDLL.\n\nAuthor: Christian Burkard (Nextron Systems), Tim Shelton (FP)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3f3f3506-1895-401b-9cc3-e86b16e630d0",
+  "InsertDate": "2025-02-03T20:32:36Z",
+  "LastUpdateDate": "2025-02-03T20:32:36Z",
+  "Level": "medium",
+  "Name": "Potential Direct Syscall of NtOpenProcess",
+  "Query": "sourcetype=\"windows-sysmon\" call_trace=\"UNKNOWN*\" NOT (((process_path=\"*:\\\\Program Files (x86)\\\\*\" OR process_path=\"*:\\\\Program Files\\\\*\" OR process_path=\"*:\\\\Windows\\\\System32\\\\*\" OR process_path=\"*:\\\\Windows\\\\SysWOW64\\\\*\" OR process_path=\"*:\\\\Windows\\\\WinSxS\\\\*\") (dst_process_path=\"*:\\\\Program Files (x86)\\\\*\" OR dst_process_path=\"*:\\\\Program Files\\\\*\" OR dst_process_path=\"*:\\\\Windows\\\\System32\\\\*\" OR dst_process_path=\"*:\\\\Windows\\\\SysWOW64\\\\*\" OR dst_process_path=\"*:\\\\Windows\\\\WinSxS\\\\*\")) OR provider_name=\"Microsoft-Windows-Kernel-Audit-API-Calls\" OR (dst_process_path=\"*vcredist_x64.exe\" process_path=\"*vcredist_x64.exe\")) NOT ((dst_process_path=\"*\\\\AppData\\\\Local\\\\Microsoft\\\\Teams\\\\current\\\\Teams.exe\" process_path=\"*\\\\AppData\\\\Local\\\\Microsoft\\\\Teams\\\\current\\\\Teams.exe\") OR (dst_process_path=\"*\\\\AppData\\\\Local\\\\Discord\\\\*\" dst_process_path=\"*\\\\Discord.exe\") OR (process_path=\"*\\\\AppData\\\\Local\\\\yammerdesktop\\\\app-*\" process_path=\"*\\\\Yammer.exe\" dst_process_path=\"*\\\\AppData\\\\Local\\\\yammerdesktop\\\\app-*\" dst_process_path=\"*\\\\Yammer.exe\" granted_access=\"0x1000\") OR (process_path=\"*:\\\\Program Files\\\\Adobe\\\\Acrobat DC\\\\Acrobat\\\\*\" process_path=\"*\\\\AcroCEF.exe\" dst_process_path=\"*:\\\\Program Files\\\\Adobe\\\\Acrobat DC\\\\Acrobat\\\\*\" dst_process_path=\"*\\\\AcroCEF.exe\") OR (process_path=\"*:\\\\Windows\\\\Explorer.EXE\" dst_process_path=\"*:\\\\Program Files\\\\Cylance\\\\Desktop\\\\CylanceUI.exe\") OR (process_path=\"*AmazonSSMAgentSetup.exe\" dst_process_path=\"*AmazonSSMAgentSetup.exe\") OR (dst_process_path=\"*:\\\\Windows\\\\system32\\\\systeminfo.exe\" process_path=\"*setup64.exe\") OR (process_path=\"*\\\\AppData\\\\Local\\\\Programs\\\\Microsoft VS Code\\\\Code.exe\" dst_process_path=\"*\\\\AppData\\\\Local\\\\Programs\\\\Microsoft VS Code\\\\Code.exe\") OR dst_process_path=\"*\\\\Evernote\\\\Evernote.exe\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1106"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Show when a monitor or a span/rspan is setup or modified\n\nAuthor: Austin Clark\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b9e1f193-d236-4451-aaae-2f3d2102120d",
+  "InsertDate": "2025-02-03T20:32:03Z",
+  "LastUpdateDate": "2025-02-03T20:32:03Z",
+  "Level": "medium",
+  "Name": "Cisco Sniffing",
+  "Query": "sourcetype=\"cisco-aaa\" (\"monitor capture point\" OR \"set span\" OR \"set rspan\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.discovery",
+    "attack.t1040"
+  ],
+  "Version": "0.1"
+}

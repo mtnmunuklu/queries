@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of FSharp Interpreters \"FsiAnyCpu.exe\" and \"FSi.exe\"\nBoth can be used for AWL bypass and to execute F# code via scripts or inline.\n\n\nAuthor: Christopher Peacock @SecurePeacock, SCYTHE @scythe_io\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b96b2031-7c17-4473-afe7-a30ce714db29",
+  "InsertDate": "2025-02-03T20:32:42Z",
+  "LastUpdateDate": "2025-02-03T20:32:42Z",
+  "Level": "medium",
+  "Name": "Use of FSharp Interpreters",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\fsi.exe\" OR process_path=\"*\\\\fsianycpu.exe\") (original_file_name=\"fsi.exe\" OR original_file_name=\"fsianycpu.exe\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

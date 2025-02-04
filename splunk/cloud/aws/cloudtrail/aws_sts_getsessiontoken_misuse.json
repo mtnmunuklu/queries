@@ -1,0 +1,17 @@
+{
+  "Description": "Identifies the suspicious use of GetSessionToken. Tokens could be created and used by attackers to move laterally and escalate privileges.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b45ab1d2-712f-4f01-a751-df3826969807",
+  "InsertDate": "2025-02-03T20:31:51Z",
+  "LastUpdateDate": "2025-02-03T20:31:51Z",
+  "Level": "low",
+  "Name": "AWS STS GetSessionToken Misuse",
+  "Query": "sourcetype=\"aws-cloudtrail\" eventsource=\"sts.amazonaws.com\" eventname=\"GetSessionToken\" useridentity.type=\"IAMUser\"",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.privilege-escalation",
+    "attack.t1548",
+    "attack.t1550",
+    "attack.t1550.001"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects tampering with the \"Enabled\" registry key in order to disable Windows logging of a Windows event channel\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2f78da12-f7c7-430b-8b19-a28f269b77a3",
+  "InsertDate": "2025-02-03T20:33:35Z",
+  "LastUpdateDate": "2025-02-03T20:33:35Z",
+  "Level": "high",
+  "Name": "Disable Windows Event Logging Via Registry",
+  "Query": "sourcetype=\"windows-*\" (target_object=\"*\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\WINEVT\\\\Channels\\\\*\" target_object=\"*\\\\Enabled\" details=\"DWORD (0x00000000)\") NOT ((process_path=\"C:\\\\Windows\\\\winsxs\\\\*\" process_path=\"*\\\\TiWorker.exe\") OR (process_path=\"C:\\\\Windows\\\\System32\\\\svchost.exe\" (target_object=\"*\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\WINEVT\\\\Channels\\\\Microsoft-Windows-FileInfoMinifilter*\" OR target_object=\"*\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\WINEVT\\\\Channels\\\\Microsoft-Windows-ASN1\\\\*\" OR target_object=\"*\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\WINEVT\\\\Channels\\\\Microsoft-Windows-Kernel-AppCompat\\\\*\" OR target_object=\"*\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\WINEVT\\\\Channels\\\\Microsoft-Windows-Runtime\\\\Error\\\\*\" OR target_object=\"*\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\WINEVT\\\\Channels\\\\Microsoft-Windows-CAPI2/Operational\\\\*\")) OR (process_path=\"C:\\\\Windows\\\\servicing\\\\TrustedInstaller.exe\" target_object=\"*\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\WINEVT\\\\Channels\\\\Microsoft-Windows-Compat-Appraiser*\") OR process_path=\"C:\\\\Windows\\\\system32\\\\wevtutil.exe\") NOT (process_path=\"\" OR process_path=\"null\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.002"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Addition of domains is seldom and should be verified for legitimacy.\n\nAuthor: Thomas Patzke\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0255a820-e564-4e40-af2b-6ac61160335c",
+  "InsertDate": "2025-02-03T20:32:11Z",
+  "LastUpdateDate": "2025-02-03T20:32:11Z",
+  "Level": "medium",
+  "Name": "A New Trust Was Created To A Domain",
+  "Query": "sourcetype=\"windows-security\" eventid=\"4706\"",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1098"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "focuses on trivial artifacts observed in variants of prevalent offensive ps1 payloads, including\nCobalt Strike Beacon, PoshC2, Powerview, Letmein, Empire, Powersploit, and other attack payloads\nthat often undergo minimal changes by attackers due to bad opsec.\n\n\nAuthor: ok @securonix invrep_de, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8d31a8ce-46b5-4dd6-bdc3-680931f1db86",
+  "InsertDate": "2025-02-03T20:32:27Z",
+  "LastUpdateDate": "2025-02-03T20:32:27Z",
+  "Level": "critical",
+  "Name": "Bad Opsec Powershell Code Artifacts",
+  "Query": "sourcetype=\"windows-*\" (payload=\"*$DoIt*\" OR payload=\"*harmj0y*\" OR payload=\"*mattifestation*\" OR payload=\"*_RastaMouse*\" OR payload=\"*tifkin_*\" OR payload=\"*0xdeadbeef*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

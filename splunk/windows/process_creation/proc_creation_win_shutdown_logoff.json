@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the rare use of the command line tool shutdown to logoff a user\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ec290c06-9b6b-4338-8b6b-095c0f284f10",
+  "InsertDate": "2025-02-03T20:33:11Z",
+  "LastUpdateDate": "2025-02-03T20:33:11Z",
+  "Level": "medium",
+  "Name": "Suspicious Execution of Shutdown to Log Out",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\shutdown.exe\" command=\"*/l*\"",
+  "Tags": [
+    "attack.impact",
+    "attack.t1529"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of Fast Reverse Proxy. frp is a fast reverse proxy to help you expose a local server behind a NAT or firewall to the Internet.\n\nAuthor: frack113, Florian Roth\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "32410e29-5f94-4568-b6a3-d91a8adad863",
+  "InsertDate": "2025-02-03T20:33:00Z",
+  "LastUpdateDate": "2025-02-03T20:33:00Z",
+  "Level": "high",
+  "Name": "PUA - Fast Reverse Proxy (FRP) Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\frpc.exe\" OR process_path=\"*\\\\frps.exe\") OR command=\"*\\\\frpc.ini*\" OR (hashes=\"*MD5=7D9C233B8C9E3F0EA290D2B84593C842*\" OR hashes=\"*SHA1=06DDC9280E1F1810677935A2477012960905942F*\" OR hashes=\"*SHA256=57B0936B8D336D8E981C169466A15A5FD21A7D5A2C7DAF62D5E142EE860E387C*\")",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1090"
+  ],
+  "Version": "0.1"
+}

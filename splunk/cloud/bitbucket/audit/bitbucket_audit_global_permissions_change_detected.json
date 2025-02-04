@@ -1,0 +1,15 @@
+{
+  "Description": "Detects global permissions change activity.\n\nAuthor: Muhammad Faisal (@faisalusuf)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "aac6c4f4-87c7-4961-96ac-c3fd3a42c310",
+  "InsertDate": "2025-02-03T20:31:54Z",
+  "LastUpdateDate": "2025-02-03T20:31:54Z",
+  "Level": "medium",
+  "Name": "Bitbucket Global Permission Changed",
+  "Query": "sourcetype=\"bitbucket-audit\" audittype.category=\"Permissions\" (audittype.action=\"Global permission remove request\" OR audittype.action=\"Global permission removed\" OR audittype.action=\"Global permission granted\" OR audittype.action=\"Global permission requested\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1098"
+  ],
+  "Version": "0.1"
+}

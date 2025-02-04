@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential DLL sideloading of DLLs that are known to be abused from suspicious locations\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "799a5f48-0ac1-4e0f-9152-71d137d48c2a",
+  "InsertDate": "2025-02-03T20:32:22Z",
+  "LastUpdateDate": "2025-02-03T20:32:22Z",
+  "Level": "high",
+  "Name": "Abusable DLL Potential Sideloading From Suspicious Location",
+  "Query": "sourcetype=\"windows-sysmon\" (image_loaded=\"*\\\\coreclr.dll\" OR image_loaded=\"*\\\\facesdk.dll\" OR image_loaded=\"*\\\\HPCustPartUI.dll\" OR image_loaded=\"*\\\\libcef.dll\" OR image_loaded=\"*\\\\ZIPDLL.dll\") ((image_loaded=\"*:\\\\Perflogs\\\\*\" OR image_loaded=\"*:\\\\Users\\\\Public\\\\*\" OR image_loaded=\"*\\\\Temporary Internet*\" OR image_loaded=\"*\\\\Windows\\\\Temp\\\\*\") OR ((image_loaded=\"*:\\\\Users\\\\*\" image_loaded=\"*\\\\Favorites\\\\*\") (image_loaded=\"*:\\\\Users\\\\*\" image_loaded=\"*\\\\Favourites\\\\*\") (image_loaded=\"*:\\\\Users\\\\*\" image_loaded=\"*\\\\Contacts\\\\*\") (image_loaded=\"*:\\\\Users\\\\*\" image_loaded=\"*\\\\Pictures\\\\*\")))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

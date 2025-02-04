@@ -1,0 +1,13 @@
+{
+  "Description": "Detects potential exfiltration attempt via audio file using PowerShell\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e4f93c99-396f-47c8-bb0f-201b1fa69034",
+  "InsertDate": "2025-02-03T20:32:29Z",
+  "LastUpdateDate": "2025-02-03T20:32:29Z",
+  "Level": "medium",
+  "Name": "Potential Data Exfiltration Via Audio File",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*[System.Math]::*\" scriptblocktext=\"*[IO.FileMode]::*\" scriptblocktext=\"*BinaryWriter*\") (scriptblocktext=\"*0x52*\" scriptblocktext=\"*0x49*\" scriptblocktext=\"*0x46*\" scriptblocktext=\"*0x57*\" scriptblocktext=\"*0x41*\" scriptblocktext=\"*0x56*\" scriptblocktext=\"*0x45*\" scriptblocktext=\"*0xAC*\")",
+  "Tags": [
+    "attack.exfiltration"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects DNS queries made by \"AppInstaller.EXE\". The AppInstaller is the default handler for the \"ms-appinstaller\" URI. It attempts to load/install a package from the referenced URL\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7cff77e1-9663-46a3-8260-17f2e1aa9d0a",
+  "InsertDate": "2025-02-03T20:32:15Z",
+  "LastUpdateDate": "2025-02-03T20:32:15Z",
+  "Level": "medium",
+  "Name": "AppX Package Installation Attempts Via AppInstaller.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"C:\\\\Program Files\\\\WindowsApps\\\\Microsoft.DesktopAppInstaller_*\" process_path=\"*\\\\AppInstaller.exe\"",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1105"
+  ],
+  "Version": "0.1"
+}

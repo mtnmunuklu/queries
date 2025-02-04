@@ -1,0 +1,14 @@
+{
+  "Description": "Detects different hacktools used for relay attacks on Windows for privilege escalation\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5589ab4f-a767-433c-961d-c91f3f704db1",
+  "InsertDate": "2025-02-03T20:32:45Z",
+  "LastUpdateDate": "2025-02-03T20:32:45Z",
+  "Level": "critical",
+  "Name": "Potential SMB Relay Attack Tool Execution",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*PetitPotam*\" OR process_path=\"*RottenPotato*\" OR process_path=\"*HotPotato*\" OR process_path=\"*JuicyPotato*\" OR process_path=\"*\\\\just_dce_*\" OR process_path=\"*Juicy Potato*\" OR process_path=\"*\\\\temp\\\\rot.exe*\" OR process_path=\"*\\\\Potato.exe*\" OR process_path=\"*\\\\SpoolSample.exe*\" OR process_path=\"*\\\\Responder.exe*\" OR process_path=\"*\\\\smbrelayx*\" OR process_path=\"*\\\\ntlmrelayx*\" OR process_path=\"*\\\\LocalPotato*\") OR (command=\"*Invoke-Tater*\" OR command=\"* smbrelay*\" OR command=\"* ntlmrelay*\" OR command=\"*cme smb *\" OR command=\"* /ntlm:NTLMhash *\" OR command=\"*Invoke-PetitPotam*\" OR command=\"*.exe -t * -p *\") OR (command=\"*.exe -c \"{*\" command=\"*}\" -z\")) NOT (process_path=\"*HotPotatoes6*\" OR process_path=\"*HotPotatoes7*\" OR process_path=\"*HotPotatoes *\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1557.001"
+  ],
+  "Version": "0.1"
+}

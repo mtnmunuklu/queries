@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when adversaries stop services or processes by deleting their respective scheduled tasks in order to conduct data destructive activities\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "dbc1f800-0fe0-4bc0-9c66-292c2abe3f78",
+  "InsertDate": "2025-02-03T20:33:10Z",
+  "LastUpdateDate": "2025-02-03T20:33:10Z",
+  "Level": "high",
+  "Name": "Delete Important Scheduled Task",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\schtasks.exe\" (command=\"*/delete*\" command=\"*/tn*\") (command=\"*\\\\Windows\\\\BitLocker*\" OR command=\"*\\\\Windows\\\\ExploitGuard*\" OR command=\"*\\\\Windows\\\\SystemRestore\\\\SR*\" OR command=\"*\\\\Windows\\\\UpdateOrchestrator\\\\*\" OR command=\"*\\\\Windows\\\\Windows Defender\\\\*\" OR command=\"*\\\\Windows\\\\WindowsBackup\\\\*\" OR command=\"*\\\\Windows\\\\WindowsUpdate\\\\*\")",
+  "Tags": [
+    "attack.impact",
+    "attack.t1489"
+  ],
+  "Version": "0.1"
+}

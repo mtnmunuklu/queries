@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the creation of a local hidden user account which should not happen for event ID 4720.\n\nAuthor: Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7b449a5e-1db5-4dd0-a2dc-4e3a67282538",
+  "InsertDate": "2025-02-03T20:32:09Z",
+  "LastUpdateDate": "2025-02-03T20:32:09Z",
+  "Level": "high",
+  "Name": "Hidden Local User Creation",
+  "Query": "sourcetype=\"windows-security\" (eventid=\"4720\" targetusername=\"*$\") NOT targetusername=\"HomeGroupUser$\"",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1136.001"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential container discovery via listing of certain kernel features in the \"/proc\" virtual filesystem\n\nAuthor: Seth Hanford\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "746c86fb-ccda-4816-8997-01386263acc4",
+  "InsertDate": "2025-02-03T20:32:00Z",
+  "LastUpdateDate": "2025-02-03T20:32:00Z",
+  "Level": "low",
+  "Name": "Container Residence Discovery Via Proc Virtual FS",
+  "Query": "sourcetype=\"linux-*\" (process_path=\"*awk\" OR process_path=\"*/cat\" OR process_path=\"*grep\" OR process_path=\"*/head\" OR process_path=\"*/less\" OR process_path=\"*/more\" OR process_path=\"*/nl\" OR process_path=\"*/tail\") (command=\"*/proc/2/*\" OR (command=\"*/proc/*\" (command=\"*/cgroup\" OR command=\"*/sched\")))",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1082"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may acquire credentials from web browsers by reading files specific to the target browser.\nWeb browsers commonly save credentials such as website usernames and passwords so that they do not need to be entered manually in the future.\nWeb browsers typically store the credentials in an encrypted format within a credential store.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fc028194-969d-4122-8abe-0470d5b8f12f",
+  "InsertDate": "2025-02-03T20:32:28Z",
+  "LastUpdateDate": "2025-02-03T20:32:28Z",
+  "Level": "medium",
+  "Name": "Access to Browser Login Data",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*Copy-Item*\" scriptblocktext=\"*-Destination*\") (scriptblocktext=\"*\\\\Opera Software\\\\Opera Stable\\\\Login Data*\" OR scriptblocktext=\"*\\\\Mozilla\\\\Firefox\\\\Profiles*\" OR scriptblocktext=\"*\\\\Microsoft\\\\Edge\\\\User Data\\\\Default*\" OR scriptblocktext=\"*\\\\Google\\\\Chrome\\\\User Data\\\\Default\\\\Login Data*\" OR scriptblocktext=\"*\\\\Google\\\\Chrome\\\\User Data\\\\Default\\\\Login Data For Account*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1555.003"
+  ],
+  "Version": "0.1"
+}

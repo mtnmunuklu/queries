@@ -1,0 +1,13 @@
+{
+  "Description": "Detects known sensitive file extensions via Zeek\n\nAuthor: Samir Bousseaden, @neu5ron\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "286b47ed-f6fe-40b3-b3a8-35129acd43bc",
+  "InsertDate": "2025-02-03T20:32:04Z",
+  "LastUpdateDate": "2025-02-03T20:32:04Z",
+  "Level": "medium",
+  "Name": "Suspicious Access to Sensitive File Extensions - Zeek",
+  "Query": "sourcetype=\"zeek-smb_files\" (process_path=\"*.pst\" OR process_path=\"*.ost\" OR process_path=\"*.msg\" OR process_path=\"*.nst\" OR process_path=\"*.oab\" OR process_path=\"*.edb\" OR process_path=\"*.nsf\" OR process_path=\"*.bak\" OR process_path=\"*.dmp\" OR process_path=\"*.kirbi\" OR process_path=\"*\\\\groups.xml\" OR process_path=\"*.rdp\")",
+  "Tags": [
+    "attack.collection"
+  ],
+  "Version": "0.1"
+}

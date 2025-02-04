@@ -1,0 +1,17 @@
+{
+  "Description": "Detects potential DLL sideloading of a signed dbghelp.dll by the Sysinternals VMMap.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "98ffaed4-aec2-4e04-9b07-31492fe68b3d",
+  "InsertDate": "2025-02-03T20:32:23Z",
+  "LastUpdateDate": "2025-02-03T20:32:23Z",
+  "Level": "medium",
+  "Name": "VMMap Signed Dbghelp.DLL Potential Sideloading",
+  "Query": "sourcetype=\"windows-sysmon\" image_loaded=\"*C:\\\\Debuggers\\\\dbghelp.dll*\" (process_path=\"*\\\\vmmap.exe\" OR process_path=\"*\\\\vmmap64.exe\") signed=\"true\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

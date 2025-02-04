@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of \"odbcconf\" where the path of the DLL being registered is located in a potentially suspicious location.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6b65c28e-11f3-46cb-902a-68f2cafaf474",
+  "InsertDate": "2025-02-03T20:32:53Z",
+  "LastUpdateDate": "2025-02-03T20:32:53Z",
+  "Level": "high",
+  "Name": "Odbcconf.EXE Suspicious DLL Location",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\odbcconf.exe\" original_file_name=\"odbcconf.exe\") (command=\"*:\\\\PerfLogs\\\\*\" OR command=\"*:\\\\ProgramData\\\\*\" OR command=\"*:\\\\Temp\\\\*\" OR command=\"*:\\\\Users\\\\Public\\\\*\" OR command=\"*:\\\\Windows\\\\Registration\\\\CRMLog*\" OR command=\"*:\\\\Windows\\\\System32\\\\com\\\\dmp\\\\*\" OR command=\"*:\\\\Windows\\\\System32\\\\FxsTmp\\\\*\" OR command=\"*:\\\\Windows\\\\System32\\\\Microsoft\\\\Crypto\\\\RSA\\\\MachineKeys\\\\*\" OR command=\"*:\\\\Windows\\\\System32\\\\spool\\\\drivers\\\\color\\\\*\" OR command=\"*:\\\\Windows\\\\System32\\\\spool\\\\PRINTERS\\\\*\" OR command=\"*:\\\\Windows\\\\System32\\\\spool\\\\SERVERS\\\\*\" OR command=\"*:\\\\Windows\\\\System32\\\\Tasks_Migrated\\\\*\" OR command=\"*:\\\\Windows\\\\System32\\\\Tasks\\\\Microsoft\\\\Windows\\\\SyncCenter\\\\*\" OR command=\"*:\\\\Windows\\\\SysWOW64\\\\com\\\\dmp\\\\*\" OR command=\"*:\\\\Windows\\\\SysWOW64\\\\FxsTmp\\\\*\" OR command=\"*:\\\\Windows\\\\SysWOW64\\\\Tasks\\\\Microsoft\\\\Windows\\\\PLA\\\\System\\\\*\" OR command=\"*:\\\\Windows\\\\SysWOW64\\\\Tasks\\\\Microsoft\\\\Windows\\\\SyncCenter\\\\*\" OR command=\"*:\\\\Windows\\\\Tasks\\\\*\" OR command=\"*:\\\\Windows\\\\Temp\\\\*\" OR command=\"*:\\\\Windows\\\\Tracing\\\\*\" OR command=\"*\\\\AppData\\\\Local\\\\Temp\\\\*\" OR command=\"*\\\\AppData\\\\Roaming\\\\*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.008"
+  ],
+  "Version": "0.1"
+}

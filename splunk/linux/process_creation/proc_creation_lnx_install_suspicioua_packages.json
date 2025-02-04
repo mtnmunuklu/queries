@@ -1,0 +1,14 @@
+{
+  "Description": "Detects installation of suspicious packages using system installation utilities\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "700fb7e8-2981-401c-8430-be58e189e741",
+  "InsertDate": "2025-02-03T20:31:59Z",
+  "LastUpdateDate": "2025-02-03T20:31:59Z",
+  "Level": "medium",
+  "Name": "Suspicious Package Installed - Linux",
+  "Query": "sourcetype=\"linux-*\" (((process_path=\"*/apt\" OR process_path=\"*/apt-get\") command=\"*install*\") OR (process_path=\"*/yum\" (command=\"*localinstall*\" OR command=\"*install*\")) OR (process_path=\"*/rpm\" command=\"*-i*\") OR (process_path=\"*/dpkg\" (command=\"*--install*\" OR command=\"*-i*\"))) (command=\"*nmap*\" OR command=\"* nc*\" OR command=\"*netcat*\" OR command=\"*wireshark*\" OR command=\"*tshark*\" OR command=\"*openconnect*\" OR command=\"*proxychains*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1553.004"
+  ],
+  "Version": "0.1"
+}

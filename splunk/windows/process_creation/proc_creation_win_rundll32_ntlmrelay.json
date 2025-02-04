@@ -1,0 +1,15 @@
+{
+  "Description": "Detects a privilege elevation attempt by coercing NTLM authentication on the Printer Spooler service\n\nAuthor: Elastic (idea), Tobias Michalski (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "bb76d96b-821c-47cf-944b-7ce377864492",
+  "InsertDate": "2025-02-03T20:33:08Z",
+  "LastUpdateDate": "2025-02-03T20:33:08Z",
+  "Level": "high",
+  "Name": "Suspicious NTLM Authentication on the Printer Spooler Service",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\rundll32.exe\" original_file_name=\"RUNDLL32.EXE\") ((command=\"*C:\\\\windows\\\\system32\\\\davclnt.dll,DavSetCookie*\" command=\"*http*\") (command=\"*spoolss*\" OR command=\"*srvsvc*\" OR command=\"*/print/pipe/*\"))",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.credential-access",
+    "attack.t1212"
+  ],
+  "Version": "0.1"
+}

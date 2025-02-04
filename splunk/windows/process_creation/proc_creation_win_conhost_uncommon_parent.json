@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when the Console Window Host (conhost.exe) process is spawned by an uncommon parent process, which could be indicative of potential code injection activity.\n\nAuthor: Tim Rauch, Elastic (idea)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "cbb9e3d1-2386-4e59-912e-62f1484f7a89",
+  "InsertDate": "2025-02-03T20:32:40Z",
+  "LastUpdateDate": "2025-02-03T20:32:40Z",
+  "Level": "medium",
+  "Name": "Conhost Spawned By Uncommon Parent Process",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\conhost.exe\" (parent_process_path=\"*\\\\explorer.exe\" OR parent_process_path=\"*\\\\lsass.exe\" OR parent_process_path=\"*\\\\regsvr32.exe\" OR parent_process_path=\"*\\\\rundll32.exe\" OR parent_process_path=\"*\\\\services.exe\" OR parent_process_path=\"*\\\\smss.exe\" OR parent_process_path=\"*\\\\spoolsv.exe\" OR parent_process_path=\"*\\\\svchost.exe\" OR parent_process_path=\"*\\\\userinit.exe\" OR parent_process_path=\"*\\\\wininit.exe\" OR parent_process_path=\"*\\\\winlogon.exe\")) NOT (parent_command_line=\"*-k apphost -s AppHostSvc*\" OR parent_command_line=\"*-k imgsvc*\" OR parent_command_line=\"*-k localService -p -s RemoteRegistry*\" OR parent_command_line=\"*-k LocalSystemNetworkRestricted -p -s NgcSvc*\" OR parent_command_line=\"*-k NetSvcs -p -s NcaSvc*\" OR parent_command_line=\"*-k netsvcs -p -s NetSetupSvc*\" OR parent_command_line=\"*-k netsvcs -p -s wlidsvc*\" OR parent_command_line=\"*-k NetworkService -p -s DoSvc*\" OR parent_command_line=\"*-k wsappx -p -s AppXSvc*\" OR parent_command_line=\"*-k wsappx -p -s ClipSVC*\") NOT (parent_command_line=\"*C:\\\\Program Files (x86)\\\\Dropbox\\\\Client\\\\*\" OR parent_command_line=\"*C:\\\\Program Files\\\\Dropbox\\\\Client\\\\*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

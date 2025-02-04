@@ -1,0 +1,13 @@
+{
+  "Description": "Identifies when a Virtual Network is modified or deleted in Azure.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "bcfcc962-0e4a-4fd9-84bb-a833e672df3f",
+  "InsertDate": "2025-02-03T20:31:52Z",
+  "LastUpdateDate": "2025-02-03T20:31:52Z",
+  "Level": "medium",
+  "Name": "Azure Virtual Network Modified or Deleted",
+  "Query": "sourcetype=\"azure-activitylogs\" (operationname=\"MICROSOFT.NETWORK/VIRTUALNETWORKGATEWAYS/*\" OR operationname=\"MICROSOFT.NETWORK/VIRTUALNETWORKS/*\") (operationname=\"*/WRITE\" OR operationname=\"*/DELETE\")",
+  "Tags": [
+    "attack.impact"
+  ],
+  "Version": "0.1"
+}

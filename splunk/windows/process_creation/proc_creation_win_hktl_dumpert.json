@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of Dumpert process dumper, which dumps the lsass.exe process memory\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2704ab9e-afe2-4854-a3b1-0c0706d03578",
+  "InsertDate": "2025-02-03T20:32:44Z",
+  "LastUpdateDate": "2025-02-03T20:32:44Z",
+  "Level": "critical",
+  "Name": "HackTool - Dumpert Process Dumper Execution",
+  "Query": "sourcetype=\"windows-sysmon\" hashes=\"*MD5=09D278F9DE118EF09163C6140255C690*\" command=\"*Dumpert.dll*\"",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.001"
+  ],
+  "Version": "0.1"
+}

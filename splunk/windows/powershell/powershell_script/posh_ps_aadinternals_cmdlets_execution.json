@@ -1,0 +1,17 @@
+{
+  "Description": "Detects ADDInternals Cmdlet execution. A tool for administering Azure AD and Office 365. Which can be abused by threat actors to attack Azure AD or Office 365.\n\nAuthor: Austin Songer (@austinsonger), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "91e69562-2426-42ce-a647-711b8152ced6",
+  "InsertDate": "2025-02-03T20:32:28Z",
+  "LastUpdateDate": "2025-02-03T20:32:28Z",
+  "Level": "high",
+  "Name": "AADInternals PowerShell Cmdlets Execution - PsScript",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*Add-AADInt*\" OR scriptblocktext=\"*ConvertTo-AADInt*\" OR scriptblocktext=\"*Disable-AADInt*\" OR scriptblocktext=\"*Enable-AADInt*\" OR scriptblocktext=\"*Export-AADInt*\" OR scriptblocktext=\"*Get-AADInt*\" OR scriptblocktext=\"*Grant-AADInt*\" OR scriptblocktext=\"*Install-AADInt*\" OR scriptblocktext=\"*Invoke-AADInt*\" OR scriptblocktext=\"*Join-AADInt*\" OR scriptblocktext=\"*New-AADInt*\" OR scriptblocktext=\"*Open-AADInt*\" OR scriptblocktext=\"*Read-AADInt*\" OR scriptblocktext=\"*Register-AADInt*\" OR scriptblocktext=\"*Remove-AADInt*\" OR scriptblocktext=\"*Restore-AADInt*\" OR scriptblocktext=\"*Search-AADInt*\" OR scriptblocktext=\"*Send-AADInt*\" OR scriptblocktext=\"*Set-AADInt*\" OR scriptblocktext=\"*Start-AADInt*\" OR scriptblocktext=\"*Update-AADInt*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.reconnaissance",
+    "attack.discovery",
+    "attack.credential-access",
+    "attack.impact"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when an application is granted delegated or app role permissions for Microsoft Graph, Exchange, Sharepoint, or Azure AD\n\nAuthor: Bailey Bercik '@baileybercik', Mark Morowczynski '@markmorow'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c1d147ae-a951-48e5-8b41-dcd0170c7213",
+  "InsertDate": "2025-02-03T20:31:52Z",
+  "LastUpdateDate": "2025-02-03T20:31:52Z",
+  "Level": "high",
+  "Name": "App Granted Microsoft Permissions",
+  "Query": "sourcetype=\"azure-auditlogs\" (properties.message=\"Add delegated permission grant\" OR properties.message=\"Add app role assignment to service principal\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1528"
+  ],
+  "Version": "0.1"
+}

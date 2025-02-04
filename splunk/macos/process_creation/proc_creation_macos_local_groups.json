@@ -1,0 +1,14 @@
+{
+  "Description": "Detects enumeration of local system groups\n\nAuthor: Ömer Günal, Alejandro Ortuno, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "89bb1f97-c7b9-40e8-b52b-7d6afbd67276",
+  "InsertDate": "2025-02-03T20:32:02Z",
+  "LastUpdateDate": "2025-02-03T20:32:02Z",
+  "Level": "informational",
+  "Name": "Local Groups Discovery - MacOs",
+  "Query": "sourcetype=\"macos-*\" (process_path=\"*/cat\" command=\"*/etc/group*\") OR (process_path=\"*/dscl\" (command=\"*-list*\" command=\"*/groups*\")) OR (process_path=\"*/dscacheutil\" (command=\"*-q*\" command=\"*group*\"))",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1069.001"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,13 @@
+{
+  "Description": "Detects potentially suspicious child processes of \"GoogleUpdate.exe\"\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "84b1ecf9-6eff-4004-bafb-bae5c0e251b2",
+  "InsertDate": "2025-02-03T20:32:42Z",
+  "LastUpdateDate": "2025-02-03T20:32:42Z",
+  "Level": "high",
+  "Name": "Potentially Suspicious GoogleUpdate Child Process",
+  "Query": "sourcetype=\"windows-sysmon\" parent_process_path=\"*\\\\GoogleUpdate.exe\" NOT ((process_path=\"*\\\\Google*\" (process_path=\"*\\\\setup.exe\" OR process_path=\"*chrome_updater.exe\" OR process_path=\"*chrome_installer.exe\")) OR process_path=\"null\")",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious access to LSASS handle via a call trace to \"seclogon.dll\" with a suspicious access right.\n\nAuthor: Samir Bousseaden (original elastic rule), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "472159c5-31b9-4f56-b794-b766faa8b0a7",
+  "InsertDate": "2025-02-03T20:32:36Z",
+  "LastUpdateDate": "2025-02-03T20:32:36Z",
+  "Level": "high",
+  "Name": "Suspicious LSASS Access Via MalSecLogon",
+  "Query": "sourcetype=\"windows-sysmon\" dst_process_path=\"*\\\\lsass.exe\" process_path=\"*\\\\svchost.exe\" granted_access=\"0x14c0\" call_trace=\"*seclogon.dll*\"",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.001"
+  ],
+  "Version": "0.1"
+}

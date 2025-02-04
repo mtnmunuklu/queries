@@ -1,0 +1,16 @@
+{
+  "Description": "Detects creation of a local user via PowerShell\n\nAuthor: @ROxPinTeddy\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "243de76f-4725-4f2e-8225-a8a69b15ad61",
+  "InsertDate": "2025-02-03T20:32:29Z",
+  "LastUpdateDate": "2025-02-03T20:32:29Z",
+  "Level": "medium",
+  "Name": "PowerShell Create Local User",
+  "Query": "sourcetype=\"windows-*\" scriptblocktext=\"*New-LocalUser*\"",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001",
+    "attack.persistence",
+    "attack.t1136.001"
+  ],
+  "Version": "0.1"
+}

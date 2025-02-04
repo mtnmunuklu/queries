@@ -1,0 +1,14 @@
+{
+  "Description": "Detects changes of sensitive and critical files. Monitors files that you don't expect to change without planning on Linux system.\n\nAuthor: @d4ns4n_ (Wuerth-Phoenix)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "86157017-c2b1-4d4a-8c33-93b8e67e4af4",
+  "InsertDate": "2025-02-03T20:32:01Z",
+  "LastUpdateDate": "2025-02-03T20:32:01Z",
+  "Level": "medium",
+  "Name": "Potential Suspicious Change To Sensitive/Critical Files",
+  "Query": "sourcetype=\"linux-*\" (((process_path=\"*/cat\" OR process_path=\"*/echo\" OR process_path=\"*/grep\" OR process_path=\"*/head\" OR process_path=\"*/more\" OR process_path=\"*/tail\") command=\"*\u003e*\") OR (process_path=\"*/emacs\" OR process_path=\"*/nano\" OR process_path=\"*/sed\" OR process_path=\"*/vi\" OR process_path=\"*/vim\")) (command=\"*/bin/login*\" OR command=\"*/bin/passwd*\" OR command=\"*/boot/*\" OR command=\"*/etc/*.conf*\" OR command=\"*/etc/cron.*\" OR command=\"*/etc/crontab*\" OR command=\"*/etc/hosts*\" OR command=\"*/etc/init.d*\" OR command=\"*/etc/sudoers*\" OR command=\"*/opt/bin/*\" OR command=\"*/sbin*\" OR command=\"*/usr/bin/*\" OR command=\"*/usr/local/bin/*\")",
+  "Tags": [
+    "attack.impact",
+    "attack.t1565.001"
+  ],
+  "Version": "0.1"
+}

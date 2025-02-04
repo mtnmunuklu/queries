@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of WinAPI Functions via the commandline. As seen used by threat actors via the tool winapiexec\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ba3f5c1b-6272-4119-9dbd-0bc8d21c2702",
+  "InsertDate": "2025-02-03T20:33:15Z",
+  "LastUpdateDate": "2025-02-03T20:33:15Z",
+  "Level": "high",
+  "Name": "Potential WinAPI Calls Via CommandLine",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*AddSecurityPackage*\" OR command=\"*AdjustTokenPrivileges*\" OR command=\"*Advapi32*\" OR command=\"*CloseHandle*\" OR command=\"*CreateProcessWithToken*\" OR command=\"*CreatePseudoConsole*\" OR command=\"*CreateRemoteThread*\" OR command=\"*CreateThread*\" OR command=\"*CreateUserThread*\" OR command=\"*DangerousGetHandle*\" OR command=\"*DuplicateTokenEx*\" OR command=\"*EnumerateSecurityPackages*\" OR command=\"*FreeHGlobal*\" OR command=\"*FreeLibrary*\" OR command=\"*GetDelegateForFunctionPointer*\" OR command=\"*GetLogonSessionData*\" OR command=\"*GetModuleHandle*\" OR command=\"*GetProcAddress*\" OR command=\"*GetProcessHandle*\" OR command=\"*GetTokenInformation*\" OR command=\"*ImpersonateLoggedOnUser*\" OR command=\"*kernel32*\" OR command=\"*LoadLibrary*\" OR command=\"*memcpy*\" OR command=\"*MiniDumpWriteDump*\" OR command=\"*ntdll*\" OR command=\"*OpenDesktop*\" OR command=\"*OpenProcess*\" OR command=\"*OpenProcessToken*\" OR command=\"*OpenThreadToken*\" OR command=\"*OpenWindowStation*\" OR command=\"*PtrToString*\" OR command=\"*QueueUserApc*\" OR command=\"*ReadProcessMemory*\" OR command=\"*RevertToSelf*\" OR command=\"*RtlCreateUserThread*\" OR command=\"*secur32*\" OR command=\"*SetThreadToken*\" OR command=\"*VirtualAlloc*\" OR command=\"*VirtualFree*\" OR command=\"*VirtualProtect*\" OR command=\"*WaitForSingleObject*\" OR command=\"*WriteInt32*\" OR command=\"*WriteProcessMemory*\" OR command=\"*ZeroFreeGlobalAllocUnicode*\") NOT (process_path=\"*\\\\MpCmdRun.exe\" command=\"*GetLoadLibraryWAddress32*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1106"
+  ],
+  "Version": "0.1"
+}

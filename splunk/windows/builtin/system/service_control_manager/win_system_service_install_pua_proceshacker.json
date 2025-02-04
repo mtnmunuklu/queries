@@ -1,0 +1,16 @@
+{
+  "Description": "Detects a ProcessHacker tool that elevated privileges to a very high level\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c4ff1eac-84ad-44dd-a6fb-d56a92fc43a9",
+  "InsertDate": "2025-02-03T20:32:13Z",
+  "LastUpdateDate": "2025-02-03T20:32:13Z",
+  "Level": "high",
+  "Name": "ProcessHacker Privilege Elevation",
+  "Query": "sourcetype=\"windows-system\" provider_name=\"Service Control Manager\" eventid=\"7045\" servicename=\"ProcessHacker*\" accountname=\"LocalSystem\"",
+  "Tags": [
+    "attack.execution",
+    "attack.privilege-escalation",
+    "attack.t1543.003",
+    "attack.t1569.002"
+  ],
+  "Version": "0.1"
+}

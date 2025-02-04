@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the usage of the \"Accesschk\" utility, an access and privilege audit tool developed by SysInternal and often being abused by attacker to verify process privileges\n\nAuthor: Teymur Kheirkhabarov (idea), Mangatas Tondang, oscd.community, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c625d754-6a3d-4f65-9c9a-536aea960d37",
+  "InsertDate": "2025-02-03T20:33:19Z",
+  "LastUpdateDate": "2025-02-03T20:33:19Z",
+  "Level": "medium",
+  "Name": "Permission Check Via Accesschk.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (product=\"*AccessChk\" description=\"*Reports effective permissions*\" (process_path=\"*\\\\accesschk.exe\" OR process_path=\"*\\\\accesschk64.exe\") original_file_name=\"accesschk.exe\") (command=\"*uwcqv *\" OR command=\"*kwsu *\" OR command=\"*qwsu *\" OR command=\"*uwdqs *\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1069.001"
+  ],
+  "Version": "0.1"
+}

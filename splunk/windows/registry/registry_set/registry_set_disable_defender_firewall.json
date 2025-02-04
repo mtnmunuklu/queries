@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may disable or modify system firewalls in order to bypass controls limiting network usage\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "974515da-6cc5-4c95-ae65-f97f9150ec7f",
+  "InsertDate": "2025-02-03T20:33:33Z",
+  "LastUpdateDate": "2025-02-03T20:33:33Z",
+  "Level": "medium",
+  "Name": "Disable Microsoft Defender Firewall via Registry",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\Services\\\\SharedAccess\\\\Parameters\\\\FirewallPolicy\\\\*\" target_object=\"*\\\\EnableFirewall\" details=\"DWORD (0x00000000)\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.004"
+  ],
+  "Version": "0.1"
+}

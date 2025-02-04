@@ -1,0 +1,15 @@
+{
+  "Description": "Detects usage of winget to install applications via manifest file. Adversaries can abuse winget to download payloads remotely and execute them.\nThe manifest option enables you to install an application by passing in a YAML file directly to the client.\nWinget can be used to download and install exe, msi or msix files later.\n\n\nAuthor: Sreeman, Florian Roth (Nextron Systems), frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "313d6012-51a0-4d93-8dfc-de8553239e25",
+  "InsertDate": "2025-02-03T20:33:25Z",
+  "LastUpdateDate": "2025-02-03T20:33:25Z",
+  "Level": "medium",
+  "Name": "Install New Package Via Winget Local Manifest",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\winget.exe\" original_file_name=\"winget.exe\") (command=\"*install*\" OR command=\"* add *\") (command=\"*-m *\" OR command=\"*--manifest*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

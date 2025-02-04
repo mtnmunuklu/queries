@@ -1,0 +1,15 @@
+{
+  "Description": "Detects installation of a new shim using sdbinst.exe.\nAdversaries may establish persistence and/or elevate privileges by executing malicious content triggered by application shims\n\n\nAuthor: Markus Neis\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "517490a7-115a-48c6-8862-1a481504d5a8",
+  "InsertDate": "2025-02-03T20:33:11Z",
+  "LastUpdateDate": "2025-02-03T20:33:11Z",
+  "Level": "medium",
+  "Name": "Potential Shim Database Persistence via Sdbinst.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*.sdb*\" (process_path=\"*\\\\sdbinst.exe\" original_file_name=\"sdbinst.exe\")) NOT (parent_process_path=\"*\\\\msiexec.exe\" (command=\"*:\\\\Program Files (x86)\\\\IIS Express\\\\iisexpressshim.sdb*\" OR command=\"*:\\\\Program Files\\\\IIS Express\\\\iisexpressshim.sdb*\"))",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1546.011"
+  ],
+  "Version": "0.1"
+}

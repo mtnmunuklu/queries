@@ -1,0 +1,15 @@
+{
+  "Description": "Detects uncommon target processes for remote thread creation\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a1a144b7-5c9b-4853-a559-2172be8d4a03",
+  "InsertDate": "2025-02-03T20:32:15Z",
+  "LastUpdateDate": "2025-02-03T20:32:15Z",
+  "Level": "medium",
+  "Name": "Remote Thread Creation In Uncommon Target Image",
+  "Query": "sourcetype=\"windows-*\" (dst_process_path=\"*\\\\calc.exe\" OR dst_process_path=\"*\\\\calculator.exe\" OR dst_process_path=\"*\\\\mspaint.exe\" OR dst_process_path=\"*\\\\notepad.exe\" OR dst_process_path=\"*\\\\ping.exe\" OR dst_process_path=\"*\\\\sethc.exe\" OR dst_process_path=\"*\\\\spoolsv.exe\" OR dst_process_path=\"*\\\\wordpad.exe\" OR dst_process_path=\"*\\\\write.exe\") NOT process_path=\"C:\\\\Windows\\\\System32\\\\csrss.exe\" NOT (start_function=\"EtwpNotificationThread\" OR process_path=\"*unknown process*\" OR (process_path=\"C:\\\\Program Files\\\\VMware\\\\VMware Tools\\\\vmtoolsd.exe\" start_function=\"GetCommandLineW\" (dst_process_path=\"C:\\\\Windows\\\\System32\\\\notepad.exe\" OR dst_process_path=\"C:\\\\Windows\\\\System32\\\\spoolsv.exe\")) OR (process_path=\"C:\\\\Program Files\\\\Xerox\\\\XeroxPrintExperience\\\\CommonFiles\\\\XeroxPrintJobEventManagerService.exe\" start_function=\"LoadLibraryW\" dst_process_path=\"C:\\\\Windows\\\\System32\\\\spoolsv.exe\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1055.003"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the execution of a renamed \"NirCmd.exe\" binary based on the PE metadata fields.\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "264982dc-dbad-4dce-b707-1e0d3e0f73d9",
+  "InsertDate": "2025-02-03T20:33:07Z",
+  "LastUpdateDate": "2025-02-03T20:33:07Z",
+  "Level": "high",
+  "Name": "Renamed NirCmd.EXE Execution",
+  "Query": "sourcetype=\"windows-sysmon\" original_file_name=\"NirCmd.exe\" NOT (process_path=\"*\\\\nircmd.exe\" OR process_path=\"*\\\\nircmdc.exe\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059",
+    "attack.defense-evasion",
+    "attack.t1202"
+  ],
+  "Version": "0.1"
+}

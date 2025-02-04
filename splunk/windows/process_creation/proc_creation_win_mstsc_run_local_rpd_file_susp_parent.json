@@ -1,0 +1,13 @@
+{
+  "Description": "Detects potential RDP connection via Mstsc using a local \".rdp\" file located in suspicious locations.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ff3b6b39-e765-42f9-bb2c-ea6761e0e0f6",
+  "InsertDate": "2025-02-03T20:32:51Z",
+  "LastUpdateDate": "2025-02-03T20:32:51Z",
+  "Level": "high",
+  "Name": "Mstsc.EXE Execution From Uncommon Parent",
+  "Query": "sourcetype=\"windows-sysmon\" (parent_process_path=\"*\\\\brave.exe\" OR parent_process_path=\"*\\\\CCleanerBrowser.exe\" OR parent_process_path=\"*\\\\chrome.exe\" OR parent_process_path=\"*\\\\chromium.exe\" OR parent_process_path=\"*\\\\firefox.exe\" OR parent_process_path=\"*\\\\iexplore.exe\" OR parent_process_path=\"*\\\\microsoftedge.exe\" OR parent_process_path=\"*\\\\msedge.exe\" OR parent_process_path=\"*\\\\opera.exe\" OR parent_process_path=\"*\\\\vivaldi.exe\" OR parent_process_path=\"*\\\\whale.exe\" OR parent_process_path=\"*\\\\outlook.exe\") (process_path=\"*\\\\mstsc.exe\" original_file_name=\"mstsc.exe\")",
+  "Tags": [
+    "attack.lateral-movement"
+  ],
+  "Version": "0.1"
+}

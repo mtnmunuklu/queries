@@ -1,0 +1,13 @@
+{
+  "Description": "Detects new user account creation\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b6c718dd-8f53-4b9f-98d8-93fdca966969",
+  "InsertDate": "2025-02-03T20:31:55Z",
+  "LastUpdateDate": "2025-02-03T20:31:55Z",
+  "Level": "informational",
+  "Name": "New Okta User Created",
+  "Query": "sourcetype=\"okta-okta\" eventtype=\"user.lifecycle.create\"",
+  "Tags": [
+    "attack.credential-access"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,13 @@
+{
+  "Description": "Detects execution of shells from a parent process located in a temporary (/tmp) directory\n\nAuthor: Joseliyo Sanchez, @Joseliyo_Jstnk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2fade0b6-7423-4835-9d4f-335b39b83867",
+  "InsertDate": "2025-02-03T20:32:01Z",
+  "LastUpdateDate": "2025-02-03T20:32:01Z",
+  "Level": "high",
+  "Name": "Shell Execution Of Process Located In Tmp Directory",
+  "Query": "sourcetype=\"linux-*\" parent_process_path=\"/tmp/*\" (process_path=\"*/bash\" OR process_path=\"*/csh\" OR process_path=\"*/dash\" OR process_path=\"*/fish\" OR process_path=\"*/ksh\" OR process_path=\"*/sh\" OR process_path=\"*/zsh\")",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Monitor the creation of a new key under 'TaskCache' when a new scheduled task is registered by a process that is not svchost.exe, which is suspicious\n\nAuthor: Syed Hasan (@syedhasan009)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4720b7df-40c3-48fd-bbdf-fd4b3c464f0d",
+  "InsertDate": "2025-02-03T20:33:44Z",
+  "LastUpdateDate": "2025-02-03T20:33:44Z",
+  "Level": "high",
+  "Name": "Scheduled TaskCache Change by Uncommon Program",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*SOFTWARE\\\\Microsoft\\\\Windows NT\\\\CurrentVersion\\\\Schedule\\\\TaskCache\\\\*\" NOT (process_path=\"C:\\\\Windows\\\\System32\\\\msiexec.exe\" OR (process_path=\"C:\\\\Program Files (x86)\\\\Dropbox\\\\Update\\\\DropboxUpdate.exe\" OR process_path=\"C:\\\\Program Files\\\\Dropbox\\\\Update\\\\DropboxUpdate.exe\") OR (process_path=\"C:\\\\Windows\\\\explorer.exe\" target_object=\"*\\\\Microsoft\\\\Windows NT\\\\CurrentVersion\\\\Schedule\\\\TaskCache\\\\Tree\\\\Microsoft\\\\Windows\\\\PLA\\\\Server Manager Performance Monitor\\\\*\") OR process_path=\"System\" OR (target_object=\"*Microsoft\\\\Windows\\\\UpdateOrchestrator*\" OR target_object=\"*Microsoft\\\\Windows\\\\SoftwareProtectionPlatform\\\\SvcRestartTask\\\\Index*\" OR target_object=\"*Microsoft\\\\Windows\\\\Flighting\\\\OneSettings\\\\RefreshCache\\\\Index*\") OR (process_path=\"C:\\\\Windows\\\\*\" process_path=\"*\\\\TiWorker.exe\") OR process_path=\"C:\\\\WINDOWS\\\\system32\\\\svchost.exe\" OR (process_path=\"C:\\\\Windows\\\\Microsoft.NET\\\\Framework*\" process_path=\"*\\\\ngen.exe\" (target_object=\"*\\\\Microsoft\\\\Windows NT\\\\CurrentVersion\\\\Schedule\\\\TaskCache\\\\Tasks\\\\{B66B135D-DA06-4FC4-95F8-7458E1D10129}*\" OR target_object=\"*\\\\Microsoft\\\\Windows NT\\\\CurrentVersion\\\\Schedule\\\\TaskCache\\\\Tree\\\\Microsoft\\\\Windows\\\\.NET Framework\\\\.NET Framework NGEN*\")) OR (process_path=\"C:\\\\Program Files\\\\Microsoft Office\\\\root\\\\Integration\\\\Integrator.exe\" OR process_path=\"C:\\\\Program Files (x86)\\\\Microsoft Office\\\\root\\\\Integration\\\\Integrator.exe\"))",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1053",
+    "attack.t1053.005"
+  ],
+  "Version": "0.1"
+}

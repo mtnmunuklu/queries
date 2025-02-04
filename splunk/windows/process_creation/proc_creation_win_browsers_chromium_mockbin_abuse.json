@@ -1,0 +1,13 @@
+{
+  "Description": "Detects the execution of a Chromium based browser process with the \"headless\" flag and a URL pointing to the mockbin.org service (which can be used to exfiltrate data).\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1c526788-0abe-4713-862f-b520da5e5316",
+  "InsertDate": "2025-02-03T20:32:37Z",
+  "LastUpdateDate": "2025-02-03T20:32:37Z",
+  "Level": "high",
+  "Name": "Chromium Browser Headless Execution To Mockbin Like Site",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\brave.exe\" OR process_path=\"*\\\\chrome.exe\" OR process_path=\"*\\\\msedge.exe\" OR process_path=\"*\\\\opera.exe\" OR process_path=\"*\\\\vivaldi.exe\") command=\"*--headless*\" (command=\"*://run.mocky*\" OR command=\"*://mockbin*\")",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

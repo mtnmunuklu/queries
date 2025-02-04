@@ -1,0 +1,14 @@
+{
+  "Description": "A General detection for WebDav user-agent being used to PUT files on a WebDav network share. This could be an indicator of exfiltration.\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "705072a5-bb6f-4ced-95b6-ecfa6602090b",
+  "InsertDate": "2025-02-03T20:32:04Z",
+  "LastUpdateDate": "2025-02-03T20:32:04Z",
+  "Level": "low",
+  "Name": "WebDav Put Request",
+  "Query": "sourcetype=\"zeek-http\" (user_agent=\"*WebDAV*\" method=\"PUT\") NOT (id.resp_h=\"10.0.0.0/8\" OR id.resp_h=\"127.0.0.0/8\" OR id.resp_h=\"172.16.0.0/12\" OR id.resp_h=\"192.168.0.0/16\" OR id.resp_h=\"169.254.0.0/16\")",
+  "Tags": [
+    "attack.exfiltration",
+    "attack.t1048.003"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects changes to the AppInstaller (winget) policy. Specifically the activation of the local manifest installation, which allows a user to install new packages via custom manifests.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fa277e82-9b78-42dd-b05c-05555c7b6015",
+  "InsertDate": "2025-02-03T20:33:45Z",
+  "LastUpdateDate": "2025-02-03T20:33:45Z",
+  "Level": "medium",
+  "Name": "Enable Local Manifest Installation With Winget",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\AppInstaller\\\\EnableLocalManifestFiles\" details=\"DWORD (0x00000001)\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

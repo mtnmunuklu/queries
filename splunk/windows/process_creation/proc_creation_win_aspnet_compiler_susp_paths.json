@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of \"aspnet_compiler.exe\" with potentially suspicious paths for compilation.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9f50fe98-fe5c-4a2d-86c7-fad7f63ed622",
+  "InsertDate": "2025-02-03T20:32:37Z",
+  "LastUpdateDate": "2025-02-03T20:32:37Z",
+  "Level": "high",
+  "Name": "Potentially Suspicious ASP.NET Compilation Via AspNetCompiler",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*C:\\\\Windows\\\\Microsoft.NET\\\\Framework\\\\*\" OR process_path=\"*C:\\\\Windows\\\\Microsoft.NET\\\\Framework64\\\\*\") process_path=\"*\\\\aspnet_compiler.exe\" (command=\"*\\\\Users\\\\Public\\\\*\" OR command=\"*\\\\AppData\\\\Local\\\\Temp\\\\*\" OR command=\"*\\\\AppData\\\\Local\\\\Roaming\\\\*\" OR command=\"*:\\\\Temp\\\\*\" OR command=\"*:\\\\Windows\\\\Temp\\\\*\" OR command=\"*:\\\\Windows\\\\System32\\\\Tasks\\\\*\" OR command=\"*:\\\\Windows\\\\Tasks\\\\*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1127"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,13 @@
+{
+  "Description": "Detects PowerShell scripts to set the ACL to a file in the Windows folder\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0944e002-e3f6-4eb5-bf69-3a3067b53d73",
+  "InsertDate": "2025-02-03T20:32:58Z",
+  "LastUpdateDate": "2025-02-03T20:32:58Z",
+  "Level": "high",
+  "Name": "PowerShell Set-Acl On Windows Folder",
+  "Query": "sourcetype=\"windows-sysmon\" ((original_file_name=\"PowerShell.EXE\" OR original_file_name=\"pwsh.dll\") (process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\")) (command=\"*Set-Acl *\" command=\"*-AclObject *\") (command=\"*-Path \"C:\\\\Windows*\" OR command=\"*-Path 'C:\\\\Windows*\" OR command=\"*-Path %windir%*\" OR command=\"*-Path $env:windir*\") (command=\"*FullControl*\" OR command=\"*Allow*\")",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects a driver load from a temporary directory\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2c4523d5-d481-4ed0-8ec3-7fbf0cb41a75",
+  "InsertDate": "2025-02-03T20:32:16Z",
+  "LastUpdateDate": "2025-02-03T20:32:16Z",
+  "Level": "high",
+  "Name": "Driver Load From A Temporary Directory",
+  "Query": "sourcetype=\"windows-sysmon\" image_loaded=\"*\\\\Temp\\\\*\"",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1543.003"
+  ],
+  "Version": "0.1"
+}

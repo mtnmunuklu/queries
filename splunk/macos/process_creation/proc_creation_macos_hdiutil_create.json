@@ -1,0 +1,13 @@
+{
+  "Description": "Detects the execution of the hdiutil utility in order to create a disk image.\n\nAuthor: Omar Khaled (@beacon_exe)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1cf98dc2-fcb0-47c9-8aea-654c9284d1ae",
+  "InsertDate": "2025-02-03T20:32:02Z",
+  "LastUpdateDate": "2025-02-03T20:32:02Z",
+  "Level": "medium",
+  "Name": "Disk Image Creation Via Hdiutil - MacOS",
+  "Query": "sourcetype=\"macos-*\" process_path=\"*/hdiutil\" command=\"*create*\"",
+  "Tags": [
+    "attack.exfiltration"
+  ],
+  "Version": "0.1"
+}

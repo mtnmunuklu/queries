@@ -1,0 +1,16 @@
+{
+  "Description": "Detects suspicious connections from Microsoft Sync Center to non-private IPs.\n\nAuthor: elhoim\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9f2cc74d-78af-4eb2-bb64-9cd1d292b87b",
+  "InsertDate": "2025-02-03T20:32:25Z",
+  "LastUpdateDate": "2025-02-03T20:32:25Z",
+  "Level": "medium",
+  "Name": "Microsoft Sync Center Suspicious Network Connections",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\mobsync.exe\" NOT (dst_ip=\"127.0.0.0/8\" OR dst_ip=\"10.0.0.0/8\" OR dst_ip=\"172.16.0.0/12\" OR dst_ip=\"192.168.0.0/16\" OR dst_ip=\"169.254.0.0/16\" OR dst_ip=\"::1/128\" OR dst_ip=\"fe80::/10\" OR dst_ip=\"fc00::/7\")",
+  "Tags": [
+    "attack.t1055",
+    "attack.t1218",
+    "attack.execution",
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

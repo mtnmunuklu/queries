@@ -1,0 +1,16 @@
+{
+  "Description": "Detects usage of the \"ConvertTo-SecureString\" cmdlet via the commandline. Which is fairly uncommon and could indicate potential suspicious activity\n\nAuthor: Teymur Kheirkhabarov (idea), Vasiliy Burov (rule), oscd.community, Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "74403157-20f5-415d-89a7-c505779585cf",
+  "InsertDate": "2025-02-03T20:32:55Z",
+  "LastUpdateDate": "2025-02-03T20:32:55Z",
+  "Level": "medium",
+  "Name": "ConvertTo-SecureString Cmdlet Usage Via CommandLine",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\") (original_file_name=\"PowerShell.EXE\" OR original_file_name=\"pwsh.dll\")) command=\"*ConvertTo-SecureString*\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1027",
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

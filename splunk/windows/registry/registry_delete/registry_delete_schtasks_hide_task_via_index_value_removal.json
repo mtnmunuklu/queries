@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when the \"index\" value of a scheduled task is removed or deleted from the registry. Which effectively hides it from any tooling such as \"schtasks /query\"\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "526cc8bc-1cdc-48ad-8b26-f19bff969cec",
+  "InsertDate": "2025-02-03T20:33:28Z",
+  "LastUpdateDate": "2025-02-03T20:33:28Z",
+  "Level": "medium",
+  "Name": "Removal Of Index Value to Hide Schedule Task - Registry",
+  "Query": "sourcetype=\"windows-*\" event_type=\"DeleteKey\" (target_object=\"*\\\\SOFTWARE\\\\Microsoft\\\\Windows NT\\\\CurrentVersion\\\\Schedule\\\\TaskCache\\\\Tree\\\\*\" target_object=\"*Index*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562"
+  ],
+  "Version": "0.1"
+}

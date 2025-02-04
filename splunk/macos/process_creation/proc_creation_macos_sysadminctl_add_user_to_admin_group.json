@@ -1,0 +1,15 @@
+{
+  "Description": "Detects attempts to create and add an account to the admin group via \"sysadminctl\"\n\nAuthor: Sohan G (D4rkCiph3r)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "652c098d-dc11-4ba6-8566-c20e89042f2b",
+  "InsertDate": "2025-02-03T20:32:02Z",
+  "LastUpdateDate": "2025-02-03T20:32:02Z",
+  "Level": "medium",
+  "Name": "User Added To Admin Group Via Sysadminctl",
+  "Query": "sourcetype=\"macos-*\" process_path=\"*/sysadminctl\" (command=\"* -addUser *\" command=\"* -admin *\")",
+  "Tags": [
+    "attack.initial-access",
+    "attack.privilege-escalation",
+    "attack.t1078.003"
+  ],
+  "Version": "0.1"
+}

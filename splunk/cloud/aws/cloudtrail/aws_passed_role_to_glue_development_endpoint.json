@@ -1,0 +1,13 @@
+{
+  "Description": "Detects possible suspicious glue development endpoint activity.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4990c2e3-f4b8-45e3-bc3c-30b14ff0ed26",
+  "InsertDate": "2025-02-03T20:31:51Z",
+  "LastUpdateDate": "2025-02-03T20:31:51Z",
+  "Level": "low",
+  "Name": "AWS Glue Development Endpoint Activity",
+  "Query": "sourcetype=\"aws-cloudtrail\" eventsource=\"glue.amazonaws.com\" (eventname=\"CreateDevEndpoint\" OR eventname=\"DeleteDevEndpoint\" OR eventname=\"UpdateDevEndpoint\")",
+  "Tags": [
+    "attack.privilege-escalation"
+  ],
+  "Version": "0.1"
+}

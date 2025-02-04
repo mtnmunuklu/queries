@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a highly relevant Antivirus alert that reports a web shell.\nIt's highly recommended to tune this rule to the specific strings used by your anti virus solution by downloading a big WebShell repository from e.g. github and checking the matches.\nThis event must not be ignored just because the AV has blocked the malware but investigate, how it came there in the first place.\n\n\nAuthor: Florian Roth (Nextron Systems), Arnim Rupp\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fdf135a2-9241-4f96-a114-bb404948f736",
+  "InsertDate": "2025-02-03T20:31:50Z",
+  "LastUpdateDate": "2025-02-03T20:31:50Z",
+  "Level": "high",
+  "Name": "Antivirus Web Shell Detection",
+  "Query": "(signature=\"ASP.*\" OR signature=\"IIS/BackDoor*\" OR signature=\"JAVA/Backdoor*\" OR signature=\"JSP.*\" OR signature=\"Perl.*\" OR signature=\"PHP.*\" OR signature=\"Troj/ASP*\" OR signature=\"Troj/JSP*\" OR signature=\"Troj/PHP*\" OR signature=\"VBS/Uxor*\") (signature=\"*ASP_*\" OR signature=\"*ASP:*\" OR signature=\"*ASP.Agent*\" OR signature=\"*ASP/*\" OR signature=\"*Aspdoor*\" OR signature=\"*ASPXSpy*\" OR signature=\"*Backdoor.ASP*\" OR signature=\"*Backdoor.Java*\" OR signature=\"*Backdoor.JSP*\" OR signature=\"*Backdoor.PHP*\" OR signature=\"*Backdoor.VBS*\" OR signature=\"*Backdoor/ASP*\" OR signature=\"*Backdoor/Java*\" OR signature=\"*Backdoor/JSP*\" OR signature=\"*Backdoor/PHP*\" OR signature=\"*Backdoor/VBS*\" OR signature=\"*C99shell*\" OR signature=\"*Chopper*\" OR signature=\"*filebrowser*\" OR signature=\"*JSP_*\" OR signature=\"*JSP:*\" OR signature=\"*JSP.Agent*\" OR signature=\"*JSP/*\" OR signature=\"*Perl:*\" OR signature=\"*Perl/*\" OR signature=\"*PHP_*\" OR signature=\"*PHP:*\" OR signature=\"*PHP.Agent*\" OR signature=\"*PHP/*\" OR signature=\"*PHPShell*\" OR signature=\"*PShlSpy*\" OR signature=\"*SinoChoper*\" OR signature=\"*Trojan.ASP*\" OR signature=\"*Trojan.JSP*\" OR signature=\"*Trojan.PHP*\" OR signature=\"*Trojan.VBS*\" OR signature=\"*VBS.Agent*\" OR signature=\"*VBS/Agent*\" OR signature=\"*Webshell*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1505.003"
+  ],
+  "Version": "0.1"
+}

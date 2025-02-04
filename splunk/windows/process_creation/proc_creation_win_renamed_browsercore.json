@@ -1,0 +1,14 @@
+{
+  "Description": "Detects process creation with a renamed BrowserCore.exe (used to extract Azure tokens)\n\nAuthor: Max Altgelt (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8a4519e8-e64a-40b6-ae85-ba8ad2177559",
+  "InsertDate": "2025-02-03T20:33:06Z",
+  "LastUpdateDate": "2025-02-03T20:33:06Z",
+  "Level": "high",
+  "Name": "Renamed BrowserCore.EXE Execution",
+  "Query": "sourcetype=\"windows-sysmon\" original_file_name=\"BrowserCore.exe\" NOT process_path=\"*\\\\BrowserCore.exe\"",
+  "Tags": [
+    "attack.t1528",
+    "attack.t1036.003"
+  ],
+  "Version": "0.1"
+}

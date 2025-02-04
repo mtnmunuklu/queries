@@ -1,0 +1,15 @@
+{
+  "Description": "Detects Processes accessing the camera and microphone from suspicious folder\n\nAuthor: Den Iuzvyk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "62120148-6b7a-42be-8b91-271c04e281a3",
+  "InsertDate": "2025-02-03T20:33:30Z",
+  "LastUpdateDate": "2025-02-03T20:33:30Z",
+  "Level": "high",
+  "Name": "Suspicious Camera and Microphone Access",
+  "Query": "sourcetype=\"windows-sysmon\" (target_object=\"*\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\CapabilityAccessManager\\\\ConsentStore\\\\*\" target_object=\"*\\\\NonPackaged*\") (target_object=\"*microphone*\" OR target_object=\"*webcam*\") (target_object=\"*:#Windows#Temp#*\" OR target_object=\"*:#$Recycle.bin#*\" OR target_object=\"*:#Temp#*\" OR target_object=\"*:#Users#Public#*\" OR target_object=\"*:#Users#Default#*\" OR target_object=\"*:#Users#Desktop#*\")",
+  "Tags": [
+    "attack.collection",
+    "attack.t1125",
+    "attack.t1123"
+  ],
+  "Version": "0.1"
+}

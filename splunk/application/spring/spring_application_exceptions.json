@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious Spring framework exceptions that could indicate exploitation attempts\n\nAuthor: Thomas Patzke\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ae48ab93-45f7-4051-9dfe-5d30a3f78e33",
+  "InsertDate": "2025-02-03T20:31:50Z",
+  "LastUpdateDate": "2025-02-03T20:31:50Z",
+  "Level": "medium",
+  "Name": "Spring Framework Exceptions",
+  "Query": "sourcetype=\"spring-*\" (\"AccessDeniedException\" OR \"CsrfException\" OR \"InvalidCsrfTokenException\" OR \"MissingCsrfTokenException\" OR \"CookieTheftException\" OR \"InvalidCookieException\" OR \"RequestRejectedException\")",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1190"
+  ],
+  "Version": "0.1"
+}

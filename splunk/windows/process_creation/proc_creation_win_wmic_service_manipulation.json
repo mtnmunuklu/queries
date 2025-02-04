@@ -1,0 +1,14 @@
+{
+  "Description": "Detects usage of wmic to start or stop a service\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0b7163dc-7eee-4960-af17-c0cd517f92da",
+  "InsertDate": "2025-02-03T20:33:27Z",
+  "LastUpdateDate": "2025-02-03T20:33:27Z",
+  "Level": "medium",
+  "Name": "Service Started/Stopped Via Wmic.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (original_file_name=\"wmic.exe\" process_path=\"*\\\\WMIC.exe\") ((command=\"* service *\" command=\"* call *\") (command=\"*stopservice*\" OR command=\"*startservice*\"))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1047"
+  ],
+  "Version": "0.1"
+}

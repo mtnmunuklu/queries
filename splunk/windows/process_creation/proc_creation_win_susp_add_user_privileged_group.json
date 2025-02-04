@@ -1,0 +1,14 @@
+{
+  "Description": "Detects addition of users to highly privileged groups via \"Net\" or \"Add-LocalGroupMember\".\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "10fb649c-3600-4d37-b1e6-56ea90bb7e09",
+  "InsertDate": "2025-02-03T20:33:12Z",
+  "LastUpdateDate": "2025-02-03T20:33:12Z",
+  "Level": "high",
+  "Name": "User Added To Highly Privileged Group",
+  "Query": "sourcetype=\"windows-sysmon\" ((command=\"*localgroup *\" command=\"* /add*\") (command=\"*Add-LocalGroupMember *\" command=\"* -Group *\")) (command=\"*Group Policy Creator Owners*\" OR command=\"*Schema Admins*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1098"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may steal data by exfiltrating it over an un-encrypted network protocol other than that of the existing command and control channel.\nThe data may also be sent to an alternate network location from the main command and control server.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9976fa64-2804-423c-8a5b-646ade840773",
+  "InsertDate": "2025-02-03T20:32:25Z",
+  "LastUpdateDate": "2025-02-03T20:32:25Z",
+  "Level": "medium",
+  "Name": "Suspicious Outbound SMTP Connections",
+  "Query": "sourcetype=\"windows-sysmon\" ((dst_port=\"25\" OR dst_port=\"587\" OR dst_port=\"465\" OR dst_port=\"2525\") initiated=\"true\") NOT ((process_path=\"*\\\\thunderbird.exe\" OR process_path=\"*\\\\outlook.exe\") OR process_path=\"C:\\\\Program Files\\\\Microsoft\\\\Exchange Server\\\\*\" OR (process_path=\"C:\\\\Program Files\\\\WindowsApps\\\\microsoft.windowscommunicationsapps_*\" process_path=\"*\\\\HxTsr.exe\"))",
+  "Tags": [
+    "attack.exfiltration",
+    "attack.t1048.003"
+  ],
+  "Version": "0.1"
+}

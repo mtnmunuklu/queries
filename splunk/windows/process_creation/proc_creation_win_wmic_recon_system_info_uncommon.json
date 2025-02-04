@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of the WMI command-line (WMIC) utility to identify and display various system information,\nincluding OS, CPU, GPU, and disk drive names; memory capacity; display resolution; and baseboard, BIOS,\nand GPU driver products/versions.\nSome of these commands were used by Aurora Stealer in late 2022/early 2023.\n\n\nAuthor: TropChaud\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9d5a1274-922a-49d0-87f3-8c653483b909",
+  "InsertDate": "2025-02-03T20:33:26Z",
+  "LastUpdateDate": "2025-02-03T20:33:26Z",
+  "Level": "medium",
+  "Name": "Uncommon System Information Discovery Via Wmic.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (description=\"WMI Commandline Utility\" original_file_name=\"wmic.exe\" process_path=\"*\\\\WMIC.exe\") (command=\"*LOGICALDISK get Name,Size,FreeSpace*\" OR command=\"*os get Caption,OSArchitecture,Version*\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1082"
+  ],
+  "Version": "0.1"
+}

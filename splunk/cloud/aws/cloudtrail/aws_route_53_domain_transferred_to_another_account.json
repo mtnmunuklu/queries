@@ -1,0 +1,15 @@
+{
+  "Description": "Detects when a request has been made to transfer a Route 53 domain to another AWS account.\n\nAuthor: Elastic, Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b056de1a-6e6e-4e40-a67e-97c9808cf41b",
+  "InsertDate": "2025-02-03T20:31:51Z",
+  "LastUpdateDate": "2025-02-03T20:31:51Z",
+  "Level": "low",
+  "Name": "AWS Route 53 Domain Transferred to Another Account",
+  "Query": "sourcetype=\"aws-cloudtrail\" eventsource=\"route53.amazonaws.com\" eventname=\"TransferDomainToAnotherAwsAccount\"",
+  "Tags": [
+    "attack.persistence",
+    "attack.credential-access",
+    "attack.t1098"
+  ],
+  "Version": "0.1"
+}

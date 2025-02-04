@@ -1,0 +1,13 @@
+{
+  "Description": "Detects suspicious execution of \"PDQDeployRunner\" which is part of the PDQDeploy service stack that is responsible for executing commands and packages on a remote machines\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "12b8e9f5-96b2-41e1-9a42-8c6779a5c184",
+  "InsertDate": "2025-02-03T20:32:54Z",
+  "LastUpdateDate": "2025-02-03T20:32:54Z",
+  "Level": "medium",
+  "Name": "Potentially Suspicious Execution Of PDQDeployRunner",
+  "Query": "sourcetype=\"windows-sysmon\" parent_process_path=\"*\\\\PDQDeployRunner-*\" ((process_path=\"*\\\\bash.exe\" OR process_path=\"*\\\\certutil.exe\" OR process_path=\"*\\\\cmd.exe\" OR process_path=\"*\\\\csc.exe\" OR process_path=\"*\\\\cscript.exe\" OR process_path=\"*\\\\dllhost.exe\" OR process_path=\"*\\\\mshta.exe\" OR process_path=\"*\\\\msiexec.exe\" OR process_path=\"*\\\\regsvr32.exe\" OR process_path=\"*\\\\rundll32.exe\" OR process_path=\"*\\\\scriptrunner.exe\" OR process_path=\"*\\\\wmic.exe\" OR process_path=\"*\\\\wscript.exe\" OR process_path=\"*\\\\wsl.exe\") (process_path=\"*:\\\\ProgramData\\\\*\" OR process_path=\"*:\\\\Users\\\\Public\\\\*\" OR process_path=\"*:\\\\Windows\\\\TEMP\\\\*\" OR process_path=\"*\\\\AppData\\\\Local\\\\Temp*\") (command=\"* -decode *\" OR command=\"* -enc *\" OR command=\"* -encodedcommand *\" OR command=\"* -w hidden*\" OR command=\"*DownloadString*\" OR command=\"*FromBase64String*\" OR command=\"*http*\" OR command=\"*iex *\" OR command=\"*Invoke-*\"))",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a change in the AWS Identity Center (FKA AWS SSO) identity provider.\nA change in identity provider allows an attacker to establish persistent access or escalate privileges via user impersonation.\n\n\nAuthor: Michael McIntyre @wtfender\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d3adb3ef-b7e7-4003-9092-1924c797db35",
+  "InsertDate": "2025-02-03T20:31:51Z",
+  "LastUpdateDate": "2025-02-03T20:31:51Z",
+  "Level": "high",
+  "Name": "AWS Identity Center Identity Provider Change",
+  "Query": "sourcetype=\"aws-cloudtrail\" (eventsource=\"sso-directory.amazonaws.com\" OR eventsource=\"sso.amazonaws.com\") (eventname=\"AssociateDirectory\" OR eventname=\"DisableExternalIdPConfigurationForDirectory\" OR eventname=\"DisassociateDirectory\" OR eventname=\"EnableExternalIdPConfigurationForDirectory\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1556"
+  ],
+  "Version": "0.1"
+}

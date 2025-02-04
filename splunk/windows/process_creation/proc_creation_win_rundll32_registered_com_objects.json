@@ -1,0 +1,15 @@
+{
+  "Description": "load malicious registered COM objects\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f1edd233-30b5-4823-9e6a-c4171b24d316",
+  "InsertDate": "2025-02-03T20:33:08Z",
+  "LastUpdateDate": "2025-02-03T20:33:08Z",
+  "Level": "high",
+  "Name": "Rundll32 Registered COM Objects",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\rundll32.exe\" original_file_name=\"RUNDLL32.EXE\") ((command=\"*-sta *\" OR command=\"*-localserver *\") (command=\"*{*\" command=\"*}*\"))",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.persistence",
+    "attack.t1546.015"
+  ],
+  "Version": "0.1"
+}

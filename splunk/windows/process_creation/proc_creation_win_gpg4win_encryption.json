@@ -1,0 +1,13 @@
+{
+  "Description": "Detects usage of Gpg4win to encrypt files\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "550bbb84-ce5d-4e61-84ad-e590f0024dcd",
+  "InsertDate": "2025-02-03T20:32:43Z",
+  "LastUpdateDate": "2025-02-03T20:32:43Z",
+  "Level": "medium",
+  "Name": "File Encryption Using Gpg4win",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\gpg.exe\" OR process_path=\"*\\\\gpg2.exe\") description=\"GnuPG’s OpenPGP tool\") (command=\"* -c *\" command=\"*passphrase*\")",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

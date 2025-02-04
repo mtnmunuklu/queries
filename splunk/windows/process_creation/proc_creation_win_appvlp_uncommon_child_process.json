@@ -1,0 +1,15 @@
+{
+  "Description": "Detects uncommon child processes of Appvlp.EXE\nAppvlp or the Application Virtualization Utility is included with Microsoft Office. Attackers are able to abuse \"AppVLP\" to execute shell commands.\nNormally, this binary is used for Application Virtualization, but it can also be abused to circumvent the ASR file path rule folder\nor to mark a file as a system file.\n\n\nAuthor: Sreeman\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9c7e131a-0f2c-4ae0-9d43-b04f4e266d43",
+  "InsertDate": "2025-02-03T20:32:36Z",
+  "LastUpdateDate": "2025-02-03T20:32:36Z",
+  "Level": "medium",
+  "Name": "Uncommon Child Process Of Appvlp.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" parent_process_path=\"*\\\\appvlp.exe\" NOT (process_path=\"*:\\\\Windows\\\\SysWOW64\\\\rundll32.exe\" OR process_path=\"*:\\\\Windows\\\\System32\\\\rundll32.exe\") NOT ((process_path=\"*:\\\\Program Files\\\\Microsoft Office*\" process_path=\"*\\\\msoasb.exe\") OR ((process_path=\"*:\\\\Program Files\\\\Microsoft Office*\" process_path=\"*\\\\SkypeSrv\\\\*\") process_path=\"*\\\\SKYPESERVER.EXE\") OR (process_path=\"*:\\\\Program Files\\\\Microsoft Office*\" process_path=\"*\\\\MSOUC.EXE\"))",
+  "Tags": [
+    "attack.t1218",
+    "attack.defense-evasion",
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

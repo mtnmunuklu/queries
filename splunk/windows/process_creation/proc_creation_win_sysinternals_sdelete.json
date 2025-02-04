@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of SDelete to erase a file not the free space\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a4824fca-976f-4964-b334-0621379e84c4",
+  "InsertDate": "2025-02-03T20:33:20Z",
+  "LastUpdateDate": "2025-02-03T20:33:20Z",
+  "Level": "high",
+  "Name": "Potential File Overwrite Via Sysinternals SDelete",
+  "Query": "sourcetype=\"windows-sysmon\" original_file_name=\"sdelete.exe\" NOT (command=\"* -h*\" OR command=\"* -c*\" OR command=\"* -z*\" OR command=\"* /\\\\?*\")",
+  "Tags": [
+    "attack.impact",
+    "attack.t1485"
+  ],
+  "Version": "0.1"
+}

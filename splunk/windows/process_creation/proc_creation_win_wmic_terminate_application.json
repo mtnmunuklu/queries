@@ -1,0 +1,14 @@
+{
+  "Description": "Detects calls to the \"terminate\" function via wmic in order to kill an application\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "49d9671b-0a0a-4c09-8280-d215bfd30662",
+  "InsertDate": "2025-02-03T20:33:27Z",
+  "LastUpdateDate": "2025-02-03T20:33:27Z",
+  "Level": "medium",
+  "Name": "Application Terminated Via Wmic.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*call*\" command=\"*terminate*\") (process_path=\"*\\\\WMIC.exe\" original_file_name=\"wmic.exe\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1047"
+  ],
+  "Version": "0.1"
+}

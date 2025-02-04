@@ -1,0 +1,14 @@
+{
+  "Description": "Monitor and alert for Sign-ins by unknown devices from non-Trusted locations.\n\nAuthor: Michael Epping, '@mepples21'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4d136857-6a1a-432a-82fc-5dd497ee5e7c",
+  "InsertDate": "2025-02-03T20:31:53Z",
+  "LastUpdateDate": "2025-02-03T20:31:53Z",
+  "Level": "low",
+  "Name": "Sign-ins by Unknown Devices",
+  "Query": "sourcetype=\"azure-signinlogs\" authenticationrequirement=\"singleFactorAuthentication\" resulttype=\"0\" networklocationdetails=\"[]\" devicedetail.deviceid=\"\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1078.004"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Indicates suspicious rules such as an inbox rule that forwards a copy of all emails to an external address\n\nAuthor: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "27e4f1d6-ae72-4ea0-8a67-77a73a289c3d",
+  "InsertDate": "2025-02-03T20:31:53Z",
+  "LastUpdateDate": "2025-02-03T20:31:53Z",
+  "Level": "high",
+  "Name": "Suspicious Inbox Forwarding Identity Protection",
+  "Query": "sourcetype=\"azure-riskdetection\" riskeventtype=\"suspiciousInboxForwarding\"",
+  "Tags": [
+    "attack.t1140",
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

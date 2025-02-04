@@ -1,0 +1,14 @@
+{
+  "Description": "Detects handle requests and access operations to specific registry keys to calculate the SysKey\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9a4ff3b8-6187-4fd2-8e8b-e0eae1129495",
+  "InsertDate": "2025-02-03T20:32:11Z",
+  "LastUpdateDate": "2025-02-03T20:32:11Z",
+  "Level": "high",
+  "Name": "SysKey Registry Keys Access",
+  "Query": "sourcetype=\"windows-security\" (eventid=\"4656\" OR eventid=\"4663\") objecttype=\"key\" (objectname=\"*lsa\\\\JD\" OR objectname=\"*lsa\\\\GBG\" OR objectname=\"*lsa\\\\Skew1\" OR objectname=\"*lsa\\\\Data\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1012"
+  ],
+  "Version": "0.1"
+}

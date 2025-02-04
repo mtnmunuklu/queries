@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious process patterns found in logs when CrackMapExec is used\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f26307d8-14cd-47e3-a26b-4b4769f24af6",
+  "InsertDate": "2025-02-03T20:32:43Z",
+  "LastUpdateDate": "2025-02-03T20:32:43Z",
+  "Level": "high",
+  "Name": "HackTool - CrackMapExec Process Patterns",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*do rundll32.exe C:\\\\windows\\\\System32\\\\comsvcs.dll, MiniDump*\" command=\"*\\\\Windows\\\\Temp\\\\*\" command=\"* full*\" command=\"*%%B*\") OR (command=\"*tasklist /v /fo csv*\" command=\"*findstr /i \"lsass\"*\") OR ((command=\"*tasklist /fi *\" command=\"*Imagename eq lsass.exe*\") (command=\"*cmd.exe /c *\" OR command=\"*cmd.exe /r *\" OR command=\"*cmd.exe /k *\" OR command=\"*cmd /c *\" OR command=\"*cmd /r *\" OR command=\"*cmd /k *\") (username=\"*AUTHORI*\" OR username=\"*AUTORI*\"))",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.001"
+  ],
+  "Version": "0.1"
+}

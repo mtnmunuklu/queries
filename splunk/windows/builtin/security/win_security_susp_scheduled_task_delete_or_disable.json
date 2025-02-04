@@ -1,0 +1,16 @@
+{
+  "Description": "Detects when adversaries stop services or processes by deleting or disabling their respective scheduled tasks in order to conduct data destructive activities\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7595ba94-cf3b-4471-aa03-4f6baa9e5fad",
+  "InsertDate": "2025-02-03T20:32:11Z",
+  "LastUpdateDate": "2025-02-03T20:32:11Z",
+  "Level": "high",
+  "Name": "Important Scheduled Task Deleted/Disabled",
+  "Query": "sourcetype=\"windows-security\" ((eventid=\"4699\" OR eventid=\"4701\") (taskname=\"*\\\\Windows\\\\SystemRestore\\\\SR*\" OR taskname=\"*\\\\Windows\\\\Windows Defender\\\\*\" OR taskname=\"*\\\\Windows\\\\BitLocker*\" OR taskname=\"*\\\\Windows\\\\WindowsBackup\\\\*\" OR taskname=\"*\\\\Windows\\\\WindowsUpdate\\\\*\" OR taskname=\"*\\\\Windows\\\\UpdateOrchestrator\\\\Schedule*\" OR taskname=\"*\\\\Windows\\\\ExploitGuard*\")) NOT (eventid=\"4699\" subjectusername=\"*$\" taskname=\"*\\\\Windows\\\\Windows Defender\\\\*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.privilege-escalation",
+    "attack.persistence",
+    "attack.t1053.005"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of Inveigh a cross-platform .NET IPv4/IPv6 machine-in-the-middle tool\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b99a1518-1ad5-4f65-bc95-1ffff97a8fd0",
+  "InsertDate": "2025-02-03T20:32:44Z",
+  "LastUpdateDate": "2025-02-03T20:32:44Z",
+  "Level": "critical",
+  "Name": "HackTool - Inveigh Execution",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\Inveigh.exe\" (original_file_name=\"\\\\Inveigh.exe\" OR original_file_name=\"\\\\Inveigh.dll\") description=\"Inveigh\" (command=\"* -SpooferIP*\" OR command=\"* -ReplyToIPs *\" OR command=\"* -ReplyToDomains *\" OR command=\"* -ReplyToMACs *\" OR command=\"* -SnifferIP*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.001"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of SharpEvtHook, a tool that tampers with the Windows event logs\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "bedfc8ad-d1c7-4e37-a20e-e2b0dbee759c",
+  "InsertDate": "2025-02-03T20:32:46Z",
+  "LastUpdateDate": "2025-02-03T20:32:46Z",
+  "Level": "high",
+  "Name": "HackTool - SharpEvtMute Execution",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\SharpEvtMute.exe\" description=\"SharpEvtMute\" (command=\"*--Filter \"rule *\" OR command=\"*--Encoded --Filter \\\\\"*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.002"
+  ],
+  "Version": "0.1"
+}

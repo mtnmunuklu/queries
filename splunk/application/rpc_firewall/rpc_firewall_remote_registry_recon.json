@@ -1,0 +1,13 @@
+{
+  "Description": "Detects remote RPC calls to collect information\n\nAuthor: Sagie Dulce, Dekel Paz\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d8ffe17e-04be-4886-beb9-c1dd1944b9a8",
+  "InsertDate": "2025-02-03T20:31:49Z",
+  "LastUpdateDate": "2025-02-03T20:31:49Z",
+  "Level": "high",
+  "Name": "Remote Registry Recon",
+  "Query": "sourcetype=\"rpc_firewall-*\" (eventlog=\"RPCFW\" eventid=\"3\" interfaceuuid=\"338cd001-2244-31f1-aaaa-900038001003\") NOT (opnum=\"6\" OR opnum=\"7\" OR opnum=\"8\" OR opnum=\"13\" OR opnum=\"18\" OR opnum=\"19\" OR opnum=\"21\" OR opnum=\"22\" OR opnum=\"23\" OR opnum=\"35\")",
+  "Tags": [
+    "attack.discovery"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects Windows Installer service (msiexec.exe) trying to install MSI packages with SYSTEM privilege\n\nAuthor: Teymur Kheirkhabarov (idea), Mangatas Tondang (rule), oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "cd951fdc-4b2f-47f5-ba99-a33bf61e3770",
+  "InsertDate": "2025-02-03T20:33:12Z",
+  "LastUpdateDate": "2025-02-03T20:33:12Z",
+  "Level": "medium",
+  "Name": "Always Install Elevated Windows Installer",
+  "Query": "sourcetype=\"windows-sysmon\" (((process_path=\"*\\\\Windows\\\\Installer\\\\*\" process_path=\"*msi*\") process_path=\"*tmp\") OR (process_path=\"*\\\\msiexec.exe\" (integrity_level=\"System\" OR integrity_level=\"S-1-16-16384\"))) (username=\"*AUTHORI*\" OR username=\"*AUTORI*\") NOT (parent_process_path=\"C:\\\\ProgramData\\\\Sophos\\\\*\" OR (parent_process_path=\"C:\\\\Program Files\\\\Google\\\\Update\\\\*\" OR parent_process_path=\"C:\\\\Program Files (x86)\\\\Google\\\\Update\\\\*\") OR parent_process_path=\"C:\\\\Windows\\\\System32\\\\services.exe\" OR (command=\"*\\\\system32\\\\msiexec.exe /V\" parent_command_line=\"*\\\\system32\\\\msiexec.exe /V\") OR parent_process_path=\"C:\\\\ProgramData\\\\Avira\\\\*\" OR (parent_process_path=\"C:\\\\Program Files\\\\Avast Software\\\\*\" OR parent_process_path=\"C:\\\\Program Files (x86)\\\\Avast Software\\\\*\"))",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.t1548.002"
+  ],
+  "Version": "0.1"
+}

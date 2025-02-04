@@ -1,0 +1,13 @@
+{
+  "Description": "Detect when a Cloud SQL DB has been modified or deleted.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f346bbd5-2c4e-4789-a221-72de7685090d",
+  "InsertDate": "2025-02-03T20:31:54Z",
+  "LastUpdateDate": "2025-02-03T20:31:54Z",
+  "Level": "medium",
+  "Name": "Google Cloud SQL Database Modified or Deleted",
+  "Query": "sourcetype=\"gcp-gcp.audit\" (gcp.audit.method_name=\"cloudsql.instances.create\" OR gcp.audit.method_name=\"cloudsql.instances.delete\" OR gcp.audit.method_name=\"cloudsql.users.update\" OR gcp.audit.method_name=\"cloudsql.users.delete\")",
+  "Tags": [
+    "attack.impact"
+  ],
+  "Version": "0.1"
+}

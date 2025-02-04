@@ -1,0 +1,15 @@
+{
+  "Description": "Detects when the 'AllowMultipleTSSessions' value is enabled.\nWhich allows for multiple Remote Desktop connection sessions to be opened at once.\nThis is often used by attacker as a way to connect to an RDP session without disconnecting the other users\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f7997770-92c3-4ec9-b112-774c4ef96f96",
+  "InsertDate": "2025-02-03T20:33:45Z",
+  "LastUpdateDate": "2025-02-03T20:33:45Z",
+  "Level": "medium",
+  "Name": "Winlogon AllowMultipleTSSessions Enable",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\Microsoft\\\\Windows NT\\\\CurrentVersion\\\\Winlogon\\\\AllowMultipleTSSessions\" details=\"*DWORD (0x00000001)\"",
+  "Tags": [
+    "attack.persistence",
+    "attack.defense-evasion",
+    "attack.t1112"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,16 @@
+{
+  "Description": "Detects execution of the Impersonate tool. Which can be used to manipulate tokens on a Windows computers remotely (PsExec/WmiExec) or interactively\n\nAuthor: Sai Prashanth Pulisetti @pulisettis\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "cf0c254b-22f1-4b2b-8221-e137b3c0af94",
+  "InsertDate": "2025-02-03T20:32:44Z",
+  "LastUpdateDate": "2025-02-03T20:32:44Z",
+  "Level": "medium",
+  "Name": "HackTool - Impersonate Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*impersonate.exe*\" (command=\"* list *\" OR command=\"* exec *\" OR command=\"* adduser *\")) OR (hashes=\"*MD5=9520714AB576B0ED01D1513691377D01*\" OR hashes=\"*SHA256=E81CC96E2118DC4FBFE5BAD1604E0AC7681960143E2101E1A024D52264BB0A8A*\" OR hashes=\"*IMPHASH=0A358FFC1697B7A07D0E817AC740DF62*\")",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.defense-evasion",
+    "attack.t1134.001",
+    "attack.t1134.003"
+  ],
+  "Version": "0.1"
+}

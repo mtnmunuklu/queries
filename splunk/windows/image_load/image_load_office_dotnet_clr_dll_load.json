@@ -1,0 +1,14 @@
+{
+  "Description": "Detects CLR DLL being loaded by an Office Product\n\nAuthor: Antonlovesdnb\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d13c43f0-f66b-4279-8b2c-5912077c1780",
+  "InsertDate": "2025-02-03T20:32:22Z",
+  "LastUpdateDate": "2025-02-03T20:32:22Z",
+  "Level": "medium",
+  "Name": "CLR DLL Loaded Via Office Applications",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\excel.exe\" OR process_path=\"*\\\\mspub.exe\" OR process_path=\"*\\\\outlook.exe\" OR process_path=\"*\\\\onenote.exe\" OR process_path=\"*\\\\onenoteim.exe\" OR process_path=\"*\\\\powerpnt.exe\" OR process_path=\"*\\\\winword.exe\") image_loaded=\"*\\\\clr.dll*\"",
+  "Tags": [
+    "attack.execution",
+    "attack.t1204.002"
+  ],
+  "Version": "0.1"
+}

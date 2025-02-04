@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when a user creates a Lambda function URL configuration, which could be used to expose the function to the internet and potentially allow unauthorized access to the function's IAM role for AWS API calls.\nThis could give an adversary access to the privileges associated with the Lambda service role that is attached to that function.\n\n\nAuthor: Ivan Saakov\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ec541962-c05a-4420-b9ea-84de072d18f4",
+  "InsertDate": "2025-02-03T20:31:51Z",
+  "LastUpdateDate": "2025-02-03T20:31:51Z",
+  "Level": "medium",
+  "Name": "New AWS Lambda Function URL Configuration Created",
+  "Query": "sourcetype=\"aws-cloudtrail\" eventsource=\"lambda.amazonaws.com\" eventname=\"CreateFunctionUrlConfig\"",
+  "Tags": [
+    "attack.initial-access",
+    "attack.privilege-escalation"
+  ],
+  "Version": "0.1"
+}

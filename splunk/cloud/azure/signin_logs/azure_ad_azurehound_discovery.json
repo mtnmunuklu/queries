@@ -1,0 +1,15 @@
+{
+  "Description": "Detects AzureHound (A BloodHound data collector for Microsoft Azure) activity via the default User-Agent that is used during its operation after successful authentication.\n\nAuthor: Janantha Marasinghe\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "35b781cc-1a08-4a5a-80af-42fd7c315c6b",
+  "InsertDate": "2025-02-03T20:31:53Z",
+  "LastUpdateDate": "2025-02-03T20:31:53Z",
+  "Level": "high",
+  "Name": "Discovery Using AzureHound",
+  "Query": "sourcetype=\"azure-signinlogs\" useragent=\"*azurehound*\" resulttype=\"0\"",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1087.004",
+    "attack.t1526"
+  ],
+  "Version": "0.1"
+}

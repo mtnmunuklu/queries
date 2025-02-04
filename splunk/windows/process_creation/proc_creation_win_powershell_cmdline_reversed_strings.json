@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the presence of reversed PowerShell commands in the CommandLine. This is often used as a method of obfuscation by attackers\n\nAuthor: Teymur Kheirkhabarov (idea), Vasiliy Burov (rule), oscd.community, Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b6b49cd1-34d6-4ead-b1bf-176e9edba9a4",
+  "InsertDate": "2025-02-03T20:32:55Z",
+  "LastUpdateDate": "2025-02-03T20:32:55Z",
+  "Level": "high",
+  "Name": "Potential PowerShell Obfuscation Via Reversed Commands",
+  "Query": "sourcetype=\"windows-sysmon\" (((process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\") (original_file_name=\"PowerShell.EXE\" OR original_file_name=\"pwsh.dll\")) (command=\"*hctac*\" OR command=\"*kaerb*\" OR command=\"*dnammoc*\" OR command=\"*ekovn*\" OR command=\"*eliFd*\" OR command=\"*rahc*\" OR command=\"*etirw*\" OR command=\"*golon*\" OR command=\"*tninon*\" OR command=\"*eddih*\" OR command=\"*tpircS*\" OR command=\"*ssecorp*\" OR command=\"*llehsrewop*\" OR command=\"*esnopser*\" OR command=\"*daolnwod*\" OR command=\"*tneilCbeW*\" OR command=\"*tneilc*\" OR command=\"*ptth*\" OR command=\"*elifotevas*\" OR command=\"*46esab*\" OR command=\"*htaPpmeTteG*\" OR command=\"*tcejbO*\" OR command=\"*maerts*\" OR command=\"*hcaerof*\" OR command=\"*retupmoc*\")) NOT (command=\"* -EncodedCommand *\" OR command=\"* -enc *\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1027",
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

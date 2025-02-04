@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of the Add-In deployment cache updating utility (AddInutil.exe) with uncommon Addinroot or Pipelineroot paths. An adversary may execute AddinUtil.exe with uncommon Addinroot/Pipelineroot paths that point to the adversaries Addins.Store payload.\n\n\nAuthor: Michael McKinley (@McKinleyMike), Tony Latteri (@TheLatteri)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4f2cd9b6-4a17-440f-bb2a-687abb65993a",
+  "InsertDate": "2025-02-03T20:32:36Z",
+  "LastUpdateDate": "2025-02-03T20:32:36Z",
+  "Level": "medium",
+  "Name": "Uncommon AddinUtil.EXE CommandLine Execution",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\addinutil.exe\" original_file_name=\"AddInUtil.exe\") (command=\"*-AddInRoot:*\" OR command=\"*-PipelineRoot:*\")) NOT (command=\"*-AddInRoot:\"C:\\\\Program Files (x86)\\\\Common Files\\\\Microsoft Shared\\\\VSTA*\" OR command=\"*-AddInRoot:C:\\\\Program Files (x86)\\\\Common Files\\\\Microsoft Shared\\\\VSTA*\" OR command=\"*-PipelineRoot:\"C:\\\\Program Files (x86)\\\\Common Files\\\\Microsoft Shared\\\\VSTA*\" OR command=\"*-PipelineRoot:C:\\\\Program Files (x86)\\\\Common Files\\\\Microsoft Shared\\\\VSTA*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

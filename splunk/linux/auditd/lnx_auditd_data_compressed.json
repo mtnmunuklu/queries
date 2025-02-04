@@ -1,0 +1,14 @@
+{
+  "Description": "An adversary may compress data (e.g., sensitive documents) that is collected prior to exfiltration in order to make it portable and minimize the amount of data sent over the network.\n\nAuthor: Timur Zinniatullin, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a3b5e3e9-1b49-4119-8b8e-0344a01f21ee",
+  "InsertDate": "2025-02-03T20:31:56Z",
+  "LastUpdateDate": "2025-02-03T20:31:56Z",
+  "Level": "low",
+  "Name": "Data Compressed",
+  "Query": "sourcetype=\"linux-auditd\" (type=\"execve\" a0=\"tar\" a1=\"*-c*\") OR (type=\"execve\" a0=\"zip\") OR (type=\"execve\" a0=\"gzip\" a1=\"-k\")",
+  "Tags": [
+    "attack.exfiltration",
+    "attack.t1560.001"
+  ],
+  "Version": "0.1"
+}

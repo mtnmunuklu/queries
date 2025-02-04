@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious commands that are related to scripting/powershell in WMI Event Consumers\n\nAuthor: Florian Roth (Nextron Systems), Jonhnathan Ribeiro\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fe21810c-2a8c-478f-8dd3-5a287fb2a0e0",
+  "InsertDate": "2025-02-03T20:33:46Z",
+  "LastUpdateDate": "2025-02-03T20:33:46Z",
+  "Level": "high",
+  "Name": "Suspicious Scripting in a WMI Consumer",
+  "Query": "sourcetype=\"windows-*\" (destination=\"*new-object*\" destination=\"*net.webclient*\" destination=\"*.downloadstring*\") (destination=\"*new-object*\" destination=\"*net.webclient*\" destination=\"*.downloadfile*\") (destination=\"* iex(*\" OR destination=\"* -nop *\" OR destination=\"* -noprofile *\" OR destination=\"* -decode *\" OR destination=\"* -enc *\" OR destination=\"*WScript.Shell*\" OR destination=\"*System.Security.Cryptography.FromBase64Transform*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.005"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,16 @@
+{
+  "Description": "Detects .NET Framework CLR and .NET Core CLR \"cor_enable_profiling\" and \"cor_profiler\" variables being set and configured.\n\nAuthor: Jose Rodriguez (@Cyb3rPandaH), OTR (Open Threat Research), Jimmy Bayne (@bohops)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ad89044a-8f49-4673-9a55-cbd88a1b374f",
+  "InsertDate": "2025-02-03T20:33:36Z",
+  "LastUpdateDate": "2025-02-03T20:33:36Z",
+  "Level": "medium",
+  "Name": "Enabling COR Profiler Environment Variables",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\CORECLR_PROFILER_PATH*\" OR (target_object=\"*\\\\COR_ENABLE_PROFILING\" OR target_object=\"*\\\\COR_PROFILER\" OR target_object=\"*\\\\CORECLR_ENABLE_PROFILING\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.defense-evasion",
+    "attack.t1574.012"
+  ],
+  "Version": "0.1"
+}

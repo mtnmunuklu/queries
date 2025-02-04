@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the invocation of TabTip via CLSID as seen when JuicyPotatoNG is used on a system in brute force mode\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "bc2e25ed-b92b-4daa-b074-b502bdd1982b",
+  "InsertDate": "2025-02-03T20:32:12Z",
+  "LastUpdateDate": "2025-02-03T20:32:12Z",
+  "Level": "high",
+  "Name": "Local Privilege Escalation Indicator TabTip",
+  "Query": "sourcetype=\"windows-system\" provider_name=\"Microsoft-Windows-DistributedCOM\" eventid=\"10001\" param1=\"C:\\\\Program Files\\\\Common Files\\\\microsoft shared\\\\ink\\\\TabTip.exe\" param2=\"2147943140\" param3=\"{054AAE20-4BEA-4347-8A35-64A533254A9D}\"",
+  "Tags": [
+    "attack.execution",
+    "attack.t1557.001"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,19 @@
+{
+  "Description": "Detects files that have extensions commonly seen while SDelete is used to wipe files.\n\nAuthor: Thomas Patzke\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "39a80702-d7ca-4a83-b776-525b1f86a36d",
+  "InsertDate": "2025-02-03T20:32:11Z",
+  "LastUpdateDate": "2025-02-03T20:32:11Z",
+  "Level": "medium",
+  "Name": "Potential Secure Deletion with SDelete",
+  "Query": "sourcetype=\"windows-security\" (eventid=\"4656\" OR eventid=\"4663\" OR eventid=\"4658\") (objectname=\"*.AAA\" OR objectname=\"*.ZZZ\")",
+  "Tags": [
+    "attack.impact",
+    "attack.defense-evasion",
+    "attack.t1070.004",
+    "attack.t1027.005",
+    "attack.t1485",
+    "attack.t1553.002",
+    "attack.s0195"
+  ],
+  "Version": "0.1"
+}

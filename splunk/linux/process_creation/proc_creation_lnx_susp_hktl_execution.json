@@ -1,0 +1,15 @@
+{
+  "Description": "Detects known hacktool execution based on image name.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Georg Lauenstein (sure[secure])\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a015e032-146d-4717-8944-7a1884122111",
+  "InsertDate": "2025-02-03T20:32:00Z",
+  "LastUpdateDate": "2025-02-03T20:32:00Z",
+  "Level": "high",
+  "Name": "Linux HackTool Execution",
+  "Query": "sourcetype=\"linux-*\" process_path=\"*/sniper*\" OR (process_path=\"*/dirb\" OR process_path=\"*/dirbuster\" OR process_path=\"*/eyewitness\" OR process_path=\"*/feroxbuster\" OR process_path=\"*/ffuf\" OR process_path=\"*/gobuster\" OR process_path=\"*/wfuzz\" OR process_path=\"*/whatweb\") OR (process_path=\"*/joomscan\" OR process_path=\"*/nikto\" OR process_path=\"*/wpscan\") OR (process_path=\"*/aircrack-ng\" OR process_path=\"*/bloodhound-python\" OR process_path=\"*/bpfdos\" OR process_path=\"*/ebpfki\" OR process_path=\"*/evil-winrm\" OR process_path=\"*/hashcat\" OR process_path=\"*/hoaxshell.py\" OR process_path=\"*/hydra\" OR process_path=\"*/john\" OR process_path=\"*/ncrack\" OR process_path=\"*/nxc-ubuntu-latest\" OR process_path=\"*/pidhide\" OR process_path=\"*/pspy32\" OR process_path=\"*/pspy32s\" OR process_path=\"*/pspy64\" OR process_path=\"*/pspy64s\" OR process_path=\"*/setoolkit\" OR process_path=\"*/sqlmap\" OR process_path=\"*/writeblocker\") OR process_path=\"*/linpeas*\" OR (process_path=\"*/crackmapexec\" OR process_path=\"*/havoc\" OR process_path=\"*/merlin-agent\" OR process_path=\"*/merlinServer-Linux-x64\" OR process_path=\"*/msfconsole\" OR process_path=\"*/msfvenom\" OR process_path=\"*/ps-empire server\" OR process_path=\"*/ps-empire\" OR process_path=\"*/sliver-client\" OR process_path=\"*/sliver-server\" OR process_path=\"*/Villain.py\") OR (process_path=\"*/cobaltstrike*\" OR process_path=\"*/teamserver*\") OR (process_path=\"*/autorecon\" OR process_path=\"*/httpx\" OR process_path=\"*/legion\" OR process_path=\"*/naabu\" OR process_path=\"*/netdiscover\" OR process_path=\"*/nuclei\" OR process_path=\"*/recon-ng\")",
+  "Tags": [
+    "attack.execution",
+    "attack.resource-development",
+    "attack.t1587"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when an internet hosted webdav share is mounted using the \"net.exe\" utility\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7e6237fe-3ddb-438f-9381-9bf9de5af8d0",
+  "InsertDate": "2025-02-03T20:32:52Z",
+  "LastUpdateDate": "2025-02-03T20:32:52Z",
+  "Level": "high",
+  "Name": "Windows Internet Hosted WebDav Share Mount Via Net.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\net.exe\" OR process_path=\"*\\\\net1.exe\") (original_file_name=\"net.exe\" OR original_file_name=\"net1.exe\")) (command=\"* use *\" command=\"* http*\")",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.t1021.002"
+  ],
+  "Version": "0.1"
+}

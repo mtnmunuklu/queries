@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when an application acquires a certificate private key\n\nAuthor: Zach Mathis\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e2b5163d-7deb-4566-9af3-40afea6858c3",
+  "InsertDate": "2025-02-03T20:32:06Z",
+  "LastUpdateDate": "2025-02-03T20:32:06Z",
+  "Level": "medium",
+  "Name": "Certificate Private Key Acquired",
+  "Query": "sourcetype=\"windows-capi2\" eventid=\"70\"",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1649"
+  ],
+  "Version": "0.1"
+}

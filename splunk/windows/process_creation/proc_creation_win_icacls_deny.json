@@ -1,0 +1,14 @@
+{
+  "Description": "Detect use of icacls to deny access for everyone in Users folder sometimes used to hide malicious files\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4ae81040-fc1c-4249-bfa3-938d260214d9",
+  "InsertDate": "2025-02-03T20:32:47Z",
+  "LastUpdateDate": "2025-02-03T20:32:47Z",
+  "Level": "medium",
+  "Name": "Use Icacls to Hide File to Everyone",
+  "Query": "sourcetype=\"windows-sysmon\" (original_file_name=\"iCACLS.EXE\" process_path=\"*\\\\icacls.exe\") (command=\"*/deny*\" command=\"**S-1-1-0:*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1564.001"
+  ],
+  "Version": "0.1"
+}

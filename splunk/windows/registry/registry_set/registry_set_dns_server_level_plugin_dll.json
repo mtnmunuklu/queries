@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the installation of a DNS plugin DLL via ServerLevelPluginDll parameter in registry, which can be used to execute code in context of the DNS server (restart required)\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e61e8a88-59a9-451c-874e-70fcc9740d67",
+  "InsertDate": "2025-02-03T20:33:36Z",
+  "LastUpdateDate": "2025-02-03T20:33:36Z",
+  "Level": "high",
+  "Name": "New DNS ServerLevelPluginDll Installed",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\services\\\\DNS\\\\Parameters\\\\ServerLevelPluginDll\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1574.002",
+    "attack.t1112"
+  ],
+  "Version": "0.1"
+}

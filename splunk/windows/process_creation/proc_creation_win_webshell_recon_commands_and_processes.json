@@ -1,0 +1,17 @@
+{
+  "Description": "Detects certain command line parameters often used during reconnaissance activity via web shells\n\nAuthor: Florian Roth (Nextron Systems), Jonhnathan Ribeiro, Anton Kutepov, oscd.community, Chad Hudson, Matt Anderson\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "bed2a484-9348-4143-8a8a-b801c979301c",
+  "InsertDate": "2025-02-03T20:33:24Z",
+  "LastUpdateDate": "2025-02-03T20:33:24Z",
+  "Level": "high",
+  "Name": "Webshell Detection With Command Line Keywords",
+  "Query": "sourcetype=\"windows-sysmon\" ((parent_process_path=\"*\\\\w3wp.exe\" OR parent_process_path=\"*\\\\php-cgi.exe\" OR parent_process_path=\"*\\\\nginx.exe\" OR parent_process_path=\"*\\\\httpd.exe\" OR parent_process_path=\"*\\\\caddy.exe\" OR parent_process_path=\"*\\\\ws_tomcatservice.exe\") OR ((parent_process_path=\"*\\\\java.exe\" OR parent_process_path=\"*\\\\javaw.exe\") (parent_process_path=\"*-tomcat-*\" OR parent_process_path=\"*\\\\tomcat*\")) OR ((parent_process_path=\"*\\\\java.exe\" OR parent_process_path=\"*\\\\javaw.exe\") (command=\"*catalina.jar*\" OR command=\"*CATALINA_HOME*\"))) (((original_file_name=\"net.exe\" OR original_file_name=\"net1.exe\") (command=\"* user *\" OR command=\"* use *\" OR command=\"* group *\")) OR (command=\"*\u0026cd\u0026echo*\" OR command=\"*cd /d *\") OR (original_file_name=\"ping.exe\" command=\"* -n *\") OR (original_file_name=\"wmic.exe\" command=\"* /node:*\") OR ((process_path=\"*\\\\cmd.exe\" OR process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\") (command=\"* -enc *\" OR command=\"* -EncodedCommand *\" OR command=\"* -w hidden *\" OR command=\"* -windowstyle hidden*\" OR command=\"*.WebClient).Download*\")) OR ((process_path=\"*\\\\dsquery.exe\" OR process_path=\"*\\\\find.exe\" OR process_path=\"*\\\\findstr.exe\" OR process_path=\"*\\\\ipconfig.exe\" OR process_path=\"*\\\\netstat.exe\" OR process_path=\"*\\\\nslookup.exe\" OR process_path=\"*\\\\pathping.exe\" OR process_path=\"*\\\\quser.exe\" OR process_path=\"*\\\\schtasks.exe\" OR process_path=\"*\\\\systeminfo.exe\" OR process_path=\"*\\\\tasklist.exe\" OR process_path=\"*\\\\tracert.exe\" OR process_path=\"*\\\\ver.exe\" OR process_path=\"*\\\\wevtutil.exe\" OR process_path=\"*\\\\whoami.exe\") (original_file_name=\"dsquery.exe\" OR original_file_name=\"find.exe\" OR original_file_name=\"findstr.exe\" OR original_file_name=\"ipconfig.exe\" OR original_file_name=\"netstat.exe\" OR original_file_name=\"nslookup.exe\" OR original_file_name=\"pathping.exe\" OR original_file_name=\"quser.exe\" OR original_file_name=\"schtasks.exe\" OR original_file_name=\"sysinfo.exe\" OR original_file_name=\"tasklist.exe\" OR original_file_name=\"tracert.exe\" OR original_file_name=\"ver.exe\" OR original_file_name=\"VSSADMIN.EXE\" OR original_file_name=\"wevtutil.exe\" OR original_file_name=\"whoami.exe\")) OR (command=\"* Test-NetConnection *\" OR command=\"*dir \\\\*\"))",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1505.003",
+    "attack.t1018",
+    "attack.t1033",
+    "attack.t1087"
+  ],
+  "Version": "0.1"
+}

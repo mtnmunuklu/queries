@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potentially suspicious child processes of \"regsvr32.exe\".\n\nAuthor: elhoim, Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6f0947a4-1c5e-4e0d-8ac7-53159b8f23ca",
+  "InsertDate": "2025-02-03T20:33:05Z",
+  "LastUpdateDate": "2025-02-03T20:33:05Z",
+  "Level": "high",
+  "Name": "Potentially Suspicious Child Process Of Regsvr32",
+  "Query": "sourcetype=\"windows-sysmon\" (parent_process_path=\"*\\\\regsvr32.exe\" (process_path=\"*\\\\calc.exe\" OR process_path=\"*\\\\cscript.exe\" OR process_path=\"*\\\\explorer.exe\" OR process_path=\"*\\\\mshta.exe\" OR process_path=\"*\\\\net.exe\" OR process_path=\"*\\\\net1.exe\" OR process_path=\"*\\\\nltest.exe\" OR process_path=\"*\\\\notepad.exe\" OR process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\" OR process_path=\"*\\\\reg.exe\" OR process_path=\"*\\\\schtasks.exe\" OR process_path=\"*\\\\werfault.exe\" OR process_path=\"*\\\\wscript.exe\")) NOT (process_path=\"*\\\\werfault.exe\" command=\"* -u -p *\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.010"
+  ],
+  "Version": "0.1"
+}

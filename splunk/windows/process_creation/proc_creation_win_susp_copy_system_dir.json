@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a suspicious copy operation that tries to copy a program from system (System32, SysWOW64, WinSxS) directories to another on disk.\nOften used to move LOLBINs such as 'certutil' or 'desktopimgdownldr' to a different location with a different name in order to bypass detections based on locations.\n\n\nAuthor: Florian Roth (Nextron Systems), Markus Neis, Tim Shelton (HAWK.IO), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fff9d2b7-e11c-4a69-93d3-40ef66189767",
+  "InsertDate": "2025-02-03T20:33:13Z",
+  "LastUpdateDate": "2025-02-03T20:33:13Z",
+  "Level": "medium",
+  "Name": "Suspicious Copy From or To System Directory",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\cmd.exe\" command=\"*copy *\") OR ((process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\") (command=\"*copy-item*\" OR command=\"* copy *\" OR command=\"*cpi *\" OR command=\"* cp *\")) OR ((process_path=\"*\\\\robocopy.exe\" OR process_path=\"*\\\\xcopy.exe\") (original_file_name=\"robocopy.exe\" OR original_file_name=\"XCOPY.EXE\"))) (command=\"*\\\\System32*\" OR command=\"*\\\\SysWOW64*\" OR command=\"*\\\\WinSxS*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1036.003"
+  ],
+  "Version": "0.1"
+}

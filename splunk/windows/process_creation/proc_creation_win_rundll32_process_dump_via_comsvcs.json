@@ -1,0 +1,17 @@
+{
+  "Description": "Detects a process memory dump via \"comsvcs.dll\" using rundll32, covering multiple different techniques (ordinal, minidump function, etc.)\n\nAuthor: Florian Roth (Nextron Systems), Modexp, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "646ea171-dded-4578-8a4d-65e9822892e3",
+  "InsertDate": "2025-02-03T20:33:08Z",
+  "LastUpdateDate": "2025-02-03T20:33:08Z",
+  "Level": "high",
+  "Name": "Process Memory Dump Via Comsvcs.DLL",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\rundll32.exe\" original_file_name=\"RUNDLL32.EXE\" command=\"*rundll32*\") ((command=\"*comsvcs*\" command=\"*full*\") (command=\"*#-*\" OR command=\"*#+*\" OR command=\"*#24*\" OR command=\"*24 *\" OR command=\"*MiniDump*\"))) OR ((command=\"*24*\" command=\"*comsvcs*\" command=\"*full*\") (command=\"* #*\" OR command=\"*,#*\" OR command=\"*, #*\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.credential-access",
+    "attack.t1036",
+    "attack.t1003.001",
+    "car.2013-05-009"
+  ],
+  "Version": "0.1"
+}

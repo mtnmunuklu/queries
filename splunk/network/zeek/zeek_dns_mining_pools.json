@@ -1,0 +1,16 @@
+{
+  "Description": "Identifies clients that may be performing DNS lookups associated with common currency mining pools.\n\nAuthor: Saw Winn Naung, Azure-Sentinel, @neu5ron\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "bf74135c-18e8-4a72-a926-0e4f47888c19",
+  "InsertDate": "2025-02-03T20:32:04Z",
+  "LastUpdateDate": "2025-02-03T20:32:04Z",
+  "Level": "low",
+  "Name": "DNS Events Related To Mining Pools",
+  "Query": "sourcetype=\"zeek-dns\" (query=\"*monerohash.com\" OR query=\"*do-dear.com\" OR query=\"*xmrminerpro.com\" OR query=\"*secumine.net\" OR query=\"*xmrpool.com\" OR query=\"*minexmr.org\" OR query=\"*hashanywhere.com\" OR query=\"*xmrget.com\" OR query=\"*mininglottery.eu\" OR query=\"*minergate.com\" OR query=\"*moriaxmr.com\" OR query=\"*multipooler.com\" OR query=\"*moneropools.com\" OR query=\"*xmrpool.eu\" OR query=\"*coolmining.club\" OR query=\"*supportxmr.com\" OR query=\"*minexmr.com\" OR query=\"*hashvault.pro\" OR query=\"*xmrpool.net\" OR query=\"*crypto-pool.fr\" OR query=\"*xmr.pt\" OR query=\"*miner.rocks\" OR query=\"*walpool.com\" OR query=\"*herominers.com\" OR query=\"*gntl.co.uk\" OR query=\"*semipool.com\" OR query=\"*coinfoundry.org\" OR query=\"*cryptoknight.cc\" OR query=\"*fairhash.org\" OR query=\"*baikalmine.com\" OR query=\"*tubepool.xyz\" OR query=\"*fairpool.xyz\" OR query=\"*asiapool.io\" OR query=\"*coinpoolit.webhop.me\" OR query=\"*nanopool.org\" OR query=\"*moneropool.com\" OR query=\"*miner.center\" OR query=\"*prohash.net\" OR query=\"*poolto.be\" OR query=\"*cryptoescrow.eu\" OR query=\"*monerominers.net\" OR query=\"*cryptonotepool.org\" OR query=\"*extrmepool.org\" OR query=\"*webcoin.me\" OR query=\"*kippo.eu\" OR query=\"*hashinvest.ws\" OR query=\"*monero.farm\" OR query=\"*linux-repository-updates.com\" OR query=\"*1gh.com\" OR query=\"*dwarfpool.com\" OR query=\"*hash-to-coins.com\" OR query=\"*pool-proxy.com\" OR query=\"*hashfor.cash\" OR query=\"*fairpool.cloud\" OR query=\"*litecoinpool.org\" OR query=\"*mineshaft.ml\" OR query=\"*abcxyz.stream\" OR query=\"*moneropool.ru\" OR query=\"*cryptonotepool.org.uk\" OR query=\"*extremepool.org\" OR query=\"*extremehash.com\" OR query=\"*hashinvest.net\" OR query=\"*unipool.pro\" OR query=\"*crypto-pools.org\" OR query=\"*monero.net\" OR query=\"*backup-pool.com\" OR query=\"*mooo.com\" OR query=\"*freeyy.me\" OR query=\"*cryptonight.net\" OR query=\"*shscrypto.net\") NOT ((answers=\"127.0.0.1\" OR answers=\"0.0.0.0\") OR rejected=\"true\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1569.002",
+    "attack.impact",
+    "attack.t1496"
+  ],
+  "Version": "0.1"
+}

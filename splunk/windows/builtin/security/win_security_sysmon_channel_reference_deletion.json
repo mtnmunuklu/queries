@@ -1,0 +1,14 @@
+{
+  "Description": "Potential threat actor tampering with Sysmon manifest and eventually disabling it\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "18beca67-ab3e-4ee3-ba7a-a46ca8d7d0cc",
+  "InsertDate": "2025-02-03T20:32:11Z",
+  "LastUpdateDate": "2025-02-03T20:32:11Z",
+  "Level": "high",
+  "Name": "Sysmon Channel Reference Deletion",
+  "Query": "sourcetype=\"windows-security\" (eventid=\"4657\" (objectname=\"*WINEVT\\\\Publishers\\\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9}*\" OR objectname=\"*WINEVT\\\\Channels\\\\Microsoft-Windows-Sysmon/Operational*\") objectvaluename=\"Enabled\" newvalue=\"0\") OR (eventid=\"4663\" (objectname=\"*WINEVT\\\\Publishers\\\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9}*\" OR objectname=\"*WINEVT\\\\Channels\\\\Microsoft-Windows-Sysmon/Operational*\") accessmask=\"65536\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1112"
+  ],
+  "Version": "0.1"
+}

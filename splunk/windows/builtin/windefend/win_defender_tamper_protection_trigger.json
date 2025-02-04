@@ -1,0 +1,14 @@
+{
+  "Description": "Detects blocked attempts to change any of Defender's settings such as \"Real Time Monitoring\" and \"Behavior Monitoring\"\n\nAuthor: Bhabesh Raj, Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "49e5bc24-8b86-49f1-b743-535f332c2856",
+  "InsertDate": "2025-02-03T20:32:14Z",
+  "LastUpdateDate": "2025-02-03T20:32:14Z",
+  "Level": "high",
+  "Name": "Microsoft Defender Tamper Protection Trigger",
+  "Query": "sourcetype=\"windows-windefend\" eventid=\"5013\" (value=\"*\\\\Windows Defender\\\\DisableAntiSpyware\" OR value=\"*\\\\Windows Defender\\\\DisableAntiVirus\" OR value=\"*\\\\Windows Defender\\\\Scan\\\\DisableArchiveScanning\" OR value=\"*\\\\Windows Defender\\\\Scan\\\\DisableScanningNetworkFiles\" OR value=\"*\\\\Real-Time Protection\\\\DisableRealtimeMonitoring\" OR value=\"*\\\\Real-Time Protection\\\\DisableBehaviorMonitoring\" OR value=\"*\\\\Real-Time Protection\\\\DisableIOAVProtection\" OR value=\"*\\\\Real-Time Protection\\\\DisableScriptScanning\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

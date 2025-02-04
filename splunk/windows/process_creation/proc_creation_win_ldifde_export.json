@@ -1,0 +1,13 @@
+{
+  "Description": "Detects the execution of \"ldifde.exe\" in order to export organizational Active Directory structure.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4f7a6757-ff79-46db-9687-66501a02d9ec",
+  "InsertDate": "2025-02-03T20:32:48Z",
+  "LastUpdateDate": "2025-02-03T20:32:48Z",
+  "Level": "medium",
+  "Name": "Active Directory Structure Export Via Ldifde.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*-f*\" (process_path=\"*\\\\ldifde.exe\" original_file_name=\"ldifde.exe\")) NOT command=\"* -i*\"",
+  "Tags": [
+    "attack.exfiltration"
+  ],
+  "Version": "0.1"
+}

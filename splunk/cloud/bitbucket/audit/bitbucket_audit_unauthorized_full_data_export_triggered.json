@@ -1,0 +1,16 @@
+{
+  "Description": "Detects when full data export is attempted an unauthorized user.\n\nAuthor: Muhammad Faisal (@faisalusuf)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "34d81081-03c9-4a7f-91c9-5e46af625cde",
+  "InsertDate": "2025-02-03T20:31:54Z",
+  "LastUpdateDate": "2025-02-03T20:31:54Z",
+  "Level": "critical",
+  "Name": "Bitbucket Unauthorized Full Data Export Triggered",
+  "Query": "sourcetype=\"bitbucket-audit\" audittype.category=\"Data pipeline\" audittype.action=\"Unauthorized full data export triggered\"",
+  "Tags": [
+    "attack.collection",
+    "attack.resource-development",
+    "attack.t1213.003",
+    "attack.t1586"
+  ],
+  "Version": "0.1"
+}

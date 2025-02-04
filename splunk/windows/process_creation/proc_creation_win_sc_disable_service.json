@@ -1,0 +1,15 @@
+{
+  "Description": "Detect the use of \"sc.exe\" to change the startup type of a service to \"disabled\" or \"demand\"\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "85c312b7-f44d-4a51-a024-d671c40b49fc",
+  "InsertDate": "2025-02-03T20:33:09Z",
+  "LastUpdateDate": "2025-02-03T20:33:09Z",
+  "Level": "medium",
+  "Name": "Service StartupType Change Via Sc.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\sc.exe\" original_file_name=\"sc.exe\") ((command=\"* config *\" command=\"*start*\") (command=\"*disabled*\" OR command=\"*demand*\"))",
+  "Tags": [
+    "attack.execution",
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

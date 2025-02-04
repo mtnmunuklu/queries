@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of a shell (powershell, bash, wsl...) via Visual Studio Code tunnel. Attackers can abuse this functionality to establish a C2 channel and execute arbitrary commands on the system.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f4a623c2-4ef5-4c33-b811-0642f702c9f1",
+  "InsertDate": "2025-02-03T20:33:23Z",
+  "LastUpdateDate": "2025-02-03T20:33:23Z",
+  "Level": "medium",
+  "Name": "Visual Studio Code Tunnel Shell Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (parent_process_path=\"*\\\\servers\\\\Stable-*\" parent_process_path=\"*\\\\server\\\\node.exe\" parent_command_line=\"*.vscode-server*\") ((process_path=\"*\\\\wsl.exe\" OR process_path=\"*\\\\bash.exe\") OR ((process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\") command=\"*\\\\terminal\\\\browser\\\\media\\\\shellIntegration.ps1*\"))",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1071.001"
+  ],
+  "Version": "0.1"
+}

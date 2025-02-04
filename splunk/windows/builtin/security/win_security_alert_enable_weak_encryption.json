@@ -1,0 +1,14 @@
+{
+  "Description": "Detects scenario where weak encryption is enabled for a user profile which could be used for hash/password cracking.\n\nAuthor: @neu5ron\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f6de9536-0441-4b3f-a646-f4e00f300ffd",
+  "InsertDate": "2025-02-03T20:32:09Z",
+  "LastUpdateDate": "2025-02-03T20:32:09Z",
+  "Level": "high",
+  "Name": "Weak Encryption Enabled and Kerberoast",
+  "Query": "sourcetype=\"windows-security\" eventid=\"4738\" (((newuacvalue=\"*8???\" OR newuacvalue=\"*9???\" OR newuacvalue=\"*A???\" OR newuacvalue=\"*B???\" OR newuacvalue=\"*C???\" OR newuacvalue=\"*D???\" OR newuacvalue=\"*E???\" OR newuacvalue=\"*F???\") NOT (olduacvalue=\"*8???\" OR olduacvalue=\"*9???\" OR olduacvalue=\"*A???\" OR olduacvalue=\"*B???\" OR olduacvalue=\"*C???\" OR olduacvalue=\"*D???\" OR olduacvalue=\"*E???\" OR olduacvalue=\"*F???\")) OR ((newuacvalue=\"*1????\" OR newuacvalue=\"*3????\" OR newuacvalue=\"*5????\" OR newuacvalue=\"*7????\" OR newuacvalue=\"*9????\" OR newuacvalue=\"*B????\" OR newuacvalue=\"*D????\" OR newuacvalue=\"*F????\") NOT (olduacvalue=\"*1????\" OR olduacvalue=\"*3????\" OR olduacvalue=\"*5????\" OR olduacvalue=\"*7????\" OR olduacvalue=\"*9????\" OR olduacvalue=\"*B????\" OR olduacvalue=\"*D????\" OR olduacvalue=\"*F????\")) OR ((newuacvalue=\"*8??\" OR newuacvalue=\"*9??\" OR newuacvalue=\"*A??\" OR newuacvalue=\"*B??\" OR newuacvalue=\"*C??\" OR newuacvalue=\"*D??\" OR newuacvalue=\"*E??\" OR newuacvalue=\"*F??\") NOT (olduacvalue=\"*8??\" OR olduacvalue=\"*9??\" OR olduacvalue=\"*A??\" OR olduacvalue=\"*B??\" OR olduacvalue=\"*C??\" OR olduacvalue=\"*D??\" OR olduacvalue=\"*E??\" OR olduacvalue=\"*F??\")))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

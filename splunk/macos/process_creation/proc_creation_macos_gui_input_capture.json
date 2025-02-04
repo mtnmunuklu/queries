@@ -1,0 +1,14 @@
+{
+  "Description": "Detects attempts to use system dialog prompts to capture user credentials\n\nAuthor: remotephone, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "60f1ce20-484e-41bd-85f4-ac4afec2c541",
+  "InsertDate": "2025-02-03T20:32:02Z",
+  "LastUpdateDate": "2025-02-03T20:32:02Z",
+  "Level": "low",
+  "Name": "GUI Input Capture - macOS",
+  "Query": "sourcetype=\"macos-*\" (command=\"*admin*\" OR command=\"*administrator*\" OR command=\"*authenticate*\" OR command=\"*authentication*\" OR command=\"*credentials*\" OR command=\"*pass*\" OR command=\"*password*\" OR command=\"*unlock*\") process_path=\"/usr/sbin/osascript\" (command=\"*-e*\" command=\"*display*\" command=\"*dialog*\" command=\"*answer*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1056.002"
+  ],
+  "Version": "0.1"
+}

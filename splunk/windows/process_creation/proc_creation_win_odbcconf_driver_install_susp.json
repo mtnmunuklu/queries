@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of \"odbcconf\" with the \"INSTALLDRIVER\" action where the driver doesn't contain a \".dll\" extension. This is often used as a defense evasion method.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "cb0fe7c5-f3a3-484d-aa25-d350a7912729",
+  "InsertDate": "2025-02-03T20:32:53Z",
+  "LastUpdateDate": "2025-02-03T20:32:53Z",
+  "Level": "high",
+  "Name": "Suspicious Driver/DLL Installation Via Odbcconf.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*INSTALLDRIVER *\" (process_path=\"*\\\\odbcconf.exe\" original_file_name=\"odbcconf.exe\")) NOT command=\"*.dll*\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.008"
+  ],
+  "Version": "0.1"
+}

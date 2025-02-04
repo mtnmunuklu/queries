@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the creation of a named pipe seen used by known APTs or malware.\n\nAuthor: Florian Roth (Nextron Systems), blueteam0ps, elhoim\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fe3ac066-98bb-432a-b1e7-a5229cb39d4a",
+  "InsertDate": "2025-02-03T20:32:26Z",
+  "LastUpdateDate": "2025-02-03T20:32:26Z",
+  "Level": "critical",
+  "Name": "Malicious Named Pipe Created",
+  "Query": "sourcetype=\"windows-*\" (pipe_name=\"\\\\46a676ab7f179e511e30dd2dc41bd388\" OR pipe_name=\"\\\\583da945-62af-10e8-4902-a8f205c72b2e\" OR pipe_name=\"\\\\6e7645c4-32c5-4fe3-aabf-e94c2f4370e7\" OR pipe_name=\"\\\\9f81f59bc58452127884ce513865ed20\" OR pipe_name=\"\\\\adschemerpc\" OR pipe_name=\"\\\\ahexec\" OR pipe_name=\"\\\\AnonymousPipe\" OR pipe_name=\"\\\\bc31a7\" OR pipe_name=\"\\\\bc367\" OR pipe_name=\"\\\\bizkaz\" OR pipe_name=\"\\\\csexecsvc\" OR pipe_name=\"\\\\dce_3d\" OR pipe_name=\"\\\\e710f28d59aa529d6792ca6ff0ca1b34\" OR pipe_name=\"\\\\gruntsvc\" OR pipe_name=\"\\\\isapi_dg\" OR pipe_name=\"\\\\isapi_dg2\" OR pipe_name=\"\\\\isapi_http\" OR pipe_name=\"\\\\jaccdpqnvbrrxlaf\" OR pipe_name=\"\\\\lsassw\" OR pipe_name=\"\\\\NamePipe_MoreWindows\" OR pipe_name=\"\\\\pcheap_reuse\" OR pipe_name=\"\\\\Posh*\" OR pipe_name=\"\\\\rpchlp_3\" OR pipe_name=\"\\\\sdlrpc\" OR pipe_name=\"\\\\svcctl\" OR pipe_name=\"\\\\testPipe\" OR pipe_name=\"\\\\winsession\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1055"
+  ],
+  "Version": "0.1"
+}

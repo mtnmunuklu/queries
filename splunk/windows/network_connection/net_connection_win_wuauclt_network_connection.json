@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of the Windows Update Client binary (wuauclt.exe) to proxy execute code and making network connections.\nOne could easily make the DLL spawn a new process and inject to it to proxy the network connection and bypass this rule.\n\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c649a6c7-cd8c-4a78-9c04-000fc76df954",
+  "InsertDate": "2025-02-03T20:32:26Z",
+  "LastUpdateDate": "2025-02-03T20:32:26Z",
+  "Level": "medium",
+  "Name": "Potentially Suspicious Wuauclt Network Connection",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*wuauclt*\" command=\"* /RunHandlerComServer*\") NOT ((command=\"*:\\\\Windows\\\\UUS\\\\Packages\\\\Preview\\\\amd64\\\\updatedeploy.dll /ClassId*\" OR command=\"*:\\\\Windows\\\\UUS\\\\amd64\\\\UpdateDeploy.dll /ClassId*\") OR (command=\"*:\\\\Windows\\\\WinSxS\\\\*\" command=\"*\\\\UpdateDeploy.dll /ClassId *\") OR command=\"null\" OR command=\"\" OR (dst_ip=\"127.0.0.0/8\" OR dst_ip=\"10.0.0.0/8\" OR dst_ip=\"169.254.0.0/16\" OR dst_ip=\"172.16.0.0/12\" OR dst_ip=\"192.168.0.0/16\" OR dst_ip=\"::1/128\" OR dst_ip=\"fe80::/10\" OR dst_ip=\"fc00::/7\") OR (dst_ip=\"20.184.0.0/13\" OR dst_ip=\"20.192.0.0/10\" OR dst_ip=\"23.79.0.0/16\" OR dst_ip=\"51.10.0.0/15\" OR dst_ip=\"51.103.0.0/16\" OR dst_ip=\"51.104.0.0/15\" OR dst_ip=\"52.224.0.0/11\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

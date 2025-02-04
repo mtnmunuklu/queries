@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potentially suspicious child processes of a ClickOnce deployment application\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "67bc0e75-c0a9-4cfc-8754-84a505b63c04",
+  "InsertDate": "2025-02-03T20:32:40Z",
+  "LastUpdateDate": "2025-02-03T20:32:40Z",
+  "Level": "medium",
+  "Name": "Potentially Suspicious Child Process Of ClickOnce Application",
+  "Query": "sourcetype=\"windows-sysmon\" parent_process_path=\"*\\\\AppData\\\\Local\\\\Apps\\\\2.0\\\\*\" (process_path=\"*\\\\calc.exe\" OR process_path=\"*\\\\cmd.exe\" OR process_path=\"*\\\\cscript.exe\" OR process_path=\"*\\\\explorer.exe\" OR process_path=\"*\\\\mshta.exe\" OR process_path=\"*\\\\net.exe\" OR process_path=\"*\\\\net1.exe\" OR process_path=\"*\\\\nltest.exe\" OR process_path=\"*\\\\notepad.exe\" OR process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\" OR process_path=\"*\\\\reg.exe\" OR process_path=\"*\\\\regsvr32.exe\" OR process_path=\"*\\\\rundll32.exe\" OR process_path=\"*\\\\schtasks.exe\" OR process_path=\"*\\\\werfault.exe\" OR process_path=\"*\\\\wscript.exe\")",
+  "Tags": [
+    "attack.execution",
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

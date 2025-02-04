@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of regsvr32 where the DLL is located in a highly suspicious locations\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "327ff235-94eb-4f06-b9de-aaee571324be",
+  "InsertDate": "2025-02-03T20:33:05Z",
+  "LastUpdateDate": "2025-02-03T20:33:05Z",
+  "Level": "high",
+  "Name": "Regsvr32 Execution From Highly Suspicious Location",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\regsvr32.exe\" original_file_name=\"REGSVR32.EXE\") ((command=\"*:\\\\PerfLogs\\\\*\" OR command=\"*:\\\\Temp\\\\*\" OR command=\"*\\\\Windows\\\\Registration\\\\CRMLog*\" OR command=\"*\\\\Windows\\\\System32\\\\com\\\\dmp\\\\*\" OR command=\"*\\\\Windows\\\\System32\\\\FxsTmp\\\\*\" OR command=\"*\\\\Windows\\\\System32\\\\Microsoft\\\\Crypto\\\\RSA\\\\MachineKeys\\\\*\" OR command=\"*\\\\Windows\\\\System32\\\\spool\\\\drivers\\\\color\\\\*\" OR command=\"*\\\\Windows\\\\System32\\\\spool\\\\PRINTERS\\\\*\" OR command=\"*\\\\Windows\\\\System32\\\\spool\\\\SERVERS\\\\*\" OR command=\"*\\\\Windows\\\\System32\\\\Tasks_Migrated\\\\*\" OR command=\"*\\\\Windows\\\\System32\\\\Tasks\\\\Microsoft\\\\Windows\\\\SyncCenter\\\\*\" OR command=\"*\\\\Windows\\\\SysWOW64\\\\com\\\\dmp\\\\*\" OR command=\"*\\\\Windows\\\\SysWOW64\\\\FxsTmp\\\\*\" OR command=\"*\\\\Windows\\\\SysWOW64\\\\Tasks\\\\Microsoft\\\\Windows\\\\PLA\\\\System\\\\*\" OR command=\"*\\\\Windows\\\\SysWOW64\\\\Tasks\\\\Microsoft\\\\Windows\\\\SyncCenter\\\\*\" OR command=\"*\\\\Windows\\\\Tasks\\\\*\" OR command=\"*\\\\Windows\\\\Tracing\\\\*\") OR ((command=\"* \"C:\\\\*\" OR command=\"* C:\\\\*\" OR command=\"* 'C:\\\\*\" OR command=\"*D:\\\\*\") NOT (command=\"*C:\\\\Program Files (x86)\\\\*\" OR command=\"*C:\\\\Program Files\\\\*\" OR command=\"*C:\\\\ProgramData\\\\*\" OR command=\"*C:\\\\Users\\\\*\" OR command=\"* C:\\\\Windows\\\\*\" OR command=\"* \"C:\\\\Windows\\\\*\" OR command=\"* 'C:\\\\Windows\\\\*\"))) NOT (command=\"\" OR command=\"null\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.010"
+  ],
+  "Version": "0.1"
+}

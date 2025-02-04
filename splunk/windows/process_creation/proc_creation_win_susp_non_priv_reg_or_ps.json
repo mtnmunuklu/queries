@@ -1,0 +1,14 @@
+{
+  "Description": "Search for usage of reg or Powershell by non-privileged users to modify service configuration in registry\n\nAuthor: Teymur Kheirkhabarov (idea), Ryan Plas (rule), oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8f02c935-effe-45b3-8fc9-ef8696a9e41d",
+  "InsertDate": "2025-02-03T20:33:15Z",
+  "LastUpdateDate": "2025-02-03T20:33:15Z",
+  "Level": "high",
+  "Name": "Non-privileged Usage of Reg or Powershell",
+  "Query": "sourcetype=\"windows-sysmon\" ((command=\"*reg *\" command=\"*add*\") (command=\"*powershell*\" OR command=\"*set-itemproperty*\" OR command=\"* sp *\" OR command=\"*new-itemproperty*\")) ((integrity_level=\"Medium\" OR integrity_level=\"S-1-16-8192\") (command=\"*ControlSet*\" command=\"*Services*\") (command=\"*ImagePath*\" OR command=\"*FailureCommand*\" OR command=\"*ServiceDLL*\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1112"
+  ],
+  "Version": "0.1"
+}

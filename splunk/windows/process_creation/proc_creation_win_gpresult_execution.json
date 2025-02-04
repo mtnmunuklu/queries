@@ -1,0 +1,14 @@
+{
+  "Description": "Detects cases in which a user uses the built-in Windows utility gpresult to display the Resultant Set of Policy (RSoP) information\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e56d3073-83ff-4021-90fe-c658e0709e72",
+  "InsertDate": "2025-02-03T20:32:43Z",
+  "LastUpdateDate": "2025-02-03T20:32:43Z",
+  "Level": "medium",
+  "Name": "Gpresult Display Group Policy Information",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\gpresult.exe\" (command=\"*/z*\" OR command=\"*/v*\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1615"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects msdt.exe creating files in suspicious directories which could be a sign of exploitation of either Follina or Dogwalk vulnerabilities\n\nAuthor: Vadim Varganov, Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "318557a5-150c-4c8d-b70e-a9910e199857",
+  "InsertDate": "2025-02-03T20:32:18Z",
+  "LastUpdateDate": "2025-02-03T20:32:18Z",
+  "Level": "high",
+  "Name": "File Creation In Suspicious Directory By Msdt.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\msdt.exe\" (filepath=\"*\\\\Desktop\\\\*\" OR filepath=\"*\\\\Start Menu\\\\Programs\\\\Startup\\\\*\" OR filepath=\"*C:\\\\PerfLogs\\\\*\" OR filepath=\"*C:\\\\ProgramData\\\\*\" OR filepath=\"*C:\\\\Users\\\\Public\\\\*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1547.001",
+    "cve.2022-30190"
+  ],
+  "Version": "0.1"
+}

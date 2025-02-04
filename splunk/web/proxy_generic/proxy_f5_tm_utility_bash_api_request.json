@@ -1,0 +1,14 @@
+{
+  "Description": "Detects POST requests to the F5 BIG-IP iControl Rest API \"bash\" endpoint, which allows the execution of commands on the BIG-IP\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Thurein Oo\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b59c98c6-95e8-4d65-93ee-f594dfb96b17",
+  "InsertDate": "2025-02-03T20:32:04Z",
+  "LastUpdateDate": "2025-02-03T20:32:04Z",
+  "Level": "medium",
+  "Name": "F5 BIG-IP iControl Rest API Command Execution - Proxy",
+  "Query": "cs-method=\"POST\" c-uri=\"*/mgmt/tm/util/bash\"",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1190"
+  ],
+  "Version": "0.1"
+}

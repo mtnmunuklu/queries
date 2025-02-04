@@ -1,0 +1,16 @@
+{
+  "Description": "Detects potential DLL sideloading of \"waveedit.dll\", which is part of the Nero WaveEditor audio editing software.\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "71b31e99-9ad0-47d4-aeb5-c0ca3928eeeb",
+  "InsertDate": "2025-02-03T20:32:23Z",
+  "LastUpdateDate": "2025-02-03T20:32:23Z",
+  "Level": "high",
+  "Name": "Potential Waveedit.DLL Sideloading",
+  "Query": "sourcetype=\"windows-sysmon\" image_loaded=\"*\\\\waveedit.dll\" NOT ((process_path=\"C:\\\\Program Files (x86)\\\\Nero\\\\Nero Apps\\\\Nero WaveEditor\\\\waveedit.exe\" OR process_path=\"C:\\\\Program Files\\\\Nero\\\\Nero Apps\\\\Nero WaveEditor\\\\waveedit.exe\") (image_loaded=\"C:\\\\Program Files (x86)\\\\Nero\\\\Nero Apps\\\\Nero WaveEditor\\\\*\" OR image_loaded=\"C:\\\\Program Files\\\\Nero\\\\Nero Apps\\\\Nero WaveEditor\\\\*\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

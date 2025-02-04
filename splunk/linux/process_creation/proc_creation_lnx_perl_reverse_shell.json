@@ -1,0 +1,13 @@
+{
+  "Description": "Detects execution of the perl binary with the \"-e\" flag and common strings related to potential reverse shell activity\n\nAuthor: @d4ns4n_, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "259df6bc-003f-4306-9f54-4ff1a08fa38e",
+  "InsertDate": "2025-02-03T20:31:59Z",
+  "LastUpdateDate": "2025-02-03T20:31:59Z",
+  "Level": "high",
+  "Name": "Potential Perl Reverse Shell Execution",
+  "Query": "sourcetype=\"linux-*\" (process_path=\"*/perl\" command=\"* -e *\") ((command=\"*fdopen(*\" command=\"*::Socket::INET*\") (command=\"*Socket*\" command=\"*connect*\" command=\"*open*\" command=\"*exec*\"))",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

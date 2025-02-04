@@ -1,0 +1,13 @@
+{
+  "Description": "Detects command that type the content of ntdll.dll to a different file or a pipe in order to evade AV / EDR detection. As seen being used in the POC NtdllPipe\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "bbc865e4-7fcd-45a6-8ff1-95ced28ec5b2",
+  "InsertDate": "2025-02-03T20:32:39Z",
+  "LastUpdateDate": "2025-02-03T20:32:39Z",
+  "Level": "high",
+  "Name": "NtdllPipe Like Activity Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*type %windir%\\\\system32\\\\ntdll.dll*\" OR command=\"*type %systemroot%\\\\system32\\\\ntdll.dll*\" OR command=\"*type c:\\\\windows\\\\system32\\\\ntdll.dll*\" OR command=\"*\\\\\\\\ntdll.dll \u003e \\\\\\\\\\\\\\\\.\\\\\\\\pipe\\\\\\\\*\")",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

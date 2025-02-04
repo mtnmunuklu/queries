@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious change of file privileges with chown and chmod commands\n\nAuthor: Ömer Günal\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c21c4eaa-ba2e-419a-92b2-8371703cbe21",
+  "InsertDate": "2025-02-03T20:32:00Z",
+  "LastUpdateDate": "2025-02-03T20:32:00Z",
+  "Level": "low",
+  "Name": "Setuid and Setgid",
+  "Query": "sourcetype=\"linux-*\" command=\"*chown root*\" (command=\"* chmod u+s*\" OR command=\"* chmod g+s*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1548.001"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,13 @@
+{
+  "Description": "Detects a highly relevant Antivirus alert that reports ransomware.\nThis event must not be ignored just because the AV has blocked the malware but investigate, how it came there in the first place.\n\n\nAuthor: Florian Roth (Nextron Systems), Arnim Rupp\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4c6ca276-d4d0-4a8c-9e4c-d69832f8671f",
+  "InsertDate": "2025-02-03T20:31:50Z",
+  "LastUpdateDate": "2025-02-03T20:31:50Z",
+  "Level": "critical",
+  "Name": "Antivirus Ransomware Detection",
+  "Query": "(signature=\"*BlackWorm*\" OR signature=\"*Chaos*\" OR signature=\"*Cobra*\" OR signature=\"*ContiCrypt*\" OR signature=\"*Crypter*\" OR signature=\"*CRYPTES*\" OR signature=\"*Cryptor*\" OR signature=\"*CylanCrypt*\" OR signature=\"*DelShad*\" OR signature=\"*Destructor*\" OR signature=\"*Filecoder*\" OR signature=\"*GandCrab*\" OR signature=\"*GrandCrab*\" OR signature=\"*Haperlock*\" OR signature=\"*Hiddentear*\" OR signature=\"*HydraCrypt*\" OR signature=\"*Krypt*\" OR signature=\"*Lockbit*\" OR signature=\"*Locker*\" OR signature=\"*Mallox*\" OR signature=\"*Phobos*\" OR signature=\"*Ransom*\" OR signature=\"*Ryuk*\" OR signature=\"*Ryzerlo*\" OR signature=\"*Stopcrypt*\" OR signature=\"*Tescrypt*\" OR signature=\"*TeslaCrypt*\" OR signature=\"*WannaCry*\" OR signature=\"*Xorist*\")",
+  "Tags": [
+    "attack.t1486"
+  ],
+  "Version": "0.1"
+}

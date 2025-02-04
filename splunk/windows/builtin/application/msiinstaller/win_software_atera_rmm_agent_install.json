@@ -1,0 +1,13 @@
+{
+  "Description": "Detects successful installation of Atera Remote Monitoring \u0026 Management (RMM) agent as recently found to be used by Conti operators\n\nAuthor: Bhabesh Raj\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "87261fb2-69d0-42fe-b9de-88c6b5f65a43",
+  "InsertDate": "2025-02-03T20:32:06Z",
+  "LastUpdateDate": "2025-02-03T20:32:06Z",
+  "Level": "high",
+  "Name": "Atera Agent Installation",
+  "Query": "sourcetype=\"windows-application\" eventid=\"1033\" provider_name=\"MsiInstaller\" message=\"*AteraAgent*\"",
+  "Tags": [
+    "attack.t1219"
+  ],
+  "Version": "0.1"
+}

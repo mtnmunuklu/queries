@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the execution of \"reg.exe\" to alter registry keys that would replace the user's desktop background.\nThis is a common technique used by malware to change the desktop background to a ransom note or other image.\n\n\nAuthor: Stephen Lincoln @slincoln-aiq (AttackIQ)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8cbc9475-8d05-4e27-9c32-df960716c701",
+  "InsertDate": "2025-02-03T20:33:02Z",
+  "LastUpdateDate": "2025-02-03T20:33:02Z",
+  "Level": "medium",
+  "Name": "Potentially Suspicious Desktop Background Change Using Reg.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\reg.exe\" original_file_name=\"reg.exe\") command=\"*add*\") (command=\"*Control Panel\\\\Desktop*\" OR command=\"*CurrentVersion\\\\Policies\\\\ActiveDesktop*\" OR command=\"*CurrentVersion\\\\Policies\\\\System*\") ((command=\"*/v Wallpaper*\" command=\"*/t REG_SZ*\") OR (command=\"*/v WallpaperStyle*\" command=\"*/d 2*\") OR (command=\"*/v NoChangingWallpaper*\" command=\"*/d 1*\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.impact",
+    "attack.t1112",
+    "attack.t1491.001"
+  ],
+  "Version": "0.1"
+}

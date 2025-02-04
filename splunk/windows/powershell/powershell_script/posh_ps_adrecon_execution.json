@@ -1,0 +1,15 @@
+{
+  "Description": "Detects execution of ADRecon.ps1 for AD reconnaissance which has been reported to be actively used by FIN7\n\nAuthor: Bhabesh Raj\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "bf72941a-cba0-41ea-b18c-9aca3925690d",
+  "InsertDate": "2025-02-03T20:32:28Z",
+  "LastUpdateDate": "2025-02-03T20:32:28Z",
+  "Level": "high",
+  "Name": "PowerShell ADRecon Execution",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*Function Get-ADRExcelComOb*\" OR scriptblocktext=\"*Get-ADRGPO*\" OR scriptblocktext=\"*Get-ADRDomainController*\" OR scriptblocktext=\"*ADRecon-Report.xlsx*\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

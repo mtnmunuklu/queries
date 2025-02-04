@@ -1,0 +1,15 @@
+{
+  "Description": "Monitor and alert for changes to the device registration policy.\n\nAuthor: Michael Epping, '@mepples21'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9494bff8-959f-4440-bbce-fb87a208d517",
+  "InsertDate": "2025-02-03T20:31:52Z",
+  "LastUpdateDate": "2025-02-03T20:31:52Z",
+  "Level": "high",
+  "Name": "Changes to Device Registration Policy",
+  "Query": "sourcetype=\"azure-auditlogs\" category=\"Policy\" activitydisplayname=\"Set device registration policies\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1484"
+  ],
+  "Version": "0.1"
+}

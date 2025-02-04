@@ -1,0 +1,17 @@
+{
+  "Description": "Detects the usage of \"reg.exe\" in order to dump sensitive registry hives. This includes SAM, SYSTEM and SECURITY hives.\n\nAuthor: Teymur Kheirkhabarov, Endgame, JHasenbusch, Daniil Yugoslavskiy, oscd.community, frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fd877b94-9bb5-4191-bb25-d79cbd93c167",
+  "InsertDate": "2025-02-03T20:33:02Z",
+  "LastUpdateDate": "2025-02-03T20:33:02Z",
+  "Level": "high",
+  "Name": "Dumping of Sensitive Hives Via Reg.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\reg.exe\" original_file_name=\"reg.exe\") (command=\"* save *\" OR command=\"* export *\" OR command=\"* ˢave *\" OR command=\"* eˣport *\") (command=\"*hklm*\" OR command=\"*hk˪m*\" OR command=\"*hkey_local_machine*\" OR command=\"*hkey_˪ocal_machine*\" OR command=\"*hkey_loca˪_machine*\" OR command=\"*hkey_˪oca˪_machine*\") (command=\"*\\\\system*\" OR command=\"*\\\\sam*\" OR command=\"*\\\\security*\" OR command=\"*\\\\ˢystem*\" OR command=\"*\\\\syˢtem*\" OR command=\"*\\\\ˢyˢtem*\" OR command=\"*\\\\ˢam*\" OR command=\"*\\\\ˢecurity*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.002",
+    "attack.t1003.004",
+    "attack.t1003.005",
+    "car.2013-07-001"
+  ],
+  "Version": "0.1"
+}

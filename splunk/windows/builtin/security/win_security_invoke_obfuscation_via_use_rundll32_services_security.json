@@ -1,0 +1,16 @@
+{
+  "Description": "Detects Obfuscated Powershell via use Rundll32 in Scripts\n\nAuthor: Nikita Nazarov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "cd0f7229-d16f-42de-8fe3-fba365fbcb3a",
+  "InsertDate": "2025-02-03T20:32:10Z",
+  "LastUpdateDate": "2025-02-03T20:32:10Z",
+  "Level": "high",
+  "Name": "Invoke-Obfuscation Via Use Rundll32 - Security",
+  "Query": "sourcetype=\"windows-security\" eventid=\"4697\" (servicefilename=\"*\u0026\u0026*\" servicefilename=\"*rundll32*\" servicefilename=\"*shell32.dll*\" servicefilename=\"*shellexec_rundll*\") (servicefilename=\"*value*\" OR servicefilename=\"*invoke*\" OR servicefilename=\"*comspec*\" OR servicefilename=\"*iex*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1027",
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,13 @@
+{
+  "Description": "Detects the creation of a suspicious ADS (Alternate Data Stream) file by software other than browsers\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "573df571-a223-43bc-846e-3f98da481eca",
+  "InsertDate": "2025-02-03T20:32:15Z",
+  "LastUpdateDate": "2025-02-03T20:32:15Z",
+  "Level": "medium",
+  "Name": "Creation Of a Suspicious ADS File Outside a Browser Download",
+  "Query": "sourcetype=\"windows-*\" (contents=\"[ZoneTransfer]  ZoneId=3*\" filepath=\"*:Zone.Identifier\" (filepath=\"*.exe*\" OR filepath=\"*.scr*\" OR filepath=\"*.bat*\" OR filepath=\"*.cmd*\" OR filepath=\"*.docx*\" OR filepath=\"*.hta*\" OR filepath=\"*.jse*\" OR filepath=\"*.lnk*\" OR filepath=\"*.pptx*\" OR filepath=\"*.ps*\" OR filepath=\"*.reg*\" OR filepath=\"*.sct*\" OR filepath=\"*.vb*\" OR filepath=\"*.wsc*\" OR filepath=\"*.wsf*\" OR filepath=\"*.xlsx*\")) NOT (process_path=\"*\\\\whale.exe\" OR (process_path=\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" OR process_path=\"C:\\\\Program Files (x86)\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\") OR process_path=\"*\\\\maxthon.exe\" OR (process_path=\"C:\\\\Program Files (x86)\\\\Microsoft\\\\EdgeWebView\\\\Application\\\\*\" process_path=\"*\\\\WindowsApps\\\\MicrosoftEdge.exe\" (process_path=\"C:\\\\Program Files (x86)\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe\" OR process_path=\"C:\\\\Program Files\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe\")) OR process_path=\"*\\\\opera.exe\" OR process_path=\"*\\\\vivaldi.exe\" OR process_path=\"*\\\\seamonkey.exe\" OR (process_path=\"C:\\\\Program Files\\\\Mozilla Firefox\\\\firefox.exe\" OR process_path=\"C:\\\\Program Files (x86)\\\\Mozilla Firefox\\\\firefox.exe\") OR (process_path=\"C:\\\\Program Files (x86)\\\\Internet Explorer\\\\iexplore.exe\" OR process_path=\"C:\\\\Program Files\\\\Internet Explorer\\\\iexplore.exe\") OR process_path=\"*\\\\safari.exe\" OR process_path=\"*\\\\brave.exe\" OR ((process_path=\"C:\\\\Program Files (x86)\\\\Microsoft\\\\EdgeCore\\\\*\" OR process_path=\"C:\\\\Program Files\\\\Microsoft\\\\EdgeCore\\\\*\") (process_path=\"*\\\\msedge.exe\" OR process_path=\"*\\\\msedgewebview2.exe\")) OR (process_path=\"C:\\\\Program Files\\\\WindowsApps\\\\Microsoft.ScreenSketch_*\" process_path=\"*\\\\SnippingTool\\\\SnippingTool.exe\" filepath=\"C:\\\\Users\\\\*\" (filepath=\"*\\\\AppData\\\\Local\\\\Packages\\\\Microsoft.ScreenSketch_*\" filepath=\"*\\\\TempState\\\\Screenshot *\") filepath=\"*.png:Zone.Identifier\"))",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

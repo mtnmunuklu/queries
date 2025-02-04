@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the execution of \".xbap\" (Browser Applications) files via PresentationHost.EXE from an uncommon location. These files can be abused to run malicious \".xbap\" files any bypass AWL\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d22e2925-cfd8-463f-96f6-89cec9d9bc5f",
+  "InsertDate": "2025-02-03T20:32:59Z",
+  "LastUpdateDate": "2025-02-03T20:32:59Z",
+  "Level": "medium",
+  "Name": "XBAP Execution From Uncommon Locations Via PresentationHost.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\presentationhost.exe\" original_file_name=\"PresentationHost.exe\") command=\"*.xbap*\") NOT (command=\"* C:\\\\Windows\\\\*\" OR command=\"* C:\\\\Program Files*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

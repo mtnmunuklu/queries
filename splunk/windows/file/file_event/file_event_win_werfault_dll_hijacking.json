@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the creation of a file named \"WerFault.exe\" or \"wer.dll\" in an uncommon folder, which could be a sign of WerFault DLL hijacking.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "28a452f3-786c-4fd8-b8f2-bddbe9d616d1",
+  "InsertDate": "2025-02-03T20:32:21Z",
+  "LastUpdateDate": "2025-02-03T20:32:21Z",
+  "Level": "medium",
+  "Name": "Creation of WerFault.exe/Wer.dll in Unusual Folder",
+  "Query": "sourcetype=\"windows-sysmon\" (filepath=\"*\\\\WerFault.exe\" OR filepath=\"*\\\\wer.dll\") NOT (filepath=\"C:\\\\Windows\\\\SoftwareDistribution\\\\*\" OR filepath=\"C:\\\\Windows\\\\System32\\\\*\" OR filepath=\"C:\\\\Windows\\\\SysWOW64\\\\*\" OR filepath=\"C:\\\\Windows\\\\WinSxS\\\\*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.defense-evasion",
+    "attack.t1574.001"
+  ],
+  "Version": "0.1"
+}

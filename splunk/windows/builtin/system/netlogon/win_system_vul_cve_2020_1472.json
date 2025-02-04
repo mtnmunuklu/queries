@@ -1,0 +1,14 @@
+{
+  "Description": "Detects that a vulnerable Netlogon secure channel connection was allowed, which could be an indicator of CVE-2020-1472.\n\nAuthor: NVISO\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a0cb7110-edf0-47a4-9177-541a4083128a",
+  "InsertDate": "2025-02-03T20:32:12Z",
+  "LastUpdateDate": "2025-02-03T20:32:12Z",
+  "Level": "high",
+  "Name": "Vulnerable Netlogon Secure Channel Connection Allowed",
+  "Query": "sourcetype=\"windows-system\" provider_name=\"NetLogon\" eventid=\"5829\"",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.t1548"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,17 @@
+{
+  "Description": "See what files are being deleted from flash file systems\n\nAuthor: Austin Clark\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "71d65515-c436-43c0-841b-236b1f32c21e",
+  "InsertDate": "2025-02-03T20:32:03Z",
+  "LastUpdateDate": "2025-02-03T20:32:03Z",
+  "Level": "medium",
+  "Name": "Cisco File Deletion",
+  "Query": "sourcetype=\"cisco-aaa\" (\"erase\" OR \"delete\" OR \"format\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.impact",
+    "attack.t1070.004",
+    "attack.t1561.001",
+    "attack.t1561.002"
+  ],
+  "Version": "0.1"
+}

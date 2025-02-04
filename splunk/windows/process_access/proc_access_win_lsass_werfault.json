@@ -1,0 +1,15 @@
+{
+  "Description": "Detects process LSASS memory dump using Mimikatz, NanoDump, Invoke-Mimikatz, Procdump or Taskmgr based on the CallTrace pointing to ntdll.dll, dbghelp.dll or dbgcore.dll for win10, server2016 and up.\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e5b33f7d-eb93-48b6-9851-09e1e610b6d7",
+  "InsertDate": "2025-02-03T20:32:36Z",
+  "LastUpdateDate": "2025-02-03T20:32:36Z",
+  "Level": "high",
+  "Name": "Credential Dumping Attempt Via WerFault",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\WerFault.exe\" dst_process_path=\"*\\\\lsass.exe\" granted_access=\"0x1FFFFF\"",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.001",
+    "attack.s0002"
+  ],
+  "Version": "0.1"
+}

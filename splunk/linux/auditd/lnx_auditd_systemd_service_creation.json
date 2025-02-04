@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a creation of systemd services which could be used by adversaries to execute malicious code.\n\nAuthor: Pawel Mazur\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1bac86ba-41aa-4f62-9d6b-405eac99b485",
+  "InsertDate": "2025-02-03T20:31:57Z",
+  "LastUpdateDate": "2025-02-03T20:31:57Z",
+  "Level": "medium",
+  "Name": "Systemd Service Creation",
+  "Query": "sourcetype=\"linux-auditd\" (type=\"PATH\" nametype=\"CREATE\") ((process_path=\"/usr/lib/systemd/system/*\" OR process_path=\"/etc/systemd/system/*\") OR process_path=\"*/.config/systemd/user/*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1543.002"
+  ],
+  "Version": "0.1"
+}

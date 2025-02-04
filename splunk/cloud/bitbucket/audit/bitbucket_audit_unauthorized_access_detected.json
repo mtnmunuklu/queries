@@ -1,0 +1,14 @@
+{
+  "Description": "Detects unauthorized access attempts to a resource.\n\nAuthor: Muhammad Faisal (@faisalusuf)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7215374a-de4f-4b33-8ba5-70804c9251d3",
+  "InsertDate": "2025-02-03T20:31:54Z",
+  "LastUpdateDate": "2025-02-03T20:31:54Z",
+  "Level": "critical",
+  "Name": "Bitbucket Unauthorized Access To A Resource",
+  "Query": "sourcetype=\"bitbucket-audit\" audittype.category=\"Security\" audittype.action=\"Unauthorized access to a resource\"",
+  "Tags": [
+    "attack.resource-development",
+    "attack.t1586"
+  ],
+  "Version": "0.1"
+}

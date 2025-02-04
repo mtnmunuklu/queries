@@ -1,0 +1,15 @@
+{
+  "Description": "Detects service path modification via the \"sc\" binary to a suspicious command or path\n\nAuthor: Victor Sergeev, oscd.community, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "138d3531-8793-4f50-a2cd-f291b2863d78",
+  "InsertDate": "2025-02-03T20:33:10Z",
+  "LastUpdateDate": "2025-02-03T20:33:10Z",
+  "Level": "high",
+  "Name": "Suspicious Service Path Modification",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\sc.exe\" (command=\"*config*\" command=\"*binPath*\") (command=\"*powershell*\" OR command=\"*cmd *\" OR command=\"*mshta*\" OR command=\"*wscript*\" OR command=\"*cscript*\" OR command=\"*rundll32*\" OR command=\"*svchost*\" OR command=\"*dllhost*\" OR command=\"*cmd.exe /c*\" OR command=\"*cmd.exe /k*\" OR command=\"*cmd.exe /r*\" OR command=\"*cmd /c*\" OR command=\"*cmd /k*\" OR command=\"*cmd /r*\" OR command=\"*C:\\\\Users\\\\Public*\" OR command=\"*\\\\Downloads\\\\*\" OR command=\"*\\\\Desktop\\\\*\" OR command=\"*\\\\Microsoft\\\\Windows\\\\Start Menu\\\\Programs\\\\Startup\\\\*\" OR command=\"*C:\\\\Windows\\\\TEMP\\\\*\" OR command=\"*\\\\AppData\\\\Local\\\\Temp*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1543.003"
+  ],
+  "Version": "0.1"
+}

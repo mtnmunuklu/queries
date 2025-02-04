@@ -1,0 +1,21 @@
+{
+  "Description": "Detects Silence EmpireDNSAgent as described in the Group-IP report\n\nAuthor: Alina Stepchenkova, Group-IB, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3ceb2083-a27f-449a-be33-14ec1b7cc973",
+  "InsertDate": "2025-02-03T20:32:29Z",
+  "LastUpdateDate": "2025-02-03T20:32:29Z",
+  "Level": "critical",
+  "Name": "Silence.EDA Detection",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*System.Diagnostics.Process*\" scriptblocktext=\"*Stop-Computer*\" scriptblocktext=\"*Restart-Computer*\" scriptblocktext=\"*Exception in execution*\" scriptblocktext=\"*$cmdargs*\" scriptblocktext=\"*Close-Dnscat2Tunnel*\") (scriptblocktext=\"*set type=$LookupType`nserver*\" scriptblocktext=\"*$Command | nslookup 2\u003e\u00261 | Out-String*\" scriptblocktext=\"*New-RandomDNSField*\" scriptblocktext=\"*[Convert]::ToString($SYNOptions, 16)*\" scriptblocktext=\"*$Session.Dead = $True*\" scriptblocktext=\"*$Session[\"Driver\"] -eq*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001",
+    "attack.command-and-control",
+    "attack.t1071.004",
+    "attack.t1572",
+    "attack.impact",
+    "attack.t1529",
+    "attack.g0091",
+    "attack.s0363"
+  ],
+  "Version": "0.1"
+}

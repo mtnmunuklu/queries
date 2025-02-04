@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of the tool PowerTool which has the ability to kill a process, delete its process file, unload drivers, and delete the driver files\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a34f79a3-8e5f-4cc3-b765-de00695452c2",
+  "InsertDate": "2025-02-03T20:32:45Z",
+  "LastUpdateDate": "2025-02-03T20:32:45Z",
+  "Level": "high",
+  "Name": "HackTool - PowerTool Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\PowerTool.exe\" OR process_path=\"*\\\\PowerTool64.exe\") original_file_name=\"PowerTool.exe\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

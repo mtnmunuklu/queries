@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may attempt to access or create a copy of the Active Directory domain database in order to steal credential information\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "afd12fed-b0ec-45c9-a13d-aa86625dac81",
+  "InsertDate": "2025-02-03T20:32:29Z",
+  "LastUpdateDate": "2025-02-03T20:32:29Z",
+  "Level": "high",
+  "Name": "Create Volume Shadow Copy with Powershell",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*Win32_ShadowCopy*\" scriptblocktext=\"*).Create(*\" scriptblocktext=\"*ClientAccessible*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.003"
+  ],
+  "Version": "0.1"
+}

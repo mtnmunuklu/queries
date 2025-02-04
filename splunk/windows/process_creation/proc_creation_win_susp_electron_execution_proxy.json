@@ -1,0 +1,13 @@
+{
+  "Description": "Detects potentially suspicious CommandLine of electron apps (teams, discord, slack, etc.). This could be a sign of abuse to proxy execution through a signed binary.\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "378a05d8-963c-46c9-bcce-13c7657eac99",
+  "InsertDate": "2025-02-03T20:33:14Z",
+  "LastUpdateDate": "2025-02-03T20:33:14Z",
+  "Level": "medium",
+  "Name": "Potentially Suspicious Electron Application CommandLine",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\chrome.exe\" OR process_path=\"*\\\\code.exe\" OR process_path=\"*\\\\discord.exe\" OR process_path=\"*\\\\GitHubDesktop.exe\" OR process_path=\"*\\\\keybase.exe\" OR process_path=\"*\\\\msedge_proxy.exe\" OR process_path=\"*\\\\msedge.exe\" OR process_path=\"*\\\\msedgewebview2.exe\" OR process_path=\"*\\\\msteams.exe\" OR process_path=\"*\\\\slack.exe\" OR process_path=\"*\\\\Teams.exe\") (original_file_name=\"chrome.exe\" OR original_file_name=\"code.exe\" OR original_file_name=\"discord.exe\" OR original_file_name=\"GitHubDesktop.exe\" OR original_file_name=\"keybase.exe\" OR original_file_name=\"msedge_proxy.exe\" OR original_file_name=\"msedge.exe\" OR original_file_name=\"msedgewebview2.exe\" OR original_file_name=\"msteams.exe\" OR original_file_name=\"slack.exe\" OR original_file_name=\"Teams.exe\")) (command=\"*--browser-subprocess-path*\" OR command=\"*--gpu-launcher*\" OR command=\"*--renderer-cmd-prefix*\" OR command=\"*--utility-cmd-prefix*\")",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

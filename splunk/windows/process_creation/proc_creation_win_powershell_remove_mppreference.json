@@ -1,0 +1,14 @@
+{
+  "Description": "Detects attempts to remove Windows Defender configurations using the 'MpPreference' cmdlet\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "07e3cb2c-0608-410d-be4b-1511cb1a0448",
+  "InsertDate": "2025-02-03T20:32:58Z",
+  "LastUpdateDate": "2025-02-03T20:32:58Z",
+  "Level": "high",
+  "Name": "Tamper Windows Defender Remove-MpPreference",
+  "Query": "sourcetype=\"windows-sysmon\" command=\"*Remove-MpPreference*\" (command=\"*-ControlledFolderAccessProtectedFolders *\" OR command=\"*-AttackSurfaceReductionRules_Ids *\" OR command=\"*-AttackSurfaceReductionRules_Actions *\" OR command=\"*-CheckForSignaturesBeforeRunningScan *\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

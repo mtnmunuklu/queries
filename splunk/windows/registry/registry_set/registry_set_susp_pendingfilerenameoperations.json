@@ -1,0 +1,14 @@
+{
+  "Description": "Detect changes to the \"PendingFileRenameOperations\" registry key from uncommon or suspicious images locations to stage currently used files for rename or deletion after reboot.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4eec988f-7bf0-49f1-8675-1e6a510b3a2a",
+  "InsertDate": "2025-02-03T20:33:43Z",
+  "LastUpdateDate": "2025-02-03T20:33:43Z",
+  "Level": "medium",
+  "Name": "Potential PendingFileRenameOperations Tampering",
+  "Query": "sourcetype=\"windows-*\" (event_type=\"SetValue\" target_object=\"*\\\\CurrentControlSet\\\\Control\\\\Session Manager\\\\PendingFileRenameOperations*\") ((process_path=\"*\\\\AppData\\\\Local\\\\Temp\\\\*\" OR process_path=\"*\\\\Users\\\\Public\\\\*\") OR (process_path=\"*\\\\reg.exe\" OR process_path=\"*\\\\regedit.exe\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1036.003"
+  ],
+  "Version": "0.1"
+}

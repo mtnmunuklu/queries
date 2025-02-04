@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the execution of netsh with the \"trace\" flag in order to start a network capture\n\nAuthor: Kutepov Anton, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d3c3861d-c504-4c77-ba55-224ba82d0118",
+  "InsertDate": "2025-02-03T20:32:52Z",
+  "LastUpdateDate": "2025-02-03T20:32:52Z",
+  "Level": "medium",
+  "Name": "New Network Trace Capture Started Via Netsh.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\netsh.exe\" original_file_name=\"netsh.exe\") (command=\"*trace*\" command=\"*start*\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.credential-access",
+    "attack.t1040"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects Access to LSASS Process\n\nAuthor: Markus Neis\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a0a278fe-2c0e-4de2-ac3c-c68b08a9ba98",
+  "InsertDate": "2025-02-03T20:32:14Z",
+  "LastUpdateDate": "2025-02-03T20:32:14Z",
+  "Level": "high",
+  "Name": "LSASS Access Detected via Attack Surface Reduction",
+  "Query": "sourcetype=\"windows-windefend\" (eventid=\"1121\" path=\"*\\\\lsass.exe\") NOT ((processname=\"C:\\\\Windows\\\\Temp\\\\asgard2-agent\\\\*\" (processname=\"*\\\\thor64.exe\" OR processname=\"*\\\\thor.exe\")) OR (processname=\"C:\\\\Windows\\\\System32\\\\atiesrxx.exe\" OR processname=\"C:\\\\Windows\\\\System32\\\\CompatTelRunner.exe\" OR processname=\"C:\\\\Windows\\\\System32\\\\msiexec.exe\" OR processname=\"C:\\\\Windows\\\\System32\\\\nvwmi64.exe\" OR processname=\"C:\\\\Windows\\\\System32\\\\svchost.exe\" OR processname=\"C:\\\\Windows\\\\System32\\\\Taskmgr.exe\" OR processname=\"C:\\\\Windows\\\\System32\\\\wbem\\\\WmiPrvSE.exe\" OR processname=\"C:\\\\Windows\\\\SysWOW64\\\\msiexec.exe\") OR (processname=\"C:\\\\Windows\\\\System32\\\\DriverStore\\\\*\" OR processname=\"C:\\\\WINDOWS\\\\Installer\\\\*\" OR processname=\"C:\\\\Program Files\\\\*\" OR processname=\"C:\\\\Program Files (x86)\\\\*\"))",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.001"
+  ],
+  "Version": "0.1"
+}

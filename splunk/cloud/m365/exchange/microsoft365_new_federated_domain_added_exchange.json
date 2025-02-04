@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the addition of a new Federated Domain.\n\nAuthor: Splunk Threat Research Team (original rule), '@ionsor (rule)'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "42127bdd-9133-474f-a6f1-97b6c08a4339",
+  "InsertDate": "2025-02-03T20:31:55Z",
+  "LastUpdateDate": "2025-02-03T20:31:55Z",
+  "Level": "medium",
+  "Name": "New Federated Domain Added - Exchange",
+  "Query": "sourcetype=\"m365-exchange\" eventsource=\"Exchange\" eventname=\"Add-FederatedDomain\" status=\"success\"",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1136.003"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects changes to the \"TracingDisabled\" key in order to disable ETW logging for services.exe (SCM)\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4f281b83-0200-4b34-bf35-d24687ea57c2",
+  "InsertDate": "2025-02-03T20:33:43Z",
+  "LastUpdateDate": "2025-02-03T20:33:43Z",
+  "Level": "low",
+  "Name": "ETW Logging Disabled For SCM",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*Software\\\\Microsoft\\\\Windows NT\\\\CurrentVersion\\\\Tracing\\\\SCM\\\\Regular\\\\TracingDisabled\" details=\"DWORD (0x00000001)\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1112",
+    "attack.t1562"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,13 @@
+{
+  "Description": "Detects whether the image specified in a process creation event doesn't refer to an \".exe\" (or other known executable extension) file. This can be caused by process ghosting or other unorthodox methods to start a process.\nThis rule might require some initial baselining to align with some third party tooling in the user environment.\n\n\nAuthor: Max Altgelt (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c09dad97-1c78-4f71-b127-7edb2b8e491a",
+  "InsertDate": "2025-02-03T20:33:15Z",
+  "LastUpdateDate": "2025-02-03T20:33:15Z",
+  "Level": "medium",
+  "Name": "Execution of Suspicious File Type Extension",
+  "Query": "sourcetype=\"windows-sysmon\" NOT (process_path=\"*.bin\" OR process_path=\"*.cgi\" OR process_path=\"*.com\" OR process_path=\"*.exe\" OR process_path=\"*.scr\" OR process_path=\"*.tmp\") NOT (process_path=\"*:\\\\Windows\\\\System32\\\\DriverStore\\\\FileRepository\\\\*\" OR process_path=\"*:\\\\Windows\\\\Installer\\\\MSI*\" OR (process_path=\"*:\\\\Config.Msi\\\\*\" (process_path=\"*.rbf\" OR process_path=\"*.rbs\")) OR (parent_process_path=\"*:\\\\Windows\\\\Temp\\\\*\" process_path=\"*:\\\\Windows\\\\Temp\\\\*\") OR process_path=\"*:\\\\$Extend\\\\$Deleted\\\\*\" OR (process_path=\"System\" OR process_path=\"Registry\" OR process_path=\"MemCompression\" OR process_path=\"vmmem\") OR (process_path=\"-\" OR process_path=\"\") OR process_path=\"null\") NOT ((process_path=\"*:\\\\Program Files (x86)\\\\MyQ\\\\Server\\\\pcltool.dll\" OR process_path=\"*:\\\\Program Files\\\\MyQ\\\\Server\\\\pcltool.dll\") OR (process_path=\"*\\\\AppData\\\\Local\\\\Packages\\\\*\" process_path=\"*\\\\LocalState\\\\rootfs\\\\*\") OR (process_path=\"*NVIDIA\\\\NvBackend\\\\*\" process_path=\"*.dat\") OR process_path=\"*\\\\LZMA_EXE\" OR (parent_process_path=\"C:\\\\Windows\\\\System32\\\\services.exe\" process_path=\"*com.docker.service\") OR parent_process_path=\"*:\\\\ProgramData\\\\Avira\\\\*\" OR ((process_path=\"*:\\\\Program Files (x86)\\\\WINPAKPRO\\\\*\" OR process_path=\"*:\\\\Program Files\\\\WINPAKPRO\\\\*\") process_path=\"*.ngn\") OR process_path=\"*:\\\\Program Files\\\\Mozilla Firefox\\\\*\")",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,16 @@
+{
+  "Description": "Detects suspicious requests to Telegram API without the usual Telegram User-Agent\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b494b165-6634-483d-8c47-2026a6c52372",
+  "InsertDate": "2025-02-03T20:32:05Z",
+  "LastUpdateDate": "2025-02-03T20:32:05Z",
+  "Level": "medium",
+  "Name": "Telegram API Access",
+  "Query": "cs-host=\"api.telegram.org\" NOT (c-useragent=\"*Telegram*\" OR c-useragent=\"*Bot*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.command-and-control",
+    "attack.t1071.001",
+    "attack.t1102.002"
+  ],
+  "Version": "0.1"
+}

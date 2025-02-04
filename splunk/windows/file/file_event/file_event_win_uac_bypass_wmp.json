@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the pattern of UAC Bypass using Windows Media Player osksupport.dll (UACMe 32)\n\nAuthor: Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "68578b43-65df-4f81-9a9b-92f32711a951",
+  "InsertDate": "2025-02-03T20:32:21Z",
+  "LastUpdateDate": "2025-02-03T20:32:21Z",
+  "Level": "high",
+  "Name": "UAC Bypass Using Windows Media Player - File",
+  "Query": "sourcetype=\"windows-sysmon\" (filepath=\"C:\\\\Users\\\\*\" filepath=\"*\\\\AppData\\\\Local\\\\Temp\\\\OskSupport.dll\") OR (process_path=\"C:\\\\Windows\\\\system32\\\\DllHost.exe\" filepath=\"C:\\\\Program Files\\\\Windows Media Player\\\\osk.exe\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1548.002"
+  ],
+  "Version": "0.1"
+}

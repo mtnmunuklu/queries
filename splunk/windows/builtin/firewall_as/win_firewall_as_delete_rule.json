@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when a single rules or all of the rules have been deleted from the Windows Defender Firewall\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c187c075-bb3e-4c62-b4fa-beae0ffc211f",
+  "InsertDate": "2025-02-03T20:32:07Z",
+  "LastUpdateDate": "2025-02-03T20:32:07Z",
+  "Level": "medium",
+  "Name": "A Rule Has Been Deleted From The Windows Firewall Exception List",
+  "Query": "sourcetype=\"windows-firewall-as\" (eventid=\"2006\" OR eventid=\"2052\") NOT (modifyingapplication=\"\" OR (modifyingapplication=\"C:\\\\Program Files (x86)\\\\*\" OR modifyingapplication=\"C:\\\\Program Files\\\\*\" OR modifyingapplication=\"C:\\\\Windows\\\\WinSxS\\\\*\") OR modifyingapplication=\"C:\\\\Windows\\\\System32\\\\svchost.exe\" OR modifyingapplication=\"null\") NOT (modifyingapplication=\"C:\\\\ProgramData\\\\Microsoft\\\\Windows Defender\\\\Platform\\\\*\" modifyingapplication=\"*\\\\MsMpEng.exe\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.004"
+  ],
+  "Version": "0.1"
+}

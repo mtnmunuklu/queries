@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the usage of particular AttributeLDAPDisplayNames, which are known for data exchange via LDAP by the tool LDAPFragger and are additionally not commonly used in companies.\n\nAuthor: xknow @xknow_infosec\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d00a9a72-2c09-4459-ad03-5e0a23351e36",
+  "InsertDate": "2025-02-03T20:32:11Z",
+  "LastUpdateDate": "2025-02-03T20:32:11Z",
+  "Level": "high",
+  "Name": "Suspicious LDAP-Attributes Used",
+  "Query": "sourcetype=\"windows-security\" eventid=\"5136\" attributevalue=\"***\" (attributeldapdisplayname=\"primaryInternationalISDNNumber\" OR attributeldapdisplayname=\"otherFacsimileTelephoneNumber\" OR attributeldapdisplayname=\"primaryTelexNumber\")",
+  "Tags": [
+    "attack.t1001.003",
+    "attack.command-and-control"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects keywords from well-known PowerShell exploitation frameworks\n\nAuthor: Sean Metcalf (source), Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f62176f3-8128-4faa-bf6c-83261322e5eb",
+  "InsertDate": "2025-02-03T20:32:31Z",
+  "LastUpdateDate": "2025-02-03T20:32:31Z",
+  "Level": "medium",
+  "Name": "Malicious PowerShell Keywords",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*AdjustTokenPrivileges*\" OR scriptblocktext=\"*IMAGE_NT_OPTIONAL_HDR64_MAGIC*\" OR scriptblocktext=\"*Metasploit*\" OR scriptblocktext=\"*Microsoft.Win32.UnsafeNativeMethods*\" OR scriptblocktext=\"*Mimikatz*\" OR scriptblocktext=\"*MiniDumpWriteDump*\" OR scriptblocktext=\"*PAGE_EXECUTE_READ*\" OR scriptblocktext=\"*ReadProcessMemory.Invoke*\" OR scriptblocktext=\"*SE_PRIVILEGE_ENABLED*\" OR scriptblocktext=\"*SECURITY_DELEGATION*\" OR scriptblocktext=\"*TOKEN_ADJUST_PRIVILEGES*\" OR scriptblocktext=\"*TOKEN_ALL_ACCESS*\" OR scriptblocktext=\"*TOKEN_ASSIGN_PRIMARY*\" OR scriptblocktext=\"*TOKEN_DUPLICATE*\" OR scriptblocktext=\"*TOKEN_ELEVATION*\" OR scriptblocktext=\"*TOKEN_IMPERSONATE*\" OR scriptblocktext=\"*TOKEN_INFORMATION_CLASS*\" OR scriptblocktext=\"*TOKEN_PRIVILEGES*\" OR scriptblocktext=\"*TOKEN_QUERY*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

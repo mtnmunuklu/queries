@@ -1,0 +1,15 @@
+{
+  "Description": "Detects executables launched from external WebDAV shares using the WebDAV Explorer integration, commonly seen in initial access campaigns.\n\n\nAuthor: Ahmed Farouk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1ae64f96-72b6-48b3-ad3d-e71dff6c6398",
+  "InsertDate": "2025-02-03T20:32:05Z",
+  "LastUpdateDate": "2025-02-03T20:32:05Z",
+  "Level": "high",
+  "Name": "Suspicious External WebDAV Execution",
+  "Query": "((c-useragent=\"Microsoft-WebDAV-MiniRedir/*\" cs-method=\"GET\") (c-uri=\"*.7z\" OR c-uri=\"*.bat\" OR c-uri=\"*.dat\" OR c-uri=\"*.cmd\" OR c-uri=\"*.exe\" OR c-uri=\"*.js\" OR c-uri=\"*.lnk\" OR c-uri=\"*.ps1\" OR c-uri=\"*.rar\" OR c-uri=\"*.url\" OR c-uri=\"*.vbe\" OR c-uri=\"*.vbs\" OR c-uri=\"*.zip\")) NOT (dst_ip=\"127.0.0.0/8\" OR dst_ip=\"10.0.0.0/8\" OR dst_ip=\"172.16.0.0/12\" OR dst_ip=\"192.168.0.0/16\" OR dst_ip=\"169.254.0.0/16\" OR dst_ip=\"::1/128\" OR dst_ip=\"fe80::/10\" OR dst_ip=\"fc00::/7\")",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1584",
+    "attack.t1566"
+  ],
+  "Version": "0.1"
+}

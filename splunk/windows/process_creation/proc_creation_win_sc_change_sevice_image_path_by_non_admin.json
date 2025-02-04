@@ -1,0 +1,16 @@
+{
+  "Description": "Detection of sc.exe utility spawning by user with Medium integrity level to change service ImagePath or FailureCommand\n\nAuthor: Teymur Kheirkhabarov\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d937b75f-a665-4480-88a5-2f20e9f9b22a",
+  "InsertDate": "2025-02-03T20:33:09Z",
+  "LastUpdateDate": "2025-02-03T20:33:09Z",
+  "Level": "high",
+  "Name": "Possible Privilege Escalation via Weak Service Permissions",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\sc.exe\" (integrity_level=\"Medium\" OR integrity_level=\"S-1-16-8192\")) ((command=\"*config*\" command=\"*binPath*\") OR (command=\"*failure*\" command=\"*command*\"))",
+  "Tags": [
+    "attack.persistence",
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1574.011"
+  ],
+  "Version": "0.1"
+}

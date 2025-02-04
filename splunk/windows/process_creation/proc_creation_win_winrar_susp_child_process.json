@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potentially suspicious child processes of WinRAR.exe.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "146aace8-9bd6-42ba-be7a-0070d8027b76",
+  "InsertDate": "2025-02-03T20:33:25Z",
+  "LastUpdateDate": "2025-02-03T20:33:25Z",
+  "Level": "medium",
+  "Name": "Potentially Suspicious Child Process Of WinRAR.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" parent_process_path=\"*\\\\WinRAR.exe\" ((process_path=\"*\\\\cmd.exe\" OR process_path=\"*\\\\cscript.exe\" OR process_path=\"*\\\\mshta.exe\" OR process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\" OR process_path=\"*\\\\regsvr32.exe\" OR process_path=\"*\\\\rundll32.exe\" OR process_path=\"*\\\\wscript.exe\") (original_file_name=\"Cmd.Exe\" OR original_file_name=\"cscript.exe\" OR original_file_name=\"mshta.exe\" OR original_file_name=\"PowerShell.EXE\" OR original_file_name=\"pwsh.dll\" OR original_file_name=\"regsvr32.exe\" OR original_file_name=\"RUNDLL32.EXE\" OR original_file_name=\"wscript.exe\"))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1203"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the creation of a named pipe with a pattern found in CobaltStrike malleable C2 profiles\n\nAuthor: Florian Roth (Nextron Systems), Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "85adeb13-4fc9-4e68-8a4a-c7cb2c336eb7",
+  "InsertDate": "2025-02-03T20:32:26Z",
+  "LastUpdateDate": "2025-02-03T20:32:26Z",
+  "Level": "high",
+  "Name": "CobaltStrike Named Pipe Patterns",
+  "Query": "sourcetype=\"windows-*\" (((pipe_name=\"\\\\DserNamePipe*\" OR pipe_name=\"\\\\f4c3*\" OR pipe_name=\"\\\\f53f*\" OR pipe_name=\"\\\\fullduplex_*\" OR pipe_name=\"\\\\mojo.5688.8052.183894939787088877*\" OR pipe_name=\"\\\\mojo.5688.8052.35780273329370473*\" OR pipe_name=\"\\\\MsFteWds*\" OR pipe_name=\"\\\\msrpc_*\" OR pipe_name=\"\\\\mypipe-f*\" OR pipe_name=\"\\\\mypipe-h*\" OR pipe_name=\"\\\\ntsvcs*\" OR pipe_name=\"\\\\PGMessagePipe*\" OR pipe_name=\"\\\\rpc_*\" OR pipe_name=\"\\\\scerpc*\" OR pipe_name=\"\\\\SearchTextHarvester*\" OR pipe_name=\"\\\\spoolss*\" OR pipe_name=\"\\\\win_svc*\" OR pipe_name=\"\\\\win\\\\msrpc_*\" OR pipe_name=\"\\\\windows.update.manager*\" OR pipe_name=\"\\\\wkssvc*\") (pipe_name=\"\\\\demoagent_11\" OR pipe_name=\"\\\\demoagent_22\")) OR (pipe_name=\"\\\\Winsock2\\\\CatalogChangeListener-*\" pipe_name=\"*-0,\")) NOT (pipe_name=\"\\\\wkssvc\" OR pipe_name=\"\\\\spoolss\" OR pipe_name=\"\\\\scerpc\" OR pipe_name=\"\\\\ntsvcs\" OR pipe_name=\"\\\\SearchTextHarvester\" OR pipe_name=\"\\\\PGMessagePipe\" OR pipe_name=\"\\\\MsFteWds\") NOT ((process_path=\"*:\\\\Program Files\\\\Websense\\\\*\" OR process_path=\"*:\\\\Program Files (x86)\\\\Websense\\\\*\") (pipe_name=\"\\\\DserNamePipeR*\" OR pipe_name=\"\\\\DserNamePipeW*\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1055",
+    "stp.1k"
+  ],
+  "Version": "0.1"
+}

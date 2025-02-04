@@ -1,0 +1,14 @@
+{
+  "Description": "Detects DNS requests to Cloudflared tunnels domains.\nAttackers can abuse that feature to establish a reverse shell or persistence on a machine.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a1d9eec5-33b2-4177-8d24-27fe754d0812",
+  "InsertDate": "2025-02-03T20:32:15Z",
+  "LastUpdateDate": "2025-02-03T20:32:15Z",
+  "Level": "medium",
+  "Name": "Cloudflared Tunnels Related DNS Requests",
+  "Query": "sourcetype=\"windows-sysmon\" (query_name=\"*.v2.argotunnel.com\" OR query_name=\"*protocol-v2.argotunnel.com\" OR query_name=\"*trycloudflare.com\" OR query_name=\"*update.argotunnel.com\")",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1071.001"
+  ],
+  "Version": "0.1"
+}

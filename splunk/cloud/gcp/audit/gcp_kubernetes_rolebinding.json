@@ -1,0 +1,13 @@
+{
+  "Description": "Detects the creation or patching of potential malicious RoleBinding. This includes RoleBindings and ClusterRoleBinding.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0322d9f2-289a-47c2-b5e1-b63c90901a3e",
+  "InsertDate": "2025-02-03T20:31:54Z",
+  "LastUpdateDate": "2025-02-03T20:31:54Z",
+  "Level": "medium",
+  "Name": "Google Cloud Kubernetes RoleBinding",
+  "Query": "sourcetype=\"gcp-gcp.audit\" (gcp.audit.method_name=\"io.k8s.authorization.rbac.v*.clusterrolebindings.create\" OR gcp.audit.method_name=\"io.k8s.authorization.rbac.v*.rolebindings.create\" OR gcp.audit.method_name=\"io.k8s.authorization.rbac.v*.clusterrolebindings.patch\" OR gcp.audit.method_name=\"io.k8s.authorization.rbac.v*.rolebindings.patch\" OR gcp.audit.method_name=\"io.k8s.authorization.rbac.v*.clusterrolebindings.update\" OR gcp.audit.method_name=\"io.k8s.authorization.rbac.v*.rolebindings.update\" OR gcp.audit.method_name=\"io.k8s.authorization.rbac.v*.clusterrolebindings.delete\" OR gcp.audit.method_name=\"io.k8s.authorization.rbac.v*.rolebindings.delete\")",
+  "Tags": [
+    "attack.credential-access"
+  ],
+  "Version": "0.1"
+}

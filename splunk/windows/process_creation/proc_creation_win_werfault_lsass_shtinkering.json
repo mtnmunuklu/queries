@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential credential dumping via Windows Error Reporting LSASS Shtinkering technique which uses the Windows Error Reporting to dump lsass\n\nAuthor: @pbssubhash , Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9a4ccd1a-3526-4d99-b980-9f9c5d3a6ff3",
+  "InsertDate": "2025-02-03T20:33:24Z",
+  "LastUpdateDate": "2025-02-03T20:33:24Z",
+  "Level": "high",
+  "Name": "Potential Credential Dumping Via WER",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\Werfault.exe\" original_file_name=\"WerFault.exe\") ((puser=\"*AUTHORI*\" OR puser=\"*AUTORI*\") (username=\"*AUTHORI*\" OR username=\"*AUTORI*\") (command=\"* -u -p *\" command=\"* -ip *\" command=\"* -s *\"))) NOT parent_process_path=\"C:\\\\Windows\\\\System32\\\\lsass.exe\"",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.001"
+  ],
+  "Version": "0.1"
+}

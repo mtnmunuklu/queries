@@ -1,0 +1,16 @@
+{
+  "Description": "Detects S3 Browser utility performing reconnaissance looking for existing IAM Users without a LoginProfile defined then (when found) creating a LoginProfile.\n\nAuthor: daniel.bohannon@permiso.io (@danielhbohannon)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "db014773-b1d3-46bd-ba26-133337c0ffee",
+  "InsertDate": "2025-02-03T20:31:50Z",
+  "LastUpdateDate": "2025-02-03T20:31:50Z",
+  "Level": "high",
+  "Name": "AWS IAM S3Browser LoginProfile Creation",
+  "Query": "sourcetype=\"aws-cloudtrail\" eventsource=\"iam.amazonaws.com\" (eventname=\"GetLoginProfile\" OR eventname=\"CreateLoginProfile\") useragent=\"*S3 Browser*\"",
+  "Tags": [
+    "attack.execution",
+    "attack.persistence",
+    "attack.t1059.009",
+    "attack.t1078.004"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Once established within a system or network, an adversary may use automated techniques for collecting internal data.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "aa2efee7-34dd-446e-8a37-40790a66efd7",
+  "InsertDate": "2025-02-03T20:33:16Z",
+  "LastUpdateDate": "2025-02-03T20:33:16Z",
+  "Level": "medium",
+  "Name": "Recon Information for Export with Command Prompt",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\tree.com\" OR process_path=\"*\\\\WMIC.exe\" OR process_path=\"*\\\\doskey.exe\" OR process_path=\"*\\\\sc.exe\") (original_file_name=\"wmic.exe\" OR original_file_name=\"DOSKEY.EXE\" OR original_file_name=\"sc.exe\")) (parent_command_line=\"* \u003e %TEMP%\\\\*\" OR parent_command_line=\"* \u003e %TMP%\\\\*\")",
+  "Tags": [
+    "attack.collection",
+    "attack.t1119"
+  ],
+  "Version": "0.1"
+}

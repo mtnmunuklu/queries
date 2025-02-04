@@ -1,0 +1,14 @@
+{
+  "Description": "Detects modification of autostart extensibility point (ASEP) in registry.\n\nAuthor: Victor Sergeev, Daniil Yugoslavskiy, Gleb Sukhodolskiy, Timur Zinniatullin, oscd.community, Tim Shelton, frack113 (split)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d6c2ce7e-afb5-4337-9ca4-4b5254ed0565",
+  "InsertDate": "2025-02-03T20:33:31Z",
+  "LastUpdateDate": "2025-02-03T20:33:31Z",
+  "Level": "medium",
+  "Name": "WinSock2 Autorun Keys Modification",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\System\\\\CurrentControlSet\\\\Services\\\\WinSock2\\\\Parameters*\" (target_object=\"*\\\\Protocol_Catalog9\\\\Catalog_Entries*\" OR target_object=\"*\\\\NameSpace_Catalog5\\\\Catalog_Entries*\") NOT (details=\"(Empty)\" process_path=\"C:\\\\Windows\\\\System32\\\\MsiExec.exe\" process_path=\"C:\\\\Windows\\\\syswow64\\\\MsiExec.exe\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1547.001"
+  ],
+  "Version": "0.1"
+}

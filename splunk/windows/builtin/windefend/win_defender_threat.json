@@ -1,0 +1,14 @@
+{
+  "Description": "Detects actions taken by Windows Defender malware detection engines\n\nAuthor: Ján Trenčanský\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "57b649ef-ff42-4fb0-8bf6-62da243a1708",
+  "InsertDate": "2025-02-03T20:32:14Z",
+  "LastUpdateDate": "2025-02-03T20:32:14Z",
+  "Level": "high",
+  "Name": "Windows Defender Threat Detected",
+  "Query": "sourcetype=\"windows-windefend\" (eventid=\"1006\" OR eventid=\"1015\" OR eventid=\"1116\" OR eventid=\"1117\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

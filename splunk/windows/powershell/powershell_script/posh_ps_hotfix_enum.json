@@ -1,0 +1,13 @@
+{
+  "Description": "Detects call to \"Win32_QuickFixEngineering\" in order to enumerate installed hotfixes often used in \"enum\" scripts by attackers\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f5d1def8-1de0-4a0e-9794-1f6f27dd605c",
+  "InsertDate": "2025-02-03T20:32:30Z",
+  "LastUpdateDate": "2025-02-03T20:32:30Z",
+  "Level": "medium",
+  "Name": "PowerShell Hotfix Enumeration",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*Win32_QuickFixEngineering*\" scriptblocktext=\"*HotFixID*\")",
+  "Tags": [
+    "attack.discovery"
+  ],
+  "Version": "0.1"
+}

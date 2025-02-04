@@ -1,0 +1,14 @@
+{
+  "Description": "Identifies the creation of local users via the net.exe command.\n\nAuthor: Endgame, JHasenbusch (adapted to Sigma for oscd.community)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "cd219ff3-fa99-45d4-8380-a7d15116c6dc",
+  "InsertDate": "2025-02-03T20:32:52Z",
+  "LastUpdateDate": "2025-02-03T20:32:52Z",
+  "Level": "medium",
+  "Name": "New User Created Via Net.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*user*\" command=\"*add*\") ((process_path=\"*\\\\net.exe\" OR process_path=\"*\\\\net1.exe\") (original_file_name=\"net.exe\" OR original_file_name=\"net1.exe\"))",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1136.001"
+  ],
+  "Version": "0.1"
+}

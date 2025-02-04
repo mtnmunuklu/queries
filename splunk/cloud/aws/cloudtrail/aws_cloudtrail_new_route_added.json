@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the addition of a new network route to a route table in AWS.\n\n\nAuthor: jamesc-grafana\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c803b2ce-c4a2-4836-beae-b112010390b1",
+  "InsertDate": "2025-02-03T20:31:50Z",
+  "LastUpdateDate": "2025-02-03T20:31:50Z",
+  "Level": "medium",
+  "Name": "New Network Route Added",
+  "Query": "sourcetype=\"aws-cloudtrail\" eventsource=\"ec2.amazonaws.com\" eventname=\"CreateRoute\"",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1190"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,13 @@
+{
+  "Description": "Detects changes to the PowerShell execution policy in order to bypass signing requirements for script execution\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fad91067-08c5-4d1a-8d8c-d96a21b37814",
+  "InsertDate": "2025-02-03T20:33:42Z",
+  "LastUpdateDate": "2025-02-03T20:33:42Z",
+  "Level": "medium",
+  "Name": "Potential PowerShell Execution Policy Tampering",
+  "Query": "sourcetype=\"windows-*\" ((target_object=\"*\\\\ShellIds\\\\Microsoft.PowerShell\\\\ExecutionPolicy\" OR target_object=\"*\\\\Policies\\\\Microsoft\\\\Windows\\\\PowerShell\\\\ExecutionPolicy\") (details=\"*Bypass*\" OR details=\"*Unrestricted*\")) NOT (process_path=\"*:\\\\Windows\\\\System32\\\\*\" OR process_path=\"*:\\\\Windows\\\\SysWOW64\\\\*\")",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

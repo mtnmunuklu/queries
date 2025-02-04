@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential mimikatz-like tools accessing LSASS from non system account\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "962fe167-e48d-4fd6-9974-11e5b9a5d6d1",
+  "InsertDate": "2025-02-03T20:32:10Z",
+  "LastUpdateDate": "2025-02-03T20:32:10Z",
+  "Level": "medium",
+  "Name": "LSASS Access From Non System Account",
+  "Query": "sourcetype=\"windows-security\" ((eventid=\"4663\" OR eventid=\"4656\") (accessmask=\"0x100000\" OR accessmask=\"0x1010\" OR accessmask=\"0x1400\" OR accessmask=\"0x1410\" OR accessmask=\"0x1418\" OR accessmask=\"0x1438\" OR accessmask=\"0x143a\" OR accessmask=\"0x1f0fff\" OR accessmask=\"0x1f1fff\" OR accessmask=\"0x1f2fff\" OR accessmask=\"0x1f3fff\" OR accessmask=\"0x40\" OR accessmask=\"143a\" OR accessmask=\"1f0fff\" OR accessmask=\"1f1fff\" OR accessmask=\"1f2fff\" OR accessmask=\"1f3fff\") objecttype=\"Process\" objectname=\"*\\\\lsass.exe\") NOT (subjectusername=\"*$\" OR (processname=\"*:\\\\Program Files\\\\*\" OR processname=\"*:\\\\Program Files (x86)\\\\*\") OR (processname=\"C:\\\\Windows\\\\System32\\\\wbem\\\\WmiPrvSE.exe\" accessmask=\"0x1410\")) NOT processname=\"*\\\\SteamLibrary\\\\steamapps\\\\*\"",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.001"
+  ],
+  "Version": "0.1"
+}

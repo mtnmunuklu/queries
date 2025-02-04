@@ -1,0 +1,14 @@
+{
+  "Description": "Clear command history in network OS which is used for defense evasion\n\nAuthor: Austin Clark\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ceb407f6-8277-439b-951f-e4210e3ed956",
+  "InsertDate": "2025-02-03T20:32:03Z",
+  "LastUpdateDate": "2025-02-03T20:32:03Z",
+  "Level": "high",
+  "Name": "Cisco Clear Logs",
+  "Query": "sourcetype=\"cisco-aaa\" (\"clear logging\" OR \"clear archive\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1070.003"
+  ],
+  "Version": "0.1"
+}

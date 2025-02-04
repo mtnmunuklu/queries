@@ -1,0 +1,15 @@
+{
+  "Description": "Detects usage of \"IMEWDBLD.exe\" to download arbitrary files\n\nAuthor: Swachchhanda Shrawan Poudel\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "863218bd-c7d0-4c52-80cd-0a96c09f54af",
+  "InsertDate": "2025-02-03T20:32:47Z",
+  "LastUpdateDate": "2025-02-03T20:32:47Z",
+  "Level": "high",
+  "Name": "Arbitrary File Download Via IMEWDBLD.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\IMEWDBLD.exe\" original_file_name=\"imewdbld.exe\") (command=\"*http://*\" OR command=\"*https://*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

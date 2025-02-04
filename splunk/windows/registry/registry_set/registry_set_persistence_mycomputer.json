@@ -1,0 +1,13 @@
+{
+  "Description": "Detects modification to the \"Default\" value of the \"MyComputer\" key and subkeys to point to a custom binary that will be launched whenever the associated action is executed (see reference section for example)\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8fbe98a8-8f9d-44f8-aa71-8c572e29ef06",
+  "InsertDate": "2025-02-03T20:33:41Z",
+  "LastUpdateDate": "2025-02-03T20:33:41Z",
+  "Level": "high",
+  "Name": "Potential Persistence Via MyComputer Registry Keys",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Explorer\\\\MyComputer*\" target_object=\"*(Default)\"",
+  "Tags": [
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

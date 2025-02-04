@@ -1,0 +1,14 @@
+{
+  "Description": "Detect modification of TreatAs key to enable \"rundll32.exe -sta\" command\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "dc5c24af-6995-49b2-86eb-a9ff62199e82",
+  "InsertDate": "2025-02-03T20:33:44Z",
+  "LastUpdateDate": "2025-02-03T20:33:44Z",
+  "Level": "medium",
+  "Name": "COM Hijacking via TreatAs",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*TreatAs\\\\(Default)\" NOT (process_path=\"C:\\\\Windows\\\\system32\\\\svchost.exe\" OR (process_path=\"C:\\\\Windows\\\\system32\\\\msiexec.exe\" OR process_path=\"C:\\\\Windows\\\\SysWOW64\\\\msiexec.exe\") OR (process_path=\"C:\\\\Program Files\\\\Common Files\\\\Microsoft Shared\\\\ClickToRun\\\\*\" process_path=\"*\\\\OfficeClickToRun.exe\") OR process_path=\"C:\\\\Program Files (x86)\\\\Microsoft Office\\\\root\\\\integration\\\\integrator.exe\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1546.015"
+  ],
+  "Version": "0.1"
+}

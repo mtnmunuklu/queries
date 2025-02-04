@@ -1,0 +1,19 @@
+{
+  "Description": "Detects suspicious use of PCHunter, a tool like Process Hacker to view and manipulate processes, kernel options and other low level stuff\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fca949cc-79ca-446e-8064-01aa7e52ece5",
+  "InsertDate": "2025-02-03T20:32:45Z",
+  "LastUpdateDate": "2025-02-03T20:32:45Z",
+  "Level": "high",
+  "Name": "HackTool - PCHunter Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\PCHunter64.exe\" OR process_path=\"*\\\\PCHunter32.exe\") OR (original_file_name=\"PCHunter.exe\" description=\"Epoolsoft Windows Information View Tools\") OR (hashes=\"*SHA1=5F1CBC3D99558307BC1250D084FA968521482025*\" OR hashes=\"*MD5=987B65CD9B9F4E9A1AFD8F8B48CF64A7*\" OR hashes=\"*SHA256=2B214BDDAAB130C274DE6204AF6DBA5AEEC7433DA99AA950022FA306421A6D32*\" OR hashes=\"*IMPHASH=444D210CEA1FF8112F256A4997EED7FF*\" OR hashes=\"*SHA1=3FB89787CB97D902780DA080545584D97FB1C2EB*\" OR hashes=\"*MD5=228DD0C2E6287547E26FFBD973A40F14*\" OR hashes=\"*SHA256=55F041BF4E78E9BFA6D4EE68BE40E496CE3A1353E1CA4306598589E19802522C*\" OR hashes=\"*IMPHASH=0479F44DF47CFA2EF1CCC4416A538663*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.discovery",
+    "attack.t1082",
+    "attack.t1057",
+    "attack.t1012",
+    "attack.t1083",
+    "attack.t1007"
+  ],
+  "Version": "0.1"
+}

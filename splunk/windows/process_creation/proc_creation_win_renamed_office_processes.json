@@ -1,0 +1,13 @@
+{
+  "Description": "Detects the execution of a renamed office binary\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0b0cd537-fc77-4e6e-a973-e53495c1083d",
+  "InsertDate": "2025-02-03T20:33:07Z",
+  "LastUpdateDate": "2025-02-03T20:33:07Z",
+  "Level": "high",
+  "Name": "Renamed Office Binary Execution",
+  "Query": "sourcetype=\"windows-sysmon\" ((original_file_name=\"Excel.exe\" OR original_file_name=\"MSACCESS.EXE\" OR original_file_name=\"MSPUB.EXE\" OR original_file_name=\"OneNote.exe\" OR original_file_name=\"OneNoteM.exe\" OR original_file_name=\"OUTLOOK.EXE\" OR original_file_name=\"POWERPNT.EXE\" OR original_file_name=\"WinWord.exe\") (description=\"Microsoft Access\" OR description=\"Microsoft Excel\" OR description=\"Microsoft OneNote\" OR description=\"Microsoft Outlook\" OR description=\"Microsoft PowerPoint\" OR description=\"Microsoft Publisher\" OR description=\"Microsoft Word\" OR description=\"Sent to OneNote Tool\")) NOT (process_path=\"*\\\\EXCEL.exe\" OR process_path=\"*\\\\excelcnv.exe\" OR process_path=\"*\\\\MSACCESS.exe\" OR process_path=\"*\\\\MSPUB.EXE\" OR process_path=\"*\\\\ONENOTE.EXE\" OR process_path=\"*\\\\ONENOTEM.EXE\" OR process_path=\"*\\\\OUTLOOK.EXE\" OR process_path=\"*\\\\POWERPNT.EXE\" OR process_path=\"*\\\\WINWORD.exe\")",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

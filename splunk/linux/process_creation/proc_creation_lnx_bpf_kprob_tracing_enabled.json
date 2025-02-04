@@ -1,0 +1,14 @@
+{
+  "Description": "Detects common command used to enable bpf kprobes tracing\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7692f583-bd30-4008-8615-75dab3f08a99",
+  "InsertDate": "2025-02-03T20:31:58Z",
+  "LastUpdateDate": "2025-02-03T20:31:58Z",
+  "Level": "medium",
+  "Name": "Enable BPF Kprobes Tracing",
+  "Query": "sourcetype=\"linux-*\" (command=\"*echo 1 \u003e*\" command=\"*/sys/kernel/debug/tracing/events/kprobes/*\") (command=\"*/myprobe/enable*\" OR command=\"*/myretprobe/enable*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

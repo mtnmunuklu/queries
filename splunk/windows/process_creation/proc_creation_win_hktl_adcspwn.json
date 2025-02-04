@@ -1,0 +1,14 @@
+{
+  "Description": "Detects command line parameters used by ADCSPwn, a tool to escalate privileges in an active directory network by coercing authenticate from machine accounts and relaying to the certificate service\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "cd8c163e-a19b-402e-bdd5-419ff5859f12",
+  "InsertDate": "2025-02-03T20:32:43Z",
+  "LastUpdateDate": "2025-02-03T20:32:43Z",
+  "Level": "high",
+  "Name": "HackTool - ADCSPwn Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"* --adcs *\" command=\"* --port *\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1557.001"
+  ],
+  "Version": "0.1"
+}

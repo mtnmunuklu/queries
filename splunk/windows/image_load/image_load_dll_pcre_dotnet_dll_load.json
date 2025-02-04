@@ -1,0 +1,14 @@
+{
+  "Description": "Detects processes loading modules related to PCRE.NET package\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "84b0a8f3-680b-4096-a45b-e9a89221727c",
+  "InsertDate": "2025-02-03T20:32:21Z",
+  "LastUpdateDate": "2025-02-03T20:32:21Z",
+  "Level": "high",
+  "Name": "PCRE.NET Package Image Load",
+  "Query": "sourcetype=\"windows-sysmon\" image_loaded=\"*\\\\AppData\\\\Local\\\\Temp\\\\ba9ea7344a4a5f591d6e5dc32a13494b\\\\*\"",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

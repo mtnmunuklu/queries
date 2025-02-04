@@ -1,0 +1,17 @@
+{
+  "Description": "Detects DLL sideloading of DLLs that are part of third party software (zoom, discord....etc)\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Wietze Beukema (project and research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f9df325d-d7bc-4a32-8a1a-2cc61dcefc63",
+  "InsertDate": "2025-02-03T20:32:23Z",
+  "LastUpdateDate": "2025-02-03T20:32:23Z",
+  "Level": "medium",
+  "Name": "Third Party Software DLL Sideloading",
+  "Query": "sourcetype=\"windows-sysmon\" (image_loaded=\"*\\\\commfunc.dll\" NOT (image_loaded=\"*\\\\AppData\\\\local\\\\Google\\\\Chrome\\\\Application\\\\*\" (image_loaded=\"C:\\\\Program Files\\\\Lenovo\\\\Communications Utility\\\\*\" OR image_loaded=\"C:\\\\Program Files (x86)\\\\Lenovo\\\\Communications Utility\\\\*\"))) OR (image_loaded=\"*\\\\tosbtkbd.dll\" NOT (image_loaded=\"C:\\\\Program Files\\\\Toshiba\\\\Bluetooth Toshiba Stack\\\\*\" OR image_loaded=\"C:\\\\Program Files (x86)\\\\Toshiba\\\\Bluetooth Toshiba Stack\\\\*\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

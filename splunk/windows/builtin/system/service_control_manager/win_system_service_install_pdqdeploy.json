@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a PDQDeploy service installation which indicates that PDQDeploy was installed on the machines.\nPDQDeploy can be abused by attackers to remotely install packages or execute commands on target machines\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ee9ca27c-9bd7-4cee-9b01-6e906be7cae3",
+  "InsertDate": "2025-02-03T20:32:13Z",
+  "LastUpdateDate": "2025-02-03T20:32:13Z",
+  "Level": "medium",
+  "Name": "New PDQDeploy Service - Server Side",
+  "Query": "sourcetype=\"windows-system\" (provider_name=\"Service Control Manager\" eventid=\"7045\") (imagepath=\"*PDQDeployService.exe*\" (servicename=\"PDQDeploy\" OR servicename=\"PDQ Deploy\"))",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.t1543.003"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,17 @@
+{
+  "Description": "Detect usage of the \"sqlite\" binary to query databases in Chromium-based browsers for potential data stealing.\n\nAuthor: TropChaud\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "24c77512-782b-448a-8950-eddb0785fc71",
+  "InsertDate": "2025-02-03T20:33:12Z",
+  "LastUpdateDate": "2025-02-03T20:33:12Z",
+  "Level": "high",
+  "Name": "SQLite Chromium Profile Data DB Access",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*Login Data*\" OR command=\"*Cookies*\" OR command=\"*Web Data*\" OR command=\"*History*\" OR command=\"*Bookmarks*\") (product=\"SQLite\" (process_path=\"*\\\\sqlite.exe\" OR process_path=\"*\\\\sqlite3.exe\")) (command=\"*\\\\User Data\\\\*\" OR command=\"*\\\\Opera Software\\\\*\" OR command=\"*\\\\ChromiumViewer\\\\*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1539",
+    "attack.t1555.003",
+    "attack.collection",
+    "attack.t1005"
+  ],
+  "Version": "0.1"
+}

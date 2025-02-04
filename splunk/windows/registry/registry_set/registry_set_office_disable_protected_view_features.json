@@ -1,0 +1,14 @@
+{
+  "Description": "Detects changes to Microsoft Office protected view registry keys with which the attacker disables this feature.\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a5c7a43f-6009-4a8c-80c5-32abf1c53ecc",
+  "InsertDate": "2025-02-03T20:33:39Z",
+  "LastUpdateDate": "2025-02-03T20:33:39Z",
+  "Level": "high",
+  "Name": "Microsoft Office Protected View Disabled",
+  "Query": "sourcetype=\"windows-*\" (target_object=\"*\\\\SOFTWARE\\\\Microsoft\\\\Office\\\\*\" target_object=\"*\\\\Security\\\\ProtectedView\\\\*\") ((details=\"DWORD (0x00000001)\" (target_object=\"*\\\\DisableAttachementsInPV\" OR target_object=\"*\\\\DisableInternetFilesInPV\" OR target_object=\"*\\\\DisableIntranetCheck\" OR target_object=\"*\\\\DisableUnsafeLocationsInPV\")) OR (details=\"DWORD (0x00000000)\" (target_object=\"*\\\\enabledatabasefileprotectedview\" OR target_object=\"*\\\\enableforeigntextfileprotectedview\")))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

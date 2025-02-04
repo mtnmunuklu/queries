@@ -1,0 +1,13 @@
+{
+  "Description": "Identifies when a owner is was removed from a application or service principal in Azure.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "636e30d5-3736-42ea-96b1-e6e2f8429fd6",
+  "InsertDate": "2025-02-03T20:31:52Z",
+  "LastUpdateDate": "2025-02-03T20:31:52Z",
+  "Level": "medium",
+  "Name": "Azure Owner Removed From Application or Service Principal",
+  "Query": "sourcetype=\"azure-activitylogs\" (properties.message=\"Remove owner from service principal\" OR properties.message=\"Remove owner from application\")",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

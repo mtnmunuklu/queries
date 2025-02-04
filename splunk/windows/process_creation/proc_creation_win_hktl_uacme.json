@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the execution of UACMe, a tool used for UAC bypasses, via default PE metadata\n\nAuthor: Christian Burkard (Nextron Systems), Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d38d2fa4-98e6-4a24-aff1-410b0c9ad177",
+  "InsertDate": "2025-02-03T20:32:46Z",
+  "LastUpdateDate": "2025-02-03T20:32:46Z",
+  "Level": "high",
+  "Name": "HackTool - UACMe Akagi Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (product=\"UACMe\" (company=\"REvol Corp\" OR company=\"APT 92\" OR company=\"UG North\" OR company=\"Hazardous Environments\" OR company=\"CD Project Rekt\") (description=\"UACMe main module\" OR description=\"Pentesting utility\") (original_file_name=\"Akagi.exe\" OR original_file_name=\"Akagi64.exe\")) OR (process_path=\"*\\\\Akagi64.exe\" OR process_path=\"*\\\\Akagi.exe\") OR (hashes=\"*IMPHASH=767637C23BB42CD5D7397CF58B0BE688*\" OR hashes=\"*IMPHASH=14C4E4C72BA075E9069EE67F39188AD8*\" OR hashes=\"*IMPHASH=3C782813D4AFCE07BBFC5A9772ACDBDC*\" OR hashes=\"*IMPHASH=7D010C6BB6A3726F327F7E239166D127*\" OR hashes=\"*IMPHASH=89159BA4DD04E4CE5559F132A9964EB3*\" OR hashes=\"*IMPHASH=6F33F4A5FC42B8CEC7314947BD13F30F*\" OR hashes=\"*IMPHASH=5834ED4291BDEB928270428EBBAF7604*\" OR hashes=\"*IMPHASH=5A8A8A43F25485E7EE1B201EDCBC7A38*\" OR hashes=\"*IMPHASH=DC7D30B90B2D8ABF664FBED2B1B59894*\" OR hashes=\"*IMPHASH=41923EA1F824FE63EA5BEB84DB7A3E74*\" OR hashes=\"*IMPHASH=3DE09703C8E79ED2CA3F01074719906B*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1548.002"
+  ],
+  "Version": "0.1"
+}

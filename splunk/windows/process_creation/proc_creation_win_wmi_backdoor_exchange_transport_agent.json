@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a WMI backdoor in Exchange Transport Agents via WMI event filters\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "797011dc-44f4-4e6f-9f10-a8ceefbe566b",
+  "InsertDate": "2025-02-03T20:33:26Z",
+  "LastUpdateDate": "2025-02-03T20:33:26Z",
+  "Level": "critical",
+  "Name": "WMI Backdoor Exchange Transport Agent",
+  "Query": "sourcetype=\"windows-sysmon\" parent_process_path=\"*\\\\EdgeTransport.exe\" NOT (process_path=\"C:\\\\Windows\\\\System32\\\\conhost.exe\" OR (process_path=\"C:\\\\Program Files\\\\Microsoft\\\\Exchange Server\\\\*\" process_path=\"*\\\\Bin\\\\OleConverter.exe\"))",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1546.003"
+  ],
+  "Version": "0.1"
+}

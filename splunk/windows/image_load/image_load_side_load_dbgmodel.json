@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential DLL sideloading of \"DbgModel.dll\"\n\nAuthor: Gary Lobermier\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fef394cd-f44d-4040-9b18-95d92fe278c0",
+  "InsertDate": "2025-02-03T20:32:22Z",
+  "LastUpdateDate": "2025-02-03T20:32:22Z",
+  "Level": "medium",
+  "Name": "Potential DLL Sideloading Of DbgModel.DLL",
+  "Query": "sourcetype=\"windows-sysmon\" image_loaded=\"*\\\\dbgmodel.dll\" NOT (image_loaded=\"C:\\\\Windows\\\\System32\\\\*\" OR image_loaded=\"C:\\\\Windows\\\\SysWOW64\\\\*\" OR image_loaded=\"C:\\\\Windows\\\\WinSxS\\\\*\") NOT (image_loaded=\"C:\\\\Program Files\\\\WindowsApps\\\\Microsoft.WinDbg_*\" OR (image_loaded=\"C:\\\\Program Files (x86)\\\\Windows Kits\\\\*\" OR image_loaded=\"C:\\\\Program Files\\\\Windows Kits\\\\*\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects disabling security tools\n\nAuthor: Ömer Günal, Alejandro Ortuno, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e3a8a052-111f-4606-9aee-f28ebeb76776",
+  "InsertDate": "2025-02-03T20:32:00Z",
+  "LastUpdateDate": "2025-02-03T20:32:00Z",
+  "Level": "medium",
+  "Name": "Disabling Security Tools",
+  "Query": "sourcetype=\"linux-*\" (process_path=\"*/service\" (command=\"*ip6tables*\" command=\"*stop*\")) OR (process_path=\"*/systemctl\" (command=\"*firewalld*\" command=\"*stop*\")) OR (process_path=\"*/service\" (command=\"*cbdaemon*\" command=\"*stop*\")) OR (process_path=\"*/chkconfig\" (command=\"*cbdaemon*\" command=\"*off*\")) OR (process_path=\"*/systemctl\" (command=\"*cbdaemon*\" command=\"*disable*\")) OR (process_path=\"*/service\" (command=\"*iptables*\" command=\"*stop*\")) OR (process_path=\"*/chkconfig\" (command=\"*ip6tables*\" command=\"*stop*\")) OR (process_path=\"*/systemctl\" (command=\"*firewalld*\" command=\"*disable*\")) OR (process_path=\"*/systemctl\" (command=\"*cbdaemon*\" command=\"*stop*\")) OR (process_path=\"*/setenforce\" command=\"*0*\") OR (process_path=\"*/systemctl\" (command=\"*stop*\" command=\"*falcon-sensor*\")) OR (process_path=\"*/systemctl\" (command=\"*disable*\" command=\"*falcon-sensor*\")) OR (process_path=\"*/chkconfig\" (command=\"*iptables*\" command=\"*stop*\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.004"
+  ],
+  "Version": "0.1"
+}

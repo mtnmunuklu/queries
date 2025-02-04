@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential process patterns related to Cobalt Strike beacon activity\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f35c5d71-b489-4e22-a115-f003df287317",
+  "InsertDate": "2025-02-03T20:32:43Z",
+  "LastUpdateDate": "2025-02-03T20:32:43Z",
+  "Level": "high",
+  "Name": "Potential CobaltStrike Process Patterns",
+  "Query": "sourcetype=\"windows-sysmon\" ((parent_process_path=\"*\\\\runonce.exe\" OR parent_process_path=\"*\\\\dllhost.exe\") (command=\"*cmd.exe /c echo*\" command=\"*\u003e \\\\\\\\\\\\\\\\.\\\\\\\\pipe*\")) OR ((parent_command_line=\"*cmd.exe /C echo*\" parent_command_line=\"* \u003e \\\\\\\\\\\\\\\\.\\\\\\\\pipe*\") command=\"*conhost.exe 0xffffffff -ForceV1\") OR (parent_command_line=\"*/C whoami\" command=\"*conhost.exe 0xffffffff -ForceV1\") OR (command=\"*cmd.exe /C whoami\" parent_process_path=\"C:\\\\Temp\\\\*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

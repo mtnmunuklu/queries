@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the removal of a port or application rule in the Windows Firewall configuration using netsh\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1a5fefe6-734f-452e-a07d-fc1c35bce4b2",
+  "InsertDate": "2025-02-03T20:32:52Z",
+  "LastUpdateDate": "2025-02-03T20:32:52Z",
+  "Level": "medium",
+  "Name": "Firewall Rule Deleted Via Netsh.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\netsh.exe\" original_file_name=\"netsh.exe\") (command=\"*firewall*\" command=\"*delete *\")) NOT (parent_process_path=\"*\\\\Dropbox.exe\" command=\"*name=Dropbox*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.004"
+  ],
+  "Version": "0.1"
+}

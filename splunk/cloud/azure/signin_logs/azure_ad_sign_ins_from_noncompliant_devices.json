@@ -1,0 +1,14 @@
+{
+  "Description": "Monitor and alert for sign-ins where the device was non-compliant.\n\nAuthor: Michael Epping, '@mepples21'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4f77e1d7-3982-4ee0-8489-abf2d6b75284",
+  "InsertDate": "2025-02-03T20:31:53Z",
+  "LastUpdateDate": "2025-02-03T20:31:53Z",
+  "Level": "high",
+  "Name": "Sign-ins from Non-Compliant Devices",
+  "Query": "sourcetype=\"azure-signinlogs\" devicedetail.iscompliant=\"false\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1078.004"
+  ],
+  "Version": "0.1"
+}

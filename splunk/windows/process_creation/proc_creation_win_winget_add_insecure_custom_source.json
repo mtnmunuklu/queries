@@ -1,0 +1,15 @@
+{
+  "Description": "Detects usage of winget to add a new insecure (http) download source.\nWinget will not allow the addition of insecure sources, hence this could indicate potential suspicious activity (or typos)\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "81a0ecb5-0a41-4ba1-b2ba-c944eb92bfa2",
+  "InsertDate": "2025-02-03T20:33:25Z",
+  "LastUpdateDate": "2025-02-03T20:33:25Z",
+  "Level": "high",
+  "Name": "Add Insecure Download Source To Winget",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\winget.exe\" original_file_name=\"winget.exe\") (command=\"*source *\" command=\"*add *\" command=\"*http://*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a successful export of an Exchange mailbox to untypical directory or with aspx name suffix which can be used to place a webshell or the needed role assignment for it\n\nAuthor: Florian Roth (Nextron Systems), Rich Warren, Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "516376b4-05cd-4122-bae0-ad7641c38d48",
+  "InsertDate": "2025-02-03T20:32:07Z",
+  "LastUpdateDate": "2025-02-03T20:32:07Z",
+  "Level": "critical",
+  "Name": "Mailbox Export to Exchange Webserver",
+  "Query": "sourcetype=\"windows-msexchange-management\" ((=\"New-MailboxExportRequest\" =\" -Mailbox \") (\"-FilePath \"\\\\\\\\\" OR \".aspx\")) OR (=\"New-ManagementRoleAssignment\" =\" -Role \"Mailbox Import Export\"\" =\" -User \")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1505.003"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious sub processes of web server processes\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "818f7b24-0fba-4c49-a073-8b755573b9c7",
+  "InsertDate": "2025-02-03T20:32:01Z",
+  "LastUpdateDate": "2025-02-03T20:32:01Z",
+  "Level": "high",
+  "Name": "Linux Webshell Indicators",
+  "Query": "sourcetype=\"linux-*\" ((parent_process_path=\"*/httpd\" OR parent_process_path=\"*/lighttpd\" OR parent_process_path=\"*/nginx\" OR parent_process_path=\"*/apache2\" OR parent_process_path=\"*/node\" OR parent_process_path=\"*/caddy\") OR (parent_command_line=\"*/bin/java*\" parent_command_line=\"*tomcat*\") OR (parent_command_line=\"*/bin/java*\" parent_command_line=\"*websphere*\")) (process_path=\"*/whoami\" OR process_path=\"*/ifconfig\" OR process_path=\"*/ip\" OR process_path=\"*/bin/uname\" OR process_path=\"*/bin/cat\" OR process_path=\"*/bin/crontab\" OR process_path=\"*/hostname\" OR process_path=\"*/iptables\" OR process_path=\"*/netstat\" OR process_path=\"*/pwd\" OR process_path=\"*/route\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1505.003"
+  ],
+  "Version": "0.1"
+}

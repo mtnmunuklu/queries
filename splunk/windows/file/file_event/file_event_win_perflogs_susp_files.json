@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious file based on their extension being created in \"C:\\PerfLogs\\\". Note that this directory mostly contains \".etl\" files\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "bbb7e38c-0b41-4a11-b306-d2a457b7ac2b",
+  "InsertDate": "2025-02-03T20:32:19Z",
+  "LastUpdateDate": "2025-02-03T20:32:19Z",
+  "Level": "medium",
+  "Name": "Suspicious File Created In PerfLogs",
+  "Query": "sourcetype=\"windows-sysmon\" filepath=\"C:\\\\PerfLogs\\\\*\" (filepath=\"*.7z\" OR filepath=\"*.bat\" OR filepath=\"*.bin\" OR filepath=\"*.chm\" OR filepath=\"*.dll\" OR filepath=\"*.exe\" OR filepath=\"*.hta\" OR filepath=\"*.lnk\" OR filepath=\"*.ps1\" OR filepath=\"*.psm1\" OR filepath=\"*.py\" OR filepath=\"*.scr\" OR filepath=\"*.sys\" OR filepath=\"*.vbe\" OR filepath=\"*.vbs\" OR filepath=\"*.zip\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,13 @@
+{
+  "Description": "Detects MSI package installation from suspicious locations\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c7c8aa1c-5aff-408e-828b-998e3620b341",
+  "InsertDate": "2025-02-03T20:32:06Z",
+  "LastUpdateDate": "2025-02-03T20:32:06Z",
+  "Level": "medium",
+  "Name": "MSI Installation From Suspicious Locations",
+  "Query": "sourcetype=\"windows-application\" (provider_name=\"MsiInstaller\" (eventid=\"1040\" OR eventid=\"1042\") (data=\"*:\\\\Windows\\\\TEMP\\\\*\" OR data=\"*\\\\\\\\\\\\\\\\*\" OR data=\"*\\\\Desktop\\\\*\" OR data=\"*\\\\PerfLogs\\\\*\" OR data=\"*\\\\Users\\\\Public\\\\*\")) NOT (data=\"*\\\\AppData\\\\Local\\\\Temp\\\\WinGet\\\\*\" OR data=\"*C:\\\\Windows\\\\TEMP\\\\UpdHealthTools.msi*\")",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects Cobalt Strike module/commands accidentally entered in CMD shell\n\nAuthor: _pete_0, TheDFIRReport\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4f154fb6-27d1-4813-a759-78b93e0b9c48",
+  "InsertDate": "2025-02-03T20:32:43Z",
+  "LastUpdateDate": "2025-02-03T20:32:43Z",
+  "Level": "high",
+  "Name": "Operator Bloopers Cobalt Strike Modules",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*Invoke-UserHunter*\" OR command=\"*Invoke-ShareFinder*\" OR command=\"*Invoke-Kerberoast*\" OR command=\"*Invoke-SMBAutoBrute*\" OR command=\"*Invoke-Nightmare*\" OR command=\"*zerologon*\" OR command=\"*av_query*\") (original_file_name=\"Cmd.Exe\" process_path=\"*\\\\cmd.exe\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.003"
+  ],
+  "Version": "0.1"
+}

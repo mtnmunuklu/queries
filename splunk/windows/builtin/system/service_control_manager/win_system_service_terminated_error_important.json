@@ -1,0 +1,13 @@
+{
+  "Description": "Detects important or interesting Windows services that got terminated for whatever reason\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d6b5520d-3934-48b4-928c-2aa3f92d6963",
+  "InsertDate": "2025-02-03T20:32:14Z",
+  "LastUpdateDate": "2025-02-03T20:32:14Z",
+  "Level": "high",
+  "Name": "Important Windows Service Terminated With Error",
+  "Query": "sourcetype=\"windows-system\" (provider_name=\"Service Control Manager\" eventid=\"7023\") ((param1=\"* Antivirus*\" OR param1=\"* Firewall*\" OR param1=\"*Application Guard*\" OR param1=\"*BitLocker Drive Encryption Service*\" OR param1=\"*Encrypting File System*\" OR param1=\"*Microsoft Defender*\" OR param1=\"*Threat Protection*\" OR param1=\"*Windows Event Log*\") (binary=\"*770069006e0064006500660065006e006400*\" OR binary=\"*4500760065006e0074004c006f006700*\" OR binary=\"*6d0070007300730076006300*\" OR binary=\"*530065006e0073006500*\" OR binary=\"*450046005300*\" OR binary=\"*420044004500530056004300*\"))",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

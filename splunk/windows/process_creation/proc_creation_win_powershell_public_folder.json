@@ -1,0 +1,14 @@
+{
+  "Description": "This rule detects execution of PowerShell scripts located in the \"C:\\Users\\Public\" folder\n\nAuthor: Max Altgelt (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fb9d3ff7-7348-46ab-af8c-b55f5fbf39b4",
+  "InsertDate": "2025-02-03T20:32:58Z",
+  "LastUpdateDate": "2025-02-03T20:32:58Z",
+  "Level": "high",
+  "Name": "Execution of Powershell Script in Public Folder",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\") (command=\"*-f C:\\\\Users\\\\Public*\" OR command=\"*-f \"C:\\\\Users\\\\Public*\" OR command=\"*-f %Public%*\" OR command=\"*-fi C:\\\\Users\\\\Public*\" OR command=\"*-fi \"C:\\\\Users\\\\Public*\" OR command=\"*-fi %Public%*\" OR command=\"*-fil C:\\\\Users\\\\Public*\" OR command=\"*-fil \"C:\\\\Users\\\\Public*\" OR command=\"*-fil %Public%*\" OR command=\"*-file C:\\\\Users\\\\Public*\" OR command=\"*-file \"C:\\\\Users\\\\Public*\" OR command=\"*-file %Public%*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

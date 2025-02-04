@@ -1,0 +1,14 @@
+{
+  "Description": "Attackers may leverage fsutil to enumerated connected drives.\n\nAuthor: Christopher Peacock '@securepeacock', SCYTHE '@scythe_io'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "63de06b9-a385-40b5-8b32-73f2b9ef84b6",
+  "InsertDate": "2025-02-03T20:32:42Z",
+  "LastUpdateDate": "2025-02-03T20:32:42Z",
+  "Level": "low",
+  "Name": "Fsutil Drive Enumeration",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\fsutil.exe\" original_file_name=\"fsutil.exe\") command=\"*drives*\"",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1120"
+  ],
+  "Version": "0.1"
+}

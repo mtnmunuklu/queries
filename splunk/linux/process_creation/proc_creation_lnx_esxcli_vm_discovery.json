@@ -1,0 +1,15 @@
+{
+  "Description": "Detects execution of the \"esxcli\" command with the \"vm\" flag in order to retrieve information about the installed VMs.\n\nAuthor: Cedric Maurugeon\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5f1573a7-363b-4114-9208-ad7a61de46eb",
+  "InsertDate": "2025-02-03T20:31:59Z",
+  "LastUpdateDate": "2025-02-03T20:31:59Z",
+  "Level": "medium",
+  "Name": "ESXi VM List Discovery Via ESXCLI",
+  "Query": "sourcetype=\"linux-*\" process_path=\"*/esxcli\" command=\"*vm process*\" command=\"* list\"",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1033",
+    "attack.t1007"
+  ],
+  "Version": "0.1"
+}

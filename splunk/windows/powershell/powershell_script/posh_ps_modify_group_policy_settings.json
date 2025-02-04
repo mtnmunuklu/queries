@@ -1,0 +1,15 @@
+{
+  "Description": "Detect malicious GPO modifications can be used to implement many other malicious behaviors.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b7216a7d-687e-4c8d-82b1-3080b2ad961f",
+  "InsertDate": "2025-02-03T20:32:31Z",
+  "LastUpdateDate": "2025-02-03T20:32:31Z",
+  "Level": "medium",
+  "Name": "Modify Group Policy Settings - ScriptBlockLogging",
+  "Query": "sourcetype=\"windows-*\" scriptblocktext=\"*\\\\SOFTWARE\\\\Policies\\\\Microsoft\\\\Windows\\\\System*\" (scriptblocktext=\"*GroupPolicyRefreshTimeDC*\" OR scriptblocktext=\"*GroupPolicyRefreshTimeOffsetDC*\" OR scriptblocktext=\"*GroupPolicyRefreshTime*\" OR scriptblocktext=\"*GroupPolicyRefreshTimeOffset*\" OR scriptblocktext=\"*EnableSmartScreen*\" OR scriptblocktext=\"*ShellSmartScreenLevel*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1484.001"
+  ],
+  "Version": "0.1"
+}

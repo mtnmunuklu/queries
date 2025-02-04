@@ -1,0 +1,14 @@
+{
+  "Description": "Detects file write event from/to a fake recycle bin folder that is often used as a staging directory for malware\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "cd8b36ac-8e4a-4c2f-a402-a29b8fbd5bca",
+  "InsertDate": "2025-02-03T20:32:20Z",
+  "LastUpdateDate": "2025-02-03T20:32:20Z",
+  "Level": "high",
+  "Name": "Suspicious File Creation Activity From Fake Recycle.Bin Folder",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*RECYCLERS.BIN\\\\*\" OR process_path=\"*RECYCLER.BIN\\\\*\") (filepath=\"*RECYCLERS.BIN\\\\*\" OR filepath=\"*RECYCLER.BIN\\\\*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

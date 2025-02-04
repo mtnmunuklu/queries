@@ -1,0 +1,14 @@
+{
+  "Description": "Detects DNS query requests to \"update.onelaunch.com\". This domain is associated with the OneLaunch adware application.\nWhen the OneLaunch application is installed it will attempt to get updates from this domain.\n\n\nAuthor: Josh Nickels\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "df68f791-ad95-447f-a271-640a0dab9cf8",
+  "InsertDate": "2025-02-03T20:32:15Z",
+  "LastUpdateDate": "2025-02-03T20:32:15Z",
+  "Level": "low",
+  "Name": "DNS Query Request To OneLaunch Update Service",
+  "Query": "sourcetype=\"windows-sysmon\" query_name=\"update.onelaunch.com\" process_path=\"*\\\\OneLaunch.exe\"",
+  "Tags": [
+    "attack.collection",
+    "attack.t1056"
+  ],
+  "Version": "0.1"
+}

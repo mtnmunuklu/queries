@@ -1,0 +1,13 @@
+{
+  "Description": "Detects execution of \"rundll32\" with potential obfuscated ordinal calls\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "43fa5350-db63-4b8f-9a01-789a427074e1",
+  "InsertDate": "2025-02-03T20:33:08Z",
+  "LastUpdateDate": "2025-02-03T20:33:08Z",
+  "Level": "medium",
+  "Name": "Potential Obfuscated Ordinal Call Via Rundll32",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\rundll32.exe\" original_file_name=\"RUNDLL32.EXE\" command=\"*rundll32*\") (command=\"*#+*\" OR command=\"*#-*\")",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

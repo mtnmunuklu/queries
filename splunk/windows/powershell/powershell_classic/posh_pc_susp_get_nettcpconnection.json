@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may attempt to get a listing of network connections to or from the compromised system they are currently accessing or from remote systems by querying for information over the network.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b366adb4-d63d-422d-8a2c-186463b5ded0",
+  "InsertDate": "2025-02-03T20:32:27Z",
+  "LastUpdateDate": "2025-02-03T20:32:27Z",
+  "Level": "low",
+  "Name": "Use Get-NetTCPConnection",
+  "Query": "sourcetype=\"windows-*\" data=\"*Get-NetTCPConnection*\"",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1049"
+  ],
+  "Version": "0.1"
+}

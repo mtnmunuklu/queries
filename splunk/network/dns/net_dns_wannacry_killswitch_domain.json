@@ -1,0 +1,14 @@
+{
+  "Description": "Detects wannacry killswitch domain dns queries\n\nAuthor: Mike Wade\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3eaf6218-3bed-4d8a-8707-274096f12a18",
+  "InsertDate": "2025-02-03T20:32:03Z",
+  "LastUpdateDate": "2025-02-03T20:32:03Z",
+  "Level": "high",
+  "Name": "Wannacry Killswitch Domain",
+  "Query": "(query=\"ifferfsodp9ifjaposdfjhgosurijfaewrwergwea.testing\" OR query=\"ifferfsodp9ifjaposdfjhgosurijfaewrwergwea.test\" OR query=\"ifferfsodp9ifjaposdfjhgosurijfaewrwergwea.com\" OR query=\"ayylmaotjhsstasdfasdfasdfasdfasdfasdfasdf.com\" OR query=\"iuqssfsodp9ifjaposdfjhgosurijfaewrwergwea.com\")",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1071.001"
+  ],
+  "Version": "0.1"
+}

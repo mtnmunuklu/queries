@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may establish persistence by executing malicious content triggered by user inactivity.\nScreensavers are programs that execute after a configurable time of user inactivity and consist of Portable Executable (PE) files with a .scr file extension\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0fc35fc3-efe6-4898-8a37-0b233339524f",
+  "InsertDate": "2025-02-03T20:33:03Z",
+  "LastUpdateDate": "2025-02-03T20:33:03Z",
+  "Level": "medium",
+  "Name": "Suspicious ScreenSave Change by Reg.exe",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\reg.exe\" (command=\"*HKEY_CURRENT_USER\\\\Control Panel\\\\Desktop*\" OR command=\"*HKCU\\\\Control Panel\\\\Desktop*\")) ((command=\"*/v ScreenSaveActive*\" command=\"*/t REG_SZ*\" command=\"*/d 1*\" command=\"*/f*\") OR (command=\"*/v ScreenSaveTimeout*\" command=\"*/t REG_SZ*\" command=\"*/d *\" command=\"*/f*\") OR (command=\"*/v ScreenSaverIsSecure*\" command=\"*/t REG_SZ*\" command=\"*/d 0*\" command=\"*/f*\") OR (command=\"*/v SCRNSAVE.EXE*\" command=\"*/t REG_SZ*\" command=\"*/d *\" command=\"*.scr*\" command=\"*/f*\"))",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.t1546.002"
+  ],
+  "Version": "0.1"
+}

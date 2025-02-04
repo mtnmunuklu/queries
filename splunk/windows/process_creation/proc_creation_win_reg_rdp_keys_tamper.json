@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the execution of \"reg.exe\" for enabling/disabling the RDP service on the host by tampering with the 'CurrentControlSet\\Control\\Terminal Server' values\n\nAuthor: pH-T (Nextron Systems), @Kostastsale, @TheDFIRReport\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0d5675be-bc88-4172-86d3-1e96a4476536",
+  "InsertDate": "2025-02-03T20:33:03Z",
+  "LastUpdateDate": "2025-02-03T20:33:03Z",
+  "Level": "high",
+  "Name": "Potential Tampering With RDP Related Registry Keys Via Reg.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\reg.exe\" original_file_name=\"reg.exe\") (command=\"* add *\" command=\"*\\\\CurrentControlSet\\\\Control\\\\Terminal Server*\" command=\"*REG_DWORD*\" command=\"* /f*\")) ((command=\"*Licensing Core*\" command=\"*EnableConcurrentSessions*\") OR (command=\"*WinStations\\\\RDP-Tcp*\" OR command=\"*MaxInstanceCount*\" OR command=\"*fEnableWinStation*\" OR command=\"*TSUserEnabled*\" OR command=\"*TSEnabled*\" OR command=\"*TSAppCompat*\" OR command=\"*IdleWinStationPoolCount*\" OR command=\"*TSAdvertise*\" OR command=\"*AllowTSConnections*\" OR command=\"*fSingleSessionPerUser*\" OR command=\"*fDenyTSConnections*\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.lateral-movement",
+    "attack.t1021.001",
+    "attack.t1112"
+  ],
+  "Version": "0.1"
+}

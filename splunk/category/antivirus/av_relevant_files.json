@@ -1,0 +1,14 @@
+{
+  "Description": "Detects an Antivirus alert in a highly relevant file path or with a relevant file name.\nThis event must not be ignored just because the AV has blocked the malware but investigate, how it came there in the first place.\n\n\nAuthor: Florian Roth (Nextron Systems), Arnim Rupp\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c9a88268-0047-4824-ba6e-4d81ce0b907c",
+  "InsertDate": "2025-02-03T20:31:50Z",
+  "LastUpdateDate": "2025-02-03T20:31:50Z",
+  "Level": "high",
+  "Name": "Antivirus Relevant File Paths Alerts",
+  "Query": "(filename=\"*:\\\\PerfLogs\\\\*\" OR filename=\"*:\\\\Temp\\\\*\" OR filename=\"*:\\\\Users\\\\Default\\\\*\" OR filename=\"*:\\\\Users\\\\Public\\\\*\" OR filename=\"*:\\\\Windows\\\\*\" OR filename=\"*/www/*\" OR filename=\"*\\\\inetpub\\\\*\" OR filename=\"*\\\\tsclient\\\\*\" OR filename=\"*apache*\" OR filename=\"*nginx*\" OR filename=\"*tomcat*\" OR filename=\"*weblogic*\") OR (filename=\"*.asax\" OR filename=\"*.ashx\" OR filename=\"*.asmx\" OR filename=\"*.asp\" OR filename=\"*.aspx\" OR filename=\"*.bat\" OR filename=\"*.cfm\" OR filename=\"*.cgi\" OR filename=\"*.chm\" OR filename=\"*.cmd\" OR filename=\"*.dat\" OR filename=\"*.ear\" OR filename=\"*.gif\" OR filename=\"*.hta\" OR filename=\"*.jpeg\" OR filename=\"*.jpg\" OR filename=\"*.jsp\" OR filename=\"*.jspx\" OR filename=\"*.lnk\" OR filename=\"*.msc\" OR filename=\"*.php\" OR filename=\"*.pl\" OR filename=\"*.png\" OR filename=\"*.ps1\" OR filename=\"*.psm1\" OR filename=\"*.py\" OR filename=\"*.pyc\" OR filename=\"*.rb\" OR filename=\"*.scf\" OR filename=\"*.sct\" OR filename=\"*.sh\" OR filename=\"*.svg\" OR filename=\"*.txt\" OR filename=\"*.vbe\" OR filename=\"*.vbs\" OR filename=\"*.war\" OR filename=\"*.wll\" OR filename=\"*.wsf\" OR filename=\"*.wsh\" OR filename=\"*.xll\" OR filename=\"*.xml\")",
+  "Tags": [
+    "attack.resource-development",
+    "attack.t1588"
+  ],
+  "Version": "0.1"
+}

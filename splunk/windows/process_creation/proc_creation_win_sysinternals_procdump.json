@@ -1,0 +1,15 @@
+{
+  "Description": "Detects usage of the SysInternals Procdump utility\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2e65275c-8288-4ab4-aeb7-6274f58b6b20",
+  "InsertDate": "2025-02-03T20:33:19Z",
+  "LastUpdateDate": "2025-02-03T20:33:19Z",
+  "Level": "medium",
+  "Name": "Procdump Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\procdump.exe\" OR process_path=\"*\\\\procdump64.exe\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1036",
+    "attack.t1003.001"
+  ],
+  "Version": "0.1"
+}

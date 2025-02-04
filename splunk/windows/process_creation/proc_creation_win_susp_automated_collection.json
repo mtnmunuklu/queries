@@ -1,0 +1,16 @@
+{
+  "Description": "Once established within a system or network, an adversary may use automated techniques for collecting internal data.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f576a613-2392-4067-9d1a-9345fb58d8d1",
+  "InsertDate": "2025-02-03T20:33:13Z",
+  "LastUpdateDate": "2025-02-03T20:33:13Z",
+  "Level": "medium",
+  "Name": "Automated Collection Command Prompt",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*.doc*\" OR command=\"*.docx*\" OR command=\"*.xls*\" OR command=\"*.xlsx*\" OR command=\"*.ppt*\" OR command=\"*.pptx*\" OR command=\"*.rtf*\" OR command=\"*.pdf*\" OR command=\"*.txt*\") ((command=\"*dir *\" command=\"* /b *\" command=\"* /s *\") OR (original_file_name=\"FINDSTR.EXE\" (command=\"* /e *\" OR command=\"* /si *\")))",
+  "Tags": [
+    "attack.collection",
+    "attack.t1119",
+    "attack.credential-access",
+    "attack.t1552.001"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects usage of crontab to list the tasks of the user\n\nAuthor: Joseliyo Sanchez, @Joseliyo_Jstnk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "403ed92c-b7ec-4edd-9947-5b535ee12d46",
+  "InsertDate": "2025-02-03T20:31:58Z",
+  "LastUpdateDate": "2025-02-03T20:31:58Z",
+  "Level": "low",
+  "Name": "Crontab Enumeration",
+  "Query": "sourcetype=\"linux-*\" process_path=\"*/crontab\" command=\"* -l*\"",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1007"
+  ],
+  "Version": "0.1"
+}

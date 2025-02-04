@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of the LOLBIN gpscript, which executes logon or startup scripts configured in Group Policy\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1e59c230-6670-45bf-83b0-98903780607e",
+  "InsertDate": "2025-02-03T20:32:48Z",
+  "LastUpdateDate": "2025-02-03T20:32:48Z",
+  "Level": "medium",
+  "Name": "Gpscript Execution",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\gpscript.exe\" original_file_name=\"GPSCRIPT.EXE\") (command=\"* /logon*\" OR command=\"* /startup*\")) NOT parent_command_line=\"C:\\\\windows\\\\system32\\\\svchost.exe -k netsvcs -p -s gpsvc\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,13 @@
+{
+  "Description": "Detects when storage bucket is modified or deleted in Google Cloud.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4d9f2ee2-c903-48ab-b9c1-8c0f474913d0",
+  "InsertDate": "2025-02-03T20:31:54Z",
+  "LastUpdateDate": "2025-02-03T20:31:54Z",
+  "Level": "medium",
+  "Name": "Google Cloud Storage Buckets Modified or Deleted",
+  "Query": "sourcetype=\"gcp-gcp.audit\" (gcp.audit.method_name=\"storage.buckets.delete\" OR gcp.audit.method_name=\"storage.buckets.insert\" OR gcp.audit.method_name=\"storage.buckets.update\" OR gcp.audit.method_name=\"storage.buckets.patch\")",
+  "Tags": [
+    "attack.impact"
+  ],
+  "Version": "0.1"
+}

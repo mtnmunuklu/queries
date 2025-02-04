@@ -1,0 +1,14 @@
+{
+  "Description": "Download or Copy file with Extrac32\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "aa8e035d-7be4-48d3-a944-102aec04400d",
+  "InsertDate": "2025-02-03T20:32:48Z",
+  "LastUpdateDate": "2025-02-03T20:32:48Z",
+  "Level": "medium",
+  "Name": "Suspicious Extrac32 Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*/C*\" OR command=\"*/Y*\" OR command=\"* \\\\\\\\\\\\\\\\*\") (command=\"*extrac32.exe*\" process_path=\"*\\\\extrac32.exe\" original_file_name=\"extrac32.exe\") command=\"*.cab*\"",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1105"
+  ],
+  "Version": "0.1"
+}

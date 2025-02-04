@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of Scheduled Tasks where the program being run is located in a suspicious location or where it is an unusual program to be run from a Scheduled Task\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f0767f15-0fb3-44b9-851e-e8d9a6d0005d",
+  "InsertDate": "2025-02-03T20:32:14Z",
+  "LastUpdateDate": "2025-02-03T20:32:14Z",
+  "Level": "medium",
+  "Name": "Scheduled Task Executed Uncommon LOLBIN",
+  "Query": "sourcetype=\"windows-taskscheduler\" eventid=\"129\" (path=\"*\\\\calc.exe\" OR path=\"*\\\\cscript.exe\" OR path=\"*\\\\mshta.exe\" OR path=\"*\\\\mspaint.exe\" OR path=\"*\\\\notepad.exe\" OR path=\"*\\\\regsvr32.exe\" OR path=\"*\\\\wscript.exe\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1053.005"
+  ],
+  "Version": "0.1"
+}

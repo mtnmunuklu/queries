@@ -1,0 +1,14 @@
+{
+  "Description": "Detects setting a custom URL for OneDriveStandaloneUpdater.exe to download a file from the Internet without executing any\nanomalous executables with suspicious arguments. The downloaded file will be in C:\\Users\\redacted\\AppData\\Local\\Microsoft\\OneDrive\\StandaloneUpdaterreSignInSettingsConfig.json\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3aff0be0-7802-4a7e-a4fa-c60c74bc5e1d",
+  "InsertDate": "2025-02-03T20:33:37Z",
+  "LastUpdateDate": "2025-02-03T20:33:37Z",
+  "Level": "high",
+  "Name": "Lolbas OneDriveStandaloneUpdater.exe Proxy Download",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\SOFTWARE\\\\Microsoft\\\\OneDrive\\\\UpdateOfficeConfig\\\\UpdateRingSettingURLFromOC*\"",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1105"
+  ],
+  "Version": "0.1"
+}

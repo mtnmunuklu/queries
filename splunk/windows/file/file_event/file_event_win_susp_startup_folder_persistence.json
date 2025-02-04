@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when a file with a suspicious extension is created in the startup folder\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "28208707-fe31-437f-9a7f-4b1108b94d2e",
+  "InsertDate": "2025-02-03T20:32:20Z",
+  "LastUpdateDate": "2025-02-03T20:32:20Z",
+  "Level": "high",
+  "Name": "Suspicious Startup Folder Persistence",
+  "Query": "sourcetype=\"windows-sysmon\" filepath=\"*\\\\Windows\\\\Start Menu\\\\Programs\\\\Startup\\\\*\" (filepath=\"*.vbs\" OR filepath=\"*.vbe\" OR filepath=\"*.bat\" OR filepath=\"*.ps1\" OR filepath=\"*.hta\" OR filepath=\"*.dll\" OR filepath=\"*.jar\" OR filepath=\"*.msi\" OR filepath=\"*.scr\" OR filepath=\"*.cmd\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1547.001"
+  ],
+  "Version": "0.1"
+}

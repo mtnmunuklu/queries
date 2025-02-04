@@ -1,0 +1,14 @@
+{
+  "Description": "Detects creation of a scheduled task with a GUID like name\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ff2fff64-4cd6-4a2b-ba7d-e28a30bbe66b",
+  "InsertDate": "2025-02-03T20:33:11Z",
+  "LastUpdateDate": "2025-02-03T20:33:11Z",
+  "Level": "medium",
+  "Name": "Suspicious Scheduled Task Name As GUID",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\schtasks.exe\" command=\"*/Create *\") (command=\"*/TN \"{*\" OR command=\"*/TN '{*\" OR command=\"*/TN {*\") (command=\"*}\"*\" OR command=\"*}'*\" OR command=\"*} *\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1053.005"
+  ],
+  "Version": "0.1"
+}

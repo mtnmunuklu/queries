@@ -1,0 +1,14 @@
+{
+  "Description": "Detects any deletion of entries in \".*\\shell\\open\\command\" registry keys.\nThese registry keys might have been used for COM hijacking activities by a threat actor or an attacker and the deletion could indicate steps to remove its tracks.\n\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "96f697b0-b499-4e5d-9908-a67bec11cdb6",
+  "InsertDate": "2025-02-03T20:33:28Z",
+  "LastUpdateDate": "2025-02-03T20:33:28Z",
+  "Level": "medium",
+  "Name": "Removal of Potential COM Hijacking Registry Keys",
+  "Query": "sourcetype=\"windows-*\" (event_type=\"DeleteKey\" target_object=\"*\\\\shell\\\\open\\\\command\") NOT (((process_path=\"C:\\\\Program Files\\\\Common Files\\\\Microsoft Shared\\\\ClickToRun\\\\*\" OR process_path=\"C:\\\\Program Files\\\\Common Files\\\\Microsoft Shared\\\\ClickToRun\\\\Updates\\\\*\") process_path=\"*\\\\OfficeClickToRun.exe\") OR (process_path=\"*peazip*\" target_object=\"*\\\\PeaZip.*\") OR (process_path=\"C:\\\\Program Files (x86)\\\\Java\\\\*\" process_path=\"*\\\\installer.exe\" target_object=\"*\\\\Classes\\\\WOW6432Node\\\\CLSID\\\\{4299124F-F2C3-41b4-9C73-9236B2AD0E8F}*\") OR process_path=\"C:\\\\Windows\\\\system32\\\\svchost.exe\" OR process_path=\"C:\\\\Program Files (x86)\\\\Microsoft Office\\\\root\\\\integration\\\\integrator.exe\" OR (process_path=\"*\\\\Dropbox.exe\" target_object=\"*\\\\Dropbox.*\") OR (process_path=\"*\\\\AppData\\\\Local\\\\Temp\\\\Wireshark_uninstaller.exe\" target_object=\"*\\\\wireshark-capture-file\\\\*\") OR ((process_path=\"C:\\\\Program Files\\\\Opera\\\\*\" OR process_path=\"C:\\\\Program Files (x86)\\\\Opera\\\\*\") process_path=\"*\\\\installer.exe\") OR (process_path=\"*\\\\Everything.exe\" target_object=\"*\\\\Everything.*\") OR process_path=\"C:\\\\Windows\\\\Installer\\\\MSI*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1112"
+  ],
+  "Version": "0.1"
+}

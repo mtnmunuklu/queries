@@ -1,0 +1,16 @@
+{
+  "Description": "Windows DCE-RPC functions which indicate an execution techniques on the remote system. All credit for the Zeek mapping of the suspicious endpoint/operation field goes to MITRE\n\nAuthor: @neu5ron, SOC Prime\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b640c0b8-87f8-4daa-aef8-95a24261dd1d",
+  "InsertDate": "2025-02-03T20:32:04Z",
+  "LastUpdateDate": "2025-02-03T20:32:04Z",
+  "Level": "medium",
+  "Name": "MITRE BZAR Indicators for Execution",
+  "Query": "sourcetype=\"zeek-dce_rpc\" (endpoint=\"IWbemServices\" operation=\"ExecMethodAsync\") OR (endpoint=\"svcctl\" operation=\"CreateServiceA\") OR (endpoint=\"svcctl\" operation=\"CreateServiceW\") OR (endpoint=\"JobAdd\" operation=\"atsvc\") OR (endpoint=\"ITaskSchedulerService\" operation=\"SchRpcEnableTask\") OR (endpoint=\"ITaskSchedulerService\" operation=\"SchRpcRegisterTask\") OR (endpoint=\"svcctl\" operation=\"StartServiceW\") OR (endpoint=\"ITaskSchedulerService\" operation=\"SchRpcRun\") OR (endpoint=\"IWbemServices\" operation=\"ExecMethod\") OR (endpoint=\"svcctl\" operation=\"StartServiceA\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1047",
+    "attack.t1053.002",
+    "attack.t1569.002"
+  ],
+  "Version": "0.1"
+}

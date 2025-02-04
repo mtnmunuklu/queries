@@ -1,0 +1,14 @@
+{
+  "Description": "Detects events in which someone prints the contents of history files to the commandline or redirects it to a file for reconnaissance\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d7821ff1-4527-4e33-9f84-d0d57fa2fb66",
+  "InsertDate": "2025-02-03T20:32:00Z",
+  "LastUpdateDate": "2025-02-03T20:32:00Z",
+  "Level": "medium",
+  "Name": "Print History File Contents",
+  "Query": "sourcetype=\"linux-*\" (process_path=\"*/cat\" OR process_path=\"*/head\" OR process_path=\"*/tail\" OR process_path=\"*/more\") ((command=\"*/.bash_history*\" OR command=\"*/.zsh_history*\") (command=\"*_history\" OR command=\"*.history\" OR command=\"*zhistory\"))",
+  "Tags": [
+    "attack.reconnaissance",
+    "attack.t1592.004"
+  ],
+  "Version": "0.1"
+}

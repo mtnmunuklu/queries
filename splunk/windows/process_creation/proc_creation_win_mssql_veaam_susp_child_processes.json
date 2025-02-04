@@ -1,0 +1,15 @@
+{
+  "Description": "Detects suspicious child processes of the Veeam service process. This could indicate potential RCE or SQL Injection.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d55b793d-f847-4eea-b59a-5ab09908ac90",
+  "InsertDate": "2025-02-03T20:32:51Z",
+  "LastUpdateDate": "2025-02-03T20:32:51Z",
+  "Level": "critical",
+  "Name": "Suspicious Child Process Of Veeam Dabatase",
+  "Query": "sourcetype=\"windows-sysmon\" (parent_process_path=\"*\\\\sqlservr.exe\" parent_command_line=\"*VEEAMSQL*\") (((process_path=\"*\\\\cmd.exe\" OR process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\" OR process_path=\"*\\\\wsl.exe\" OR process_path=\"*\\\\wt.exe\") (command=\"*-ex *\" OR command=\"*bypass*\" OR command=\"*cscript*\" OR command=\"*DownloadString*\" OR command=\"*http://*\" OR command=\"*https://*\" OR command=\"*mshta*\" OR command=\"*regsvr32*\" OR command=\"*rundll32*\" OR command=\"*wscript*\" OR command=\"*copy *\")) OR (process_path=\"*\\\\net.exe\" OR process_path=\"*\\\\net1.exe\" OR process_path=\"*\\\\netstat.exe\" OR process_path=\"*\\\\nltest.exe\" OR process_path=\"*\\\\ping.exe\" OR process_path=\"*\\\\tasklist.exe\" OR process_path=\"*\\\\whoami.exe\"))",
+  "Tags": [
+    "attack.initial-access",
+    "attack.persistence",
+    "attack.privilege-escalation"
+  ],
+  "Version": "0.1"
+}

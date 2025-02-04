@@ -1,0 +1,15 @@
+{
+  "Description": "Detects process access requests to the LSASS process with specific call trace calls and access masks.\nThis behaviour is expressed by many credential dumping tools such as Mimikatz, NanoDump, Invoke-Mimikatz, Procdump and even the Taskmgr dumping feature.\n\n\nAuthor: Samir Bousseaden, Michael Haag\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5ef9853e-4d0e-4a70-846f-a9ca37d876da",
+  "InsertDate": "2025-02-03T20:32:36Z",
+  "LastUpdateDate": "2025-02-03T20:32:36Z",
+  "Level": "medium",
+  "Name": "Potential Credential Dumping Activity Via LSASS",
+  "Query": "sourcetype=\"windows-sysmon\" (dst_process_path=\"*\\\\lsass.exe\" (granted_access=\"*0x1038*\" OR granted_access=\"*0x1438*\" OR granted_access=\"*0x143a*\" OR granted_access=\"*0x1fffff*\") (call_trace=\"*dbgcore.dll*\" OR call_trace=\"*dbghelp.dll*\" OR call_trace=\"*kernel32.dll*\" OR call_trace=\"*kernelbase.dll*\" OR call_trace=\"*ntdll.dll*\")) NOT (username=\"*AUTHORI*\" OR username=\"*AUTORI*\") NOT (((call_trace=\"*:\\\\Windows\\\\Temp\\\\asgard2-agent\\\\*\" call_trace=\"*\\\\thor\\\\thor64.exe+*\" call_trace=\"*|UNKNOWN(*\") granted_access=\"0x103800\") OR process_path=\"*:\\\\Windows\\\\Sysmon64.exe\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.001",
+    "attack.s0002"
+  ],
+  "Version": "0.1"
+}

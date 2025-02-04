@@ -1,0 +1,14 @@
+{
+  "Description": "Detects AWS root account usage\n\nAuthor: vitaliy0x1\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8ad1600d-e9dc-4251-b0ee-a65268f29add",
+  "InsertDate": "2025-02-03T20:31:51Z",
+  "LastUpdateDate": "2025-02-03T20:31:51Z",
+  "Level": "medium",
+  "Name": "AWS Root Credentials",
+  "Query": "sourcetype=\"aws-cloudtrail\" useridentity.type=\"Root\" NOT eventtype=\"AwsServiceEvent\"",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.t1078.004"
+  ],
+  "Version": "0.1"
+}

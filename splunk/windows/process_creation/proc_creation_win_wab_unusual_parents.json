@@ -1,0 +1,14 @@
+{
+  "Description": "Detects unusual parent or children of the wab.exe (Windows Contacts) and Wabmig.exe (Microsoft Address Book Import Tool) processes as seen being used with bumblebee activity\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "63d1ccc0-2a43-4f4b-9289-361b308991ff",
+  "InsertDate": "2025-02-03T20:33:23Z",
+  "LastUpdateDate": "2025-02-03T20:33:23Z",
+  "Level": "high",
+  "Name": "Wab/Wabmig Unusual Parent Or Child Processes",
+  "Query": "sourcetype=\"windows-sysmon\" ((parent_process_path=\"*\\\\WmiPrvSE.exe\" OR parent_process_path=\"*\\\\svchost.exe\" OR parent_process_path=\"*\\\\dllhost.exe\") (process_path=\"*\\\\wab.exe\" OR process_path=\"*\\\\wabmig.exe\")) OR (parent_process_path=\"*\\\\wab.exe\" OR parent_process_path=\"*\\\\wabmig.exe\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

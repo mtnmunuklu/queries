@@ -1,0 +1,15 @@
+{
+  "Description": "Identifies disabling of default Amazon Elastic Block Store (EBS) encryption in the current region.\nDisabling default encryption does not change the encryption status of your existing volumes.\n\n\nAuthor: Sittikorn S\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "16124c2d-e40b-4fcc-8f2c-5ab7870a2223",
+  "InsertDate": "2025-02-03T20:31:50Z",
+  "LastUpdateDate": "2025-02-03T20:31:50Z",
+  "Level": "medium",
+  "Name": "AWS EC2 Disable EBS Encryption",
+  "Query": "sourcetype=\"aws-cloudtrail\" eventsource=\"ec2.amazonaws.com\" eventname=\"DisableEbsEncryptionByDefault\"",
+  "Tags": [
+    "attack.impact",
+    "attack.t1486",
+    "attack.t1565"
+  ],
+  "Version": "0.1"
+}

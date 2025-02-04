@@ -1,0 +1,14 @@
+{
+  "Description": "Detects RAR usage that creates an archive from a suspicious folder, either a system folder or one of the folders often used by attackers for staging purposes\n\nAuthor: X__Junior (Nextron Systems), Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "afe52666-401e-4a02-b4ff-5d128990b8cb",
+  "InsertDate": "2025-02-03T20:33:02Z",
+  "LastUpdateDate": "2025-02-03T20:33:02Z",
+  "Level": "high",
+  "Name": "Suspicious Greedy Compression Using Rar.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\rar.exe\" description=\"Command line RAR\") OR (command=\"*.exe a *\" OR command=\"* a -m*\")) ((command=\"* -hp*\" command=\"* -r *\") (command=\"* ?:\\\\\\\\\\\\*.*\" OR command=\"* ?:\\\\\\\\\\\\\\\\\\\\*.*\" OR command=\"* ?:\\\\$Recycle.bin\\\\*\" OR command=\"* ?:\\\\PerfLogs\\\\*\" OR command=\"* ?:\\\\Temp*\" OR command=\"* ?:\\\\Users\\\\Public\\\\*\" OR command=\"* ?:\\\\Windows\\\\*\" OR command=\"* %public%*\"))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

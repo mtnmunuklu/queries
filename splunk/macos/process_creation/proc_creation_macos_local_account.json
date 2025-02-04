@@ -1,0 +1,14 @@
+{
+  "Description": "Detects enumeration of local systeam accounts on MacOS\n\nAuthor: Alejandro Ortuno, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ddf36b67-e872-4507-ab2e-46bda21b842c",
+  "InsertDate": "2025-02-03T20:32:02Z",
+  "LastUpdateDate": "2025-02-03T20:32:02Z",
+  "Level": "low",
+  "Name": "Local System Accounts Discovery - MacOs",
+  "Query": "sourcetype=\"macos-*\" (process_path=\"*/dscl\" (command=\"*list*\" command=\"*/users*\")) OR (process_path=\"*/dscacheutil\" (command=\"*-q*\" command=\"*user*\")) OR command=\"*'x:0:'*\" OR (process_path=\"*/cat\" (command=\"*/etc/passwd*\" OR command=\"*/etc/sudoers*\")) OR process_path=\"*/id\" OR (process_path=\"*/lsof\" command=\"*-u*\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1087.001"
+  ],
+  "Version": "0.1"
+}

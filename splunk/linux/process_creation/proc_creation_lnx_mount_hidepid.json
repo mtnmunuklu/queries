@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of the \"mount\" command with \"hidepid\" parameter to make invisible processes to other users from the system\n\nAuthor: Joseliyo Sanchez, @Joseliyo_Jstnk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ec52985a-d024-41e3-8ff6-14169039a0b3",
+  "InsertDate": "2025-02-03T20:31:59Z",
+  "LastUpdateDate": "2025-02-03T20:31:59Z",
+  "Level": "medium",
+  "Name": "Mount Execution With Hidepid Parameter",
+  "Query": "sourcetype=\"linux-*\" process_path=\"*/mount\" (command=\"*hidepid=2*\" command=\"* -o *\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1564"
+  ],
+  "Version": "0.1"
+}

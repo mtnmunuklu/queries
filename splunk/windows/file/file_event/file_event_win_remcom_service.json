@@ -1,0 +1,15 @@
+{
+  "Description": "Detects default RemCom service filename which indicates RemCom service installation and execution\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7eff1a7f-dd45-4c20-877a-f21e342a7611",
+  "InsertDate": "2025-02-03T20:32:19Z",
+  "LastUpdateDate": "2025-02-03T20:32:19Z",
+  "Level": "medium",
+  "Name": "RemCom Service File Creation",
+  "Query": "sourcetype=\"windows-sysmon\" filepath=\"*\\\\RemComSvc.exe\"",
+  "Tags": [
+    "attack.execution",
+    "attack.t1569.002",
+    "attack.s0029"
+  ],
+  "Version": "0.1"
+}

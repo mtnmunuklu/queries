@@ -1,0 +1,14 @@
+{
+  "Description": "Detects image load events of system control panel items (.cpl) from uncommon or non-system locations which might be the result of sideloading.\n\nAuthor: Anish Bogati\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2b140a5c-dc02-4bb8-b6b1-8bdb45714cde",
+  "InsertDate": "2025-02-03T20:32:22Z",
+  "LastUpdateDate": "2025-02-03T20:32:22Z",
+  "Level": "medium",
+  "Name": "System Control Panel Item Loaded From Uncommon Location",
+  "Query": "sourcetype=\"windows-sysmon\" (image_loaded=\"*\\\\hdwwiz.cpl\" OR image_loaded=\"*\\\\appwiz.cpl\") NOT (image_loaded=\"*:\\\\Windows\\\\System32\\\\*\" OR image_loaded=\"*:\\\\Windows\\\\SysWOW64\\\\*\" OR image_loaded=\"*:\\\\Windows\\\\WinSxS\\\\*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1036"
+  ],
+  "Version": "0.1"
+}

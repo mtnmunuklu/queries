@@ -1,0 +1,14 @@
+{
+  "Description": "Detect changes of syslog daemons configuration files\n\nAuthor: Mikhail Larin, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c830f15d-6f6e-430f-8074-6f73d6807841",
+  "InsertDate": "2025-02-03T20:31:56Z",
+  "LastUpdateDate": "2025-02-03T20:31:56Z",
+  "Level": "high",
+  "Name": "Logging Configuration Changes on Linux Host",
+  "Query": "sourcetype=\"linux-auditd\" type=\"PATH\" (process_path=\"/etc/syslog.conf\" OR process_path=\"/etc/rsyslog.conf\" OR process_path=\"/etc/syslog-ng/syslog-ng.conf\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.006"
+  ],
+  "Version": "0.1"
+}

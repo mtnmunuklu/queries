@@ -1,0 +1,15 @@
+{
+  "Description": "It is extremely abnormal for svchost.exe to spawn without any CLI arguments and is normally observed when a malicious process spawns the process and injects code into the process memory space.\n\nAuthor: David Burkett, @signalblur\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "16c37b52-b141-42a5-a3ea-bbe098444397",
+  "InsertDate": "2025-02-03T20:33:19Z",
+  "LastUpdateDate": "2025-02-03T20:33:19Z",
+  "Level": "high",
+  "Name": "Suspect Svchost Activity",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*svchost.exe\" process_path=\"*\\\\svchost.exe\") NOT ((parent_process_path=\"*\\\\rpcnet.exe\" OR parent_process_path=\"*\\\\rpcnetp.exe\") command=\"null\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1055"
+  ],
+  "Version": "0.1"
+}

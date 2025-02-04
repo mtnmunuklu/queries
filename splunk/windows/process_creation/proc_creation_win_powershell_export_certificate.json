@@ -1,0 +1,16 @@
+{
+  "Description": "Detects calls to cmdlets that are used to export certificates from the local certificate store. Threat actors were seen abusing this to steal private keys from compromised machines.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9e716b33-63b2-46da-86a4-bd3c3b9b5dfb",
+  "InsertDate": "2025-02-03T20:32:57Z",
+  "LastUpdateDate": "2025-02-03T20:32:57Z",
+  "Level": "medium",
+  "Name": "Certificate Exported Via PowerShell",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*Export-PfxCertificate *\" OR command=\"*Export-Certificate *\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.execution",
+    "attack.t1552.004",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

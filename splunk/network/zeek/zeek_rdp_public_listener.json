@@ -1,0 +1,14 @@
+{
+  "Description": "Detects connections from routable IPs to an RDP listener. Which is indicative of a publicly-accessible RDP service.\n\n\nAuthor: Josh Brower @DefensiveDepth\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1fc0809e-06bf-4de3-ad52-25e5263b7623",
+  "InsertDate": "2025-02-03T20:32:04Z",
+  "LastUpdateDate": "2025-02-03T20:32:04Z",
+  "Level": "high",
+  "Name": "Publicly Accessible RDP Service",
+  "Query": "sourcetype=\"zeek-rdp\" NOT (id.orig_h=\"::1/128\" OR id.orig_h=\"10.0.0.0/8\" OR id.orig_h=\"127.0.0.0/8\" OR id.orig_h=\"172.16.0.0/12\" OR id.orig_h=\"192.168.0.0/16\" OR id.orig_h=\"169.254.0.0/16\" OR id.orig_h=\"2620:83:8000::/48\" OR id.orig_h=\"fc00::/7\" OR id.orig_h=\"fe80::/10\")",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.t1021.001"
+  ],
+  "Version": "0.1"
+}

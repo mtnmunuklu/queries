@@ -1,0 +1,13 @@
+{
+  "Description": "Detects the enumeration and query of interesting and in some cases sensitive services on the system via \"sc.exe\".\nAttackers often try to enumerate the services currently running on a system in order to find different attack vectors.\n\n\nAuthor: Swachchhanda Shrawan Poudel\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e83e8899-c9b2-483b-b355-5decc942b959",
+  "InsertDate": "2025-02-03T20:33:10Z",
+  "LastUpdateDate": "2025-02-03T20:33:10Z",
+  "Level": "low",
+  "Name": "Interesting Service Enumeration Via Sc.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\sc.exe\" original_file_name=\"sc.exe\") command=\"*query*\" command=\"*termservice*\"",
+  "Tags": [
+    "attack.t1003"
+  ],
+  "Version": "0.1"
+}

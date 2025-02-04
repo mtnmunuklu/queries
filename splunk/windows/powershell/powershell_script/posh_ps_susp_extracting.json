@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may search local file systems and remote file shares for files containing insecurely stored credentials.\nThese can be files created by users to store their own credentials, shared credential stores for a group of individuals,\nconfiguration files containing passwords for a system or service, or source code/binary files containing embedded passwords.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "bd5971a7-626d-46ab-8176-ed643f694f68",
+  "InsertDate": "2025-02-03T20:32:33Z",
+  "LastUpdateDate": "2025-02-03T20:32:33Z",
+  "Level": "medium",
+  "Name": "Extracting Information with PowerShell",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*ls*\" scriptblocktext=\"* -R*\" scriptblocktext=\"*select-string *\" scriptblocktext=\"*-Pattern *\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1552.001"
+  ],
+  "Version": "0.1"
+}

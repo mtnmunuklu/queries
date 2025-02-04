@@ -1,0 +1,16 @@
+{
+  "Description": "Detects successful authentication from potential clients using legacy authentication via user agent strings. This could be a sign of MFA bypass using a password spray attack.\n\nAuthor: Harjot Singh, '@cyb3rjy0t'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "53bb4f7f-48a8-4475-ac30-5a82ddfdf6fc",
+  "InsertDate": "2025-02-03T20:31:53Z",
+  "LastUpdateDate": "2025-02-03T20:31:53Z",
+  "Level": "high",
+  "Name": "Potential MFA Bypass Using Legacy Client Authentication",
+  "Query": "sourcetype=\"azure-signinlogs\" status=\"Success\" (useragent=\"*BAV2ROPC*\" OR useragent=\"*CBAinPROD*\" OR useragent=\"*CBAinTAR*\")",
+  "Tags": [
+    "attack.initial-access",
+    "attack.credential-access",
+    "attack.t1078.004",
+    "attack.t1110"
+  ],
+  "Version": "0.1"
+}

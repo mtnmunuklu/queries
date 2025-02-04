@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a non-browser process communicating with the Notion API. This could indicate potential use of a covert C2 channel such as \"OffensiveNotion C2\"\n\nAuthor: Gavin Knapp\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7e9cf7b6-e827-11ed-a05b-15959c120003",
+  "InsertDate": "2025-02-03T20:32:25Z",
+  "LastUpdateDate": "2025-02-03T20:32:25Z",
+  "Level": "low",
+  "Name": "Potentially Suspicious Network Connection To Notion API",
+  "Query": "sourcetype=\"windows-sysmon\" dst_host=\"*api.notion.com*\" NOT (process_path=\"*\\\\brave.exe\" OR process_path=\"*\\\\safari.exe\" OR process_path=\"*\\\\whale.exe\" OR process_path=\"*\\\\AppData\\\\Local\\\\Programs\\\\Notion\\\\Notion.exe\" OR (process_path=\"C:\\\\Program Files\\\\Mozilla Firefox\\\\firefox.exe\" OR process_path=\"C:\\\\Program Files (x86)\\\\Mozilla Firefox\\\\firefox.exe\") OR process_path=\"*\\\\maxthon.exe\" OR process_path=\"*\\\\vivaldi.exe\" OR (process_path=\"C:\\\\Program Files (x86)\\\\Microsoft\\\\EdgeWebView\\\\Application\\\\*\" process_path=\"*\\\\WindowsApps\\\\MicrosoftEdge.exe\" (process_path=\"C:\\\\Program Files (x86)\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe\" OR process_path=\"C:\\\\Program Files\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe\")) OR ((process_path=\"C:\\\\Program Files (x86)\\\\Microsoft\\\\EdgeCore\\\\*\" OR process_path=\"C:\\\\Program Files\\\\Microsoft\\\\EdgeCore\\\\*\") (process_path=\"*\\\\msedge.exe\" OR process_path=\"*\\\\msedgewebview2.exe\")) OR process_path=\"*\\\\opera.exe\" OR (process_path=\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" OR process_path=\"C:\\\\Program Files (x86)\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\") OR (process_path=\"C:\\\\Program Files (x86)\\\\Internet Explorer\\\\iexplore.exe\" OR process_path=\"C:\\\\Program Files\\\\Internet Explorer\\\\iexplore.exe\") OR process_path=\"*\\\\seamonkey.exe\")",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1102"
+  ],
+  "Version": "0.1"
+}

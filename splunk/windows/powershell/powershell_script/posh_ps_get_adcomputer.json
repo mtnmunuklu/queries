@@ -1,0 +1,15 @@
+{
+  "Description": "Detects usage of the \"Get-AdComputer\" to enumerate Computers or properties within Active Directory.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "36bed6b2-e9a0-4fff-beeb-413a92b86138",
+  "InsertDate": "2025-02-03T20:32:30Z",
+  "LastUpdateDate": "2025-02-03T20:32:30Z",
+  "Level": "low",
+  "Name": "Active Directory Computers Enumeration With Get-AdComputer",
+  "Query": "sourcetype=\"windows-*\" scriptblocktext=\"*Get-AdComputer *\" (scriptblocktext=\"*-Filter *\" OR scriptblocktext=\"*-LDAPFilter *\" OR scriptblocktext=\"*-Properties *\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1018",
+    "attack.t1087.002"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects using SettingSyncHost.exe to run hijacked binary\n\nAuthor: Anton Kutepov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b2ddd389-f676-4ac4-845a-e00781a48e5f",
+  "InsertDate": "2025-02-03T20:32:49Z",
+  "LastUpdateDate": "2025-02-03T20:32:49Z",
+  "Level": "high",
+  "Name": "Using SettingSyncHost.exe as LOLBin",
+  "Query": "sourcetype=\"windows-sysmon\" NOT (process_path=\"C:\\\\Windows\\\\System32\\\\*\" OR process_path=\"C:\\\\Windows\\\\SysWOW64\\\\*\") (parent_command_line=\"*cmd.exe /c*\" parent_command_line=\"*RoamDiag.cmd*\" parent_command_line=\"*-outputpath*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.defense-evasion",
+    "attack.t1574.008"
+  ],
+  "Version": "0.1"
+}

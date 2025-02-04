@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when a user is potentially trying to bypass the Windows Defender AV by renaming a tool to dump64.exe and placing it in the Visual Studio folder.\nCurrently the rule is covering only usage of procdump but other utilities can be added in order to increase coverage.\n\n\nAuthor: Austin Songer @austinsonger, Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "129966c9-de17-4334-a123-8b58172e664d",
+  "InsertDate": "2025-02-03T20:32:41Z",
+  "LastUpdateDate": "2025-02-03T20:32:41Z",
+  "Level": "high",
+  "Name": "Potential Windows Defender AV Bypass Via Dump64.EXE Rename",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\":\\\\Program Files*\" process_path=\"*\\\\Microsoft Visual Studio\\\\*\" process_path=\"*\\\\dump64.exe\") (original_file_name=\"procdump\" (command=\"* -ma *\" OR command=\"* -mp *\"))",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.001"
+  ],
+  "Version": "0.1"
+}

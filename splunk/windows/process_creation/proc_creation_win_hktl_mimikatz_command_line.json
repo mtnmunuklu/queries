@@ -1,0 +1,18 @@
+{
+  "Description": "Detection well-known mimikatz command line arguments\n\nAuthor: Teymur Kheirkhabarov, oscd.community, David ANDRE (additional keywords), Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a642964e-bead-4bed-8910-1bb4d63e3b4d",
+  "InsertDate": "2025-02-03T20:32:45Z",
+  "LastUpdateDate": "2025-02-03T20:32:45Z",
+  "Level": "high",
+  "Name": "HackTool - Mimikatz Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*::aadcookie*\" OR command=\"*::detours*\" OR command=\"*::memssp*\" OR command=\"*::mflt*\" OR command=\"*::ncroutemon*\" OR command=\"*::ngcsign*\" OR command=\"*::printnightmare*\" OR command=\"*::skeleton*\" OR command=\"*::preshutdown*\" OR command=\"*::mstsc*\" OR command=\"*::multirdp*\") OR (command=\"*rpc::*\" OR command=\"*token::*\" OR command=\"*crypto::*\" OR command=\"*dpapi::*\" OR command=\"*sekurlsa::*\" OR command=\"*kerberos::*\" OR command=\"*lsadump::*\" OR command=\"*privilege::*\" OR command=\"*process::*\" OR command=\"*vault::*\") OR (command=\"*DumpCreds*\" OR command=\"*mimikatz*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.001",
+    "attack.t1003.002",
+    "attack.t1003.004",
+    "attack.t1003.005",
+    "attack.t1003.006"
+  ],
+  "Version": "0.1"
+}

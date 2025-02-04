@@ -1,0 +1,13 @@
+{
+  "Description": "Detects when an a role is modified or deleted in Google Workspace.\n\nAuthor: Austin Songer\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6aef64e3-60c6-4782-8db3-8448759c714e",
+  "InsertDate": "2025-02-03T20:31:54Z",
+  "LastUpdateDate": "2025-02-03T20:31:54Z",
+  "Level": "medium",
+  "Name": "Google Workspace Role Modified or Deleted",
+  "Query": "sourcetype=\"gcp-google_workspace.admin\" eventservice=\"admin.googleapis.com\" (eventname=\"DELETE_ROLE\" OR eventname=\"RENAME_ROLE\" OR eventname=\"UPDATE_ROLE\")",
+  "Tags": [
+    "attack.impact"
+  ],
+  "Version": "0.1"
+}

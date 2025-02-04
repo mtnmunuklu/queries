@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the addition of a new user to a privileged group such as \"root\" or \"sudo\"\n\nAuthor: Pawel Mazur\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0ac15ec3-d24f-4246-aa2a-3077bb1cf90e",
+  "InsertDate": "2025-02-03T20:31:57Z",
+  "LastUpdateDate": "2025-02-03T20:31:57Z",
+  "Level": "high",
+  "Name": "Privileged User Has Been Created",
+  "Query": "sourcetype=\"linux-*\" (\"new user\") (\"GID=0,\" OR \"UID=0,\" OR \"GID=10,\" OR \"GID=27,\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1136.001",
+    "attack.t1098"
+  ],
+  "Version": "0.1"
+}

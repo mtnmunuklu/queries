@@ -1,0 +1,14 @@
+{
+  "Description": "Detects failed Kerberos TGT issue operation. This can be a sign of manipulations of TGT messages by an attacker.\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f7644214-0eb0-4ace-9455-331ec4c09253",
+  "InsertDate": "2025-02-03T20:32:11Z",
+  "LastUpdateDate": "2025-02-03T20:32:11Z",
+  "Level": "high",
+  "Name": "Kerberos Manipulation",
+  "Query": "sourcetype=\"windows-security\" (eventid=\"675\" OR eventid=\"4768\" OR eventid=\"4769\" OR eventid=\"4771\") (status=\"0x9\" OR status=\"0xA\" OR status=\"0xB\" OR status=\"0xF\" OR status=\"0x10\" OR status=\"0x11\" OR status=\"0x13\" OR status=\"0x14\" OR status=\"0x1A\" OR status=\"0x1F\" OR status=\"0x21\" OR status=\"0x22\" OR status=\"0x23\" OR status=\"0x24\" OR status=\"0x26\" OR status=\"0x27\" OR status=\"0x28\" OR status=\"0x29\" OR status=\"0x2C\" OR status=\"0x2D\" OR status=\"0x2E\" OR status=\"0x2F\" OR status=\"0x31\" OR status=\"0x32\" OR status=\"0x3E\" OR status=\"0x3F\" OR status=\"0x40\" OR status=\"0x41\" OR status=\"0x43\" OR status=\"0x44\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1212"
+  ],
+  "Version": "0.1"
+}

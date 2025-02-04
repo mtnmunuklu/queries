@@ -1,0 +1,14 @@
+{
+  "Description": "Detects attempts to collect image data stored in the clipboard from users with the usage of xclip tool.\nXclip has to be installed.\nHighly recommended using rule on servers, due to high usage of clipboard utilities on user workstations.\n\n\nAuthor: Pawel Mazur\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f200dc3f-b219-425d-a17e-c38467364816",
+  "InsertDate": "2025-02-03T20:31:56Z",
+  "LastUpdateDate": "2025-02-03T20:31:56Z",
+  "Level": "low",
+  "Name": "Clipboard Collection of Image Data with Xclip Tool",
+  "Query": "sourcetype=\"linux-auditd\" type=\"EXECVE\" a0=\"xclip\" (a1=\"-selection\" OR a1=\"-sel\") (a2=\"clipboard\" OR a2=\"clip\") a3=\"-t\" a4=\"image/*\" a5=\"-o\"",
+  "Tags": [
+    "attack.collection",
+    "attack.t1115"
+  ],
+  "Version": "0.1"
+}

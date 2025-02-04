@@ -1,0 +1,13 @@
+{
+  "Description": "Detects execution of the \"esxcli\" command with the \"system\" and \"permission\" flags in order to assign admin permissions to an account.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9691f58d-92c1-4416-8bf3-2edd753ec9cf",
+  "InsertDate": "2025-02-03T20:31:59Z",
+  "LastUpdateDate": "2025-02-03T20:31:59Z",
+  "Level": "high",
+  "Name": "ESXi Admin Permission Assigned To Account Via ESXCLI",
+  "Query": "sourcetype=\"linux-*\" process_path=\"*/esxcli\" command=\"*system*\" (command=\"* permission *\" command=\"* set*\" command=\"*Admin*\")",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

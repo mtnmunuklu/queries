@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious DACL modifications to deny access to a service that affects critical trustees. This can be used to hide services or make them unstoppable.\n\nAuthor: Jonhnathan Ribeiro, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "99cf1e02-00fb-4c0d-8375-563f978dfd37",
+  "InsertDate": "2025-02-03T20:33:10Z",
+  "LastUpdateDate": "2025-02-03T20:33:10Z",
+  "Level": "high",
+  "Name": "Deny Service Access Using Security Descriptor Tampering Via Sc.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\sc.exe\" original_file_name=\"sc.exe\") (command=\"*sdset*\" command=\"*D;*\") (command=\"*;IU*\" OR command=\"*;SU*\" OR command=\"*;BA*\" OR command=\"*;SY*\" OR command=\"*;WD*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1543.003"
+  ],
+  "Version": "0.1"
+}

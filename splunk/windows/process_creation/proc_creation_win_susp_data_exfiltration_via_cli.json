@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of various CLI utilities exfiltrating data via web requests\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7d1aaf3d-4304-425c-b7c3-162055e0b3ab",
+  "InsertDate": "2025-02-03T20:33:13Z",
+  "LastUpdateDate": "2025-02-03T20:33:13Z",
+  "Level": "high",
+  "Name": "Potential Data Exfiltration Activity Via CommandLine Tools",
+  "Query": "sourcetype=\"windows-sysmon\" (((process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\" OR process_path=\"*\\\\cmd.exe\") (command=\"*Invoke-WebRequest*\" OR command=\"*iwr *\" OR command=\"*wget *\" OR command=\"*curl *\") (command=\"* -ur*\" command=\"* -me*\" command=\"* -b*\" command=\"* POST *\")) OR ((process_path=\"*\\\\curl.exe\" command=\"*--ur*\") (command=\"* -d *\" OR command=\"* --data *\")) OR (process_path=\"*\\\\wget.exe\" (command=\"*--post-data*\" OR command=\"*--post-file*\"))) ((command=\"*Get-Content*\" OR command=\"*GetBytes*\" OR command=\"*hostname*\" OR command=\"*ifconfig*\" OR command=\"*ipconfig*\" OR command=\"*net view*\" OR command=\"*netstat*\" OR command=\"*nltest*\" OR command=\"*qprocess*\" OR command=\"*sc query*\" OR command=\"*systeminfo*\" OR command=\"*tasklist*\" OR command=\"*ToBase64String*\" OR command=\"*whoami*\") (command=\"*type *\" command=\"* \u003e *\" command=\"* C:\\\\*\"))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

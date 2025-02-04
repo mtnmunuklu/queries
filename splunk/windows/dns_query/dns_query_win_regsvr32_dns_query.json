@@ -1,0 +1,16 @@
+{
+  "Description": "Detects DNS queries initiated by \"Regsvr32.exe\"\n\nAuthor: Dmitriy Lifanov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "36e037c4-c228-4866-b6a3-48eb292b9955",
+  "InsertDate": "2025-02-03T20:32:15Z",
+  "LastUpdateDate": "2025-02-03T20:32:15Z",
+  "Level": "medium",
+  "Name": "DNS Query Request By Regsvr32.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\regsvr32.exe\"",
+  "Tags": [
+    "attack.execution",
+    "attack.t1559.001",
+    "attack.defense-evasion",
+    "attack.t1218.010"
+  ],
+  "Version": "0.1"
+}

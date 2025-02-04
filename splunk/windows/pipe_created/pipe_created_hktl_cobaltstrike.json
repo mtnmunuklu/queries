@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the creation of a named pipe as used by CobaltStrike\n\nAuthor: Florian Roth (Nextron Systems), Wojciech Lesicki\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d5601f8c-b26f-4ab0-9035-69e11a8d4ad2",
+  "InsertDate": "2025-02-03T20:32:26Z",
+  "LastUpdateDate": "2025-02-03T20:32:26Z",
+  "Level": "critical",
+  "Name": "CobaltStrike Named Pipe",
+  "Query": "sourcetype=\"windows-*\" pipe_name=\"\\\\lsarpc_*\" OR pipe_name=\"\\\\mojo_*\" OR pipe_name=\"\\\\netlogon_*\" OR pipe_name=\"\\\\status_*\" OR pipe_name=\"\\\\msagent_*\" OR pipe_name=\"\\\\interprocess_*\" OR pipe_name=\"\\\\samr_*\" OR pipe_name=\"\\\\srvsvc_*\" OR pipe_name=\"\\\\wkssvc_*\" OR (pipe_name=\"*\\\\MSSE-*\" pipe_name=\"*-server*\") OR pipe_name=\"\\\\postex_*\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1055"
+  ],
+  "Version": "0.1"
+}

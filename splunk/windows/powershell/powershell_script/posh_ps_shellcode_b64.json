@@ -1,0 +1,17 @@
+{
+  "Description": "Detects Base64 encoded Shellcode\n\nAuthor: David Ledbetter (shellcode), Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "16b37b70-6fcf-4814-a092-c36bd3aafcbd",
+  "InsertDate": "2025-02-03T20:32:32Z",
+  "LastUpdateDate": "2025-02-03T20:32:32Z",
+  "Level": "high",
+  "Name": "PowerShell ShellCode",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*OiCAAAAYInlM*\" OR scriptblocktext=\"*OiJAAAAYInlM*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1055",
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

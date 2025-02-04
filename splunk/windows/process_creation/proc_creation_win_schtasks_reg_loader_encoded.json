@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the creation of a schtask that potentially executes a base64 encoded payload stored in the Windows Registry using PowerShell.\n\nAuthor: pH-T (Nextron Systems), @Kostastsale, @TheDFIRReport, X__Junior (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c4eeeeae-89f4-43a7-8b48-8d1bdfa66c78",
+  "InsertDate": "2025-02-03T20:33:11Z",
+  "LastUpdateDate": "2025-02-03T20:33:11Z",
+  "Level": "high",
+  "Name": "Scheduled Task Executing Encoded Payload from Registry",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*Get-ItemProperty*\" OR command=\"* gp *\") (command=\"*HKCU:*\" OR command=\"*HKLM:*\" OR command=\"*registry::*\" OR command=\"*HKEY_*\") (process_path=\"*\\\\schtasks.exe\" original_file_name=\"schtasks.exe\") command=\"*/Create*\" (command=\"*FromBase64String*\" OR command=\"*encodedcommand*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.persistence",
+    "attack.t1053.005",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

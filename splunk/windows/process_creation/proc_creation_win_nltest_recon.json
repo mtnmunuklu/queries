@@ -1,0 +1,15 @@
+{
+  "Description": "Detects nltest commands that can be used for information discovery\n\nAuthor: Craig Young, oscd.community, Georg Lauenstein\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5cc90652-4cbd-4241-aa3b-4b462fa5a248",
+  "InsertDate": "2025-02-03T20:32:53Z",
+  "LastUpdateDate": "2025-02-03T20:32:53Z",
+  "Level": "medium",
+  "Name": "Potential Recon Activity Via Nltest.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\nltest.exe\" original_file_name=\"nltestrk.exe\") ((command=\"*server*\" command=\"*query*\") (command=\"*/user*\" OR command=\"*all_trusts*\" OR command=\"*dclist:*\" OR command=\"*dnsgetdc:*\" OR command=\"*domain_trusts*\" OR command=\"*dsgetdc:*\" OR command=\"*parentdomain*\" OR command=\"*trusted_domains*\"))",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1016",
+    "attack.t1482"
+  ],
+  "Version": "0.1"
+}

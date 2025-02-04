@@ -1,0 +1,15 @@
+{
+  "Description": "Detects execution of \"AdPlus.exe\", a binary that is part of the Windows SDK that can be used as a LOLBIN in order to dump process memory and execute arbitrary commands.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2f869d59-7f6a-4931-992c-cce556ff2d53",
+  "InsertDate": "2025-02-03T20:32:36Z",
+  "LastUpdateDate": "2025-02-03T20:32:36Z",
+  "Level": "high",
+  "Name": "Potential Adplus.EXE Abuse",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"* -hang *\" OR command=\"* -pn *\" OR command=\"* -pmn *\" OR command=\"* -p *\" OR command=\"* -po *\" OR command=\"* -c *\" OR command=\"* -sc *\") (process_path=\"*\\\\adplus.exe\" original_file_name=\"Adplus.exe\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.t1003.001"
+  ],
+  "Version": "0.1"
+}

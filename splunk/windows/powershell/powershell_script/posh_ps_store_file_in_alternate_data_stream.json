@@ -1,0 +1,14 @@
+{
+  "Description": "Storing files in Alternate Data Stream (ADS) similar to Astaroth malware.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a699b30e-d010-46c8-bbd1-ee2e26765fe9",
+  "InsertDate": "2025-02-03T20:32:32Z",
+  "LastUpdateDate": "2025-02-03T20:32:32Z",
+  "Level": "medium",
+  "Name": "Powershell Store File In Alternate Data Stream",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*Start-Process*\" scriptblocktext=\"*-FilePath \"$env:comspec\" *\" scriptblocktext=\"*-ArgumentList *\" scriptblocktext=\"*\u003e*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1564.004"
+  ],
+  "Version": "0.1"
+}

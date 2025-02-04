@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the creation of the default dump file used by Outflank Dumpert tool. A process dumper, which dumps the lsass process memory\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "93d94efc-d7ad-4161-ad7d-1638c4f908d8",
+  "InsertDate": "2025-02-03T20:32:17Z",
+  "LastUpdateDate": "2025-02-03T20:32:17Z",
+  "Level": "critical",
+  "Name": "HackTool - Dumpert Process Dumper Default File",
+  "Query": "sourcetype=\"windows-sysmon\" filepath=\"*dumpert.dmp\"",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.001"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects PDQDeploy service installation on the target system.\nWhen a package is deployed via PDQDeploy it installs a remote service on the target machine with the name \"PDQDeployRunner-X\" where \"X\" is an integer starting from 1\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b98a10af-1e1e-44a7-bab2-4cc026917648",
+  "InsertDate": "2025-02-03T20:32:13Z",
+  "LastUpdateDate": "2025-02-03T20:32:13Z",
+  "Level": "medium",
+  "Name": "New PDQDeploy Service - Client Side",
+  "Query": "sourcetype=\"windows-system\" (provider_name=\"Service Control Manager\" eventid=\"7045\") (imagepath=\"*PDQDeployRunner-*\" servicename=\"PDQDeployRunner-*\")",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.t1543.003"
+  ],
+  "Version": "0.1"
+}

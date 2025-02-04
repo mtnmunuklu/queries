@@ -1,0 +1,14 @@
+{
+  "Description": "Detects applications trying to modify the registry in order to disable any write-protect property for storage devices.\nThis could be a precursor to a ransomware attack and has been an observed technique used by cypherpunk group.\n\n\nAuthor: Sreeman\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "75f7a0e2-7154-4c4d-9eae-5cdb4e0a5c13",
+  "InsertDate": "2025-02-03T20:33:03Z",
+  "LastUpdateDate": "2025-02-03T20:33:03Z",
+  "Level": "medium",
+  "Name": "Write Protect For Storage Disabled",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*\\\\System\\\\CurrentControlSet\\\\Control*\" command=\"*Write Protection*\" command=\"*0*\" command=\"*storage*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562"
+  ],
+  "Version": "0.1"
+}

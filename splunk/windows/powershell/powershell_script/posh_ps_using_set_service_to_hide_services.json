@@ -1,0 +1,16 @@
+{
+  "Description": "Detects usage of the \"Set-Service\" powershell cmdlet to configure a new SecurityDescriptor that allows a service to be hidden from other utilities such as \"sc.exe\", \"Get-Service\"...etc. (Works only in powershell 7)\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "953945c5-22fe-4a92-9f8a-a9edc1e522da",
+  "InsertDate": "2025-02-03T20:32:35Z",
+  "LastUpdateDate": "2025-02-03T20:32:35Z",
+  "Level": "high",
+  "Name": "Abuse of Service Permissions to Hide Services Via Set-Service - PS",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*Set-Service *\" scriptblocktext=\"*DCLCWPDTSD*\") (scriptblocktext=\"*-SecurityDescriptorSddl *\" OR scriptblocktext=\"*-sd *\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1574.011"
+  ],
+  "Version": "0.1"
+}

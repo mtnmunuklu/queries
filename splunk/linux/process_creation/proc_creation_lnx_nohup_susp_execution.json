@@ -1,0 +1,13 @@
+{
+  "Description": "Detects execution of binaries located in potentially suspicious locations via \"nohup\"\n\nAuthor: Joseliyo Sanchez, @Joseliyo_Jstnk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "457df417-8b9d-4912-85f3-9dbda39c3645",
+  "InsertDate": "2025-02-03T20:31:59Z",
+  "LastUpdateDate": "2025-02-03T20:31:59Z",
+  "Level": "high",
+  "Name": "Suspicious Nohup Execution",
+  "Query": "sourcetype=\"linux-*\" process_path=\"*/nohup\" command=\"*/tmp/*\"",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

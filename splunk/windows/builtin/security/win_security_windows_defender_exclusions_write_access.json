@@ -1,0 +1,14 @@
+{
+  "Description": "Detects write access requests to the Windows Defender exclusions registry keys. This could be an indication of an attacker trying to request a handle or access the object to write new exclusions in order to bypass security.\n\n\nAuthor: @BarryShooshooga, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e9c8808f-4cfb-4ba9-97d4-e5f3beaa244d",
+  "InsertDate": "2025-02-03T20:32:12Z",
+  "LastUpdateDate": "2025-02-03T20:32:12Z",
+  "Level": "medium",
+  "Name": "Windows Defender Exclusion Registry Key - Write Access Requested",
+  "Query": "sourcetype=\"windows-security\" (accesslist=\"*%%4417*\" OR accesslist=\"*%%4418*\") (eventid=\"4656\" OR eventid=\"4663\") objectname=\"*\\\\Microsoft\\\\Windows Defender\\\\Exclusions\\\\*\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

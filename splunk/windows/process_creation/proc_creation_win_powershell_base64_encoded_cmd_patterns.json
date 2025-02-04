@@ -1,0 +1,14 @@
+{
+  "Description": "Detects PowerShell command line patterns in combincation with encoded commands that often appear in malware infection chains\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b9d9cc83-380b-4ba3-8d8f-60c0e7e2930c",
+  "InsertDate": "2025-02-03T20:32:55Z",
+  "LastUpdateDate": "2025-02-03T20:32:55Z",
+  "Level": "high",
+  "Name": "Suspicious PowerShell Encoded Command Patterns",
+  "Query": "sourcetype=\"windows-sysmon\" (((process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\") (original_file_name=\"PowerShell.Exe\" OR original_file_name=\"pwsh.dll\")) (command=\"* -e *\" OR command=\"* -en *\" OR command=\"* -enc *\" OR command=\"* -enco*\") (command=\"* JAB*\" OR command=\"* SUVYI*\" OR command=\"* SQBFAFgA*\" OR command=\"* aWV4I*\" OR command=\"* IAB*\" OR command=\"* PAA*\" OR command=\"* aQBlAHgA*\")) NOT (parent_process_path=\"*C:\\\\Packages\\\\Plugins\\\\Microsoft.GuestConfiguration.ConfigurationforWindows\\\\*\" OR parent_process_path=\"*\\\\gc_worker.exe*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

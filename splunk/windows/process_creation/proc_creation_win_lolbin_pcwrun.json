@@ -1,0 +1,15 @@
+{
+  "Description": "Detect indirect command execution via Program Compatibility Assistant pcwrun.exe\n\nAuthor: A. Sungurov , oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b97cd4b1-30b8-4a9d-bd72-6293928d52bc",
+  "InsertDate": "2025-02-03T20:32:49Z",
+  "LastUpdateDate": "2025-02-03T20:32:49Z",
+  "Level": "low",
+  "Name": "Indirect Command Execution By Program Compatibility Wizard",
+  "Query": "sourcetype=\"windows-sysmon\" parent_process_path=\"*\\\\pcwrun.exe\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218",
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

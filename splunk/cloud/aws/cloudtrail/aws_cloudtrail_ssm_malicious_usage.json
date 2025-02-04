@@ -1,0 +1,15 @@
+{
+  "Description": "Detect when System Manager successfully executes commands against an instance.\n\n\nAuthor: jamesc-grafana\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "38e7f511-3f74-41d4-836e-f57dfa18eead",
+  "InsertDate": "2025-02-03T20:31:50Z",
+  "LastUpdateDate": "2025-02-03T20:31:50Z",
+  "Level": "high",
+  "Name": "Potential Malicious Usage of CloudTrail System Manager",
+  "Query": "sourcetype=\"aws-cloudtrail\" eventname=\"SendCommand\" eventsource=\"ssm.amazonaws.com\" responseelements.command.status=\"Success\"",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.t1566",
+    "attack.t1566.002"
+  ],
+  "Version": "0.1"
+}

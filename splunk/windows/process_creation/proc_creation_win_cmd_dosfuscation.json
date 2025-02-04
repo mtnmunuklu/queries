@@ -1,0 +1,14 @@
+{
+  "Description": "Detects possible payload obfuscation via the commandline\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a77c1610-fc73-4019-8e29-0f51efc04a51",
+  "InsertDate": "2025-02-03T20:32:39Z",
+  "LastUpdateDate": "2025-02-03T20:32:39Z",
+  "Level": "medium",
+  "Name": "Potential Dosfuscation Activity",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*^^*\" OR command=\"*^|^*\" OR command=\"*,;,*\" OR command=\"*;;;;*\" OR command=\"*;; ;;*\" OR command=\"*(,(,*\" OR command=\"*%COMSPEC:~*\" OR command=\"* c^m^d*\" OR command=\"*^c^m^d*\" OR command=\"* c^md*\" OR command=\"* cm^d*\" OR command=\"*^cm^d*\" OR command=\"* s^et *\" OR command=\"* s^e^t *\" OR command=\"* se^t *\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

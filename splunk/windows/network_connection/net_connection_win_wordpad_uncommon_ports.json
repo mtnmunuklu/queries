@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a network connection initiated by \"wordpad.exe\" over uncommon destination ports.\nThis might indicate potential process injection activity from a beacon or similar mechanisms.\n\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "786cdae8-fefb-4eb2-9227-04e34060db01",
+  "InsertDate": "2025-02-03T20:32:26Z",
+  "LastUpdateDate": "2025-02-03T20:32:26Z",
+  "Level": "medium",
+  "Name": "Suspicious Wordpad Outbound Connections",
+  "Query": "sourcetype=\"windows-sysmon\" (initiated=\"true\" process_path=\"*\\\\wordpad.exe\") NOT (dst_port=\"80\" OR dst_port=\"139\" OR dst_port=\"443\" OR dst_port=\"445\" OR dst_port=\"465\" OR dst_port=\"587\" OR dst_port=\"993\" OR dst_port=\"995\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.command-and-control"
+  ],
+  "Version": "0.1"
+}

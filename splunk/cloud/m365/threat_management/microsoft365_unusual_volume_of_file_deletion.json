@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when a Microsoft Cloud App Security reported a user has deleted a unusual a large volume of files.\n\nAuthor: austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "78a34b67-3c39-4886-8fb4-61c46dc18ecd",
+  "InsertDate": "2025-02-03T20:31:55Z",
+  "LastUpdateDate": "2025-02-03T20:31:55Z",
+  "Level": "medium",
+  "Name": "Microsoft 365 - Unusual Volume of File Deletion",
+  "Query": "sourcetype=\"m365-threat_management\" eventsource=\"SecurityComplianceCenter\" eventname=\"Unusual volume of file deletion\" status=\"success\"",
+  "Tags": [
+    "attack.impact",
+    "attack.t1485"
+  ],
+  "Version": "0.1"
+}

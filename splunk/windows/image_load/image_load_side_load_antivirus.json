@@ -1,0 +1,17 @@
+{
+  "Description": "Detects potential DLL sideloading of DLLs that are part of antivirus software suchas McAfee, Symantec...etc\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Wietze Beukema (project and research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "552b6b65-df37-4d3e-a258-f2fc4771ae54",
+  "InsertDate": "2025-02-03T20:32:22Z",
+  "LastUpdateDate": "2025-02-03T20:32:22Z",
+  "Level": "medium",
+  "Name": "Potential Antivirus Software DLL Sideloading",
+  "Query": "sourcetype=\"windows-sysmon\" (image_loaded=\"*\\\\log.dll\" NOT (image_loaded=\"C:\\\\Program Files\\\\Canon\\\\MyPrinter\\\\*\" OR (image_loaded=\"C:\\\\Program Files\\\\Bitdefender Antivirus Free\\\\*\" OR image_loaded=\"C:\\\\Program Files (x86)\\\\Bitdefender Antivirus Free\\\\*\") OR (process_path=\"C:\\\\Program Files\\\\Dell\\\\SARemediation\\\\audit\\\\TelemetryUtility.exe\" (image_loaded=\"C:\\\\Program Files\\\\Dell\\\\SARemediation\\\\plugin\\\\log.dll\" OR image_loaded=\"C:\\\\Program Files\\\\Dell\\\\SARemediation\\\\audit\\\\log.dll\")))) OR (image_loaded=\"*\\\\qrt.dll\" NOT (image_loaded=\"C:\\\\Program Files\\\\F-Secure\\\\Anti-Virus\\\\*\" OR image_loaded=\"C:\\\\Program Files (x86)\\\\F-Secure\\\\Anti-Virus\\\\*\")) OR ((image_loaded=\"*\\\\ashldres.dll\" OR image_loaded=\"*\\\\lockdown.dll\" OR image_loaded=\"*\\\\vsodscpl.dll\") NOT (image_loaded=\"C:\\\\Program Files\\\\McAfee\\\\*\" OR image_loaded=\"C:\\\\Program Files (x86)\\\\McAfee\\\\*\")) OR (image_loaded=\"*\\\\vftrace.dll\" NOT (image_loaded=\"C:\\\\Program Files\\\\CyberArk\\\\Endpoint Privilege Manager\\\\Agent\\\\x32\\\\*\" OR image_loaded=\"C:\\\\Program Files (x86)\\\\CyberArk\\\\Endpoint Privilege Manager\\\\Agent\\\\x32\\\\*\")) OR (image_loaded=\"*\\\\wsc.dll\" NOT (image_loaded=\"C:\\\\program Files\\\\AVAST Software\\\\Avast\\\\*\" OR image_loaded=\"C:\\\\program Files (x86)\\\\AVAST Software\\\\Avast\\\\*\")) OR (image_loaded=\"*\\\\tmdbglog.dll\" NOT (image_loaded=\"C:\\\\program Files\\\\Trend Micro\\\\Titanium\\\\*\" OR image_loaded=\"C:\\\\program Files (x86)\\\\Trend Micro\\\\Titanium\\\\*\")) OR (image_loaded=\"*\\\\DLPPREM32.dll\" NOT (image_loaded=\"C:\\\\program Files\\\\ESET*\" OR image_loaded=\"C:\\\\program Files (x86)\\\\ESET*\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

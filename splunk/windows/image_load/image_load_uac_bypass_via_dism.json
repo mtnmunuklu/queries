@@ -1,0 +1,17 @@
+{
+  "Description": "Attempts to load dismcore.dll after dropping it\n\nAuthor: oscd.community, Dmitry Uchakin\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a5ea83a7-05a5-44c1-be2e-addccbbd8c03",
+  "InsertDate": "2025-02-03T20:32:24Z",
+  "LastUpdateDate": "2025-02-03T20:32:24Z",
+  "Level": "high",
+  "Name": "UAC Bypass With Fake DLL",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\dism.exe\" image_loaded=\"*\\\\dismcore.dll\") NOT image_loaded=\"C:\\\\Windows\\\\System32\\\\Dism\\\\dismcore.dll\"",
+  "Tags": [
+    "attack.persistence",
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1548.002",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

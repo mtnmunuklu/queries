@@ -1,0 +1,17 @@
+{
+  "Description": "Detects download of certain file types from hosts in suspicious TLDs\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "00d0b5ab-1f55-4120-8e83-487c0a7baf19",
+  "InsertDate": "2025-02-03T20:32:04Z",
+  "LastUpdateDate": "2025-02-03T20:32:04Z",
+  "Level": "low",
+  "Name": "Download From Suspicious TLD - Blacklist",
+  "Query": "(c-uri-extension=\"exe\" OR c-uri-extension=\"vbs\" OR c-uri-extension=\"bat\" OR c-uri-extension=\"rar\" OR c-uri-extension=\"ps1\" OR c-uri-extension=\"doc\" OR c-uri-extension=\"docm\" OR c-uri-extension=\"xls\" OR c-uri-extension=\"xlsm\" OR c-uri-extension=\"pptm\" OR c-uri-extension=\"rtf\" OR c-uri-extension=\"hta\" OR c-uri-extension=\"dll\" OR c-uri-extension=\"ws\" OR c-uri-extension=\"wsf\" OR c-uri-extension=\"sct\" OR c-uri-extension=\"zip\") (cs-host=\"*.country\" OR cs-host=\"*.stream\" OR cs-host=\"*.gdn\" OR cs-host=\"*.mom\" OR cs-host=\"*.xin\" OR cs-host=\"*.kim\" OR cs-host=\"*.men\" OR cs-host=\"*.loan\" OR cs-host=\"*.download\" OR cs-host=\"*.racing\" OR cs-host=\"*.online\" OR cs-host=\"*.science\" OR cs-host=\"*.ren\" OR cs-host=\"*.gb\" OR cs-host=\"*.win\" OR cs-host=\"*.top\" OR cs-host=\"*.review\" OR cs-host=\"*.vip\" OR cs-host=\"*.party\" OR cs-host=\"*.tech\" OR cs-host=\"*.xyz\" OR cs-host=\"*.date\" OR cs-host=\"*.faith\" OR cs-host=\"*.zip\" OR cs-host=\"*.cricket\" OR cs-host=\"*.space\" OR cs-host=\"*.info\" OR cs-host=\"*.vn\" OR cs-host=\"*.cm\" OR cs-host=\"*.am\" OR cs-host=\"*.cc\" OR cs-host=\"*.asia\" OR cs-host=\"*.ws\" OR cs-host=\"*.tk\" OR cs-host=\"*.biz\" OR cs-host=\"*.su\" OR cs-host=\"*.st\" OR cs-host=\"*.ro\" OR cs-host=\"*.ge\" OR cs-host=\"*.ms\" OR cs-host=\"*.pk\" OR cs-host=\"*.nu\" OR cs-host=\"*.me\" OR cs-host=\"*.ph\" OR cs-host=\"*.to\" OR cs-host=\"*.tt\" OR cs-host=\"*.name\" OR cs-host=\"*.tv\" OR cs-host=\"*.kz\" OR cs-host=\"*.tc\" OR cs-host=\"*.mobi\" OR cs-host=\"*.study\" OR cs-host=\"*.click\" OR cs-host=\"*.link\" OR cs-host=\"*.trade\" OR cs-host=\"*.accountant\" OR cs-host=\"*.cf\" OR cs-host=\"*.gq\" OR cs-host=\"*.ml\" OR cs-host=\"*.ga\" OR cs-host=\"*.pw\")",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1566",
+    "attack.execution",
+    "attack.t1203",
+    "attack.t1204.002"
+  ],
+  "Version": "0.1"
+}

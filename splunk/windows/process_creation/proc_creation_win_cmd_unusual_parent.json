@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious parent process for cmd.exe\n\nAuthor: Tim Rauch, Elastic (idea)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4b991083-3d0e-44ce-8fc4-b254025d8d4b",
+  "InsertDate": "2025-02-03T20:32:39Z",
+  "LastUpdateDate": "2025-02-03T20:32:39Z",
+  "Level": "medium",
+  "Name": "Unusual Parent Process For Cmd.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\cmd.exe\" (parent_process_path=\"*\\\\csrss.exe\" OR parent_process_path=\"*\\\\ctfmon.exe\" OR parent_process_path=\"*\\\\dllhost.exe\" OR parent_process_path=\"*\\\\epad.exe\" OR parent_process_path=\"*\\\\FlashPlayerUpdateService.exe\" OR parent_process_path=\"*\\\\GoogleUpdate.exe\" OR parent_process_path=\"*\\\\jucheck.exe\" OR parent_process_path=\"*\\\\jusched.exe\" OR parent_process_path=\"*\\\\LogonUI.exe\" OR parent_process_path=\"*\\\\lsass.exe\" OR parent_process_path=\"*\\\\regsvr32.exe\" OR parent_process_path=\"*\\\\SearchIndexer.exe\" OR parent_process_path=\"*\\\\SearchProtocolHost.exe\" OR parent_process_path=\"*\\\\SIHClient.exe\" OR parent_process_path=\"*\\\\sihost.exe\" OR parent_process_path=\"*\\\\slui.exe\" OR parent_process_path=\"*\\\\spoolsv.exe\" OR parent_process_path=\"*\\\\sppsvc.exe\" OR parent_process_path=\"*\\\\taskhostw.exe\" OR parent_process_path=\"*\\\\unsecapp.exe\" OR parent_process_path=\"*\\\\WerFault.exe\" OR parent_process_path=\"*\\\\wermgr.exe\" OR parent_process_path=\"*\\\\wlanext.exe\" OR parent_process_path=\"*\\\\WUDFHost.exe\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

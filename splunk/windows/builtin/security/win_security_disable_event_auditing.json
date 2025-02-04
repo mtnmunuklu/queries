@@ -1,0 +1,14 @@
+{
+  "Description": "Detects scenarios where system auditing (i.e.: Windows event log auditing) is disabled.\nThis may be used in a scenario where an entity would want to bypass local logging to evade detection when Windows event logging is enabled and reviewed.\nAlso, it is recommended to turn off \"Local Group Policy Object Processing\" via GPO, which will make sure that Active Directory GPOs take precedence over local/edited computer policies via something such as \"gpedit.msc\".\nPlease note, that disabling \"Local Group Policy Object Processing\" may cause an issue in scenarios of one off specific GPO modifications - however, it is recommended to perform these modifications in Active Directory anyways.\n\n\nAuthor: @neu5ron, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "69aeb277-f15f-4d2d-b32a-55e883609563",
+  "InsertDate": "2025-02-03T20:32:09Z",
+  "LastUpdateDate": "2025-02-03T20:32:09Z",
+  "Level": "low",
+  "Name": "Windows Event Auditing Disabled",
+  "Query": "sourcetype=\"windows-security\" (eventid=\"4719\" (auditpolicychanges=\"*%%8448*\" OR auditpolicychanges=\"*%%8450*\")) NOT (subcategoryguid=\"{0CCE9210-69AE-11D9-BED3-505054503030}\" OR subcategoryguid=\"{0CCE9211-69AE-11D9-BED3-505054503030}\" OR subcategoryguid=\"{0CCE9212-69AE-11D9-BED3-505054503030}\" OR subcategoryguid=\"{0CCE9215-69AE-11D9-BED3-505054503030}\" OR subcategoryguid=\"{0CCE9217-69AE-11D9-BED3-505054503030}\" OR subcategoryguid=\"{0CCE921B-69AE-11D9-BED3-505054503030}\" OR subcategoryguid=\"{0CCE922B-69AE-11D9-BED3-505054503030}\" OR subcategoryguid=\"{0CCE922F-69AE-11D9-BED3-505054503030}\" OR subcategoryguid=\"{0CCE9230-69AE-11D9-BED3-505054503030}\" OR subcategoryguid=\"{0CCE9235-69AE-11D9-BED3-505054503030}\" OR subcategoryguid=\"{0CCE9236-69AE-11D9-BED3-505054503030}\" OR subcategoryguid=\"{0CCE9237-69AE-11D9-BED3-505054503030}\" OR subcategoryguid=\"{0CCE923F-69AE-11D9-BED3-505054503030}\" OR subcategoryguid=\"{0CCE9240-69AE-11D9-BED3-505054503030}\" OR subcategoryguid=\"{0CCE9242-69AE-11D9-BED3-505054503030}\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.002"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,13 @@
+{
+  "Description": "Detects when an attacker adds a new \"Debugger\" value to the \"Hangs\" key in order to achieve persistence which will get invoked when an application crashes\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "833ef470-fa01-4631-a79b-6f291c9ac498",
+  "InsertDate": "2025-02-03T20:33:36Z",
+  "LastUpdateDate": "2025-02-03T20:33:36Z",
+  "Level": "high",
+  "Name": "Add Debugger Entry To Hangs Key For Persistence",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\Windows Error Reporting\\\\Hangs\\\\Debugger*\"",
+  "Tags": [
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects non-system users performing privileged operation os the SCM database\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g, Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "dae8171c-5ec6-4396-b210-8466585b53e9",
+  "InsertDate": "2025-02-03T20:32:11Z",
+  "LastUpdateDate": "2025-02-03T20:32:11Z",
+  "Level": "medium",
+  "Name": "SCM Database Privileged Operation",
+  "Query": "sourcetype=\"windows-security\" (eventid=\"4674\" objecttype=\"SC_MANAGER OBJECT\" objectname=\"servicesactive\" privilegelist=\"SeTakeOwnershipPrivilege\") NOT (subjectlogonid=\"0x3e4\" processname=\"*:\\\\Windows\\\\System32\\\\services.exe\")",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.t1548"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a suspicious command line execution that invokes PowerShell with reference to an AppData folder\n\nAuthor: Florian Roth (Nextron Systems), Jonhnathan Ribeiro, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ac175779-025a-4f12-98b0-acdaeb77ea85",
+  "InsertDate": "2025-02-03T20:32:59Z",
+  "LastUpdateDate": "2025-02-03T20:32:59Z",
+  "Level": "medium",
+  "Name": "PowerShell Script Run in AppData",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*powershell.exe*\" OR command=\"*\\\\powershell*\" OR command=\"*\\\\pwsh*\" OR command=\"*pwsh.exe*\") ((command=\"*/c *\" command=\"*\\\\AppData\\\\*\") (command=\"*Local\\\\*\" OR command=\"*Roaming\\\\*\"))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

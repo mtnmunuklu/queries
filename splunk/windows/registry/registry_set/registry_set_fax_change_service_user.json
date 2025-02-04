@@ -1,0 +1,14 @@
+{
+  "Description": "Detect change of the user account associated with the FAX service to avoid the escalation problem.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e3fdf743-f05b-4051-990a-b66919be1743",
+  "InsertDate": "2025-02-03T20:33:36Z",
+  "LastUpdateDate": "2025-02-03T20:33:36Z",
+  "Level": "high",
+  "Name": "Change User Account Associated with the FAX Service",
+  "Query": "sourcetype=\"windows-*\" target_object=\"HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\Fax\\\\ObjectName\" NOT details=\"*NetworkService*\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1112"
+  ],
+  "Version": "0.1"
+}

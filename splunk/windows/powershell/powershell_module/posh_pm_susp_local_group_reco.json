@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may attempt to find local system groups and permission settings.\nThe knowledge of local system permission groups can help adversaries determine which groups exist and which users belong to a particular group.\nAdversaries may use this information to determine which users have elevated permissions, such as the users found within the local administrators group.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "cef24b90-dddc-4ae1-a09a-8764872f69fc",
+  "InsertDate": "2025-02-03T20:32:28Z",
+  "LastUpdateDate": "2025-02-03T20:32:28Z",
+  "Level": "low",
+  "Name": "Suspicious Get Local Groups Information",
+  "Query": "sourcetype=\"windows-*\" ((payload=\"*get-localgroup*\" OR payload=\"*Get-LocalGroupMember*\") (contextinfo=\"*get-localgroup*\" OR contextinfo=\"*Get-LocalGroupMember*\")) OR ((payload=\"*Get-WMIObject*\" payload=\"*Win32_Group*\") (contextinfo=\"*Get-WMIObject*\" contextinfo=\"*Win32_Group*\"))",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1069.001"
+  ],
+  "Version": "0.1"
+}

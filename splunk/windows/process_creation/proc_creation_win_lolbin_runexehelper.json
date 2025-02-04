@@ -1,0 +1,14 @@
+{
+  "Description": "Detect usage of the \"runexehelper.exe\" binary as a proxy to launch other programs\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "cd71385d-fd9b-4691-9b98-2b1f7e508714",
+  "InsertDate": "2025-02-03T20:32:49Z",
+  "LastUpdateDate": "2025-02-03T20:32:49Z",
+  "Level": "medium",
+  "Name": "Lolbin Runexehelper Use As Proxy",
+  "Query": "sourcetype=\"windows-sysmon\" parent_process_path=\"*\\\\runexehelper.exe\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

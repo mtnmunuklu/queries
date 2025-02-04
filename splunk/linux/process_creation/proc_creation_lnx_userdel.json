@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of the \"userdel\" binary. Which is used to delete a user account and related files. This is sometimes abused by threat actors in order to cover their tracks\n\nAuthor: Tuan Le (NCSGroup)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "08f26069-6f80-474b-8d1f-d971c6fedea0",
+  "InsertDate": "2025-02-03T20:32:01Z",
+  "LastUpdateDate": "2025-02-03T20:32:01Z",
+  "Level": "medium",
+  "Name": "User Has Been Deleted Via Userdel",
+  "Query": "sourcetype=\"linux-*\" process_path=\"*/userdel\"",
+  "Tags": [
+    "attack.impact",
+    "attack.t1531"
+  ],
+  "Version": "0.1"
+}

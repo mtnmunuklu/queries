@@ -1,0 +1,14 @@
+{
+  "Description": "Use of reg to get MachineGuid information\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f5240972-3938-4e56-8e4b-e33893176c1f",
+  "InsertDate": "2025-02-03T20:33:03Z",
+  "LastUpdateDate": "2025-02-03T20:33:03Z",
+  "Level": "low",
+  "Name": "Suspicious Query of MachineGUID",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\reg.exe\" (command=\"*SOFTWARE\\\\Microsoft\\\\Cryptography*\" command=\"*/v *\" command=\"*MachineGuid*\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1082"
+  ],
+  "Version": "0.1"
+}

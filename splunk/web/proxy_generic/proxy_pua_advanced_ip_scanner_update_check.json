@@ -1,0 +1,14 @@
+{
+  "Description": "Detect the update check performed by Advanced IP/Port Scanner utilities.\n\nAuthor: Axel Olsson\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1a9bb21a-1bb5-42d7-aa05-3219c7c8f47d",
+  "InsertDate": "2025-02-03T20:32:04Z",
+  "LastUpdateDate": "2025-02-03T20:32:04Z",
+  "Level": "medium",
+  "Name": "PUA - Advanced IP/Port Scanner Update Check",
+  "Query": "c-uri=\"*/checkupdate.php*\" (c-uri-query=\"*lng=*\" c-uri-query=\"*ver=*\" c-uri-query=\"*beta=*\" c-uri-query=\"*type=*\" c-uri-query=\"*rmode=*\" c-uri-query=\"*product=*\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1590"
+  ],
+  "Version": "0.1"
+}

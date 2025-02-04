@@ -1,0 +1,14 @@
+{
+  "Description": "Detects enumeration of local network configuration\n\nAuthor: Ömer Günal and remotephone, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e7bd1cfa-b446-4c88-8afb-403bcd79e3fa",
+  "InsertDate": "2025-02-03T20:32:01Z",
+  "LastUpdateDate": "2025-02-03T20:32:01Z",
+  "Level": "informational",
+  "Name": "System Network Discovery - Linux",
+  "Query": "sourcetype=\"linux-*\" (process_path=\"*/firewall-cmd\" OR process_path=\"*/ufw\" OR process_path=\"*/iptables\" OR process_path=\"*/netstat\" OR process_path=\"*/ss\" OR process_path=\"*/ip\" OR process_path=\"*/ifconfig\" OR process_path=\"*/systemd-resolve\" OR process_path=\"*/route\") OR command=\"*/etc/resolv.conf*\"",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1016"
+  ],
+  "Version": "0.1"
+}

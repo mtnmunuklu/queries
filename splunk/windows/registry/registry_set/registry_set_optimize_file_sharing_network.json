@@ -1,0 +1,14 @@
+{
+  "Description": "Detects changes to the \"MaxMpxCt\" registry value.\nMaxMpxCt specifies the maximum outstanding network requests for the server per client, which is used when negotiating a Server Message Block (SMB) connection with a client. Note if the value is set beyond 125 older Windows 9x clients will fail to negotiate.\nRansomware threat actors and operators (specifically BlackCat) were seen increasing this value in order to handle a higher volume of traffic.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0e6a9e62-627e-496c-aef5-bfa39da29b5e",
+  "InsertDate": "2025-02-03T20:33:40Z",
+  "LastUpdateDate": "2025-02-03T20:33:40Z",
+  "Level": "low",
+  "Name": "MaxMpxCt Registry Value Changed",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\Services\\\\LanmanServer\\\\Parameters\\\\MaxMpxCt\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1070.005"
+  ],
+  "Version": "0.1"
+}

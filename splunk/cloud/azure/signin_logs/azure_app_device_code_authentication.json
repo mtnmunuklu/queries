@@ -1,0 +1,17 @@
+{
+  "Description": "Device code flow is an OAuth 2.0 protocol flow specifically for input constrained devices and is not used in all environments.\nIf this type of flow is seen in the environment and not being used in an input constrained device scenario, further investigation is warranted.\nThis can be a misconfigured application or potentially something malicious.\n\n\nAuthor: Mark Morowczynski '@markmorow', Bailey Bercik '@baileybercik'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "248649b7-d64f-46f0-9fb2-a52774166fb5",
+  "InsertDate": "2025-02-03T20:31:53Z",
+  "LastUpdateDate": "2025-02-03T20:31:53Z",
+  "Level": "medium",
+  "Name": "Application Using Device Code Authentication Flow",
+  "Query": "sourcetype=\"azure-signinlogs\" properties.message=\"Device Code\"",
+  "Tags": [
+    "attack.t1078",
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.initial-access"
+  ],
+  "Version": "0.1"
+}

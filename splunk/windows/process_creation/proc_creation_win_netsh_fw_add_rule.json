@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the addition of a new rule to the Windows firewall via netsh\n\nAuthor: Markus Neis, Sander Wiebing\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "cd5cfd80-aa5f-44c0-9c20-108c4ae12e3c",
+  "InsertDate": "2025-02-03T20:32:52Z",
+  "LastUpdateDate": "2025-02-03T20:32:52Z",
+  "Level": "medium",
+  "Name": "New Firewall Rule Added Via Netsh.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\netsh.exe\" original_file_name=\"netsh.exe\") (command=\"* firewall *\" command=\"* add *\")) NOT (command=\"*advfirewall firewall add rule name=Dropbox dir=in action=allow \"program=?:\\\\Program Files (x86)\\\\Dropbox\\\\Client\\\\Dropbox.exe\" enable=yes profile=Any*\" OR command=\"*advfirewall firewall add rule name=Dropbox dir=in action=allow \"program=?:\\\\Program Files\\\\Dropbox\\\\Client\\\\Dropbox.exe\" enable=yes profile=Any*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.004",
+    "attack.s0246"
+  ],
+  "Version": "0.1"
+}

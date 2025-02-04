@@ -1,0 +1,15 @@
+{
+  "Description": "Detects wceaux.dll access while WCE pass-the-hash remote command execution on source host\n\nAuthor: Thomas Patzke\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1de68c67-af5c-4097-9c85-fe5578e09e67",
+  "InsertDate": "2025-02-03T20:32:10Z",
+  "LastUpdateDate": "2025-02-03T20:32:10Z",
+  "Level": "critical",
+  "Name": "WCE wceaux.dll Access",
+  "Query": "sourcetype=\"windows-security\" (eventid=\"4656\" OR eventid=\"4658\" OR eventid=\"4660\" OR eventid=\"4663\") objectname=\"*\\\\wceaux.dll\"",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003",
+    "attack.s0005"
+  ],
+  "Version": "0.1"
+}

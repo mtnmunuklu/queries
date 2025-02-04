@@ -1,0 +1,14 @@
+{
+  "Description": "Detects deletion of Windows Volume Shadow Copies with PowerShell code and Get-WMIObject. This technique is used by numerous ransomware families such as Sodinokibi/REvil\n\nAuthor: Tim Rauch\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c1337eb8-921a-4b59-855b-4ba188ddcc42",
+  "InsertDate": "2025-02-03T20:32:34Z",
+  "LastUpdateDate": "2025-02-03T20:32:34Z",
+  "Level": "high",
+  "Name": "Deletion of Volume Shadow Copies via WMI with PowerShell - PS Script",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*Get-WmiObject*\" OR scriptblocktext=\"*gwmi*\" OR scriptblocktext=\"*Get-CimInstance*\" OR scriptblocktext=\"*gcim*\") scriptblocktext=\"*Win32_ShadowCopy*\" (scriptblocktext=\"*.Delete()*\" OR scriptblocktext=\"*Remove-WmiObject*\" OR scriptblocktext=\"*rwmi*\" OR scriptblocktext=\"*Remove-CimInstance*\" OR scriptblocktext=\"*rcim*\")",
+  "Tags": [
+    "attack.impact",
+    "attack.t1490"
+  ],
+  "Version": "0.1"
+}

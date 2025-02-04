@@ -1,0 +1,17 @@
+{
+  "Description": "Detects potential DLL sideloading of \"libvlc.dll\", a DLL that is legitimately used by \"VLC.exe\"\n\nAuthor: X__Junior\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "bf9808c4-d24f-44a2-8398-b65227d406b6",
+  "InsertDate": "2025-02-03T20:32:23Z",
+  "LastUpdateDate": "2025-02-03T20:32:23Z",
+  "Level": "medium",
+  "Name": "Potential Libvlc.DLL Sideloading",
+  "Query": "sourcetype=\"windows-sysmon\" image_loaded=\"*\\\\libvlc.dll\" NOT (image_loaded=\"C:\\\\Program Files (x86)\\\\VideoLAN\\\\VLC\\\\*\" OR image_loaded=\"C:\\\\Program Files\\\\VideoLAN\\\\VLC\\\\*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

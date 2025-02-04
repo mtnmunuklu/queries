@@ -1,0 +1,14 @@
+{
+  "Description": "Detects enumeration of local or remote network services.\n\nAuthor: Alejandro Ortuno, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3761e026-f259-44e6-8826-719ed8079408",
+  "InsertDate": "2025-02-03T20:31:56Z",
+  "LastUpdateDate": "2025-02-03T20:31:56Z",
+  "Level": "low",
+  "Name": "Linux Network Service Scanning - Auditd",
+  "Query": "sourcetype=\"linux-auditd\" type=\"SYSCALL\" (exe=\"*/telnet\" OR exe=\"*/nmap\" OR exe=\"*/netcat\" OR exe=\"*/nc\" OR exe=\"*/ncat\" OR exe=\"*/nc.openbsd\") key=\"network_connect_4\"",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1046"
+  ],
+  "Version": "0.1"
+}

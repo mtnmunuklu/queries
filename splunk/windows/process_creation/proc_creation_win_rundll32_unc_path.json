@@ -1,0 +1,16 @@
+{
+  "Description": "Detects rundll32 execution where the DLL is located on a remote location (share)\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5cdb711b-5740-4fb2-ba88-f7945027afac",
+  "InsertDate": "2025-02-03T20:33:09Z",
+  "LastUpdateDate": "2025-02-03T20:33:09Z",
+  "Level": "high",
+  "Name": "Rundll32 UNC Path Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\rundll32.exe\" original_file_name=\"RUNDLL32.EXE\" command=\"*rundll32*\") command=\"* \\\\\\\\\\\\\\\\*\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.t1021.002",
+    "attack.t1218.011"
+  ],
+  "Version": "0.1"
+}

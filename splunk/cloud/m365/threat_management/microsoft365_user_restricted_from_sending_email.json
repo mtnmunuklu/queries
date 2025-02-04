@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when a Security Compliance Center reported a user who exceeded sending limits of the service policies and because of this has been restricted from sending email.\n\nAuthor: austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ff246f56-7f24-402a-baca-b86540e3925c",
+  "InsertDate": "2025-02-03T20:31:55Z",
+  "LastUpdateDate": "2025-02-03T20:31:55Z",
+  "Level": "medium",
+  "Name": "Microsoft 365 - User Restricted from Sending Email",
+  "Query": "sourcetype=\"m365-threat_management\" eventsource=\"SecurityComplianceCenter\" eventname=\"User restricted from sending email\" status=\"success\"",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1199"
+  ],
+  "Version": "0.1"
+}

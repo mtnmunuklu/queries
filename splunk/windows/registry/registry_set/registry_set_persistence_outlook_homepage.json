@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential persistence activity via outlook home page.\nAn attacker can set a home page to achieve code execution and persistence by editing the WebView registry keys.\n\n\nAuthor: Tobias Michalski (Nextron Systems), David Bertho (@dbertho) \u0026 Eirik Sveen (@0xSV1), Storebrand\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ddd171b5-2cc6-4975-9e78-f0eccd08cc76",
+  "InsertDate": "2025-02-03T20:33:41Z",
+  "LastUpdateDate": "2025-02-03T20:33:41Z",
+  "Level": "high",
+  "Name": "Potential Persistence Via Outlook Home Page",
+  "Query": "sourcetype=\"windows-*\" (target_object=\"*\\\\Software\\\\Microsoft\\\\Office\\\\*\" target_object=\"*\\\\Outlook\\\\WebView\\\\*\") target_object=\"*\\\\URL\"",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1112"
+  ],
+  "Version": "0.1"
+}

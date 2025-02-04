@@ -1,0 +1,15 @@
+{
+  "Description": "Detect lateral movement using GPO scheduled task, usually used to deploy ransomware at scale\n\nAuthor: Samir Bousseaden\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a8f29a7b-b137-4446-80a0-b804272f3da2",
+  "InsertDate": "2025-02-03T20:32:09Z",
+  "LastUpdateDate": "2025-02-03T20:32:09Z",
+  "Level": "high",
+  "Name": "Persistence and Execution at Scale via GPO Scheduled Task",
+  "Query": "sourcetype=\"windows-security\" (eventid=\"5136\" (attributeldapdisplayname=\"gPCMachineExtensionNames\" OR attributeldapdisplayname=\"gPCUserExtensionNames\") (attributevalue=\"*CAB54552-DEEA-4691-817E-ED4A4D1AFC72*\" OR attributevalue=\"*AADCED64-746C-4633-A97C-D61349046527*\")) OR (eventid=\"5145\" sharename=\"*\\\\SYSVOL\" relativetargetname=\"*ScheduledTasks.xml\" (accesslist=\"*WriteData*\" OR accesslist=\"*%%4417*\"))",
+  "Tags": [
+    "attack.persistence",
+    "attack.lateral-movement",
+    "attack.t1053.005"
+  ],
+  "Version": "0.1"
+}

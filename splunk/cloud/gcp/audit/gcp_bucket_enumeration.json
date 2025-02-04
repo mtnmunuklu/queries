@@ -1,0 +1,13 @@
+{
+  "Description": "Detects when storage bucket is enumerated in Google Cloud.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e2feb918-4e77-4608-9697-990a1aaf74c3",
+  "InsertDate": "2025-02-03T20:31:54Z",
+  "LastUpdateDate": "2025-02-03T20:31:54Z",
+  "Level": "low",
+  "Name": "Google Cloud Storage Buckets Enumeration",
+  "Query": "sourcetype=\"gcp-gcp.audit\" (gcp.audit.method_name=\"storage.buckets.list\" OR gcp.audit.method_name=\"storage.buckets.listChannels\")",
+  "Tags": [
+    "attack.discovery"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,19 @@
+{
+  "Description": "Detects the creation of scheduled tasks by user accounts via the \"schtasks\" utility.\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "92626ddd-662c-49e3-ac59-f6535f12d189",
+  "InsertDate": "2025-02-03T20:33:10Z",
+  "LastUpdateDate": "2025-02-03T20:33:10Z",
+  "Level": "low",
+  "Name": "Scheduled Task Creation Via Schtasks.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\schtasks.exe\" command=\"* /create *\") NOT (username=\"*AUTHORI*\" OR username=\"*AUTORI*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1053.005",
+    "attack.s0111",
+    "car.2013-08-001",
+    "stp.1u"
+  ],
+  "Version": "0.1"
+}

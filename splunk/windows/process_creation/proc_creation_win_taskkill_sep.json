@@ -1,0 +1,14 @@
+{
+  "Description": "Detects one of the possible scenarios for disabling Symantec Endpoint Protection.\nSymantec Endpoint Protection antivirus software services incorrectly implement the protected service mechanism.\nAs a result, the NT AUTHORITY/SYSTEM user can execute the taskkill /im command several times ccSvcHst.exe /f, thereby killing the process belonging to the service, and thus shutting down the service.\n\n\nAuthor: Ilya Krestinichev, Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4a6713f6-3331-11ed-a261-0242ac120002",
+  "InsertDate": "2025-02-03T20:33:21Z",
+  "LastUpdateDate": "2025-02-03T20:33:21Z",
+  "Level": "high",
+  "Name": "Taskkill Symantec Endpoint Protection",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*taskkill*\" command=\"* /F *\" command=\"* /IM *\" command=\"*ccSvcHst.exe*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

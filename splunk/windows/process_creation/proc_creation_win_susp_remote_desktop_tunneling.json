@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential use of an SSH utility to establish RDP over a reverse SSH Tunnel. This can be used by attackers to enable routing of network packets that would otherwise not reach their intended destination.\n\nAuthor: Tim Rauch, Elastic (idea)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8a3038e8-9c9d-46f8-b184-66234a160f6f",
+  "InsertDate": "2025-02-03T20:33:16Z",
+  "LastUpdateDate": "2025-02-03T20:33:16Z",
+  "Level": "medium",
+  "Name": "Potential Remote Desktop Tunneling",
+  "Query": "sourcetype=\"windows-sysmon\" command=\"*:3389*\" (command=\"* -L *\" OR command=\"* -P *\" OR command=\"* -R *\" OR command=\"* -pw *\" OR command=\"* -ssh *\")",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.t1021"
+  ],
+  "Version": "0.1"
+}

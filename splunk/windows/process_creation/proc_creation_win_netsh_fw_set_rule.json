@@ -1,0 +1,13 @@
+{
+  "Description": "Detects execution of netsh with the \"advfirewall\" and the \"set\" option in order to set new values for properties of a existing rule\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a70dcb37-3bee-453a-99df-d0c683151be6",
+  "InsertDate": "2025-02-03T20:32:52Z",
+  "LastUpdateDate": "2025-02-03T20:32:52Z",
+  "Level": "medium",
+  "Name": "Firewall Rule Update Via Netsh.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\netsh.exe\" original_file_name=\"netsh.exe\") (command=\"* firewall *\" command=\"* set *\")",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

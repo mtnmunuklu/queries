@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of SecurityXploded Tools\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7679d464-4f74-45e2-9e01-ac66c5eb041a",
+  "InsertDate": "2025-02-03T20:32:45Z",
+  "LastUpdateDate": "2025-02-03T20:32:45Z",
+  "Level": "critical",
+  "Name": "HackTool - SecurityXploded Execution",
+  "Query": "sourcetype=\"windows-sysmon\" company=\"SecurityXploded\" process_path=\"*PasswordDump.exe\" original_file_name=\"*PasswordDump.exe\"",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1555"
+  ],
+  "Version": "0.1"
+}

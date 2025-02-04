@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the start of a non built-in assistive technology applications via \"Atbroker.EXE\".\n\nAuthor: Mateusz Wydra, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f24bcaea-0cd1-11eb-adc1-0242ac120002",
+  "InsertDate": "2025-02-03T20:32:37Z",
+  "LastUpdateDate": "2025-02-03T20:32:37Z",
+  "Level": "medium",
+  "Name": "Uncommon  Assistive Technology Applications Execution Via AtBroker.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\AtBroker.exe\" original_file_name=\"AtBroker.exe\") command=\"*start*\") NOT (command=\"*animations*\" OR command=\"*audiodescription*\" OR command=\"*caretbrowsing*\" OR command=\"*caretwidth*\" OR command=\"*colorfiltering*\" OR command=\"*cursorindicator*\" OR command=\"*cursorscheme*\" OR command=\"*filterkeys*\" OR command=\"*focusborderheight*\" OR command=\"*focusborderwidth*\" OR command=\"*highcontrast*\" OR command=\"*keyboardcues*\" OR command=\"*keyboardpref*\" OR command=\"*livecaptions*\" OR command=\"*magnifierpane*\" OR command=\"*messageduration*\" OR command=\"*minimumhitradius*\" OR command=\"*mousekeys*\" OR command=\"*Narrator*\" OR command=\"*osk*\" OR command=\"*overlappedcontent*\" OR command=\"*showsounds*\" OR command=\"*soundsentry*\" OR command=\"*speechreco*\" OR command=\"*stickykeys*\" OR command=\"*togglekeys*\" OR command=\"*voiceaccess*\" OR command=\"*windowarranging*\" OR command=\"*windowtracking*\" OR command=\"*windowtrackingtimeout*\" OR command=\"*windowtrackingzorder*\") NOT command=\"*Oracle_JavaAccessBridge*\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

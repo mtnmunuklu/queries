@@ -1,0 +1,14 @@
+{
+  "Description": "Detects Windows command lines that miss a space before or after the /c flag when running a command using the cmd.exe.\nThis could be a sign of obfuscation of a fat finger problem (typo by the developer).\n\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a16980c2-0c56-4de0-9a79-17971979efdd",
+  "InsertDate": "2025-02-03T20:32:39Z",
+  "LastUpdateDate": "2025-02-03T20:32:39Z",
+  "Level": "high",
+  "Name": "Cmd.EXE Missing Space Characters Execution Anomaly",
+  "Query": "sourcetype=\"windows-sysmon\" ((command=\"*cmd.exe /c*\" OR command=\"*cmd /c*\" OR command=\"*cmd.exe /k*\" OR command=\"*cmd /k*\" OR command=\"*cmd.exe /r*\" OR command=\"*cmd /r*\") OR (command=\"*cmd.exe/c*\" OR command=\"*\\\\cmd/c*\" OR command=\"*\"cmd/c*\" OR command=\"*cmd.exe/k*\" OR command=\"*\\\\cmd/k*\" OR command=\"*\"cmd/k*\" OR command=\"*cmd.exe/r*\" OR command=\"*\\\\cmd/r*\" OR command=\"*\"cmd/r*\") OR (command=\"*/cwhoami*\" OR command=\"*/cpowershell*\" OR command=\"*/cschtasks*\" OR command=\"*/cbitsadmin*\" OR command=\"*/ccertutil*\" OR command=\"*/kwhoami*\" OR command=\"*/kpowershell*\" OR command=\"*/kschtasks*\" OR command=\"*/kbitsadmin*\" OR command=\"*/kcertutil*\")) NOT ((command=\"*AppData\\\\Local\\\\Programs\\\\Microsoft VS Code\\\\resources\\\\app\\\\node_modules*\" command=\"*cmd.exe/c .\" command=\"cmd.exe /c\") OR (command=\"*cmd.exe /c *\" OR command=\"*cmd /c *\" OR command=\"*cmd.exe /k *\" OR command=\"*cmd /k *\" OR command=\"*cmd.exe /r *\" OR command=\"*cmd /r *\"))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,19 @@
+{
+  "Description": "Detects the execution of System Informer, a task manager tool to view and manipulate processes, kernel options and other low level operations\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5722dff1-4bdd-4949-86ab-fbaf707e767a",
+  "InsertDate": "2025-02-03T20:33:01Z",
+  "LastUpdateDate": "2025-02-03T20:33:01Z",
+  "Level": "medium",
+  "Name": "PUA - System Informer Execution",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\SystemInformer.exe\" original_file_name=\"SystemInformer.exe\" description=\"System Informer\" product=\"System Informer\" (hashes=\"*MD5=19426363A37C03C3ED6FEDF57B6696EC*\" OR hashes=\"*SHA1=8B12C6DA8FAC0D5E8AB999C31E5EA04AF32D53DC*\" OR hashes=\"*SHA256=8EE9D84DE50803545937A63C686822388A3338497CDDB660D5D69CF68B68F287*\" OR hashes=\"*IMPHASH=B68908ADAEB5D662F87F2528AF318F12*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.discovery",
+    "attack.defense-evasion",
+    "attack.t1082",
+    "attack.t1564",
+    "attack.t1543"
+  ],
+  "Version": "0.1"
+}

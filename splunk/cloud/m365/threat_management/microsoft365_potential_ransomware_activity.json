@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when a Microsoft Cloud App Security reported when a user uploads files to the cloud that might be infected with ransomware.\n\nAuthor: austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "bd132164-884a-48f1-aa2d-c6d646b04c69",
+  "InsertDate": "2025-02-03T20:31:55Z",
+  "LastUpdateDate": "2025-02-03T20:31:55Z",
+  "Level": "medium",
+  "Name": "Microsoft 365 - Potential Ransomware Activity",
+  "Query": "sourcetype=\"m365-threat_management\" eventsource=\"SecurityComplianceCenter\" eventname=\"Potential ransomware activity\" status=\"success\"",
+  "Tags": [
+    "attack.impact",
+    "attack.t1486"
+  ],
+  "Version": "0.1"
+}

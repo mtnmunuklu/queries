@@ -1,0 +1,16 @@
+{
+  "Description": "Csi.exe is a signed binary from Microsoft that comes with Visual Studio and provides C# interactive capabilities. It can be used to run C# code from a file passed as a parameter in command line. Early version of this utility provided with Microsoft “Roslyn” Community Technology Preview was named 'rcsi.exe'\n\nAuthor: Konstantin Grishchenko, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "40b95d31-1afc-469e-8d34-9a3a667d058e",
+  "InsertDate": "2025-02-03T20:32:40Z",
+  "LastUpdateDate": "2025-02-03T20:32:40Z",
+  "Level": "medium",
+  "Name": "Suspicious Csi.exe Usage",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\csi.exe\" OR process_path=\"*\\\\rcsi.exe\") (original_file_name=\"csi.exe\" OR original_file_name=\"rcsi.exe\")) company=\"Microsoft Corporation\"",
+  "Tags": [
+    "attack.execution",
+    "attack.t1072",
+    "attack.defense-evasion",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

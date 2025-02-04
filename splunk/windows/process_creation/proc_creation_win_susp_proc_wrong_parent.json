@@ -1,0 +1,15 @@
+{
+  "Description": "Detect suspicious parent processes of well-known Windows processes\n\nAuthor: vburov\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "96036718-71cc-4027-a538-d1587e0006a7",
+  "InsertDate": "2025-02-03T20:33:16Z",
+  "LastUpdateDate": "2025-02-03T20:33:16Z",
+  "Level": "low",
+  "Name": "Windows Processes Suspicious Parent Directory",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\svchost.exe\" OR process_path=\"*\\\\taskhost.exe\" OR process_path=\"*\\\\lsm.exe\" OR process_path=\"*\\\\lsass.exe\" OR process_path=\"*\\\\services.exe\" OR process_path=\"*\\\\lsaiso.exe\" OR process_path=\"*\\\\csrss.exe\" OR process_path=\"*\\\\wininit.exe\" OR process_path=\"*\\\\winlogon.exe\") NOT (((parent_process_path=\"*\\\\SavService.exe\" OR parent_process_path=\"*\\\\ngen.exe\") (parent_process_path=\"*\\\\System32\\\\*\" OR parent_process_path=\"*\\\\SysWOW64\\\\*\")) OR ((parent_process_path=\"*\\\\Windows Defender\\\\*\" OR parent_process_path=\"*\\\\Microsoft Security Client\\\\*\") parent_process_path=\"*\\\\MsMpEng.exe\") OR (parent_process_path=\"null\" parent_process_path=\"-\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1036.003",
+    "attack.t1036.005"
+  ],
+  "Version": "0.1"
+}

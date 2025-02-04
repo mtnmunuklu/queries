@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of certutil with certain flags that allow the utility to download files from direct IPs.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "13e6fe51-d478-4c7e-b0f2-6da9b400a829",
+  "InsertDate": "2025-02-03T20:32:38Z",
+  "LastUpdateDate": "2025-02-03T20:32:38Z",
+  "Level": "high",
+  "Name": "Suspicious File Downloaded From Direct IP Via Certutil.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\certutil.exe\" original_file_name=\"CertUtil.exe\") (command=\"*urlcache *\" OR command=\"*verifyctl *\") (command=\"*://1*\" OR command=\"*://2*\" OR command=\"*://3*\" OR command=\"*://4*\" OR command=\"*://5*\" OR command=\"*://6*\" OR command=\"*://7*\" OR command=\"*://8*\" OR command=\"*://9*\")) NOT command=\"*://7-*\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1027"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a program that invoked suspicious DNS queries known from Cobalt Strike beacons\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0d18728b-f5bf-4381-9dcf-915539fff6c2",
+  "InsertDate": "2025-02-03T20:32:07Z",
+  "LastUpdateDate": "2025-02-03T20:32:07Z",
+  "Level": "critical",
+  "Name": "Suspicious Cobalt Strike DNS Beaconing - DNS Client",
+  "Query": "sourcetype=\"windows-dns-client\" eventid=\"3008\" ((query_name=\"aaa.stage.*\" OR query_name=\"post.1*\") OR query_name=\"*.stage.123456.*\")",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1071.004"
+  ],
+  "Version": "0.1"
+}

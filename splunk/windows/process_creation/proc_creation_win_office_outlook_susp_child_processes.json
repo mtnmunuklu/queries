@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a suspicious process spawning from an Outlook process.\n\nAuthor: Michael Haag, Florian Roth (Nextron Systems), Markus Neis, Elastic, FPT.EagleEye Team\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "208748f7-881d-47ac-a29c-07ea84bf691d",
+  "InsertDate": "2025-02-03T20:32:54Z",
+  "LastUpdateDate": "2025-02-03T20:32:54Z",
+  "Level": "high",
+  "Name": "Suspicious Outlook Child Process",
+  "Query": "sourcetype=\"windows-sysmon\" parent_process_path=\"*\\\\OUTLOOK.EXE\" (process_path=\"*\\\\AppVLP.exe\" OR process_path=\"*\\\\bash.exe\" OR process_path=\"*\\\\cmd.exe\" OR process_path=\"*\\\\cscript.exe\" OR process_path=\"*\\\\forfiles.exe\" OR process_path=\"*\\\\hh.exe\" OR process_path=\"*\\\\mftrace.exe\" OR process_path=\"*\\\\msbuild.exe\" OR process_path=\"*\\\\msdt.exe\" OR process_path=\"*\\\\mshta.exe\" OR process_path=\"*\\\\msiexec.exe\" OR process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\" OR process_path=\"*\\\\regsvr32.exe\" OR process_path=\"*\\\\schtasks.exe\" OR process_path=\"*\\\\scrcons.exe\" OR process_path=\"*\\\\scriptrunner.exe\" OR process_path=\"*\\\\sh.exe\" OR process_path=\"*\\\\svchost.exe\" OR process_path=\"*\\\\wmic.exe\" OR process_path=\"*\\\\wscript.exe\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1204.002"
+  ],
+  "Version": "0.1"
+}

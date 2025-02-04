@@ -1,0 +1,14 @@
+{
+  "Description": "Detect set UseActionCenterExperience to 0 to disable the Windows security center notification\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3ae1a046-f7db-439d-b7ce-b8b366b81fa6",
+  "InsertDate": "2025-02-03T20:33:34Z",
+  "LastUpdateDate": "2025-02-03T20:33:34Z",
+  "Level": "medium",
+  "Name": "Disable Windows Security Center Notifications",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*Windows\\\\CurrentVersion\\\\ImmersiveShell\\\\UseActionCenterExperience\" details=\"DWORD (0x00000000)\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1112"
+  ],
+  "Version": "0.1"
+}

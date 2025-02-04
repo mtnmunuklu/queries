@@ -1,0 +1,14 @@
+{
+  "Description": "Detects attackers using tooling with bad opsec defaults.\nE.g. spawning a sacrificial process to inject a capability into the process without taking into account how the process is normally run.\nOne trivial example of this is using rundll32.exe without arguments as a sacrificial process (default in CS, now highlighted by c2lint), running WerFault without arguments (Kraken - credit am0nsec), and other examples.\n\n\nAuthor: Oleg Kolesnikov @securonix invrep_de, oscd.community, Florian Roth (Nextron Systems), Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a7c3d773-caef-227e-a7e7-c2f13c622329",
+  "InsertDate": "2025-02-03T20:33:13Z",
+  "LastUpdateDate": "2025-02-03T20:33:13Z",
+  "Level": "high",
+  "Name": "Bad Opsec Defaults Sacrificial Processes With Improper Arguments",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\regasm.exe\" command=\"*regasm.exe\") OR (process_path=\"*\\\\regsvr32.exe\" command=\"*regsvr32.exe\") OR (process_path=\"*\\\\WerFault.exe\" command=\"*WerFault.exe\") OR (process_path=\"*\\\\rundll32.exe\" command=\"*rundll32.exe\") OR (process_path=\"*\\\\regsvcs.exe\" command=\"*regsvcs.exe\")) NOT ((parent_process_path=\"*\\\\AppData\\\\Local\\\\Microsoft\\\\EdgeUpdate\\\\Install\\\\{*\" process_path=\"*\\\\rundll32.exe\" command=\"*rundll32.exe\") OR ((parent_process_path=\"*\\\\AppData\\\\Local\\\\BraveSoftware\\\\Brave-Browser\\\\Application\\\\*\" OR parent_process_path=\"*\\\\AppData\\\\Local\\\\Google\\\\Chrome\\\\Application\\\\*\") parent_process_path=\"*\\\\Installer\\\\setup.exe\" parent_command_line=\"*--uninstall *\" process_path=\"*\\\\rundll32.exe\" command=\"*rundll32.exe\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.011"
+  ],
+  "Version": "0.1"
+}

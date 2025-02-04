@@ -1,0 +1,15 @@
+{
+  "Description": "Detects uncommon processes creating remote threads.\n\nAuthor: Perez Diego (@darkquassar), oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "02d1d718-dd13-41af-989d-ea85c7fab93f",
+  "InsertDate": "2025-02-03T20:32:15Z",
+  "LastUpdateDate": "2025-02-03T20:32:15Z",
+  "Level": "high",
+  "Name": "Rare Remote Thread Creation By Uncommon Source Image",
+  "Query": "sourcetype=\"windows-*\" (process_path=\"*\\\\bash.exe\" OR process_path=\"*\\\\cscript.exe\" OR process_path=\"*\\\\cvtres.exe\" OR process_path=\"*\\\\defrag.exe\" OR process_path=\"*\\\\dialer.exe\" OR process_path=\"*\\\\dnx.exe\" OR process_path=\"*\\\\esentutl.exe\" OR process_path=\"*\\\\excel.exe\" OR process_path=\"*\\\\expand.exe\" OR process_path=\"*\\\\find.exe\" OR process_path=\"*\\\\findstr.exe\" OR process_path=\"*\\\\forfiles.exe\" OR process_path=\"*\\\\gpupdate.exe\" OR process_path=\"*\\\\hh.exe\" OR process_path=\"*\\\\installutil.exe\" OR process_path=\"*\\\\lync.exe\" OR process_path=\"*\\\\makecab.exe\" OR process_path=\"*\\\\mDNSResponder.exe\" OR process_path=\"*\\\\monitoringhost.exe\" OR process_path=\"*\\\\msbuild.exe\" OR process_path=\"*\\\\mshta.exe\" OR process_path=\"*\\\\mspaint.exe\" OR process_path=\"*\\\\outlook.exe\" OR process_path=\"*\\\\ping.exe\" OR process_path=\"*\\\\provtool.exe\" OR process_path=\"*\\\\python.exe\" OR process_path=\"*\\\\regsvr32.exe\" OR process_path=\"*\\\\robocopy.exe\" OR process_path=\"*\\\\runonce.exe\" OR process_path=\"*\\\\sapcimc.exe\" OR process_path=\"*\\\\smartscreen.exe\" OR process_path=\"*\\\\spoolsv.exe\" OR process_path=\"*\\\\tstheme.exe\" OR process_path=\"*\\\\userinit.exe\" OR process_path=\"*\\\\vssadmin.exe\" OR process_path=\"*\\\\vssvc.exe\" OR process_path=\"*\\\\w3wp.exe\" OR process_path=\"*\\\\winscp.exe\" OR process_path=\"*\\\\winword.exe\" OR process_path=\"*\\\\wmic.exe\" OR process_path=\"*\\\\wscript.exe\")",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.defense-evasion",
+    "attack.t1055"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious Django web application framework exceptions that could indicate exploitation attempts\n\nAuthor: Thomas Patzke\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fd435618-981e-4a7c-81f8-f78ce480d616",
+  "InsertDate": "2025-02-03T20:31:48Z",
+  "LastUpdateDate": "2025-02-03T20:31:48Z",
+  "Level": "medium",
+  "Name": "Django Framework Exceptions",
+  "Query": "sourcetype=\"django-*\" (\"SuspiciousOperation\" OR \"DisallowedHost\" OR \"DisallowedModelAdminLookup\" OR \"DisallowedModelAdminToField\" OR \"DisallowedRedirect\" OR \"InvalidSessionKey\" OR \"RequestDataTooBig\" OR \"SuspiciousFileOperation\" OR \"SuspiciousMultipartForm\" OR \"SuspiciousSession\" OR \"TooManyFieldsSent\" OR \"PermissionDenied\")",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1190"
+  ],
+  "Version": "0.1"
+}

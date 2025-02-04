@@ -1,0 +1,14 @@
+{
+  "Description": "Detects calls to cmdlets inside of PowerShell scripts that are used to export certificates from the local certificate store. Threat actors were seen abusing this to steal private keys from compromised machines.\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "aa7a3fce-bef5-4311-9cc1-5f04bb8c308c",
+  "InsertDate": "2025-02-03T20:32:30Z",
+  "LastUpdateDate": "2025-02-03T20:32:30Z",
+  "Level": "medium",
+  "Name": "Certificate Exported Via PowerShell - ScriptBlock",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*Export-PfxCertificate*\" OR scriptblocktext=\"*Export-Certificate*\") NOT scriptblocktext=\"*CmdletsToExport = @(*\"",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1552.004"
+  ],
+  "Version": "0.1"
+}

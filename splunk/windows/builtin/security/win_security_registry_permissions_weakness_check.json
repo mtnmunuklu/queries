@@ -1,0 +1,16 @@
+{
+  "Description": "Detects \"read access\" requests on the services registry key.\nAdversaries may execute their own malicious payloads by hijacking the Registry entries used by services.\nAdversaries may use flaws in the permissions for Registry keys related to services to redirect from the originally specified executable to one that they control, in order to launch their own code when a service starts.\n\n\nAuthor: Center for Threat Informed Defense (CTID) Summiting the Pyramid Team\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "11d00fff-5dc3-428c-8184-801f292faec0",
+  "InsertDate": "2025-02-03T20:32:10Z",
+  "LastUpdateDate": "2025-02-03T20:32:10Z",
+  "Level": "low",
+  "Name": "Service Registry Key Read Access Request",
+  "Query": "sourcetype=\"windows-security\" eventid=\"4663\" (objectname=\"*\\\\SYSTEM\\\\*\" objectname=\"*ControlSet\\\\Services\\\\*\") accesslist=\"*%%1538*\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1574.011"
+  ],
+  "Version": "0.1"
+}

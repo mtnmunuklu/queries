@@ -1,0 +1,16 @@
+{
+  "Description": "Detects potential DLL sideloading of \"roboform.dll\", a DLL used by RoboForm Password Manager\n\nAuthor: X__Junior (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f64c9b2d-b0ad-481d-9d03-7fc75020892a",
+  "InsertDate": "2025-02-03T20:32:23Z",
+  "LastUpdateDate": "2025-02-03T20:32:23Z",
+  "Level": "medium",
+  "Name": "Potential RoboForm.DLL Sideloading",
+  "Query": "sourcetype=\"windows-sysmon\" (image_loaded=\"*\\\\roboform.dll\" OR image_loaded=\"*\\\\roboform-x64.dll\") NOT ((process_path=\" C:\\\\Program Files (x86)\\\\Siber Systems\\\\AI RoboForm\\\\*\" OR process_path=\" C:\\\\Program Files\\\\Siber Systems\\\\AI RoboForm\\\\*\") (process_path=\"*\\\\robotaskbaricon.exe\" OR process_path=\"*\\\\robotaskbaricon-x64.exe\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

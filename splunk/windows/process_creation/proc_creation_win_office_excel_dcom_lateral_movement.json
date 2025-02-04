@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious child processes of Excel which could be an indicator of lateral movement leveraging the \"ActivateMicrosoftApp\" Excel DCOM object.\n\n\nAuthor: Aaron Stratton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "551d9c1f-816c-445b-a7a6-7a3864720d60",
+  "InsertDate": "2025-02-03T20:32:53Z",
+  "LastUpdateDate": "2025-02-03T20:32:53Z",
+  "Level": "high",
+  "Name": "Potential Excel.EXE DCOM Lateral Movement Via ActivateMicrosoftApp",
+  "Query": "sourcetype=\"windows-sysmon\" parent_process_path=\"*\\\\excel.exe\" ((original_file_name=\"foxprow.exe\" OR original_file_name=\"schdplus.exe\" OR original_file_name=\"winproj.exe\") (process_path=\"*\\\\foxprow.exe\" OR process_path=\"*\\\\schdplus.exe\" OR process_path=\"*\\\\winproj.exe\"))",
+  "Tags": [
+    "attack.t1021.003",
+    "attack.lateral-movement"
+  ],
+  "Version": "0.1"
+}

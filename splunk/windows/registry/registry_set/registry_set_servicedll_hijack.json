@@ -1,0 +1,15 @@
+{
+  "Description": "Detects changes to the \"ServiceDLL\" value related to a service in the registry.\nThis is often used as a method of persistence.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "612e47e9-8a59-43a6-b404-f48683f45bd6",
+  "InsertDate": "2025-02-03T20:33:43Z",
+  "LastUpdateDate": "2025-02-03T20:33:43Z",
+  "Level": "medium",
+  "Name": "ServiceDll Hijack",
+  "Query": "sourcetype=\"windows-*\" ((target_object=\"*\\\\System\\\\*\" target_object=\"*ControlSet*\" target_object=\"*\\\\Services\\\\*\") target_object=\"*\\\\Parameters\\\\ServiceDll\") NOT (details=\"C:\\\\Windows\\\\system32\\\\spool\\\\drivers\\\\x64\\\\3\\\\PrintConfig.dll\" OR (process_path=\"C:\\\\Windows\\\\system32\\\\lsass.exe\" target_object=\"*\\\\Services\\\\NTDS\\\\Parameters\\\\ServiceDll\" details=\"%%systemroot%%\\\\system32\\\\ntdsa.dll\") OR process_path=\"C:\\\\Windows\\\\System32\\\\poqexec.exe\") NOT (process_path=\"*\\\\regsvr32.exe\" details=\"C:\\\\Windows\\\\System32\\\\STAgent.dll\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1543.003"
+  ],
+  "Version": "0.1"
+}

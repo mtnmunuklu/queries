@@ -1,0 +1,13 @@
+{
+  "Description": "Detects the creation of a new PowerShell module \".psm1\", \".psd1\", \".dll\", \".ps1\", etc. by a non-PowerShell process\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e3845023-ca9a-4024-b2b2-5422156d5527",
+  "InsertDate": "2025-02-03T20:32:19Z",
+  "LastUpdateDate": "2025-02-03T20:32:19Z",
+  "Level": "medium",
+  "Name": "PowerShell Module File Created By Non-PowerShell Process",
+  "Query": "sourcetype=\"windows-sysmon\" (filepath=\"*\\\\WindowsPowerShell\\\\Modules\\\\*\" OR filepath=\"*\\\\PowerShell\\\\7\\\\Modules\\\\*\") NOT (process_path=\"*:\\\\Program Files\\\\PowerShell\\\\7-preview\\\\pwsh.exe\" OR process_path=\"*:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" OR process_path=\"*:\\\\Windows\\\\System32\\\\poqexec.exe\" OR process_path=\"*:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell_ise.exe\" OR process_path=\"*:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" OR process_path=\"*:\\\\Windows\\\\SysWOW64\\\\poqexec.exe\" OR process_path=\"*:\\\\Windows\\\\SysWOW64\\\\WindowsPowerShell\\\\v1.0\\\\powershell_ise.exe\" OR process_path=\"*:\\\\Windows\\\\SysWOW64\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\")",
+  "Tags": [
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

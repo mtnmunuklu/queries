@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of \"odbcconf\" with \"REGSVR\" in order to register a new DLL (equivalent to running regsvr32). Attackers abuse this to install and run malicious DLLs.\n\nAuthor: Kirill Kiryanov, Beyu Denis, Daniil Yugoslavskiy, oscd.community, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9f0a8bf3-a65b-440a-8c1e-5cb1547c8e70",
+  "InsertDate": "2025-02-03T20:32:53Z",
+  "LastUpdateDate": "2025-02-03T20:32:53Z",
+  "Level": "medium",
+  "Name": "New DLL Registered Via Odbcconf.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\odbcconf.exe\" original_file_name=\"odbcconf.exe\") (command=\"*REGSVR *\" command=\"*.dll*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.008"
+  ],
+  "Version": "0.1"
+}

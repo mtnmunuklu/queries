@@ -1,0 +1,14 @@
+{
+  "Description": "BlackByte set three different registry values to escalate privileges and begin setting the stage for lateral movement and encryption\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "83314318-052a-4c90-a1ad-660ece38d276",
+  "InsertDate": "2025-02-03T20:33:31Z",
+  "LastUpdateDate": "2025-02-03T20:33:31Z",
+  "Level": "high",
+  "Name": "Blackbyte Ransomware Registry",
+  "Query": "sourcetype=\"windows-*\" (target_object=\"HKLM\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Policies\\\\System\\\\LocalAccountTokenFilterPolicy\" OR target_object=\"HKLM\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Policies\\\\System\\\\EnableLinkedConnections\" OR target_object=\"HKLM\\\\SYSTEM\\\\CurrentControlSet\\\\Control\\\\FileSystem\\\\LongPathsEnabled\") details=\"DWORD (0x00000001)\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1112"
+  ],
+  "Version": "0.1"
+}

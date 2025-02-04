@@ -1,0 +1,14 @@
+{
+  "Description": "Number of VM creations or deployment activities occur in Azure via the azureactivity log.\n\nAuthor: sawwinnnaung\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d2d901db-7a75-45a1-bc39-0cbf00812192",
+  "InsertDate": "2025-02-03T20:31:51Z",
+  "LastUpdateDate": "2025-02-03T20:31:51Z",
+  "Level": "medium",
+  "Name": "Number Of Resource Creation Or Deployment Activities",
+  "Query": "sourcetype=\"azure-activitylogs\" (\"Microsoft.Compute/virtualMachines/write\" OR \"Microsoft.Resources/deployments/write\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1098"
+  ],
+  "Version": "0.1"
+}

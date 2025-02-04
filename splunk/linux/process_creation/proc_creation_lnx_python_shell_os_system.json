@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of inline Python code via the \"-c\" in order to call the \"system\" function from the \"os\" library, and spawn a shell.\n\n\nAuthor: Li Ling, Andy Parkidomo, Robert Rakowski, Blake Hartstein (Bloomberg L.P.)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2d2f44ff-4611-4778-a8fc-323a0e9850cc",
+  "InsertDate": "2025-02-03T20:32:00Z",
+  "LastUpdateDate": "2025-02-03T20:32:00Z",
+  "Level": "high",
+  "Name": "Inline Python Execution - Spawn Shell Via OS System Library",
+  "Query": "sourcetype=\"linux-*\" ((command=\"* -c *\" command=\"*os.system(*\") (command=\"*/bin/bash*\" OR command=\"*/bin/dash*\" OR command=\"*/bin/fish*\" OR command=\"*/bin/sh*\" OR command=\"*/bin/zsh*\")) ((process_path=\"*/python\" OR process_path=\"*/python2\" OR process_path=\"*/python3\") (process_path=\"*/python2.*\" OR process_path=\"*/python3.*\"))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

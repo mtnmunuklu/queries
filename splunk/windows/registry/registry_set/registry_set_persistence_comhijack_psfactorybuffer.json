@@ -1,0 +1,14 @@
+{
+  "Description": "Detects changes to the PSFactory COM InProcServer32 registry. This technique was used by RomCom to create persistence storing a malicious DLL.\n\nAuthor: BlackBerry Threat Research and Intelligence Team - @Joseliyo_Jstnk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "243380fa-11eb-4141-af92-e14925e77c1b",
+  "InsertDate": "2025-02-03T20:33:40Z",
+  "LastUpdateDate": "2025-02-03T20:33:40Z",
+  "Level": "high",
+  "Name": "Potential PSFactoryBuffer COM Hijacking",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\CLSID\\\\{c90250f3-4d7d-4991-9b69-a5c5bc1c2ae6}\\\\InProcServer32\\\\(Default)\" NOT (details=\"%windir%\\\\System32\\\\ActXPrxy.dll\" OR details=\"C:\\\\Windows\\\\System32\\\\ActXPrxy.dll\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1546.015"
+  ],
+  "Version": "0.1"
+}

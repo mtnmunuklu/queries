@@ -1,0 +1,16 @@
+{
+  "Description": "Detects suspicious service installation commands\n\nAuthor: pH-T (Nextron Systems), Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1d61f71d-59d2-479e-9562-4ff5f4ead16b",
+  "InsertDate": "2025-02-03T20:32:14Z",
+  "LastUpdateDate": "2025-02-03T20:32:14Z",
+  "Level": "high",
+  "Name": "Suspicious Service Installation",
+  "Query": "sourcetype=\"windows-system\" provider_name=\"Service Control Manager\" eventid=\"7045\" (imagepath=\"* -nop *\" OR imagepath=\"* -sta *\" OR imagepath=\"* -w hidden *\" OR imagepath=\"*:\\\\Temp\\\\*\" OR imagepath=\"*.downloadfile(*\" OR imagepath=\"*.downloadstring(*\" OR imagepath=\"*\\\\ADMIN$\\\\*\" OR imagepath=\"*\\\\Perflogs\\\\*\" OR imagepath=\"*\u0026\u0026*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "car.2013-09-005",
+    "attack.t1543.003"
+  ],
+  "Version": "0.1"
+}

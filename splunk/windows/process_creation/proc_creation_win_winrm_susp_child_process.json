@@ -1,0 +1,16 @@
+{
+  "Description": "Detects suspicious processes including shells spawnd from WinRM host process\n\nAuthor: Andreas Hunkeler (@Karneades), Markus Neis\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5cc2cda8-f261-4d88-a2de-e9e193c86716",
+  "InsertDate": "2025-02-03T20:33:25Z",
+  "LastUpdateDate": "2025-02-03T20:33:25Z",
+  "Level": "high",
+  "Name": "Suspicious Processes Spawned by WinRM",
+  "Query": "sourcetype=\"windows-sysmon\" parent_process_path=\"*\\\\wsmprovhost.exe\" (process_path=\"*\\\\cmd.exe\" OR process_path=\"*\\\\sh.exe\" OR process_path=\"*\\\\bash.exe\" OR process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\" OR process_path=\"*\\\\wsl.exe\" OR process_path=\"*\\\\schtasks.exe\" OR process_path=\"*\\\\certutil.exe\" OR process_path=\"*\\\\whoami.exe\" OR process_path=\"*\\\\bitsadmin.exe\")",
+  "Tags": [
+    "attack.t1190",
+    "attack.initial-access",
+    "attack.persistence",
+    "attack.privilege-escalation"
+  ],
+  "Version": "0.1"
+}

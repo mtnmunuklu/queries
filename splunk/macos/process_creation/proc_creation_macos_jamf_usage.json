@@ -1,0 +1,13 @@
+{
+  "Description": "Detects execution of the \"jamf\" binary to create user accounts and run commands. For example, the binary can be abused by attackers on the system in order to bypass security controls or remove application control polices.\n\n\nAuthor: Jay Pandit\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "be2e3a5c-9cc7-4d02-842a-68e9cb26ec49",
+  "InsertDate": "2025-02-03T20:32:02Z",
+  "LastUpdateDate": "2025-02-03T20:32:02Z",
+  "Level": "low",
+  "Name": "JAMF MDM Execution",
+  "Query": "sourcetype=\"macos-*\" process_path=\"*/jamf\" (command=\"*createAccount*\" OR command=\"*manage*\" OR command=\"*removeFramework*\" OR command=\"*removeMdmProfile*\" OR command=\"*resetPassword*\" OR command=\"*setComputerName*\")",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

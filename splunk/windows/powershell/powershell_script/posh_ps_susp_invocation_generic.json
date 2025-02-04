@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious PowerShell invocation command parameters\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ed965133-513f-41d9-a441-e38076a0798f",
+  "InsertDate": "2025-02-03T20:32:33Z",
+  "LastUpdateDate": "2025-02-03T20:32:33Z",
+  "Level": "high",
+  "Name": "Suspicious PowerShell Invocations - Generic",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"* -enc *\" OR scriptblocktext=\"* -EncodedCommand *\" OR scriptblocktext=\"* -ec *\") (scriptblocktext=\"* -w hidden *\" OR scriptblocktext=\"* -window hidden *\" OR scriptblocktext=\"* -windowstyle hidden *\" OR scriptblocktext=\"* -w 1 *\") (scriptblocktext=\"* -noni *\" OR scriptblocktext=\"* -noninteractive *\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

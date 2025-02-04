@@ -1,0 +1,16 @@
+{
+  "Description": "Detects possible Java payloads in web access logs\n\nAuthor: frack113, Harjot Singh, \"@cyb3rjy0t\" (update)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "583aa0a2-30b1-4d62-8bf3-ab73689efe6c",
+  "InsertDate": "2025-02-03T20:32:05Z",
+  "LastUpdateDate": "2025-02-03T20:32:05Z",
+  "Level": "high",
+  "Name": "Java Payload Strings",
+  "Query": "(\"%24%7B%28%23a%3D%40\" OR \"${(#a=@\" OR \"%24%7B%40java\" OR \"${@java\" OR \"u0022java\" OR \"%2F%24%7B%23\" OR \"/${#\" OR \"new+java.\" OR \"getRuntime().exec(\" OR \"getRuntime%28%29.exec%28\")",
+  "Tags": [
+    "cve.2022-26134",
+    "cve.2021-26084",
+    "attack.initial-access",
+    "attack.t1190"
+  ],
+  "Version": "0.1"
+}

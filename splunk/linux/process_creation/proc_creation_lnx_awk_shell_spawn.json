@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of \"awk\" or it's sibling commands, to invoke a shell using the system() function.\nThis behavior is commonly associated with attempts to execute arbitrary commands or escalate privileges, potentially leading to unauthorized access or further exploitation.\n\n\nAuthor: Li Ling, Andy Parkidomo, Robert Rakowski, Blake Hartstein (Bloomberg L.P.)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8c1a5675-cb85-452f-a298-b01b22a51856",
+  "InsertDate": "2025-02-03T20:31:58Z",
+  "LastUpdateDate": "2025-02-03T20:31:58Z",
+  "Level": "high",
+  "Name": "Suspicious Invocation of Shell via AWK - Linux",
+  "Query": "sourcetype=\"linux-*\" ((process_path=\"*/awk\" OR process_path=\"*/gawk\" OR process_path=\"*/mawk\" OR process_path=\"*/nawk\") command=\"*BEGIN {system*\") (command=\"*/bin/bash*\" OR command=\"*/bin/dash*\" OR command=\"*/bin/fish*\" OR command=\"*/bin/sh*\" OR command=\"*/bin/zsh*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

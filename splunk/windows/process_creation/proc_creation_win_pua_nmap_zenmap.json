@@ -1,0 +1,14 @@
+{
+  "Description": "Detects usage of namp/zenmap. Adversaries may attempt to get a listing of services running on remote hosts, including those that may be vulnerable to remote software exploitation\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f6ecd1cf-19b8-4488-97f6-00f0924991a3",
+  "InsertDate": "2025-02-03T20:33:01Z",
+  "LastUpdateDate": "2025-02-03T20:33:01Z",
+  "Level": "medium",
+  "Name": "PUA - Nmap/Zenmap Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\nmap.exe\" OR process_path=\"*\\\\zennmap.exe\") (original_file_name=\"nmap.exe\" OR original_file_name=\"zennmap.exe\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1046"
+  ],
+  "Version": "0.1"
+}

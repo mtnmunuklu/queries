@@ -1,0 +1,14 @@
+{
+  "Description": "Attempting to disable scheduled scanning and other parts of Windows Defender ATP or set default actions to allow.\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ec19ebab-72dc-40e1-9728-4c0b805d722c",
+  "InsertDate": "2025-02-03T20:32:27Z",
+  "LastUpdateDate": "2025-02-03T20:32:27Z",
+  "Level": "high",
+  "Name": "Tamper Windows Defender - PSClassic",
+  "Query": "sourcetype=\"windows-*\" data=\"*Set-MpPreference*\" ((data=\"*-dbaf $true*\" OR data=\"*-dbaf 1*\" OR data=\"*-dbm $true*\" OR data=\"*-dbm 1*\" OR data=\"*-dips $true*\" OR data=\"*-dips 1*\" OR data=\"*-DisableArchiveScanning $true*\" OR data=\"*-DisableArchiveScanning 1*\" OR data=\"*-DisableBehaviorMonitoring $true*\" OR data=\"*-DisableBehaviorMonitoring 1*\" OR data=\"*-DisableBlockAtFirstSeen $true*\" OR data=\"*-DisableBlockAtFirstSeen 1*\" OR data=\"*-DisableCatchupFullScan $true*\" OR data=\"*-DisableCatchupFullScan 1*\" OR data=\"*-DisableCatchupQuickScan $true*\" OR data=\"*-DisableCatchupQuickScan 1*\" OR data=\"*-DisableIntrusionPreventionSystem $true*\" OR data=\"*-DisableIntrusionPreventionSystem 1*\" OR data=\"*-DisableIOAVProtection $true*\" OR data=\"*-DisableIOAVProtection 1*\" OR data=\"*-DisableRealtimeMonitoring $true*\" OR data=\"*-DisableRealtimeMonitoring 1*\" OR data=\"*-DisableRemovableDriveScanning $true*\" OR data=\"*-DisableRemovableDriveScanning 1*\" OR data=\"*-DisableScanningMappedNetworkDrivesForFullScan $true*\" OR data=\"*-DisableScanningMappedNetworkDrivesForFullScan 1*\" OR data=\"*-DisableScanningNetworkFiles $true*\" OR data=\"*-DisableScanningNetworkFiles 1*\" OR data=\"*-DisableScriptScanning $true*\" OR data=\"*-DisableScriptScanning 1*\" OR data=\"*-MAPSReporting $false*\" OR data=\"*-MAPSReporting 0*\" OR data=\"*-drdsc $true*\" OR data=\"*-drdsc 1*\" OR data=\"*-drtm $true*\" OR data=\"*-drtm 1*\" OR data=\"*-dscrptsc $true*\" OR data=\"*-dscrptsc 1*\" OR data=\"*-dsmndf $true*\" OR data=\"*-dsmndf 1*\" OR data=\"*-dsnf $true*\" OR data=\"*-dsnf 1*\" OR data=\"*-dss $true*\" OR data=\"*-dss 1*\") OR (data=\"*HighThreatDefaultAction Allow*\" OR data=\"*htdefac Allow*\" OR data=\"*LowThreatDefaultAction Allow*\" OR data=\"*ltdefac Allow*\" OR data=\"*ModerateThreatDefaultAction Allow*\" OR data=\"*mtdefac Allow*\" OR data=\"*SevereThreatDefaultAction Allow*\" OR data=\"*stdefac Allow*\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

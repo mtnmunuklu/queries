@@ -1,0 +1,16 @@
+{
+  "Description": "Detects potential DLL sideloading of \"RjvPlatform.dll\" by \"SystemResetPlatform.exe\" located in a non-default location.\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0e0bc253-07ed-43f1-816d-e1b220fe8971",
+  "InsertDate": "2025-02-03T20:32:23Z",
+  "LastUpdateDate": "2025-02-03T20:32:23Z",
+  "Level": "high",
+  "Name": "Potential RjvPlatform.DLL Sideloading From Non-Default Location",
+  "Query": "sourcetype=\"windows-sysmon\" (image_loaded=\"*\\\\RjvPlatform.dll\" process_path=\"\\\\SystemResetPlatform.exe\") NOT process_path=\"C:\\\\Windows\\\\System32\\\\SystemResetPlatform\\\\*\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

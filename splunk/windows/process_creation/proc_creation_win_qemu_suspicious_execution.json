@@ -1,0 +1,15 @@
+{
+  "Description": "Detects potentially suspicious execution of the Qemu utility in a Windows environment.\nThreat actors have leveraged this utility and this technique for achieving network access as reported by Kaspersky.\n\n\nAuthor: Muhammad Faisal (@faisalusuf), Hunter Juhan (@threatHNTR)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5fc297ae-25b6-488a-8f25-cc12ac29b744",
+  "InsertDate": "2025-02-03T20:33:02Z",
+  "LastUpdateDate": "2025-02-03T20:33:02Z",
+  "Level": "medium",
+  "Name": "Potentially Suspicious Usage Of Qemu",
+  "Query": "sourcetype=\"windows-sysmon\" ((command=\"*-m 1M*\" OR command=\"*-m 2M*\" OR command=\"*-m 3M*\") (command=\"*restrict=off*\" command=\"*-netdev *\" command=\"*connect=*\" command=\"*-nographic*\")) NOT (command=\"* -cdrom *\" OR command=\"* type=virt *\" OR command=\"* -blockdev *\")",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1090",
+    "attack.t1572"
+  ],
+  "Version": "0.1"
+}

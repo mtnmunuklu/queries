@@ -1,0 +1,14 @@
+{
+  "Description": "Detects PowerShell scripts leveraging the \"Invoke-WebRequest\" cmdlet to send data via either \"PUT\" or \"POST\" method.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d2e3f2f6-7e09-4bf2-bc5d-90186809e7fb",
+  "InsertDate": "2025-02-03T20:32:32Z",
+  "LastUpdateDate": "2025-02-03T20:32:32Z",
+  "Level": "low",
+  "Name": "PowerShell Script With File Upload Capabilities",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*Invoke-WebRequest*\" OR scriptblocktext=\"*iwr *\") (scriptblocktext=\"*-Method Put*\" OR scriptblocktext=\"*-Method Post*\")",
+  "Tags": [
+    "attack.exfiltration",
+    "attack.t1020"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may abuse container files such as disk image (.iso, .vhd) file formats to deliver malicious payloads that may not be tagged with MOTW.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "902cedee-0398-4e3a-8183-6f3a89773a96",
+  "InsertDate": "2025-02-03T20:32:32Z",
+  "LastUpdateDate": "2025-02-03T20:32:32Z",
+  "Level": "medium",
+  "Name": "Suspicious Invoke-Item From Mount-DiskImage",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*Mount-DiskImage *\" scriptblocktext=\"*-ImagePath *\" scriptblocktext=\"*Get-Volume*\" scriptblocktext=\"*.DriveLetter*\" scriptblocktext=\"*invoke-item *\" scriptblocktext=\"*):\\\\*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1553.005"
+  ],
+  "Version": "0.1"
+}

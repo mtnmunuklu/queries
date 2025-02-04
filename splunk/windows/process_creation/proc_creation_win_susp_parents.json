@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious parent processes that should not have any children or should only have a single possible child program\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "cbec226f-63d9-4eca-9f52-dfb6652f24df",
+  "InsertDate": "2025-02-03T20:33:16Z",
+  "LastUpdateDate": "2025-02-03T20:33:16Z",
+  "Level": "high",
+  "Name": "Suspicious Process Parents",
+  "Query": "sourcetype=\"windows-sysmon\" (parent_process_path=\"*\\\\minesweeper.exe\" OR parent_process_path=\"*\\\\winver.exe\" OR parent_process_path=\"*\\\\bitsadmin.exe\") OR ((parent_process_path=\"*\\\\csrss.exe\" OR parent_process_path=\"*\\\\certutil.exe\" OR parent_process_path=\"*\\\\eventvwr.exe\" OR parent_process_path=\"*\\\\calc.exe\" OR parent_process_path=\"*\\\\notepad.exe\") NOT ((process_path=\"*\\\\WerFault.exe\" OR process_path=\"*\\\\wermgr.exe\" OR process_path=\"*\\\\conhost.exe\" OR process_path=\"*\\\\mmc.exe\" OR process_path=\"*\\\\win32calc.exe\" OR process_path=\"*\\\\notepad.exe\") OR process_path=\"null\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1036"
+  ],
+  "Version": "0.1"
+}

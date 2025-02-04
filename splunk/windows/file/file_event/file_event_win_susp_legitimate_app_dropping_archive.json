@@ -1,0 +1,14 @@
+{
+  "Description": "Detects programs on a Windows system that should not write an archive to disk\n\nAuthor: frack113, Florian Roth\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "654fcc6d-840d-4844-9b07-2c3300e54a26",
+  "InsertDate": "2025-02-03T20:32:20Z",
+  "LastUpdateDate": "2025-02-03T20:32:20Z",
+  "Level": "high",
+  "Name": "Legitimate Application Dropped Archive",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\winword.exe\" OR process_path=\"*\\\\excel.exe\" OR process_path=\"*\\\\powerpnt.exe\" OR process_path=\"*\\\\msaccess.exe\" OR process_path=\"*\\\\mspub.exe\" OR process_path=\"*\\\\eqnedt32.exe\" OR process_path=\"*\\\\visio.exe\" OR process_path=\"*\\\\wordpad.exe\" OR process_path=\"*\\\\wordview.exe\" OR process_path=\"*\\\\certutil.exe\" OR process_path=\"*\\\\certoc.exe\" OR process_path=\"*\\\\CertReq.exe\" OR process_path=\"*\\\\Desktopimgdownldr.exe\" OR process_path=\"*\\\\esentutl.exe\" OR process_path=\"*\\\\finger.exe\" OR process_path=\"*\\\\notepad.exe\" OR process_path=\"*\\\\AcroRd32.exe\" OR process_path=\"*\\\\RdrCEF.exe\" OR process_path=\"*\\\\mshta.exe\" OR process_path=\"*\\\\hh.exe\") (filepath=\"*.zip\" OR filepath=\"*.rar\" OR filepath=\"*.7z\" OR filepath=\"*.diagcab\" OR filepath=\"*.appx\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

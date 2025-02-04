@@ -1,0 +1,13 @@
+{
+  "Description": "Detects Remote Utilities Host service installation on the target system.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "85cce894-dd8b-4427-a958-5cc47a4dc9b9",
+  "InsertDate": "2025-02-03T20:32:13Z",
+  "LastUpdateDate": "2025-02-03T20:32:13Z",
+  "Level": "medium",
+  "Name": "Remote Utilities Host Service Install",
+  "Query": "sourcetype=\"windows-system\" (provider_name=\"Service Control Manager\" eventid=\"7045\") ((imagepath=\"*\\\\rutserv.exe*\" imagepath=\"*-service*\") servicename=\"Remote Utilities - Host\")",
+  "Tags": [
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

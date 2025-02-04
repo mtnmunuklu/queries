@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious shell commands or program code that may be executed or used in command line to establish a reverse shell\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "738d9bcf-6999-4fdb-b4ac-3033037db8ab",
+  "InsertDate": "2025-02-03T20:31:57Z",
+  "LastUpdateDate": "2025-02-03T20:31:57Z",
+  "Level": "high",
+  "Name": "Suspicious Reverse Shell Command Line",
+  "Query": "sourcetype=\"linux-*\" (\"BEGIN {s = \"/inet/tcp/0/\" OR \"bash -i \u003e\u0026 /dev/tcp/\" OR \"bash -i \u003e\u0026 /dev/udp/\" OR \"sh -i \u003e$ /dev/udp/\" OR \"sh -i \u003e$ /dev/tcp/\" OR \"\u0026\u0026 while read line 0\u003c\u00265; do\" OR \"/bin/bash -c exec 5\u003c\u003e/dev/tcp/\" OR \"/bin/bash -c exec 5\u003c\u003e/dev/udp/\" OR \"nc -e /bin/sh \" OR \"/bin/sh | nc\" OR \"rm -f backpipe; mknod /tmp/backpipe p \u0026\u0026 nc \" OR \";socket(S,PF_INET,SOCK_STREAM,getprotobyname(\"tcp\"));if(connect(S,sockaddr_in($p,inet_aton($i))))\" OR \";STDIN-\u003efdopen($c,r);$~-\u003efdopen($c,w);system$_ while\u003c\u003e;\" OR \"/bin/sh -i \u003c\u00263 \u003e\u00263 2\u003e\u00263\" OR \"uname -a; w; id; /bin/bash -i\" OR \"$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2); $stream.Write($sendbyte,0,$sendbyte.Length); $stream.Flush()};\" OR \";os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);os.putenv('HISTFILE','/dev/null');\" OR \".to_i;exec sprintf(\"/bin/sh -i \u003c\u0026%d \u003e\u0026%d 2\u003e\u0026%d\",f,f,f)\" OR \";while(cmd=c.gets);IO.popen(cmd,\"r\"){|io|c.print\" OR \"socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:\" OR \"rm -f /tmp/p; mknod /tmp/p p \u0026\u0026\" OR \" | /bin/bash | telnet \" OR \",echo=0,raw tcp-listen:\" OR \"nc -lvvp \" OR \"xterm -display 1\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.004"
+  ],
+  "Version": "0.1"
+}

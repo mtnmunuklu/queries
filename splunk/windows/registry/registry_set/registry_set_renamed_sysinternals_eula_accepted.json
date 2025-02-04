@@ -1,0 +1,14 @@
+{
+  "Description": "Detects non-sysinternals tools setting the \"accepteula\" key which normally is set on sysinternals tool execution\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8023f872-3f1d-4301-a384-801889917ab4",
+  "InsertDate": "2025-02-03T20:33:42Z",
+  "LastUpdateDate": "2025-02-03T20:33:42Z",
+  "Level": "high",
+  "Name": "Usage of Renamed Sysinternals Tools - RegistrySet",
+  "Query": "sourcetype=\"windows-*\" ((target_object=\"*\\\\PsExec*\" OR target_object=\"*\\\\ProcDump*\" OR target_object=\"*\\\\Handle*\" OR target_object=\"*\\\\LiveKd*\" OR target_object=\"*\\\\Process Explorer*\" OR target_object=\"*\\\\PsLoglist*\" OR target_object=\"*\\\\PsPasswd*\" OR target_object=\"*\\\\Active Directory Explorer*\") target_object=\"*\\\\EulaAccepted\") NOT (process_path=\"*\\\\PsExec.exe\" OR process_path=\"*\\\\PsExec64.exe\" OR process_path=\"*\\\\procdump.exe\" OR process_path=\"*\\\\procdump64.exe\" OR process_path=\"*\\\\handle.exe\" OR process_path=\"*\\\\handle64.exe\" OR process_path=\"*\\\\livekd.exe\" OR process_path=\"*\\\\livekd64.exe\" OR process_path=\"*\\\\procexp.exe\" OR process_path=\"*\\\\procexp64.exe\" OR process_path=\"*\\\\psloglist.exe\" OR process_path=\"*\\\\psloglist64.exe\" OR process_path=\"*\\\\pspasswd.exe\" OR process_path=\"*\\\\pspasswd64.exe\" OR process_path=\"*\\\\ADExplorer.exe\" OR process_path=\"*\\\\ADExplorer64.exe\") NOT process_path=\"null\"",
+  "Tags": [
+    "attack.resource-development",
+    "attack.t1588.002"
+  ],
+  "Version": "0.1"
+}

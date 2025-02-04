@@ -1,0 +1,14 @@
+{
+  "Description": "Use of hostname to get information\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7be5fb68-f9ef-476d-8b51-0256ebece19e",
+  "InsertDate": "2025-02-03T20:32:46Z",
+  "LastUpdateDate": "2025-02-03T20:32:46Z",
+  "Level": "low",
+  "Name": "Suspicious Execution of Hostname",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\HOSTNAME.EXE\"",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1082"
+  ],
+  "Version": "0.1"
+}

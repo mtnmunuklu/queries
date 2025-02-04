@@ -1,0 +1,14 @@
+{
+  "Description": "Detects overwriting (effectively wiping/deleting) of a file.\n\nAuthor: Jakob Weinzettl, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "37222991-11e9-4b6d-8bdf-60fbe48f753e",
+  "InsertDate": "2025-02-03T20:31:56Z",
+  "LastUpdateDate": "2025-02-03T20:31:56Z",
+  "Level": "low",
+  "Name": "Overwriting the File with Dev Zero or Null",
+  "Query": "sourcetype=\"linux-auditd\" type=\"EXECVE\" a0=\"*dd*\" (a1=\"*if=/dev/null*\" OR a1=\"*if=/dev/zero*\")",
+  "Tags": [
+    "attack.impact",
+    "attack.t1485"
+  ],
+  "Version": "0.1"
+}

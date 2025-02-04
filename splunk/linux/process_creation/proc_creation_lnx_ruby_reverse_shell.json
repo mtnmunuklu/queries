@@ -1,0 +1,13 @@
+{
+  "Description": "Detects execution of ruby with the \"-e\" flag and calls to \"socket\" related functions. This could be an indication of a potential attempt to setup a reverse shell\n\nAuthor: @d4ns4n_\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b8bdac18-c06e-4016-ac30-221553e74f59",
+  "InsertDate": "2025-02-03T20:32:00Z",
+  "LastUpdateDate": "2025-02-03T20:32:00Z",
+  "Level": "medium",
+  "Name": "Potential Ruby Reverse Shell",
+  "Query": "sourcetype=\"linux-*\" process_path=\"*ruby*\" (command=\"* -e*\" command=\"*rsocket*\" command=\"*TCPSocket*\") (command=\"* ash*\" OR command=\"* bash*\" OR command=\"* bsh*\" OR command=\"* csh*\" OR command=\"* ksh*\" OR command=\"* pdksh*\" OR command=\"* sh*\" OR command=\"* tcsh*\")",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

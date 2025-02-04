@@ -1,0 +1,15 @@
+{
+  "Description": "Detects network connections to Cloudflared tunnels domains initiated by a process on the system.\nAttackers can abuse that feature to establish a reverse shell or persistence on a machine.\n\n\nAuthor: Kamran Saifullah, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7cd1dcdc-6edf-4896-86dc-d1f19ad64903",
+  "InsertDate": "2025-02-03T20:32:24Z",
+  "LastUpdateDate": "2025-02-03T20:32:24Z",
+  "Level": "medium",
+  "Name": "Network Connection Initiated To Cloudflared Tunnels Domains",
+  "Query": "sourcetype=\"windows-sysmon\" initiated=\"true\" (dst_host=\"*.v2.argotunnel.com\" OR dst_host=\"*protocol-v2.argotunnel.com\" OR dst_host=\"*trycloudflare.com\" OR dst_host=\"*update.argotunnel.com\")",
+  "Tags": [
+    "attack.exfiltration",
+    "attack.command-and-control",
+    "attack.t1567.001"
+  ],
+  "Version": "0.1"
+}

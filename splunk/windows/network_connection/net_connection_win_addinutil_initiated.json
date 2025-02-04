@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a network connection initiated by the Add-In deployment cache updating utility \"AddInutil.exe\".\nThis could indicate a potential command and control communication as this tool doesn't usually initiate network activity.\n\n\nAuthor: Michael McKinley (@McKinleyMike), Tony Latteri (@TheLatteri)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5205613d-2a63-4412-a895-3a2458b587b3",
+  "InsertDate": "2025-02-03T20:32:24Z",
+  "LastUpdateDate": "2025-02-03T20:32:24Z",
+  "Level": "high",
+  "Name": "Network Connection Initiated By AddinUtil.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" initiated=\"true\" process_path=\"*\\\\addinutil.exe\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

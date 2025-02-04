@@ -1,0 +1,16 @@
+{
+  "Description": "The Tasks folder in system32 and syswow64 are globally writable paths.\nAdversaries can take advantage of this and load or influence any script hosts or ANY .NET Application\nin Tasks to load and execute a custom assembly into cscript, wscript, regsvr32, mshta, eventvwr\n\n\nAuthor: Sreeman\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "cc4e02ba-9c06-48e2-b09e-2500cace9ae0",
+  "InsertDate": "2025-02-03T20:33:18Z",
+  "LastUpdateDate": "2025-02-03T20:33:18Z",
+  "Level": "high",
+  "Name": "Tasks Folder Evasion",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*echo *\" OR command=\"*copy *\" OR command=\"*type *\" OR command=\"*file createnew*\") (command=\"* C:\\\\Windows\\\\System32\\\\Tasks\\\\*\" OR command=\"* C:\\\\Windows\\\\SysWow64\\\\Tasks\\\\*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.execution",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

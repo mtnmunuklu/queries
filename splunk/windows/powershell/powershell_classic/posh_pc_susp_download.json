@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious PowerShell download command\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3236fcd0-b7e3-4433-b4f8-86ad61a9af2d",
+  "InsertDate": "2025-02-03T20:32:26Z",
+  "LastUpdateDate": "2025-02-03T20:32:26Z",
+  "Level": "medium",
+  "Name": "Suspicious PowerShell Download",
+  "Query": "sourcetype=\"windows-*\" data=\"*Net.WebClient*\" (data=\"*.DownloadFile(*\" OR data=\"*.DownloadString(*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

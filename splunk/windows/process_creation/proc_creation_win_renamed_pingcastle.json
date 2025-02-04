@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the execution of a renamed \"PingCastle\" binary based on the PE metadata fields.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2433a154-bb3d-42e4-86c3-a26bdac91c45",
+  "InsertDate": "2025-02-03T20:33:07Z",
+  "LastUpdateDate": "2025-02-03T20:33:07Z",
+  "Level": "high",
+  "Name": "Renamed PingCastle Binary Execution",
+  "Query": "sourcetype=\"windows-sysmon\" ((original_file_name=\"PingCastleReporting.exe\" OR original_file_name=\"PingCastleCloud.exe\" OR original_file_name=\"PingCastle.exe\") (command=\"*--scanner aclcheck*\" OR command=\"*--scanner antivirus*\" OR command=\"*--scanner computerversion*\" OR command=\"*--scanner foreignusers*\" OR command=\"*--scanner laps_bitlocker*\" OR command=\"*--scanner localadmin*\" OR command=\"*--scanner nullsession*\" OR command=\"*--scanner nullsession-trust*\" OR command=\"*--scanner oxidbindings*\" OR command=\"*--scanner remote*\" OR command=\"*--scanner share*\" OR command=\"*--scanner smb*\" OR command=\"*--scanner smb3querynetwork*\" OR command=\"*--scanner spooler*\" OR command=\"*--scanner startup*\" OR command=\"*--scanner zerologon*\") command=\"*--no-enum-limit*\" (command=\"*--healthcheck*\" command=\"*--level Full*\") (command=\"*--healthcheck*\" command=\"*--server *\")) NOT (process_path=\"*\\\\PingCastleReporting.exe\" OR process_path=\"*\\\\PingCastleCloud.exe\" OR process_path=\"*\\\\PingCastle.exe\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059",
+    "attack.defense-evasion",
+    "attack.t1202"
+  ],
+  "Version": "0.1"
+}

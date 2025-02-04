@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a reload or a start of a service.\n\nAuthor: Jakob Weinzettl, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2625cc59-0634-40d0-821e-cb67382a3dd7",
+  "InsertDate": "2025-02-03T20:31:56Z",
+  "LastUpdateDate": "2025-02-03T20:31:56Z",
+  "Level": "low",
+  "Name": "Systemd Service Reload or Start",
+  "Query": "sourcetype=\"linux-auditd\" type=\"EXECVE\" a0=\"*systemctl*\" (a1=\"*daemon-reload*\" OR a1=\"*start*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1543.002"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious reconnaissance command line activity on Windows systems using the PowerShell Get-LocalGroupMember Cmdlet\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c8a180d6-47a3-4345-a609-53f9c3d834fc",
+  "InsertDate": "2025-02-03T20:32:57Z",
+  "LastUpdateDate": "2025-02-03T20:32:57Z",
+  "Level": "medium",
+  "Name": "Suspicious Reconnaissance Activity Using Get-LocalGroupMember Cmdlet",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*domain admins*\" OR command=\"* administrator*\" OR command=\"* administrateur*\" OR command=\"*enterprise admins*\" OR command=\"*Exchange Trusted Subsystem*\" OR command=\"*Remote Desktop Users*\" OR command=\"*Utilisateurs du Bureau à distance*\" OR command=\"*Usuarios de escritorio remoto*\") command=\"*Get-LocalGroupMember *\"",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1087.001"
+  ],
+  "Version": "0.1"
+}

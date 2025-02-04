@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of the \"flock\" command to execute a shell. Such behavior may be associated with privilege escalation, unauthorized command execution, or to break out from restricted environments.\n\n\nAuthor: Li Ling, Andy Parkidomo, Robert Rakowski, Blake Hartstein (Bloomberg L.P.)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4b09c71e-4269-4111-9cdd-107d8867f0cc",
+  "InsertDate": "2025-02-03T20:31:59Z",
+  "LastUpdateDate": "2025-02-03T20:31:59Z",
+  "Level": "high",
+  "Name": "Shell Execution via Flock - Linux",
+  "Query": "sourcetype=\"linux-*\" (process_path=\"*/flock\" command=\"* -u *\") (command=\"*/bin/bash*\" OR command=\"*/bin/dash*\" OR command=\"*/bin/fish*\" OR command=\"*/bin/sh*\" OR command=\"*/bin/zsh*\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1083"
+  ],
+  "Version": "0.1"
+}

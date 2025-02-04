@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the creation of user-specific or system-wide environment variables via the registry. Which contains suspicious commands and strings\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "966315ef-c5e1-4767-ba25-fce9c8de3660",
+  "InsertDate": "2025-02-03T20:33:44Z",
+  "LastUpdateDate": "2025-02-03T20:33:44Z",
+  "Level": "high",
+  "Name": "Suspicious Environment Variable Has Been Registered",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\Environment\\\\*\" ((details=\"powershell\" OR details=\"pwsh\") (details=\"*\\\\AppData\\\\Local\\\\Temp\\\\*\" OR details=\"*C:\\\\Users\\\\Public\\\\*\" OR details=\"*TVqQAAMAAAAEAAAA*\" OR details=\"*TVpQAAIAAAAEAA8A*\" OR details=\"*TVqAAAEAAAAEABAA*\" OR details=\"*TVoAAAAAAAAAAAAA*\" OR details=\"*TVpTAQEAAAAEAAAA*\" OR details=\"*SW52b2tlL*\" OR details=\"*ludm9rZS*\" OR details=\"*JbnZva2Ut*\" OR details=\"*SQBuAHYAbwBrAGUALQ*\" OR details=\"*kAbgB2AG8AawBlAC0A*\" OR details=\"*JAG4AdgBvAGsAZQAtA*\") (details=\"SUVY*\" OR details=\"SQBFAF*\" OR details=\"SQBuAH*\" OR details=\"cwBhA*\" OR details=\"aWV4*\" OR details=\"aQBlA*\" OR details=\"R2V0*\" OR details=\"dmFy*\" OR details=\"dgBhA*\" OR details=\"dXNpbm*\" OR details=\"H4sIA*\" OR details=\"Y21k*\" OR details=\"cABhAH*\" OR details=\"Qzpc*\" OR details=\"Yzpc*\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

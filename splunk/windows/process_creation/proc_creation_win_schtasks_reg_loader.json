@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the creation of a schtasks that potentially executes a payload stored in the Windows Registry using PowerShell.\n\nAuthor: X__Junior (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "86588b36-c6d3-465f-9cee-8f9093e07798",
+  "InsertDate": "2025-02-03T20:33:11Z",
+  "LastUpdateDate": "2025-02-03T20:33:11Z",
+  "Level": "medium",
+  "Name": "Scheduled Task Executing Payload from Registry",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\schtasks.exe\" original_file_name=\"schtasks.exe\") command=\"*/Create*\" (command=\"*Get-ItemProperty*\" OR command=\"* gp *\") (command=\"*HKCU:*\" OR command=\"*HKLM:*\" OR command=\"*registry::*\" OR command=\"*HKEY_*\")) NOT (command=\"*FromBase64String*\" OR command=\"*encodedcommand*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.persistence",
+    "attack.t1053.005",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

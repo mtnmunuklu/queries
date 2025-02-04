@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a code page switch in command line or batch scripts to a rare language\n\nAuthor: Florian Roth (Nextron Systems), Jonhnathan Ribeiro, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c7942406-33dd-4377-a564-0f62db0593a3",
+  "InsertDate": "2025-02-03T20:32:38Z",
+  "LastUpdateDate": "2025-02-03T20:32:38Z",
+  "Level": "medium",
+  "Name": "Suspicious CodePage Switch Via CHCP",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\chcp.com\" (command=\"* 936\" OR command=\"* 1258\")",
+  "Tags": [
+    "attack.t1036",
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

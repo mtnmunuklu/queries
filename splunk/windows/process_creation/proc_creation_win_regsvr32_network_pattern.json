@@ -1,0 +1,14 @@
+{
+  "Description": "Detects regsvr32 execution to download/install/register new DLLs that are hosted on Web or FTP servers.\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "867356ee-9352-41c9-a8f2-1be690d78216",
+  "InsertDate": "2025-02-03T20:33:05Z",
+  "LastUpdateDate": "2025-02-03T20:33:05Z",
+  "Level": "medium",
+  "Name": "Potentially Suspicious Regsvr32 HTTP/FTP Pattern",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\regsvr32.exe\" original_file_name=\"REGSVR32.EXE\") (command=\"* /i*\" OR command=\"* -i*\") (command=\"*ftp*\" OR command=\"*http*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.010"
+  ],
+  "Version": "0.1"
+}

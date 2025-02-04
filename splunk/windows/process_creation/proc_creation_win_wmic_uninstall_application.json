@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the removal or uninstallation of an application via \"Wmic.EXE\".\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b53317a0-8acf-4fd1-8de8-a5401e776b96",
+  "InsertDate": "2025-02-03T20:33:27Z",
+  "LastUpdateDate": "2025-02-03T20:33:27Z",
+  "Level": "medium",
+  "Name": "Application Removed Via Wmic.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\WMIC.exe\" original_file_name=\"wmic.exe\") (command=\"*call*\" command=\"*uninstall*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1047"
+  ],
+  "Version": "0.1"
+}

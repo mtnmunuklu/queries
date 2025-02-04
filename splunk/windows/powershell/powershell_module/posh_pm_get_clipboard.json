@@ -1,0 +1,14 @@
+{
+  "Description": "A General detection for the Get-Clipboard commands in PowerShell logs. This could be an adversary capturing clipboard contents.\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4cbd4f12-2e22-43e3-882f-bff3247ffb78",
+  "InsertDate": "2025-02-03T20:32:27Z",
+  "LastUpdateDate": "2025-02-03T20:32:27Z",
+  "Level": "medium",
+  "Name": "PowerShell Get Clipboard",
+  "Query": "sourcetype=\"windows-*\" payload=\"*Get-Clipboard*\"",
+  "Tags": [
+    "attack.collection",
+    "attack.t1115"
+  ],
+  "Version": "0.1"
+}

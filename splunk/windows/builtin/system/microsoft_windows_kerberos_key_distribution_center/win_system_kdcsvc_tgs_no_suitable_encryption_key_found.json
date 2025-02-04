@@ -1,0 +1,14 @@
+{
+  "Description": "Detects errors when a target server doesn't have suitable keys for generating kerberos tickets.\nThis issue can occur for example when a service uses a user account or a computer account that is configured for only DES encryption on a computer that is running Windows 7 which has DES encryption for Kerberos authentication disabled.\n\n\nAuthor: @SerkinValery\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b1e0b3f5-b62e-41be-886a-daffde446ad4",
+  "InsertDate": "2025-02-03T20:32:12Z",
+  "LastUpdateDate": "2025-02-03T20:32:12Z",
+  "Level": "low",
+  "Name": "No Suitable Encryption Key Found For Generating Kerberos Ticket",
+  "Query": "sourcetype=\"windows-system\" provider_name=\"Microsoft-Windows-Kerberos-Key-Distribution-Center\" (eventid=\"16\" OR eventid=\"27\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1558.003"
+  ],
+  "Version": "0.1"
+}

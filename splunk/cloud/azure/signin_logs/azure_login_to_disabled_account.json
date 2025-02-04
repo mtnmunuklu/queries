@@ -1,0 +1,14 @@
+{
+  "Description": "Detect failed attempts to sign in to disabled accounts.\n\nAuthor: AlertIQ\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "908655e0-25cf-4ae1-b775-1c8ce9cf43d8",
+  "InsertDate": "2025-02-03T20:31:53Z",
+  "LastUpdateDate": "2025-02-03T20:31:53Z",
+  "Level": "medium",
+  "Name": "Login to Disabled Account",
+  "Query": "sourcetype=\"azure-signinlogs\" resulttype=\"50057\" resultdescription=\"User account is disabled. The account has been disabled by an administrator.\"",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1078.004"
+  ],
+  "Version": "0.1"
+}

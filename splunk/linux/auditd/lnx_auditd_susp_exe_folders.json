@@ -1,0 +1,15 @@
+{
+  "Description": "Detects program executions in suspicious non-program folders related to malware or hacking activity\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a39d7fa7-3fbd-4dc2-97e1-d87f546b1bbc",
+  "InsertDate": "2025-02-03T20:31:56Z",
+  "LastUpdateDate": "2025-02-03T20:31:56Z",
+  "Level": "medium",
+  "Name": "Program Executions in Suspicious Folders",
+  "Query": "sourcetype=\"linux-auditd\" type=\"SYSCALL\" (exe=\"/tmp/*\" OR exe=\"/var/www/*\" OR exe=\"/home/*/public_html/*\" OR exe=\"/usr/local/apache2/*\" OR exe=\"/usr/local/httpd/*\" OR exe=\"/var/apache/*\" OR exe=\"/srv/www/*\" OR exe=\"/home/httpd/html/*\" OR exe=\"/srv/http/*\" OR exe=\"/usr/share/nginx/html/*\" OR exe=\"/var/lib/pgsql/data/*\" OR exe=\"/usr/local/mysql/data/*\" OR exe=\"/var/lib/mysql/*\" OR exe=\"/var/vsftpd/*\" OR exe=\"/etc/bind/*\" OR exe=\"/var/named/*\")",
+  "Tags": [
+    "attack.t1587",
+    "attack.t1584",
+    "attack.resource-development"
+  ],
+  "Version": "0.1"
+}

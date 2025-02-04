@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the execution of a renamed \"CURL.exe\" binary based on the PE metadata fields\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7530cd3d-7671-43e3-b209-976966f6ea48",
+  "InsertDate": "2025-02-03T20:33:07Z",
+  "LastUpdateDate": "2025-02-03T20:33:07Z",
+  "Level": "medium",
+  "Name": "Renamed CURL.EXE Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (original_file_name=\"curl.exe\" description=\"The curl executable\") NOT process_path=\"*\\\\curl*\"",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059",
+    "attack.defense-evasion",
+    "attack.t1202"
+  ],
+  "Version": "0.1"
+}

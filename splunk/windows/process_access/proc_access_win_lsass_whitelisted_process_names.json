@@ -1,0 +1,15 @@
+{
+  "Description": "Detects a possible process memory dump that uses a white-listed filename like TrolleyExpress.exe as a way to dump the LSASS process memory without Microsoft Defender interference\n\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4be8b654-0c01-4c9d-a10c-6b28467fc651",
+  "InsertDate": "2025-02-03T20:32:36Z",
+  "LastUpdateDate": "2025-02-03T20:32:36Z",
+  "Level": "high",
+  "Name": "LSASS Access From Potentially White-Listed Processes",
+  "Query": "sourcetype=\"windows-sysmon\" dst_process_path=\"*\\\\lsass.exe\" (process_path=\"*\\\\TrolleyExpress.exe\" OR process_path=\"*\\\\ProcessDump.exe\" OR process_path=\"*\\\\dump64.exe\") (granted_access=\"*10\" OR granted_access=\"*30\" OR granted_access=\"*50\" OR granted_access=\"*70\" OR granted_access=\"*90\" OR granted_access=\"*B0\" OR granted_access=\"*D0\" OR granted_access=\"*F0\" OR granted_access=\"*18\" OR granted_access=\"*38\" OR granted_access=\"*58\" OR granted_access=\"*78\" OR granted_access=\"*98\" OR granted_access=\"*B8\" OR granted_access=\"*D8\" OR granted_access=\"*F8\" OR granted_access=\"*1A\" OR granted_access=\"*3A\" OR granted_access=\"*5A\" OR granted_access=\"*7A\" OR granted_access=\"*9A\" OR granted_access=\"*BA\" OR granted_access=\"*DA\" OR granted_access=\"*FA\" OR granted_access=\"*0x14C2\" OR granted_access=\"*FF\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.001",
+    "attack.s0002"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,16 @@
+{
+  "Description": "Detects a process that initiated a network connection over ports 5985 or 5986 from a non-network service account.\nThis could potentially indicates a remote PowerShell connection.\n\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c539afac-c12a-46ed-b1bd-5a5567c9f045",
+  "InsertDate": "2025-02-03T20:32:25Z",
+  "LastUpdateDate": "2025-02-03T20:32:25Z",
+  "Level": "high",
+  "Name": "Potential Remote PowerShell Session Initiated",
+  "Query": "sourcetype=\"windows-sysmon\" ((dst_port=\"5985\" OR dst_port=\"5986\") initiated=\"true\" source_is_ipv6=\"false\") NOT (((username=\"*NETWORK SERVICE*\" OR username=\"*NETZWERKDIENST*\" OR username=\"*SERVICIO DE RED*\" OR username=\"*SERVIZIO DI RETE*\") (username=\"*SERVICE R*\" username=\"*SEAU*\")) OR ((src_ip=\"::1\" OR src_ip=\"127.0.0.1\") (dst_ip=\"::1\" OR dst_ip=\"127.0.0.1\"))) NOT (process_path=\"C:\\\\Program Files\\\\Avast Software\\\\Avast\\\\AvastSvc.exe\" OR process_path=\"C:\\\\Program Files (x86)\\\\Avast Software\\\\Avast\\\\AvastSvc.exe\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001",
+    "attack.lateral-movement",
+    "attack.t1021.006"
+  ],
+  "Version": "0.1"
+}

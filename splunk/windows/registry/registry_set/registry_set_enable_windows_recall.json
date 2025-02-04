@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the enabling of the Windows Recall feature via registry manipulation. Windows Recall can be enabled by setting the value of \"DisableAIDataAnalysis\" to \"0\".\nAdversaries may enable Windows Recall as part of post-exploitation discovery and collection activities.\nThis rule assumes that Recall is already explicitly disabled on the host, and subsequently enabled by the adversary.\n\n\nAuthor: Sajid Nawaz Khan\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "75180c5f-4ea1-461a-a4f6-6e4700c065d4",
+  "InsertDate": "2025-02-03T20:33:36Z",
+  "LastUpdateDate": "2025-02-03T20:33:36Z",
+  "Level": "medium",
+  "Name": "Windows Recall Feature Enabled - Registry",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\Software\\\\Policies\\\\Microsoft\\\\Windows\\\\WindowsAI\\\\DisableAIDataAnalysis\" details=\"DWORD (0x00000000)\"",
+  "Tags": [
+    "attack.collection",
+    "attack.t1113"
+  ],
+  "Version": "0.1"
+}

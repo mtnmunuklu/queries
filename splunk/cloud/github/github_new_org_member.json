@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when a new member is added or invited to a github organization.\n\nAuthor: Muhammad Faisal (@faisalusuf)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3908d64a-3c06-4091-b503-b3a94424533b",
+  "InsertDate": "2025-02-03T20:31:54Z",
+  "LastUpdateDate": "2025-02-03T20:31:54Z",
+  "Level": "informational",
+  "Name": "New Github Organization Member Added",
+  "Query": "sourcetype=\"github-audit\" (action=\"org.add_member\" OR action=\"org.invite_member\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1136.003"
+  ],
+  "Version": "0.1"
+}

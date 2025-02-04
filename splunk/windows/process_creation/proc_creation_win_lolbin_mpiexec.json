@@ -1,0 +1,15 @@
+{
+  "Description": "Detects a certain command line flag combination used by mpiexec.exe LOLBIN from HPC pack that can be used to execute any other binary\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "729ce0ea-5d8f-4769-9762-e35de441586d",
+  "InsertDate": "2025-02-03T20:32:48Z",
+  "LastUpdateDate": "2025-02-03T20:32:48Z",
+  "Level": "high",
+  "Name": "MpiExec Lolbin",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\mpiexec.exe\" hashes=\"*IMPHASH=d8b52ef6aaa3a81501bdfff9dbb96217*\") (command=\"* /n 1 *\" OR command=\"* -n 1 *\")",
+  "Tags": [
+    "attack.execution",
+    "attack.defense-evasion",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

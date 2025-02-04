@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious shell commands used in various exploit codes (see references)\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2aa1440c-9ae9-4d92-84a7-a9e5f5e31695",
+  "InsertDate": "2025-02-03T20:31:57Z",
+  "LastUpdateDate": "2025-02-03T20:31:57Z",
+  "Level": "high",
+  "Name": "Suspicious Activity in Shell Commands",
+  "Query": "sourcetype=\"linux-*\" (\"wget * - http* | perl\" OR \"wget * - http* | sh\" OR \"wget * - http* | bash\" OR \"python -m SimpleHTTPServer\" OR \"-m http.server\" OR \"import pty; pty.spawn*\" OR \"socat exec:*\" OR \"socat -O /tmp/*\" OR \"socat tcp-connect*\" OR \"*echo binary \u003e\u003e*\" OR \"*wget *; chmod +x*\" OR \"*wget *; chmod 777 *\" OR \"*cd /tmp || cd /var/run || cd /mnt*\" OR \"*stop;service iptables stop;*\" OR \"*stop;SuSEfirewall2 stop;*\" OR \"chmod 777 2020*\" OR \"*\u003e\u003e/etc/rc.local\" OR \"*base64 -d /tmp/*\" OR \"* | base64 -d *\" OR \"*/chmod u+s *\" OR \"*chmod +s /tmp/*\" OR \"*chmod u+s /tmp/*\" OR \"* /tmp/haxhax*\" OR \"* /tmp/ns_sploit*\" OR \"nc -l -p *\" OR \"cp /bin/ksh *\" OR \"cp /bin/sh *\" OR \"* /tmp/*.b64 *\" OR \"*/tmp/ysocereal.jar*\" OR \"*/tmp/x *\" OR \"*; chmod +x /tmp/*\" OR \"*;chmod +x /tmp/*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.004"
+  ],
+  "Version": "0.1"
+}

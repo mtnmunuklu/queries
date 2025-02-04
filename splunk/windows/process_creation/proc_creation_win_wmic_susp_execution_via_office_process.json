@@ -1,0 +1,17 @@
+{
+  "Description": "Office application called wmic to proxye execution through a LOLBIN process. This is often used to break suspicious parent-child chain (Office app spawns LOLBin).\n\nAuthor: Vadim Khrykov, Cyb3rEng\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e1693bc8-7168-4eab-8718-cdcaa68a1738",
+  "InsertDate": "2025-02-03T20:33:27Z",
+  "LastUpdateDate": "2025-02-03T20:33:27Z",
+  "Level": "high",
+  "Name": "Suspicious WMIC Execution Via Office Process",
+  "Query": "sourcetype=\"windows-sysmon\" (parent_process_path=\"*\\\\WINWORD.EXE\" OR parent_process_path=\"*\\\\EXCEL.EXE\" OR parent_process_path=\"*\\\\POWERPNT.exe\" OR parent_process_path=\"*\\\\MSPUB.exe\" OR parent_process_path=\"*\\\\VISIO.exe\" OR parent_process_path=\"*\\\\MSACCESS.EXE\" OR parent_process_path=\"*\\\\EQNEDT32.EXE\" OR parent_process_path=\"*\\\\ONENOTE.EXE\" OR parent_process_path=\"*\\\\wordpad.exe\" OR parent_process_path=\"*\\\\wordview.exe\") (process_path=\"*\\\\wbem\\\\WMIC.exe\" original_file_name=\"wmic.exe\") ((command=\"*process*\" command=\"*create*\" command=\"*call*\") (command=\"*regsvr32*\" OR command=\"*rundll32*\" OR command=\"*msiexec*\" OR command=\"*mshta*\" OR command=\"*verclsid*\" OR command=\"*wscript*\" OR command=\"*cscript*\"))",
+  "Tags": [
+    "attack.t1204.002",
+    "attack.t1047",
+    "attack.t1218.010",
+    "attack.execution",
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

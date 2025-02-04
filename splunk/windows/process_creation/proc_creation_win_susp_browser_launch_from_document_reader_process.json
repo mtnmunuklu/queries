@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when a browser process or browser tab is launched from an application that handles document files such as Adobe, Microsoft Office, etc. And connects to a web application over http(s), this could indicate a possible phishing attempt.\n\n\nAuthor: Joseph Kamau\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1193d960-2369-499f-a158-7b50a31df682",
+  "InsertDate": "2025-02-03T20:33:13Z",
+  "LastUpdateDate": "2025-02-03T20:33:13Z",
+  "Level": "medium",
+  "Name": "Potential Suspicious Browser Launch From Document Reader Process",
+  "Query": "sourcetype=\"windows-sysmon\" (parent_process_path=\"*Acrobat Reader*\" OR parent_process_path=\"*Microsoft Office*\" OR parent_process_path=\"*PDF Reader*\") (process_path=\"*\\\\brave.exe\" OR process_path=\"*\\\\chrome.exe\" OR process_path=\"*\\\\firefox.exe\" OR process_path=\"*\\\\msedge.exe\" OR process_path=\"*\\\\opera.exe\" OR process_path=\"*\\\\maxthon.exe\" OR process_path=\"*\\\\seamonkey.exe\" OR process_path=\"*\\\\vivaldi.exe\" OR process_path=\"*\") command=\"*http*\"",
+  "Tags": [
+    "attack.execution",
+    "attack.t1204.002"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the usage of the \"net.exe\" command to start a service using the \"start\" flag\n\nAuthor: Timur Zinniatullin, Daniil Yugoslavskiy, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2a072a96-a086-49fa-bcb5-15cc5a619093",
+  "InsertDate": "2025-02-03T20:32:52Z",
+  "LastUpdateDate": "2025-02-03T20:32:52Z",
+  "Level": "low",
+  "Name": "Start Windows Service Via Net.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\net.exe\" OR process_path=\"*\\\\net1.exe\") (original_file_name=\"net.exe\" OR original_file_name=\"net1.exe\")) command=\"* start *\"",
+  "Tags": [
+    "attack.execution",
+    "attack.t1569.002"
+  ],
+  "Version": "0.1"
+}

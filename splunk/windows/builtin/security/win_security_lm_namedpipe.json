@@ -1,0 +1,14 @@
+{
+  "Description": "This detection excludes known namped pipes accessible remotely and notify on newly observed ones, may help to detect lateral movement and remote exec using named pipes\n\nAuthor: Samir Bousseaden\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "52d8b0c6-53d6-439a-9e41-52ad442ad9ad",
+  "InsertDate": "2025-02-03T20:32:10Z",
+  "LastUpdateDate": "2025-02-03T20:32:10Z",
+  "Level": "high",
+  "Name": "First Time Seen Remote Named Pipe",
+  "Query": "sourcetype=\"windows-security\" (eventid=\"5145\" sharename=\"\\\\\\\\\\\\\\\\\\\\*\\\\\\\\IPC$\") NOT (relativetargetname=\"atsvc\" OR relativetargetname=\"samr\" OR relativetargetname=\"lsarpc\" OR relativetargetname=\"lsass\" OR relativetargetname=\"winreg\" OR relativetargetname=\"netlogon\" OR relativetargetname=\"srvsvc\" OR relativetargetname=\"protected_storage\" OR relativetargetname=\"wkssvc\" OR relativetargetname=\"browser\" OR relativetargetname=\"netdfs\" OR relativetargetname=\"svcctl\" OR relativetargetname=\"spoolss\" OR relativetargetname=\"ntsvcs\" OR relativetargetname=\"LSM_API_service\" OR relativetargetname=\"HydraLsPipe\" OR relativetargetname=\"TermSrv_API_service\" OR relativetargetname=\"MsFteWds\" OR relativetargetname=\"sql\\\\query\" OR relativetargetname=\"eventlog\")",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.t1021.002"
+  ],
+  "Version": "0.1"
+}

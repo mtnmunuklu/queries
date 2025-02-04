@@ -1,0 +1,14 @@
+{
+  "Description": "Detects alternate PowerShell hosts potentially bypassing detections looking for powershell.exe\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "64e8e417-c19a-475a-8d19-98ea705394cc",
+  "InsertDate": "2025-02-03T20:32:27Z",
+  "LastUpdateDate": "2025-02-03T20:32:27Z",
+  "Level": "medium",
+  "Name": "Alternate PowerShell Hosts - PowerShell Module",
+  "Query": "sourcetype=\"windows-*\" contextinfo=\"***\" NOT (contextinfo=\"*C:\\\\Windows\\\\system32\\\\wsmprovhost.exe -Embedding*\" OR (payload=\"*Update-Help*\" OR payload=\"*Failed to update Help for the module*\") OR (contextinfo=\"*= powershell*\" OR contextinfo=\"*= C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell*\" OR contextinfo=\"*= C:\\\\Windows\\\\SysWOW64\\\\WindowsPowerShell\\\\v1.0\\\\powershell*\" OR contextinfo=\"*= C:/Windows/System32/WindowsPowerShell/v1.0/powershell*\" OR contextinfo=\"*= C:/Windows/SysWOW64/WindowsPowerShell/v1.0/powershell*\") OR contextinfo=\"*= C:\\\\WINDOWS\\\\System32\\\\sdiagnhost.exe -Embedding*\" OR contextinfo=\"*ConfigSyncRun.exe*\" OR contextinfo=\"*C:\\\\Windows\\\\system32\\\\dsac.exe*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

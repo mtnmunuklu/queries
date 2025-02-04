@@ -1,0 +1,14 @@
+{
+  "Description": "Detects VBScript content stored into registry keys as seen being used by UNC2452 group\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "46490193-1b22-4c29-bdd6-5bf63907216f",
+  "InsertDate": "2025-02-03T20:33:45Z",
+  "LastUpdateDate": "2025-02-03T20:33:45Z",
+  "Level": "high",
+  "Name": "VBScript Payload Stored in Registry",
+  "Query": "sourcetype=\"windows-*\" (target_object=\"*Software\\\\Microsoft\\\\Windows\\\\CurrentVersion*\" (details=\"*vbscript:*\" OR details=\"*jscript:*\" OR details=\"*mshtml,*\" OR details=\"*RunHTMLApplication*\" OR details=\"*Execute(*\" OR details=\"*CreateObject*\" OR details=\"*window.close*\")) NOT (target_object=\"*Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Run*\" OR (process_path=\"*\\\\msiexec.exe\" target_object=\"*\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Installer\\\\UserData\\\\*\" (details=\"*\\\\Microsoft.NET\\\\Primary Interop Assemblies\\\\Microsoft.mshtml.dll*\" OR details=\"*\u003c\\\\Microsoft.mshtml,fileVersion=*\" OR details=\"*_mshtml_dll_*\" OR details=\"*\u003c\\\\Microsoft.mshtml,culture=*\")))",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1547.001"
+  ],
+  "Version": "0.1"
+}

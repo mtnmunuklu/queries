@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a regedit started with TrustedInstaller privileges or by ProcessHacker.exe\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "883835a7-df45-43e4-bf1d-4268768afda4",
+  "InsertDate": "2025-02-03T20:33:04Z",
+  "LastUpdateDate": "2025-02-03T20:33:04Z",
+  "Level": "high",
+  "Name": "Regedit as Trusted Installer",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\regedit.exe\" (parent_process_path=\"*\\\\TrustedInstaller.exe\" OR parent_process_path=\"*\\\\ProcessHacker.exe\")",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.t1548"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects attempts to exploit an apache spark server via CVE-2014-6287 from a commandline perspective\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c8a5f584-cdc8-42cc-8cce-0398e4265de3",
+  "InsertDate": "2025-02-03T20:31:58Z",
+  "LastUpdateDate": "2025-02-03T20:31:58Z",
+  "Level": "high",
+  "Name": "Apache Spark Shell Command Injection - ProcessCreation",
+  "Query": "sourcetype=\"linux-*\" parent_process_path=\"*\\\\bash\" (command=\"*id -Gn `*\" OR command=\"*id -Gn '*\")",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1190",
+    "cve.2022-33891"
+  ],
+  "Version": "0.1"
+}

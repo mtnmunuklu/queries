@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of the \"groupdel\" binary. Which is used to delete a group. This is sometimes abused by threat actors in order to cover their tracks\n\nAuthor: Tuan Le (NCSGroup)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8a46f16c-8c4c-82d1-b121-0fdd3ba70a84",
+  "InsertDate": "2025-02-03T20:31:59Z",
+  "LastUpdateDate": "2025-02-03T20:31:59Z",
+  "Level": "medium",
+  "Name": "Group Has Been Deleted Via Groupdel",
+  "Query": "sourcetype=\"linux-*\" process_path=\"*/groupdel\"",
+  "Tags": [
+    "attack.impact",
+    "attack.t1531"
+  ],
+  "Version": "0.1"
+}

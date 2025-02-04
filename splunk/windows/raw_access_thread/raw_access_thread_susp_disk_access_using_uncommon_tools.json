@@ -1,0 +1,14 @@
+{
+  "Description": "Detects raw disk access using uncommon tools or tools that are located in suspicious locations (heavy filtering is required), which could indicate possible defense evasion attempts\n\nAuthor: Teymur Kheirkhabarov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "db809f10-56ce-4420-8c86-d6a7d793c79c",
+  "InsertDate": "2025-02-03T20:33:28Z",
+  "LastUpdateDate": "2025-02-03T20:33:28Z",
+  "Level": "low",
+  "Name": "Potential Defense Evasion Via Raw Disk Access By Uncommon Tools",
+  "Query": "sourcetype=\"windows-*\" NOT (device=\"*floppy*\" OR (process_path=\"Registry\" OR process_path=\"System\") OR (process_path=\"*:\\\\$WINDOWS.~BT\\\\*\" OR process_path=\"*:\\\\Program Files (x86)\\\\*\" OR process_path=\"*:\\\\Program Files\\\\*\" OR process_path=\"*:\\\\Windows\\\\CCM\\\\*\" OR process_path=\"*:\\\\Windows\\\\explorer.exe*\" OR process_path=\"*:\\\\Windows\\\\servicing\\\\*\" OR process_path=\"*:\\\\Windows\\\\SoftwareDistribution\\\\*\" OR process_path=\"*:\\\\Windows\\\\System32\\\\*\" OR process_path=\"*:\\\\Windows\\\\SystemApps\\\\*\" OR process_path=\"*:\\\\Windows\\\\uus\\\\*\" OR process_path=\"*:\\\\Windows\\\\WinSxS\\\\*\") OR (process_path=\"*:\\\\ProgramData\\\\Microsoft\\\\Windows Defender\\\\Platform\\\\*\" process_path=\"*\\\\MsMpEng.exe\") OR (process_path=\"*:\\\\Users\\\\*\" process_path=\"*\\\\AppData\\\\*\" process_path=\"*\\\\Microsoft\\\\*\") OR (process_path=\"*:\\\\Windows\\\\Temp\\\\*\" (process_path=\"*\\\\Executables\\\\SSDUpdate.exe\" OR process_path=\"*\\\\HostMetadata\\\\NVMEHostmetadata.exe\")) OR process_path=\"null\" OR process_path=\"*:\\\\Windows\\\\ImmersiveControlPanel\\\\SystemSettings.exe\") NOT (process_path=\"*\\\\AppData\\\\Local\\\\Keybase\\\\upd.exe*\" OR (process_path=\"*\\\\AppData\\\\Local\\\\GitHubDesktop\\\\app-*\" process_path=\"*\\\\resources\\\\app\\\\git\\\\mingw64\\\\bin\\\\git.exe\") OR (process_path=\"*:\\\\Windows\\\\Temp\\\\asgard2-agent\\\\*\" process_path=\"*\\\\thor.exe\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1006"
+  ],
+  "Version": "0.1"
+}

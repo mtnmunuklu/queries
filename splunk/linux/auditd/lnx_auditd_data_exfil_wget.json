@@ -1,0 +1,14 @@
+{
+  "Description": "Detects attempts to post the file with the usage of wget utility.\nThe adversary can bypass the permission restriction with the misconfigured sudo permission for wget utility which could allow them to read files like /etc/shadow.\n\n\nAuthor: Pawel Mazur\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "cb39d16b-b3b6-4a7a-8222-1cf24b686ffc",
+  "InsertDate": "2025-02-03T20:31:56Z",
+  "LastUpdateDate": "2025-02-03T20:31:56Z",
+  "Level": "medium",
+  "Name": "Data Exfiltration with Wget",
+  "Query": "sourcetype=\"linux-auditd\" type=\"EXECVE\" a0=\"wget\" a1=\"--post-file=*\"",
+  "Tags": [
+    "attack.exfiltration",
+    "attack.t1048.003"
+  ],
+  "Version": "0.1"
+}

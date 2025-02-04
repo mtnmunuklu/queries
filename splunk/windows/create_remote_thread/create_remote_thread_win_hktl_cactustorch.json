@@ -1,0 +1,18 @@
+{
+  "Description": "Detects remote thread creation from CACTUSTORCH as described in references.\n\nAuthor: @SBousseaden (detection), Thomas Patzke (rule)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2e4e488a-6164-4811-9ea1-f960c7359c40",
+  "InsertDate": "2025-02-03T20:32:15Z",
+  "LastUpdateDate": "2025-02-03T20:32:15Z",
+  "Level": "high",
+  "Name": "HackTool - CACTUSTORCH Remote Thread Creation",
+  "Query": "sourcetype=\"windows-*\" (process_path=\"*\\\\System32\\\\cscript.exe\" OR process_path=\"*\\\\System32\\\\wscript.exe\" OR process_path=\"*\\\\System32\\\\mshta.exe\" OR process_path=\"*\\\\winword.exe\" OR process_path=\"*\\\\excel.exe\") dst_process_path=\"*\\\\SysWOW64\\\\*\" start_module=\"null\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.t1055.012",
+    "attack.t1059.005",
+    "attack.t1059.007",
+    "attack.t1218.005"
+  ],
+  "Version": "0.1"
+}

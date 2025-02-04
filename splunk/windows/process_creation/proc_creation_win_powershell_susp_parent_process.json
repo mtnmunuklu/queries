@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a suspicious or uncommon parent processes of PowerShell\n\nAuthor: Teymur Kheirkhabarov, Harish Segar\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "754ed792-634f-40ae-b3bc-e0448d33f695",
+  "InsertDate": "2025-02-03T20:32:59Z",
+  "LastUpdateDate": "2025-02-03T20:32:59Z",
+  "Level": "high",
+  "Name": "Suspicious PowerShell Parent Process",
+  "Query": "sourcetype=\"windows-sysmon\" (parent_process_path=\"*tomcat*\" (parent_process_path=\"*\\\\amigo.exe\" OR parent_process_path=\"*\\\\browser.exe\" OR parent_process_path=\"*\\\\chrome.exe\" OR parent_process_path=\"*\\\\firefox.exe\" OR parent_process_path=\"*\\\\httpd.exe\" OR parent_process_path=\"*\\\\iexplore.exe\" OR parent_process_path=\"*\\\\jbosssvc.exe\" OR parent_process_path=\"*\\\\microsoftedge.exe\" OR parent_process_path=\"*\\\\microsoftedgecp.exe\" OR parent_process_path=\"*\\\\MicrosoftEdgeSH.exe\" OR parent_process_path=\"*\\\\mshta.exe\" OR parent_process_path=\"*\\\\nginx.exe\" OR parent_process_path=\"*\\\\outlook.exe\" OR parent_process_path=\"*\\\\php-cgi.exe\" OR parent_process_path=\"*\\\\regsvr32.exe\" OR parent_process_path=\"*\\\\rundll32.exe\" OR parent_process_path=\"*\\\\safari.exe\" OR parent_process_path=\"*\\\\services.exe\" OR parent_process_path=\"*\\\\sqlagent.exe\" OR parent_process_path=\"*\\\\sqlserver.exe\" OR parent_process_path=\"*\\\\sqlservr.exe\" OR parent_process_path=\"*\\\\vivaldi.exe\" OR parent_process_path=\"*\\\\w3wp.exe\")) ((process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\") (command=\"*/c powershell*\" OR command=\"*/c pwsh*\") description=\"Windows PowerShell\" product=\"PowerShell Core 6\" (original_file_name=\"PowerShell.EXE\" OR original_file_name=\"pwsh.dll\"))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

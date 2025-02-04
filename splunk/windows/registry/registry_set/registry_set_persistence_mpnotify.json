@@ -1,0 +1,13 @@
+{
+  "Description": "Detects when an attacker register a new SIP provider for persistence and defense evasion\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "92772523-d9c1-4c93-9547-b0ca500baba3",
+  "InsertDate": "2025-02-03T20:33:41Z",
+  "LastUpdateDate": "2025-02-03T20:33:41Z",
+  "Level": "high",
+  "Name": "Potential Persistence Via Mpnotify",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\SOFTWARE\\\\Microsoft\\\\Windows NT\\\\CurrentVersion\\\\Winlogon\\\\mpnotify*\"",
+  "Tags": [
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when an Elastic Container Service (ECS) Task Definition includes a command to query the credential endpoint.\nThis can indicate a potential adversary adding a backdoor to establish persistence or escalate privileges.\n\n\nAuthor: Darin Smith\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b94bf91e-c2bf-4047-9c43-c6810f43baad",
+  "InsertDate": "2025-02-03T20:31:50Z",
+  "LastUpdateDate": "2025-02-03T20:31:50Z",
+  "Level": "medium",
+  "Name": "AWS ECS Task Definition That Queries The Credential Endpoint",
+  "Query": "sourcetype=\"aws-cloudtrail\" eventsource=\"ecs.amazonaws.com\" (eventname=\"DescribeTaskDefinition\" OR eventname=\"RegisterTaskDefinition\" OR eventname=\"RunTask\") requestparameters.containerdefinitions.command=\"*$AWS_CONTAINER_CREDENTIALS_RELATIVE_URI*\"",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1525"
+  ],
+  "Version": "0.1"
+}

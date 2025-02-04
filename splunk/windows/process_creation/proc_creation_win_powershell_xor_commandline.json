@@ -1,0 +1,17 @@
+{
+  "Description": "Detects presence of a potentially xor encoded powershell command\n\nAuthor: Sami Ruohonen, Harish Segar, Tim Shelton, Teymur Kheirkhabarov, Vasiliy Burov, oscd.community, Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "bb780e0c-16cf-4383-8383-1e5471db6cf9",
+  "InsertDate": "2025-02-03T20:32:59Z",
+  "LastUpdateDate": "2025-02-03T20:32:59Z",
+  "Level": "medium",
+  "Name": "Suspicious XOR Encoded PowerShell Command",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*ForEach*\" OR command=\"*for(*\" OR command=\"*for *\" OR command=\"*-join *\" OR command=\"*-join'*\" OR command=\"*-join\"*\" OR command=\"*-join`*\" OR command=\"*::Join*\" OR command=\"*[char]*\") ((process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\") (original_file_name=\"PowerShell.EXE\" OR original_file_name=\"pwsh.dll\") description=\"Windows PowerShell\" product=\"PowerShell Core 6\") command=\"*bxor*\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.t1059.001",
+    "attack.t1140",
+    "attack.t1027"
+  ],
+  "Version": "0.1"
+}

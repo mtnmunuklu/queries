@@ -1,0 +1,15 @@
+{
+  "Description": "Detects usage of wsudo (Windows Sudo Utility). Which is a tool that let the user execute programs with different permissions (System, Trusted Installer, Administrator...etc)\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "bdeeabc9-ff2a-4a51-be59-bb253aac7891",
+  "InsertDate": "2025-02-03T20:33:01Z",
+  "LastUpdateDate": "2025-02-03T20:33:01Z",
+  "Level": "high",
+  "Name": "PUA - Wsudo Suspicious Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\wsudo.exe\" original_file_name=\"wsudo.exe\" description=\"Windows sudo utility\" parent_process_path=\"*\\\\wsudo-bridge.exe\") OR (command=\"*-u System*\" OR command=\"*-uSystem*\" OR command=\"*-u TrustedInstaller*\" OR command=\"*-uTrustedInstaller*\" OR command=\"* --ti *\")",
+  "Tags": [
+    "attack.execution",
+    "attack.privilege-escalation",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of the builtin \"copy\" command that targets a shadow copy (sometimes used to copy registry hives that are in use)\n\nAuthor: Max Altgelt (Nextron Systems), Tobias Michalski (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c73124a7-3e89-44a3-bdc1-25fe4df754b1",
+  "InsertDate": "2025-02-03T20:32:39Z",
+  "LastUpdateDate": "2025-02-03T20:32:39Z",
+  "Level": "high",
+  "Name": "Copy From VolumeShadowCopy Via Cmd.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*copy *\" command=\"*\\\\\\\\\\\\\\\\\\\\?\\\\\\\\GLOBALROOT\\\\\\\\Device\\\\\\\\HarddiskVolumeShadowCopy*\")",
+  "Tags": [
+    "attack.impact",
+    "attack.t1490"
+  ],
+  "Version": "0.1"
+}

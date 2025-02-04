@@ -1,0 +1,13 @@
+{
+  "Description": "Detects the execution of Evil-WinRM via PowerShell Module logs by leveraging the hardcoded strings inside the utility.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9fe55ea2-4cd6-4491-8a54-dd6871651b51",
+  "InsertDate": "2025-02-03T20:32:27Z",
+  "LastUpdateDate": "2025-02-03T20:32:27Z",
+  "Level": "high",
+  "Name": "HackTool - Evil-WinRm Execution - PowerShell Module",
+  "Query": "sourcetype=\"windows-*\" (contextinfo=\"*:\\\\Windows\\\\System32\\\\wsmprovhost.exe*\" OR contextinfo=\"*:\\\\Windows\\\\SysWOW64\\\\wsmprovhost.exe*\") ((payload=\"*value=\"(get-location).path*\" OR payload=\"*value=\"(get-item*).length*\" OR payload=\"*Invoke-Binary *\" OR payload=\"*Donut-Loader -process_id*-donutfile*\" OR payload=\"*Bypass-4MSI*\" OR payload=\"*IEX ([System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String($a))).replace('???','')*\") OR (payload=\"*$servicios = Get-ItemProperty \"registry::HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\\"*\" payload=\"*Where-Object {$_.imagepath -notmatch \"system\" -and $_.imagepath -ne $null } | Select-Object pschildname,imagepath*\") OR (payload=\"*$a +=  \\\\\"$($_.FullName.Replace('\\\\\\\\','/'))/\\\\\"}else{  $a += \\\\\"$($_.FullName.Replace('\\\\\\\\', '/'))\\\\\" }*\" payload=\"*$a=@();$*\"))",
+  "Tags": [
+    "attack.lateral-movement"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the execution of whoami.exe with suspicious parent processes.\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8de1cbe8-d6f5-496d-8237-5f44a721c7a0",
+  "InsertDate": "2025-02-03T20:33:25Z",
+  "LastUpdateDate": "2025-02-03T20:33:25Z",
+  "Level": "medium",
+  "Name": "Whoami.EXE Execution Anomaly",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\whoami.exe\" original_file_name=\"whoami.exe\") NOT ((parent_process_path=\"*\\\\cmd.exe\" OR parent_process_path=\"*\\\\powershell_ise.exe\" OR parent_process_path=\"*\\\\powershell.exe\" OR parent_process_path=\"*\\\\pwsh.exe\") OR parent_process_path=\"null\" OR parent_process_path=\"\") NOT parent_process_path=\"*:\\\\Program Files\\\\Microsoft Monitoring Agent\\\\Agent\\\\MonitoringHost.exe\"",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1033",
+    "car.2016-03-001"
+  ],
+  "Version": "0.1"
+}

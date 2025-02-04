@@ -1,0 +1,14 @@
+{
+  "Description": "Detects creation of local users via the net.exe command with the option \"never expire\"\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b9f0e6f5-09b4-4358-bae4-08408705bd5c",
+  "InsertDate": "2025-02-03T20:32:52Z",
+  "LastUpdateDate": "2025-02-03T20:32:52Z",
+  "Level": "high",
+  "Name": "New User Created Via Net.EXE With Never Expire Option",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\net.exe\" OR process_path=\"*\\\\net1.exe\") (original_file_name=\"net.exe\" OR original_file_name=\"net1.exe\")) (command=\"*user*\" command=\"*add*\" command=\"*expires:never*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1136.001"
+  ],
+  "Version": "0.1"
+}

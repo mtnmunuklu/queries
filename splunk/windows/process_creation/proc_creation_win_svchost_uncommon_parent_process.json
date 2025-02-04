@@ -1,0 +1,14 @@
+{
+  "Description": "Detects an uncommon svchost parent process\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "01d2e2a1-5f09-44f7-9fc1-24faa7479b6d",
+  "InsertDate": "2025-02-03T20:33:19Z",
+  "LastUpdateDate": "2025-02-03T20:33:19Z",
+  "Level": "medium",
+  "Name": "Uncommon Svchost Parent Process",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\svchost.exe\" NOT ((parent_process_path=\"*\\\\Mrt.exe\" OR parent_process_path=\"*\\\\MsMpEng.exe\" OR parent_process_path=\"*\\\\ngen.exe\" OR parent_process_path=\"*\\\\rpcnet.exe\" OR parent_process_path=\"*\\\\services.exe\" OR parent_process_path=\"*\\\\TiWorker.exe\") OR parent_process_path=\"null\" OR (parent_process_path=\"-\" OR parent_process_path=\"\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1036.005"
+  ],
+  "Version": "0.1"
+}

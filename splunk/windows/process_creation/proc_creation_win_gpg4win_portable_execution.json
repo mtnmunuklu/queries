@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of \"gpg.exe\" from uncommon location. Often used by ransomware and loaders to decrypt/encrypt data.\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "77df53a5-1d78-4f32-bc5a-0e7465bd8f41",
+  "InsertDate": "2025-02-03T20:32:43Z",
+  "LastUpdateDate": "2025-02-03T20:32:43Z",
+  "Level": "medium",
+  "Name": "Portable Gpg.EXE Execution",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\gpg.exe\" OR process_path=\"*\\\\gpg2.exe\") original_file_name=\"gpg.exe\" description=\"GnuPG’s OpenPGP tool\") NOT (process_path=\"*:\\\\Program Files (x86)\\\\GNU\\\\GnuPG\\\\bin\\\\*\" OR process_path=\"*:\\\\Program Files (x86)\\\\GnuPG VS-Desktop\\\\*\" OR process_path=\"*:\\\\Program Files (x86)\\\\GnuPG\\\\bin\\\\*\" OR process_path=\"*:\\\\Program Files (x86)\\\\Gpg4win\\\\bin\\\\*\")",
+  "Tags": [
+    "attack.impact",
+    "attack.t1486"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detect use of the Windows 8.3 short name. Which could be used as a method to avoid Image detection\n\nAuthor: frack113, Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a96970af-f126-420d-90e1-d37bf25e50e1",
+  "InsertDate": "2025-02-03T20:33:15Z",
+  "LastUpdateDate": "2025-02-03T20:33:15Z",
+  "Level": "medium",
+  "Name": "Use Short Name Path in Image",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*~1\\\\*\" OR process_path=\"*~2\\\\*\") NOT (((parent_process_path=\"C:\\\\Windows\\\\System32\\\\Dism.exe\" OR parent_process_path=\"C:\\\\Windows\\\\System32\\\\cleanmgr.exe\") (parent_process_path=\"*\\\\WebEx\\\\WebexHost.exe\" OR parent_process_path=\"*\\\\thor\\\\thor64.exe\") product=\"InstallShield (R)\" description=\"InstallShield (R) Setup Engine\" company=\"InstallShield Software Corporation\") OR ((process_path=\"*\\\\AppData\\\\*\" process_path=\"*\\\\Temp\\\\*\") (process_path=\"*~1\\\\unzip.exe\" OR process_path=\"*~1\\\\7zG.exe\")))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1564.004"
+  ],
+  "Version": "0.1"
+}

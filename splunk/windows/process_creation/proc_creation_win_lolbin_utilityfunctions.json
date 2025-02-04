@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of a Microsoft signed script executing a managed DLL with PowerShell.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0403d67d-6227-4ea8-8145-4e72db7da120",
+  "InsertDate": "2025-02-03T20:32:50Z",
+  "LastUpdateDate": "2025-02-03T20:32:50Z",
+  "Level": "medium",
+  "Name": "UtilityFunctions.ps1 Proxy Dll",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*UtilityFunctions.ps1*\" OR command=\"*RegSnapin *\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1216"
+  ],
+  "Version": "0.1"
+}

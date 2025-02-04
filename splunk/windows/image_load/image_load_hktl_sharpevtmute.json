@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the load of EvtMuteHook.dll, a key component of SharpEvtHook, a tool that tampers with the Windows event logs\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "49329257-089d-46e6-af37-4afce4290685",
+  "InsertDate": "2025-02-03T20:32:22Z",
+  "LastUpdateDate": "2025-02-03T20:32:22Z",
+  "Level": "high",
+  "Name": "HackTool - SharpEvtMute DLL Load",
+  "Query": "sourcetype=\"windows-sysmon\" hashes=\"*IMPHASH=330768A4F172E10ACB6287B87289D83B*\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.002"
+  ],
+  "Version": "0.1"
+}

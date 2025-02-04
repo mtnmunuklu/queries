@@ -1,0 +1,16 @@
+{
+  "Description": "The CrachMapExec pentesting framework implements a PowerShell obfuscation with some static strings detected by this rule.\n\nAuthor: Thomas Patzke\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6f8b3439-a203-45dc-a88b-abf57ea15ccf",
+  "InsertDate": "2025-02-03T20:32:43Z",
+  "LastUpdateDate": "2025-02-03T20:32:43Z",
+  "Level": "high",
+  "Name": "HackTool - CrackMapExec PowerShell Obfuscation",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\") (original_file_name=\"PowerShell.EXE\" OR original_file_name=\"pwsh.dll\")) (command=\"*join*split*\" OR command=\"*( $ShellId[1]+$ShellId[13]+'x')*\" OR command=\"*( $PSHome[*]+$PSHOME[*]+*\" OR command=\"*( $env:Public[13]+$env:Public[5]+'x')*\" OR command=\"*( $env:ComSpec[4,*,25]-Join'')*\" OR command=\"*[1,3]+'x'-Join'')*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001",
+    "attack.defense-evasion",
+    "attack.t1027.005"
+  ],
+  "Version": "0.1"
+}

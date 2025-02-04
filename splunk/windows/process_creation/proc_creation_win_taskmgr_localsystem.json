@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the creation of taskmgr.exe process in context of LOCAL_SYSTEM\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9fff585c-c33e-4a86-b3cd-39312079a65f",
+  "InsertDate": "2025-02-03T20:33:21Z",
+  "LastUpdateDate": "2025-02-03T20:33:21Z",
+  "Level": "high",
+  "Name": "Taskmgr as LOCAL_SYSTEM",
+  "Query": "sourcetype=\"windows-sysmon\" (username=\"*AUTHORI*\" OR username=\"*AUTORI*\") process_path=\"*\\\\taskmgr.exe\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1036"
+  ],
+  "Version": "0.1"
+}

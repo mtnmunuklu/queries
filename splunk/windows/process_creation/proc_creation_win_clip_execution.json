@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of clip.exe in order to copy data to the clipboard. Adversaries may collect data stored in the clipboard from users copying information within or between applications.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ddeff553-5233-4ae9-bbab-d64d2bd634be",
+  "InsertDate": "2025-02-03T20:32:38Z",
+  "LastUpdateDate": "2025-02-03T20:32:38Z",
+  "Level": "low",
+  "Name": "Data Copied To Clipboard Via Clip.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\clip.exe\" original_file_name=\"clip.exe\"",
+  "Tags": [
+    "attack.collection",
+    "attack.t1115"
+  ],
+  "Version": "0.1"
+}

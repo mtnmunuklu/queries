@@ -1,0 +1,18 @@
+{
+  "Description": "Modifications to a config that will serve an adversary's impacts or persistence\n\nAuthor: Austin Clark\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "671ffc77-50a7-464f-9e3d-9ea2b493b26b",
+  "InsertDate": "2025-02-03T20:32:03Z",
+  "LastUpdateDate": "2025-02-03T20:32:03Z",
+  "Level": "medium",
+  "Name": "Cisco Modify Configuration",
+  "Query": "sourcetype=\"cisco-aaa\" (\"ip http server\" OR \"ip https server\" OR \"kron policy-list\" OR \"kron occurrence\" OR \"policy-list\" OR \"access-list\" OR \"ip access-group\" OR \"archive maximum\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.impact",
+    "attack.t1490",
+    "attack.t1505",
+    "attack.t1565.002",
+    "attack.t1053"
+  ],
+  "Version": "0.1"
+}

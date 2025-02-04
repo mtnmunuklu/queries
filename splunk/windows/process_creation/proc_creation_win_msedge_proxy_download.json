@@ -1,0 +1,15 @@
+{
+  "Description": "Detects usage of \"msedge_proxy.exe\" to download arbitrary files\n\nAuthor: Swachchhanda Shrawan Poudel\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e84d89c4-f544-41ca-a6af-4b92fd38b023",
+  "InsertDate": "2025-02-03T20:32:50Z",
+  "LastUpdateDate": "2025-02-03T20:32:50Z",
+  "Level": "medium",
+  "Name": "Arbitrary File Download Via MSEDGE_PROXY.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\msedge_proxy.exe\" original_file_name=\"msedge_proxy.exe\") (command=\"*http://*\" OR command=\"*https://*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

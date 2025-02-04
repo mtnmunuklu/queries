@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of PSAsyncShell an Asynchronous TCP Reverse Shell written in powershell\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "afd3df04-948d-46f6-ae44-25966c44b97f",
+  "InsertDate": "2025-02-03T20:32:32Z",
+  "LastUpdateDate": "2025-02-03T20:32:32Z",
+  "Level": "high",
+  "Name": "PSAsyncShell - Asynchronous TCP Reverse Shell",
+  "Query": "sourcetype=\"windows-*\" scriptblocktext=\"*PSAsyncShell*\"",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

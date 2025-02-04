@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the usage of the \"Squirrel.exe\" binary to execute arbitrary processes. This binary is part of multiple Electron based software installations (Slack, Teams, Discord, etc.)\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Karneades / Markus Neis, Jonhnathan Ribeiro, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "45239e6a-b035-4aaf-b339-8ad379fcb67e",
+  "InsertDate": "2025-02-03T20:33:12Z",
+  "LastUpdateDate": "2025-02-03T20:33:12Z",
+  "Level": "medium",
+  "Name": "Process Proxy Execution Via Squirrel.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\squirrel.exe\" OR process_path=\"*\\\\update.exe\") (command=\"*--processStart*\" OR command=\"*--processStartAndWait*\" OR command=\"*--createShortcut*\")) NOT ((command=\"*:\\\\Users\\\\*\" command=\"*\\\\AppData\\\\Local\\\\Discord\\\\Update.exe*\" command=\"* --processStart*\" command=\"*Discord.exe*\") OR ((command=\"*:\\\\Users\\\\*\" command=\"*\\\\AppData\\\\Local\\\\GitHubDesktop\\\\Update.exe*\" command=\"*GitHubDesktop.exe*\") (command=\"*--createShortcut*\" OR command=\"*--processStartAndWait*\")) OR ((command=\"*:\\\\Users\\\\*\" command=\"*\\\\AppData\\\\Local\\\\Microsoft\\\\Teams\\\\Update.exe*\" command=\"*Teams.exe*\") (command=\"*--processStart*\" OR command=\"*--createShortcut*\")) OR ((command=\"*:\\\\Users\\\\*\" command=\"*\\\\AppData\\\\Local\\\\yammerdesktop\\\\Update.exe*\" command=\"*Yammer.exe*\") (command=\"*--processStart*\" OR command=\"*--createShortcut*\")))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

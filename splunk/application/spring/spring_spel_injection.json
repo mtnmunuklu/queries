@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential SpEL Injection exploitation, which may lead to RCE.\n\nAuthor: Moti Harmats\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e9edd087-89d8-48c9-b0b4-5b9bb10896b8",
+  "InsertDate": "2025-02-03T20:31:50Z",
+  "LastUpdateDate": "2025-02-03T20:31:50Z",
+  "Level": "high",
+  "Name": "Potential SpEL Injection In Spring Framework",
+  "Query": "sourcetype=\"spring-*\" (\"org.springframework.expression.ExpressionException\")",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1190"
+  ],
+  "Version": "0.1"
+}

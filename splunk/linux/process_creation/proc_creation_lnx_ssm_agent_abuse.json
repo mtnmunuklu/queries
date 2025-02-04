@@ -1,0 +1,15 @@
+{
+  "Description": "Detects potential Amazon SSM agent hijack attempts as outlined in the Mitiga research report.\n\nAuthor: Muhammad Faisal\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f9b3edc5-3322-4fc7-8aa3-245d646cc4b7",
+  "InsertDate": "2025-02-03T20:32:00Z",
+  "LastUpdateDate": "2025-02-03T20:32:00Z",
+  "Level": "medium",
+  "Name": "Potential Linux Amazon SSM Agent Hijacking",
+  "Query": "sourcetype=\"linux-*\" process_path=\"*/amazon-ssm-agent\" (command=\"*-register *\" command=\"*-code *\" command=\"*-id *\" command=\"*-region *\")",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.persistence",
+    "attack.t1219"
+  ],
+  "Version": "0.1"
+}

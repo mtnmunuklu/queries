@@ -1,0 +1,14 @@
+{
+  "Description": "Windows DCE-RPC functions which indicate a persistence techniques on the remote system. All credit for the Zeek mapping of the suspicious endpoint/operation field goes to MITRE.\n\nAuthor: @neu5ron, SOC Prime\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "53389db6-ba46-48e3-a94c-e0f2cefe1583",
+  "InsertDate": "2025-02-03T20:32:04Z",
+  "LastUpdateDate": "2025-02-03T20:32:04Z",
+  "Level": "medium",
+  "Name": "MITRE BZAR Indicators for Persistence",
+  "Query": "sourcetype=\"zeek-dce_rpc\" (endpoint=\"ISecLogon\" operation=\"SeclCreateProcessWithLogonW\") OR (endpoint=\"ISecLogon\" operation=\"SeclCreateProcessWithLogonExW\") OR (endpoint=\"spoolss\" operation=\"RpcAddMonitor\") OR (endpoint=\"spoolss\" operation=\"RpcAddPrintProcessor\") OR (endpoint=\"IRemoteWinspool\" operation=\"RpcAsyncAddMonitor\") OR (endpoint=\"IRemoteWinspool\" operation=\"RpcAsyncAddPrintProcessor\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1547.004"
+  ],
+  "Version": "0.1"
+}

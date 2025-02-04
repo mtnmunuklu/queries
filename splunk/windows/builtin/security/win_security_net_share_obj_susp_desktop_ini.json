@@ -1,0 +1,14 @@
+{
+  "Description": "Detects unusual processes accessing desktop.ini remotely over network share, which can be leveraged to alter how Explorer displays a folder's content (i.e. renaming files) without changing them on disk.\n\nAuthor: Tim Shelton (HAWK.IO)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "35bc7e28-ee6b-492f-ab04-da58fcf6402e",
+  "InsertDate": "2025-02-03T20:32:10Z",
+  "LastUpdateDate": "2025-02-03T20:32:10Z",
+  "Level": "medium",
+  "Name": "Windows Network Access Suspicious desktop.ini Action",
+  "Query": "sourcetype=\"windows-security\" eventid=\"5145\" objecttype=\"File\" relativetargetname=\"*\\\\desktop.ini\" (accesslist=\"*WriteData*\" OR accesslist=\"*DELETE*\" OR accesslist=\"*WriteDAC*\" OR accesslist=\"*AppendData*\" OR accesslist=\"*AddSubdirectory*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1547.009"
+  ],
+  "Version": "0.1"
+}

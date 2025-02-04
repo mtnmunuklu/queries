@@ -1,0 +1,18 @@
+{
+  "Description": "Detects a copy command or a copy utility execution to or from an Admin share or remote\n\nAuthor: Florian Roth (Nextron Systems), oscd.community, Teymur Kheirkhabarov @HeirhabarovT, Zach Stanford @svch0st, Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "855bc8b5-2ae8-402e-a9ed-b889e6df1900",
+  "InsertDate": "2025-02-03T20:33:13Z",
+  "LastUpdateDate": "2025-02-03T20:33:13Z",
+  "Level": "medium",
+  "Name": "Copy From Or To Admin Share Or Sysvol Folder",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*\\\\\\\\\\\\\\\\*$*\" OR command=\"*\\\\Sysvol\\\\*\") (((process_path=\"*\\\\robocopy.exe\" OR process_path=\"*\\\\xcopy.exe\") (original_file_name=\"robocopy.exe\" OR original_file_name=\"XCOPY.EXE\")) OR ((process_path=\"*\\\\cmd.exe\" original_file_name=\"Cmd.Exe\") command=\"*copy*\") OR (((process_path=\"*\\\\powershell.exe*\" OR process_path=\"*\\\\pwsh.exe*\") (original_file_name=\"PowerShell.EXE\" OR original_file_name=\"pwsh.dll\")) (command=\"*copy-item*\" OR command=\"*copy *\" OR command=\"*cpi *\" OR command=\"* cp *\" OR command=\"*move *\" OR command=\"*move-item*\" OR command=\"* mi *\" OR command=\"* mv *\")))",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.collection",
+    "attack.exfiltration",
+    "attack.t1039",
+    "attack.t1048",
+    "attack.t1021.002"
+  ],
+  "Version": "0.1"
+}

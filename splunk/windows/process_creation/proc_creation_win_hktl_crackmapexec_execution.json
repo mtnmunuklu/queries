@@ -1,0 +1,23 @@
+{
+  "Description": "This rule detect common flag combinations used by CrackMapExec in order to detect its use even if the binary has been replaced.\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "42a993dd-bb3e-48c8-b372-4d6684c4106c",
+  "InsertDate": "2025-02-03T20:32:43Z",
+  "LastUpdateDate": "2025-02-03T20:32:43Z",
+  "Level": "high",
+  "Name": "HackTool - CrackMapExec Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\crackmapexec.exe\" OR command=\"* -M pe_inject *\" OR (command=\"* --local-auth*\" command=\"* -u *\" command=\"* -x *\") OR (command=\"* mssql *\" command=\"* -u *\" command=\"* -p *\" command=\"* -M *\" command=\"* -d *\") OR (command=\"* smb *\" command=\"* -u *\" command=\"* -H *\" command=\"* -M *\" command=\"* -o *\") OR (command=\"* --local-auth*\" command=\"* -u *\" command=\"* -p *\" command=\"* -H 'NTHASH'*\") OR (command=\"* smb *\" command=\"* -u *\" command=\"* -p *\" command=\"* --local-auth*\")) OR ((command=\"* --local-auth*\" command=\"* -u *\" command=\"* -p *\") (command=\"* 10.*\" command=\"* 192.168.*\" command=\"*/24 *\"))",
+  "Tags": [
+    "attack.execution",
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.credential-access",
+    "attack.discovery",
+    "attack.t1047",
+    "attack.t1053",
+    "attack.t1059.003",
+    "attack.t1059.001",
+    "attack.t1110",
+    "attack.t1201"
+  ],
+  "Version": "0.1"
+}

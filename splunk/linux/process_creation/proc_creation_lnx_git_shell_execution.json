@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of the \"git\" utility to execute a shell. Such behavior may be associated with privilege escalation, unauthorized command execution, or to break out from restricted environments.\n\n\nAuthor: Li Ling, Andy Parkidomo, Robert Rakowski, Blake Hartstein (Bloomberg L.P.)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "47b3bbd4-1bf7-48cc-84ab-995362aaa75a",
+  "InsertDate": "2025-02-03T20:31:59Z",
+  "LastUpdateDate": "2025-02-03T20:31:59Z",
+  "Level": "high",
+  "Name": "Shell Execution via Git - Linux",
+  "Query": "sourcetype=\"linux-*\" parent_process_path=\"*/git\" (parent_command_line=\"* -p *\" parent_command_line=\"*help*\") (command=\"*bash 0\u003c\u00261*\" OR command=\"*dash 0\u003c\u00261*\" OR command=\"*sh 0\u003c\u00261*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

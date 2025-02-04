@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may use hidden windows to conceal malicious activity from the plain sight of users.\nIn some cases, windows that would typically be displayed when an application carries out an operation can be hidden\n\n\nAuthor: frack113, Tim Shelton (fp AWS)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "313fbb0a-a341-4682-848d-6d6f8c4fab7c",
+  "InsertDate": "2025-02-03T20:32:34Z",
+  "LastUpdateDate": "2025-02-03T20:32:34Z",
+  "Level": "medium",
+  "Name": "Suspicious PowerShell WindowStyle Option",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*powershell*\" scriptblocktext=\"*WindowStyle*\" scriptblocktext=\"*Hidden*\") NOT (scriptblocktext=\"*:\\\\Program Files\\\\Amazon\\\\WorkSpacesConfig\\\\Scripts\\\\*\" scriptblocktext=\"*$PSScriptRoot\\\\Module\\\\WorkspaceScriptModule\\\\WorkspaceScriptModule*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1564.003"
+  ],
+  "Version": "0.1"
+}

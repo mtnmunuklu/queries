@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential abuse of Active Directory Replication Service (ADRS) from a non machine account to request credentials.\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "17d619c1-e020-4347-957e-1d1207455c93",
+  "InsertDate": "2025-02-03T20:32:08Z",
+  "LastUpdateDate": "2025-02-03T20:32:08Z",
+  "Level": "critical",
+  "Name": "Active Directory Replication from Non Machine Account",
+  "Query": "sourcetype=\"windows-security\" (eventid=\"4662\" accessmask=\"0x100\" (properties=\"*1131f6aa-9c07-11d1-f79f-00c04fc2dcd2*\" OR properties=\"*1131f6ad-9c07-11d1-f79f-00c04fc2dcd2*\" OR properties=\"*89e95b76-444d-4c62-991a-0facbeda640c*\")) NOT (subjectusername=\"*$\" subjectusername=\"MSOL_*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.006"
+  ],
+  "Version": "0.1"
+}

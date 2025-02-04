@@ -1,0 +1,14 @@
+{
+  "Description": "Detects scheduled task creations or modification to be run with high privileges on a suspicious schedule type\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7a02e22e-b885-4404-b38b-1ddc7e65258a",
+  "InsertDate": "2025-02-03T20:33:11Z",
+  "LastUpdateDate": "2025-02-03T20:33:11Z",
+  "Level": "medium",
+  "Name": "Suspicious Schtasks Schedule Type With High Privileges",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\schtasks.exe\" original_file_name=\"schtasks.exe\") (command=\"* ONLOGON *\" OR command=\"* ONSTART *\" OR command=\"* ONCE *\" OR command=\"* ONIDLE *\") (command=\"*NT AUT*\" OR command=\"* SYSTEM*\" OR command=\"*HIGHEST*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1053.005"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of \"git\" in order to clone a remote repository that contain suspicious keywords which might be suspicious\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "aef9d1f1-7396-4e92-a927-4567c7a495c1",
+  "InsertDate": "2025-02-03T20:32:42Z",
+  "LastUpdateDate": "2025-02-03T20:32:42Z",
+  "Level": "medium",
+  "Name": "Suspicious Git Clone",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\git.exe\" OR process_path=\"*\\\\git-remote-https.exe\") original_file_name=\"git.exe\") (command=\"* clone *\" OR command=\"*git-remote-https *\") (command=\"*exploit*\" OR command=\"*Vulns*\" OR command=\"*vulnerability*\" OR command=\"*RemoteCodeExecution*\" OR command=\"*Invoke-*\" OR command=\"*CVE-*\" OR command=\"*poc-*\" OR command=\"*ProofOfConcept*\" OR command=\"*proxyshell*\" OR command=\"*log4shell*\" OR command=\"*eternalblue*\" OR command=\"*eternal-blue*\" OR command=\"*MS17-*\")",
+  "Tags": [
+    "attack.reconnaissance",
+    "attack.t1593.003"
+  ],
+  "Version": "0.1"
+}

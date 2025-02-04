@@ -1,0 +1,15 @@
+{
+  "Description": "Detect modification of the startup key to a path where a payload could be stored to be launched during startup\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9c226817-8dc9-46c2-a58d-66655aafd7dc",
+  "InsertDate": "2025-02-03T20:33:43Z",
+  "LastUpdateDate": "2025-02-03T20:33:43Z",
+  "Level": "high",
+  "Name": "Modify User Shell Folders Startup Value",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Explorer\\\\User Shell Folders*\" target_object=\"*Startup\"",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1547.001"
+  ],
+  "Version": "0.1"
+}

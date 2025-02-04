@@ -1,0 +1,14 @@
+{
+  "Description": "Detects usage of \"xterm\" as a potential reverse shell tunnel\n\nAuthor: @d4ns4n_\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4e25af4b-246d-44ea-8563-e42aacab006b",
+  "InsertDate": "2025-02-03T20:32:01Z",
+  "LastUpdateDate": "2025-02-03T20:32:01Z",
+  "Level": "medium",
+  "Name": "Potential Xterm Reverse Shell",
+  "Query": "sourcetype=\"linux-*\" process_path=\"*xterm*\" command=\"*-display*\" command=\"*:1\"",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a powershell download cradle using nslookup. This cradle uses nslookup to extract payloads from DNS records.\n\nAuthor: Sai Prashanth Pulisetti @pulisettis, Aishwarya Singam\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "999bff6d-dc15-44c9-9f5c-e1051bfc86e1",
+  "InsertDate": "2025-02-03T20:32:26Z",
+  "LastUpdateDate": "2025-02-03T20:32:26Z",
+  "Level": "medium",
+  "Name": "Nslookup PowerShell Download Cradle",
+  "Query": "sourcetype=\"windows-*\" (data=\"*powershell*\" data=\"*nslookup*\" data=\"*[1]*\") (data=\"*-q=txt http*\" OR data=\"*-querytype=txt http*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

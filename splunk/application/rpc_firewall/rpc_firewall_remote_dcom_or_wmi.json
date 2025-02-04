@@ -1,0 +1,15 @@
+{
+  "Description": "Detects remote RPC calls that performs remote DCOM operations. These could be abused for lateral movement via DCOM or WMI.\n\nAuthor: Sagie Dulce, Dekel Paz\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "68050b10-e477-4377-a99b-3721b422d6ef",
+  "InsertDate": "2025-02-03T20:31:49Z",
+  "LastUpdateDate": "2025-02-03T20:31:49Z",
+  "Level": "high",
+  "Name": "Remote DCOM/WMI Lateral Movement",
+  "Query": "sourcetype=\"rpc_firewall-*\" eventlog=\"RPCFW\" eventid=\"3\" (interfaceuuid=\"4d9f4ab8-7d1c-11cf-861e-0020af6e7c57\" OR interfaceuuid=\"99fcfec4-5260-101b-bbcb-00aa0021347a\" OR interfaceuuid=\"000001a0-0000-0000-c000-000000000046\" OR interfaceuuid=\"00000131-0000-0000-c000-000000000046\" OR interfaceuuid=\"00000143-0000-0000-c000-000000000046\" OR interfaceuuid=\"00000000-0000-0000-c000-000000000046\")",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.t1021.003",
+    "attack.t1047"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when a user disables the Windows Firewall via a Profile to help evade defense.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "488b44e7-3781-4a71-888d-c95abfacf44d",
+  "InsertDate": "2025-02-03T20:32:35Z",
+  "LastUpdateDate": "2025-02-03T20:32:35Z",
+  "Level": "medium",
+  "Name": "Windows Firewall Profile Disabled",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*Set-NetFirewallProfile *\" scriptblocktext=\"* -Enabled *\" scriptblocktext=\"* False*\") (scriptblocktext=\"* -All *\" OR scriptblocktext=\"*Public*\" OR scriptblocktext=\"*Domain*\" OR scriptblocktext=\"*Private*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.004"
+  ],
+  "Version": "0.1"
+}

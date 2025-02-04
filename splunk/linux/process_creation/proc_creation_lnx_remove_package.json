@@ -1,0 +1,14 @@
+{
+  "Description": "Detects linux package removal using builtin tools such as \"yum\", \"apt\", \"apt-get\" or \"dpkg\".\n\nAuthor: Tuan Le (NCSGroup), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "95d61234-7f56-465c-6f2d-b562c6fedbc4",
+  "InsertDate": "2025-02-03T20:32:00Z",
+  "LastUpdateDate": "2025-02-03T20:32:00Z",
+  "Level": "low",
+  "Name": "Linux Package Uninstall",
+  "Query": "sourcetype=\"linux-*\" (process_path=\"*/yum\" (command=\"*erase*\" OR command=\"*remove*\")) OR ((process_path=\"*/apt\" OR process_path=\"*/apt-get\") (command=\"*remove*\" OR command=\"*purge*\")) OR (process_path=\"*/dpkg\" (command=\"*--remove *\" OR command=\"* -r *\")) OR (process_path=\"*/rpm\" command=\"* -e *\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1070"
+  ],
+  "Version": "0.1"
+}

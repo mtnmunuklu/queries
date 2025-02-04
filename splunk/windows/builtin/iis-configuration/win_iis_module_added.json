@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the addition of a new module to an IIS server.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "dd857d3e-0c6e-457b-9b48-e82ae7f86bd7",
+  "InsertDate": "2025-02-03T20:32:07Z",
+  "LastUpdateDate": "2025-02-03T20:32:07Z",
+  "Level": "medium",
+  "Name": "New Module Module Added To IIS Server",
+  "Query": "sourcetype=\"windows-iis-configuration\" (eventid=\"29\" configuration=\"*/system.webServer/modules/add*\") NOT ((newvalue=\"AnonymousAuthenticationModule\" OR newvalue=\"CustomErrorModule\" OR newvalue=\"DefaultDocumentModule\" OR newvalue=\"DirectoryListingModule\" OR newvalue=\"FileCacheModule\" OR newvalue=\"HttpCacheModule\" OR newvalue=\"HttpLoggingModule\" OR newvalue=\"ProtocolSupportModule\" OR newvalue=\"RequestFilteringModule\" OR newvalue=\"StaticCompressionModule\" OR newvalue=\"StaticFileModule\" OR newvalue=\"TokenCacheModule\" OR newvalue=\"UriCacheModule\") OR newvalue=\"\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.t1562.002",
+    "attack.t1505.004"
+  ],
+  "Version": "0.1"
+}

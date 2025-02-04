@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential suspicious winget package installation from a suspicious source.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a3f5c081-e75b-43a0-9f5b-51f26fe5dba2",
+  "InsertDate": "2025-02-03T20:32:15Z",
+  "LastUpdateDate": "2025-02-03T20:32:15Z",
+  "Level": "high",
+  "Name": "Potential Suspicious Winget Package Installation",
+  "Query": "sourcetype=\"windows-*\" contents=\"[ZoneTransfer]  ZoneId=3*\" (contents=\"*://1*\" OR contents=\"*://2*\" OR contents=\"*://3*\" OR contents=\"*://4*\" OR contents=\"*://5*\" OR contents=\"*://6*\" OR contents=\"*://7*\" OR contents=\"*://8*\" OR contents=\"*://9*\") filepath=\"*:Zone.Identifier\" filepath=\"*\\\\AppData\\\\Local\\\\Temp\\\\WinGet\\\\*\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

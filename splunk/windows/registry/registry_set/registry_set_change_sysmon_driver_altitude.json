@@ -1,0 +1,14 @@
+{
+  "Description": "Detects changes in Sysmon driver altitude value.\nIf the Sysmon driver is configured to load at an altitude of another registered service, it will fail to load at boot.\n\n\nAuthor: B.Talebi\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4916a35e-bfc4-47d0-8e25-a003d7067061",
+  "InsertDate": "2025-02-03T20:33:32Z",
+  "LastUpdateDate": "2025-02-03T20:33:32Z",
+  "Level": "high",
+  "Name": "Sysmon Driver Altitude Change",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\Services\\\\*\" target_object=\"*\\\\Instances\\\\Sysmon Instance\\\\Altitude\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

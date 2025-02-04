@@ -1,0 +1,13 @@
+{
+  "Description": "Detects usage of the \"Write-EventLog\" cmdlet with 'RawData' flag. The cmdlet can be levreage to write malicious payloads to the EventLog and then retrieve them later for later use\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "35f41cd7-c98e-469f-8a02-ec4ba0cc7a7e",
+  "InsertDate": "2025-02-03T20:32:34Z",
+  "LastUpdateDate": "2025-02-03T20:32:34Z",
+  "Level": "medium",
+  "Name": "PowerShell Write-EventLog Usage",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*Write-EventLog*\" scriptblocktext=\"*-RawData *\")",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

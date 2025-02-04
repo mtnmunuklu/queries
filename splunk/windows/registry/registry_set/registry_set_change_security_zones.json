@@ -1,0 +1,14 @@
+{
+  "Description": "Hides the file extension through modification of the registry\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "45e112d0-7759-4c2a-aa36-9f8fb79d3393",
+  "InsertDate": "2025-02-03T20:33:32Z",
+  "LastUpdateDate": "2025-02-03T20:33:32Z",
+  "Level": "medium",
+  "Name": "IE Change Domain Zone",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Internet Settings\\\\ZoneMap\\\\Domains\\\\*\" NOT (details=\"DWORD (0x00000000)\" OR details=\"DWORD (0x00000001)\" OR details=\"(Empty)\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1137"
+  ],
+  "Version": "0.1"
+}

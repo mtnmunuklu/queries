@@ -1,0 +1,14 @@
+{
+  "Description": "Detects tampering with the \"ChannelAccess\" registry key in order to change access to Windows event channel.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7d9263bd-dc47-4a58-bc92-5474abab390c",
+  "InsertDate": "2025-02-03T20:33:32Z",
+  "LastUpdateDate": "2025-02-03T20:33:32Z",
+  "Level": "high",
+  "Name": "Change Winevt Channel Access Permission Via Registry",
+  "Query": "sourcetype=\"windows-*\" (target_object=\"*\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\WINEVT\\\\Channels\\\\*\" target_object=\"*\\\\ChannelAccess\" (details=\"*(A;;0x1;;;LA)*\" OR details=\"*(A;;0x1;;;SY)*\" OR details=\"*(A;;0x5;;;BA)*\")) NOT ((process_path=\"C:\\\\Windows\\\\WinSxS\\\\*\" process_path=\"*\\\\TiWorker.exe\") OR process_path=\"C:\\\\Windows\\\\servicing\\\\TrustedInstaller.exe\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.002"
+  ],
+  "Version": "0.1"
+}

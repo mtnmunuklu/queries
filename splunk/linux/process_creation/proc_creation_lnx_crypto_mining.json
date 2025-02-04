@@ -1,0 +1,14 @@
+{
+  "Description": "Detects command line parameters or strings often used by crypto miners\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9069ea3c-b213-4c52-be13-86506a227ab1",
+  "InsertDate": "2025-02-03T20:31:58Z",
+  "LastUpdateDate": "2025-02-03T20:31:58Z",
+  "Level": "high",
+  "Name": "Linux Crypto Mining Indicators",
+  "Query": "sourcetype=\"linux-*\" (command=\"* --cpu-priority=*\" OR command=\"*--donate-level=0*\" OR command=\"* -o pool.*\" OR command=\"* --nicehash*\" OR command=\"* --algo=rx/0 *\" OR command=\"*stratum+tcp://*\" OR command=\"*stratum+udp://*\" OR command=\"*sh -c /sbin/modprobe msr allow_writes=on*\" OR command=\"*LS1kb25hdGUtbGV2ZWw9*\" OR command=\"*0tZG9uYXRlLWxldmVsP*\" OR command=\"*tLWRvbmF0ZS1sZXZlbD*\" OR command=\"*c3RyYXR1bSt0Y3A6Ly*\" OR command=\"*N0cmF0dW0rdGNwOi8v*\" OR command=\"*zdHJhdHVtK3RjcDovL*\" OR command=\"*c3RyYXR1bSt1ZHA6Ly*\" OR command=\"*N0cmF0dW0rdWRwOi8v*\" OR command=\"*zdHJhdHVtK3VkcDovL*\")",
+  "Tags": [
+    "attack.impact",
+    "attack.t1496"
+  ],
+  "Version": "0.1"
+}

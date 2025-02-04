@@ -1,0 +1,14 @@
+{
+  "Description": "Detects plugged/unplugged USB devices\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1a4bd6e3-4c6e-405d-a9a3-53a116e341d4",
+  "InsertDate": "2025-02-03T20:32:07Z",
+  "LastUpdateDate": "2025-02-03T20:32:07Z",
+  "Level": "low",
+  "Name": "USB Device Plugged",
+  "Query": "sourcetype=\"windows-driver-framework\" (eventid=\"2003\" OR eventid=\"2100\" OR eventid=\"2102\")",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1200"
+  ],
+  "Version": "0.1"
+}

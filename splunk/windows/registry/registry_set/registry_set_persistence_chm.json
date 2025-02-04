@@ -1,0 +1,13 @@
+{
+  "Description": "Detects when an attacker modifies the registry key \"HtmlHelp Author\" to achieve persistence\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "976dd1f2-a484-45ec-aa1d-0e87e882262b",
+  "InsertDate": "2025-02-03T20:33:40Z",
+  "LastUpdateDate": "2025-02-03T20:33:40Z",
+  "Level": "high",
+  "Name": "Potential Persistence Via CHM Helper DLL",
+  "Query": "sourcetype=\"windows-*\" (target_object=\"*\\\\Software\\\\Microsoft\\\\HtmlHelp Author\\\\Location*\" OR target_object=\"*\\\\Software\\\\WOW6432Node\\\\Microsoft\\\\HtmlHelp Author\\\\Location*\")",
+  "Tags": [
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

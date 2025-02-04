@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when a Microsoft Cloud App Security reported when a user signs into your sanctioned apps from a risky IP address.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c191e2fa-f9d6-4ccf-82af-4f2aba08359f",
+  "InsertDate": "2025-02-03T20:31:55Z",
+  "LastUpdateDate": "2025-02-03T20:31:55Z",
+  "Level": "medium",
+  "Name": "Logon from a Risky IP Address",
+  "Query": "sourcetype=\"m365-threat_management\" eventsource=\"SecurityComplianceCenter\" eventname=\"Log on from a risky IP address\" status=\"success\"",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1078"
+  ],
+  "Version": "0.1"
+}

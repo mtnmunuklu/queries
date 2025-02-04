@@ -1,0 +1,15 @@
+{
+  "Description": "Detects execution of the binary \"wpbbin\" which is used as part of the UEFI based persistence method described in the reference section\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4abc0ec4-db5a-412f-9632-26659cddf145",
+  "InsertDate": "2025-02-03T20:33:27Z",
+  "LastUpdateDate": "2025-02-03T20:33:27Z",
+  "Level": "high",
+  "Name": "UEFI Persistence Via Wpbbin - ProcessCreation",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"C:\\\\Windows\\\\System32\\\\wpbbin.exe\"",
+  "Tags": [
+    "attack.persistence",
+    "attack.defense-evasion",
+    "attack.t1542.001"
+  ],
+  "Version": "0.1"
+}

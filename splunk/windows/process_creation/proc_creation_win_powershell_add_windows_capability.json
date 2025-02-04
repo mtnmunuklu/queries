@@ -1,0 +1,13 @@
+{
+  "Description": "Detects usage of the \"Add-WindowsCapability\" cmdlet to add Windows capabilities. Notable capabilities could be \"OpenSSH\" and others.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b36d01a3-ddaf-4804-be18-18a6247adfcd",
+  "InsertDate": "2025-02-03T20:32:54Z",
+  "LastUpdateDate": "2025-02-03T20:32:54Z",
+  "Level": "medium",
+  "Name": "Add Windows Capability Via PowerShell Cmdlet",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\") (original_file_name=\"PowerShell.EXE\" OR original_file_name=\"pwsh.dll\")) command=\"*Add-WindowsCapability*\" command=\"*OpenSSH.*\"",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

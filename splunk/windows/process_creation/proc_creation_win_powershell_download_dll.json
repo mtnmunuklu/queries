@@ -1,0 +1,16 @@
+{
+  "Description": "Detects potential DLL files being downloaded using the PowerShell Invoke-WebRequest cmdlet\n\nAuthor: Florian Roth (Nextron Systems), Hieu Tran\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0f0450f3-8b47-441e-a31b-15a91dc243e2",
+  "InsertDate": "2025-02-03T20:32:56Z",
+  "LastUpdateDate": "2025-02-03T20:32:56Z",
+  "Level": "medium",
+  "Name": "Potential DLL File Download Via PowerShell Invoke-WebRequest",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*Invoke-WebRequest *\" OR command=\"*IWR *\") (command=\"*http*\" command=\"*OutFile*\" command=\"*.dll*\")",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.execution",
+    "attack.t1059.001",
+    "attack.t1105"
+  ],
+  "Version": "0.1"
+}

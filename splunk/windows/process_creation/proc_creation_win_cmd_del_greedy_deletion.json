@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of the \"del\" builtin command to remove files using greedy/wildcard expression. This is often used by malware to delete content of folders that perhaps contains the initial malware infection or to delete evidence.\n\nAuthor: frack113 , X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "204b17ae-4007-471b-917b-b917b315c5db",
+  "InsertDate": "2025-02-03T20:32:39Z",
+  "LastUpdateDate": "2025-02-03T20:32:39Z",
+  "Level": "medium",
+  "Name": "Greedy File Deletion Using Del",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\cmd.exe\" original_file_name=\"Cmd.Exe\") (command=\"*del *\" OR command=\"*erase *\") (command=\"*\\\\\\\\\\\\*.au3*\" OR command=\"*\\\\\\\\\\\\*.dll*\" OR command=\"*\\\\\\\\\\\\*.exe*\" OR command=\"*\\\\\\\\\\\\*.js*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1070.004"
+  ],
+  "Version": "0.1"
+}

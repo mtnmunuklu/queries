@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of the \"ssh\" utility to execute a shell. Such behavior may be associated with privilege escalation, unauthorized command execution, or to break out from restricted environments.\n\n\nAuthor: Li Ling, Andy Parkidomo, Robert Rakowski, Blake Hartstein (Bloomberg L.P.)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8737b7f6-8df3-4bb7-b1da-06019b99b687",
+  "InsertDate": "2025-02-03T20:32:00Z",
+  "LastUpdateDate": "2025-02-03T20:32:00Z",
+  "Level": "high",
+  "Name": "Shell Invocation Via Ssh - Linux",
+  "Query": "sourcetype=\"linux-*\" (process_path=\"*/ssh\" (command=\"*ProxyCommand=;*\" OR command=\"*permitlocalcommand=yes*\" OR command=\"*localhost*\")) (command=\"*/bin/bash*\" OR command=\"*/bin/dash*\" OR command=\"*/bin/fish*\" OR command=\"*/bin/sh*\" OR command=\"*/bin/zsh*\" OR command=\"*sh 0\u003c\u00262 1\u003e\u00262*\" OR command=\"*sh 1\u003e\u00262 0\u003c\u00262*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

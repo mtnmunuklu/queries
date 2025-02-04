@@ -1,0 +1,13 @@
+{
+  "Description": "Detects execution of the Notepad++ updater (gup) to launch other commands or executables\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d65aee4d-2292-4cea-b832-83accd6cfa43",
+  "InsertDate": "2025-02-03T20:32:43Z",
+  "LastUpdateDate": "2025-02-03T20:32:43Z",
+  "Level": "medium",
+  "Name": "Arbitrary Binary Execution Using GUP Utility",
+  "Query": "sourcetype=\"windows-sysmon\" (parent_process_path=\"*\\\\gup.exe\" process_path=\"*\\\\explorer.exe\") NOT ((process_path=\"*\\\\explorer.exe\" command=\"*\\\\Notepad++\\\\notepad++.exe*\") OR parent_process_path=\"*\\\\Notepad++\\\\updater\\\\*\" OR command=\"null\")",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

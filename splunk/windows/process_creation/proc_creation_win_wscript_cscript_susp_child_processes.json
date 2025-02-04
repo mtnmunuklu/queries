@@ -1,0 +1,13 @@
+{
+  "Description": "Detects potentially suspicious child processes of Wscript/Cscript. These include processes such as rundll32 with uncommon exports or PowerShell spawning rundll32 or regsvr32.\nMalware such as Pikabot and Qakbot were seen using similar techniques as well as many others.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Alejandro Houspanossian ('@lekz86')\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b6676963-0353-4f88-90f5-36c20d443c6a",
+  "InsertDate": "2025-02-03T20:33:27Z",
+  "LastUpdateDate": "2025-02-03T20:33:27Z",
+  "Level": "medium",
+  "Name": "Cscript/Wscript Potentially Suspicious Child Process",
+  "Query": "sourcetype=\"windows-sysmon\" (parent_process_path=\"*\\\\wscript.exe\" OR parent_process_path=\"*\\\\cscript.exe\") (process_path=\"*\\\\rundll32.exe\" OR ((process_path=\"*\\\\cmd.exe\" OR process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\") ((command=\"*mshta*\" command=\"*http*\") OR (command=\"*rundll32*\" OR command=\"*regsvr32*\" OR command=\"*msiexec*\")))) NOT (process_path=\"*\\\\rundll32.exe\" (command=\"*UpdatePerUserSystemParameters*\" OR command=\"*PrintUIEntry*\" OR command=\"*ClearMyTracksByProcess*\"))",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

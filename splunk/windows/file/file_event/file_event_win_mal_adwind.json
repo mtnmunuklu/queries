@@ -1,0 +1,15 @@
+{
+  "Description": "Detects javaw.exe in AppData folder as used by Adwind / JRAT\n\nAuthor: Florian Roth (Nextron Systems), Tom Ueltschi, Jonhnathan Ribeiro, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0bcfabcb-7929-47f4-93d6-b33fb67d34d1",
+  "InsertDate": "2025-02-03T20:32:18Z",
+  "LastUpdateDate": "2025-02-03T20:32:18Z",
+  "Level": "high",
+  "Name": "Adwind RAT / JRAT File Artifact",
+  "Query": "sourcetype=\"windows-sysmon\" (filepath=\"*\\\\AppData\\\\Roaming\\\\Oracle\\\\bin\\\\java*\" filepath=\"*.exe*\") (filepath=\"*\\\\Retrive*\" filepath=\"*.vbs*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.005",
+    "attack.t1059.007"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,13 @@
+{
+  "Description": "Detects suspicious command line flags that let the user set a target user and command as e.g. seen in PsExec-like tools\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "50d66fb0-03f8-4da0-8add-84e77d12a020",
+  "InsertDate": "2025-02-03T20:33:16Z",
+  "LastUpdateDate": "2025-02-03T20:33:16Z",
+  "Level": "medium",
+  "Name": "Suspicious RunAs-Like Flag Combination",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"* -u system *\" OR command=\"* --user system *\" OR command=\"* -u NT*\" OR command=\"* -u \"NT*\" OR command=\"* -u 'NT*\" OR command=\"* --system *\" OR command=\"* -u administrator *\") (command=\"* -c cmd*\" OR command=\"* -c \"cmd*\" OR command=\"* -c powershell*\" OR command=\"* -c \"powershell*\" OR command=\"* --command cmd*\" OR command=\"* --command powershell*\" OR command=\"* -c whoami*\" OR command=\"* -c wscript*\" OR command=\"* -c cscript*\")",
+  "Tags": [
+    "attack.privilege-escalation"
+  ],
+  "Version": "0.1"
+}

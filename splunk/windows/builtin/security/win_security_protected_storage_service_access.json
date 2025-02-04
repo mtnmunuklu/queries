@@ -1,0 +1,14 @@
+{
+  "Description": "Detects access to a protected_storage service over the network. Potential abuse of DPAPI to extract domain backup keys from Domain Controllers\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "45545954-4016-43c6-855e-eae8f1c369dc",
+  "InsertDate": "2025-02-03T20:32:10Z",
+  "LastUpdateDate": "2025-02-03T20:32:10Z",
+  "Level": "high",
+  "Name": "Protected Storage Service Access",
+  "Query": "sourcetype=\"windows-security\" eventid=\"5145\" sharename=\"*IPC*\" relativetargetname=\"protected_storage\"",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.t1021.002"
+  ],
+  "Version": "0.1"
+}

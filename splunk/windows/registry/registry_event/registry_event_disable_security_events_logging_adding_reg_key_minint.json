@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the addition of a key 'MiniNt' to the registry. Upon a reboot, Windows Event Log service will stopped write events.\n\nAuthor: Ilyas Ochkov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "919f2ef0-be2d-4a7a-b635-eb2b41fde044",
+  "InsertDate": "2025-02-03T20:33:29Z",
+  "LastUpdateDate": "2025-02-03T20:33:29Z",
+  "Level": "high",
+  "Name": "Disable Security Events Logging Adding Reg Key MiniNt",
+  "Query": "sourcetype=\"windows-sysmon\" target_object=\"HKLM\\\\SYSTEM\\\\CurrentControlSet\\\\Control\\\\MiniNt\" event_type=\"CreateKey\" newname=\"HKLM\\\\SYSTEM\\\\CurrentControlSet\\\\Control\\\\MiniNt\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001",
+    "attack.t1112"
+  ],
+  "Version": "0.1"
+}

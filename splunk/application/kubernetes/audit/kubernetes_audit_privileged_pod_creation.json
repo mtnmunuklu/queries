@@ -1,0 +1,13 @@
+{
+  "Description": "Detects the creation of a \"privileged\" container, an action which could be indicative of a threat actor mounting a container breakout attacks.\nA privileged container is a container that can access the host with all of the root capabilities of the host machine. This allows it to view, interact and modify processes, network operations, IPC calls, the file system, mount points, SELinux configurations etc. as the root user on the host.\nVarious versions of \"privileged\" containers can be specified, e.g. by setting the securityContext.privileged flag in the resource specification, setting non-standard Linux capabilities, or configuring the hostNetwork/hostPID fields\n\n\nAuthor: Leo Tsaousis (@laripping)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c5cd1b20-36bb-488d-8c05-486be3d0cb97",
+  "InsertDate": "2025-02-03T20:31:49Z",
+  "LastUpdateDate": "2025-02-03T20:31:49Z",
+  "Level": "low",
+  "Name": "Privileged Container Deployed",
+  "Query": "sourcetype=\"kubernetes-audit\" verb=\"create\" objectref.resource=\"pods\" capabilities=\"*\"",
+  "Tags": [
+    "attack.t1611"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects known WMI recon method to look for unquoted service paths, often used by pentest inside of powershell scripts attackers enum scripts\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "09658312-bc27-4a3b-91c5-e49ab9046d1b",
+  "InsertDate": "2025-02-03T20:32:35Z",
+  "LastUpdateDate": "2025-02-03T20:32:35Z",
+  "Level": "medium",
+  "Name": "WMIC Unquoted Services Path Lookup - PowerShell",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*Get-WmiObject *\" OR scriptblocktext=\"*gwmi *\") (scriptblocktext=\"* Win32_Service *\" scriptblocktext=\"*Name*\" scriptblocktext=\"*DisplayName*\" scriptblocktext=\"*PathName*\" scriptblocktext=\"*StartMode*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1047"
+  ],
+  "Version": "0.1"
+}

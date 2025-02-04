@@ -1,0 +1,13 @@
+{
+  "Description": "Detects suspicious PowerShell invocation command parameters\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "536e2947-3729-478c-9903-745aaffe60d2",
+  "InsertDate": "2025-02-03T20:32:57Z",
+  "LastUpdateDate": "2025-02-03T20:32:57Z",
+  "Level": "medium",
+  "Name": "Suspicious PowerShell Invocations - Specific - ProcessCreation",
+  "Query": "sourcetype=\"windows-sysmon\" ((command=\"*-nop*\" command=\"* -w *\" command=\"*hidden*\" command=\"* -c *\" command=\"*[Convert]::FromBase64String*\") OR (command=\"* -w *\" command=\"*hidden*\" command=\"*-noni*\" command=\"*-nop*\" command=\"* -c *\" command=\"*iex*\" command=\"*New-Object*\") OR (command=\"* -w *\" command=\"*hidden*\" command=\"*-ep*\" command=\"*bypass*\" command=\"*-Enc*\") OR (command=\"*powershell*\" command=\"*reg*\" command=\"*add*\" command=\"*\\\\software\\\\*\") OR (command=\"*bypass*\" command=\"*-noprofile*\" command=\"*-windowstyle*\" command=\"*hidden*\" command=\"*new-object*\" command=\"*system.net.webclient*\" command=\"*.download*\") OR (command=\"*iex*\" command=\"*New-Object*\" command=\"*Net.WebClient*\" command=\"*.Download*\")) NOT (command=\"*(New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1*\" OR command=\"*Write-ChocolateyWarning*\")",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

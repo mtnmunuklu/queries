@@ -1,0 +1,14 @@
+{
+  "Description": "Detects WmiPrvSE spawning a process\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d21374ff-f574-44a7-9998-4a8c8bf33d7d",
+  "InsertDate": "2025-02-03T20:33:27Z",
+  "LastUpdateDate": "2025-02-03T20:33:27Z",
+  "Level": "medium",
+  "Name": "WmiPrvSE Spawned A Process",
+  "Query": "sourcetype=\"windows-sysmon\" parent_process_path=\"*\\\\WmiPrvSe.exe\" NOT (process_path=\"*\\\\WerFault.exe\" OR logon_id=\"null\" OR (logon_id=\"0x3e7\" OR logon_id=\"null\") OR (username=\"*AUTHORI*\" OR username=\"*AUTORI*\") OR process_path=\"*\\\\WmiPrvSE.exe\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1047"
+  ],
+  "Version": "0.1"
+}

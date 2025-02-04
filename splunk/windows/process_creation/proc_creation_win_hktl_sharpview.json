@@ -1,0 +1,18 @@
+{
+  "Description": "Adversaries may look for details about the network configuration and settings of systems they access or through information discovery of remote systems\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b2317cfa-4a47-4ead-b3ff-297438c0bc2d",
+  "InsertDate": "2025-02-03T20:32:46Z",
+  "LastUpdateDate": "2025-02-03T20:32:46Z",
+  "Level": "high",
+  "Name": "HackTool - SharpView Execution",
+  "Query": "sourcetype=\"windows-sysmon\" original_file_name=\"SharpView.exe\" process_path=\"*\\\\SharpView.exe\" (command=\"*Add-RemoteConnection*\" OR command=\"*Convert-ADName*\" OR command=\"*ConvertFrom-SID*\" OR command=\"*ConvertFrom-UACValue*\" OR command=\"*Convert-SidToName*\" OR command=\"*Export-PowerViewCSV*\" OR command=\"*Find-DomainObjectPropertyOutlier*\" OR command=\"*Find-DomainProcess*\" OR command=\"*Find-DomainShare*\" OR command=\"*Find-DomainUserEvent*\" OR command=\"*Find-DomainUserLocation*\" OR command=\"*Find-ForeignGroup*\" OR command=\"*Find-ForeignUser*\" OR command=\"*Find-GPOComputerAdmin*\" OR command=\"*Find-GPOLocation*\" OR command=\"*Find-Interesting*\" OR command=\"*Find-LocalAdminAccess*\" OR command=\"*Find-ManagedSecurityGroups*\" OR command=\"*Get-CachedRDPConnection*\" OR command=\"*Get-DFSshare*\" OR command=\"*Get-DomainComputer*\" OR command=\"*Get-DomainController*\" OR command=\"*Get-DomainDFSShare*\" OR command=\"*Get-DomainDNSRecord*\" OR command=\"*Get-DomainFileServer*\" OR command=\"*Get-DomainForeign*\" OR command=\"*Get-DomainGPO*\" OR command=\"*Get-DomainGroup*\" OR command=\"*Get-DomainGUIDMap*\" OR command=\"*Get-DomainManagedSecurityGroup*\" OR command=\"*Get-DomainObject*\" OR command=\"*Get-DomainOU*\" OR command=\"*Get-DomainPolicy*\" OR command=\"*Get-DomainSID*\" OR command=\"*Get-DomainSite*\" OR command=\"*Get-DomainSPNTicket*\" OR command=\"*Get-DomainSubnet*\" OR command=\"*Get-DomainTrust*\" OR command=\"*Get-DomainUserEvent*\" OR command=\"*Get-ForestDomain*\" OR command=\"*Get-ForestGlobalCatalog*\" OR command=\"*Get-ForestTrust*\" OR command=\"*Get-GptTmpl*\" OR command=\"*Get-GroupsXML*\" OR command=\"*Get-LastLoggedOn*\" OR command=\"*Get-LoggedOnLocal*\" OR command=\"*Get-NetComputer*\" OR command=\"*Get-NetDomain*\" OR command=\"*Get-NetFileServer*\" OR command=\"*Get-NetForest*\" OR command=\"*Get-NetGPO*\" OR command=\"*Get-NetGroupMember*\" OR command=\"*Get-NetLocalGroup*\" OR command=\"*Get-NetLoggedon*\" OR command=\"*Get-NetOU*\" OR command=\"*Get-NetProcess*\" OR command=\"*Get-NetRDPSession*\" OR command=\"*Get-NetSession*\" OR command=\"*Get-NetShare*\" OR command=\"*Get-NetSite*\" OR command=\"*Get-NetSubnet*\" OR command=\"*Get-NetUser*\" OR command=\"*Get-PathAcl*\" OR command=\"*Get-PrincipalContext*\" OR command=\"*Get-RegistryMountedDrive*\" OR command=\"*Get-RegLoggedOn*\" OR command=\"*Get-WMIRegCachedRDPConnection*\" OR command=\"*Get-WMIRegLastLoggedOn*\" OR command=\"*Get-WMIRegMountedDrive*\" OR command=\"*Get-WMIRegProxy*\" OR command=\"*Invoke-ACLScanner*\" OR command=\"*Invoke-CheckLocalAdminAccess*\" OR command=\"*Invoke-Kerberoast*\" OR command=\"*Invoke-MapDomainTrust*\" OR command=\"*Invoke-RevertToSelf*\" OR command=\"*Invoke-Sharefinder*\" OR command=\"*Invoke-UserImpersonation*\" OR command=\"*Remove-DomainObjectAcl*\" OR command=\"*Remove-RemoteConnection*\" OR command=\"*Request-SPNTicket*\" OR command=\"*Set-DomainObject*\" OR command=\"*Test-AdminAccess*\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1049",
+    "attack.t1069.002",
+    "attack.t1482",
+    "attack.t1135",
+    "attack.t1033"
+  ],
+  "Version": "0.1"
+}

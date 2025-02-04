@@ -1,0 +1,16 @@
+{
+  "Description": "Detects instances where an SNMP service on an OpenCanary node has had an OID request.\n\nAuthor: Security Onion Solutions\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e9856028-fd4e-46e6-b3d1-10f7ceb95078",
+  "InsertDate": "2025-02-03T20:31:49Z",
+  "LastUpdateDate": "2025-02-03T20:31:49Z",
+  "Level": "high",
+  "Name": "OpenCanary - SNMP OID Request",
+  "Query": "sourcetype=\"opencanary-*\" logtype=\"13001\"",
+  "Tags": [
+    "attack.discovery",
+    "attack.lateral-movement",
+    "attack.t1016",
+    "attack.t1021"
+  ],
+  "Version": "0.1"
+}

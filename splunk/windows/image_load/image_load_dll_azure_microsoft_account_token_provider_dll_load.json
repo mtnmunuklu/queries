@@ -1,0 +1,15 @@
+{
+  "Description": "Detects abusing Azure Browser SSO by requesting OAuth 2.0 refresh tokens for an Azure-AD-authenticated Windows user (i.e. the machine is joined to Azure AD and a user logs in with their Azure AD account) wanting to perform SSO authentication in the browser.\nAn attacker can use this to authenticate to Azure AD in a browser as that user.\n\n\nAuthor: Den Iuzvyk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "50f852e6-af22-4c78-9ede-42ef36aa3453",
+  "InsertDate": "2025-02-03T20:32:21Z",
+  "LastUpdateDate": "2025-02-03T20:32:21Z",
+  "Level": "low",
+  "Name": "Potential Azure Browser SSO Abuse",
+  "Query": "sourcetype=\"windows-sysmon\" image_loaded=\"C:\\\\Windows\\\\System32\\\\MicrosoftAccountTokenProvider.dll\" NOT ((process_path=\"C:\\\\Windows\\\\System32\\\\*\" OR process_path=\"C:\\\\Windows\\\\SysWOW64\\\\*\") process_path=\"*\\\\BackgroundTaskHost.exe\") NOT (((process_path=\"C:\\\\Program Files\\\\Microsoft Visual Studio\\\\*\" OR process_path=\"C:\\\\Program Files (x86)\\\\Microsoft Visual Studio\\\\*\") process_path=\"*\\\\IDE\\\\devenv.exe\") OR (process_path=\"C:\\\\Program Files (x86)\\\\Internet Explorer\\\\iexplore.exe\" OR process_path=\"C:\\\\Program Files\\\\Internet Explorer\\\\iexplore.exe\") OR (process_path=\"C:\\\\Program Files (x86)\\\\Microsoft\\\\EdgeWebView\\\\Application\\\\*\" process_path=\"*\\\\WindowsApps\\\\MicrosoftEdge.exe\" (process_path=\"C:\\\\Program Files (x86)\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe\" OR process_path=\"C:\\\\Program Files\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe\")) OR ((process_path=\"C:\\\\Program Files (x86)\\\\Microsoft\\\\EdgeCore\\\\*\" OR process_path=\"C:\\\\Program Files\\\\Microsoft\\\\EdgeCore\\\\*\") (process_path=\"*\\\\msedge.exe\" OR process_path=\"*\\\\msedgewebview2.exe\")) OR process_path=\"*\\\\AppData\\\\Local\\\\Microsoft\\\\OneDrive\\\\OneDrive.exe\" OR process_path=\"null\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

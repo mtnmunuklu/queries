@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential suspicious run-only executions compiled using OSACompile\n\nAuthor: Sohan G (D4rkCiph3r)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b9d9b652-d8ed-4697-89a2-a1186ee680ac",
+  "InsertDate": "2025-02-03T20:32:02Z",
+  "LastUpdateDate": "2025-02-03T20:32:02Z",
+  "Level": "high",
+  "Name": "OSACompile Run-Only Execution",
+  "Query": "sourcetype=\"macos-*\" (command=\"*osacompile*\" command=\"* -x *\" command=\"* -e *\")",
+  "Tags": [
+    "attack.t1059.002",
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

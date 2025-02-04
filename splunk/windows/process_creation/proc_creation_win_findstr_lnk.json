@@ -1,0 +1,16 @@
+{
+  "Description": "Detects usage of findstr to identify and execute a lnk file as seen within the HHS redirect attack\n\nAuthor: Trent Liffick\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "33339be3-148b-4e16-af56-ad16ec6c7e7b",
+  "InsertDate": "2025-02-03T20:32:42Z",
+  "LastUpdateDate": "2025-02-03T20:32:42Z",
+  "Level": "medium",
+  "Name": "Findstr Launching .lnk File",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*.lnk\" OR command=\"*.lnk\"\" OR command=\"*.lnk'\") ((process_path=\"*\\\\find.exe\" OR process_path=\"*\\\\findstr.exe\") (original_file_name=\"FIND.EXE\" OR original_file_name=\"FINDSTR.EXE\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1036",
+    "attack.t1202",
+    "attack.t1027.003"
+  ],
+  "Version": "0.1"
+}

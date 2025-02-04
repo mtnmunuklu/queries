@@ -1,0 +1,14 @@
+{
+  "Description": "Detects creation of Microsoft Office files inside of one of the default startup folders in order to achieve persistence.\n\nAuthor: Max Altgelt (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0e20c89d-2264-44ae-8238-aeeaba609ece",
+  "InsertDate": "2025-02-03T20:32:19Z",
+  "LastUpdateDate": "2025-02-03T20:32:19Z",
+  "Level": "high",
+  "Name": "Potential Persistence Via Microsoft Office Startup Folder",
+  "Query": "sourcetype=\"windows-sysmon\" (((filepath=\"*\\\\Microsoft\\\\Word\\\\STARTUP*\" (filepath=\"*\\\\Office*\" filepath=\"*\\\\Program Files*\" filepath=\"*\\\\STARTUP*\")) (filepath=\"*.doc\" OR filepath=\"*.docm\" OR filepath=\"*.docx\" OR filepath=\"*.dot\" OR filepath=\"*.dotm\" OR filepath=\"*.rtf\")) OR ((filepath=\"*\\\\Microsoft\\\\Excel\\\\XLSTART*\" (filepath=\"*\\\\Office*\" filepath=\"*\\\\Program Files*\" filepath=\"*\\\\XLSTART*\")) (filepath=\"*.xls\" OR filepath=\"*.xlsm\" OR filepath=\"*.xlsx\" OR filepath=\"*.xlt\" OR filepath=\"*.xltm\"))) NOT (process_path=\"*\\\\WINWORD.exe\" OR process_path=\"*\\\\EXCEL.exe\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1137"
+  ],
+  "Version": "0.1"
+}

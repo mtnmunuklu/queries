@@ -1,0 +1,15 @@
+{
+  "Description": "Detects .NET CLR DLLs being loaded by scripting applications such as wscript or cscript. This could be an indication of potential suspicious execution.\n\nAuthor: omkar72, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4508a70e-97ef-4300-b62b-ff27992990ea",
+  "InsertDate": "2025-02-03T20:32:24Z",
+  "LastUpdateDate": "2025-02-03T20:32:24Z",
+  "Level": "high",
+  "Name": "DotNet CLR DLL Loaded By Scripting Applications",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\cmstp.exe\" OR process_path=\"*\\\\cscript.exe\" OR process_path=\"*\\\\mshta.exe\" OR process_path=\"*\\\\msxsl.exe\" OR process_path=\"*\\\\regsvr32.exe\" OR process_path=\"*\\\\wmic.exe\" OR process_path=\"*\\\\wscript.exe\") (image_loaded=\"*\\\\clr.dll\" OR image_loaded=\"*\\\\mscoree.dll\" OR image_loaded=\"*\\\\mscorlib.dll\")",
+  "Tags": [
+    "attack.execution",
+    "attack.privilege-escalation",
+    "attack.t1055"
+  ],
+  "Version": "0.1"
+}

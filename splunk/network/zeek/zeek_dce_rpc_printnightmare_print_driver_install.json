@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the remote installation of a print driver which is possible indication of the exploitation of PrintNightmare (CVE-2021-1675).\nThe occurrence of print drivers being installed remotely via RPC functions should be rare, as print drivers are normally installed locally and or through group policy.\n\n\nAuthor: @neu5ron (Nate Guagenti)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7b33baef-2a75-4ca3-9da4-34f9a15382d8",
+  "InsertDate": "2025-02-03T20:32:04Z",
+  "LastUpdateDate": "2025-02-03T20:32:04Z",
+  "Level": "medium",
+  "Name": "Possible PrintNightmare Print Driver Install",
+  "Query": "sourcetype=\"zeek-dce_rpc\" (operation=\"RpcAsyncInstallPrinterDriverFromPackage\" OR operation=\"RpcAsyncAddPrintProcessor\" OR operation=\"RpcAddPrintProcessor\" OR operation=\"RpcAddPrinterDriverEx\" OR operation=\"RpcAddPrinterDriver\" OR operation=\"RpcAsyncAddPrinterDriver\")",
+  "Tags": [
+    "attack.execution",
+    "cve.2021-1678",
+    "cve.2021-1675",
+    "cve.2021-34527"
+  ],
+  "Version": "0.1"
+}

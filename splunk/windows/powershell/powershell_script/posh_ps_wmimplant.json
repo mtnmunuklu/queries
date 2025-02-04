@@ -1,0 +1,15 @@
+{
+  "Description": "Detects parameters used by WMImplant\n\nAuthor: NVISO\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8028c2c3-e25a-46e3-827f-bbb5abf181d7",
+  "InsertDate": "2025-02-03T20:32:35Z",
+  "LastUpdateDate": "2025-02-03T20:32:35Z",
+  "Level": "high",
+  "Name": "WMImplant Hack Tool",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*WMImplant*\" OR scriptblocktext=\"* change_user *\" OR scriptblocktext=\"* gen_cli *\" OR scriptblocktext=\"* command_exec *\" OR scriptblocktext=\"* disable_wdigest *\" OR scriptblocktext=\"* disable_winrm *\" OR scriptblocktext=\"* enable_wdigest *\" OR scriptblocktext=\"* enable_winrm *\" OR scriptblocktext=\"* registry_mod *\" OR scriptblocktext=\"* remote_posh *\" OR scriptblocktext=\"* sched_job *\" OR scriptblocktext=\"* service_mod *\" OR scriptblocktext=\"* process_kill *\" OR scriptblocktext=\"* active_users *\" OR scriptblocktext=\"* basic_info *\" OR scriptblocktext=\"* power_off *\" OR scriptblocktext=\"* vacant_system *\" OR scriptblocktext=\"* logon_events *\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1047",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

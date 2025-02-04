@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the \"iscsicpl.exe\" UAC bypass technique that leverages a DLL Search Order hijacking technique to load a custom DLL's from temp or a any user controlled location in the users %PATH%\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9ed5959a-c43c-4c59-84e3-d28628429456",
+  "InsertDate": "2025-02-03T20:32:24Z",
+  "LastUpdateDate": "2025-02-03T20:32:24Z",
+  "Level": "high",
+  "Name": "UAC Bypass Using Iscsicpl - ImageLoad",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"C:\\\\Windows\\\\SysWOW64\\\\iscsicpl.exe\" image_loaded=\"*\\\\iscsiexe.dll\") NOT (image_loaded=\"*C:\\\\Windows\\\\*\" image_loaded=\"*iscsiexe.dll*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1548.002"
+  ],
+  "Version": "0.1"
+}

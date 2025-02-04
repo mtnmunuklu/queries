@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious child processes of \"provlaunch.exe\" which might indicate potential abuse to proxy execution.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f9999590-1f94-4a34-a91e-951e47bedefd",
+  "InsertDate": "2025-02-03T20:33:00Z",
+  "LastUpdateDate": "2025-02-03T20:33:00Z",
+  "Level": "high",
+  "Name": "Suspicious Provlaunch.EXE Child Process",
+  "Query": "sourcetype=\"windows-sysmon\" parent_process_path=\"*\\\\provlaunch.exe\" ((process_path=\"*\\\\calc.exe\" OR process_path=\"*\\\\cmd.exe\" OR process_path=\"*\\\\cscript.exe\" OR process_path=\"*\\\\mshta.exe\" OR process_path=\"*\\\\notepad.exe\" OR process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\" OR process_path=\"*\\\\regsvr32.exe\" OR process_path=\"*\\\\rundll32.exe\" OR process_path=\"*\\\\wscript.exe\") (process_path=\"*:\\\\PerfLogs\\\\*\" OR process_path=\"*:\\\\Temp\\\\*\" OR process_path=\"*:\\\\Users\\\\Public\\\\*\" OR process_path=\"*\\\\AppData\\\\Temp\\\\*\" OR process_path=\"*\\\\Windows\\\\System32\\\\Tasks\\\\*\" OR process_path=\"*\\\\Windows\\\\Tasks\\\\*\" OR process_path=\"*\\\\Windows\\\\Temp\\\\*\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

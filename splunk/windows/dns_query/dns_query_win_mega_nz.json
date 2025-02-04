@@ -1,0 +1,14 @@
+{
+  "Description": "Detects DNS queries for subdomains related to MEGA sharing website\n\nAuthor: Aaron Greetham (@beardofbinary) - NCC Group\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "613c03ba-0779-4a53-8a1f-47f914a4ded3",
+  "InsertDate": "2025-02-03T20:32:15Z",
+  "LastUpdateDate": "2025-02-03T20:32:15Z",
+  "Level": "medium",
+  "Name": "DNS Query To MEGA Hosting Website",
+  "Query": "sourcetype=\"windows-sysmon\" query_name=\"*userstorage.mega.co.nz*\"",
+  "Tags": [
+    "attack.exfiltration",
+    "attack.t1567.002"
+  ],
+  "Version": "0.1"
+}

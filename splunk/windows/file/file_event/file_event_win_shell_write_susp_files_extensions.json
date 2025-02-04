@@ -1,0 +1,14 @@
+{
+  "Description": "Detects Windows executables that write files with suspicious extensions\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b8fd0e93-ff58-4cbd-8f48-1c114e342e62",
+  "InsertDate": "2025-02-03T20:32:19Z",
+  "LastUpdateDate": "2025-02-03T20:32:19Z",
+  "Level": "high",
+  "Name": "Windows Binaries Write Suspicious Extensions",
+  "Query": "sourcetype=\"windows-sysmon\" (((process_path=\"*\\\\csrss.exe\" OR process_path=\"*\\\\lsass.exe\" OR process_path=\"*\\\\RuntimeBroker.exe\" OR process_path=\"*\\\\sihost.exe\" OR process_path=\"*\\\\smss.exe\" OR process_path=\"*\\\\wininit.exe\" OR process_path=\"*\\\\winlogon.exe\") (filepath=\"*.bat\" OR filepath=\"*.dll\" OR filepath=\"*.exe\" OR filepath=\"*.hta\" OR filepath=\"*.iso\" OR filepath=\"*.ps1\" OR filepath=\"*.txt\" OR filepath=\"*.vbe\" OR filepath=\"*.vbs\")) OR ((process_path=\"*\\\\dllhost.exe\" OR process_path=\"*\\\\rundll32.exe\" OR process_path=\"*\\\\svchost.exe\") (filepath=\"*.bat\" OR filepath=\"*.hta\" OR filepath=\"*.iso\" OR filepath=\"*.ps1\" OR filepath=\"*.vbe\" OR filepath=\"*.vbs\"))) NOT ((process_path=\"C:\\\\Windows\\\\System32\\\\dllhost.exe\" (filepath=\"*:\\\\Users\\\\*\" filepath=\"*\\\\AppData\\\\Local\\\\Temp\\\\__PSScriptPolicyTest_*\") filepath=\"*.ps1\") OR (process_path=\"C:\\\\Windows\\\\system32\\\\svchost.exe\" (filepath=\"*C:\\\\Windows\\\\System32\\\\GroupPolicy\\\\DataStore\\\\*\" filepath=\"*\\\\sysvol\\\\*\" filepath=\"*\\\\Policies\\\\*\" filepath=\"*\\\\Machine\\\\Scripts\\\\Startup\\\\*\") (filepath=\"*.ps1\" OR filepath=\"*.bat\")))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1036"
+  ],
+  "Version": "0.1"
+}

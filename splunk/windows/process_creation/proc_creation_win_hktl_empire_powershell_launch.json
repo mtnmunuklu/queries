@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious powershell command line parameters used in Empire\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "79f4ede3-402e-41c8-bc3e-ebbf5f162581",
+  "InsertDate": "2025-02-03T20:32:44Z",
+  "LastUpdateDate": "2025-02-03T20:32:44Z",
+  "Level": "high",
+  "Name": "HackTool - Empire PowerShell Launch Parameters",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"* -NoP -sta -NonI -W Hidden -Enc *\" OR command=\"* -noP -sta -w 1 -enc *\" OR command=\"* -NoP -NonI -W Hidden -enc *\" OR command=\"* -noP -sta -w 1 -enc*\" OR command=\"* -enc  SQB*\" OR command=\"* -nop -exec bypass -EncodedCommand *\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

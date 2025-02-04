@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious execution of rundll32, with specific calls to some DLLs with known LOLBIN functionalities\n\nAuthor: juju4, Jonhnathan Ribeiro, oscd.community, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e593cf51-88db-4ee1-b920-37e89012a3c9",
+  "InsertDate": "2025-02-03T20:33:09Z",
+  "LastUpdateDate": "2025-02-03T20:33:09Z",
+  "Level": "medium",
+  "Name": "Potentially Suspicious Rundll32 Activity",
+  "Query": "sourcetype=\"windows-sysmon\" ((command=\"*javascript:*\" command=\"*.RegisterXLL*\") (command=\"*url.dll*\" command=\"*OpenURL*\") (command=\"*url.dll*\" command=\"*OpenURLA*\") (command=\"*url.dll*\" command=\"*FileProtocolHandler*\") (command=\"*zipfldr.dll*\" command=\"*RouteTheCall*\") (command=\"*shell32.dll*\" command=\"*Control_RunDLL*\") (command=\"*shell32.dll*\" command=\"*ShellExec_RunDLL*\") (command=\"*mshtml.dll*\" command=\"*PrintHTML*\") (command=\"*advpack.dll*\" command=\"*LaunchINFSection*\") (command=\"*advpack.dll*\" command=\"*RegisterOCX*\") (command=\"*ieadvpack.dll*\" command=\"*LaunchINFSection*\") (command=\"*ieadvpack.dll*\" command=\"*RegisterOCX*\") (command=\"*ieframe.dll*\" command=\"*OpenURL*\") (command=\"*shdocvw.dll*\" command=\"*OpenURL*\") (command=\"*syssetup.dll*\" command=\"*SetupInfObjectInstallAction*\") (command=\"*setupapi.dll*\" command=\"*InstallHinfSection*\") (command=\"*pcwutl.dll*\" command=\"*LaunchApplication*\") (command=\"*dfshim.dll*\" command=\"*ShOpenVerbApplication*\") (command=\"*dfshim.dll*\" command=\"*ShOpenVerbShortcut*\") (command=\"*scrobj.dll*\" command=\"*GenerateTypeLib*\" command=\"*http*\") (command=\"*shimgvw.dll*\" command=\"*ImageView_Fullscreen*\" command=\"*http*\") (command=\"*comsvcs.dll*\" command=\"*MiniDump*\")) NOT (command=\"*shell32.dll,Control_RunDLL desk.cpl,screensaver,@screensaver*\" OR (parent_process_path=\"C:\\\\Windows\\\\System32\\\\control.exe\" parent_command_line=\"*.cpl*\" (command=\"*Shell32.dll*\" command=\"*Control_RunDLL*\" command=\"*.cpl*\")) OR (parent_process_path=\"C:\\\\Windows\\\\System32\\\\control.exe\" command=\"\"C:\\\\Windows\\\\system32\\\\rundll32.exe\" Shell32.dll,Control_RunDLL \"C:\\\\Windows\\\\System32\\\\*\" command=\"*.cpl\",\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.011"
+  ],
+  "Version": "0.1"
+}

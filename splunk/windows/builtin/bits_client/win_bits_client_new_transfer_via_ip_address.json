@@ -1,0 +1,15 @@
+{
+  "Description": "Detects a BITS transfer job downloading file(s) from a direct IP address.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "90f138c1-f578-4ac3-8c49-eecfd847c8b7",
+  "InsertDate": "2025-02-03T20:32:06Z",
+  "LastUpdateDate": "2025-02-03T20:32:06Z",
+  "Level": "high",
+  "Name": "BITS Transfer Job Download From Direct IP",
+  "Query": "sourcetype=\"windows-bits-client\" (eventid=\"16403\" (remotename=\"*http://1*\" OR remotename=\"*http://2*\" OR remotename=\"*http://3*\" OR remotename=\"*http://4*\" OR remotename=\"*http://5*\" OR remotename=\"*http://6*\" OR remotename=\"*http://7*\" OR remotename=\"*http://8*\" OR remotename=\"*http://9*\" OR remotename=\"*https://1*\" OR remotename=\"*https://2*\" OR remotename=\"*https://3*\" OR remotename=\"*https://4*\" OR remotename=\"*https://5*\" OR remotename=\"*https://6*\" OR remotename=\"*https://7*\" OR remotename=\"*https://8*\" OR remotename=\"*https://9*\")) NOT ((remotename=\"*https://7-*\" OR remotename=\"*http://7-*\") OR (remotename=\"*://10.*\" OR remotename=\"*://192.168.*\" OR remotename=\"*://172.16.*\" OR remotename=\"*://172.17.*\" OR remotename=\"*://172.18.*\" OR remotename=\"*://172.19.*\" OR remotename=\"*://172.20.*\" OR remotename=\"*://172.21.*\" OR remotename=\"*://172.22.*\" OR remotename=\"*://172.23.*\" OR remotename=\"*://172.24.*\" OR remotename=\"*://172.25.*\" OR remotename=\"*://172.26.*\" OR remotename=\"*://172.27.*\" OR remotename=\"*://172.28.*\" OR remotename=\"*://172.29.*\" OR remotename=\"*://172.30.*\" OR remotename=\"*://172.31.*\" OR remotename=\"*://127.*\" OR remotename=\"*://169.254.*\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.t1197"
+  ],
+  "Version": "0.1"
+}

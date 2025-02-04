@@ -1,0 +1,17 @@
+{
+  "Description": "Detects usage of bitsadmin downloading a file from a suspicious domain\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8518ed3d-f7c9-4601-a26c-f361a4256a0c",
+  "InsertDate": "2025-02-03T20:32:37Z",
+  "LastUpdateDate": "2025-02-03T20:32:37Z",
+  "Level": "high",
+  "Name": "Suspicious Download From File-Sharing Website Via Bitsadmin",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\bitsadmin.exe\" original_file_name=\"bitsadmin.exe\") (command=\"* /transfer *\" OR command=\"* /create *\" OR command=\"* /addfile *\") (command=\"*.githubusercontent.com*\" OR command=\"*anonfiles.com*\" OR command=\"*cdn.discordapp.com*\" OR command=\"*ddns.net*\" OR command=\"*dl.dropboxusercontent.com*\" OR command=\"*ghostbin.co*\" OR command=\"*glitch.me*\" OR command=\"*gofile.io*\" OR command=\"*hastebin.com*\" OR command=\"*mediafire.com*\" OR command=\"*mega.nz*\" OR command=\"*onrender.com*\" OR command=\"*pages.dev*\" OR command=\"*paste.ee*\" OR command=\"*pastebin.com*\" OR command=\"*pastebin.pl*\" OR command=\"*pastetext.net*\" OR command=\"*privatlab.com*\" OR command=\"*privatlab.net*\" OR command=\"*send.exploit.in*\" OR command=\"*sendspace.com*\" OR command=\"*storage.googleapis.com*\" OR command=\"*storjshare.io*\" OR command=\"*supabase.co*\" OR command=\"*temp.sh*\" OR command=\"*transfer.sh*\" OR command=\"*trycloudflare.com*\" OR command=\"*ufile.io*\" OR command=\"*w3spaces.com*\" OR command=\"*workers.dev*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.t1197",
+    "attack.s0190",
+    "attack.t1036.003"
+  ],
+  "Version": "0.1"
+}

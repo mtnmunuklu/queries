@@ -1,0 +1,17 @@
+{
+  "Description": "Detects the use of rcedit to potentially alter executable PE metadata properties, which could conceal efforts to rename system utilities for defense evasion.\n\nAuthor: Micah Babinski\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0c92f2e6-f08f-4b73-9216-ecb0ca634689",
+  "InsertDate": "2025-02-03T20:33:01Z",
+  "LastUpdateDate": "2025-02-03T20:33:01Z",
+  "Level": "medium",
+  "Name": "PUA - Potential PE Metadata Tamper Using Rcedit",
+  "Query": "sourcetype=\"windows-sysmon\" command=\"*--set-*\" (command=\"*OriginalFileName*\" OR command=\"*CompanyName*\" OR command=\"*FileDescription*\" OR command=\"*ProductName*\" OR command=\"*ProductVersion*\" OR command=\"*LegalCopyright*\") ((process_path=\"*\\\\rcedit-x64.exe\" OR process_path=\"*\\\\rcedit-x86.exe\") description=\"Edit resources of exe\" product=\"rcedit\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1036.003",
+    "attack.t1036",
+    "attack.t1027.005",
+    "attack.t1027"
+  ],
+  "Version": "0.1"
+}

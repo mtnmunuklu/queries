@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the creation of a remote thread from a Powershell process in an uncommon target process\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "99b97608-3e21-4bfe-8217-2a127c396a0e",
+  "InsertDate": "2025-02-03T20:32:15Z",
+  "LastUpdateDate": "2025-02-03T20:32:15Z",
+  "Level": "medium",
+  "Name": "Remote Thread Creation Via PowerShell In Uncommon Target",
+  "Query": "sourcetype=\"windows-*\" (process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\") (dst_process_path=\"*\\\\rundll32.exe\" OR dst_process_path=\"*\\\\regsvr32.exe\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.t1218.011",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

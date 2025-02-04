@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the installation and configuration of PowerShell Web Access, which could be used for remote access and potential abuse\n\nAuthor: Michael Haag\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5f9c7f1a-7c21-4c39-b2f3-8d8006e0e51f",
+  "InsertDate": "2025-02-03T20:32:31Z",
+  "LastUpdateDate": "2025-02-03T20:32:31Z",
+  "Level": "high",
+  "Name": "PowerShell Web Access Installation - PsScript",
+  "Query": "sourcetype=\"windows-*\" scriptblocktext=\"*Install-WindowsFeature WindowsPowerShellWebAccess*\" OR scriptblocktext=\"*Install-PswaWebApplication*\" OR (scriptblocktext=\"*Add-PswaAuthorizationRule*\" scriptblocktext=\"*-UserName **\" scriptblocktext=\"*-ComputerName **\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

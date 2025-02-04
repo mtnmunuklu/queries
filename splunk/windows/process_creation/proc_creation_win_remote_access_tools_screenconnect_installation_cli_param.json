@@ -1,0 +1,14 @@
+{
+  "Description": "Detects ScreenConnect program starts that establish a remote access to a system.\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "75bfe6e6-cd8e-429e-91d3-03921e1d7962",
+  "InsertDate": "2025-02-03T20:33:06Z",
+  "LastUpdateDate": "2025-02-03T20:33:06Z",
+  "Level": "medium",
+  "Name": "Remote Access Tool - ScreenConnect Installation Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*e=Access\u0026*\" command=\"*y=Guest\u0026*\" command=\"*\u0026p=*\" command=\"*\u0026c=*\" command=\"*\u0026k=*\")",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1133"
+  ],
+  "Version": "0.1"
+}

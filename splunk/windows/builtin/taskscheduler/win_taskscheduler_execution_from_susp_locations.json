@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of Scheduled Tasks where the Program being run is located in a suspicious location or it's an unusale program to be run from a Scheduled Task\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "424273ea-7cf8-43a6-b712-375f925e481f",
+  "InsertDate": "2025-02-03T20:32:14Z",
+  "LastUpdateDate": "2025-02-03T20:32:14Z",
+  "Level": "medium",
+  "Name": "Scheduled Task Executed From A Suspicious Location",
+  "Query": "sourcetype=\"windows-taskscheduler\" eventid=\"129\" (path=\"*C:\\\\Windows\\\\Temp\\\\*\" OR path=\"*\\\\AppData\\\\Local\\\\Temp\\\\*\" OR path=\"*\\\\Desktop\\\\*\" OR path=\"*\\\\Downloads\\\\*\" OR path=\"*\\\\Users\\\\Public\\\\*\" OR path=\"*C:\\\\Temp\\\\*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1053.005"
+  ],
+  "Version": "0.1"
+}

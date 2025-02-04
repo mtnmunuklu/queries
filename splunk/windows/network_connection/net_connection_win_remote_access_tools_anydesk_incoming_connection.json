@@ -1,0 +1,15 @@
+{
+  "Description": "Detects incoming connections to AnyDesk. This could indicate a potential remote attacker trying to connect to a listening instance of AnyDesk and use it as potential command and control channel.\n\n\nAuthor: @d4ns4n_ (Wuerth-Phoenix)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d58ba5c6-0ed7-4b9d-a433-6878379efda9",
+  "InsertDate": "2025-02-03T20:32:25Z",
+  "LastUpdateDate": "2025-02-03T20:32:25Z",
+  "Level": "medium",
+  "Name": "Remote Access Tool - AnyDesk Incoming Connection",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\AnyDesk.exe\" initiated=\"false\"",
+  "Tags": [
+    "attack.persistence",
+    "attack.command-and-control",
+    "attack.t1219"
+  ],
+  "Version": "0.1"
+}

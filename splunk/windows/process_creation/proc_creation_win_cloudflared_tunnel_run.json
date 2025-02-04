@@ -1,0 +1,16 @@
+{
+  "Description": "Detects execution of the \"cloudflared\" tool to connect back to a tunnel. This was seen used by threat actors to maintain persistence and remote access to compromised networks.\n\nAuthor: Janantha Marasinghe, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9a019ffc-3580-4c9d-8d87-079f7e8d3fd4",
+  "InsertDate": "2025-02-03T20:32:38Z",
+  "LastUpdateDate": "2025-02-03T20:32:38Z",
+  "Level": "medium",
+  "Name": "Cloudflared Tunnel Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"* tunnel *\" command=\"* run *\") (command=\"*-config *\" OR command=\"*-credentials-contents *\" OR command=\"*-credentials-file *\" OR command=\"*-token *\")",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1102",
+    "attack.t1090",
+    "attack.t1572"
+  ],
+  "Version": "0.1"
+}

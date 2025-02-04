@@ -1,0 +1,14 @@
+{
+  "Description": "Detects RDP session hijacking by using MSTSC shadowing\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6ba5a05f-b095-4f0a-8654-b825f4f16334",
+  "InsertDate": "2025-02-03T20:32:51Z",
+  "LastUpdateDate": "2025-02-03T20:32:51Z",
+  "Level": "high",
+  "Name": "Potential MSTSC Shadowing Activity",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*noconsentprompt*\" command=\"*shadow:*\")",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.t1563.002"
+  ],
+  "Version": "0.1"
+}

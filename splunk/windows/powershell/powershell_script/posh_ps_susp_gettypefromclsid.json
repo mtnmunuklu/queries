@@ -1,0 +1,15 @@
+{
+  "Description": "Detects suspicious Powershell code that execute COM Objects\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8bc063d5-3a3a-4f01-a140-bc15e55e8437",
+  "InsertDate": "2025-02-03T20:32:33Z",
+  "LastUpdateDate": "2025-02-03T20:32:33Z",
+  "Level": "medium",
+  "Name": "Suspicious GetTypeFromCLSID ShellExecute",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*::GetTypeFromCLSID(*\" scriptblocktext=\"*.ShellExecute(*\")",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.persistence",
+    "attack.t1546.015"
+  ],
+  "Version": "0.1"
+}

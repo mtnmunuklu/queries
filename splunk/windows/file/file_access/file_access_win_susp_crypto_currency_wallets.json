@@ -1,0 +1,14 @@
+{
+  "Description": "Detects file access requests to crypto currency files by uncommon processes.\nCould indicate potential attempt of crypto currency wallet stealing.\n\n\nAuthor: X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f41b0311-44f9-44f0-816d-dd45e39d4bc8",
+  "InsertDate": "2025-02-03T20:32:16Z",
+  "LastUpdateDate": "2025-02-03T20:32:16Z",
+  "Level": "medium",
+  "Name": "Access To Crypto Currency Wallets By Uncommon Applications",
+  "Query": "sourcetype=\"windows-*\" ((filename=\"*\\\\AppData\\\\Roaming\\\\Ethereum\\\\keystore\\\\*\" OR filename=\"*\\\\AppData\\\\Roaming\\\\EthereumClassic\\\\keystore\\\\*\" OR filename=\"*\\\\AppData\\\\Roaming\\\\monero\\\\wallets\\\\*\") (filename=\"*\\\\AppData\\\\Roaming\\\\Bitcoin\\\\wallet.dat\" OR filename=\"*\\\\AppData\\\\Roaming\\\\BitcoinABC\\\\wallet.dat\" OR filename=\"*\\\\AppData\\\\Roaming\\\\BitcoinSV\\\\wallet.dat\" OR filename=\"*\\\\AppData\\\\Roaming\\\\DashCore\\\\wallet.dat\" OR filename=\"*\\\\AppData\\\\Roaming\\\\DogeCoin\\\\wallet.dat\" OR filename=\"*\\\\AppData\\\\Roaming\\\\Litecoin\\\\wallet.dat\" OR filename=\"*\\\\AppData\\\\Roaming\\\\Ripple\\\\wallet.dat\" OR filename=\"*\\\\AppData\\\\Roaming\\\\Zcash\\\\wallet.dat\")) NOT (process_path=\"System\" OR (process_path=\"C:\\\\Program Files (x86)\\\\*\" OR process_path=\"C:\\\\Program Files\\\\*\" OR process_path=\"C:\\\\Windows\\\\system32\\\\*\" OR process_path=\"C:\\\\Windows\\\\SysWOW64\\\\*\")) NOT (process_path=\"C:\\\\ProgramData\\\\Microsoft\\\\Windows Defender\\\\*\" (process_path=\"*\\\\MpCopyAccelerator.exe\" OR process_path=\"*\\\\MsMpEng.exe\"))",
+  "Tags": [
+    "attack.t1003",
+    "attack.credential-access"
+  ],
+  "Version": "0.1"
+}

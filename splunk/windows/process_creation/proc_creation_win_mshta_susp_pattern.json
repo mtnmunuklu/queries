@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious mshta process execution patterns\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e32f92d1-523e-49c3-9374-bdb13b46a3ba",
+  "InsertDate": "2025-02-03T20:32:51Z",
+  "LastUpdateDate": "2025-02-03T20:32:51Z",
+  "Level": "high",
+  "Name": "Suspicious Mshta.EXE Execution Patterns",
+  "Query": "sourcetype=\"windows-sysmon\" (((parent_process_path=\"*\\\\cmd.exe\" OR parent_process_path=\"*\\\\cscript.exe\" OR parent_process_path=\"*\\\\powershell.exe\" OR parent_process_path=\"*\\\\pwsh.exe\" OR parent_process_path=\"*\\\\regsvr32.exe\" OR parent_process_path=\"*\\\\rundll32.exe\" OR parent_process_path=\"*\\\\wscript.exe\") (command=\"*\\\\AppData\\\\Local\\\\*\" OR command=\"*C:\\\\ProgramData\\\\*\" OR command=\"*C:\\\\Users\\\\Public\\\\*\" OR command=\"*C:\\\\Windows\\\\Temp\\\\*\")) (process_path=\"*\\\\mshta.exe\" original_file_name=\"MSHTA.EXE\")) OR ((process_path=\"*\\\\mshta.exe\" original_file_name=\"MSHTA.EXE\") NOT ((process_path=\"C:\\\\Windows\\\\System32\\\\*\" OR process_path=\"C:\\\\Windows\\\\SysWOW64\\\\*\") (command=\"*.htm*\" OR command=\"*.hta*\") (command=\"*mshta.exe\" OR command=\"*mshta\")))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1106"
+  ],
+  "Version": "0.1"
+}

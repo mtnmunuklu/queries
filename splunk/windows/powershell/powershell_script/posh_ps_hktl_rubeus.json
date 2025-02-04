@@ -1,0 +1,17 @@
+{
+  "Description": "Detects the execution of the hacktool Rubeus using specific command line flags\n\nAuthor: Christian Burkard (Nextron Systems), Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3245cd30-e015-40ff-a31d-5cadd5f377ec",
+  "InsertDate": "2025-02-03T20:32:30Z",
+  "LastUpdateDate": "2025-02-03T20:32:30Z",
+  "Level": "high",
+  "Name": "HackTool - Rubeus Execution - ScriptBlock",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*asreproast *\" OR scriptblocktext=\"*dump /service:krbtgt *\" OR scriptblocktext=\"*dump /luid:0x*\" OR scriptblocktext=\"*kerberoast *\" OR scriptblocktext=\"*createnetonly /program:*\" OR scriptblocktext=\"*ptt /ticket:*\" OR scriptblocktext=\"*/impersonateuser:*\" OR scriptblocktext=\"*renew /ticket:*\" OR scriptblocktext=\"*asktgt /user:*\" OR scriptblocktext=\"*harvest /interval:*\" OR scriptblocktext=\"*s4u /user:*\" OR scriptblocktext=\"*s4u /ticket:*\" OR scriptblocktext=\"*hash /password:*\" OR scriptblocktext=\"*golden /aes256:*\" OR scriptblocktext=\"*silver /user:*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003",
+    "attack.t1558.003",
+    "attack.lateral-movement",
+    "attack.t1550.003"
+  ],
+  "Version": "0.1"
+}

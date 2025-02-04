@@ -1,0 +1,18 @@
+{
+  "Description": "Detects AdFind execution with common flags seen used during attacks\n\nAuthor: Janantha Marasinghe (https://github.com/blueteam0ps), FPT.EagleEye Team, omkar72, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9a132afa-654e-11eb-ae93-0242ac130002",
+  "InsertDate": "2025-02-03T20:33:00Z",
+  "LastUpdateDate": "2025-02-03T20:33:00Z",
+  "Level": "high",
+  "Name": "PUA - AdFind Suspicious Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*domainlist*\" OR command=\"*trustdmp*\" OR command=\"*dcmodes*\" OR command=\"*adinfo*\" OR command=\"* dclist *\" OR command=\"*computer_pwdnotreqd*\" OR command=\"*objectcategory=*\" OR command=\"*-subnets -f*\" OR command=\"*name=\"Domain Admins\"*\" OR command=\"*-sc u:*\" OR command=\"*domainncs*\" OR command=\"*dompol*\" OR command=\"* oudmp *\" OR command=\"*subnetdmp*\" OR command=\"*gpodmp*\" OR command=\"*fspdmp*\" OR command=\"*users_noexpire*\" OR command=\"*computers_active*\" OR command=\"*computers_pwdnotreqd*\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1018",
+    "attack.t1087.002",
+    "attack.t1482",
+    "attack.t1069.002",
+    "stp.1u"
+  ],
+  "Version": "0.1"
+}

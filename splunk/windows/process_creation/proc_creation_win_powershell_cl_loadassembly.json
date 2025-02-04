@@ -1,0 +1,14 @@
+{
+  "Description": "Detects calls to \"LoadAssemblyFromPath\" or \"LoadAssemblyFromNS\" that are part of the \"CL_LoadAssembly.ps1\" script. This can be abused to load different assemblies and bypass App locker controls.\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c57872c7-614f-4d7f-a40d-b78c8df2d30d",
+  "InsertDate": "2025-02-03T20:32:55Z",
+  "LastUpdateDate": "2025-02-03T20:32:55Z",
+  "Level": "medium",
+  "Name": "Assembly Loading Via CL_LoadAssembly.ps1",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*LoadAssemblyFromPath *\" OR command=\"*LoadAssemblyFromNS *\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1216"
+  ],
+  "Version": "0.1"
+}

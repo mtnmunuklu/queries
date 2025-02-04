@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the creation of a new user account. Such accounts may be used for persistence that do not require persistent remote access tools to be deployed on the system.\n\nAuthor: Marie Euler, Pawel Mazur\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "759d0d51-bc99-4b5e-9add-8f5b2c8e7512",
+  "InsertDate": "2025-02-03T20:31:56Z",
+  "LastUpdateDate": "2025-02-03T20:31:56Z",
+  "Level": "medium",
+  "Name": "Creation Of An User Account",
+  "Query": "sourcetype=\"linux-auditd\" (type=\"SYSCALL\" exe=\"*/useradd\") OR type=\"ADD_USER\"",
+  "Tags": [
+    "attack.t1136.001",
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

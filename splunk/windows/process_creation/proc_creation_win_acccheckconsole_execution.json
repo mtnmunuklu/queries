@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution \"AccCheckConsole\" a command-line tool for verifying the accessibility implementation of an application's UI.\nOne of the tests that this checker can run are called \"verification routine\", which tests for things like Consistency, Navigation, etc.\nThe tool allows a user to provide a DLL that can contain a custom \"verification routine\". An attacker can build such DLLs and pass it via the CLI, which would then be loaded in the context of the \"AccCheckConsole\" utility.\n\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0f6da907-5854-4be6-859a-e9958747b0aa",
+  "InsertDate": "2025-02-03T20:32:36Z",
+  "LastUpdateDate": "2025-02-03T20:32:36Z",
+  "Level": "medium",
+  "Name": "Potential DLL Injection Via AccCheckConsole",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\AccCheckConsole.exe\" original_file_name=\"AccCheckConsole.exe\") (command=\"* -hwnd*\" OR command=\"* -process *\" OR command=\"* -window *\")",
+  "Tags": [
+    "attack.execution",
+    "detection.threat-hunting"
+  ],
+  "Version": "0.1"
+}

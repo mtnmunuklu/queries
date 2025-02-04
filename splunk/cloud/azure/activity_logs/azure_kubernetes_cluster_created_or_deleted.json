@@ -1,0 +1,13 @@
+{
+  "Description": "Detects when a Azure Kubernetes Cluster is created or deleted.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9541f321-7cba-4b43-80fc-fbd1fb922808",
+  "InsertDate": "2025-02-03T20:31:51Z",
+  "LastUpdateDate": "2025-02-03T20:31:51Z",
+  "Level": "low",
+  "Name": "Azure Kubernetes Cluster Created or Deleted",
+  "Query": "sourcetype=\"azure-activitylogs\" (operationname=\"MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/WRITE\" OR operationname=\"MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/DELETE\")",
+  "Tags": [
+    "attack.impact"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of \"odbcconf\" with the \"REGSVR\" action where the DLL in question doesn't contain a \".dll\" extension. Which is often used as a method to evade defenses.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ba4cfc11-d0fa-4d94-bf20-7c332c412e76",
+  "InsertDate": "2025-02-03T20:32:53Z",
+  "LastUpdateDate": "2025-02-03T20:32:53Z",
+  "Level": "high",
+  "Name": "Potentially Suspicious DLL Registered Via Odbcconf.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\odbcconf.exe\" original_file_name=\"odbcconf.exe\") command=\"*REGSVR *\") NOT command=\"*.dll*\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.008"
+  ],
+  "Version": "0.1"
+}

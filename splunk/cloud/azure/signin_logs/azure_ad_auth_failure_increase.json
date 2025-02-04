@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when sign-ins increased by 10% or greater.\n\nAuthor: Mark Morowczynski '@markmorow', MikeDuddington, '@dudders1'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e1d02b53-c03c-4948-b11d-4d00cca49d03",
+  "InsertDate": "2025-02-03T20:31:53Z",
+  "LastUpdateDate": "2025-02-03T20:31:53Z",
+  "Level": "medium",
+  "Name": "Increased Failed Authentications Of Any Type",
+  "Query": "sourcetype=\"azure-signinlogs\" status=\"failure\" count=\"\u003c10%\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1078"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects non-system users failing to get a handle of the SCM database.\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "13addce7-47b2-4ca0-a98f-1de964d1d669",
+  "InsertDate": "2025-02-03T20:32:11Z",
+  "LastUpdateDate": "2025-02-03T20:32:11Z",
+  "Level": "medium",
+  "Name": "SCM Database Handle Failure",
+  "Query": "sourcetype=\"windows-security\" (eventid=\"4656\" objecttype=\"SC_MANAGER OBJECT\" objectname=\"ServicesActive\" accessmask=\"0xf003f\") NOT subjectlogonid=\"0x3e4\"",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1010"
+  ],
+  "Version": "0.1"
+}

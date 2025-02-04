@@ -1,0 +1,17 @@
+{
+  "Description": "Detects suspicious child processes of a Windows shell and scripting processes such as wscript, rundll32, powershell, mshta...etc.\n\nAuthor: Florian Roth (Nextron Systems), Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3a6586ad-127a-4d3b-a677-1e6eacdf8fde",
+  "InsertDate": "2025-02-03T20:33:18Z",
+  "LastUpdateDate": "2025-02-03T20:33:18Z",
+  "Level": "high",
+  "Name": "Windows Shell/Scripting Processes Spawning Suspicious Programs",
+  "Query": "sourcetype=\"windows-sysmon\" ((parent_process_path=\"*\\\\mshta.exe\" OR parent_process_path=\"*\\\\powershell.exe\" OR parent_process_path=\"*\\\\pwsh.exe\" OR parent_process_path=\"*\\\\rundll32.exe\" OR parent_process_path=\"*\\\\cscript.exe\" OR parent_process_path=\"*\\\\wscript.exe\" OR parent_process_path=\"*\\\\wmiprvse.exe\" OR parent_process_path=\"*\\\\regsvr32.exe\") (process_path=\"*\\\\schtasks.exe\" OR process_path=\"*\\\\nslookup.exe\" OR process_path=\"*\\\\certutil.exe\" OR process_path=\"*\\\\bitsadmin.exe\" OR process_path=\"*\\\\mshta.exe\")) NOT (current_directory=\"*\\\\ccmcache\\\\*\" OR (parent_command_line=\"*\\\\Program Files\\\\Amazon\\\\WorkSpacesConfig\\\\Scripts\\\\setup-scheduledtask.ps1*\" OR parent_command_line=\"*\\\\Program Files\\\\Amazon\\\\WorkSpacesConfig\\\\Scripts\\\\set-selfhealing.ps1*\" OR parent_command_line=\"*\\\\Program Files\\\\Amazon\\\\WorkSpacesConfig\\\\Scripts\\\\check-workspacehealth.ps1*\" OR parent_command_line=\"*\\\\nessus_*\") OR command=\"*\\\\nessus_*\" OR (parent_process_path=\"*\\\\mshta.exe\" process_path=\"*\\\\mshta.exe\" (parent_command_line=\"*C:\\\\MEM_Configmgr_*\" parent_command_line=\"*\\\\splash.hta*\" parent_command_line=\"*{1E460BD7-F1C3-4B2E-88BF-4E770A288AF5}*\") (command=\"*C:\\\\MEM_Configmgr_*\" command=\"*\\\\SMSSETUP\\\\BIN\\\\*\" command=\"*\\\\autorun.hta*\" command=\"*{1E460BD7-F1C3-4B2E-88BF-4E770A288AF5}*\")))",
+  "Tags": [
+    "attack.execution",
+    "attack.defense-evasion",
+    "attack.t1059.005",
+    "attack.t1059.001",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

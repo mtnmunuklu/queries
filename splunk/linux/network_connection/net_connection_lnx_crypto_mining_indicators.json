@@ -1,0 +1,14 @@
+{
+  "Description": "Detects process connections to a Monero crypto mining pool\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a46c93b7-55ed-4d27-a41b-c259456c4746",
+  "InsertDate": "2025-02-03T20:31:58Z",
+  "LastUpdateDate": "2025-02-03T20:31:58Z",
+  "Level": "high",
+  "Name": "Linux Crypto Mining Pool Connections",
+  "Query": "sourcetype=\"linux-*\" (dst_host=\"pool.minexmr.com\" OR dst_host=\"fr.minexmr.com\" OR dst_host=\"de.minexmr.com\" OR dst_host=\"sg.minexmr.com\" OR dst_host=\"ca.minexmr.com\" OR dst_host=\"us-west.minexmr.com\" OR dst_host=\"pool.supportxmr.com\" OR dst_host=\"mine.c3pool.com\" OR dst_host=\"xmr-eu1.nanopool.org\" OR dst_host=\"xmr-eu2.nanopool.org\" OR dst_host=\"xmr-us-east1.nanopool.org\" OR dst_host=\"xmr-us-west1.nanopool.org\" OR dst_host=\"xmr-asia1.nanopool.org\" OR dst_host=\"xmr-jp1.nanopool.org\" OR dst_host=\"xmr-au1.nanopool.org\" OR dst_host=\"xmr.2miners.com\" OR dst_host=\"xmr.hashcity.org\" OR dst_host=\"xmr.f2pool.com\" OR dst_host=\"xmrpool.eu\" OR dst_host=\"pool.hashvault.pro\" OR dst_host=\"moneroocean.stream\" OR dst_host=\"monerocean.stream\")",
+  "Tags": [
+    "attack.impact",
+    "attack.t1496"
+  ],
+  "Version": "0.1"
+}

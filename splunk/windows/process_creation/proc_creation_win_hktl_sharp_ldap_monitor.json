@@ -1,0 +1,13 @@
+{
+  "Description": "Detects execution of the SharpLDAPmonitor. Which can monitor the creation, deletion and changes to LDAP objects.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9f8fc146-1d1a-4dbf-b8fd-dfae15e08541",
+  "InsertDate": "2025-02-03T20:32:46Z",
+  "LastUpdateDate": "2025-02-03T20:32:46Z",
+  "Level": "medium",
+  "Name": "HackTool - SharpLDAPmonitor Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\SharpLDAPmonitor.exe\" original_file_name=\"SharpLDAPmonitor.exe\") OR (command=\"*/user:*\" command=\"*/pass:*\" command=\"*/dcip:*\")",
+  "Tags": [
+    "attack.discovery"
+  ],
+  "Version": "0.1"
+}

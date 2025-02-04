@@ -1,0 +1,13 @@
+{
+  "Description": "Detects the creation of a new PowerShell module \".psm1\", \".psd1\", \".dll\", \".ps1\", etc.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e36941d0-c0f0-443f-bc6f-cb2952eb69ea",
+  "InsertDate": "2025-02-03T20:32:19Z",
+  "LastUpdateDate": "2025-02-03T20:32:19Z",
+  "Level": "low",
+  "Name": "PowerShell Module File Created",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\") (filepath=\"*\\\\WindowsPowerShell\\\\Modules\\\\*\" OR filepath=\"*\\\\PowerShell\\\\7\\\\Modules\\\\*\")",
+  "Tags": [
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

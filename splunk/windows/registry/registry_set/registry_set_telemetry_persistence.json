@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential persistence behavior using the windows telemetry registry key.\nWindows telemetry makes use of the binary CompatTelRunner.exe to run a variety of commands and perform the actual telemetry collections.\nThis binary was created to be easily extensible, and to that end, it relies on the registry to instruct on which commands to run.\nThe problem is, it will run any arbitrary command without restriction of location or type.\n\n\nAuthor: Lednyov Alexey, oscd.community, Sreeman\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "73a883d0-0348-4be4-a8d8-51031c2564f8",
+  "InsertDate": "2025-02-03T20:33:44Z",
+  "LastUpdateDate": "2025-02-03T20:33:44Z",
+  "Level": "high",
+  "Name": "Potential Registry Persistence Attempt Via Windows Telemetry",
+  "Query": "sourcetype=\"windows-*\" (target_object=\"*\\\\SOFTWARE\\\\Microsoft\\\\Windows NT\\\\CurrentVersion\\\\AppCompatFlags\\\\TelemetryController\\\\*\" target_object=\"*\\\\Command\" (details=\"*.bat*\" OR details=\"*.bin*\" OR details=\"*.cmd*\" OR details=\"*.dat*\" OR details=\"*.dll*\" OR details=\"*.exe*\" OR details=\"*.hta*\" OR details=\"*.jar*\" OR details=\"*.js*\" OR details=\"*.msi*\" OR details=\"*.ps*\" OR details=\"*.sh*\" OR details=\"*.vb*\")) NOT (details=\"*\\\\system32\\\\CompatTelRunner.exe*\" OR details=\"*\\\\system32\\\\DeviceCensus.exe*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1053.005"
+  ],
+  "Version": "0.1"
+}

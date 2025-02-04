@@ -1,0 +1,15 @@
+{
+  "Description": "Detects changes to of the IIS server configuration in order to disable/remove the ETW logging/processing option.\n\nAuthor: frack113, Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a5b40a90-baf5-4bf7-a6f7-373494881d22",
+  "InsertDate": "2025-02-03T20:32:07Z",
+  "LastUpdateDate": "2025-02-03T20:32:07Z",
+  "Level": "medium",
+  "Name": "ETW Logging/Processing Option Disabled On IIS Server",
+  "Query": "sourcetype=\"windows-iis-configuration\" (eventid=\"29\" configuration=\"*@logTargetW3C\" oldvalue=\"*ETW*\") NOT newvalue=\"*ETW*\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.002",
+    "attack.t1505.004"
+  ],
+  "Version": "0.1"
+}

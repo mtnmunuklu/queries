@@ -1,0 +1,16 @@
+{
+  "Description": "Detects update to a scheduled task event that contain suspicious keywords.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "614cf376-6651-47c4-9dcc-6b9527f749f4",
+  "InsertDate": "2025-02-03T20:32:11Z",
+  "LastUpdateDate": "2025-02-03T20:32:11Z",
+  "Level": "high",
+  "Name": "Suspicious Scheduled Task Update",
+  "Query": "sourcetype=\"windows-security\" eventid=\"4702\" (taskcontentnew=\"*\\\\AppData\\\\Local\\\\Temp\\\\*\" OR taskcontentnew=\"*\\\\AppData\\\\Roaming\\\\*\" OR taskcontentnew=\"*\\\\Users\\\\Public\\\\*\" OR taskcontentnew=\"*\\\\WINDOWS\\\\Temp\\\\*\" OR taskcontentnew=\"*C:\\\\Temp\\\\*\" OR taskcontentnew=\"*\\\\Desktop\\\\*\" OR taskcontentnew=\"*\\\\Downloads\\\\*\" OR taskcontentnew=\"*\\\\Temporary Internet*\" OR taskcontentnew=\"*C:\\\\ProgramData\\\\*\" OR taskcontentnew=\"*C:\\\\Perflogs\\\\*\") (taskcontentnew=\"*regsvr32*\" OR taskcontentnew=\"*rundll32*\" OR taskcontentnew=\"*cmd.exe\u003c/Command\u003e*\" OR taskcontentnew=\"*cmd\u003c/Command\u003e*\" OR taskcontentnew=\"*\u003cArguments\u003e/c *\" OR taskcontentnew=\"*\u003cArguments\u003e/k *\" OR taskcontentnew=\"*\u003cArguments\u003e/r *\" OR taskcontentnew=\"*powershell*\" OR taskcontentnew=\"*pwsh*\" OR taskcontentnew=\"*mshta*\" OR taskcontentnew=\"*wscript*\" OR taskcontentnew=\"*cscript*\" OR taskcontentnew=\"*certutil*\" OR taskcontentnew=\"*bitsadmin*\" OR taskcontentnew=\"*bash.exe*\" OR taskcontentnew=\"*bash *\" OR taskcontentnew=\"*scrcons*\" OR taskcontentnew=\"*wmic *\" OR taskcontentnew=\"*wmic.exe*\" OR taskcontentnew=\"*forfiles*\" OR taskcontentnew=\"*scriptrunner*\" OR taskcontentnew=\"*hh.exe*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.privilege-escalation",
+    "attack.persistence",
+    "attack.t1053.005"
+  ],
+  "Version": "0.1"
+}

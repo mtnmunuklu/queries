@@ -1,0 +1,21 @@
+{
+  "Description": "Detects BGP failures which may be indicative of brute force attacks to manipulate routing\n\nAuthor: Tim Brown\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "56fa3cd6-f8d6-4520-a8c7-607292971886",
+  "InsertDate": "2025-02-03T20:32:03Z",
+  "LastUpdateDate": "2025-02-03T20:32:03Z",
+  "Level": "low",
+  "Name": "Cisco BGP Authentication Failures",
+  "Query": "sourcetype=\"cisco-bgp\" (=\":179\" =\"IP-TCP-3-BADAUTH\")",
+  "Tags": [
+    "attack.initial-access",
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.defense-evasion",
+    "attack.credential-access",
+    "attack.collection",
+    "attack.t1078",
+    "attack.t1110",
+    "attack.t1557"
+  ],
+  "Version": "0.1"
+}

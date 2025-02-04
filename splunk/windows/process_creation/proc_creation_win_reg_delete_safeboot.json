@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of \"reg.exe\" commands with the \"delete\" flag on safe boot registry keys. Often used by attacker to prevent safeboot execution of security products\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fc0e89b5-adb0-43c1-b749-c12a10ec37de",
+  "InsertDate": "2025-02-03T20:33:02Z",
+  "LastUpdateDate": "2025-02-03T20:33:02Z",
+  "Level": "high",
+  "Name": "SafeBoot Registry Key Deleted Via Reg.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*reg.exe\" original_file_name=\"reg.exe\") (command=\"* delete *\" command=\"*\\\\SYSTEM\\\\CurrentControlSet\\\\Control\\\\SafeBoot*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

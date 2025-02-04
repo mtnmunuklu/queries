@@ -1,0 +1,14 @@
+{
+  "Description": "Detects Commandlet names from ShellIntel exploitation scripts.\n\nAuthor: Max Altgelt (Nextron Systems), Tobias Michalski (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "402e1e1d-ad59-47b6-bf80-1ee44985b3a7",
+  "InsertDate": "2025-02-03T20:32:32Z",
+  "LastUpdateDate": "2025-02-03T20:32:32Z",
+  "Level": "high",
+  "Name": "Malicious ShellIntel PowerShell Commandlets",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*Invoke-SMBAutoBrute*\" OR scriptblocktext=\"*Invoke-GPOLinks*\" OR scriptblocktext=\"*Invoke-Potato*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

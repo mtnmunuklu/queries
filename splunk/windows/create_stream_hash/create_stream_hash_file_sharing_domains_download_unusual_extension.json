@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the download of suspicious file type from a well-known file and paste sharing domain\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ae02ed70-11aa-4a22-b397-c0d0e8f6ea99",
+  "InsertDate": "2025-02-03T20:32:15Z",
+  "LastUpdateDate": "2025-02-03T20:32:15Z",
+  "Level": "medium",
+  "Name": "Unusual File Download From File Sharing Websites - File Stream",
+  "Query": "sourcetype=\"windows-*\" (contents=\"*.githubusercontent.com*\" OR contents=\"*anonfiles.com*\" OR contents=\"*cdn.discordapp.com*\" OR contents=\"*ddns.net*\" OR contents=\"*dl.dropboxusercontent.com*\" OR contents=\"*ghostbin.co*\" OR contents=\"*glitch.me*\" OR contents=\"*gofile.io*\" OR contents=\"*hastebin.com*\" OR contents=\"*mediafire.com*\" OR contents=\"*mega.nz*\" OR contents=\"*onrender.com*\" OR contents=\"*pages.dev*\" OR contents=\"*paste.ee*\" OR contents=\"*pastebin.com*\" OR contents=\"*pastebin.pl*\" OR contents=\"*pastetext.net*\" OR contents=\"*pixeldrain.com*\" OR contents=\"*privatlab.com*\" OR contents=\"*privatlab.net*\" OR contents=\"*send.exploit.in*\" OR contents=\"*sendspace.com*\" OR contents=\"*storage.googleapis.com*\" OR contents=\"*storjshare.io*\" OR contents=\"*supabase.co*\" OR contents=\"*temp.sh*\" OR contents=\"*transfer.sh*\" OR contents=\"*trycloudflare.com*\" OR contents=\"*ufile.io*\" OR contents=\"*w3spaces.com*\" OR contents=\"*workers.dev*\") (filepath=\"*.bat:Zone*\" OR filepath=\"*.cmd:Zone*\" OR filepath=\"*.ps1:Zone*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.s0139",
+    "attack.t1564.004"
+  ],
+  "Version": "0.1"
+}

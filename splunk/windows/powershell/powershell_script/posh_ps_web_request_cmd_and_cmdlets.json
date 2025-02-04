@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of various web request commands with commandline tools and Windows PowerShell cmdlets (including aliases) via PowerShell scriptblock logs\n\nAuthor: James Pemberton / @4A616D6573\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1139d2e2-84b1-4226-b445-354492eba8ba",
+  "InsertDate": "2025-02-03T20:32:35Z",
+  "LastUpdateDate": "2025-02-03T20:32:35Z",
+  "Level": "medium",
+  "Name": "Usage Of Web Request Commands And Cmdlets - ScriptBlock",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*[System.Net.WebRequest]::create*\" OR scriptblocktext=\"*curl *\" OR scriptblocktext=\"*Invoke-RestMethod*\" OR scriptblocktext=\"*Invoke-WebRequest*\" OR scriptblocktext=\"*iwr *\" OR scriptblocktext=\"*Net.WebClient*\" OR scriptblocktext=\"*Resume-BitsTransfer*\" OR scriptblocktext=\"*Start-BitsTransfer*\" OR scriptblocktext=\"*wget *\" OR scriptblocktext=\"*WinHttp.WinHttpRequest*\") NOT path=\"C:\\\\Packages\\\\Plugins\\\\Microsoft.GuestConfiguration.ConfigurationforWindows\\\\*\"",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

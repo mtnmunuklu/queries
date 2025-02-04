@@ -1,0 +1,15 @@
+{
+  "Description": "Detects execution of the \"VMwareToolBoxCmd.exe\" with the \"script\" and \"set\" flag to setup a specific script to run for a specific VM state\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7aa4e81a-a65c-4e10-9f81-b200eb229d7d",
+  "InsertDate": "2025-02-03T20:33:23Z",
+  "LastUpdateDate": "2025-02-03T20:33:23Z",
+  "Level": "medium",
+  "Name": "Potential Persistence Via VMwareToolBoxCmd.EXE VM State Change Script",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"* script *\" command=\"* set *\") (process_path=\"*\\\\VMwareToolBoxCmd.exe\" original_file_name=\"toolbox-cmd.exe\")",
+  "Tags": [
+    "attack.execution",
+    "attack.persistence",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

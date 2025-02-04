@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of ruby using the \"-e\" flag. This is could be used as a way to launch a reverse shell or execute live ruby code.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "20a5ffa1-3848-4584-b6f8-c7c7fd9f69c8",
+  "InsertDate": "2025-02-03T20:33:08Z",
+  "LastUpdateDate": "2025-02-03T20:33:08Z",
+  "Level": "medium",
+  "Name": "Ruby Inline Command Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\ruby.exe\" original_file_name=\"ruby.exe\") command=\"* -e*\"",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

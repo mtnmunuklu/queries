@@ -1,0 +1,16 @@
+{
+  "Description": "Detects a network connection that is initiated by the \"notepad.exe\" process.\nThis might be a sign of process injection from a beacon process or something similar.\nNotepad rarely initiates a network communication except when printing documents for example.\n\n\nAuthor: EagleEye Team\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e81528db-fc02-45e8-8e98-4e84aba1f10b",
+  "InsertDate": "2025-02-03T20:32:25Z",
+  "LastUpdateDate": "2025-02-03T20:32:25Z",
+  "Level": "high",
+  "Name": "Network Connection Initiated Via Notepad.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\notepad.exe\" NOT dst_port=\"9100\"",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.execution",
+    "attack.defense-evasion",
+    "attack.t1055"
+  ],
+  "Version": "0.1"
+}

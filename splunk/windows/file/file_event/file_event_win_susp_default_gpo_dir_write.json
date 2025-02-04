@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the creation of copy of suspicious files (EXE/DLL) to the default GPO storage folder\n\nAuthor: elhoim\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5f87308a-0a5b-4623-ae15-d8fa1809bc60",
+  "InsertDate": "2025-02-03T20:32:19Z",
+  "LastUpdateDate": "2025-02-03T20:32:19Z",
+  "Level": "medium",
+  "Name": "Suspicious Files in Default GPO Folder",
+  "Query": "sourcetype=\"windows-sysmon\" filepath=\"*\\\\Policies\\\\{31B2F340-016D-11D2-945F-00C04FB984F9}\\\\*\" (filepath=\"*.dll\" OR filepath=\"*.exe\")",
+  "Tags": [
+    "attack.t1036.005",
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

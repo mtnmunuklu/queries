@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the addition of the \"Debugger\" value to the \"DbgManagedDebugger\" key in order to achieve persistence. Which will get invoked when an application crashes\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9827ae57-3802-418f-994b-d5ecf5cd974b",
+  "InsertDate": "2025-02-03T20:33:32Z",
+  "LastUpdateDate": "2025-02-03T20:33:32Z",
+  "Level": "medium",
+  "Name": "Potential Registry Persistence Attempt Via DbgManagedDebugger",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\Microsoft\\\\.NETFramework\\\\DbgManagedDebugger\" NOT details=\"\"C:\\\\Windows\\\\system32\\\\vsjitdebugger.exe\" PID %d APPDOM %d EXTEXT \"%s\" EVTHDL %d\"",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1574"
+  ],
+  "Version": "0.1"
+}

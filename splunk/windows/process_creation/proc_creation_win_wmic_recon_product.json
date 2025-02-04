@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of WMIC in order to get a list of firewall and antivirus products\n\nAuthor: Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "15434e33-5027-4914-88d5-3d4145ec25a9",
+  "InsertDate": "2025-02-03T20:33:26Z",
+  "LastUpdateDate": "2025-02-03T20:33:26Z",
+  "Level": "medium",
+  "Name": "Potential Product Reconnaissance Via Wmic.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\wmic.exe\" original_file_name=\"wmic.exe\") command=\"*Product*\"",
+  "Tags": [
+    "attack.execution",
+    "attack.t1047"
+  ],
+  "Version": "0.1"
+}

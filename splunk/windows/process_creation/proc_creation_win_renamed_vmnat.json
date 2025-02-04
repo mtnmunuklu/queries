@@ -1,0 +1,14 @@
+{
+  "Description": "Detects renamed vmnat.exe or portable version that can be used for DLL side-loading\n\nAuthor: elhoim\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7b4f794b-590a-4ad4-ba18-7964a2832205",
+  "InsertDate": "2025-02-03T20:33:07Z",
+  "LastUpdateDate": "2025-02-03T20:33:07Z",
+  "Level": "high",
+  "Name": "Renamed Vmnat.exe Execution",
+  "Query": "sourcetype=\"windows-sysmon\" original_file_name=\"vmnat.exe\" NOT process_path=\"*vmnat.exe\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

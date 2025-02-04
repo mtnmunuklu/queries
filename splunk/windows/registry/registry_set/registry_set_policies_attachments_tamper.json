@@ -1,0 +1,13 @@
+{
+  "Description": "Detects tampering with attachment manager settings policies attachments (See reference for more information)\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ee77a5db-b0f3-4be2-bfd4-b58be1c6b15a",
+  "InsertDate": "2025-02-03T20:33:42Z",
+  "LastUpdateDate": "2025-02-03T20:33:42Z",
+  "Level": "high",
+  "Name": "Potential Attachment Manager Settings Attachments Tamper",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Policies\\\\Attachments\\\\*\" ((target_object=\"*\\\\HideZoneInfoOnProperties\" details=\"DWORD (0x00000001)\") OR (target_object=\"*\\\\SaveZoneInformation\" details=\"DWORD (0x00000002)\") OR (target_object=\"*\\\\ScanWithAntiVirus\" details=\"DWORD (0x00000001)\"))",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

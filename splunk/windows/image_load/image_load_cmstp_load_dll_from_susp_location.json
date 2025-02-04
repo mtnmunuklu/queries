@@ -1,0 +1,14 @@
+{
+  "Description": "Detects cmstp loading \"dll\" or \"ocx\" files from suspicious locations\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "75e508f7-932d-4ebc-af77-269237a84ce1",
+  "InsertDate": "2025-02-03T20:32:21Z",
+  "LastUpdateDate": "2025-02-03T20:32:21Z",
+  "Level": "high",
+  "Name": "DLL Loaded From Suspicious Location Via Cmspt.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\cmstp.exe\" (image_loaded=\"*\\\\PerfLogs\\\\*\" OR image_loaded=\"*\\\\ProgramData\\\\*\" OR image_loaded=\"*\\\\Users\\\\*\" OR image_loaded=\"*\\\\Windows\\\\Temp\\\\*\" OR image_loaded=\"*C:\\\\Temp\\\\*\") (image_loaded=\"*.dll\" OR image_loaded=\"*.ocx\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.003"
+  ],
+  "Version": "0.1"
+}

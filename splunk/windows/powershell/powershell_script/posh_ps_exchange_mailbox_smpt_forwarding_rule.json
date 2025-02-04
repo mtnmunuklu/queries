@@ -1,0 +1,13 @@
+{
+  "Description": "Detects usage of the powerShell Set-Mailbox Cmdlet to set-up an SMTP forwarding rule.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "15b7abbb-8b40-4d01-9ee2-b51994b1d474",
+  "InsertDate": "2025-02-03T20:32:29Z",
+  "LastUpdateDate": "2025-02-03T20:32:29Z",
+  "Level": "medium",
+  "Name": "Suspicious PowerShell Mailbox SMTP Forward Rule",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*Set-Mailbox *\" scriptblocktext=\"* -DeliverToMailboxAndForward *\" scriptblocktext=\"* -ForwardingSmtpAddress *\")",
+  "Tags": [
+    "attack.exfiltration"
+  ],
+  "Version": "0.1"
+}

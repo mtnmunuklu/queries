@@ -1,0 +1,14 @@
+{
+  "Description": "Get the processes that are running on the local computer.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "af4c87ce-bdda-4215-b998-15220772e993",
+  "InsertDate": "2025-02-03T20:32:33Z",
+  "LastUpdateDate": "2025-02-03T20:32:33Z",
+  "Level": "low",
+  "Name": "Suspicious Process Discovery With Get-Process",
+  "Query": "sourcetype=\"windows-*\" scriptblocktext=\"*Get-Process*\"",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1057"
+  ],
+  "Version": "0.1"
+}

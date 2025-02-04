@@ -1,0 +1,15 @@
+{
+  "Description": "Detects uncommon processes creating remote threads.\n\nAuthor: Perez Diego (@darkquassar), oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "66d31e5f-52d6-40a4-9615-002d3789a119",
+  "InsertDate": "2025-02-03T20:32:15Z",
+  "LastUpdateDate": "2025-02-03T20:32:15Z",
+  "Level": "medium",
+  "Name": "Remote Thread Creation By Uncommon Source Image",
+  "Query": "sourcetype=\"windows-*\" (process_path=\"*\\\\explorer.exe\" OR process_path=\"*\\\\iexplore.exe\" OR process_path=\"*\\\\msiexec.exe\" OR process_path=\"*\\\\powerpnt.exe\" OR process_path=\"*\\\\schtasks.exe\" OR process_path=\"*\\\\winlogon.exe\") NOT ((process_path=\"C:\\\\Windows\\\\System32\\\\winlogon.exe\" (dst_process_path=\"C:\\\\Windows\\\\System32\\\\services.exe\" OR dst_process_path=\"C:\\\\Windows\\\\System32\\\\wininit.exe\" OR dst_process_path=\"C:\\\\Windows\\\\System32\\\\csrss.exe\" OR dst_process_path=\"C:\\\\Windows\\\\System32\\\\LogonUI.exe\")) OR (process_path=\"C:\\\\Windows\\\\System32\\\\winlogon.exe\" targetparentprocessid=\"4\") OR ((process_path=\"C:\\\\Windows\\\\System32\\\\schtasks.exe\" OR process_path=\"C:\\\\Windows\\\\SysWOW64\\\\schtasks.exe\") dst_process_path=\"C:\\\\Windows\\\\System32\\\\conhost.exe\") OR (process_path=\"C:\\\\Windows\\\\explorer.exe\" (dst_process_path=\"C:\\\\Program Files (x86)\\\\*\" OR dst_process_path=\"C:\\\\Program Files\\\\*\" OR dst_process_path=\"C:\\\\Windows\\\\System32\\\\*\" OR dst_process_path=\"C:\\\\Windows\\\\SysWOW64\\\\*\")) OR dst_process_path=\"System\" OR (process_path=\"*\\\\msiexec.exe\" (dst_process_path=\"*\\\\AppData\\\\Local\\\\*\" OR dst_process_path=\"*C:\\\\Program Files (x86)\\\\*\" OR dst_process_path=\"*C:\\\\Program Files\\\\*\")) OR dst_process_path=\"\" OR dst_process_path=\"null\") NOT ((process_path=\"C:\\\\Program Files\\\\internet explorer\\\\iexplore.exe\" (sourcecommandline=\"*https://*\" sourcecommandline=\"*.checkpoint.com/documents/*\" sourcecommandline=\"*SmartConsole_OLH/*\" sourcecommandline=\"*default.htm#cshid=*\")) OR (process_path=\"C:\\\\Program Files\\\\internet explorer\\\\iexplore.exe\" (sourceparentimage=\"C:\\\\Program Files\\\\*\" OR sourceparentimage=\"C:\\\\Program Files (x86)\\\\*\") (sourceparentimage=\"*\\\\CheckPoint\\\\SmartConsole\\\\*\" sourceparentimage=\"*\\\\SmartConsole.exe*\")) OR (process_path=\"*\\\\Microsoft Office\\\\*\" process_path=\"*\\\\POWERPNT.EXE\" dst_process_path=\"C:\\\\Windows\\\\System32\\\\csrss.exe\"))",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.defense-evasion",
+    "attack.t1055"
+  ],
+  "Version": "0.1"
+}

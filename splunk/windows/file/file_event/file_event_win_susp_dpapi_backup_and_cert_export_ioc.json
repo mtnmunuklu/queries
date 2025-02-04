@@ -1,0 +1,14 @@
+{
+  "Description": "Detects file names with specific patterns seen generated and used by tools such as Mimikatz and DSInternals related to exported or stolen DPAPI backup keys and certificates.\n\n\nAuthor: Nounou Mbeiri, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7892ec59-c5bb-496d-8968-e5d210ca3ac4",
+  "InsertDate": "2025-02-03T20:32:20Z",
+  "LastUpdateDate": "2025-02-03T20:32:20Z",
+  "Level": "high",
+  "Name": "DPAPI Backup Keys And Certificate Export Activity IOC",
+  "Query": "sourcetype=\"windows-sysmon\" (filepath=\"*ntds_capi_*\" OR filepath=\"*ntds_legacy_*\" OR filepath=\"*ntds_unknown_*\") (filepath=\"*.cer\" OR filepath=\"*.key\" OR filepath=\"*.pfx\" OR filepath=\"*.pvk\")",
+  "Tags": [
+    "attack.t1555",
+    "attack.t1552.004"
+  ],
+  "Version": "0.1"
+}

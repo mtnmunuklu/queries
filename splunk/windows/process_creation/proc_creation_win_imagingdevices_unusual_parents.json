@@ -1,0 +1,14 @@
+{
+  "Description": "Detects unusual parent or children of the ImagingDevices.exe (Windows Contacts) process as seen being used with Bumblebee activity\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f11f2808-adb4-46c0-802a-8660db50fa99",
+  "InsertDate": "2025-02-03T20:32:47Z",
+  "LastUpdateDate": "2025-02-03T20:32:47Z",
+  "Level": "high",
+  "Name": "ImagingDevices Unusual Parent/Child Processes",
+  "Query": "sourcetype=\"windows-sysmon\" ((parent_process_path=\"*\\\\WmiPrvSE.exe\" OR parent_process_path=\"*\\\\svchost.exe\" OR parent_process_path=\"*\\\\dllhost.exe\") process_path=\"*\\\\ImagingDevices.exe\") OR parent_process_path=\"*\\\\ImagingDevices.exe\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may employ various system checks to detect and avoid virtualization and analysis environments.\nThis may include changing behaviors based on the results of checks for the presence of artifacts indicative of a virtual machine environment (VME) or sandbox\n\n\nAuthor: frack113, Duc.Le-GTSC\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d93129cd-1ee0-479f-bc03-ca6f129882e3",
+  "InsertDate": "2025-02-03T20:32:29Z",
+  "LastUpdateDate": "2025-02-03T20:32:29Z",
+  "Level": "medium",
+  "Name": "Powershell Detect Virtualization Environment",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*Get-WmiObject*\" OR scriptblocktext=\"*gwmi*\") (scriptblocktext=\"*MSAcpi_ThermalZoneTemperature*\" OR scriptblocktext=\"*Win32_ComputerSystem*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1497.001"
+  ],
+  "Version": "0.1"
+}

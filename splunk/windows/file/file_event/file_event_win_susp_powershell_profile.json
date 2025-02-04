@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the creation or modification of a powershell profile which could indicate suspicious activity as the profile can be used as a mean of persistence\n\nAuthor: HieuTT35, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b5b78988-486d-4a80-b991-930eff3ff8bf",
+  "InsertDate": "2025-02-03T20:32:20Z",
+  "LastUpdateDate": "2025-02-03T20:32:20Z",
+  "Level": "medium",
+  "Name": "PowerShell Profile Modification",
+  "Query": "sourcetype=\"windows-sysmon\" (filepath=\"*\\\\Microsoft.PowerShell_profile.ps1\" OR filepath=\"*\\\\PowerShell\\\\profile.ps1\" OR filepath=\"*\\\\Program Files\\\\PowerShell\\\\7-preview\\\\profile.ps1\" OR filepath=\"*\\\\Program Files\\\\PowerShell\\\\7\\\\profile.ps1\" OR filepath=\"*\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\profile.ps1\" OR filepath=\"*\\\\WindowsPowerShell\\\\profile.ps1\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1546.013"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detect execution of suspicious double extension files in ParentCommandLine\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5e6a80c8-2d45-4633-9ef4-fa2671a39c5c",
+  "InsertDate": "2025-02-03T20:33:13Z",
+  "LastUpdateDate": "2025-02-03T20:33:13Z",
+  "Level": "high",
+  "Name": "Suspicious Parent Double Extension File Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (parent_process_path=\"*.doc.lnk\" OR parent_process_path=\"*.docx.lnk\" OR parent_process_path=\"*.xls.lnk\" OR parent_process_path=\"*.xlsx.lnk\" OR parent_process_path=\"*.ppt.lnk\" OR parent_process_path=\"*.pptx.lnk\" OR parent_process_path=\"*.rtf.lnk\" OR parent_process_path=\"*.pdf.lnk\" OR parent_process_path=\"*.txt.lnk\" OR parent_process_path=\"*.doc.js\" OR parent_process_path=\"*.docx.js\" OR parent_process_path=\"*.xls.js\" OR parent_process_path=\"*.xlsx.js\" OR parent_process_path=\"*.ppt.js\" OR parent_process_path=\"*.pptx.js\" OR parent_process_path=\"*.rtf.js\" OR parent_process_path=\"*.pdf.js\" OR parent_process_path=\"*.txt.js\") (parent_command_line=\"*.doc.lnk*\" OR parent_command_line=\"*.docx.lnk*\" OR parent_command_line=\"*.xls.lnk*\" OR parent_command_line=\"*.xlsx.lnk*\" OR parent_command_line=\"*.ppt.lnk*\" OR parent_command_line=\"*.pptx.lnk*\" OR parent_command_line=\"*.rtf.lnk*\" OR parent_command_line=\"*.pdf.lnk*\" OR parent_command_line=\"*.txt.lnk*\" OR parent_command_line=\"*.doc.js*\" OR parent_command_line=\"*.docx.js*\" OR parent_command_line=\"*.xls.js*\" OR parent_command_line=\"*.xlsx.js*\" OR parent_command_line=\"*.ppt.js*\" OR parent_command_line=\"*.pptx.js*\" OR parent_command_line=\"*.rtf.js*\" OR parent_command_line=\"*.pdf.js*\" OR parent_command_line=\"*.txt.js*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1036.007"
+  ],
+  "Version": "0.1"
+}

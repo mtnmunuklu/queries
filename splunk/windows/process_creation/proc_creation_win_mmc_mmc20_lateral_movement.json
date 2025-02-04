@@ -1,0 +1,14 @@
+{
+  "Description": "Detects MMC20.Application Lateral Movement; specifically looks for the spawning of the parent MMC.exe with a command line of \"-Embedding\" as a child of svchost.exe\n\nAuthor: @2xxeformyshirt (Security Risk Advisors) - rule; Teymur Kheirkhabarov (idea)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f1f3bf22-deb2-418d-8cce-e1a45e46a5bd",
+  "InsertDate": "2025-02-03T20:32:50Z",
+  "LastUpdateDate": "2025-02-03T20:32:50Z",
+  "Level": "high",
+  "Name": "MMC20 Lateral Movement",
+  "Query": "sourcetype=\"windows-sysmon\" parent_process_path=\"*\\\\svchost.exe\" process_path=\"*\\\\mmc.exe\" command=\"*-Embedding*\"",
+  "Tags": [
+    "attack.execution",
+    "attack.t1021.003"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects creation of \".vhd\"/\".vhdx\" files by browser processes.\nMalware can use mountable Virtual Hard Disk \".vhd\" files to encapsulate payloads and evade security controls.\n\n\nAuthor: frack113, Christopher Peacock '@securepeacock', SCYTHE '@scythe_io'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8468111a-ef07-4654-903b-b863a80bbc95",
+  "InsertDate": "2025-02-03T20:32:21Z",
+  "LastUpdateDate": "2025-02-03T20:32:21Z",
+  "Level": "medium",
+  "Name": "VHD Image Download Via Browser",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\brave.exe\" OR process_path=\"*\\\\chrome.exe\" OR process_path=\"*\\\\firefox.exe\" OR process_path=\"*\\\\iexplore.exe\" OR process_path=\"*\\\\maxthon.exe\" OR process_path=\"*\\\\MicrosoftEdge.exe\" OR process_path=\"*\\\\msedge.exe\" OR process_path=\"*\\\\msedgewebview2.exe\" OR process_path=\"*\\\\opera.exe\" OR process_path=\"*\\\\safari.exe\" OR process_path=\"*\\\\seamonkey.exe\" OR process_path=\"*\\\\vivaldi.exe\" OR process_path=\"*\\\\whale.exe\") filepath=\"*.vhd*\"",
+  "Tags": [
+    "attack.resource-development",
+    "attack.t1587.001"
+  ],
+  "Version": "0.1"
+}

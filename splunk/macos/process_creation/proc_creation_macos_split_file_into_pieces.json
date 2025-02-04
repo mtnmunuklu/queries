@@ -1,0 +1,14 @@
+{
+  "Description": "Detection use of the command \"split\" to split files into parts and possible transfer.\n\nAuthor: Igor Fits, Mikhail Larin, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7f2bb9d5-6395-4de5-969c-70c11fbe6b12",
+  "InsertDate": "2025-02-03T20:32:02Z",
+  "LastUpdateDate": "2025-02-03T20:32:02Z",
+  "Level": "low",
+  "Name": "Split A File Into Pieces",
+  "Query": "sourcetype=\"macos-*\" process_path=\"*/split\"",
+  "Tags": [
+    "attack.exfiltration",
+    "attack.t1030"
+  ],
+  "Version": "0.1"
+}

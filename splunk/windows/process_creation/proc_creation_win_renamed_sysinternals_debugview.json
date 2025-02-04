@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious renamed SysInternals DebugView execution\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "cd764533-2e07-40d6-a718-cfeec7f2da7f",
+  "InsertDate": "2025-02-03T20:33:07Z",
+  "LastUpdateDate": "2025-02-03T20:33:07Z",
+  "Level": "high",
+  "Name": "Renamed SysInternals DebugView Execution",
+  "Query": "sourcetype=\"windows-sysmon\" product=\"Sysinternals DebugView\" NOT (original_file_name=\"Dbgview.exe\" process_path=\"*\\\\Dbgview.exe\")",
+  "Tags": [
+    "attack.resource-development",
+    "attack.t1588.002"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may interrupt availability of system and network resources by inhibiting access to accounts utilized by legitimate users.\nAccounts may be deleted, locked, or manipulated (ex: changed credentials) to remove access to accounts.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "48a45d45-8112-416b-8a67-46e03a4b2107",
+  "InsertDate": "2025-02-03T20:32:34Z",
+  "LastUpdateDate": "2025-02-03T20:32:34Z",
+  "Level": "medium",
+  "Name": "Remove Account From Domain Admin Group",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*Remove-ADGroupMember*\" scriptblocktext=\"*-Identity *\" scriptblocktext=\"*-Members *\")",
+  "Tags": [
+    "attack.impact",
+    "attack.t1531"
+  ],
+  "Version": "0.1"
+}

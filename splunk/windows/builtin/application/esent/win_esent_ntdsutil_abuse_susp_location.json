@@ -1,0 +1,13 @@
+{
+  "Description": "Detects potential abuse of ntdsutil to dump ntds.dit database to a suspicious location\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "94dc4390-6b7c-4784-8ffc-335334404650",
+  "InsertDate": "2025-02-03T20:32:05Z",
+  "LastUpdateDate": "2025-02-03T20:32:05Z",
+  "Level": "medium",
+  "Name": "Dump Ntds.dit To Suspicious Location",
+  "Query": "sourcetype=\"windows-application\" (provider_name=\"ESENT\" eventid=\"325\" data=\"*ntds.dit*\") (data=\"*:\\\\ntds.dit*\" OR data=\"*\\\\Appdata\\\\*\" OR data=\"*\\\\Desktop\\\\*\" OR data=\"*\\\\Downloads\\\\*\" OR data=\"*\\\\Perflogs\\\\*\" OR data=\"*\\\\Temp\\\\*\" OR data=\"*\\\\Users\\\\Public\\\\*\")",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

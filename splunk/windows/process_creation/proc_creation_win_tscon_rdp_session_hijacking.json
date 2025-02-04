@@ -1,0 +1,13 @@
+{
+  "Description": "Detects potential RDP Session Hijacking activity on Windows systems\n\nAuthor: @juju4\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "224f140f-3553-4cd1-af78-13d81bf9f7cc",
+  "InsertDate": "2025-02-03T20:33:21Z",
+  "LastUpdateDate": "2025-02-03T20:33:21Z",
+  "Level": "medium",
+  "Name": "Potential RDP Session Hijacking Activity",
+  "Query": "sourcetype=\"windows-sysmon\" (integrity_level=\"System\" OR integrity_level=\"S-1-16-16384\") (process_path=\"*\\\\tscon.exe\" original_file_name=\"tscon.exe\")",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

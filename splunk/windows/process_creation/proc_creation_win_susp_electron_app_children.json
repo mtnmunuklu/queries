@@ -1,0 +1,13 @@
+{
+  "Description": "Detects suspicious child processes of electron apps (teams, discord, slack, etc.). This could be a potential sign of \".asar\" file tampering (See reference section for more information) or binary execution proxy through specific CLI arguments (see related rule)\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f26eb764-fd89-464b-85e2-dc4a8e6e77b8",
+  "InsertDate": "2025-02-03T20:33:14Z",
+  "LastUpdateDate": "2025-02-03T20:33:14Z",
+  "Level": "medium",
+  "Name": "Suspicious Electron Application Child Processes",
+  "Query": "sourcetype=\"windows-sysmon\" (parent_process_path=\"*\\\\chrome.exe\" OR parent_process_path=\"*\\\\discord.exe\" OR parent_process_path=\"*\\\\GitHubDesktop.exe\" OR parent_process_path=\"*\\\\keybase.exe\" OR parent_process_path=\"*\\\\msedge.exe\" OR parent_process_path=\"*\\\\msedgewebview2.exe\" OR parent_process_path=\"*\\\\msteams.exe\" OR parent_process_path=\"*\\\\slack.exe\" OR parent_process_path=\"*\\\\teams.exe\") ((process_path=\"*\\\\cmd.exe\" OR process_path=\"*\\\\cscript.exe\" OR process_path=\"*\\\\mshta.exe\" OR process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\" OR process_path=\"*\\\\regsvr32.exe\" OR process_path=\"*\\\\whoami.exe\" OR process_path=\"*\\\\wscript.exe\") OR (process_path=\"*:\\\\ProgramData\\\\*\" OR process_path=\"*:\\\\Temp\\\\*\" OR process_path=\"*\\\\AppData\\\\Local\\\\Temp\\\\*\" OR process_path=\"*\\\\Users\\\\Public\\\\*\" OR process_path=\"*\\\\Windows\\\\Temp\\\\*\")) NOT (parent_process_path=\"*\\\\Discord.exe\" process_path=\"*\\\\cmd.exe\" command=\"*\\\\NVSMI\\\\nvidia-smi.exe*\")",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the creation of files with an \"LNK\" as a second extension. This is sometimes used by malware as a method to abuse the fact that Windows hides the \"LNK\" extension by default.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3215aa19-f060-4332-86d5-5602511f3ca8",
+  "InsertDate": "2025-02-03T20:32:20Z",
+  "LastUpdateDate": "2025-02-03T20:32:20Z",
+  "Level": "medium",
+  "Name": "Suspicious LNK Double Extension File Created",
+  "Query": "sourcetype=\"windows-sysmon\" (filepath=\"*.lnk\" (filepath=\"*.doc.*\" OR filepath=\"*.docx.*\" OR filepath=\"*.jpg.*\" OR filepath=\"*.pdf.*\" OR filepath=\"*.ppt.*\" OR filepath=\"*.pptx.*\" OR filepath=\"*.xls.*\" OR filepath=\"*.xlsx.*\")) NOT filepath=\"*\\\\AppData\\\\Roaming\\\\Microsoft\\\\Windows\\\\Recent\\\\*\" NOT (((process_path=\"*\\\\excel.exe\" OR process_path=\"*\\\\powerpnt.exe\" OR process_path=\"*\\\\winword.exe\") filepath=\"*\\\\AppData\\\\Roaming\\\\Microsoft\\\\Office\\\\Recent\\\\*\") OR (process_path=\"*\\\\excel.exe\" filepath=\"*\\\\AppData\\\\Roaming\\\\Microsoft\\\\Excel*\") OR (process_path=\"*\\\\powerpnt.exe\" filepath=\"*\\\\AppData\\\\Roaming\\\\Microsoft\\\\PowerPoint*\") OR (process_path=\"*\\\\winword.exe\" filepath=\"*\\\\AppData\\\\Roaming\\\\Microsoft\\\\Word*\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1036.007"
+  ],
+  "Version": "0.1"
+}

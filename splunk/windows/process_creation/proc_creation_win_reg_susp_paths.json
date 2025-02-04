@@ -1,0 +1,15 @@
+{
+  "Description": "Detects when an adversary uses the reg.exe utility to add or modify new keys or subkeys\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b7e2a8d4-74bb-4b78-adc9-3f92af2d4829",
+  "InsertDate": "2025-02-03T20:33:03Z",
+  "LastUpdateDate": "2025-02-03T20:33:03Z",
+  "Level": "high",
+  "Name": "Reg Add Suspicious Paths",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\reg.exe\" original_file_name=\"reg.exe\") (command=\"*\\\\AppDataLow\\\\Software\\\\Microsoft\\\\*\" OR command=\"*\\\\Policies\\\\Microsoft\\\\Windows\\\\OOBE*\" OR command=\"*\\\\Policies\\\\Microsoft\\\\Windows NT\\\\CurrentVersion\\\\Winlogon*\" OR command=\"*\\\\SOFTWARE\\\\Microsoft\\\\Windows NT\\\\Currentversion\\\\Winlogon*\" OR command=\"*\\\\CurrentControlSet\\\\Control\\\\SecurityProviders\\\\WDigest*\" OR command=\"*\\\\Microsoft\\\\Windows Defender\\\\*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1112",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

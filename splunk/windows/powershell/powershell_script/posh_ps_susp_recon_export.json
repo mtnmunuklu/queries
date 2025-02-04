@@ -1,0 +1,14 @@
+{
+  "Description": "Once established within a system or network, an adversary may use automated techniques for collecting internal data\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a9723fcc-881c-424c-8709-fd61442ab3c3",
+  "InsertDate": "2025-02-03T20:32:34Z",
+  "LastUpdateDate": "2025-02-03T20:32:34Z",
+  "Level": "medium",
+  "Name": "Recon Information for Export with PowerShell",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*Get-Service *\" OR scriptblocktext=\"*Get-ChildItem *\" OR scriptblocktext=\"*Get-Process *\") scriptblocktext=\"*\u003e $env:TEMP\\\\*\"",
+  "Tags": [
+    "attack.collection",
+    "attack.t1119"
+  ],
+  "Version": "0.1"
+}

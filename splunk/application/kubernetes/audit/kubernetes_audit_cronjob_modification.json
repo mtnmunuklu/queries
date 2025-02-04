@@ -1,0 +1,15 @@
+{
+  "Description": "Detects when a Kubernetes CronJob or Job is created or modified.\nA Kubernetes Job creates one or more pods to accomplish a specific task, and a CronJob creates Jobs on a recurring schedule.\nAn adversary can take advantage of this Kubernetes object to schedule Jobs to run containers that execute malicious code within a cluster, allowing them to achieve persistence.\n\n\nAuthor: kelnage\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0c9b3bda-41a6-4442-9345-356ae86343dc",
+  "InsertDate": "2025-02-03T20:31:49Z",
+  "LastUpdateDate": "2025-02-03T20:31:49Z",
+  "Level": "medium",
+  "Name": "Kubernetes CronJob/Job Modification",
+  "Query": "sourcetype=\"kubernetes-audit\" objectref.apigroup=\"batch\" (objectref.resource=\"cronjobs\" OR objectref.resource=\"jobs\") (verb=\"create\" OR verb=\"delete\" OR verb=\"patch\" OR verb=\"replace\" OR verb=\"update\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

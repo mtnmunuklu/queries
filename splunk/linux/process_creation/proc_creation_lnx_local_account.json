@@ -1,0 +1,14 @@
+{
+  "Description": "Detects enumeration of local systeam accounts. This information can help adversaries determine which local accounts exist on a system to aid in follow-on behavior.\n\nAuthor: Alejandro Ortuno, oscd.community, CheraghiMilad\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b45e3d6f-42c6-47d8-a478-df6bd6cf534c",
+  "InsertDate": "2025-02-03T20:31:59Z",
+  "LastUpdateDate": "2025-02-03T20:31:59Z",
+  "Level": "low",
+  "Name": "Local System Accounts Discovery - Linux",
+  "Query": "sourcetype=\"linux-*\" process_path=\"*/id\" OR (process_path=\"*/lsof\" command=\"*-u*\") OR process_path=\"*/lastlog\" OR command=\"*'x:0:'*\" OR ((process_path=\"*/cat\" OR process_path=\"*/ed\" OR process_path=\"*/head\" OR process_path=\"*/more\" OR process_path=\"*/nano\" OR process_path=\"*/tail\" OR process_path=\"*/vi\" OR process_path=\"*/vim\" OR process_path=\"*/less\" OR process_path=\"*/emacs\" OR process_path=\"*/sqlite3\" OR process_path=\"*/makemap\") (command=\"*/etc/passwd*\" OR command=\"*/etc/shadow*\" OR command=\"*/etc/sudoers*\" OR command=\"*/etc/spwd.db*\" OR command=\"*/etc/pwd.db*\" OR command=\"*/etc/master.passwd*\"))",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1087.001"
+  ],
+  "Version": "0.1"
+}

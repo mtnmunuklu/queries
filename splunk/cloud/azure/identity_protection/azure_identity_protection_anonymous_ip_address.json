@@ -1,0 +1,14 @@
+{
+  "Description": "Indicates sign-ins from an anonymous IP address, for example, using an anonymous browser or VPN.\n\nAuthor: Gloria Lee, '@gleeiamglo'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "53acd925-2003-440d-a1f3-71a5253fe237",
+  "InsertDate": "2025-02-03T20:31:53Z",
+  "LastUpdateDate": "2025-02-03T20:31:53Z",
+  "Level": "high",
+  "Name": "Anonymous IP Address",
+  "Query": "sourcetype=\"azure-riskdetection\" riskeventtype=\"anonymizedIPAddress\"",
+  "Tags": [
+    "attack.t1528",
+    "attack.credential-access"
+  ],
+  "Version": "0.1"
+}

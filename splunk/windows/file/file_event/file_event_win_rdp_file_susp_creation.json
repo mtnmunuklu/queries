@@ -1,0 +1,13 @@
+{
+  "Description": "Detects creation of a file with an \".rdp\" extension by an application that doesn't commonly create such files.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fccfb43e-09a7-4bd2-8b37-a5a7df33386d",
+  "InsertDate": "2025-02-03T20:32:19Z",
+  "LastUpdateDate": "2025-02-03T20:32:19Z",
+  "Level": "high",
+  "Name": ".RDP File Created By Uncommon Application",
+  "Query": "sourcetype=\"windows-sysmon\" filepath=\"*.rdp\" (process_path=\"*\\\\brave.exe\" OR process_path=\"*\\\\CCleaner Browser\\\\Application\\\\CCleanerBrowser.exe\" OR process_path=\"*\\\\chromium.exe\" OR process_path=\"*\\\\firefox.exe\" OR process_path=\"*\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" OR process_path=\"*\\\\iexplore.exe\" OR process_path=\"*\\\\microsoftedge.exe\" OR process_path=\"*\\\\msedge.exe\" OR process_path=\"*\\\\Opera.exe\" OR process_path=\"*\\\\Vivaldi.exe\" OR process_path=\"*\\\\Whale.exe\" OR process_path=\"*\\\\olk.exe\" OR process_path=\"*\\\\Outlook.exe\" OR process_path=\"*\\\\RuntimeBroker.exe\" OR process_path=\"*\\\\Thunderbird.exe\" OR process_path=\"*\\\\Discord.exe\" OR process_path=\"*\\\\Keybase.exe\" OR process_path=\"*\\\\msteams.exe\" OR process_path=\"*\\\\Slack.exe\" OR process_path=\"*\\\\teams.exe\")",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

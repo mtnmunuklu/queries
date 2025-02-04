@@ -1,0 +1,14 @@
+{
+  "Description": "Ransomware create txt file in the user Desktop\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "caf02a0a-1e1c-4552-9b48-5e070bd88d11",
+  "InsertDate": "2025-02-03T20:32:19Z",
+  "LastUpdateDate": "2025-02-03T20:32:19Z",
+  "Level": "high",
+  "Name": "Suspicious Creation TXT File in User Desktop",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\cmd.exe\" (filepath=\"*\\\\Users\\\\*\" filepath=\"*\\\\Desktop\\\\*\") filepath=\"*.txt\"",
+  "Tags": [
+    "attack.impact",
+    "attack.t1486"
+  ],
+  "Version": "0.1"
+}

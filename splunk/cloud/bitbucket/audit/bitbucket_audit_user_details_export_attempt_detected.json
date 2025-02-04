@@ -1,0 +1,18 @@
+{
+  "Description": "Detects user data export activity.\n\nAuthor: Muhammad Faisal (@faisalusuf)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5259cbf2-0a75-48bf-b57a-c54d6fabaef3",
+  "InsertDate": "2025-02-03T20:31:54Z",
+  "LastUpdateDate": "2025-02-03T20:31:54Z",
+  "Level": "medium",
+  "Name": "Bitbucket User Details Export Attempt Detected",
+  "Query": "sourcetype=\"bitbucket-audit\" audittype.category=\"Users and groups\" (audittype.action=\"User permissions export failed\" OR audittype.action=\"User permissions export started\" OR audittype.action=\"User permissions exported\")",
+  "Tags": [
+    "attack.collection",
+    "attack.reconnaissance",
+    "attack.discovery",
+    "attack.t1213",
+    "attack.t1082",
+    "attack.t1591.004"
+  ],
+  "Version": "0.1"
+}

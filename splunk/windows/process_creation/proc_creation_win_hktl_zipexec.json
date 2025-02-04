@@ -1,0 +1,16 @@
+{
+  "Description": "ZipExec is a Proof-of-Concept (POC) tool to wrap binary-based tools into a password-protected zip file.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "90dcf730-1b71-4ae7-9ffc-6fcf62bd0132",
+  "InsertDate": "2025-02-03T20:32:46Z",
+  "LastUpdateDate": "2025-02-03T20:32:46Z",
+  "Level": "medium",
+  "Name": "Suspicious ZipExec Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*/generic:Microsoft_Windows_Shell_ZipFolder:filename=*\" command=\"*.zip*\" command=\"*/pass:*\" command=\"*/user:*\") OR (command=\"*/delete*\" command=\"*Microsoft_Windows_Shell_ZipFolder:filename=*\" command=\"*.zip*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.defense-evasion",
+    "attack.t1218",
+    "attack.t1202"
+  ],
+  "Version": "0.1"
+}

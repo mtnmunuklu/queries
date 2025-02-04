@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious PowerShell invocation command parameters\n\nAuthor: Florian Roth (Nextron Systems), Jonhnathan Ribeiro\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8ff28fdd-e2fa-4dfa-aeda-ef3d61c62090",
+  "InsertDate": "2025-02-03T20:32:28Z",
+  "LastUpdateDate": "2025-02-03T20:32:28Z",
+  "Level": "high",
+  "Name": "Suspicious PowerShell Invocations - Specific - PowerShell Module",
+  "Query": "sourcetype=\"windows-*\" ((contextinfo=\"*-nop*\" contextinfo=\"* -w *\" contextinfo=\"*hidden*\" contextinfo=\"* -c *\" contextinfo=\"*[Convert]::FromBase64String*\") OR (contextinfo=\"* -w *\" contextinfo=\"*hidden*\" contextinfo=\"*-noni*\" contextinfo=\"*-nop*\" contextinfo=\"* -c *\" contextinfo=\"*iex*\" contextinfo=\"*New-Object*\") OR (contextinfo=\"* -w *\" contextinfo=\"*hidden*\" contextinfo=\"*-ep*\" contextinfo=\"*bypass*\" contextinfo=\"*-Enc*\") OR (contextinfo=\"*powershell*\" contextinfo=\"*reg*\" contextinfo=\"*add*\" contextinfo=\"*HKCU\\\\software\\\\microsoft\\\\windows\\\\currentversion\\\\run*\") OR (contextinfo=\"*bypass*\" contextinfo=\"*-noprofile*\" contextinfo=\"*-windowstyle*\" contextinfo=\"*hidden*\" contextinfo=\"*new-object*\" contextinfo=\"*system.net.webclient*\" contextinfo=\"*.download*\") OR (contextinfo=\"*iex*\" contextinfo=\"*New-Object*\" contextinfo=\"*Net.WebClient*\" contextinfo=\"*.Download*\")) NOT (contextinfo=\"*(New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1*\" OR contextinfo=\"*Write-ChocolateyWarning*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,13 @@
+{
+  "Description": "Detects potentially suspicious file download from file sharing domains using curl.exe\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "56454143-524f-49fb-b1c6-3fb8b1ad41fb",
+  "InsertDate": "2025-02-03T20:32:40Z",
+  "LastUpdateDate": "2025-02-03T20:32:40Z",
+  "Level": "high",
+  "Name": "Suspicious File Download From File Sharing Domain Via Curl.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\curl.exe\" original_file_name=\"curl.exe\") (command=\"*.githubusercontent.com*\" OR command=\"*anonfiles.com*\" OR command=\"*cdn.discordapp.com*\" OR command=\"*ddns.net*\" OR command=\"*dl.dropboxusercontent.com*\" OR command=\"*ghostbin.co*\" OR command=\"*glitch.me*\" OR command=\"*gofile.io*\" OR command=\"*hastebin.com*\" OR command=\"*mediafire.com*\" OR command=\"*mega.nz*\" OR command=\"*onrender.com*\" OR command=\"*pages.dev*\" OR command=\"*paste.ee*\" OR command=\"*pastebin.com*\" OR command=\"*pastebin.pl*\" OR command=\"*pastetext.net*\" OR command=\"*pixeldrain.com*\" OR command=\"*privatlab.com*\" OR command=\"*privatlab.net*\" OR command=\"*send.exploit.in*\" OR command=\"*sendspace.com*\" OR command=\"*storage.googleapis.com*\" OR command=\"*storjshare.io*\" OR command=\"*supabase.co*\" OR command=\"*temp.sh*\" OR command=\"*transfer.sh*\" OR command=\"*trycloudflare.com*\" OR command=\"*ufile.io*\" OR command=\"*w3spaces.com*\" OR command=\"*workers.dev*\") command=\"*http*\" (command=\"* -O*\" OR command=\"*--remote-name*\" OR command=\"*--output*\") (command=\"*.ps1\" OR command=\"*.ps1'\" OR command=\"*.ps1\"\" OR command=\"*.dat\" OR command=\"*.dat'\" OR command=\"*.dat\"\" OR command=\"*.msi\" OR command=\"*.msi'\" OR command=\"*.msi\"\" OR command=\"*.bat\" OR command=\"*.bat'\" OR command=\"*.bat\"\" OR command=\"*.exe\" OR command=\"*.exe'\" OR command=\"*.exe\"\" OR command=\"*.vbs\" OR command=\"*.vbs'\" OR command=\"*.vbs\"\" OR command=\"*.vbe\" OR command=\"*.vbe'\" OR command=\"*.vbe\"\" OR command=\"*.hta\" OR command=\"*.hta'\" OR command=\"*.hta\"\" OR command=\"*.dll\" OR command=\"*.dll'\" OR command=\"*.dll\"\" OR command=\"*.psm1\" OR command=\"*.psm1'\" OR command=\"*.psm1\"\")",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,13 @@
+{
+  "Description": "Detects suspicious UTF16 and base64 encoded and often obfuscated PowerShell code often used in command lines\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8d01b53f-456f-48ee-90f6-bc28e67d4e35",
+  "InsertDate": "2025-02-03T20:32:55Z",
+  "LastUpdateDate": "2025-02-03T20:32:55Z",
+  "Level": "high",
+  "Name": "Suspicious Obfuscated PowerShell Code",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*IAAtAGIAeABvAHIAIAAwAHgA*\" OR command=\"*AALQBiAHgAbwByACAAMAB4A*\" OR command=\"*gAC0AYgB4AG8AcgAgADAAeA*\" OR command=\"*AC4ASQBuAHYAbwBrAGUAKAApACAAfAAg*\" OR command=\"*AuAEkAbgB2AG8AawBlACgAKQAgAHwAI*\" OR command=\"*ALgBJAG4AdgBvAGsAZQAoACkAIAB8AC*\" OR command=\"*AHsAMQB9AHsAMAB9ACIAIAAtAGYAI*\" OR command=\"*B7ADEAfQB7ADAAfQAiACAALQBmAC*\" OR command=\"*AewAxAH0AewAwAH0AIgAgAC0AZgAg*\" OR command=\"*AHsAMAB9AHsAMwB9ACIAIAAtAGYAI*\" OR command=\"*B7ADAAfQB7ADMAfQAiACAALQBmAC*\" OR command=\"*AewAwAH0AewAzAH0AIgAgAC0AZgAg*\" OR command=\"*AHsAMgB9AHsAMAB9ACIAIAAtAGYAI*\" OR command=\"*B7ADIAfQB7ADAAfQAiACAALQBmAC*\" OR command=\"*AewAyAH0AewAwAH0AIgAgAC0AZgAg*\" OR command=\"*AHsAMQB9AHsAMAB9ACcAIAAtAGYAI*\" OR command=\"*B7ADEAfQB7ADAAfQAnACAALQBmAC*\" OR command=\"*AewAxAH0AewAwAH0AJwAgAC0AZgAg*\" OR command=\"*AHsAMAB9AHsAMwB9ACcAIAAtAGYAI*\" OR command=\"*B7ADAAfQB7ADMAfQAnACAALQBmAC*\" OR command=\"*AewAwAH0AewAzAH0AJwAgAC0AZgAg*\" OR command=\"*AHsAMgB9AHsAMAB9ACcAIAAtAGYAI*\" OR command=\"*B7ADIAfQB7ADAAfQAnACAALQBmAC*\" OR command=\"*AewAyAH0AewAwAH0AJwAgAC0AZgAg*\")",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

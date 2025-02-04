@@ -1,0 +1,14 @@
+{
+  "Description": "Detects disabling Windows Defender PUA protection\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8ffc5407-52e3-478f-9596-0a7371eafe13",
+  "InsertDate": "2025-02-03T20:33:35Z",
+  "LastUpdateDate": "2025-02-03T20:33:35Z",
+  "Level": "high",
+  "Name": "Disable PUA Protection on Windows Defender",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\Policies\\\\Microsoft\\\\Windows Defender\\\\PUAProtection*\" details=\"DWORD (0x00000000)\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

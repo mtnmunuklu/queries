@@ -1,0 +1,15 @@
+{
+  "Description": "Detects when a memory process image does not match the disk image, indicative of process hollowing.\n\nAuthor: Christopher Peacock '@securepeacock', SCYTHE '@scythe_io', Sittikorn S\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c4b890e5-8d8c-4496-8c66-c805753817cd",
+  "InsertDate": "2025-02-03T20:33:28Z",
+  "LastUpdateDate": "2025-02-03T20:33:28Z",
+  "Level": "medium",
+  "Name": "Potential Process Hollowing Activity",
+  "Query": "sourcetype=\"windows-*\" type=\"Image is replaced\" NOT (process_path=\"*:\\\\Program Files (x86)*\" OR process_path=\"*:\\\\Program Files\\\\*\" OR process_path=\"*:\\\\Windows\\\\System32\\\\wbem\\\\WMIADAP.exe*\" OR process_path=\"*:\\\\Windows\\\\SysWOW64\\\\wbem\\\\WMIADAP.exe*\") NOT ((process_path=\"*\\\\AppData\\\\Local\\\\Programs\\\\Opera\\\\*\" process_path=\"*\\\\opera.exe\") OR process_path=\"*\\\\WindowsApps\\\\MicrosoftEdge.exe\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1055.012"
+  ],
+  "Version": "0.1"
+}

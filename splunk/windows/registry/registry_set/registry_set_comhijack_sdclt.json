@@ -1,0 +1,15 @@
+{
+  "Description": "Detects changes to 'HKCU\\Software\\Classes\\Folder\\shell\\open\\command\\DelegateExecute'\n\nAuthor: Omkar Gudhate\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "07743f65-7ec9-404a-a519-913db7118a8d",
+  "InsertDate": "2025-02-03T20:33:32Z",
+  "LastUpdateDate": "2025-02-03T20:33:32Z",
+  "Level": "high",
+  "Name": "COM Hijack via Sdclt",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\Software\\\\Classes\\\\Folder\\\\shell\\\\open\\\\command\\\\DelegateExecute*\"",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.t1546",
+    "attack.t1548"
+  ],
+  "Version": "0.1"
+}

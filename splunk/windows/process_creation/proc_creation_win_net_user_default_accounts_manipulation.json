@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious manipulations of default accounts such as 'administrator' and 'guest'. For example 'enable' or 'disable' accounts or change the password...etc\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5b768e71-86f2-4879-b448-81061cbae951",
+  "InsertDate": "2025-02-03T20:32:52Z",
+  "LastUpdateDate": "2025-02-03T20:32:52Z",
+  "Level": "high",
+  "Name": "Suspicious Manipulation Of Default Accounts Via Net.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" ((command=\"* Järjestelmänvalvoja *\" OR command=\"* Rendszergazda *\" OR command=\"* Администратор *\" OR command=\"* Administrateur *\" OR command=\"* Administrador *\" OR command=\"* Administratör *\" OR command=\"* Administrator *\" OR command=\"* guest *\" OR command=\"* DefaultAccount *\" OR command=\"* \"Järjestelmänvalvoja\" *\" OR command=\"* \"Rendszergazda\" *\" OR command=\"* \"Администратор\" *\" OR command=\"* \"Administrateur\" *\" OR command=\"* \"Administrador\" *\" OR command=\"* \"Administratör\" *\" OR command=\"* \"Administrator\" *\" OR command=\"* \"guest\" *\" OR command=\"* \"DefaultAccount\" *\" OR command=\"* 'Järjestelmänvalvoja' *\" OR command=\"* 'Rendszergazda' *\" OR command=\"* 'Администратор' *\" OR command=\"* 'Administrateur' *\" OR command=\"* 'Administrador' *\" OR command=\"* 'Administratör' *\" OR command=\"* 'Administrator' *\" OR command=\"* 'guest' *\" OR command=\"* 'DefaultAccount' *\") ((process_path=\"*\\\\net.exe\" OR process_path=\"*\\\\net1.exe\") (original_file_name=\"net.exe\" OR original_file_name=\"net1.exe\")) command=\"* user *\") NOT (command=\"*guest*\" command=\"*/active no*\")",
+  "Tags": [
+    "attack.collection",
+    "attack.t1560.001"
+  ],
+  "Version": "0.1"
+}

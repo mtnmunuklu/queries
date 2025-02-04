@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious invocation of the Get-ADDBAccount script that reads from a ntds.dit file and may be used to get access to credentials without using any credential dumpers\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b140afd9-474b-4072-958e-2ebb435abd68",
+  "InsertDate": "2025-02-03T20:32:27Z",
+  "LastUpdateDate": "2025-02-03T20:32:27Z",
+  "Level": "high",
+  "Name": "Suspicious Get-ADDBAccount Usage",
+  "Query": "sourcetype=\"windows-*\" (payload=\"*Get-ADDBAccount*\" payload=\"*BootKey *\" payload=\"*DatabasePath *\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.003"
+  ],
+  "Version": "0.1"
+}

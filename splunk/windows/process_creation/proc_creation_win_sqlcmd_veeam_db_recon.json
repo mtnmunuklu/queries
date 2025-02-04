@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potentially suspicious SQL queries using SQLCmd targeting the Veeam backup databases in order to steal information.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "696bfb54-227e-4602-ac5b-30d9d2053312",
+  "InsertDate": "2025-02-03T20:33:12Z",
+  "LastUpdateDate": "2025-02-03T20:33:12Z",
+  "Level": "medium",
+  "Name": "Veeam Backup Database Suspicious Query",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*BackupRepositories*\" OR command=\"*Backups*\" OR command=\"*Credentials*\" OR command=\"*HostCreds*\" OR command=\"*SmbFileShares*\" OR command=\"*Ssh_creds*\" OR command=\"*VSphereInfo*\") (process_path=\"*\\\\sqlcmd.exe\" (command=\"*VeeamBackup*\" command=\"*From *\"))",
+  "Tags": [
+    "attack.collection",
+    "attack.t1005"
+  ],
+  "Version": "0.1"
+}

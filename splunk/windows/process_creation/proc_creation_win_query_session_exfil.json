@@ -1,0 +1,13 @@
+{
+  "Description": "Detects usage of \"query.exe\" a system binary to exfil information such as \"sessions\" and \"processes\" for later use\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "53ef0cef-fa24-4f25-a34a-6c72dfa2e6e2",
+  "InsertDate": "2025-02-03T20:33:02Z",
+  "LastUpdateDate": "2025-02-03T20:33:02Z",
+  "Level": "medium",
+  "Name": "Query Usage To Exfil Data",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*:\\\\Windows\\\\System32\\\\query.exe\" (command=\"*session \u003e*\" OR command=\"*process \u003e*\")",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

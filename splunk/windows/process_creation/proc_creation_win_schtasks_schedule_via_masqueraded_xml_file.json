@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the creation of a scheduled task using the \"-XML\" flag with a file without the '.xml' extension. This behavior could be indicative of potential defense evasion attempt during persistence\n\nAuthor: Swachchhanda Shrawan Poudel, Elastic (idea)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "dd2a821e-3b07-4d3b-a9ac-929fe4c6ca0c",
+  "InsertDate": "2025-02-03T20:33:11Z",
+  "LastUpdateDate": "2025-02-03T20:33:11Z",
+  "Level": "medium",
+  "Name": "Suspicious Scheduled Task Creation via Masqueraded XML File",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\schtasks.exe\" original_file_name=\"schtasks.exe\") (command=\"*/create*\" OR command=\"*-create*\") (command=\"*/xml*\" OR command=\"*-xml*\")) NOT (command=\"*.xml*\" OR (integrity_level=\"System\" OR integrity_level=\"S-1-16-16384\") OR (parent_process_path=\"*\\\\rundll32.exe\" (parent_command_line=\"*:\\\\WINDOWS\\\\Installer\\\\MSI*\" parent_command_line=\"*.tmp,zzzzInvokeManagedCustomActionOutOfProc*\"))) NOT (parent_process_path=\"*:\\\\ProgramData\\\\OEM\\\\UpgradeTool\\\\CareCenter_*\\\\BUnzip\\\\Setup_msi.exe\" OR parent_process_path=\"*:\\\\Program Files\\\\Axis Communications\\\\AXIS Camera Station\\\\SetupActions.exe\" OR parent_process_path=\"*:\\\\Program Files\\\\Axis Communications\\\\AXIS Device Manager\\\\AdmSetupActions.exe\" OR parent_process_path=\"*:\\\\Program Files (x86)\\\\Zemana\\\\AntiMalware\\\\AntiMalware.exe\" OR parent_process_path=\"*:\\\\Program Files\\\\Dell\\\\SupportAssist\\\\pcdrcui.exe\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.t1036.005",
+    "attack.t1053.005"
+  ],
+  "Version": "0.1"
+}

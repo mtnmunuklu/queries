@@ -1,0 +1,14 @@
+{
+  "Description": "Execution of ssh.exe to perform data exfiltration and tunneling through RDP\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f7d7ebd5-a016-46e2-9c54-f9932f2d386d",
+  "InsertDate": "2025-02-03T20:33:12Z",
+  "LastUpdateDate": "2025-02-03T20:33:12Z",
+  "Level": "high",
+  "Name": "Potential RDP Tunneling Via SSH",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\ssh.exe\" command=\"*:3389*\"",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1572"
+  ],
+  "Version": "0.1"
+}

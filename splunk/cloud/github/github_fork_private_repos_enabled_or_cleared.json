@@ -1,0 +1,15 @@
+{
+  "Description": "Detects when the policy allowing forks of private and internal repositories is changed (enabled or cleared).\n\n\nAuthor: Romain Gaillard (@romain-gaillard)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "69b3bd1e-b38a-462f-9a23-fbdbf63d2294",
+  "InsertDate": "2025-02-03T20:31:54Z",
+  "LastUpdateDate": "2025-02-03T20:31:54Z",
+  "Level": "medium",
+  "Name": "Github Fork Private Repositories Setting Enabled/Cleared",
+  "Query": "sourcetype=\"github-audit\" (action=\"private_repository_forking.clear\" OR action=\"private_repository_forking.enable\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1020",
+    "attack.t1537"
+  ],
+  "Version": "0.1"
+}

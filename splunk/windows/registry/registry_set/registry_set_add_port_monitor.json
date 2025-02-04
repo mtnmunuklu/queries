@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may use port monitors to run an attacker supplied DLL during system boot for persistence or privilege escalation.\nA port monitor can be set through the AddMonitor API call to set a DLL to be loaded at startup.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "944e8941-f6f6-4ee8-ac05-1c224e923c0e",
+  "InsertDate": "2025-02-03T20:33:30Z",
+  "LastUpdateDate": "2025-02-03T20:33:30Z",
+  "Level": "medium",
+  "Name": "Add Port Monitor Persistence in Registry",
+  "Query": "sourcetype=\"windows-*\" (target_object=\"*\\\\Control\\\\Print\\\\Monitors\\\\*\" details=\"*.dll\") NOT ((process_path=\"C:\\\\Windows\\\\System32\\\\spoolsv.exe\" target_object=\"*\\\\Control\\\\Print\\\\Monitors\\\\CutePDF Writer Monitor v4.0\\\\Driver*\" details=\"cpwmon64_v40.dll\" (username=\"*AUTHORI*\" OR username=\"*AUTORI*\")) OR target_object=\"*\\\\Control\\\\Print\\\\Monitors\\\\MONVNC\\\\Driver*\" OR (target_object=\"*Control\\\\Print\\\\Environments\\\\*\" target_object=\"*\\\\Drivers\\\\*\" target_object=\"*\\\\VNC Printer*\"))",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1547.010"
+  ],
+  "Version": "0.1"
+}

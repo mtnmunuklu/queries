@@ -1,0 +1,14 @@
+{
+  "Description": "Detects abusing Windows 10 Narrator's Feedback-Hub\n\nAuthor: Dmitriy Lifanov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f663a6d9-9d1b-49b8-b2b1-0637914d199a",
+  "InsertDate": "2025-02-03T20:33:29Z",
+  "LastUpdateDate": "2025-02-03T20:33:29Z",
+  "Level": "high",
+  "Name": "Narrator's Feedback-Hub Persistence",
+  "Query": "sourcetype=\"windows-sysmon\" target_object=\"*\\\\AppXypsaf9f1qserqevf0sws76dx4k9a5206\\\\Shell\\\\open\\\\command\\\\(Default)\" OR (event_type=\"DeleteValue\" target_object=\"*\\\\AppXypsaf9f1qserqevf0sws76dx4k9a5206\\\\Shell\\\\open\\\\command\\\\DelegateExecute\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1547.001"
+  ],
+  "Version": "0.1"
+}

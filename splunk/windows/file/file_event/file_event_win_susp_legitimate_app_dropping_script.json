@@ -1,0 +1,14 @@
+{
+  "Description": "Detects programs on a Windows system that should not write scripts to disk\n\nAuthor: frack113, Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7d604714-e071-49ff-8726-edeb95a70679",
+  "InsertDate": "2025-02-03T20:32:20Z",
+  "LastUpdateDate": "2025-02-03T20:32:20Z",
+  "Level": "high",
+  "Name": "Legitimate Application Dropped Script",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\eqnedt32.exe\" OR process_path=\"*\\\\wordpad.exe\" OR process_path=\"*\\\\wordview.exe\" OR process_path=\"*\\\\certutil.exe\" OR process_path=\"*\\\\certoc.exe\" OR process_path=\"*\\\\CertReq.exe\" OR process_path=\"*\\\\Desktopimgdownldr.exe\" OR process_path=\"*\\\\esentutl.exe\" OR process_path=\"*\\\\mshta.exe\" OR process_path=\"*\\\\AcroRd32.exe\" OR process_path=\"*\\\\RdrCEF.exe\" OR process_path=\"*\\\\hh.exe\" OR process_path=\"*\\\\finger.exe\") (filepath=\"*.ps1\" OR filepath=\"*.bat\" OR filepath=\"*.vbs\" OR filepath=\"*.scf\" OR filepath=\"*.wsf\" OR filepath=\"*.wsh\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

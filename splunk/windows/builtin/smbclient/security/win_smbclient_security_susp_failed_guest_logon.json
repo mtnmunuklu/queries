@@ -1,0 +1,14 @@
+{
+  "Description": "Detect Attempt PrintNightmare (CVE-2021-1675) Remote code execution in Windows Spooler Service\n\nAuthor: Florian Roth (Nextron Systems), KevTheHermit, fuzzyf10w\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "71886b70-d7b4-4dbf-acce-87d2ca135262",
+  "InsertDate": "2025-02-03T20:32:12Z",
+  "LastUpdateDate": "2025-02-03T20:32:12Z",
+  "Level": "medium",
+  "Name": "Suspicious Rejected SMB Guest Logon From IP",
+  "Query": "sourcetype=\"windows-smbclient-security\" eventid=\"31017\" username=\"\" servername=\"\\\\1*\"",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1110.001"
+  ],
+  "Version": "0.1"
+}

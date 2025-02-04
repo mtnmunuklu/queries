@@ -1,0 +1,17 @@
+{
+  "Description": "Detects usage of bitsadmin downloading a file using an URL that contains an IP\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "99c840f2-2012-46fd-9141-c761987550ef",
+  "InsertDate": "2025-02-03T20:32:37Z",
+  "LastUpdateDate": "2025-02-03T20:32:37Z",
+  "Level": "high",
+  "Name": "Suspicious Download From Direct IP Via Bitsadmin",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\bitsadmin.exe\" original_file_name=\"bitsadmin.exe\") (command=\"* /transfer *\" OR command=\"* /create *\" OR command=\"* /addfile *\") (command=\"*://1*\" OR command=\"*://2*\" OR command=\"*://3*\" OR command=\"*://4*\" OR command=\"*://5*\" OR command=\"*://6*\" OR command=\"*://7*\" OR command=\"*://8*\" OR command=\"*://9*\")) NOT command=\"*://7-*\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.t1197",
+    "attack.s0190",
+    "attack.t1036.003"
+  ],
+  "Version": "0.1"
+}

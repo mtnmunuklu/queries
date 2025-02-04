@@ -1,0 +1,17 @@
+{
+  "Description": "Detects patterns found in process executions cause by China Chopper like tiny (ASPX) webshells\n\nAuthor: Florian Roth (Nextron Systems), MSTI (query)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "fa3c117a-bc0d-416e-a31b-0c0e80653efb",
+  "InsertDate": "2025-02-03T20:33:24Z",
+  "LastUpdateDate": "2025-02-03T20:33:24Z",
+  "Level": "high",
+  "Name": "Chopper Webshell Process Pattern",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\w3wp.exe\" parent_process_path=\"*\\\\w3wp.exe\") (command=\"*\u0026ipconfig\u0026echo*\" OR command=\"*\u0026quser\u0026echo*\" OR command=\"*\u0026whoami\u0026echo*\" OR command=\"*\u0026c:\u0026echo*\" OR command=\"*\u0026cd\u0026echo*\" OR command=\"*\u0026dir\u0026echo*\" OR command=\"*\u0026echo [E]*\" OR command=\"*\u0026echo [S]*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1505.003",
+    "attack.t1018",
+    "attack.t1033",
+    "attack.t1087"
+  ],
+  "Version": "0.1"
+}

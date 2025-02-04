@@ -1,0 +1,14 @@
+{
+  "Description": "Detects usage of the 'chattr' utility to remove immutable file attribute.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "34979410-e4b5-4e5d-8cfb-389fdff05c12",
+  "InsertDate": "2025-02-03T20:31:58Z",
+  "LastUpdateDate": "2025-02-03T20:31:58Z",
+  "Level": "medium",
+  "Name": "Remove Immutable File Attribute",
+  "Query": "sourcetype=\"linux-*\" process_path=\"*/chattr\" command=\"* -i *\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1222.002"
+  ],
+  "Version": "0.1"
+}

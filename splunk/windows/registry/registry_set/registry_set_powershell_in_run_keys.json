@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential PowerShell commands or code within registry run keys\n\nAuthor: frack113, Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8d85cf08-bf97-4260-ba49-986a2a65129c",
+  "InsertDate": "2025-02-03T20:33:42Z",
+  "LastUpdateDate": "2025-02-03T20:33:42Z",
+  "Level": "medium",
+  "Name": "Suspicious Powershell In Registry Run Keys",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Run*\" (details=\"*powershell*\" OR details=\"*pwsh *\" OR details=\"*FromBase64String*\" OR details=\"*.DownloadFile(*\" OR details=\"*.DownloadString(*\" OR details=\"* -w hidden *\" OR details=\"* -w 1 *\" OR details=\"*-windowstyle hidden*\" OR details=\"*-window hidden*\" OR details=\"* -nop *\" OR details=\"* -encodedcommand *\" OR details=\"*-ExecutionPolicy Bypass*\" OR details=\"*Invoke-Expression*\" OR details=\"*IEX (*\" OR details=\"*Invoke-Command*\" OR details=\"*ICM -*\" OR details=\"*Invoke-WebRequest*\" OR details=\"*IWR *\" OR details=\"* -noni *\" OR details=\"* -noninteractive *\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1547.001"
+  ],
+  "Version": "0.1"
+}

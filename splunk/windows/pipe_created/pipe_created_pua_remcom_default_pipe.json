@@ -1,0 +1,16 @@
+{
+  "Description": "Detects default RemCom pipe creation\n\nAuthor: Nikita Nazarov, oscd.community, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d36f87ea-c403-44d2-aa79-1a0ac7c24456",
+  "InsertDate": "2025-02-03T20:32:26Z",
+  "LastUpdateDate": "2025-02-03T20:32:26Z",
+  "Level": "medium",
+  "Name": "PUA - RemCom Default Named Pipe",
+  "Query": "sourcetype=\"windows-*\" pipe_name=\"*\\\\RemCom*\"",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.t1021.002",
+    "attack.execution",
+    "attack.t1569.002"
+  ],
+  "Version": "0.1"
+}

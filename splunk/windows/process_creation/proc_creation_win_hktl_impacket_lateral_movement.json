@@ -1,0 +1,16 @@
+{
+  "Description": "Detects wmiexec/dcomexec/atexec/smbexec from Impacket framework\n\nAuthor: Ecco, oscd.community, Jonhnathan Ribeiro, Tim Rauch\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "10c14723-61c7-4c75-92ca-9af245723ad2",
+  "InsertDate": "2025-02-03T20:32:44Z",
+  "LastUpdateDate": "2025-02-03T20:32:44Z",
+  "Level": "high",
+  "Name": "HackTool - Potential Impacket Lateral Movement Activity",
+  "Query": "sourcetype=\"windows-sysmon\" ((parent_process_path=\"*\\\\wmiprvse.exe\" OR parent_process_path=\"*\\\\mmc.exe\" OR parent_process_path=\"*\\\\explorer.exe\" OR parent_process_path=\"*\\\\services.exe\") (command=\"*cmd.exe*\" command=\"*/Q*\" command=\"*/c*\" command=\"*\\\\\\\\\\\\\\\\127.0.0.1\\\\\\\\*\" command=\"*\u00261*\")) OR ((parent_command_line=\"*svchost.exe -k netsvcs*\" OR parent_command_line=\"*taskeng.exe*\") (command=\"*cmd.exe*\" command=\"*/C*\" command=\"*Windows\\\\Temp\\\\*\" command=\"*\u00261*\"))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1047",
+    "attack.lateral-movement",
+    "attack.t1021.003"
+  ],
+  "Version": "0.1"
+}

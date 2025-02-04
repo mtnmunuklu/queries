@@ -1,0 +1,16 @@
+{
+  "Description": "Detects Obfuscated Powershell via VAR++ LAUNCHER\n\nAuthor: Timur Zinniatullin, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4c54ba8f-73d2-4d40-8890-d9cf1dca3d30",
+  "InsertDate": "2025-02-03T20:32:10Z",
+  "LastUpdateDate": "2025-02-03T20:32:10Z",
+  "Level": "high",
+  "Name": "Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION - Security",
+  "Query": "sourcetype=\"windows-security\" eventid=\"4697\" (servicefilename=\"*\u0026\u0026set*\" servicefilename=\"*cmd*\" servicefilename=\"*/c*\" servicefilename=\"*-f*\") (servicefilename=\"*{0}*\" OR servicefilename=\"*{1}*\" OR servicefilename=\"*{2}*\" OR servicefilename=\"*{3}*\" OR servicefilename=\"*{4}*\" OR servicefilename=\"*{5}*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1027",
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

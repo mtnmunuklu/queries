@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the deletion of the Exchange PowerShell cmdlet History logs which may indicate an attempt to destroy forensic evidence\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a55349d8-9588-4c5a-8e3b-1925fe2a4ffe",
+  "InsertDate": "2025-02-03T20:32:16Z",
+  "LastUpdateDate": "2025-02-03T20:32:16Z",
+  "Level": "high",
+  "Name": "Exchange PowerShell Cmdlet History Deleted",
+  "Query": "sourcetype=\"windows-*\" filepath=\"\\\\Logging\\\\CmdletInfra\\\\LocalPowerShell\\\\Cmdlet\\\\*\" filepath=\"*_Cmdlet_*\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1070"
+  ],
+  "Version": "0.1"
+}

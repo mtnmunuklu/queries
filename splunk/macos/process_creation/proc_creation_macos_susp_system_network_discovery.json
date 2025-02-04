@@ -1,0 +1,14 @@
+{
+  "Description": "Detects enumeration of local network configuration\n\nAuthor: remotephone, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "58800443-f9fc-4d55-ae0c-98a3966dfb97",
+  "InsertDate": "2025-02-03T20:32:02Z",
+  "LastUpdateDate": "2025-02-03T20:32:02Z",
+  "Level": "informational",
+  "Name": "System Network Discovery - macOS",
+  "Query": "sourcetype=\"macos-*\" ((process_path=\"/usr/bin/defaults\" (command=\"*/Library/Preferences/com.apple.alf*\" command=\"*read*\")) OR (process_path=\"*/arp\" OR process_path=\"*/ifconfig\" OR process_path=\"*/netstat\" OR process_path=\"*/networksetup\" OR process_path=\"*/socketfilterfw\")) NOT parent_process_path=\"*/wifivelocityd\"",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1016"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects execution of different log query utilities and commands to search and dump the content of specific event logs or look for specific event IDs.\nThis technique is used by threat actors in order to extract sensitive information from events logs such as usernames, IP addresses, hostnames, etc.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), X__Junior (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "beaa66d6-aa1b-4e3c-80f5-e0145369bfaf",
+  "InsertDate": "2025-02-03T20:33:14Z",
+  "LastUpdateDate": "2025-02-03T20:33:14Z",
+  "Level": "medium",
+  "Name": "Potentially Suspicious EventLog Recon Activity Using Log Query Utilities",
+  "Query": "sourcetype=\"windows-sysmon\" ((command=\"*Microsoft-Windows-PowerShell*\" OR command=\"*Microsoft-Windows-Security-Auditing*\" OR command=\"*Microsoft-Windows-TerminalServices-LocalSessionManager*\" OR command=\"*Microsoft-Windows-TerminalServices-RemoteConnectionManager*\" OR command=\"*Microsoft-Windows-Windows Defender*\" OR command=\"*PowerShellCore*\" OR command=\"*Security*\" OR command=\"*Windows PowerShell*\") OR (command=\"*-InstanceId 462?*\" OR command=\"*.eventid -eq 462?*\" OR command=\"*EventCode=?462?*\" OR command=\"*EventIdentifier=?462?*\" OR command=\"*System[EventID=462?]*\" OR command=\"*-InstanceId 4778*\" OR command=\"*.eventid -eq 4778*\" OR command=\"*System[EventID=4778]*\" OR command=\"*EventCode=?4778?*\" OR command=\"*EventIdentifier=?4778?*\" OR command=\"*-InstanceId 25*\" OR command=\"*.eventid -eq 25*\" OR command=\"*System[EventID=25]*\" OR command=\"*EventCode=?25?*\" OR command=\"*EventIdentifier=?25?*\")) ((command=\"*Select*\" command=\"*Win32_NTLogEvent*\") OR ((process_path=\"*\\\\wevtutil.exe\" original_file_name=\"wevtutil.exe\") (command=\"* qe *\" OR command=\"* query-events *\")) OR ((process_path=\"*\\\\wmic.exe\" original_file_name=\"wmic.exe\") command=\"* ntevent*\") OR (command=\"*Get-WinEvent *\" OR command=\"*get-eventlog *\"))",
+  "Tags": [
+    "attack.credential-access",
+    "attack.discovery",
+    "attack.t1552"
+  ],
+  "Version": "0.1"
+}

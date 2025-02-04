@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the dump of highly sensitive files such as \"NTDS.DIT\" and \"SECURITY\" hive.\nAttackers can leverage the \"wbadmin\" utility in order to dump sensitive files that might contain credential or sensitive information.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8b93a509-1cb8-42e1-97aa-ee24224cdc15",
+  "InsertDate": "2025-02-03T20:33:24Z",
+  "LastUpdateDate": "2025-02-03T20:33:24Z",
+  "Level": "high",
+  "Name": "Sensitive File Dump Via Wbadmin.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\wbadmin.exe\" original_file_name=\"WBADMIN.EXE\") (command=\"*start*\" OR command=\"*backup*\") (command=\"*\\\\config\\\\SAM*\" OR command=\"*\\\\config\\\\SECURITY*\" OR command=\"*\\\\config\\\\SYSTEM*\" OR command=\"*\\\\Windows\\\\NTDS\\\\NTDS.dit*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.003"
+  ],
+  "Version": "0.1"
+}

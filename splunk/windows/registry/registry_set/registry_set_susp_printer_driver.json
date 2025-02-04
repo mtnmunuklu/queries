@@ -1,0 +1,15 @@
+{
+  "Description": "Detects a suspicious printer driver installation with an empty Manufacturer value\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e0813366-0407-449a-9869-a2db1119dc41",
+  "InsertDate": "2025-02-03T20:33:43Z",
+  "LastUpdateDate": "2025-02-03T20:33:43Z",
+  "Level": "high",
+  "Name": "Suspicious Printer Driver Empty Manufacturer",
+  "Query": "sourcetype=\"windows-*\" ((target_object=\"*\\\\Control\\\\Print\\\\Environments\\\\Windows x64\\\\Drivers*\" target_object=\"*\\\\Manufacturer*\") details=\"(Empty)\") NOT (target_object=\"*\\\\CutePDF Writer v4.0\\\\*\" OR (target_object=\"*\\\\VNC Printer (PS)\\\\*\" OR target_object=\"*\\\\VNC Printer (UD)\\\\*\") OR target_object=\"*\\\\Version-3\\\\PDF24\\\\*\")",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.t1574",
+    "cve.2021-1675"
+  ],
+  "Version": "0.1"
+}

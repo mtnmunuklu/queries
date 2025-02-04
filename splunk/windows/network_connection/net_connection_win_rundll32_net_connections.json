@@ -1,0 +1,15 @@
+{
+  "Description": "Detects a rundll32 that communicates with public IP addresses\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "cdc8da7d-c303-42f8-b08c-b4ab47230263",
+  "InsertDate": "2025-02-03T20:32:25Z",
+  "LastUpdateDate": "2025-02-03T20:32:25Z",
+  "Level": "medium",
+  "Name": "Rundll32 Internet Connection",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\rundll32.exe\" initiated=\"true\") NOT ((dst_ip=\"127.0.0.0/8\" OR dst_ip=\"10.0.0.0/8\" OR dst_ip=\"172.16.0.0/12\" OR dst_ip=\"192.168.0.0/16\" OR dst_ip=\"169.254.0.0/16\" OR dst_ip=\"::1/128\" OR dst_ip=\"fe80::/10\" OR dst_ip=\"fc00::/7\") OR (dst_ip=\"20.0.0.0/8\" OR dst_ip=\"51.103.0.0/16\" OR dst_ip=\"51.104.0.0/16\" OR dst_ip=\"51.105.0.0/16\") OR command=\"*\\\\system32\\\\PcaSvc.dll,PcaPatchSdbTask\" OR src_host=\"*.internal.cloudapp.net\" OR (parent_process_path=\"C:\\\\Windows\\\\System32\\\\svchost.exe\" dst_port=\"443\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.011",
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

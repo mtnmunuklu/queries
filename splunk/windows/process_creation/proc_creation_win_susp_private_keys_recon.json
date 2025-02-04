@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may search for private key certificate files on compromised systems for insecurely stored credential\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "213d6a77-3d55-4ce8-ba74-fcfef741974e",
+  "InsertDate": "2025-02-03T20:33:16Z",
+  "LastUpdateDate": "2025-02-03T20:33:16Z",
+  "Level": "medium",
+  "Name": "Private Keys Reconnaissance Via CommandLine Tools",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*.key*\" OR command=\"*.pgp*\" OR command=\"*.gpg*\" OR command=\"*.ppk*\" OR command=\"*.p12*\" OR command=\"*.pem*\" OR command=\"*.pfx*\" OR command=\"*.cer*\" OR command=\"*.p7b*\" OR command=\"*.asc*\") (((process_path=\"*\\\\cmd.exe\" original_file_name=\"Cmd.Exe\") command=\"*dir *\") OR (command=\"*Get-ChildItem *\" ((process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\") (original_file_name=\"PowerShell.EXE\" OR original_file_name=\"pwsh.dll\"))) OR (process_path=\"*\\\\findstr.exe\" original_file_name=\"FINDSTR.EXE\"))",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1552.004"
+  ],
+  "Version": "0.1"
+}

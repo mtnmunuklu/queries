@@ -1,0 +1,13 @@
+{
+  "Description": "Detects usage of the powerShell New-MailboxExportRequest Cmdlet to exports a mailbox to a remote or local share, as used in ProxyShell exploitations\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4a241dea-235b-4a7e-8d76-50d817b146c4",
+  "InsertDate": "2025-02-03T20:32:31Z",
+  "LastUpdateDate": "2025-02-03T20:32:31Z",
+  "Level": "critical",
+  "Name": "Suspicious PowerShell Mailbox Export to Share - PS",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*New-MailboxExportRequest*\" scriptblocktext=\"* -Mailbox *\" scriptblocktext=\"* -FilePath \\\\\\\\\\\\\\\\*\")",
+  "Tags": [
+    "attack.exfiltration"
+  ],
+  "Version": "0.1"
+}

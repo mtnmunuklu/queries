@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the use of the Windows Update Client binary (wuauclt.exe) for proxy execution.\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research), Florian Roth (Nextron Systems), Sreeman, FPT.EagleEye Team\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "af77cf95-c469-471c-b6a0-946c685c4798",
+  "InsertDate": "2025-02-03T20:33:27Z",
+  "LastUpdateDate": "2025-02-03T20:33:27Z",
+  "Level": "high",
+  "Name": "Proxy Execution Via Wuauclt.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\wuauclt.exe\" original_file_name=\"wuauclt.exe\") (command=\"*UpdateDeploymentProvider*\" command=\"*RunHandlerComServer*\")) NOT (command=\"* /UpdateDeploymentProvider UpdateDeploymentProvider.dll *\" OR command=\"* wuaueng.dll *\" OR (command=\"*:\\\\Windows\\\\UUS\\\\Packages\\\\Preview\\\\amd64\\\\updatedeploy.dll /ClassId*\" OR command=\"*:\\\\Windows\\\\UUS\\\\amd64\\\\UpdateDeploy.dll /ClassId*\") OR (command=\"*:\\\\Windows\\\\WinSxS\\\\*\" command=\"*\\\\UpdateDeploy.dll /ClassId *\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218",
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

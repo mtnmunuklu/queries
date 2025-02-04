@@ -1,0 +1,15 @@
+{
+  "Description": "Detects service installation of different remote access tools software. These software are often abused by threat actors to perform\n\nAuthor: Connor Martin, Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1a31b18a-f00c-4061-9900-f735b96c99fc",
+  "InsertDate": "2025-02-03T20:32:13Z",
+  "LastUpdateDate": "2025-02-03T20:32:13Z",
+  "Level": "medium",
+  "Name": "Remote Access Tool Services Have Been Installed - System",
+  "Query": "sourcetype=\"windows-system\" provider_name=\"Service Control Manager\" (eventid=\"7045\" OR eventid=\"7036\") (servicename=\"*AmmyyAdmin*\" OR servicename=\"*Atera*\" OR servicename=\"*BASupportExpressSrvcUpdater*\" OR servicename=\"*BASupportExpressStandaloneService*\" OR servicename=\"*chromoting*\" OR servicename=\"*GoToAssist*\" OR servicename=\"*GoToMyPC*\" OR servicename=\"*jumpcloud*\" OR servicename=\"*LMIGuardianSvc*\" OR servicename=\"*LogMeIn*\" OR servicename=\"*monblanking*\" OR servicename=\"*Parsec*\" OR servicename=\"*RManService*\" OR servicename=\"*RPCPerformanceService*\" OR servicename=\"*RPCService*\" OR servicename=\"*SplashtopRemoteService*\" OR servicename=\"*SSUService*\" OR servicename=\"*TeamViewer*\" OR servicename=\"*TightVNC*\" OR servicename=\"*vncserver*\" OR servicename=\"*Zoho*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1543.003",
+    "attack.t1569.002"
+  ],
+  "Version": "0.1"
+}

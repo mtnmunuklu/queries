@@ -1,0 +1,14 @@
+{
+  "Description": "Detects command line parameters or strings often used by crypto miners\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "66c3b204-9f88-4d0a-a7f7-8a57d521ca55",
+  "InsertDate": "2025-02-03T20:33:13Z",
+  "LastUpdateDate": "2025-02-03T20:33:13Z",
+  "Level": "high",
+  "Name": "Potential Crypto Mining Activity",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"* --cpu-priority=*\" OR command=\"*--donate-level=0*\" OR command=\"* -o pool.*\" OR command=\"* --nicehash*\" OR command=\"* --algo=rx/0 *\" OR command=\"*stratum+tcp://*\" OR command=\"*stratum+udp://*\" OR command=\"*LS1kb25hdGUtbGV2ZWw9*\" OR command=\"*0tZG9uYXRlLWxldmVsP*\" OR command=\"*tLWRvbmF0ZS1sZXZlbD*\" OR command=\"*c3RyYXR1bSt0Y3A6Ly*\" OR command=\"*N0cmF0dW0rdGNwOi8v*\" OR command=\"*zdHJhdHVtK3RjcDovL*\" OR command=\"*c3RyYXR1bSt1ZHA6Ly*\" OR command=\"*N0cmF0dW0rdWRwOi8v*\" OR command=\"*zdHJhdHVtK3VkcDovL*\") NOT (command=\"* pool.c *\" OR command=\"* pool.o *\" OR command=\"*gcc -*\")",
+  "Tags": [
+    "attack.impact",
+    "attack.t1496"
+  ],
+  "Version": "0.1"
+}

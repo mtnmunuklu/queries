@@ -1,0 +1,14 @@
+{
+  "Description": "Detects adversary creating hidden file or directory, by detecting directories or files with . as the first character\n\nAuthor: Pawel Mazur\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d08722cd-3d09-449a-80b4-83ea2d9d4616",
+  "InsertDate": "2025-02-03T20:31:56Z",
+  "LastUpdateDate": "2025-02-03T20:31:56Z",
+  "Level": "low",
+  "Name": "Hidden Files and Directories",
+  "Query": "sourcetype=\"linux-auditd\" (type=\"EXECVE\" (a0=\"mkdir\" OR a0=\"touch\" OR a0=\"vim\" OR a0=\"nano\" OR a0=\"vi\")) (a1=\"*/.*\" a1=\".*\" a2=\"*/.*\" a2=\".*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1564.001"
+  ],
+  "Version": "0.1"
+}

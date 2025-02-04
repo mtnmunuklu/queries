@@ -1,0 +1,17 @@
+{
+  "Description": "Detects potential DLL sideloading of \"libcurl.dll\" by the \"gup.exe\" process from an uncommon location\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e49b5745-1064-4ac1-9a2e-f687bc2dd37e",
+  "InsertDate": "2025-02-03T20:32:23Z",
+  "LastUpdateDate": "2025-02-03T20:32:23Z",
+  "Level": "medium",
+  "Name": "Potential DLL Sideloading Of Libcurl.DLL Via GUP.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\gup.exe\" image_loaded=\"*\\\\libcurl.dll\") NOT process_path=\"*\\\\Notepad++\\\\updater\\\\GUP.exe\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

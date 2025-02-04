@@ -1,0 +1,13 @@
+{
+  "Description": "Detects potential suspicious child processes of \"jamf\". Could be a sign of potential abuse of Jamf as a C2 server as seen by Typhon MythicAgent.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2316929c-01aa-438c-970f-099145ab1ee6",
+  "InsertDate": "2025-02-03T20:32:02Z",
+  "LastUpdateDate": "2025-02-03T20:32:02Z",
+  "Level": "medium",
+  "Name": "JAMF MDM Potential Suspicious Child Process",
+  "Query": "sourcetype=\"macos-*\" parent_process_path=\"*/jamf\" (process_path=\"*/bash\" OR process_path=\"*/sh\")",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

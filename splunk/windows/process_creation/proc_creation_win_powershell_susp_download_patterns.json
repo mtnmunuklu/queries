@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious PowerShell download patterns that are often used in malicious scripts, stagers or downloaders (make sure that your backend applies the strings case-insensitive)\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e6c54d94-498c-4562-a37c-b469d8e9a275",
+  "InsertDate": "2025-02-03T20:32:59Z",
+  "LastUpdateDate": "2025-02-03T20:32:59Z",
+  "Level": "high",
+  "Name": "Suspicious PowerShell Download and Execute Pattern",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*IEX ((New-Object Net.WebClient).DownloadString*\" OR command=\"*IEX (New-Object Net.WebClient).DownloadString*\" OR command=\"*IEX((New-Object Net.WebClient).DownloadString*\" OR command=\"*IEX(New-Object Net.WebClient).DownloadString*\" OR command=\"* -command (New-Object System.Net.WebClient).DownloadFile(*\" OR command=\"* -c (New-Object System.Net.WebClient).DownloadFile(*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects specific commands commonly used to remove or empty the syslog. Which is often used by attacker as a method to hide their tracks\n\nAuthor: Max Altgelt (Nextron Systems), Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research), MSTIC\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3fcc9b35-39e4-44c0-a2ad-9e82b6902b31",
+  "InsertDate": "2025-02-03T20:31:58Z",
+  "LastUpdateDate": "2025-02-03T20:31:58Z",
+  "Level": "high",
+  "Name": "Commands to Clear or Remove the Syslog",
+  "Query": "sourcetype=\"linux-*\" (command=\"*rm /var/log/syslog*\" OR command=\"*rm -r /var/log/syslog*\" OR command=\"*rm -f /var/log/syslog*\" OR command=\"*rm -rf /var/log/syslog*\" OR command=\"*unlink /var/log/syslog*\" OR command=\"*unlink -r /var/log/syslog*\" OR command=\"*unlink -f /var/log/syslog*\" OR command=\"*unlink -rf /var/log/syslog*\" OR command=\"*mv /var/log/syslog*\" OR command=\"* \u003e/var/log/syslog*\" OR command=\"* \u003e /var/log/syslog*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1070.002"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,17 @@
+{
+  "Description": "Detects DLL sideloading of \"dbgcore.dll\"\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Wietze Beukema (project and research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9ca2bf31-0570-44d8-a543-534c47c33ed7",
+  "InsertDate": "2025-02-03T20:32:22Z",
+  "LastUpdateDate": "2025-02-03T20:32:22Z",
+  "Level": "medium",
+  "Name": "Potential DLL Sideloading Of DBGCORE.DLL",
+  "Query": "sourcetype=\"windows-sysmon\" image_loaded=\"*\\\\dbgcore.dll\" NOT (image_loaded=\"C:\\\\Program Files (x86)\\\\*\" OR image_loaded=\"C:\\\\Program Files\\\\*\" OR image_loaded=\"C:\\\\Windows\\\\SoftwareDistribution\\\\*\" OR image_loaded=\"C:\\\\Windows\\\\System32\\\\*\" OR image_loaded=\"C:\\\\Windows\\\\SystemTemp\\\\*\" OR image_loaded=\"C:\\\\Windows\\\\SysWOW64\\\\*\" OR image_loaded=\"C:\\\\Windows\\\\WinSxS\\\\*\") NOT image_loaded=\"*\\\\Steam\\\\bin\\\\cef\\\\cef.win7x64\\\\dbgcore.dll\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1574.001",
+    "attack.t1574.002"
+  ],
+  "Version": "0.1"
+}

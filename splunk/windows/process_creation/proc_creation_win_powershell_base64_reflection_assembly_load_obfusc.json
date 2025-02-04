@@ -1,0 +1,16 @@
+{
+  "Description": "Detects suspicious base64 encoded and obfuscated \"LOAD\" keyword used in .NET \"reflection.assembly\"\n\nAuthor: pH-T (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9c0295ce-d60d-40bd-bd74-84673b7592b1",
+  "InsertDate": "2025-02-03T20:32:55Z",
+  "LastUpdateDate": "2025-02-03T20:32:55Z",
+  "Level": "high",
+  "Name": "Suspicious Encoded And Obfuscated Reflection Assembly Load Function Call",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*OgA6ACgAIgBMACIAKwAiAG8AYQBkACIAKQ*\" OR command=\"*oAOgAoACIATAAiACsAIgBvAGEAZAAiACkA*\" OR command=\"*6ADoAKAAiAEwAIgArACIAbwBhAGQAIgApA*\" OR command=\"*OgA6ACgAIgBMAG8AIgArACIAYQBkACIAKQ*\" OR command=\"*oAOgAoACIATABvACIAKwAiAGEAZAAiACkA*\" OR command=\"*6ADoAKAAiAEwAbwAiACsAIgBhAGQAIgApA*\" OR command=\"*OgA6ACgAIgBMAG8AYQAiACsAIgBkACIAKQ*\" OR command=\"*oAOgAoACIATABvAGEAIgArACIAZAAiACkA*\" OR command=\"*6ADoAKAAiAEwAbwBhACIAKwAiAGQAIgApA*\" OR command=\"*OgA6ACgAJwBMACcAKwAnAG8AYQBkACcAKQ*\" OR command=\"*oAOgAoACcATAAnACsAJwBvAGEAZAAnACkA*\" OR command=\"*6ADoAKAAnAEwAJwArACcAbwBhAGQAJwApA*\" OR command=\"*OgA6ACgAJwBMAG8AJwArACcAYQBkACcAKQ*\" OR command=\"*oAOgAoACcATABvACcAKwAnAGEAZAAnACkA*\" OR command=\"*6ADoAKAAnAEwAbwAnACsAJwBhAGQAJwApA*\" OR command=\"*OgA6ACgAJwBMAG8AYQAnACsAJwBkACcAKQ*\" OR command=\"*oAOgAoACcATABvAGEAJwArACcAZAAnACkA*\" OR command=\"*6ADoAKAAnAEwAbwBhACcAKwAnAGQAJwApA*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.defense-evasion",
+    "attack.t1059.001",
+    "attack.t1027"
+  ],
+  "Version": "0.1"
+}

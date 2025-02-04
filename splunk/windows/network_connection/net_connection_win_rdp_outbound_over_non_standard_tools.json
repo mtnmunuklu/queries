@@ -1,0 +1,15 @@
+{
+  "Description": "Detects Non-Standard tools initiating a connection over port 3389 indicating possible lateral movement.\nAn initial baseline is required before using this utility to exclude third party RDP tooling that you might use.\n\n\nAuthor: Markus Neis\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ed74fe75-7594-4b4b-ae38-e38e3fd2eb23",
+  "InsertDate": "2025-02-03T20:32:25Z",
+  "LastUpdateDate": "2025-02-03T20:32:25Z",
+  "Level": "high",
+  "Name": "Outbound RDP Connections Over Non-Standard Tools",
+  "Query": "sourcetype=\"windows-sysmon\" (dst_port=\"3389\" initiated=\"true\") NOT (process_path=\"C:\\\\Windows\\\\System32\\\\mstsc.exe\" OR process_path=\"C:\\\\Windows\\\\SysWOW64\\\\mstsc.exe\") NOT ((process_path=\"*\\\\FSAssessment.exe\" OR process_path=\"*\\\\FSDiscovery.exe\" OR process_path=\"*\\\\MobaRTE.exe\" OR process_path=\"*\\\\mRemote.exe\" OR process_path=\"*\\\\mRemoteNG.exe\" OR process_path=\"*\\\\Passwordstate.exe\" OR process_path=\"*\\\\RemoteDesktopManager.exe\" OR process_path=\"*\\\\RemoteDesktopManager64.exe\" OR process_path=\"*\\\\RemoteDesktopManagerFree.exe\" OR process_path=\"*\\\\RSSensor.exe\" OR process_path=\"*\\\\RTS2App.exe\" OR process_path=\"*\\\\RTSApp.exe\" OR process_path=\"*\\\\spiceworks-finder.exe\" OR process_path=\"*\\\\Terminals.exe\" OR process_path=\"*\\\\ws_TunnelService.exe\") OR process_path=\"C:\\\\Program Files\\\\Mozilla Firefox\\\\firefox.exe\" OR process_path=\"null\" OR (process_path=\"C:\\\\Windows\\\\System32\\\\dns.exe\" src_port=\"53\" protocol=\"udp\") OR process_path=\"\u003cunknown process\u003e\" OR process_path=\"*\\\\RDCMan.exe\" OR (process_path=\"*\\\\thor.exe\" OR process_path=\"*\\\\thor64.exe\") OR (process_path=\"C:\\\\Program Files\\\\TSplus\\\\Java\\\\bin\\\\HTML5service.exe\" OR process_path=\"C:\\\\Program Files (x86)\\\\TSplus\\\\Java\\\\bin\\\\HTML5service.exe\") OR (process_path=\"*\\\\Avast Software\\\\Avast\\\\AvastSvc.exe\" OR process_path=\"*\\\\Avast\\\\AvastSvc.exe\") OR process_path=\"*\\\\Ranger\\\\SentinelRanger.exe\" OR process_path=\"\" OR process_path=\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" OR process_path=\"C:\\\\Program Files\\\\SplunkUniversalForwarder\\\\bin\\\\*\")",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.t1021.001",
+    "car.2013-07-002"
+  ],
+  "Version": "0.1"
+}

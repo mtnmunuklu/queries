@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may leverage the COR_PROFILER environment variable to hijack the execution flow of programs that load the .NET CLR.\nThe COR_PROFILER is a .NET Framework feature which allows developers to specify an unmanaged (or external of .NET) profiling DLL to be loaded into each .NET process that loads the Common Language Runtime (CLR).\nThese profiliers are designed to monitor, troubleshoot, and debug managed code executed by the .NET CLR.\n(Citation: Microsoft Profiling Mar 2017)\n(Citation: Microsoft COR_PROFILER Feb 2013)\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "23590215-4702-4a70-8805-8dc9e58314a2",
+  "InsertDate": "2025-02-03T20:32:29Z",
+  "LastUpdateDate": "2025-02-03T20:32:29Z",
+  "Level": "medium",
+  "Name": "Registry-Free Process Scope COR_PROFILER",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*$env:COR_ENABLE_PROFILING*\" scriptblocktext=\"*$env:COR_PROFILER*\" scriptblocktext=\"*$env:COR_PROFILER_PATH*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1574.012"
+  ],
+  "Version": "0.1"
+}

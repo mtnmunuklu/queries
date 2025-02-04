@@ -1,0 +1,14 @@
+{
+  "Description": "Identifies IPs from which users grant access to other users on azure resources and alerts when a previously unseen source IP address is used.\n\nAuthor: sawwinnnaung\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a622fcd2-4b5a-436a-b8a2-a4171161833c",
+  "InsertDate": "2025-02-03T20:31:51Z",
+  "LastUpdateDate": "2025-02-03T20:31:51Z",
+  "Level": "medium",
+  "Name": "Granting Of Permissions To An Account",
+  "Query": "sourcetype=\"azure-activitylogs\" (\"Microsoft.Authorization/roleAssignments/write\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1098.003"
+  ],
+  "Version": "0.1"
+}

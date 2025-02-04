@@ -1,0 +1,16 @@
+{
+  "Description": "This rule detects execution of a PowerShell code through the sqlps.exe utility, which is included in the standard set of utilities supplied with the MSSQL Server.\nScript blocks are not logged in this case, so this utility helps to bypass protection mechanisms based on the analysis of these logs.\n\n\nAuthor: Agro (@agro_sev) oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0152550d-3a26-4efd-9f0e-54a0b28ae2f3",
+  "InsertDate": "2025-02-03T20:32:51Z",
+  "LastUpdateDate": "2025-02-03T20:32:51Z",
+  "Level": "medium",
+  "Name": "Detection of PowerShell Execution via Sqlps.exe",
+  "Query": "sourcetype=\"windows-sysmon\" parent_process_path=\"*\\\\sqlps.exe\" OR ((process_path=\"*\\\\sqlps.exe\" original_file_name=\"sqlps.exe\") NOT parent_process_path=\"*\\\\sqlagent.exe\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001",
+    "attack.defense-evasion",
+    "attack.t1127"
+  ],
+  "Version": "0.1"
+}

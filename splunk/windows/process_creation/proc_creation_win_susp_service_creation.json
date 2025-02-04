@@ -1,0 +1,15 @@
+{
+  "Description": "Detects creation of a new service via \"sc\" command or the powershell \"new-service\" cmdlet with suspicious binary paths\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "17a1be64-8d88-40bf-b5ff-a4f7a50ebcc8",
+  "InsertDate": "2025-02-03T20:33:17Z",
+  "LastUpdateDate": "2025-02-03T20:33:17Z",
+  "Level": "high",
+  "Name": "Suspicious New Service Creation",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\sc.exe\" (command=\"*create*\" command=\"*binPath=*\")) OR (command=\"*New-Service*\" command=\"*-BinaryPathName*\")) (command=\"*powershell*\" OR command=\"*mshta*\" OR command=\"*wscript*\" OR command=\"*cscript*\" OR command=\"*svchost*\" OR command=\"*dllhost*\" OR command=\"*cmd *\" OR command=\"*cmd.exe /c*\" OR command=\"*cmd.exe /k*\" OR command=\"*cmd.exe /r*\" OR command=\"*rundll32*\" OR command=\"*C:\\\\Users\\\\Public*\" OR command=\"*\\\\Downloads\\\\*\" OR command=\"*\\\\Desktop\\\\*\" OR command=\"*\\\\Microsoft\\\\Windows\\\\Start Menu\\\\Programs\\\\Startup\\\\*\" OR command=\"*C:\\\\Windows\\\\TEMP\\\\*\" OR command=\"*\\\\AppData\\\\Local\\\\Temp*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1543.003"
+  ],
+  "Version": "0.1"
+}

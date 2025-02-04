@@ -1,0 +1,14 @@
+{
+  "Description": "Detects modifications to an RDS cluster or its deletion, which may indicate potential data exfiltration attempts, unauthorized access, or exposure of sensitive information.\n\nAuthor: Ivan Saakov\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "457cc9ac-d8e6-4d1d-8c0e-251d0f11a74c",
+  "InsertDate": "2025-02-03T20:31:51Z",
+  "LastUpdateDate": "2025-02-03T20:31:51Z",
+  "Level": "high",
+  "Name": "Modification or Deletion of an AWS RDS Cluster",
+  "Query": "sourcetype=\"aws-cloudtrail\" eventsource=\"rds.amazonaws.com\" (eventname=\"ModifyDBCluster\" OR eventname=\"DeleteDBCluster\")",
+  "Tags": [
+    "attack.exfiltration",
+    "attack.t1020"
+  ],
+  "Version": "0.1"
+}

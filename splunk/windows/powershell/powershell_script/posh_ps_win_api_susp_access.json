@@ -1,0 +1,15 @@
+{
+  "Description": "Detects use of WinAPI functions in PowerShell scripts\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Nikita Nazarov, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "03d83090-8cba-44a0-b02f-0b756a050306",
+  "InsertDate": "2025-02-03T20:32:35Z",
+  "LastUpdateDate": "2025-02-03T20:32:35Z",
+  "Level": "high",
+  "Name": "Potential WinAPI Calls Via PowerShell Scripts",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*OpenProcessToken*\" scriptblocktext=\"*DuplicateTokenEx*\" scriptblocktext=\"*CloseHandle*\") OR (scriptblocktext=\"*WriteProcessMemory*\" scriptblocktext=\"*VirtualAlloc*\" scriptblocktext=\"*ReadProcessMemory*\" scriptblocktext=\"*VirtualFree*\") OR (scriptblocktext=\"*VirtualAlloc*\" scriptblocktext=\"*OpenProcess*\" scriptblocktext=\"*WriteProcessMemory*\" scriptblocktext=\"*CreateRemoteThread*\") OR (scriptblocktext=\"*OpenProcessToken*\" scriptblocktext=\"*LookupPrivilegeValue*\" scriptblocktext=\"*AdjustTokenPrivileges*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001",
+    "attack.t1106"
+  ],
+  "Version": "0.1"
+}

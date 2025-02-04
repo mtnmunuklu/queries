@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the registration of a new ODBC driver where the driver is located in a potentially suspicious location\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e4d22291-f3d5-4b78-9a0c-a1fbaf32a6a4",
+  "InsertDate": "2025-02-03T20:33:38Z",
+  "LastUpdateDate": "2025-02-03T20:33:38Z",
+  "Level": "high",
+  "Name": "Potentially Suspicious ODBC Driver Registered",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\SOFTWARE\\\\ODBC\\\\ODBCINST.INI\\\\*\" (target_object=\"*\\\\Driver\" OR target_object=\"*\\\\Setup\") (details=\"*:\\\\PerfLogs\\\\*\" OR details=\"*:\\\\ProgramData\\\\*\" OR details=\"*:\\\\Temp\\\\*\" OR details=\"*:\\\\Users\\\\Public\\\\*\" OR details=\"*:\\\\Windows\\\\Registration\\\\CRMLog*\" OR details=\"*:\\\\Windows\\\\System32\\\\com\\\\dmp\\\\*\" OR details=\"*:\\\\Windows\\\\System32\\\\FxsTmp\\\\*\" OR details=\"*:\\\\Windows\\\\System32\\\\Microsoft\\\\Crypto\\\\RSA\\\\MachineKeys\\\\*\" OR details=\"*:\\\\Windows\\\\System32\\\\spool\\\\drivers\\\\color\\\\*\" OR details=\"*:\\\\Windows\\\\System32\\\\spool\\\\PRINTERS\\\\*\" OR details=\"*:\\\\Windows\\\\System32\\\\spool\\\\SERVERS\\\\*\" OR details=\"*:\\\\Windows\\\\System32\\\\Tasks_Migrated\\\\*\" OR details=\"*:\\\\Windows\\\\System32\\\\Tasks\\\\Microsoft\\\\Windows\\\\SyncCenter\\\\*\" OR details=\"*:\\\\Windows\\\\SysWOW64\\\\com\\\\dmp\\\\*\" OR details=\"*:\\\\Windows\\\\SysWOW64\\\\FxsTmp\\\\*\" OR details=\"*:\\\\Windows\\\\SysWOW64\\\\Tasks\\\\Microsoft\\\\Windows\\\\PLA\\\\System\\\\*\" OR details=\"*:\\\\Windows\\\\SysWOW64\\\\Tasks\\\\Microsoft\\\\Windows\\\\SyncCenter\\\\*\" OR details=\"*:\\\\Windows\\\\Tasks\\\\*\" OR details=\"*:\\\\Windows\\\\Temp\\\\*\" OR details=\"*:\\\\Windows\\\\Tracing\\\\*\" OR details=\"*\\\\AppData\\\\Local\\\\Temp\\\\*\" OR details=\"*\\\\AppData\\\\Roaming\\\\*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1003"
+  ],
+  "Version": "0.1"
+}

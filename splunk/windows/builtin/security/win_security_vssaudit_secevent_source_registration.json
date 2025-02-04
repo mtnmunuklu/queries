@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the registration of the security event source VSSAudit. It would usually trigger when volume shadow copy operations happen.\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g, Open Threat Research (OTR)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e9faba72-4974-4ab2-a4c5-46e25ad59e9b",
+  "InsertDate": "2025-02-03T20:32:12Z",
+  "LastUpdateDate": "2025-02-03T20:32:12Z",
+  "Level": "informational",
+  "Name": "VSSAudit Security Event Source Registration",
+  "Query": "sourcetype=\"windows-security\" auditsourcename=\"VSSAudit\" (eventid=\"4904\" OR eventid=\"4905\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.002"
+  ],
+  "Version": "0.1"
+}

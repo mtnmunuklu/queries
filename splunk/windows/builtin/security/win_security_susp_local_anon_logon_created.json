@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the creation of suspicious accounts similar to ANONYMOUS LOGON, such as using additional spaces. Created as an covering detection for exclusion of Logon Type 3 from ANONYMOUS LOGON accounts.\n\nAuthor: James Pemberton / @4A616D6573\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1bbf25b9-8038-4154-a50b-118f2a32be27",
+  "InsertDate": "2025-02-03T20:32:11Z",
+  "LastUpdateDate": "2025-02-03T20:32:11Z",
+  "Level": "high",
+  "Name": "Suspicious Windows ANONYMOUS LOGON Local Account Created",
+  "Query": "sourcetype=\"windows-security\" eventid=\"4720\" (samaccountname=\"*ANONYMOUS*\" samaccountname=\"*LOGON*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1136.001",
+    "attack.t1136.002"
+  ],
+  "Version": "0.1"
+}

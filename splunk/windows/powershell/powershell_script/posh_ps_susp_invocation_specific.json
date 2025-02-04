@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious PowerShell invocation command parameters\n\nAuthor: Florian Roth (Nextron Systems), Jonhnathan Ribeiro\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ae7fbf8e-f3cb-49fd-8db4-5f3bed522c71",
+  "InsertDate": "2025-02-03T20:32:33Z",
+  "LastUpdateDate": "2025-02-03T20:32:33Z",
+  "Level": "high",
+  "Name": "Suspicious PowerShell Invocations - Specific",
+  "Query": "sourcetype=\"windows-*\" ((scriptblocktext=\"*powershell*\" scriptblocktext=\"*reg*\" scriptblocktext=\"*add*\" scriptblocktext=\"*HKCU\\\\software\\\\microsoft\\\\windows\\\\currentversion\\\\run*\") OR (scriptblocktext=\"*bypass*\" scriptblocktext=\"*-noprofile*\" scriptblocktext=\"*-windowstyle*\" scriptblocktext=\"*hidden*\" scriptblocktext=\"*new-object*\" scriptblocktext=\"*system.net.webclient*\" scriptblocktext=\"*.download*\") OR (scriptblocktext=\"*iex*\" scriptblocktext=\"*New-Object*\" scriptblocktext=\"*Net.WebClient*\" scriptblocktext=\"*.Download*\") OR (scriptblocktext=\"*-nop*\" scriptblocktext=\"* -w *\" scriptblocktext=\"*hidden*\" scriptblocktext=\"* -c *\" scriptblocktext=\"*[Convert]::FromBase64String*\") OR (scriptblocktext=\"* -w *\" scriptblocktext=\"*hidden*\" scriptblocktext=\"*-noni*\" scriptblocktext=\"*-nop*\" scriptblocktext=\"* -c *\" scriptblocktext=\"*iex*\" scriptblocktext=\"*New-Object*\") OR (scriptblocktext=\"* -w *\" scriptblocktext=\"*hidden*\" scriptblocktext=\"*-ep*\" scriptblocktext=\"*bypass*\" scriptblocktext=\"*-Enc*\")) NOT (scriptblocktext=\"*(New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1*\" OR scriptblocktext=\"*(New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')*\" OR scriptblocktext=\"*Write-ChocolateyWarning*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

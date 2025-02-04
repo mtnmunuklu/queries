@@ -1,0 +1,16 @@
+{
+  "Description": "Detects creation of default named pipes used by the Koh tool\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0adc67e0-a68f-4ffd-9c43-28905aad5d6a",
+  "InsertDate": "2025-02-03T20:32:26Z",
+  "LastUpdateDate": "2025-02-03T20:32:26Z",
+  "Level": "critical",
+  "Name": "HackTool - Koh Default Named Pipe",
+  "Query": "sourcetype=\"windows-*\" (pipe_name=\"*\\\\imposecost*\" OR pipe_name=\"*\\\\imposingcost*\")",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.credential-access",
+    "attack.t1528",
+    "attack.t1134.001"
+  ],
+  "Version": "0.1"
+}

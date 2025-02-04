@@ -1,0 +1,20 @@
+{
+  "Description": "Detects default file names outputted by the BloodHound collection tool SharpHound\n\nAuthor: C.J. May\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "02773bed-83bf-469f-b7ff-e676e7d78bab",
+  "InsertDate": "2025-02-03T20:32:17Z",
+  "LastUpdateDate": "2025-02-03T20:32:17Z",
+  "Level": "high",
+  "Name": "BloodHound Collection Files",
+  "Query": "sourcetype=\"windows-sysmon\" (filepath=\"*BloodHound.zip\" OR filepath=\"*_computers.json\" OR filepath=\"*_containers.json\" OR filepath=\"*_domains.json\" OR filepath=\"*_gpos.json\" OR filepath=\"*_groups.json\" OR filepath=\"*_ous.json\" OR filepath=\"*_users.json\") NOT (process_path=\"*\\\\svchost.exe\" filepath=\"C:\\\\Program Files\\\\WindowsApps\\\\Microsoft.*\" filepath=\"*\\\\pocket_containers.json\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1087.001",
+    "attack.t1087.002",
+    "attack.t1482",
+    "attack.t1069.001",
+    "attack.t1069.002",
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the creation of tasks from processes executed from suspicious locations\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "80e1f67a-4596-4351-98f5-a9c3efabac95",
+  "InsertDate": "2025-02-03T20:32:20Z",
+  "LastUpdateDate": "2025-02-03T20:32:20Z",
+  "Level": "high",
+  "Name": "Suspicious Scheduled Task Write to System32 Tasks",
+  "Query": "sourcetype=\"windows-sysmon\" filepath=\"*\\\\Windows\\\\System32\\\\Tasks*\" (process_path=\"*\\\\AppData\\\\*\" OR process_path=\"*C:\\\\PerfLogs*\" OR process_path=\"*\\\\Windows\\\\System32\\\\config\\\\systemprofile*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.execution",
+    "attack.t1053"
+  ],
+  "Version": "0.1"
+}

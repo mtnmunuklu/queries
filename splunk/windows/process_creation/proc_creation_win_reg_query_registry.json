@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the usage of \"reg.exe\" in order to query reconnaissance information from the registry. Adversaries may interact with the Windows registry to gather information about credentials, the system, configuration, and installed software.\n\nAuthor: Timur Zinniatullin, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "970007b7-ce32-49d0-a4a4-fbef016950bd",
+  "InsertDate": "2025-02-03T20:33:03Z",
+  "LastUpdateDate": "2025-02-03T20:33:03Z",
+  "Level": "medium",
+  "Name": "Potential Configuration And Service Reconnaissance Via Reg.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\reg.exe\" original_file_name=\"reg.exe\") command=\"*query*\" (command=\"*currentVersion\\\\windows*\" OR command=\"*winlogon\\\\*\" OR command=\"*currentVersion\\\\shellServiceObjectDelayLoad*\" OR command=\"*currentVersion\\\\run*\" OR command=\"*currentVersion\\\\policies\\\\explorer\\\\run*\" OR command=\"*currentcontrolset\\\\services*\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1012",
+    "attack.t1007"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,13 @@
+{
+  "Description": "Detects loaded unsigned image on the system\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c92c24e7-f595-493f-9c98-53d5142f5c18",
+  "InsertDate": "2025-02-03T20:32:07Z",
+  "LastUpdateDate": "2025-02-03T20:32:07Z",
+  "Level": "high",
+  "Name": "CodeIntegrity - Unsigned Image Loaded",
+  "Query": "sourcetype=\"windows-codeintegrity-operational\" eventid=\"3037\"",
+  "Tags": [
+    "attack.privilege-escalation"
+  ],
+  "Version": "0.1"
+}

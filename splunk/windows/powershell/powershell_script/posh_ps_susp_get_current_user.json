@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of PowerShell to identify the current logged user.\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4096a49c-7de4-4da0-a230-c66ccd56ea5a",
+  "InsertDate": "2025-02-03T20:32:33Z",
+  "LastUpdateDate": "2025-02-03T20:32:33Z",
+  "Level": "low",
+  "Name": "Suspicious PowerShell Get Current User",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*[System.Environment]::UserName*\" OR scriptblocktext=\"*$env:UserName*\" OR scriptblocktext=\"*[System.Security.Principal.WindowsIdentity]::GetCurrent()*\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1033"
+  ],
+  "Version": "0.1"
+}

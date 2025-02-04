@@ -1,0 +1,14 @@
+{
+  "Description": "Detects changes to the Registry in which a monitor program gets registered to dump the memory of the lsass.exe process\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "55e29995-75e7-451a-bef0-6225e2f13597",
+  "InsertDate": "2025-02-03T20:33:30Z",
+  "LastUpdateDate": "2025-02-03T20:33:30Z",
+  "Level": "critical",
+  "Name": "Potential Credential Dumping Via LSASS SilentProcessExit Technique",
+  "Query": "sourcetype=\"windows-sysmon\" target_object=\"*Microsoft\\\\Windows NT\\\\CurrentVersion\\\\SilentProcessExit\\\\lsass.exe*\"",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.001"
+  ],
+  "Version": "0.1"
+}

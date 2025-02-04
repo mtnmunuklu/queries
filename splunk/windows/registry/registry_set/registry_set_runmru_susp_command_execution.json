@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of commands via the run dialog box on Windows by checking values of the \"RunMRU\" registry key.\nThis technique was seen being abused by threat actors to deceive users into pasting and executing malicious commands, often disguised as CAPTCHA verification steps.\n\n\nAuthor: Ahmed Farouk, Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a7df0e9e-91a5-459a-a003-4cde67c2ff5d",
+  "InsertDate": "2025-02-03T20:33:42Z",
+  "LastUpdateDate": "2025-02-03T20:33:42Z",
+  "Level": "high",
+  "Name": "Potentially Suspicious Command Executed Via Run Dialog Box - Registry",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Explorer\\\\RunMRU*\" (((details=\"* -e *\" OR details=\"* -ec *\" OR details=\"* -en *\" OR details=\"* -enc *\" OR details=\"* -enco*\" OR details=\"*ftp*\" OR details=\"*Hidden*\" OR details=\"*http*\" OR details=\"*iex*\" OR details=\"*Invoke-*\") (details=\"*powershell*\" OR details=\"*pwsh*\")) OR ((details=\"*shadowcopy*\" OR details=\"*process call create*\") details=\"*wmic*\"))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

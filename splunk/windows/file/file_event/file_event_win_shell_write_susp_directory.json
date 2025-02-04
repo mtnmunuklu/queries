@@ -1,0 +1,14 @@
+{
+  "Description": "Detects Windows shells and scripting applications that write files to suspicious folders\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1277f594-a7d1-4f28-a2d3-73af5cbeab43",
+  "InsertDate": "2025-02-03T20:32:19Z",
+  "LastUpdateDate": "2025-02-03T20:32:19Z",
+  "Level": "high",
+  "Name": "Windows Shell/Scripting Application File Write to Suspicious Folder",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\certutil.exe\" OR process_path=\"*\\\\forfiles.exe\" OR process_path=\"*\\\\mshta.exe\" OR process_path=\"*\\\\schtasks.exe\" OR process_path=\"*\\\\scriptrunner.exe\" OR process_path=\"*\\\\wmic.exe\") (filepath=\"*C:\\\\PerfLogs\\\\*\" OR filepath=\"*C:\\\\Users\\\\Public\\\\*\" OR filepath=\"*C:\\\\Windows\\\\Temp\\\\*\")) OR ((process_path=\"*\\\\bash.exe\" OR process_path=\"*\\\\cmd.exe\" OR process_path=\"*\\\\cscript.exe\" OR process_path=\"*\\\\msbuild.exe\" OR process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\" OR process_path=\"*\\\\sh.exe\" OR process_path=\"*\\\\wscript.exe\") (filepath=\"C:\\\\PerfLogs\\\\*\" OR filepath=\"C:\\\\Users\\\\Public\\\\*\"))",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Description": "Detects installation or execution of services\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "d26ce60c-2151-403c-9a42-49420d87b5e4",
+  "InsertDate": "2025-02-03T20:32:13Z",
+  "LastUpdateDate": "2025-02-03T20:32:13Z",
+  "Level": "high",
+  "Name": "HackTool Service Registration or Execution",
+  "Query": "sourcetype=\"windows-system\" (provider_name=\"Service Control Manager\" (eventid=\"7045\" OR eventid=\"7036\")) ((servicename=\"*cachedump*\" OR servicename=\"*DumpSvc*\" OR servicename=\"*gsecdump*\" OR servicename=\"*pwdump*\" OR servicename=\"*UACBypassedService*\" OR servicename=\"*WCE SERVICE*\" OR servicename=\"*WCESERVICE*\" OR servicename=\"*winexesvc*\") OR imagepath=\"*bypass*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1569.002",
+    "attack.s0029"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a suspicious child process of Script Event Consumer (scrcons.exe).\n\nAuthor: Sittikorn S\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f6d1dd2f-b8ce-40ca-bc23-062efb686b34",
+  "InsertDate": "2025-02-03T20:33:11Z",
+  "LastUpdateDate": "2025-02-03T20:33:11Z",
+  "Level": "high",
+  "Name": "Script Event Consumer Spawning Process",
+  "Query": "sourcetype=\"windows-sysmon\" parent_process_path=\"*\\\\scrcons.exe\" (process_path=\"*\\\\svchost.exe\" OR process_path=\"*\\\\dllhost.exe\" OR process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\" OR process_path=\"*\\\\wscript.exe\" OR process_path=\"*\\\\cscript.exe\" OR process_path=\"*\\\\schtasks.exe\" OR process_path=\"*\\\\regsvr32.exe\" OR process_path=\"*\\\\mshta.exe\" OR process_path=\"*\\\\rundll32.exe\" OR process_path=\"*\\\\msiexec.exe\" OR process_path=\"*\\\\msbuild.exe\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1047"
+  ],
+  "Version": "0.1"
+}

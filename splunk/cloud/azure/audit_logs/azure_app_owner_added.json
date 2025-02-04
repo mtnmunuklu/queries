@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when a new owner is added to an application. This gives that account privileges to make modifications and configuration changes to the application.\n\nAuthor: Mark Morowczynski '@markmorow', Bailey Bercik '@baileybercik'\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "74298991-9fc4-460e-a92e-511aa60baec1",
+  "InsertDate": "2025-02-03T20:31:52Z",
+  "LastUpdateDate": "2025-02-03T20:31:52Z",
+  "Level": "medium",
+  "Name": "Added Owner To Application",
+  "Query": "sourcetype=\"azure-auditlogs\" properties.message=\"Add owner to application\"",
+  "Tags": [
+    "attack.t1552",
+    "attack.credential-access"
+  ],
+  "Version": "0.1"
+}

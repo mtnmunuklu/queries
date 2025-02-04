@@ -1,0 +1,25 @@
+{
+  "Description": "Detects scriptblock text keywords indicative of potential usge of the tool WinPwn. A tool for Windows and Active Directory reconnaissance and exploitation.\n\n\nAuthor: Swachchhanda Shrawan Poudel\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "851fd622-b675-4d26-b803-14bc7baa517a",
+  "InsertDate": "2025-02-03T20:32:30Z",
+  "LastUpdateDate": "2025-02-03T20:32:30Z",
+  "Level": "high",
+  "Name": "HackTool - WinPwn Execution - ScriptBlock",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*Offline_Winpwn*\" OR scriptblocktext=\"*WinPwn *\" OR scriptblocktext=\"*WinPwn.exe*\" OR scriptblocktext=\"*WinPwn.ps1*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.defense-evasion",
+    "attack.discovery",
+    "attack.execution",
+    "attack.privilege-escalation",
+    "attack.t1046",
+    "attack.t1082",
+    "attack.t1106",
+    "attack.t1518",
+    "attack.t1548.002",
+    "attack.t1552.001",
+    "attack.t1555",
+    "attack.t1555.003"
+  ],
+  "Version": "0.1"
+}

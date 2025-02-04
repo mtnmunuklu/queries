@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the usage of \"reg.exe\" to tamper with different Windows Defender registry keys in order to disable some important features related to protection and detection\n\nAuthor: Florian Roth (Nextron Systems), Swachchhanda Shrawan Poudel, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "452bce90-6fb0-43cc-97a5-affc283139b3",
+  "InsertDate": "2025-02-03T20:33:03Z",
+  "LastUpdateDate": "2025-02-03T20:33:03Z",
+  "Level": "high",
+  "Name": "Suspicious Windows Defender Registry Key Tampering Via Reg.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\reg.exe\" original_file_name=\"reg.exe\") (command=\"*SOFTWARE\\\\Microsoft\\\\Windows Defender\\\\*\" OR command=\"*SOFTWARE\\\\Policies\\\\Microsoft\\\\Windows Defender Security Center*\" OR command=\"*SOFTWARE\\\\Policies\\\\Microsoft\\\\Windows Defender\\\\*\")) (((command=\"* add *\" command=\"*d 0*\") (command=\"*DisallowExploitProtectionOverride*\" OR command=\"*EnableControlledFolderAccess*\" OR command=\"*MpEnablePus*\" OR command=\"*PUAProtection*\" OR command=\"*SpynetReporting*\" OR command=\"*SubmitSamplesConsent*\" OR command=\"*TamperProtection*\")) OR ((command=\"* add *\" command=\"*d 1*\") (command=\"*DisableAntiSpyware*\" OR command=\"*DisableAntiSpywareRealtimeProtection*\" OR command=\"*DisableAntiVirus*\" OR command=\"*DisableArchiveScanning*\" OR command=\"*DisableBehaviorMonitoring*\" OR command=\"*DisableBlockAtFirstSeen*\" OR command=\"*DisableConfig*\" OR command=\"*DisableEnhancedNotifications*\" OR command=\"*DisableIntrusionPreventionSystem*\" OR command=\"*DisableIOAVProtection*\" OR command=\"*DisableOnAccessProtection*\" OR command=\"*DisablePrivacyMode*\" OR command=\"*DisableRealtimeMonitoring*\" OR command=\"*DisableRoutinelyTakingAction*\" OR command=\"*DisableScanOnRealtimeEnable*\" OR command=\"*DisableScriptScanning*\" OR command=\"*Notification_Suppress*\" OR command=\"*SignatureDisableUpdateOnStartupWithoutEngine*\")))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

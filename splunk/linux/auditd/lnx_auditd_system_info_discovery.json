@@ -1,0 +1,14 @@
+{
+  "Description": "Detects System Information Discovery commands\n\nAuthor: Pawel Mazur\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f34047d9-20d3-4e8b-8672-0a35cc50dc71",
+  "InsertDate": "2025-02-03T20:31:56Z",
+  "LastUpdateDate": "2025-02-03T20:31:56Z",
+  "Level": "low",
+  "Name": "System Information Discovery - Auditd",
+  "Query": "sourcetype=\"linux-auditd\" (type=\"PATH\" (process_path=\"/etc/lsb-release\" OR process_path=\"/etc/redhat-release\" OR process_path=\"/etc/issue\")) OR (type=\"EXECVE\" (a0=\"uname\" OR a0=\"uptime\" OR a0=\"lsmod\" OR a0=\"hostname\" OR a0=\"env\")) OR (type=\"EXECVE\" a0=\"grep\" (a1=\"*vbox*\" OR a1=\"*vm*\" OR a1=\"*xen*\" OR a1=\"*virtio*\" OR a1=\"*hv*\")) OR (type=\"EXECVE\" a0=\"kmod\" a1=\"list\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1082"
+  ],
+  "Version": "0.1"
+}

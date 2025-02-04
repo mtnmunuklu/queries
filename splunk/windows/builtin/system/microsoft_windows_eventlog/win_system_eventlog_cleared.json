@@ -1,0 +1,15 @@
+{
+  "Description": "One of the Windows Eventlogs has been cleared. e.g. caused by \"wevtutil cl\" command execution\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a62b37e0-45d3-48d9-a517-90c1a1b0186b",
+  "InsertDate": "2025-02-03T20:32:12Z",
+  "LastUpdateDate": "2025-02-03T20:32:12Z",
+  "Level": "medium",
+  "Name": "Eventlog Cleared",
+  "Query": "sourcetype=\"windows-system\" (eventid=\"104\" provider_name=\"Microsoft-Windows-Eventlog\") NOT (channel=\"Microsoft-Windows-PowerShell/Operational\" OR channel=\"Microsoft-Windows-Sysmon/Operational\" OR channel=\"PowerShellCore/Operational\" OR channel=\"Security\" OR channel=\"System\" OR channel=\"Windows PowerShell\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1070.001",
+    "car.2016-04-002"
+  ],
+  "Version": "0.1"
+}

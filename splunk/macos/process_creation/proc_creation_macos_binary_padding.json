@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may use binary padding to add junk data and change the on-disk representation of malware. This rule detect using dd and truncate to add a junk data to file.\n\nAuthor: Igor Fits, Mikhail Larin, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "95361ce5-c891-4b0a-87ca-e24607884a96",
+  "InsertDate": "2025-02-03T20:32:01Z",
+  "LastUpdateDate": "2025-02-03T20:32:01Z",
+  "Level": "high",
+  "Name": "Binary Padding - MacOS",
+  "Query": "sourcetype=\"macos-*\" (process_path=\"*/truncate\" command=\"*-s +*\") OR (process_path=\"*/dd\" (command=\"*if=/dev/zero*\" OR command=\"*if=/dev/random*\" OR command=\"*if=/dev/urandom*\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1027.001"
+  ],
+  "Version": "0.1"
+}

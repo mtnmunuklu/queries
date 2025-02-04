@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of the PurpleSharp adversary simulation tool\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ff23ffbc-3378-435e-992f-0624dcf93ab4",
+  "InsertDate": "2025-02-03T20:32:45Z",
+  "LastUpdateDate": "2025-02-03T20:32:45Z",
+  "Level": "critical",
+  "Name": "HackTool - PurpleSharp Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\purplesharp*\" original_file_name=\"PurpleSharp.exe\") OR (command=\"*xyz123456.exe*\" OR command=\"*PurpleSharp*\")",
+  "Tags": [
+    "attack.t1587",
+    "attack.resource-development"
+  ],
+  "Version": "0.1"
+}

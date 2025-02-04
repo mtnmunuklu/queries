@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potentially suspicious child processes launched via the ScreenConnect client service.\n\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems), @Kostastsale\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7b582f1a-b318-4c6a-bf4e-66fe49bf55a5",
+  "InsertDate": "2025-02-03T20:33:06Z",
+  "LastUpdateDate": "2025-02-03T20:33:06Z",
+  "Level": "medium",
+  "Name": "Remote Access Tool - ScreenConnect Potential Suspicious Remote Command Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (parent_command_line=\"*:\\\\Windows\\\\TEMP\\\\ScreenConnect\\\\*\" parent_command_line=\"*run.cmd*\") (process_path=\"*\\\\bitsadmin.exe\" OR process_path=\"*\\\\cmd.exe\" OR process_path=\"*\\\\curl.exe\" OR process_path=\"*\\\\dllhost.exe\" OR process_path=\"*\\\\net.exe\" OR process_path=\"*\\\\nltest.exe\" OR process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\" OR process_path=\"*\\\\rundll32.exe\" OR process_path=\"*\\\\wevtutil.exe\")",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1219"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the creation of files that look like exports of the local SAM (Security Account Manager)\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4e87b8e2-2ee9-4b2a-a715-4727d297ece0",
+  "InsertDate": "2025-02-03T20:32:19Z",
+  "LastUpdateDate": "2025-02-03T20:32:19Z",
+  "Level": "high",
+  "Name": "Potential SAM Database Dump",
+  "Query": "sourcetype=\"windows-sysmon\" (filepath=\"*\\\\Temp\\\\sam\" OR filepath=\"*\\\\sam.sav\" OR filepath=\"*\\\\Intel\\\\sam\" OR filepath=\"*\\\\sam.hive\" OR filepath=\"*\\\\Perflogs\\\\sam\" OR filepath=\"*\\\\ProgramData\\\\sam\" OR filepath=\"*\\\\Users\\\\Public\\\\sam\" OR filepath=\"*\\\\AppData\\\\Local\\\\sam\" OR filepath=\"*\\\\AppData\\\\Roaming\\\\sam\" OR filepath=\"*_ShadowSteal.zip\" OR filepath=\"*\\\\Documents\\\\SAM.export\" OR filepath=\"*:\\\\sam\") (filepath=\"*\\\\hive_sam_*\" OR filepath=\"*\\\\sam.save*\" OR filepath=\"*\\\\sam.export*\" OR filepath=\"*\\\\~reg_sam.save*\" OR filepath=\"*\\\\sam_backup*\" OR filepath=\"*\\\\sam.bck*\" OR filepath=\"*\\\\sam.backup*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.002"
+  ],
+  "Version": "0.1"
+}

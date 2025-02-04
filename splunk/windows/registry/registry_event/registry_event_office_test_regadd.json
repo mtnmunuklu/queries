@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the addition of office test registry that allows a user to specify an arbitrary DLL that will be executed every time an Office application is started\n\nAuthor: omkar72\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3d27f6dd-1c74-4687-b4fa-ca849d128d1c",
+  "InsertDate": "2025-02-03T20:33:29Z",
+  "LastUpdateDate": "2025-02-03T20:33:29Z",
+  "Level": "medium",
+  "Name": "Office Application Startup - Office Test",
+  "Query": "sourcetype=\"windows-sysmon\" target_object=\"*\\\\Software\\\\Microsoft\\\\Office test\\\\Special\\\\Perf*\"",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1137.002"
+  ],
+  "Version": "0.1"
+}

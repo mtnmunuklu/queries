@@ -1,0 +1,15 @@
+{
+  "Description": "Detects remote RPC calls to create or execute a scheduled task via SASec\n\nAuthor: Sagie Dulce, Dekel Paz\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "aff229ab-f8cd-447b-b215-084d11e79eb0",
+  "InsertDate": "2025-02-03T20:31:50Z",
+  "LastUpdateDate": "2025-02-03T20:31:50Z",
+  "Level": "high",
+  "Name": "Remote Schedule Task Lateral Movement via SASec",
+  "Query": "sourcetype=\"rpc_firewall-*\" eventlog=\"RPCFW\" eventid=\"3\" interfaceuuid=\"378e52b0-c0a9-11cf-822d-00aa0051e40f\" (opnum=\"0\" OR opnum=\"1\")",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.t1053",
+    "attack.t1053.002"
+  ],
+  "Version": "0.1"
+}

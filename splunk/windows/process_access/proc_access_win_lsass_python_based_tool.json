@@ -1,0 +1,15 @@
+{
+  "Description": "Detects LSASS process access for potential credential dumping by a Python-like tool such as LaZagne or Pypykatz.\n\nAuthor: Bhabesh Raj, Jonhnathan Ribeiro\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f8be3e82-46a3-4e4e-ada5-8e538ae8b9c9",
+  "InsertDate": "2025-02-03T20:32:36Z",
+  "LastUpdateDate": "2025-02-03T20:32:36Z",
+  "Level": "high",
+  "Name": "Credential Dumping Activity By Python Based Tool",
+  "Query": "sourcetype=\"windows-sysmon\" dst_process_path=\"*\\\\lsass.exe\" (call_trace=\"*_ctypes.pyd+*\" call_trace=\"*:\\\\Windows\\\\System32\\\\KERNELBASE.dll+*\" call_trace=\"*:\\\\Windows\\\\SYSTEM32\\\\ntdll.dll+*\") (call_trace=\"*python27.dll+*\" OR call_trace=\"*python3*.dll+*\") granted_access=\"0x1FFFFF\"",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.001",
+    "attack.s0349"
+  ],
+  "Version": "0.1"
+}

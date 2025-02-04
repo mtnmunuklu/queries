@@ -1,0 +1,14 @@
+{
+  "Description": "Detects when an attacker tries to hide from Sysmon by disabling or stopping it\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1f2b5353-573f-4880-8e33-7d04dcf97744",
+  "InsertDate": "2025-02-03T20:33:45Z",
+  "LastUpdateDate": "2025-02-03T20:33:45Z",
+  "Level": "high",
+  "Name": "Sysmon Configuration Modification",
+  "Query": "sourcetype=\"windows-*\" (state=\"Stopped\" OR (\"Sysmon config state changed\")) NOT state=\"Started\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1564"
+  ],
+  "Version": "0.1"
+}

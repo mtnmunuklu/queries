@@ -1,0 +1,14 @@
+{
+  "Description": "Detects base64 encoded strings used in hidden malicious PowerShell command lines\n\nAuthor: John Lambert (rule)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f26c6093-6f14-4b12-800f-0fcb46f5ffd0",
+  "InsertDate": "2025-02-03T20:32:55Z",
+  "LastUpdateDate": "2025-02-03T20:32:55Z",
+  "Level": "high",
+  "Name": "Malicious Base64 Encoded PowerShell Keywords in Command Lines",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\") (original_file_name=\"PowerShell.EXE\" OR original_file_name=\"pwsh.dll\")) command=\"* hidden *\" (command=\"*AGkAdABzAGEAZABtAGkAbgAgAC8AdAByAGEAbgBzAGYAZQByA*\" OR command=\"*aXRzYWRtaW4gL3RyYW5zZmVy*\" OR command=\"*IAaQB0AHMAYQBkAG0AaQBuACAALwB0AHIAYQBuAHMAZgBlAHIA*\" OR command=\"*JpdHNhZG1pbiAvdHJhbnNmZX*\" OR command=\"*YgBpAHQAcwBhAGQAbQBpAG4AIAAvAHQAcgBhAG4AcwBmAGUAcg*\" OR command=\"*Yml0c2FkbWluIC90cmFuc2Zlc*\" OR command=\"*AGMAaAB1AG4AawBfAHMAaQB6AGUA*\" OR command=\"*JABjAGgAdQBuAGsAXwBzAGkAegBlA*\" OR command=\"*JGNodW5rX3Npem*\" OR command=\"*QAYwBoAHUAbgBrAF8AcwBpAHoAZQ*\" OR command=\"*RjaHVua19zaXpl*\" OR command=\"*Y2h1bmtfc2l6Z*\" OR command=\"*AE8ALgBDAG8AbQBwAHIAZQBzAHMAaQBvAG4A*\" OR command=\"*kATwAuAEMAbwBtAHAAcgBlAHMAcwBpAG8Abg*\" OR command=\"*lPLkNvbXByZXNzaW9u*\" OR command=\"*SQBPAC4AQwBvAG0AcAByAGUAcwBzAGkAbwBuA*\" OR command=\"*SU8uQ29tcHJlc3Npb2*\" OR command=\"*Ty5Db21wcmVzc2lvb*\" OR command=\"*AE8ALgBNAGUAbQBvAHIAeQBTAHQAcgBlAGEAbQ*\" OR command=\"*kATwAuAE0AZQBtAG8AcgB5AFMAdAByAGUAYQBtA*\" OR command=\"*lPLk1lbW9yeVN0cmVhb*\" OR command=\"*SQBPAC4ATQBlAG0AbwByAHkAUwB0AHIAZQBhAG0A*\" OR command=\"*SU8uTWVtb3J5U3RyZWFt*\" OR command=\"*Ty5NZW1vcnlTdHJlYW*\" OR command=\"*4ARwBlAHQAQwBoAHUAbgBrA*\" OR command=\"*5HZXRDaHVua*\" OR command=\"*AEcAZQB0AEMAaAB1AG4Aaw*\" OR command=\"*LgBHAGUAdABDAGgAdQBuAGsA*\" OR command=\"*LkdldENodW5r*\" OR command=\"*R2V0Q2h1bm*\" OR command=\"*AEgAUgBFAEEARABfAEkATgBGAE8ANgA0A*\" OR command=\"*QASABSAEUAQQBEAF8ASQBOAEYATwA2ADQA*\" OR command=\"*RIUkVBRF9JTkZPNj*\" OR command=\"*SFJFQURfSU5GTzY0*\" OR command=\"*VABIAFIARQBBAEQAXwBJAE4ARgBPADYANA*\" OR command=\"*VEhSRUFEX0lORk82N*\" OR command=\"*AHIAZQBhAHQAZQBSAGUAbQBvAHQAZQBUAGgAcgBlAGEAZA*\" OR command=\"*cmVhdGVSZW1vdGVUaHJlYW*\" OR command=\"*MAcgBlAGEAdABlAFIAZQBtAG8AdABlAFQAaAByAGUAYQBkA*\" OR command=\"*NyZWF0ZVJlbW90ZVRocmVhZ*\" OR command=\"*Q3JlYXRlUmVtb3RlVGhyZWFk*\" OR command=\"*QwByAGUAYQB0AGUAUgBlAG0AbwB0AGUAVABoAHIAZQBhAGQA*\" OR command=\"*0AZQBtAG0AbwB2AGUA*\" OR command=\"*1lbW1vdm*\" OR command=\"*AGUAbQBtAG8AdgBlA*\" OR command=\"*bQBlAG0AbQBvAHYAZQ*\" OR command=\"*bWVtbW92Z*\" OR command=\"*ZW1tb3Zl*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

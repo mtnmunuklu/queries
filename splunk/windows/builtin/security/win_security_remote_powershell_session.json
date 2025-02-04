@@ -1,0 +1,14 @@
+{
+  "Description": "Detects basic PowerShell Remoting (WinRM) by monitoring for network inbound connections to ports 5985 OR 5986\n\nAuthor: Roberto Rodriguez @Cyb3rWard0g\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "13acf386-b8c6-4fe0-9a6e-c4756b974698",
+  "InsertDate": "2025-02-03T20:32:10Z",
+  "LastUpdateDate": "2025-02-03T20:32:10Z",
+  "Level": "high",
+  "Name": "Remote PowerShell Sessions Network Connections (WinRM)",
+  "Query": "sourcetype=\"windows-security\" eventid=\"5156\" (destport=\"5985\" OR destport=\"5986\") layerrtid=\"44\"",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

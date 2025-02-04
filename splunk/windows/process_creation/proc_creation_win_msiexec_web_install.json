@@ -1,0 +1,16 @@
+{
+  "Description": "Detects suspicious msiexec process starts with web addresses as parameter\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f7b5f842-a6af-4da5-9e95-e32478f3cd2f",
+  "InsertDate": "2025-02-03T20:32:51Z",
+  "LastUpdateDate": "2025-02-03T20:32:51Z",
+  "Level": "medium",
+  "Name": "MsiExec Web Install",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"* msiexec*\" command=\"*://*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218.007",
+    "attack.command-and-control",
+    "attack.t1105"
+  ],
+  "Version": "0.1"
+}

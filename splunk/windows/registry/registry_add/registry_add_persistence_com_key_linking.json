@@ -1,0 +1,14 @@
+{
+  "Description": "Detects COM object hijacking via TreatAs subkey\n\nAuthor: Kutepov Anton, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9b0f8a61-91b2-464f-aceb-0527e0a45020",
+  "InsertDate": "2025-02-03T20:33:28Z",
+  "LastUpdateDate": "2025-02-03T20:33:28Z",
+  "Level": "medium",
+  "Name": "Potential COM Object Hijacking Via TreatAs Subkey - Registry",
+  "Query": "sourcetype=\"windows-*\" (event_type=\"CreateKey\" (target_object=\"*HKU\\\\*\" target_object=\"*Classes\\\\CLSID\\\\*\" target_object=\"*\\\\TreatAs*\")) NOT process_path=\"C:\\\\WINDOWS\\\\system32\\\\svchost.exe\"",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1546.015"
+  ],
+  "Version": "0.1"
+}

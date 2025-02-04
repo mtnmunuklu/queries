@@ -1,0 +1,14 @@
+{
+  "Description": "Detects scheduled task creations or modification on a suspicious schedule type\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "24c8392b-aa3c-46b7-a545-43f71657fe98",
+  "InsertDate": "2025-02-03T20:33:11Z",
+  "LastUpdateDate": "2025-02-03T20:33:11Z",
+  "Level": "high",
+  "Name": "Suspicious Schtasks Schedule Types",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\schtasks.exe\" original_file_name=\"schtasks.exe\") (command=\"* ONLOGON *\" OR command=\"* ONSTART *\" OR command=\"* ONCE *\" OR command=\"* ONIDLE *\")) NOT (command=\"*NT AUT*\" OR command=\"* SYSTEM*\" OR command=\"*HIGHEST*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1053.005"
+  ],
+  "Version": "0.1"
+}

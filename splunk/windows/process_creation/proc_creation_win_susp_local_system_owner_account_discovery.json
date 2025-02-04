@@ -1,0 +1,15 @@
+{
+  "Description": "Local accounts, System Owner/User discovery using operating systems utilities\n\nAuthor: Timur Zinniatullin, Daniil Yugoslavskiy, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "502b42de-4306-40b4-9596-6f590c81f073",
+  "InsertDate": "2025-02-03T20:33:15Z",
+  "LastUpdateDate": "2025-02-03T20:33:15Z",
+  "Level": "low",
+  "Name": "Local Accounts Discovery",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\cmd.exe\" (command=\"* /c*\" command=\"*dir *\" command=\"*\\\\Users\\\\*\")) NOT command=\"* rmdir *\") OR (((process_path=\"*\\\\net.exe\" OR process_path=\"*\\\\net1.exe\") command=\"*user*\") NOT (command=\"*/domain*\" OR command=\"*/add*\" OR command=\"*/delete*\" OR command=\"*/active*\" OR command=\"*/expires*\" OR command=\"*/passwordreq*\" OR command=\"*/scriptpath*\" OR command=\"*/times*\" OR command=\"*/workstations*\")) OR ((process_path=\"*\\\\whoami.exe\" OR process_path=\"*\\\\quser.exe\" OR process_path=\"*\\\\qwinsta.exe\") OR (process_path=\"*\\\\wmic.exe\" (command=\"*useraccount*\" command=\"*get*\")) OR (process_path=\"*\\\\cmdkey.exe\" command=\"* /l*\"))",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1033",
+    "attack.t1087.001"
+  ],
+  "Version": "0.1"
+}

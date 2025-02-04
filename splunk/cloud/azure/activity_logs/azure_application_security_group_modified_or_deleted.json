@@ -1,0 +1,13 @@
+{
+  "Description": "Identifies when a application security group is modified or deleted.\n\nAuthor: Austin Songer\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "835747f1-9329-40b5-9cc3-97d465754ce6",
+  "InsertDate": "2025-02-03T20:31:51Z",
+  "LastUpdateDate": "2025-02-03T20:31:51Z",
+  "Level": "medium",
+  "Name": "Azure Application Security Group Modified or Deleted",
+  "Query": "sourcetype=\"azure-activitylogs\" (operationname=\"MICROSOFT.NETWORK/APPLICATIONSECURITYGROUPS/WRITE\" OR operationname=\"MICROSOFT.NETWORK/APPLICATIONSECURITYGROUPS/DELETE\")",
+  "Tags": [
+    "attack.impact"
+  ],
+  "Version": "0.1"
+}

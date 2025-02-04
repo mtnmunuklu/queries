@@ -1,0 +1,16 @@
+{
+  "Description": "Detects suspicious scheduled task creation events. Based on attributes such as paths, commands line flags, etc.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3a734d25-df5c-4b99-8034-af1ddb5883a4",
+  "InsertDate": "2025-02-03T20:32:11Z",
+  "LastUpdateDate": "2025-02-03T20:32:11Z",
+  "Level": "high",
+  "Name": "Suspicious Scheduled Task Creation",
+  "Query": "sourcetype=\"windows-security\" eventid=\"4698\" (taskcontent=\"*\\\\AppData\\\\Local\\\\Temp\\\\*\" OR taskcontent=\"*\\\\AppData\\\\Roaming\\\\*\" OR taskcontent=\"*\\\\Users\\\\Public\\\\*\" OR taskcontent=\"*\\\\WINDOWS\\\\Temp\\\\*\" OR taskcontent=\"*C:\\\\Temp\\\\*\" OR taskcontent=\"*\\\\Desktop\\\\*\" OR taskcontent=\"*\\\\Downloads\\\\*\" OR taskcontent=\"*\\\\Temporary Internet*\" OR taskcontent=\"*C:\\\\ProgramData\\\\*\" OR taskcontent=\"*C:\\\\Perflogs\\\\*\") (taskcontent=\"*regsvr32*\" OR taskcontent=\"*rundll32*\" OR taskcontent=\"*cmd.exe\u003c/Command\u003e*\" OR taskcontent=\"*cmd\u003c/Command\u003e*\" OR taskcontent=\"*\u003cArguments\u003e/c *\" OR taskcontent=\"*\u003cArguments\u003e/k *\" OR taskcontent=\"*\u003cArguments\u003e/r *\" OR taskcontent=\"*powershell*\" OR taskcontent=\"*pwsh*\" OR taskcontent=\"*mshta*\" OR taskcontent=\"*wscript*\" OR taskcontent=\"*cscript*\" OR taskcontent=\"*certutil*\" OR taskcontent=\"*bitsadmin*\" OR taskcontent=\"*bash.exe*\" OR taskcontent=\"*bash *\" OR taskcontent=\"*scrcons*\" OR taskcontent=\"*wmic *\" OR taskcontent=\"*wmic.exe*\" OR taskcontent=\"*forfiles*\" OR taskcontent=\"*scriptrunner*\" OR taskcontent=\"*hh.exe*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.privilege-escalation",
+    "attack.persistence",
+    "attack.t1053.005"
+  ],
+  "Version": "0.1"
+}

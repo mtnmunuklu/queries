@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the use of the PowerShell \"Set-Service\" cmdlet to change the startup type of a service to \"disabled\" or \"manual\"\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "62b20d44-1546-4e61-afce-8e175eb9473c",
+  "InsertDate": "2025-02-03T20:32:59Z",
+  "LastUpdateDate": "2025-02-03T20:32:59Z",
+  "Level": "medium",
+  "Name": "Service StartupType Change Via PowerShell Set-Service",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\powershell.exe\" original_file_name=\"PowerShell.EXE\") ((command=\"*Set-Service*\" command=\"*-StartupType*\") (command=\"*Disabled*\" OR command=\"*Manual*\"))",
+  "Tags": [
+    "attack.execution",
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

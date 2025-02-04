@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the extraction of password protected ZIP archives. See the filename variable for more details on which file has been opened.\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "571498c8-908e-40b4-910b-d2369159a3da",
+  "InsertDate": "2025-02-03T20:32:11Z",
+  "LastUpdateDate": "2025-02-03T20:32:11Z",
+  "Level": "high",
+  "Name": "Password Protected ZIP File Opened (Email Attachment)",
+  "Query": "sourcetype=\"windows-security\" eventid=\"5379\" (targetname=\"*Microsoft_Windows_Shell_ZipFolder:filename*\" targetname=\"*\\\\Temporary Internet Files\\\\Content.Outlook*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.initial-access",
+    "attack.t1027",
+    "attack.t1566.001"
+  ],
+  "Version": "0.1"
+}

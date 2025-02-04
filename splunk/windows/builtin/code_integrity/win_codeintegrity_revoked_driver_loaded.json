@@ -1,0 +1,13 @@
+{
+  "Description": "Detects the load of a revoked kernel driver\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "320fccbf-5e32-4101-82b8-2679c5f007c6",
+  "InsertDate": "2025-02-03T20:32:06Z",
+  "LastUpdateDate": "2025-02-03T20:32:06Z",
+  "Level": "high",
+  "Name": "CodeIntegrity - Revoked Kernel Driver Loaded",
+  "Query": "sourcetype=\"windows-codeintegrity-operational\" (eventid=\"3021\" OR eventid=\"3022\")",
+  "Tags": [
+    "attack.privilege-escalation"
+  ],
+  "Version": "0.1"
+}

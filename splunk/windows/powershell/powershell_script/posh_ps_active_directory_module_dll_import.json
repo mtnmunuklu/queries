@@ -1,0 +1,15 @@
+{
+  "Description": "Detects usage of the \"Import-Module\" cmdlet to load the \"Microsoft.ActiveDirectory.Management.dl\" DLL. Which is often used by attackers to perform AD enumeration.\n\nAuthor: frack113, Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9e620995-f2d8-4630-8430-4afd89f77604",
+  "InsertDate": "2025-02-03T20:32:28Z",
+  "LastUpdateDate": "2025-02-03T20:32:28Z",
+  "Level": "medium",
+  "Name": "Potential Active Directory Enumeration Using AD Module - PsScript",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*Import-Module *\" scriptblocktext=\"*Microsoft.ActiveDirectory.Management.dll*\") OR scriptblocktext=\"*ipmo Microsoft.ActiveDirectory.Management.dll*\"",
+  "Tags": [
+    "attack.reconnaissance",
+    "attack.discovery",
+    "attack.impact"
+  ],
+  "Version": "0.1"
+}

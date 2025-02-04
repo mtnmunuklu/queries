@@ -1,0 +1,13 @@
+{
+  "Description": "Detects DNS queries for subdomains related to \"Put.io\" sharing website.\n\nAuthor: Omar Khaled (@beacon_exe)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8b69fd42-9dad-4674-abef-7fdef43ef92a",
+  "InsertDate": "2025-02-03T20:32:07Z",
+  "LastUpdateDate": "2025-02-03T20:32:07Z",
+  "Level": "medium",
+  "Name": "DNS Query To Put.io - DNS Client",
+  "Query": "sourcetype=\"windows-dns-client\" eventid=\"3008\" (query_name=\"*api.put.io*\" OR query_name=\"*upload.put.io*\")",
+  "Tags": [
+    "attack.command-and-control"
+  ],
+  "Version": "0.1"
+}

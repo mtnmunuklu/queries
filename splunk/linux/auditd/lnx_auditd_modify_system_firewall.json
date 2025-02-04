@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the removal of system firewall rules. Adversaries may only delete or modify a specific system firewall rule to bypass controls limiting network usage or access.\nDetection rules that match only on the disabling of firewalls will miss this.\n\n\nAuthor: IAI\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "323ff3f5-0013-4847-bbd4-250b5edb62cc",
+  "InsertDate": "2025-02-03T20:31:56Z",
+  "LastUpdateDate": "2025-02-03T20:31:56Z",
+  "Level": "medium",
+  "Name": "Modify System Firewall",
+  "Query": "sourcetype=\"linux-auditd\" (type=\"EXECVE\" a0=\"ufw\" a1=\"*delete*\") OR (type=\"EXECVE\" a0=\"iptables\" a1=\"*DROP*\") OR (type=\"EXECVE\" a0=\"firewall-cmd\" a1=\"*remove*\")",
+  "Tags": [
+    "attack.t1562.004",
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

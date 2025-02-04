@@ -1,0 +1,14 @@
+{
+  "Description": "Detects usage of system utilities (only grep for now) to discover security software discovery\n\nAuthor: Daniil Yugoslavskiy, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0ed75b9c-c73b-424d-9e7d-496cd565fbe0",
+  "InsertDate": "2025-02-03T20:32:02Z",
+  "LastUpdateDate": "2025-02-03T20:32:02Z",
+  "Level": "medium",
+  "Name": "Security Software Discovery - MacOs",
+  "Query": "sourcetype=\"macos-*\" process_path=\"/usr/bin/grep\" ((command=\"*nessusd*\" OR command=\"*santad*\" OR command=\"*CbDefense*\" OR command=\"*falcond*\" OR command=\"*td-agent*\" OR command=\"*packetbeat*\" OR command=\"*filebeat*\" OR command=\"*auditbeat*\" OR command=\"*osqueryd*\" OR command=\"*BlockBlock*\" OR command=\"*LuLu*\") OR (command=\"*Little*\" command=\"*Snitch*\"))",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1518.001"
+  ],
+  "Version": "0.1"
+}

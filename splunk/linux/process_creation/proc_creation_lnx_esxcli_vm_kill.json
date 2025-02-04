@@ -1,0 +1,13 @@
+{
+  "Description": "Detects execution of the \"esxcli\" command with the \"vm\" and \"kill\" flag in order to kill/shutdown a specific VM.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Cedric Maurugeon\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2992ac4d-31e9-4325-99f2-b18a73221bb2",
+  "InsertDate": "2025-02-03T20:31:59Z",
+  "LastUpdateDate": "2025-02-03T20:31:59Z",
+  "Level": "medium",
+  "Name": "ESXi VM Kill Via ESXCLI",
+  "Query": "sourcetype=\"linux-*\" process_path=\"*/esxcli\" (command=\"*vm process*\" command=\"*kill*\")",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

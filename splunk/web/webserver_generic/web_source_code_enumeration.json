@@ -1,0 +1,14 @@
+{
+  "Description": "Detects source code enumeration that use GET requests by keyword searches in URL strings\n\nAuthor: James Ahearn\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "953d460b-f810-420a-97a2-cfca4c98e602",
+  "InsertDate": "2025-02-03T20:32:05Z",
+  "LastUpdateDate": "2025-02-03T20:32:05Z",
+  "Level": "medium",
+  "Name": "Source Code Enumeration Detection by Keyword",
+  "Query": "(\".git/\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1083"
+  ],
+  "Version": "0.1"
+}

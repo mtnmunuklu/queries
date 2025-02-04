@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potentially suspicious child processes of \"aspnet_compiler.exe\".\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9ccba514-7cb6-4c5c-b377-700758f2f120",
+  "InsertDate": "2025-02-03T20:32:36Z",
+  "LastUpdateDate": "2025-02-03T20:32:36Z",
+  "Level": "high",
+  "Name": "Suspicious Child Process of AspNetCompiler",
+  "Query": "sourcetype=\"windows-sysmon\" parent_process_path=\"*\\\\aspnet_compiler.exe\" ((process_path=\"*\\\\calc.exe\" OR process_path=\"*\\\\notepad.exe\") (process_path=\"*\\\\Users\\\\Public\\\\*\" OR process_path=\"*\\\\AppData\\\\Local\\\\Temp\\\\*\" OR process_path=\"*\\\\AppData\\\\Local\\\\Roaming\\\\*\" OR process_path=\"*:\\\\Temp\\\\*\" OR process_path=\"*:\\\\Windows\\\\Temp\\\\*\" OR process_path=\"*:\\\\Windows\\\\System32\\\\Tasks\\\\*\" OR process_path=\"*:\\\\Windows\\\\Tasks\\\\*\"))",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1127"
+  ],
+  "Version": "0.1"
+}

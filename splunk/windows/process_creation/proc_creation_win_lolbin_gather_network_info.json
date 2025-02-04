@@ -1,0 +1,16 @@
+{
+  "Description": "Detects execution of the built-in script located in \"C:\\Windows\\System32\\gatherNetworkInfo.vbs\". Which can be used to gather information about the target machine\n\nAuthor: blueteamer8699\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "575dce0c-8139-4e30-9295-1ee75969f7fe",
+  "InsertDate": "2025-02-03T20:32:48Z",
+  "LastUpdateDate": "2025-02-03T20:32:48Z",
+  "Level": "medium",
+  "Name": "Potential Reconnaissance Activity Via GatherNetworkInfo.VBS",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\cscript.exe\" OR process_path=\"*\\\\wscript.exe\") (original_file_name=\"cscript.exe\" OR original_file_name=\"wscript.exe\")) command=\"*gatherNetworkInfo.vbs*\"",
+  "Tags": [
+    "attack.discovery",
+    "attack.execution",
+    "attack.t1615",
+    "attack.t1059.005"
+  ],
+  "Version": "0.1"
+}

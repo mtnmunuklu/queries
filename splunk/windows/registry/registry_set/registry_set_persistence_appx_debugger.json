@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential persistence using Appx DebugPath\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "df4dc653-1029-47ba-8231-3c44238cc0ae",
+  "InsertDate": "2025-02-03T20:33:40Z",
+  "LastUpdateDate": "2025-02-03T20:33:40Z",
+  "Level": "medium",
+  "Name": "Potential Persistence Using DebugPath",
+  "Query": "sourcetype=\"windows-*\" (target_object=\"*\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\PackagedAppXDebug\\\\Microsoft.*\" target_object=\"*\\\\(Default)\") OR (target_object=\"*Classes\\\\ActivatableClasses\\\\Package\\\\Microsoft.*\" target_object=\"*\\\\DebugPath\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1546.015"
+  ],
+  "Version": "0.1"
+}

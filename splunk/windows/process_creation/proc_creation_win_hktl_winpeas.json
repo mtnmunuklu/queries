@@ -1,0 +1,16 @@
+{
+  "Description": "WinPEAS is a script that search for possible paths to escalate privileges on Windows hosts. The checks are explained on book.hacktricks.xyz\n\nAuthor: Georg Lauenstein (sure[secure])\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "98b53e78-ebaf-46f8-be06-421aafd176d9",
+  "InsertDate": "2025-02-03T20:32:46Z",
+  "LastUpdateDate": "2025-02-03T20:32:46Z",
+  "Level": "high",
+  "Name": "HackTool - winPEAS Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (original_file_name=\"winPEAS.exe\" (process_path=\"*\\\\winPEASany_ofs.exe\" OR process_path=\"*\\\\winPEASany.exe\" OR process_path=\"*\\\\winPEASx64_ofs.exe\" OR process_path=\"*\\\\winPEASx64.exe\" OR process_path=\"*\\\\winPEASx86_ofs.exe\" OR process_path=\"*\\\\winPEASx86.exe\")) OR (command=\"* applicationsinfo*\" OR command=\"* browserinfo*\" OR command=\"* eventsinfo*\" OR command=\"* fileanalysis*\" OR command=\"* filesinfo*\" OR command=\"* processinfo*\" OR command=\"* servicesinfo*\" OR command=\"* windowscreds*\") OR command=\"*https://github.com/carlospolop/PEASS-ng/releases/latest/download/*\" OR (parent_command_line=\"* -linpeas\" command=\"* -linpeas\")",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.t1082",
+    "attack.t1087",
+    "attack.t1046"
+  ],
+  "Version": "0.1"
+}

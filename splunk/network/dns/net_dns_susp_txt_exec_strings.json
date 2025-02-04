@@ -1,0 +1,14 @@
+{
+  "Description": "Detects strings used in command execution in DNS TXT Answer\n\nAuthor: Markus Neis\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "8ae51330-899c-4641-8125-e39f2e07da72",
+  "InsertDate": "2025-02-03T20:32:03Z",
+  "LastUpdateDate": "2025-02-03T20:32:03Z",
+  "Level": "high",
+  "Name": "DNS TXT Answer with Possible Execution Strings",
+  "Query": "record_type=\"TXT\" (answer=\"*IEX*\" OR answer=\"*Invoke-Expression*\" OR answer=\"*cmd.exe*\")",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1071.004"
+  ],
+  "Version": "0.1"
+}

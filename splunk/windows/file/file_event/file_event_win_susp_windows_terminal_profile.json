@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the creation or modification of the Windows Terminal Profile settings file \"settings.json\" by an uncommon process.\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9b64de98-9db3-4033-bd7a-f51430105f00",
+  "InsertDate": "2025-02-03T20:32:20Z",
+  "LastUpdateDate": "2025-02-03T20:32:20Z",
+  "Level": "medium",
+  "Name": "Windows Terminal Profile Settings Modification By Uncommon Process",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\cmd.exe\" OR process_path=\"*\\\\cscript.exe\" OR process_path=\"*\\\\mshta.exe\" OR process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\" OR process_path=\"*\\\\wscript.exe\") filepath=\"*\\\\AppData\\\\Local\\\\Packages\\\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\\\LocalState\\\\settings.json\"",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1547.015"
+  ],
+  "Version": "0.1"
+}

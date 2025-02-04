@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the ld.so preload persistence file. See `man ld.so` for more information.\n\nAuthor: Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7e3c4651-c347-40c4-b1d4-d48590fdf684",
+  "InsertDate": "2025-02-03T20:31:57Z",
+  "LastUpdateDate": "2025-02-03T20:31:57Z",
+  "Level": "high",
+  "Name": "Code Injection by ld.so Preload",
+  "Query": "sourcetype=\"linux-*\" (\"/etc/ld.so.preload\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1574.006"
+  ],
+  "Version": "0.1"
+}

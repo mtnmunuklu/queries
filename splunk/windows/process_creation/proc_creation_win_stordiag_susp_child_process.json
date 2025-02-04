@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the use of stordiag.exe to execute schtasks.exe systeminfo.exe and fltmc.exe\n\nAuthor: Austin Songer (@austinsonger)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "961e0abb-1b1e-4c84-a453-aafe56ad0d34",
+  "InsertDate": "2025-02-03T20:33:12Z",
+  "LastUpdateDate": "2025-02-03T20:33:12Z",
+  "Level": "high",
+  "Name": "Execution via stordiag.exe",
+  "Query": "sourcetype=\"windows-sysmon\" (parent_process_path=\"*\\\\stordiag.exe\" (process_path=\"*\\\\schtasks.exe\" OR process_path=\"*\\\\systeminfo.exe\" OR process_path=\"*\\\\fltmc.exe\")) NOT (parent_process_path=\"c:\\\\windows\\\\system32\\\\*\" OR parent_process_path=\"c:\\\\windows\\\\syswow64\\\\*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

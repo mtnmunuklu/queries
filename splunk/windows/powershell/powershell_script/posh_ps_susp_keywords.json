@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potentially suspicious keywords that could indicate the use of a PowerShell exploitation framework\n\nAuthor: Florian Roth (Nextron Systems), Perez Diego (@darkquassar), Tuan Le (NCSGroup)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1f49f2ab-26bc-48b3-96cc-dcffbc93eadf",
+  "InsertDate": "2025-02-03T20:32:33Z",
+  "LastUpdateDate": "2025-02-03T20:32:33Z",
+  "Level": "medium",
+  "Name": "Potential Suspicious PowerShell Keywords",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*System.Reflection.Assembly.Load($*\" OR scriptblocktext=\"*[System.Reflection.Assembly]::Load($*\" OR scriptblocktext=\"*[Reflection.Assembly]::Load($*\" OR scriptblocktext=\"*System.Reflection.AssemblyName*\" OR scriptblocktext=\"*Reflection.Emit.AssemblyBuilderAccess*\" OR scriptblocktext=\"*Reflection.Emit.CustomAttributeBuilder*\" OR scriptblocktext=\"*Runtime.InteropServices.UnmanagedType*\" OR scriptblocktext=\"*Runtime.InteropServices.DllImportAttribute*\" OR scriptblocktext=\"*SuspendThread*\" OR scriptblocktext=\"*rundll32*\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001"
+  ],
+  "Version": "0.1"
+}

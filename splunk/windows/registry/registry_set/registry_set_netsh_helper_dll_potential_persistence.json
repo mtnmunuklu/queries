@@ -1,0 +1,14 @@
+{
+  "Description": "Detects changes to the Netsh registry key to add a new DLL value. This change might be an indication of a potential persistence attempt by adding a malicious Netsh helper\n\n\nAuthor: Anish Bogati\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c90362e0-2df3-4e61-94fe-b37615814cb1",
+  "InsertDate": "2025-02-03T20:33:38Z",
+  "LastUpdateDate": "2025-02-03T20:33:38Z",
+  "Level": "medium",
+  "Name": "Potential Persistence Via Netsh Helper DLL - Registry",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\SOFTWARE\\\\Microsoft\\\\NetSh*\" details=\"*.dll*\"",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1546.007"
+  ],
+  "Version": "0.1"
+}

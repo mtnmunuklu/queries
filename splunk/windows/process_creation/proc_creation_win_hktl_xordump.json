@@ -1,0 +1,15 @@
+{
+  "Description": "Detects suspicious use of XORDump process memory dumping utility\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "66e563f9-1cbd-4a22-a957-d8b7c0f44372",
+  "InsertDate": "2025-02-03T20:32:46Z",
+  "LastUpdateDate": "2025-02-03T20:32:46Z",
+  "Level": "high",
+  "Name": "HackTool - XORDump Execution",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\xordump.exe\" (command=\"* -process lsass.exe *\" OR command=\"* -m comsvcs *\" OR command=\"* -m dbghelp *\" OR command=\"* -m dbgcore *\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1036",
+    "attack.t1003.001"
+  ],
+  "Version": "0.1"
+}

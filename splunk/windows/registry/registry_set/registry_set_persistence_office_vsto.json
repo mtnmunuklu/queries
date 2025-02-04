@@ -1,0 +1,14 @@
+{
+  "Description": "Detects persistence via Visual Studio Tools for Office (VSTO) add-ins in Office applications.\n\nAuthor: Bhabesh Raj\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9d15044a-7cfe-4d23-8085-6ebc11df7685",
+  "InsertDate": "2025-02-03T20:33:41Z",
+  "LastUpdateDate": "2025-02-03T20:33:41Z",
+  "Level": "medium",
+  "Name": "Potential Persistence Via Visual Studio Tools for Office",
+  "Query": "sourcetype=\"windows-*\" (target_object=\"*\\\\Software\\\\Microsoft\\\\Office\\\\Outlook\\\\Addins\\\\*\" OR target_object=\"*\\\\Software\\\\Microsoft\\\\Office\\\\Word\\\\Addins\\\\*\" OR target_object=\"*\\\\Software\\\\Microsoft\\\\Office\\\\Excel\\\\Addins\\\\*\" OR target_object=\"*\\\\Software\\\\Microsoft\\\\Office\\\\Powerpoint\\\\Addins\\\\*\" OR target_object=\"*\\\\Software\\\\Microsoft\\\\VSTO\\\\Security\\\\Inclusion\\\\*\") NOT ((process_path=\"*\\\\msiexec.exe\" OR process_path=\"*\\\\regsvr32.exe\") OR (process_path=\"*\\\\excel.exe\" OR process_path=\"*\\\\integrator.exe\" OR process_path=\"*\\\\OfficeClickToRun.exe\" OR process_path=\"*\\\\winword.exe\" OR process_path=\"*\\\\visio.exe\") OR process_path=\"*\\\\Teams.exe\" OR (process_path=\"C:\\\\Program Files\\\\AVG\\\\Antivirus\\\\RegSvr.exe\" target_object=\"*\\\\Microsoft\\\\Office\\\\Outlook\\\\Addins\\\\Antivirus.AsOutExt\\\\*\"))",
+  "Tags": [
+    "attack.t1137.006",
+    "attack.persistence"
+  ],
+  "Version": "0.1"
+}

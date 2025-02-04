@@ -1,0 +1,14 @@
+{
+  "Description": "Detects disabling the CrashDump per registry (as used by HermeticWiper)\n\nAuthor: Tobias Michalski (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2ff692c2-4594-41ec-8fcb-46587de769e0",
+  "InsertDate": "2025-02-03T20:33:32Z",
+  "LastUpdateDate": "2025-02-03T20:33:32Z",
+  "Level": "medium",
+  "Name": "CrashControl CrashDump Disabled",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*SYSTEM\\\\CurrentControlSet\\\\Control\\\\CrashControl*\" details=\"DWORD (0x00000000)\"",
+  "Tags": [
+    "attack.t1564",
+    "attack.t1112"
+  ],
+  "Version": "0.1"
+}

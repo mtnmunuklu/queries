@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of CSharp interactive console by PowerShell\n\nAuthor: Michael R. (@nahamike01)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a9e416a8-e613-4f8b-88b8-a7d1d1af2f61",
+  "InsertDate": "2025-02-03T20:32:40Z",
+  "LastUpdateDate": "2025-02-03T20:32:40Z",
+  "Level": "high",
+  "Name": "Suspicious Use of CSharp Interactive Console",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\csi.exe\" (parent_process_path=\"*\\\\powershell.exe\" OR parent_process_path=\"*\\\\pwsh.exe\" OR parent_process_path=\"*\\\\powershell_ise.exe\") original_file_name=\"csi.exe\"",
+  "Tags": [
+    "attack.execution",
+    "attack.t1127"
+  ],
+  "Version": "0.1"
+}

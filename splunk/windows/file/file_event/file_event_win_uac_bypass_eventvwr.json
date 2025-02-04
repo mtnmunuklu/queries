@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the pattern of a UAC bypass using Windows Event Viewer\n\nAuthor: Antonio Cocomazzi (idea), Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "63e4f530-65dc-49cc-8f80-ccfa95c69d43",
+  "InsertDate": "2025-02-03T20:32:21Z",
+  "LastUpdateDate": "2025-02-03T20:32:21Z",
+  "Level": "high",
+  "Name": "UAC Bypass Using EventVwr",
+  "Query": "sourcetype=\"windows-sysmon\" (filepath=\"*\\\\Microsoft\\\\Event Viewer\\\\RecentViews\" OR filepath=\"*\\\\Microsoft\\\\EventV~1\\\\RecentViews\") NOT (process_path=\"C:\\\\Windows\\\\System32\\\\*\" OR process_path=\"C:\\\\Windows\\\\SysWOW64\\\\*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.privilege-escalation"
+  ],
+  "Version": "0.1"
+}

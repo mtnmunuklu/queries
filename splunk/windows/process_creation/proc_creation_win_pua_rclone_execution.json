@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of RClone utility for exfiltration as used by various ransomwares strains like REvil, Conti, FiveHands, etc\n\nAuthor: Bhabesh Raj, Sittikorn S, Aaron Greetham (@beardofbinary) - NCC Group\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e37db05d-d1f9-49c8-b464-cee1a4b11638",
+  "InsertDate": "2025-02-03T20:33:01Z",
+  "LastUpdateDate": "2025-02-03T20:33:01Z",
+  "Level": "high",
+  "Name": "PUA - Rclone Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*--config *\" command=\"*--no-check-certificate *\" command=\"* copy *\") OR ((command=\"*pass*\" OR command=\"*user*\" OR command=\"*copy*\" OR command=\"*sync*\" OR command=\"*config*\" OR command=\"*lsd*\" OR command=\"*remote*\" OR command=\"*ls*\" OR command=\"*mega*\" OR command=\"*pcloud*\" OR command=\"*ftp*\" OR command=\"*ignore-existing*\" OR command=\"*auto-confirm*\" OR command=\"*transfers*\" OR command=\"*multi-thread-streams*\" OR command=\"*no-check-certificate *\") (process_path=\"*\\\\rclone.exe\" description=\"Rsync for cloud storage\"))",
+  "Tags": [
+    "attack.exfiltration",
+    "attack.t1567.002"
+  ],
+  "Version": "0.1"
+}

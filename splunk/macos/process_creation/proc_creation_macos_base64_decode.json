@@ -1,0 +1,14 @@
+{
+  "Description": "Detects usage of base64 utility to decode arbitrary base64-encoded text\n\nAuthor: Daniil Yugoslavskiy, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "719c22d7-c11a-4f2c-93a6-2cfdd5412f68",
+  "InsertDate": "2025-02-03T20:32:01Z",
+  "LastUpdateDate": "2025-02-03T20:32:01Z",
+  "Level": "low",
+  "Name": "Decode Base64 Encoded Text -MacOs",
+  "Query": "sourcetype=\"macos-*\" process_path=\"/usr/bin/base64\" command=\"*-d*\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1027"
+  ],
+  "Version": "0.1"
+}

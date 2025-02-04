@@ -1,0 +1,15 @@
+{
+  "Description": "Detects processes setting a new DLL in DllName in under HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\W32Time\\TimeProvider.\nAdversaries may abuse time providers to execute DLLs when the system boots.\nThe Windows Time service (W32Time) enables time synchronization across and within domains.\n\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e88a6ddc-74f7-463b-9b26-f69fc0d2ce85",
+  "InsertDate": "2025-02-03T20:33:44Z",
+  "LastUpdateDate": "2025-02-03T20:33:44Z",
+  "Level": "high",
+  "Name": "New TimeProviders Registered With Uncommon DLL Name",
+  "Query": "sourcetype=\"windows-*\" (target_object=\"*\\\\Services\\\\W32Time\\\\TimeProviders*\" target_object=\"*\\\\DllName\") NOT (details=\"%SystemRoot%\\\\System32\\\\vmictimeprovider.dll\" OR details=\"%systemroot%\\\\system32\\\\w32time.dll\" OR details=\"C:\\\\Windows\\\\SYSTEM32\\\\w32time.DLL\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1547.003"
+  ],
+  "Version": "0.1"
+}

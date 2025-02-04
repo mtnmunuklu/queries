@@ -1,0 +1,13 @@
+{
+  "Description": "Detects tampering with attachment manager settings policies associations to lower the default file type risks (See reference for more information)\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a9b6c011-ab69-4ddb-bc0a-c4f21c80ec47",
+  "InsertDate": "2025-02-03T20:33:42Z",
+  "LastUpdateDate": "2025-02-03T20:33:42Z",
+  "Level": "high",
+  "Name": "Potential Attachment Manager Settings Associations Tamper",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Policies\\\\Associations\\\\*\" ((target_object=\"*\\\\DefaultFileTypeRisk\" details=\"DWORD (0x00006152)\") OR (target_object=\"*\\\\LowRiskFileTypes\" (details=\"*.zip;*\" OR details=\"*.rar;*\" OR details=\"*.exe;*\" OR details=\"*.bat;*\" OR details=\"*.com;*\" OR details=\"*.cmd;*\" OR details=\"*.reg;*\" OR details=\"*.msi;*\" OR details=\"*.htm;*\" OR details=\"*.html;*\")))",
+  "Tags": [
+    "attack.defense-evasion"
+  ],
+  "Version": "0.1"
+}

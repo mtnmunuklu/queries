@@ -1,0 +1,17 @@
+{
+  "Description": "Detects registry persistence technique using the GlobalFlags and SilentProcessExit keys\n\nAuthor: Karneades, Jonhnathan Ribeiro, Florian Roth\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "36803969-5421-41ec-b92f-8500f79c23b0",
+  "InsertDate": "2025-02-03T20:33:41Z",
+  "LastUpdateDate": "2025-02-03T20:33:41Z",
+  "Level": "high",
+  "Name": "Potential Persistence Via GlobalFlags",
+  "Query": "sourcetype=\"windows-*\" (target_object=\"*\\\\Microsoft\\\\Windows NT\\\\CurrentVersion\\\\*\" target_object=\"*\\\\Image File Execution Options\\\\*\" target_object=\"*\\\\GlobalFlag*\") OR ((target_object=\"*\\\\Microsoft\\\\Windows NT\\\\CurrentVersion\\\\*\" target_object=\"*\\\\SilentProcessExit\\\\*\") (target_object=\"*\\\\ReportingMode*\" OR target_object=\"*\\\\MonitorProcess*\"))",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.persistence",
+    "attack.defense-evasion",
+    "attack.t1546.012",
+    "car.2013-01-002"
+  ],
+  "Version": "0.1"
+}

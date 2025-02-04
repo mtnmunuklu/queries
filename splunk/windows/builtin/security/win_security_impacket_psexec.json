@@ -1,0 +1,14 @@
+{
+  "Description": "Detects execution of Impacket's psexec.py.\n\nAuthor: Bhabesh Raj\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "32d56ea1-417f-44ff-822b-882873f5f43b",
+  "InsertDate": "2025-02-03T20:32:09Z",
+  "LastUpdateDate": "2025-02-03T20:32:09Z",
+  "Level": "high",
+  "Name": "Impacket PsExec Execution",
+  "Query": "sourcetype=\"windows-security\" eventid=\"5145\" sharename=\"\\\\\\\\\\\\\\\\\\\\*\\\\\\\\IPC$\" (relativetargetname=\"*RemCom_stdin*\" OR relativetargetname=\"*RemCom_stdout*\" OR relativetargetname=\"*RemCom_stderr*\")",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.t1021.002"
+  ],
+  "Version": "0.1"
+}

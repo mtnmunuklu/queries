@@ -1,0 +1,15 @@
+{
+  "Description": "Detects new BITS transfer job where the LocalName/Saved file is stored in a potentially suspicious location\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f8a56cb7-a363-44ed-a82f-5926bb44cd05",
+  "InsertDate": "2025-02-03T20:32:06Z",
+  "LastUpdateDate": "2025-02-03T20:32:06Z",
+  "Level": "high",
+  "Name": "BITS Transfer Job Download To Potential Suspicious Folder",
+  "Query": "sourcetype=\"windows-bits-client\" eventid=\"16403\" (localname=\"*\\\\Desktop\\\\*\" OR localname=\"*C:\\\\Users\\\\Public\\\\*\" OR localname=\"*C:\\\\PerfLogs\\\\*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.t1197"
+  ],
+  "Version": "0.1"
+}

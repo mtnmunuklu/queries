@@ -1,0 +1,18 @@
+{
+  "Description": "Detects Bitsadmin connections to domains with uncommon TLDs\n\nAuthor: Florian Roth (Nextron Systems), Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "9eb68894-7476-4cd6-8752-23b51f5883a7",
+  "InsertDate": "2025-02-03T20:32:05Z",
+  "LastUpdateDate": "2025-02-03T20:32:05Z",
+  "Level": "high",
+  "Name": "Bitsadmin to Uncommon TLD",
+  "Query": "c-useragent=\"Microsoft BITS/*\" NOT (cs-host=\"*.com\" OR cs-host=\"*.net\" OR cs-host=\"*.org\" OR cs-host=\"*.scdn.co\" OR cs-host=\"*.sfx.ms\")",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1071.001",
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.t1197",
+    "attack.s0190"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,13 @@
+{
+  "Description": "Detects suspicious Windows Error Reporting manager (wermgr.exe) execution location.\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5394fcc7-aeb2-43b5-9a09-cac9fc5edcd5",
+  "InsertDate": "2025-02-03T20:33:24Z",
+  "LastUpdateDate": "2025-02-03T20:33:24Z",
+  "Level": "high",
+  "Name": "Suspicious Execution Location Of Wermgr.EXE",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\wermgr.exe\" NOT (process_path=\"C:\\\\Windows\\\\System32\\\\*\" OR process_path=\"C:\\\\Windows\\\\SysWOW64\\\\*\" OR process_path=\"C:\\\\Windows\\\\WinSxS\\\\*\")",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

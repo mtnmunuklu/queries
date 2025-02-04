@@ -1,0 +1,14 @@
+{
+  "Description": "Powershell use PassThru option to start in background\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "0718cd72-f316-4aa2-988f-838ea8533277",
+  "InsertDate": "2025-02-03T20:32:34Z",
+  "LastUpdateDate": "2025-02-03T20:32:34Z",
+  "Level": "medium",
+  "Name": "Suspicious Start-Process PassThru",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*Start-Process*\" scriptblocktext=\"*-PassThru *\" scriptblocktext=\"*-FilePath *\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1036.003"
+  ],
+  "Version": "0.1"
+}

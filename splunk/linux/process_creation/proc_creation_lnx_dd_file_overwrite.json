@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential overwriting and deletion of a file using DD.\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research), MSTIC\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "2953194b-e33c-4859-b9e8-05948c167447",
+  "InsertDate": "2025-02-03T20:31:59Z",
+  "LastUpdateDate": "2025-02-03T20:31:59Z",
+  "Level": "low",
+  "Name": "DD File Overwrite",
+  "Query": "sourcetype=\"linux-*\" (process_path=\"/bin/dd\" OR process_path=\"/usr/bin/dd\") command=\"*of=*\" (command=\"*if=/dev/zero*\" OR command=\"*if=/dev/null*\")",
+  "Tags": [
+    "attack.impact",
+    "attack.t1485"
+  ],
+  "Version": "0.1"
+}

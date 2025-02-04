@@ -1,0 +1,14 @@
+{
+  "Description": "Detects VB DLL's loaded by an office application. Which could indicate the presence of VBA Macros.\n\nAuthor: Antonlovesdnb\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e6ce8457-68b1-485b-9bdd-3c2b5d679aa9",
+  "InsertDate": "2025-02-03T20:32:22Z",
+  "LastUpdateDate": "2025-02-03T20:32:22Z",
+  "Level": "high",
+  "Name": "VBA DLL Loaded Via Office Application",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\excel.exe\" OR process_path=\"*\\\\mspub.exe\" OR process_path=\"*\\\\onenote.exe\" OR process_path=\"*\\\\onenoteim.exe\" OR process_path=\"*\\\\outlook.exe\" OR process_path=\"*\\\\powerpnt.exe\" OR process_path=\"*\\\\winword.exe\") (image_loaded=\"*\\\\VBE7.DLL\" OR image_loaded=\"*\\\\VBEUI.DLL\" OR image_loaded=\"*\\\\VBE7INTL.DLL\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1204.002"
+  ],
+  "Version": "0.1"
+}

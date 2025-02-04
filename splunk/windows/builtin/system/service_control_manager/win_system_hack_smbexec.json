@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the use of smbexec.py tool by detecting a specific service installation\n\nAuthor: Omer Faruk Celik\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "52a85084-6989-40c3-8f32-091e12e13f09",
+  "InsertDate": "2025-02-03T20:32:12Z",
+  "LastUpdateDate": "2025-02-03T20:32:12Z",
+  "Level": "high",
+  "Name": "smbexec.py Service Installation",
+  "Query": "sourcetype=\"windows-system\" (provider_name=\"Service Control Manager\" eventid=\"7045\") (servicename=\"BTOBTO\" OR (imagepath=\"*.bat \u0026 del *\" OR imagepath=\"*__output 2^\u003e^\u00261 \u003e*\"))",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.execution",
+    "attack.t1021.002",
+    "attack.t1569.002"
+  ],
+  "Version": "0.1"
+}

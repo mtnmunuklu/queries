@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious new RUN key element pointing to an executable in a suspicious folder\n\nAuthor: Florian Roth (Nextron Systems), Markus Neis, Sander Wiebing\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "02ee49e2-e294-4d0f-9278-f5b3212fc588",
+  "InsertDate": "2025-02-03T20:33:43Z",
+  "LastUpdateDate": "2025-02-03T20:33:43Z",
+  "Level": "high",
+  "Name": "New RUN Key Pointing to Suspicious Folder",
+  "Query": "sourcetype=\"windows-*\" ((target_object=\"*\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Run\\\\*\" OR target_object=\"*\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\RunOnce\\\\*\") ((details=\"*:\\\\$Recycle.bin\\\\*\" OR details=\"*:\\\\Temp\\\\*\" OR details=\"*:\\\\Users\\\\Default\\\\*\" OR details=\"*:\\\\Users\\\\Desktop\\\\*\" OR details=\"*:\\\\Users\\\\Public\\\\*\" OR details=\"*:\\\\Windows\\\\Temp\\\\*\" OR details=\"*\\\\AppData\\\\Local\\\\Temp\\\\*\" OR details=\"*%temp%\\\\*\" OR details=\"*%tmp%\\\\*\") (details=\"%Public%\\\\*\" OR details=\"wscript*\" OR details=\"cscript*\"))) NOT (target_object=\"*\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\RunOnce\\\\*\" process_path=\"C:\\\\Windows\\\\SoftwareDistribution\\\\Download\\\\*\" (details=\"*rundll32.exe *\" details=\"*C:\\\\WINDOWS\\\\system32\\\\advpack.dll,DelNodeRunDLL32*\") (details=\"*\\\\AppData\\\\Local\\\\Temp\\\\*\" OR details=\"*C:\\\\Windows\\\\Temp\\\\*\"))",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1547.001"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of different compiled Windows binaries of the impacket toolset (based on names or part of their names - could lead to false positives)\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4627c6ae-6899-46e2-aa0c-6ebcb1becd19",
+  "InsertDate": "2025-02-03T20:32:44Z",
+  "LastUpdateDate": "2025-02-03T20:32:44Z",
+  "Level": "high",
+  "Name": "HackTool - Impacket Tools Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\goldenPac*\" OR process_path=\"*\\\\karmaSMB*\" OR process_path=\"*\\\\kintercept*\" OR process_path=\"*\\\\ntlmrelayx*\" OR process_path=\"*\\\\rpcdump*\" OR process_path=\"*\\\\samrdump*\" OR process_path=\"*\\\\secretsdump*\" OR process_path=\"*\\\\smbexec*\" OR process_path=\"*\\\\smbrelayx*\" OR process_path=\"*\\\\wmiexec*\" OR process_path=\"*\\\\wmipersist*\") (process_path=\"*\\\\atexec_windows.exe\" OR process_path=\"*\\\\dcomexec_windows.exe\" OR process_path=\"*\\\\dpapi_windows.exe\" OR process_path=\"*\\\\findDelegation_windows.exe\" OR process_path=\"*\\\\GetADUsers_windows.exe\" OR process_path=\"*\\\\GetNPUsers_windows.exe\" OR process_path=\"*\\\\getPac_windows.exe\" OR process_path=\"*\\\\getST_windows.exe\" OR process_path=\"*\\\\getTGT_windows.exe\" OR process_path=\"*\\\\GetUserSPNs_windows.exe\" OR process_path=\"*\\\\ifmap_windows.exe\" OR process_path=\"*\\\\mimikatz_windows.exe\" OR process_path=\"*\\\\netview_windows.exe\" OR process_path=\"*\\\\nmapAnswerMachine_windows.exe\" OR process_path=\"*\\\\opdump_windows.exe\" OR process_path=\"*\\\\psexec_windows.exe\" OR process_path=\"*\\\\rdp_check_windows.exe\" OR process_path=\"*\\\\sambaPipe_windows.exe\" OR process_path=\"*\\\\smbclient_windows.exe\" OR process_path=\"*\\\\smbserver_windows.exe\" OR process_path=\"*\\\\sniff_windows.exe\" OR process_path=\"*\\\\sniffer_windows.exe\" OR process_path=\"*\\\\split_windows.exe\" OR process_path=\"*\\\\ticketer_windows.exe\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1557.001"
+  ],
+  "Version": "0.1"
+}

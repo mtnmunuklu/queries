@@ -1,0 +1,14 @@
+{
+  "Description": "Detects application popup reporting a failure of the Sysmon service\n\nAuthor: Tim Shelton\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "4d7f1827-1637-4def-8d8a-fd254f9454df",
+  "InsertDate": "2025-02-03T20:32:12Z",
+  "LastUpdateDate": "2025-02-03T20:32:12Z",
+  "Level": "high",
+  "Name": "Sysmon Application Crashed",
+  "Query": "sourcetype=\"windows-system\" provider_name=\"Application Popup\" eventid=\"26\" (caption=\"sysmon64.exe - Application Error\" OR caption=\"sysmon.exe - Application Error\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562"
+  ],
+  "Version": "0.1"
+}

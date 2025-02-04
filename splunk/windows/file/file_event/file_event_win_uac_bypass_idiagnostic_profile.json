@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the creation of a file by \"dllhost.exe\" in System32 directory part of \"IDiagnosticProfileUAC\" UAC bypass technique\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "48ea844d-19b1-4642-944e-fe39c2cc1fec",
+  "InsertDate": "2025-02-03T20:32:21Z",
+  "LastUpdateDate": "2025-02-03T20:32:21Z",
+  "Level": "high",
+  "Name": "UAC Bypass Using IDiagnostic Profile - File",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\DllHost.exe\" filepath=\"C:\\\\Windows\\\\System32\\\\*\" filepath=\"*.dll\"",
+  "Tags": [
+    "attack.execution",
+    "attack.defense-evasion",
+    "attack.privilege-escalation",
+    "attack.t1548.002"
+  ],
+  "Version": "0.1"
+}

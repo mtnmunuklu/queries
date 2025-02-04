@@ -1,0 +1,15 @@
+{
+  "Description": "Detects a method to load DLL via LSASS process using an undocumented Registry key\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b3503044-60ce-4bf4-bbcb-e3db98788823",
+  "InsertDate": "2025-02-03T20:33:30Z",
+  "LastUpdateDate": "2025-02-03T20:33:30Z",
+  "Level": "high",
+  "Name": "DLL Load via LSASS",
+  "Query": "sourcetype=\"windows-sysmon\" (target_object=\"*\\\\CurrentControlSet\\\\Services\\\\NTDS\\\\DirectoryServiceExtPt*\" OR target_object=\"*\\\\CurrentControlSet\\\\Services\\\\NTDS\\\\LsaDbExtPt*\") NOT (process_path=\"C:\\\\Windows\\\\system32\\\\lsass.exe\" (details=\"%%systemroot%%\\\\system32\\\\ntdsa.dll\" OR details=\"%%systemroot%%\\\\system32\\\\lsadb.dll\"))",
+  "Tags": [
+    "attack.execution",
+    "attack.persistence",
+    "attack.t1547.008"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects file access requests to the the Windows Data Protection API Master keys by an uncommon application.\nThis can be a sign of credential stealing. Example case would be usage of mimikatz \"dpapi::masterkey\" function\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "46612ae6-86be-4802-bc07-39b59feb1309",
+  "InsertDate": "2025-02-03T20:32:16Z",
+  "LastUpdateDate": "2025-02-03T20:32:16Z",
+  "Level": "medium",
+  "Name": "Access To Windows DPAPI Master Keys By Uncommon Applications",
+  "Query": "sourcetype=\"windows-*\" (filename=\"*\\\\Microsoft\\\\Protect\\\\S-1-5-18\\\\*\" OR filename=\"*\\\\Microsoft\\\\Protect\\\\S-1-5-21-*\") NOT (process_path=\"C:\\\\Program Files\\\\*\" OR process_path=\"C:\\\\Program Files (x86)\\\\*\" OR process_path=\"C:\\\\Windows\\\\system32\\\\*\" OR process_path=\"C:\\\\Windows\\\\SysWOW64\\\\*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1555.004"
+  ],
+  "Version": "0.1"
+}

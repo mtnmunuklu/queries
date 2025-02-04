@@ -1,0 +1,15 @@
+{
+  "Description": "Detects a suspicious download using the BITS client from a FQDN that is unusual. Adversaries may abuse BITS jobs to persistently execute or clean up after malicious payloads.\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "6d44fb93-e7d2-475c-9d3d-54c9c1e33427",
+  "InsertDate": "2025-02-03T20:32:06Z",
+  "LastUpdateDate": "2025-02-03T20:32:06Z",
+  "Level": "medium",
+  "Name": "BITS Transfer Job With Uncommon Or Suspicious Remote TLD",
+  "Query": "sourcetype=\"windows-bits-client\" eventid=\"16403\" NOT (remotename=\"*.azureedge.net/*\" OR remotename=\"*.com/*\" OR remotename=\"*.sfx.ms/*\" OR remotename=\"*download.mozilla.org/*\" OR remotename=\"*cdn.onenote.net/*\" OR remotename=\"*cdn.office.net/*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.t1197"
+  ],
+  "Version": "0.1"
+}

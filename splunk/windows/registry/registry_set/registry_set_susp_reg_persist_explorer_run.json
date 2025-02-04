@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a possible persistence mechanism using RUN key for Windows Explorer and pointing to a suspicious folder\n\nAuthor: Florian Roth (Nextron Systems), oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "b7916c2a-fa2f-4795-9477-32b731f70f11",
+  "InsertDate": "2025-02-03T20:33:43Z",
+  "LastUpdateDate": "2025-02-03T20:33:43Z",
+  "Level": "high",
+  "Name": "Registry Persistence via Explorer Run Key",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Policies\\\\Explorer\\\\Run\" (details=\"*:\\\\$Recycle.bin\\\\*\" OR details=\"*:\\\\ProgramData\\\\*\" OR details=\"*:\\\\Temp\\\\*\" OR details=\"*:\\\\Users\\\\Default\\\\*\" OR details=\"*:\\\\Users\\\\Public\\\\*\" OR details=\"*:\\\\Windows\\\\Temp\\\\*\" OR details=\"*\\\\AppData\\\\Local\\\\Temp\\\\*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1547.001"
+  ],
+  "Version": "0.1"
+}

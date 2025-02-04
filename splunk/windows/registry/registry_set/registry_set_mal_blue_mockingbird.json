@@ -1,0 +1,15 @@
+{
+  "Description": "Attempts to detect system changes made by Blue Mockingbird\n\nAuthor: Trent Liffick (@tliffick)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "92b0b372-a939-44ed-a11b-5136cf680e27",
+  "InsertDate": "2025-02-03T20:33:38Z",
+  "LastUpdateDate": "2025-02-03T20:33:38Z",
+  "Level": "high",
+  "Name": "Blue Mockingbird - Registry",
+  "Query": "sourcetype=\"windows-*\" target_object=\"*\\\\CurrentControlSet\\\\Services\\\\wercplsupport\\\\Parameters\\\\ServiceDll\"",
+  "Tags": [
+    "attack.execution",
+    "attack.t1112",
+    "attack.t1047"
+  ],
+  "Version": "0.1"
+}

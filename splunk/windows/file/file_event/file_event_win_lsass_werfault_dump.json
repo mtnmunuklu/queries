@@ -1,0 +1,14 @@
+{
+  "Description": "Detects WerFault creating a dump file with a name that indicates that the dump file could be an LSASS process memory, which contains user credentials\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "c3e76af5-4ce0-4a14-9c9a-25ceb8fda182",
+  "InsertDate": "2025-02-03T20:32:18Z",
+  "LastUpdateDate": "2025-02-03T20:32:18Z",
+  "Level": "high",
+  "Name": "WerFault LSASS Process Memory Dump",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"C:\\\\WINDOWS\\\\system32\\\\WerFault.exe\" (filepath=\"*\\\\lsass*\" OR filepath=\"*lsass.exe*\")",
+  "Tags": [
+    "attack.credential-access",
+    "attack.t1003.001"
+  ],
+  "Version": "0.1"
+}

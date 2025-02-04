@@ -1,0 +1,14 @@
+{
+  "Description": "Identifies when a Azure Kubernetes network policy is modified or deleted.\n\nAuthor: Austin Songer @austinsonger\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "08d6ac24-c927-4469-b3b7-2e422d6e3c43",
+  "InsertDate": "2025-02-03T20:31:51Z",
+  "LastUpdateDate": "2025-02-03T20:31:51Z",
+  "Level": "medium",
+  "Name": "Azure Kubernetes Network Policy Change",
+  "Query": "sourcetype=\"azure-activitylogs\" (operationname=\"MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/NETWORKING.K8S.IO/NETWORKPOLICIES/WRITE\" OR operationname=\"MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/NETWORKING.K8S.IO/NETWORKPOLICIES/DELETE\" OR operationname=\"MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/EXTENSIONS/NETWORKPOLICIES/WRITE\" OR operationname=\"MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/EXTENSIONS/NETWORKPOLICIES/DELETE\")",
+  "Tags": [
+    "attack.impact",
+    "attack.credential-access"
+  ],
+  "Version": "0.1"
+}

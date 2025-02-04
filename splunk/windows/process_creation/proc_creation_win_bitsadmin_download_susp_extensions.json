@@ -1,0 +1,17 @@
+{
+  "Description": "Detects usage of bitsadmin downloading a file with a suspicious extension\n\nAuthor: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5b80a791-ad9b-4b75-bcc1-ad4e1e89c200",
+  "InsertDate": "2025-02-03T20:32:37Z",
+  "LastUpdateDate": "2025-02-03T20:32:37Z",
+  "Level": "high",
+  "Name": "File With Suspicious Extension Downloaded Via Bitsadmin",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\bitsadmin.exe\" original_file_name=\"bitsadmin.exe\") (command=\"* /transfer *\" OR command=\"* /create *\" OR command=\"* /addfile *\") (command=\"*.7z*\" OR command=\"*.asax*\" OR command=\"*.ashx*\" OR command=\"*.asmx*\" OR command=\"*.asp*\" OR command=\"*.aspx*\" OR command=\"*.bat*\" OR command=\"*.cfm*\" OR command=\"*.cgi*\" OR command=\"*.chm*\" OR command=\"*.cmd*\" OR command=\"*.dll*\" OR command=\"*.gif*\" OR command=\"*.jpeg*\" OR command=\"*.jpg*\" OR command=\"*.jsp*\" OR command=\"*.jspx*\" OR command=\"*.log*\" OR command=\"*.png*\" OR command=\"*.ps1*\" OR command=\"*.psm1*\" OR command=\"*.rar*\" OR command=\"*.scf*\" OR command=\"*.sct*\" OR command=\"*.txt*\" OR command=\"*.vbe*\" OR command=\"*.vbs*\" OR command=\"*.war*\" OR command=\"*.wsf*\" OR command=\"*.wsh*\" OR command=\"*.xll*\" OR command=\"*.zip*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.t1197",
+    "attack.s0190",
+    "attack.t1036.003"
+  ],
+  "Version": "0.1"
+}

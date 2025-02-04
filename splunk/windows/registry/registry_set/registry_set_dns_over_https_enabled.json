@@ -1,0 +1,15 @@
+{
+  "Description": "Detects when a user enables DNS-over-HTTPS.\nThis can be used to hide internet activity or be used to hide the process of exfiltrating data.\nWith this enabled organization will lose visibility into data such as query type, response and originating IP that are used to determine bad actors.\n\n\nAuthor: Austin Songer\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "04b45a8a-d11d-49e4-9acc-4a1b524407a5",
+  "InsertDate": "2025-02-03T20:33:36Z",
+  "LastUpdateDate": "2025-02-03T20:33:36Z",
+  "Level": "medium",
+  "Name": "DNS-over-HTTPS Enabled by Registry",
+  "Query": "sourcetype=\"windows-*\" (target_object=\"*\\\\SOFTWARE\\\\Policies\\\\Microsoft\\\\Edge\\\\BuiltInDnsClientEnabled\" details=\"DWORD (0x00000001)\") OR (target_object=\"*\\\\SOFTWARE\\\\Google\\\\Chrome\\\\DnsOverHttpsMode\" details=\"secure\") OR (target_object=\"*\\\\SOFTWARE\\\\Policies\\\\Mozilla\\\\Firefox\\\\DNSOverHTTPS\\\\Enabled\" details=\"DWORD (0x00000001)\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1140",
+    "attack.t1112"
+  ],
+  "Version": "0.1"
+}

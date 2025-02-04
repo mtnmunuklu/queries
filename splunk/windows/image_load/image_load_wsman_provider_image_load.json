@@ -1,0 +1,16 @@
+{
+  "Description": "Detects signs of potential use of the WSMAN provider from uncommon processes locally and remote execution.\n\nAuthor: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ad1f4bb9-8dfb-4765-adb6-2a7cfb6c0f94",
+  "InsertDate": "2025-02-03T20:32:24Z",
+  "LastUpdateDate": "2025-02-03T20:32:24Z",
+  "Level": "medium",
+  "Name": "Suspicious WSMAN Provider Image Loads",
+  "Query": "sourcetype=\"windows-sysmon\" (((image_loaded=\"*\\\\WsmSvc.dll\" OR image_loaded=\"*\\\\WsmAuto.dll\" OR image_loaded=\"*\\\\Microsoft.WSMan.Management.ni.dll\") (original_file_name=\"WsmSvc.dll\" OR original_file_name=\"WSMANAUTOMATION.DLL\" OR original_file_name=\"Microsoft.WSMan.Management.dll\")) OR (process_path=\"*\\\\svchost.exe\" original_file_name=\"WsmWmiPl.dll\")) NOT (process_path=\"C:\\\\Program Files\\\\Citrix\\\\*\" OR process_path=\"C:\\\\$WINDOWS.~BT\\\\Sources\\\\*\" OR (command=\"*svchost.exe -k netsvcs -p -s BITS*\" OR command=\"*svchost.exe -k GraphicsPerfSvcGroup -s GraphicsPerfSvc*\" OR command=\"*svchost.exe -k NetworkService -p -s Wecsvc*\" OR command=\"*svchost.exe -k netsvcs*\") OR ((process_path=\"C:\\\\Windows\\\\Microsoft.NET\\\\Framework64\\\\v*\" OR process_path=\"C:\\\\Windows\\\\Microsoft.NET\\\\Framework\\\\v*\") process_path=\"*\\\\mscorsvw.exe\") OR (process_path=\"C:\\\\Windows\\\\System32\\\\Configure-SMRemoting.exe\" OR process_path=\"C:\\\\Windows\\\\System32\\\\ServerManager.exe\") OR process_path=\"C:\\\\Windows\\\\Temp\\\\asgard2-agent\\\\*\" OR (process_path=\"*\\\\powershell.exe\" OR process_path=\"*C:\\\\Windows\\\\System32\\\\sdiagnhost.exe\" OR process_path=\"*C:\\\\Windows\\\\System32\\\\services.exe\") OR process_path=\"*\\\\powershell_ise.exe\") NOT (process_path=\"*\\\\svchost.exe\" command=\"null\")",
+  "Tags": [
+    "attack.execution",
+    "attack.t1059.001",
+    "attack.lateral-movement",
+    "attack.t1021.003"
+  ],
+  "Version": "0.1"
+}

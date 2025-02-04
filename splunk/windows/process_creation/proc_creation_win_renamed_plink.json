@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the execution of a renamed version of the Plink binary\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1c12727d-02bf-45ff-a9f3-d49806a3cf43",
+  "InsertDate": "2025-02-03T20:33:07Z",
+  "LastUpdateDate": "2025-02-03T20:33:07Z",
+  "Level": "high",
+  "Name": "Renamed Plink Execution",
+  "Query": "sourcetype=\"windows-sysmon\" (original_file_name=\"Plink\" (command=\"* -l forward*\" command=\"* -P *\" command=\"* -R *\")) NOT process_path=\"*\\\\plink.exe\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1036"
+  ],
+  "Version": "0.1"
+}

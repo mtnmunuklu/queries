@@ -1,0 +1,14 @@
+{
+  "Description": "Detects suspicious changes to the Windows Defender configuration\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "801bd44f-ceed-4eb6-887c-11544633c0aa",
+  "InsertDate": "2025-02-03T20:32:14Z",
+  "LastUpdateDate": "2025-02-03T20:32:14Z",
+  "Level": "high",
+  "Name": "Windows Defender Configuration Changes",
+  "Query": "sourcetype=\"windows-windefend\" eventid=\"5007\" (newvalue=\"*\\\\Windows Defender\\\\DisableAntiSpyware *\" OR newvalue=\"*\\\\Windows Defender\\\\Scan\\\\DisableRemovableDriveScanning *\" OR newvalue=\"*\\\\Windows Defender\\\\Scan\\\\DisableScanningMappedNetworkDrivesForFullScan *\" OR newvalue=\"*\\\\Windows Defender\\\\SpyNet\\\\DisableBlockAtFirstSeen *\" OR newvalue=\"*\\\\Real-Time Protection\\\\SpyNetReporting *\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

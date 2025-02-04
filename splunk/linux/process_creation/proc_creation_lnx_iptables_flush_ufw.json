@@ -1,0 +1,14 @@
+{
+  "Description": "Detect use of iptables to flush all firewall rules, tables and chains and allow all network traffic\n\nAuthor: Joseliyo Sanchez, @Joseliyo_Jstnk\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3be619f4-d9ec-4ea8-a173-18fdd01996ab",
+  "InsertDate": "2025-02-03T20:31:59Z",
+  "LastUpdateDate": "2025-02-03T20:31:59Z",
+  "Level": "medium",
+  "Name": "Flush Iptables Ufw Chain",
+  "Query": "sourcetype=\"linux-*\" (command=\"*ufw-logging-deny*\" OR command=\"*ufw-logging-allow*\" OR command=\"*ufw6-logging-deny*\" OR command=\"*ufw6-logging-allow*\") (process_path=\"*/iptables\" OR process_path=\"*/xtables-legacy-multi\" OR process_path=\"*/iptables-legacy-multi\" OR process_path=\"*/ip6tables\" OR process_path=\"*/ip6tables-legacy-multi\") (command=\"*-F*\" OR command=\"*-Z*\" OR command=\"*-X*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.004"
+  ],
+  "Version": "0.1"
+}

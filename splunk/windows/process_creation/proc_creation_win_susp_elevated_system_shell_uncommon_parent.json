@@ -1,0 +1,16 @@
+{
+  "Description": "Detects when a shell program such as the Windows command prompt or PowerShell is launched with system privileges from a uncommon parent location.\n\nAuthor: frack113, Tim Shelton (update fp)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "178e615d-e666-498b-9630-9ed363038101",
+  "InsertDate": "2025-02-03T20:33:14Z",
+  "LastUpdateDate": "2025-02-03T20:33:14Z",
+  "Level": "medium",
+  "Name": "Elevated System Shell Spawned From Uncommon Parent Location",
+  "Query": "sourcetype=\"windows-sysmon\" (((process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\" OR process_path=\"*\\\\cmd.exe\") (original_file_name=\"PowerShell.EXE\" OR original_file_name=\"pwsh.dll\" OR original_file_name=\"Cmd.Exe\")) ((username=\"*AUTHORI*\" OR username=\"*AUTORI*\") logon_id=\"0x3e7\")) NOT (parent_process_path=\"null\" OR parent_process_path=\"\" OR (parent_process_path=\"*:\\\\Program Files (x86)\\\\*\" OR parent_process_path=\"*:\\\\Program Files\\\\*\" OR parent_process_path=\"*:\\\\ProgramData\\\\*\" OR parent_process_path=\"*:\\\\Windows\\\\System32\\\\*\" OR parent_process_path=\"*:\\\\Windows\\\\SysWOW64\\\\*\" OR parent_process_path=\"*:\\\\Windows\\\\Temp\\\\*\" OR parent_process_path=\"*:\\\\Windows\\\\WinSxS\\\\*\")) NOT ((parent_process_path=\"*:\\\\ManageEngine\\\\ADManager Plus\\\\pgsql\\\\bin\\\\postgres.exe\" process_path=\"*\\\\cmd.exe\") OR (command=\"*:\\\\WINDOWS\\\\system32\\\\cmd.exe /c \"*\" current_directory=\"*:\\\\WINDOWS\\\\Temp\\\\asgard2-agent\\\\*\") OR (parent_process_path=\"*:\\\\IBM\\\\SpectrumProtect\\\\webserver\\\\scripts\\\\*\" command=\"*:\\\\IBM\\\\SpectrumProtect\\\\webserver\\\\scripts\\\\*\"))",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.t1059"
+  ],
+  "Version": "0.1"
+}

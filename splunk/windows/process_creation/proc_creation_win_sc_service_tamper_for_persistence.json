@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the modification of an existing service in order to execute an arbitrary payload when the service is started or killed as a potential method for persistence.\n\nAuthor: Sreeman\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "38879043-7e1e-47a9-8d46-6bec88e201df",
+  "InsertDate": "2025-02-03T20:33:10Z",
+  "LastUpdateDate": "2025-02-03T20:33:10Z",
+  "Level": "medium",
+  "Name": "Potential Persistence Attempt Via Existing Service Tampering",
+  "Query": "sourcetype=\"windows-sysmon\" ((command=\"*sc *\" command=\"*config *\" command=\"*binpath=*\") (command=\"*sc *\" command=\"*failure*\" command=\"*command=*\")) OR (((command=\"*reg *\" command=\"*add *\" command=\"*FailureCommand*\") (command=\"*reg *\" command=\"*add *\" command=\"*ImagePath*\")) (command=\"*.sh*\" OR command=\"*.exe*\" OR command=\"*.dll*\" OR command=\"*.bin$*\" OR command=\"*.bat*\" OR command=\"*.cmd*\" OR command=\"*.js*\" OR command=\"*.msh$*\" OR command=\"*.reg$*\" OR command=\"*.scr*\" OR command=\"*.ps*\" OR command=\"*.vb*\" OR command=\"*.jar*\" OR command=\"*.pl*\"))",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1543.003",
+    "attack.t1574.011"
+  ],
+  "Version": "0.1"
+}

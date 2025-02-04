@@ -1,0 +1,14 @@
+{
+  "Description": "Detects a curl process start on linux, which indicates a file download from a remote location or a simple web request to a remote server\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ea34fb97-e2c4-4afb-810f-785e4459b194",
+  "InsertDate": "2025-02-03T20:31:58Z",
+  "LastUpdateDate": "2025-02-03T20:31:58Z",
+  "Level": "low",
+  "Name": "Curl Usage on Linux",
+  "Query": "sourcetype=\"linux-*\" process_path=\"*/curl\"",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1105"
+  ],
+  "Version": "0.1"
+}

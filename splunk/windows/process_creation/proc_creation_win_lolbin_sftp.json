@@ -1,0 +1,15 @@
+{
+  "Description": "Detects the usage of the \"sftp.exe\" binary as a LOLBIN by abusing the \"-D\" flag\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "a85ffc3a-e8fd-4040-93bf-78aff284d801",
+  "InsertDate": "2025-02-03T20:32:49Z",
+  "LastUpdateDate": "2025-02-03T20:32:49Z",
+  "Level": "medium",
+  "Name": "Use Of The SFTP.EXE Binary As A LOLBIN",
+  "Query": "sourcetype=\"windows-sysmon\" process_path=\"*\\\\sftp.exe\" (command=\"* -D ..*\" OR command=\"* -D C:\\\\*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.execution",
+    "attack.t1218"
+  ],
+  "Version": "0.1"
+}

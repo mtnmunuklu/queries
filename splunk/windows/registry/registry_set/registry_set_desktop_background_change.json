@@ -1,0 +1,16 @@
+{
+  "Description": "Detects registry value settings that would replace the user's desktop background.\nThis is a common technique used by malware to change the desktop background to a ransom note or other image.\n\n\nAuthor: Nasreddine Bencherchali (Nextron Systems), Stephen Lincoln @slincoln-aiq (AttackIQ)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "85b88e05-dadc-430b-8a9e-53ff1cd30aae",
+  "InsertDate": "2025-02-03T20:33:32Z",
+  "LastUpdateDate": "2025-02-03T20:33:32Z",
+  "Level": "medium",
+  "Name": "Potentially Suspicious Desktop Background Change Via Registry",
+  "Query": "sourcetype=\"windows-*\" (target_object=\"*Control Panel\\\\Desktop*\" OR target_object=\"*CurrentVersion\\\\Policies\\\\ActiveDesktop*\" OR target_object=\"*CurrentVersion\\\\Policies\\\\System*\") ((target_object=\"*NoChangingWallpaper\" details=\"DWORD (0x00000001)\") OR target_object=\"*\\\\Wallpaper\" OR (target_object=\"*\\\\WallpaperStyle\" details=\"2\")) NOT process_path=\"*\\\\svchost.exe\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.impact",
+    "attack.t1112",
+    "attack.t1491.001"
+  ],
+  "Version": "0.1"
+}

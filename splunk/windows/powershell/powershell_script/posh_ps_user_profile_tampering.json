@@ -1,0 +1,15 @@
+{
+  "Description": "Detects calls to \"Add-Content\" cmdlet in order to modify the content of the user profile and potentially adding suspicious commands for persistence\n\nAuthor: frack113, Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "05b3e303-faf0-4f4a-9b30-46cc13e69152",
+  "InsertDate": "2025-02-03T20:32:35Z",
+  "LastUpdateDate": "2025-02-03T20:32:35Z",
+  "Level": "medium",
+  "Name": "Potential Persistence Via PowerShell User Profile Using Add-Content",
+  "Query": "sourcetype=\"windows-*\" scriptblocktext=\"*Add-Content $profile*\" (scriptblocktext=\"*-Value \"IEX *\" OR scriptblocktext=\"*-Value \"Invoke-Expression*\" OR scriptblocktext=\"*-Value \"Invoke-WebRequest*\" OR scriptblocktext=\"*-Value \"Start-Process*\" OR scriptblocktext=\"*-Value 'IEX *\" OR scriptblocktext=\"*-Value 'Invoke-Expression*\" OR scriptblocktext=\"*-Value 'Invoke-WebRequest*\" OR scriptblocktext=\"*-Value 'Start-Process*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.privilege-escalation",
+    "attack.t1546.013"
+  ],
+  "Version": "0.1"
+}

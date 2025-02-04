@@ -1,0 +1,14 @@
+{
+  "Description": "Detects Octopus Scanner Malware.\n\nAuthor: NVISO\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "805c55d9-31e6-4846-9878-c34c75054fe9",
+  "InsertDate": "2025-02-03T20:32:18Z",
+  "LastUpdateDate": "2025-02-03T20:32:18Z",
+  "Level": "high",
+  "Name": "Octopus Scanner Malware",
+  "Query": "sourcetype=\"windows-sysmon\" (filepath=\"*\\\\AppData\\\\Local\\\\Microsoft\\\\Cache134.dat\" OR filepath=\"*\\\\AppData\\\\Local\\\\Microsoft\\\\ExplorerSync.db\")",
+  "Tags": [
+    "attack.t1195",
+    "attack.t1195.001"
+  ],
+  "Version": "0.1"
+}

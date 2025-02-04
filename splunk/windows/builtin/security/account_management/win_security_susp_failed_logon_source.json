@@ -1,0 +1,17 @@
+{
+  "Description": "Detects a failed logon attempt from a public IP. A login from a public IP can indicate a misconfigured firewall or network boundary.\n\nAuthor: NVISO\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "f88e112a-21aa-44bd-9b01-6ee2a2bbbed1",
+  "InsertDate": "2025-02-03T20:32:08Z",
+  "LastUpdateDate": "2025-02-03T20:32:08Z",
+  "Level": "medium",
+  "Name": "Failed Logon From Public IP",
+  "Query": "sourcetype=\"windows-security\" eventid=\"4625\" NOT ((ipaddress=\"::1/128\" OR ipaddress=\"10.0.0.0/8\" OR ipaddress=\"127.0.0.0/8\" OR ipaddress=\"172.16.0.0/12\" OR ipaddress=\"192.168.0.0/16\" OR ipaddress=\"169.254.0.0/16\" OR ipaddress=\"fc00::/7\" OR ipaddress=\"fe80::/10\") OR ipaddress=\"*-*\")",
+  "Tags": [
+    "attack.initial-access",
+    "attack.persistence",
+    "attack.t1078",
+    "attack.t1190",
+    "attack.t1133"
+  ],
+  "Version": "0.1"
+}

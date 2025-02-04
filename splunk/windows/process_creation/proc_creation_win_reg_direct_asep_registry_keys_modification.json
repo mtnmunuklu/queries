@@ -1,0 +1,14 @@
+{
+  "Description": "Detects direct modification of autostart extensibility point (ASEP) in registry using reg.exe.\n\nAuthor: Victor Sergeev, Daniil Yugoslavskiy, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "24357373-078f-44ed-9ac4-6d334a668a11",
+  "InsertDate": "2025-02-03T20:33:02Z",
+  "LastUpdateDate": "2025-02-03T20:33:02Z",
+  "Level": "medium",
+  "Name": "Direct Autorun Keys Modification",
+  "Query": "sourcetype=\"windows-sysmon\" (process_path=\"*\\\\reg.exe\" command=\"*add*\") (command=\"*\\\\software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Run*\" OR command=\"*\\\\software\\\\Microsoft\\\\Windows NT\\\\CurrentVersion\\\\Winlogon\\\\Userinit*\" OR command=\"*\\\\software\\\\Microsoft\\\\Windows NT\\\\CurrentVersion\\\\Winlogon\\\\Shell*\" OR command=\"*\\\\software\\\\Microsoft\\\\Windows NT\\\\CurrentVersion\\\\Windows*\" OR command=\"*\\\\software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Explorer\\\\User Shell Folders*\" OR command=\"*\\\\system\\\\CurrentControlSet\\\\Control\\\\SafeBoot\\\\AlternateShell*\")",
+  "Tags": [
+    "attack.persistence",
+    "attack.t1547.001"
+  ],
+  "Version": "0.1"
+}

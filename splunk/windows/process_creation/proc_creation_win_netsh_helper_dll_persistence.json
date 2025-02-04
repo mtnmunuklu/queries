@@ -1,0 +1,16 @@
+{
+  "Description": "Detects the execution of netsh with \"add helper\" flag in order to add a custom helper DLL. This technique can be abused to add a malicious helper DLL that can be used as a persistence proxy that gets called when netsh.exe is executed.\n\n\nAuthor: Victor Sergeev, oscd.community\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "56321594-9087-49d9-bf10-524fe8479452",
+  "InsertDate": "2025-02-03T20:32:52Z",
+  "LastUpdateDate": "2025-02-03T20:32:52Z",
+  "Level": "medium",
+  "Name": "Potential Persistence Via Netsh Helper DLL",
+  "Query": "sourcetype=\"windows-sysmon\" (original_file_name=\"netsh.exe\" process_path=\"*\\\\netsh.exe\") (command=\"*add*\" command=\"*helper*\")",
+  "Tags": [
+    "attack.privilege-escalation",
+    "attack.persistence",
+    "attack.t1546.007",
+    "attack.s0108"
+  ],
+  "Version": "0.1"
+}

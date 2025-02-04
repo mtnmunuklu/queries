@@ -1,0 +1,14 @@
+{
+  "Description": "Adversaries may install a root certificate on a compromised system to avoid warnings when connecting to adversary controlled web servers.\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5f6a601c-2ecb-498b-9c33-660362323afa",
+  "InsertDate": "2025-02-03T20:32:57Z",
+  "LastUpdateDate": "2025-02-03T20:32:57Z",
+  "Level": "high",
+  "Name": "Root Certificate Installed From Susp Locations",
+  "Query": "sourcetype=\"windows-sysmon\" (command=\"*Import-Certificate*\" command=\"* -FilePath *\" command=\"*Cert:\\\\LocalMachine\\\\Root*\") (command=\"*\\\\AppData\\\\Local\\\\Temp\\\\*\" OR command=\"*:\\\\Windows\\\\TEMP\\\\*\" OR command=\"*\\\\Desktop\\\\*\" OR command=\"*\\\\Downloads\\\\*\" OR command=\"*\\\\Perflogs\\\\*\" OR command=\"*:\\\\Users\\\\Public\\\\*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1553.004"
+  ],
+  "Version": "0.1"
+}

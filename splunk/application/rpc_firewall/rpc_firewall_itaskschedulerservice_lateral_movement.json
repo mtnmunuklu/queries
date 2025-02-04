@@ -1,0 +1,15 @@
+{
+  "Description": "Detects remote RPC calls to create or execute a scheduled task\n\nAuthor: Sagie Dulce, Dekel Paz\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "ace3ff54-e7fd-46bd-8ea0-74b49a0aca1d",
+  "InsertDate": "2025-02-03T20:31:49Z",
+  "LastUpdateDate": "2025-02-03T20:31:49Z",
+  "Level": "high",
+  "Name": "Remote Schedule Task Lateral Movement via ITaskSchedulerService",
+  "Query": "sourcetype=\"rpc_firewall-*\" eventlog=\"RPCFW\" eventid=\"3\" interfaceuuid=\"86d35949-83c9-4044-b424-db363231fd0c\" (opnum=\"1\" OR opnum=\"3\" OR opnum=\"4\" OR opnum=\"10\" OR opnum=\"11\" OR opnum=\"12\" OR opnum=\"13\" OR opnum=\"14\" OR opnum=\"15\")",
+  "Tags": [
+    "attack.lateral-movement",
+    "attack.t1053",
+    "attack.t1053.002"
+  ],
+  "Version": "0.1"
+}

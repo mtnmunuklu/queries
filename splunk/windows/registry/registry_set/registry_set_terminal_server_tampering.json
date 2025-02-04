@@ -1,0 +1,15 @@
+{
+  "Description": "Detects tampering of RDP Terminal Service/Server sensitive settings.\nSuch as allowing unauthorized users access to a system via the 'fAllowUnsolicited' or enabling RDP via 'fDenyTSConnections'...etc\n\n\nAuthor: Samir Bousseaden, David ANDRE, Roberto Rodriguez @Cyb3rWard0g, Nasreddine Bencherchali\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "3f6b7b62-61aa-45db-96bd-9c31b36b653c",
+  "InsertDate": "2025-02-03T20:33:44Z",
+  "LastUpdateDate": "2025-02-03T20:33:44Z",
+  "Level": "high",
+  "Name": "RDP Sensitive Settings Changed",
+  "Query": "sourcetype=\"windows-*\" ((target_object=\"*\\\\Control\\\\Terminal Server\\\\*\" OR target_object=\"*\\\\Windows NT\\\\Terminal Services\\\\*\") target_object=\"*\\\\Shadow\" (details=\"DWORD (0x00000001)\" OR details=\"DWORD (0x00000002)\" OR details=\"DWORD (0x00000003)\" OR details=\"DWORD (0x00000004)\")) OR ((target_object=\"*\\\\Control\\\\Terminal Server\\\\*\" OR target_object=\"*\\\\Windows NT\\\\Terminal Services\\\\*\") (target_object=\"*\\\\DisableRemoteDesktopAntiAlias\" OR target_object=\"*\\\\DisableSecuritySettings\" OR target_object=\"*\\\\fAllowUnsolicited\" OR target_object=\"*\\\\fAllowUnsolicitedFullControl\") details=\"DWORD (0x00000001)\") OR (target_object=\"*\\\\Control\\\\Terminal Server\\\\InitialProgram*\" OR target_object=\"*\\\\Control\\\\Terminal Server\\\\WinStations\\\\RDP-Tcp\\\\InitialProgram*\" OR target_object=\"*\\\\services\\\\TermService\\\\Parameters\\\\ServiceDll*\" OR target_object=\"*\\\\Windows NT\\\\Terminal Services\\\\InitialProgram*\")",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.persistence",
+    "attack.t1112"
+  ],
+  "Version": "0.1"
+}

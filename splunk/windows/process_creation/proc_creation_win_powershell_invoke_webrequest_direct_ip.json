@@ -1,0 +1,14 @@
+{
+  "Description": "Detects calls to PowerShell with Invoke-WebRequest cmdlet using direct IP access\n\nAuthor: Nasreddine Bencherchali (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1edff897-9146-48d2-9066-52e8d8f80a2f",
+  "InsertDate": "2025-02-03T20:32:57Z",
+  "LastUpdateDate": "2025-02-03T20:32:57Z",
+  "Level": "medium",
+  "Name": "Suspicious Invoke-WebRequest Execution With DirectIP",
+  "Query": "sourcetype=\"windows-sysmon\" ((process_path=\"*\\\\powershell.exe\" OR process_path=\"*\\\\pwsh.exe\") (original_file_name=\"PowerShell.EXE\" OR original_file_name=\"pwsh.dll\")) (command=\"*curl *\" OR command=\"*Invoke-WebRequest*\" OR command=\"*iwr *\" OR command=\"*wget *\") (command=\"*://1*\" OR command=\"*://2*\" OR command=\"*://3*\" OR command=\"*://4*\" OR command=\"*://5*\" OR command=\"*://6*\" OR command=\"*://7*\" OR command=\"*://8*\" OR command=\"*://9*\")",
+  "Tags": [
+    "attack.command-and-control",
+    "attack.t1105"
+  ],
+  "Version": "0.1"
+}

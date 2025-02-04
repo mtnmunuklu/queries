@@ -1,0 +1,16 @@
+{
+  "Description": "Detects instances where a MySQL service on an OpenCanary node has had a login attempt.\n\nAuthor: Security Onion Solutions\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "e7d79a1b-25ed-4956-bd56-bd344fa8fd06",
+  "InsertDate": "2025-02-03T20:31:49Z",
+  "LastUpdateDate": "2025-02-03T20:31:49Z",
+  "Level": "high",
+  "Name": "OpenCanary - MySQL Login Attempt",
+  "Query": "sourcetype=\"opencanary-*\" logtype=\"8001\"",
+  "Tags": [
+    "attack.credential-access",
+    "attack.collection",
+    "attack.t1003",
+    "attack.t1213"
+  ],
+  "Version": "0.1"
+}

@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the Setting of Windows Defender Exclusions\n\nAuthor: Christian Burkard (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "1321dc4e-a1fe-481d-a016-52c45f0c8b4f",
+  "InsertDate": "2025-02-03T20:32:14Z",
+  "LastUpdateDate": "2025-02-03T20:32:14Z",
+  "Level": "medium",
+  "Name": "Windows Defender Exclusions Added",
+  "Query": "sourcetype=\"windows-windefend\" eventid=\"5007\" newvalue=\"*\\\\Microsoft\\\\Windows Defender\\\\Exclusions*\"",
+  "Tags": [
+    "attack.defense-evasion",
+    "attack.t1562.001"
+  ],
+  "Version": "0.1"
+}

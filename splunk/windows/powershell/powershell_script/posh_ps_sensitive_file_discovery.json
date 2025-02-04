@@ -1,0 +1,14 @@
+{
+  "Description": "Detect adversaries enumerate sensitive files\n\nAuthor: frack113\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "7d416556-6502-45b2-9bad-9d2f05f38997",
+  "InsertDate": "2025-02-03T20:32:32Z",
+  "LastUpdateDate": "2025-02-03T20:32:32Z",
+  "Level": "medium",
+  "Name": "Powershell Sensitive File Discovery",
+  "Query": "sourcetype=\"windows-*\" (scriptblocktext=\"*ls*\" OR scriptblocktext=\"*get-childitem*\" OR scriptblocktext=\"*gci*\") scriptblocktext=\"*-recurse*\" (scriptblocktext=\"*.pass*\" OR scriptblocktext=\"*.kdbx*\" OR scriptblocktext=\"*.kdb*\")",
+  "Tags": [
+    "attack.discovery",
+    "attack.t1083"
+  ],
+  "Version": "0.1"
+}

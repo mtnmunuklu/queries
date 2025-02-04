@@ -1,0 +1,14 @@
+{
+  "Description": "Detects the WMI Event Consumer service scrcons.exe creating a named pipe\n\nAuthor: Florian Roth (Nextron Systems)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "493fb4ab-cdcc-4c4f-818c-0e363bd1e4bb",
+  "InsertDate": "2025-02-03T20:32:26Z",
+  "LastUpdateDate": "2025-02-03T20:32:26Z",
+  "Level": "medium",
+  "Name": "WMI Event Consumer Created Named Pipe",
+  "Query": "sourcetype=\"windows-*\" process_path=\"*\\\\scrcons.exe\"",
+  "Tags": [
+    "attack.t1047",
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}

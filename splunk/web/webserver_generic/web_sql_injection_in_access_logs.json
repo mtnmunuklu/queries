@@ -1,0 +1,14 @@
+{
+  "Description": "Detects potential SQL injection attempts via GET requests in access logs.\n\nAuthor: Saw Win Naung, Nasreddine Bencherchali (Nextron Systems), Thurein Oo (Yoma Bank)\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "5513deaf-f49a-46c2-a6c8-3f111b5cb453",
+  "InsertDate": "2025-02-03T20:32:05Z",
+  "LastUpdateDate": "2025-02-03T20:32:05Z",
+  "Level": "high",
+  "Name": "SQL Injection Strings In URI",
+  "Query": "cs-method=\"GET\" (\"@@version\" OR \"%271%27%3D%271\" OR \"=select \" OR \"=select(\" OR \"=select%20\" OR \"concat_ws(\" OR \"CONCAT(0x\" OR \"from mysql.innodb_table_stats\" OR \"from%20mysql.innodb_table_stats\" OR \"group_concat(\" OR \"information_schema.tables\" OR \"json_arrayagg(\" OR \"or 1=1#\" OR \"or%201=1#\" OR \"order by \" OR \"order%20by%20\" OR \"select * \" OR \"select database()\" OR \"select version()\" OR \"select%20*%20\" OR \"select%20database()\" OR \"select%20version()\" OR \"select%28sleep%2810%29\" OR \"SELECTCHAR(\" OR \"table_schema\" OR \"UNION ALL SELECT\" OR \"UNION SELECT\" OR \"UNION%20ALL%20SELECT\" OR \"UNION%20SELECT\" OR \"'1'='1\") NOT sc-status=\"404\"",
+  "Tags": [
+    "attack.initial-access",
+    "attack.t1190"
+  ],
+  "Version": "0.1"
+}

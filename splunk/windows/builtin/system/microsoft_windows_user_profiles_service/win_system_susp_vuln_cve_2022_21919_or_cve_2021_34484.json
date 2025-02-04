@@ -1,0 +1,13 @@
+{
+  "Description": "During exploitation of this vulnerability, two logs (Provider_Name:Microsoft-Windows-User Profiles Service) with EventID 1511 and 1515 (maybe lot of false positives with this event) are created. Moreover, it appears the directory \\Users\\TEMP is created may be created during the exploitation. Viewed on 2008 Server\n\nAuthor: Cybex\nSigma Repository: [GitHub](https://github.com/SigmaHQ/sigma)",
+  "ID": "52a85084-6989-40c3-8f32-091e12e17692",
+  "InsertDate": "2025-02-03T20:32:12Z",
+  "LastUpdateDate": "2025-02-03T20:32:12Z",
+  "Level": "low",
+  "Name": "Suspicious Usage of CVE_2021_34484 or CVE 2022_21919",
+  "Query": "sourcetype=\"windows-application\" eventid=\"1511\" provider_name=\"Microsoft-Windows-User Profiles Service\"",
+  "Tags": [
+    "attack.execution"
+  ],
+  "Version": "0.1"
+}
